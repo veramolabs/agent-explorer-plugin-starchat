@@ -1,5 +1,6 @@
 import React from 'react';
 import { MenuDataItem } from '@ant-design/pro-components';
+import { JSONSchema7 } from 'json-schema'
 
 export type RouteElement = {
   path: string;
@@ -15,4 +16,10 @@ export type AgentPlugin = {
 
 export interface IPlugin {
   init: () => AgentPlugin;
+}
+
+export interface VCJSONSchema {
+  id: string
+  name: string
+  schema: JSONSchema7
 }

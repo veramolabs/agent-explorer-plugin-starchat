@@ -1,43 +1,61 @@
 import React from 'react';
 import {
-  AppstoreAddOutlined,
+  CodeOutlined,
 } from '@ant-design/icons'
 
 import { IPlugin } from './types';
-import { Page } from './Page.js';
-
+import DataGenerator from './DataGenerator';
+import CreateProfileCredential from './CreateProfileCredential';
+import IssueCredential from './IssueCredential';
+import CreatePresentation from './CreatePresentation';
 
 const Plugin: IPlugin = {
     //@ts-ignore
     init: (agent) => {
         return {
-          name: 'Example plugin',
-          description: 'Example plugin description',
+          name: 'Developer tools',
+          description: 'Collection of tools for experimenting with verifiable data',
           routes: [
             {
-              path: '/example/:id',
-              element: <Page />,
+              path: '/developer/data-generator',
+              element: <DataGenerator />,
             },
             {
-              path: '/example',
-              element: <Page />,
+              path: '/developer/issue-profile-credential',
+              element: <CreateProfileCredential />,
+            },
+            {
+              path: '/developer/issue-credential',
+              element: <IssueCredential />,
+            },
+            {
+              path: '/developer/create-presentation',
+              element: <CreatePresentation />,
             },
           ],
           menuItems: [
             {
-              name: 'Example',
-              path: '/example',
-              icon: <AppstoreAddOutlined />,
+              name: 'Developer tools',
+              path: '/developer',
+              icon: <CodeOutlined />,
               routes: [
                 {
-                  name: 'Foo',
-                  path: '/example/abc',
+                  path: '/developer/data-generator',
+                  name: 'Data generator',
                 },
                 {
-                  name: 'Bar',
-                  path: '/example/1234',
+                  path: '/developer/issue-profile-credential',
+                  name: 'Issue profile credential',
                 },
-              ]
+                {
+                  path: '/developer/issue-credential',
+                  name: 'Issue credential',
+                },
+                {
+                  path: '/developer/create-presentation',
+                  name: 'Create presentation',
+                },
+              ],
             },
           ],
           
