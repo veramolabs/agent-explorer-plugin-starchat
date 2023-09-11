@@ -4,33 +4,30 @@ import {
 } from '@ant-design/icons'
 
 import { IPlugin } from './types';
-import DataGenerator from './DataGenerator';
-import CreateProfileCredential from './CreateProfileCredential';
+// import DataGenerator from './DataGenerator';
+// import CreateProfileCredential from './CreateProfileCredential';
 import IssueCredential from './IssueCredential';
-import CreatePresentation from './CreatePresentation';
+import BrainshareFeed from './BrainshareFeed'
+// import CreatePresentation from './CreatePresentation';
 
 const Plugin: IPlugin = {
     //@ts-ignore
     init: (agent) => {
         return {
-          name: 'Developer tools',
-          description: 'Collection of tools for experimenting with verifiable data',
+          name: 'BrainShare',
+          description: 'Extremely Cool Something',
           routes: [
             {
-              path: '/developer/data-generator',
-              element: <DataGenerator />,
+              path: '/brainshare/feed',
+              element: <BrainshareFeed />,
             },
-            {
-              path: '/developer/issue-profile-credential',
-              element: <CreateProfileCredential />,
-            },
+            // {
+            //   path: '/brainshare/issue-profile-credential',
+            //   element: <CreateProfileCredential />,
+            // },
             {
               path: '/developer/issue-credential',
               element: <IssueCredential />,
-            },
-            {
-              path: '/developer/create-presentation',
-              element: <CreatePresentation />,
             },
           ],
           menuItems: [
@@ -50,10 +47,6 @@ const Plugin: IPlugin = {
                 {
                   path: '/developer/issue-credential',
                   name: 'Issue credential',
-                },
-                {
-                  path: '/developer/create-presentation',
-                  name: 'Create presentation',
                 },
               ],
             },

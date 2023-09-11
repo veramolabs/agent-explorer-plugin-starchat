@@ -478,2747 +478,10 @@ var require_react_query = __commonJS({
   }
 });
 
-// node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/alea.js
-var require_alea = __commonJS({
-  "node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/alea.js"(exports, module) {
-    (function(global2, module2, define2) {
-      function Alea(seed) {
-        var me = this, mash = Mash();
-        me.next = function() {
-          var t = 2091639 * me.s0 + me.c * 23283064365386963e-26;
-          me.s0 = me.s1;
-          me.s1 = me.s2;
-          return me.s2 = t - (me.c = t | 0);
-        };
-        me.c = 1;
-        me.s0 = mash(" ");
-        me.s1 = mash(" ");
-        me.s2 = mash(" ");
-        me.s0 -= mash(seed);
-        if (me.s0 < 0) {
-          me.s0 += 1;
-        }
-        me.s1 -= mash(seed);
-        if (me.s1 < 0) {
-          me.s1 += 1;
-        }
-        me.s2 -= mash(seed);
-        if (me.s2 < 0) {
-          me.s2 += 1;
-        }
-        mash = null;
-      }
-      function copy(f, t) {
-        t.c = f.c;
-        t.s0 = f.s0;
-        t.s1 = f.s1;
-        t.s2 = f.s2;
-        return t;
-      }
-      function impl(seed, opts) {
-        var xg = new Alea(seed), state = opts && opts.state, prng = xg.next;
-        prng.int32 = function() {
-          return xg.next() * 4294967296 | 0;
-        };
-        prng.double = function() {
-          return prng() + (prng() * 2097152 | 0) * 11102230246251565e-32;
-        };
-        prng.quick = prng;
-        if (state) {
-          if (typeof state == "object")
-            copy(state, xg);
-          prng.state = function() {
-            return copy(xg, {});
-          };
-        }
-        return prng;
-      }
-      function Mash() {
-        var n = 4022871197;
-        var mash = function(data) {
-          data = String(data);
-          for (var i = 0; i < data.length; i++) {
-            n += data.charCodeAt(i);
-            var h = 0.02519603282416938 * n;
-            n = h >>> 0;
-            h -= n;
-            h *= n;
-            n = h >>> 0;
-            h -= n;
-            n += h * 4294967296;
-          }
-          return (n >>> 0) * 23283064365386963e-26;
-        };
-        return mash;
-      }
-      if (module2 && module2.exports) {
-        module2.exports = impl;
-      } else if (define2 && define2.amd) {
-        define2(function() {
-          return impl;
-        });
-      } else {
-        this.alea = impl;
-      }
-    })(
-      exports,
-      typeof module == "object" && module,
-      // present in node.js
-      typeof define == "function" && define
-      // present with an AMD loader
-    );
-  }
-});
-
-// node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/xor128.js
-var require_xor128 = __commonJS({
-  "node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/xor128.js"(exports, module) {
-    (function(global2, module2, define2) {
-      function XorGen(seed) {
-        var me = this, strseed = "";
-        me.x = 0;
-        me.y = 0;
-        me.z = 0;
-        me.w = 0;
-        me.next = function() {
-          var t = me.x ^ me.x << 11;
-          me.x = me.y;
-          me.y = me.z;
-          me.z = me.w;
-          return me.w ^= me.w >>> 19 ^ t ^ t >>> 8;
-        };
-        if (seed === (seed | 0)) {
-          me.x = seed;
-        } else {
-          strseed += seed;
-        }
-        for (var k = 0; k < strseed.length + 64; k++) {
-          me.x ^= strseed.charCodeAt(k) | 0;
-          me.next();
-        }
-      }
-      function copy(f, t) {
-        t.x = f.x;
-        t.y = f.y;
-        t.z = f.z;
-        t.w = f.w;
-        return t;
-      }
-      function impl(seed, opts) {
-        var xg = new XorGen(seed), state = opts && opts.state, prng = function() {
-          return (xg.next() >>> 0) / 4294967296;
-        };
-        prng.double = function() {
-          do {
-            var top = xg.next() >>> 11, bot = (xg.next() >>> 0) / 4294967296, result = (top + bot) / (1 << 21);
-          } while (result === 0);
-          return result;
-        };
-        prng.int32 = xg.next;
-        prng.quick = prng;
-        if (state) {
-          if (typeof state == "object")
-            copy(state, xg);
-          prng.state = function() {
-            return copy(xg, {});
-          };
-        }
-        return prng;
-      }
-      if (module2 && module2.exports) {
-        module2.exports = impl;
-      } else if (define2 && define2.amd) {
-        define2(function() {
-          return impl;
-        });
-      } else {
-        this.xor128 = impl;
-      }
-    })(
-      exports,
-      typeof module == "object" && module,
-      // present in node.js
-      typeof define == "function" && define
-      // present with an AMD loader
-    );
-  }
-});
-
-// node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/xorwow.js
-var require_xorwow = __commonJS({
-  "node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/xorwow.js"(exports, module) {
-    (function(global2, module2, define2) {
-      function XorGen(seed) {
-        var me = this, strseed = "";
-        me.next = function() {
-          var t = me.x ^ me.x >>> 2;
-          me.x = me.y;
-          me.y = me.z;
-          me.z = me.w;
-          me.w = me.v;
-          return (me.d = me.d + 362437 | 0) + (me.v = me.v ^ me.v << 4 ^ (t ^ t << 1)) | 0;
-        };
-        me.x = 0;
-        me.y = 0;
-        me.z = 0;
-        me.w = 0;
-        me.v = 0;
-        if (seed === (seed | 0)) {
-          me.x = seed;
-        } else {
-          strseed += seed;
-        }
-        for (var k = 0; k < strseed.length + 64; k++) {
-          me.x ^= strseed.charCodeAt(k) | 0;
-          if (k == strseed.length) {
-            me.d = me.x << 10 ^ me.x >>> 4;
-          }
-          me.next();
-        }
-      }
-      function copy(f, t) {
-        t.x = f.x;
-        t.y = f.y;
-        t.z = f.z;
-        t.w = f.w;
-        t.v = f.v;
-        t.d = f.d;
-        return t;
-      }
-      function impl(seed, opts) {
-        var xg = new XorGen(seed), state = opts && opts.state, prng = function() {
-          return (xg.next() >>> 0) / 4294967296;
-        };
-        prng.double = function() {
-          do {
-            var top = xg.next() >>> 11, bot = (xg.next() >>> 0) / 4294967296, result = (top + bot) / (1 << 21);
-          } while (result === 0);
-          return result;
-        };
-        prng.int32 = xg.next;
-        prng.quick = prng;
-        if (state) {
-          if (typeof state == "object")
-            copy(state, xg);
-          prng.state = function() {
-            return copy(xg, {});
-          };
-        }
-        return prng;
-      }
-      if (module2 && module2.exports) {
-        module2.exports = impl;
-      } else if (define2 && define2.amd) {
-        define2(function() {
-          return impl;
-        });
-      } else {
-        this.xorwow = impl;
-      }
-    })(
-      exports,
-      typeof module == "object" && module,
-      // present in node.js
-      typeof define == "function" && define
-      // present with an AMD loader
-    );
-  }
-});
-
-// node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/xorshift7.js
-var require_xorshift7 = __commonJS({
-  "node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/xorshift7.js"(exports, module) {
-    (function(global2, module2, define2) {
-      function XorGen(seed) {
-        var me = this;
-        me.next = function() {
-          var X = me.x, i = me.i, t, v, w;
-          t = X[i];
-          t ^= t >>> 7;
-          v = t ^ t << 24;
-          t = X[i + 1 & 7];
-          v ^= t ^ t >>> 10;
-          t = X[i + 3 & 7];
-          v ^= t ^ t >>> 3;
-          t = X[i + 4 & 7];
-          v ^= t ^ t << 7;
-          t = X[i + 7 & 7];
-          t = t ^ t << 13;
-          v ^= t ^ t << 9;
-          X[i] = v;
-          me.i = i + 1 & 7;
-          return v;
-        };
-        function init(me2, seed2) {
-          var j, w, X = [];
-          if (seed2 === (seed2 | 0)) {
-            w = X[0] = seed2;
-          } else {
-            seed2 = "" + seed2;
-            for (j = 0; j < seed2.length; ++j) {
-              X[j & 7] = X[j & 7] << 15 ^ seed2.charCodeAt(j) + X[j + 1 & 7] << 13;
-            }
-          }
-          while (X.length < 8)
-            X.push(0);
-          for (j = 0; j < 8 && X[j] === 0; ++j)
-            ;
-          if (j == 8)
-            w = X[7] = -1;
-          else
-            w = X[j];
-          me2.x = X;
-          me2.i = 0;
-          for (j = 256; j > 0; --j) {
-            me2.next();
-          }
-        }
-        init(me, seed);
-      }
-      function copy(f, t) {
-        t.x = f.x.slice();
-        t.i = f.i;
-        return t;
-      }
-      function impl(seed, opts) {
-        if (seed == null)
-          seed = +/* @__PURE__ */ new Date();
-        var xg = new XorGen(seed), state = opts && opts.state, prng = function() {
-          return (xg.next() >>> 0) / 4294967296;
-        };
-        prng.double = function() {
-          do {
-            var top = xg.next() >>> 11, bot = (xg.next() >>> 0) / 4294967296, result = (top + bot) / (1 << 21);
-          } while (result === 0);
-          return result;
-        };
-        prng.int32 = xg.next;
-        prng.quick = prng;
-        if (state) {
-          if (state.x)
-            copy(state, xg);
-          prng.state = function() {
-            return copy(xg, {});
-          };
-        }
-        return prng;
-      }
-      if (module2 && module2.exports) {
-        module2.exports = impl;
-      } else if (define2 && define2.amd) {
-        define2(function() {
-          return impl;
-        });
-      } else {
-        this.xorshift7 = impl;
-      }
-    })(
-      exports,
-      typeof module == "object" && module,
-      // present in node.js
-      typeof define == "function" && define
-      // present with an AMD loader
-    );
-  }
-});
-
-// node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/xor4096.js
-var require_xor4096 = __commonJS({
-  "node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/xor4096.js"(exports, module) {
-    (function(global2, module2, define2) {
-      function XorGen(seed) {
-        var me = this;
-        me.next = function() {
-          var w = me.w, X = me.X, i = me.i, t, v;
-          me.w = w = w + 1640531527 | 0;
-          v = X[i + 34 & 127];
-          t = X[i = i + 1 & 127];
-          v ^= v << 13;
-          t ^= t << 17;
-          v ^= v >>> 15;
-          t ^= t >>> 12;
-          v = X[i] = v ^ t;
-          me.i = i;
-          return v + (w ^ w >>> 16) | 0;
-        };
-        function init(me2, seed2) {
-          var t, v, i, j, w, X = [], limit = 128;
-          if (seed2 === (seed2 | 0)) {
-            v = seed2;
-            seed2 = null;
-          } else {
-            seed2 = seed2 + "\0";
-            v = 0;
-            limit = Math.max(limit, seed2.length);
-          }
-          for (i = 0, j = -32; j < limit; ++j) {
-            if (seed2)
-              v ^= seed2.charCodeAt((j + 32) % seed2.length);
-            if (j === 0)
-              w = v;
-            v ^= v << 10;
-            v ^= v >>> 15;
-            v ^= v << 4;
-            v ^= v >>> 13;
-            if (j >= 0) {
-              w = w + 1640531527 | 0;
-              t = X[j & 127] ^= v + w;
-              i = 0 == t ? i + 1 : 0;
-            }
-          }
-          if (i >= 128) {
-            X[(seed2 && seed2.length || 0) & 127] = -1;
-          }
-          i = 127;
-          for (j = 4 * 128; j > 0; --j) {
-            v = X[i + 34 & 127];
-            t = X[i = i + 1 & 127];
-            v ^= v << 13;
-            t ^= t << 17;
-            v ^= v >>> 15;
-            t ^= t >>> 12;
-            X[i] = v ^ t;
-          }
-          me2.w = w;
-          me2.X = X;
-          me2.i = i;
-        }
-        init(me, seed);
-      }
-      function copy(f, t) {
-        t.i = f.i;
-        t.w = f.w;
-        t.X = f.X.slice();
-        return t;
-      }
-      ;
-      function impl(seed, opts) {
-        if (seed == null)
-          seed = +/* @__PURE__ */ new Date();
-        var xg = new XorGen(seed), state = opts && opts.state, prng = function() {
-          return (xg.next() >>> 0) / 4294967296;
-        };
-        prng.double = function() {
-          do {
-            var top = xg.next() >>> 11, bot = (xg.next() >>> 0) / 4294967296, result = (top + bot) / (1 << 21);
-          } while (result === 0);
-          return result;
-        };
-        prng.int32 = xg.next;
-        prng.quick = prng;
-        if (state) {
-          if (state.X)
-            copy(state, xg);
-          prng.state = function() {
-            return copy(xg, {});
-          };
-        }
-        return prng;
-      }
-      if (module2 && module2.exports) {
-        module2.exports = impl;
-      } else if (define2 && define2.amd) {
-        define2(function() {
-          return impl;
-        });
-      } else {
-        this.xor4096 = impl;
-      }
-    })(
-      exports,
-      // window object or global
-      typeof module == "object" && module,
-      // present in node.js
-      typeof define == "function" && define
-      // present with an AMD loader
-    );
-  }
-});
-
-// node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/tychei.js
-var require_tychei = __commonJS({
-  "node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/lib/tychei.js"(exports, module) {
-    (function(global2, module2, define2) {
-      function XorGen(seed) {
-        var me = this, strseed = "";
-        me.next = function() {
-          var b = me.b, c = me.c, d = me.d, a = me.a;
-          b = b << 25 ^ b >>> 7 ^ c;
-          c = c - d | 0;
-          d = d << 24 ^ d >>> 8 ^ a;
-          a = a - b | 0;
-          me.b = b = b << 20 ^ b >>> 12 ^ c;
-          me.c = c = c - d | 0;
-          me.d = d << 16 ^ c >>> 16 ^ a;
-          return me.a = a - b | 0;
-        };
-        me.a = 0;
-        me.b = 0;
-        me.c = 2654435769 | 0;
-        me.d = 1367130551;
-        if (seed === Math.floor(seed)) {
-          me.a = seed / 4294967296 | 0;
-          me.b = seed | 0;
-        } else {
-          strseed += seed;
-        }
-        for (var k = 0; k < strseed.length + 20; k++) {
-          me.b ^= strseed.charCodeAt(k) | 0;
-          me.next();
-        }
-      }
-      function copy(f, t) {
-        t.a = f.a;
-        t.b = f.b;
-        t.c = f.c;
-        t.d = f.d;
-        return t;
-      }
-      ;
-      function impl(seed, opts) {
-        var xg = new XorGen(seed), state = opts && opts.state, prng = function() {
-          return (xg.next() >>> 0) / 4294967296;
-        };
-        prng.double = function() {
-          do {
-            var top = xg.next() >>> 11, bot = (xg.next() >>> 0) / 4294967296, result = (top + bot) / (1 << 21);
-          } while (result === 0);
-          return result;
-        };
-        prng.int32 = xg.next;
-        prng.quick = prng;
-        if (state) {
-          if (typeof state == "object")
-            copy(state, xg);
-          prng.state = function() {
-            return copy(xg, {});
-          };
-        }
-        return prng;
-      }
-      if (module2 && module2.exports) {
-        module2.exports = impl;
-      } else if (define2 && define2.amd) {
-        define2(function() {
-          return impl;
-        });
-      } else {
-        this.tychei = impl;
-      }
-    })(
-      exports,
-      typeof module == "object" && module,
-      // present in node.js
-      typeof define == "function" && define
-      // present with an AMD loader
-    );
-  }
-});
-
-// (disabled):crypto
-var require_crypto = __commonJS({
-  "(disabled):crypto"() {
-  }
-});
-
-// node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/seedrandom.js
-var require_seedrandom = __commonJS({
-  "node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/seedrandom.js"(exports, module) {
-    (function(global2, pool, math) {
-      var width = 256, chunks = 6, digits = 52, rngname = "random", startdenom = math.pow(width, chunks), significance = math.pow(2, digits), overflow = significance * 2, mask = width - 1, nodecrypto;
-      function seedrandom(seed, options, callback) {
-        var key = [];
-        options = options == true ? { entropy: true } : options || {};
-        var shortseed = mixkey(flatten(
-          options.entropy ? [seed, tostring(pool)] : seed == null ? autoseed() : seed,
-          3
-        ), key);
-        var arc4 = new ARC4(key);
-        var prng = function() {
-          var n = arc4.g(chunks), d = startdenom, x = 0;
-          while (n < significance) {
-            n = (n + x) * width;
-            d *= width;
-            x = arc4.g(1);
-          }
-          while (n >= overflow) {
-            n /= 2;
-            d /= 2;
-            x >>>= 1;
-          }
-          return (n + x) / d;
-        };
-        prng.int32 = function() {
-          return arc4.g(4) | 0;
-        };
-        prng.quick = function() {
-          return arc4.g(4) / 4294967296;
-        };
-        prng.double = prng;
-        mixkey(tostring(arc4.S), pool);
-        return (options.pass || callback || function(prng2, seed2, is_math_call, state) {
-          if (state) {
-            if (state.S) {
-              copy(state, arc4);
-            }
-            prng2.state = function() {
-              return copy(arc4, {});
-            };
-          }
-          if (is_math_call) {
-            math[rngname] = prng2;
-            return seed2;
-          } else
-            return prng2;
-        })(
-          prng,
-          shortseed,
-          "global" in options ? options.global : this == math,
-          options.state
-        );
-      }
-      function ARC4(key) {
-        var t, keylen = key.length, me = this, i = 0, j = me.i = me.j = 0, s = me.S = [];
-        if (!keylen) {
-          key = [keylen++];
-        }
-        while (i < width) {
-          s[i] = i++;
-        }
-        for (i = 0; i < width; i++) {
-          s[i] = s[j = mask & j + key[i % keylen] + (t = s[i])];
-          s[j] = t;
-        }
-        (me.g = function(count) {
-          var t2, r = 0, i2 = me.i, j2 = me.j, s2 = me.S;
-          while (count--) {
-            t2 = s2[i2 = mask & i2 + 1];
-            r = r * width + s2[mask & (s2[i2] = s2[j2 = mask & j2 + t2]) + (s2[j2] = t2)];
-          }
-          me.i = i2;
-          me.j = j2;
-          return r;
-        })(width);
-      }
-      function copy(f, t) {
-        t.i = f.i;
-        t.j = f.j;
-        t.S = f.S.slice();
-        return t;
-      }
-      ;
-      function flatten(obj, depth) {
-        var result = [], typ = typeof obj, prop;
-        if (depth && typ == "object") {
-          for (prop in obj) {
-            try {
-              result.push(flatten(obj[prop], depth - 1));
-            } catch (e) {
-            }
-          }
-        }
-        return result.length ? result : typ == "string" ? obj : obj + "\0";
-      }
-      function mixkey(seed, key) {
-        var stringseed = seed + "", smear, j = 0;
-        while (j < stringseed.length) {
-          key[mask & j] = mask & (smear ^= key[mask & j] * 19) + stringseed.charCodeAt(j++);
-        }
-        return tostring(key);
-      }
-      function autoseed() {
-        try {
-          var out;
-          if (nodecrypto && (out = nodecrypto.randomBytes)) {
-            out = out(width);
-          } else {
-            out = new Uint8Array(width);
-            (global2.crypto || global2.msCrypto).getRandomValues(out);
-          }
-          return tostring(out);
-        } catch (e) {
-          var browser = global2.navigator, plugins = browser && browser.plugins;
-          return [+/* @__PURE__ */ new Date(), global2, plugins, global2.screen, tostring(pool)];
-        }
-      }
-      function tostring(a) {
-        return String.fromCharCode.apply(0, a);
-      }
-      mixkey(math.random(), pool);
-      if (typeof module == "object" && module.exports) {
-        module.exports = seedrandom;
-        try {
-          nodecrypto = require_crypto();
-        } catch (ex) {
-        }
-      } else if (typeof define == "function" && define.amd) {
-        define(function() {
-          return seedrandom;
-        });
-      } else {
-        math["seed" + rngname] = seedrandom;
-      }
-    })(
-      // global: `self` in browsers (including strict mode and web workers),
-      // otherwise `this` in Node and other environments
-      typeof self !== "undefined" ? self : exports,
-      [],
-      // pool: entropy pool starts empty
-      Math
-      // math: package containing random, pow, and seedrandom
-    );
-  }
-});
-
-// node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/index.js
-var require_seedrandom2 = __commonJS({
-  "node_modules/.pnpm/seedrandom@3.0.5/node_modules/seedrandom/index.js"(exports, module) {
-    var alea = require_alea();
-    var xor128 = require_xor128();
-    var xorwow = require_xorwow();
-    var xorshift7 = require_xorshift7();
-    var xor4096 = require_xor4096();
-    var tychei = require_tychei();
-    var sr = require_seedrandom();
-    sr.alea = alea;
-    sr.xor128 = xor128;
-    sr.xorwow = xorwow;
-    sr.xorshift7 = xorshift7;
-    sr.xor4096 = xor4096;
-    sr.tychei = tychei;
-    module.exports = sr;
-  }
-});
-
-// node_modules/.pnpm/random-words@1.3.0/node_modules/random-words/index.js
-var require_random_words = __commonJS({
-  "node_modules/.pnpm/random-words@1.3.0/node_modules/random-words/index.js"(exports, module) {
-    var seedrandom = require_seedrandom2();
-    var wordList = [
-      // Borrowed from xkcd password generator which borrowed it from wherever
-      "ability",
-      "able",
-      "aboard",
-      "about",
-      "above",
-      "accept",
-      "accident",
-      "according",
-      "account",
-      "accurate",
-      "acres",
-      "across",
-      "act",
-      "action",
-      "active",
-      "activity",
-      "actual",
-      "actually",
-      "add",
-      "addition",
-      "additional",
-      "adjective",
-      "adult",
-      "adventure",
-      "advice",
-      "affect",
-      "afraid",
-      "after",
-      "afternoon",
-      "again",
-      "against",
-      "age",
-      "ago",
-      "agree",
-      "ahead",
-      "aid",
-      "air",
-      "airplane",
-      "alike",
-      "alive",
-      "all",
-      "allow",
-      "almost",
-      "alone",
-      "along",
-      "aloud",
-      "alphabet",
-      "already",
-      "also",
-      "although",
-      "am",
-      "among",
-      "amount",
-      "ancient",
-      "angle",
-      "angry",
-      "animal",
-      "announced",
-      "another",
-      "answer",
-      "ants",
-      "any",
-      "anybody",
-      "anyone",
-      "anything",
-      "anyway",
-      "anywhere",
-      "apart",
-      "apartment",
-      "appearance",
-      "apple",
-      "applied",
-      "appropriate",
-      "are",
-      "area",
-      "arm",
-      "army",
-      "around",
-      "arrange",
-      "arrangement",
-      "arrive",
-      "arrow",
-      "art",
-      "article",
-      "as",
-      "aside",
-      "ask",
-      "asleep",
-      "at",
-      "ate",
-      "atmosphere",
-      "atom",
-      "atomic",
-      "attached",
-      "attack",
-      "attempt",
-      "attention",
-      "audience",
-      "author",
-      "automobile",
-      "available",
-      "average",
-      "avoid",
-      "aware",
-      "away",
-      "baby",
-      "back",
-      "bad",
-      "badly",
-      "bag",
-      "balance",
-      "ball",
-      "balloon",
-      "band",
-      "bank",
-      "bar",
-      "bare",
-      "bark",
-      "barn",
-      "base",
-      "baseball",
-      "basic",
-      "basis",
-      "basket",
-      "bat",
-      "battle",
-      "be",
-      "bean",
-      "bear",
-      "beat",
-      "beautiful",
-      "beauty",
-      "became",
-      "because",
-      "become",
-      "becoming",
-      "bee",
-      "been",
-      "before",
-      "began",
-      "beginning",
-      "begun",
-      "behavior",
-      "behind",
-      "being",
-      "believed",
-      "bell",
-      "belong",
-      "below",
-      "belt",
-      "bend",
-      "beneath",
-      "bent",
-      "beside",
-      "best",
-      "bet",
-      "better",
-      "between",
-      "beyond",
-      "bicycle",
-      "bigger",
-      "biggest",
-      "bill",
-      "birds",
-      "birth",
-      "birthday",
-      "bit",
-      "bite",
-      "black",
-      "blank",
-      "blanket",
-      "blew",
-      "blind",
-      "block",
-      "blood",
-      "blow",
-      "blue",
-      "board",
-      "boat",
-      "body",
-      "bone",
-      "book",
-      "border",
-      "born",
-      "both",
-      "bottle",
-      "bottom",
-      "bound",
-      "bow",
-      "bowl",
-      "box",
-      "boy",
-      "brain",
-      "branch",
-      "brass",
-      "brave",
-      "bread",
-      "break",
-      "breakfast",
-      "breath",
-      "breathe",
-      "breathing",
-      "breeze",
-      "brick",
-      "bridge",
-      "brief",
-      "bright",
-      "bring",
-      "broad",
-      "broke",
-      "broken",
-      "brother",
-      "brought",
-      "brown",
-      "brush",
-      "buffalo",
-      "build",
-      "building",
-      "built",
-      "buried",
-      "burn",
-      "burst",
-      "bus",
-      "bush",
-      "business",
-      "busy",
-      "but",
-      "butter",
-      "buy",
-      "by",
-      "cabin",
-      "cage",
-      "cake",
-      "call",
-      "calm",
-      "came",
-      "camera",
-      "camp",
-      "can",
-      "canal",
-      "cannot",
-      "cap",
-      "capital",
-      "captain",
-      "captured",
-      "car",
-      "carbon",
-      "card",
-      "care",
-      "careful",
-      "carefully",
-      "carried",
-      "carry",
-      "case",
-      "cast",
-      "castle",
-      "cat",
-      "catch",
-      "cattle",
-      "caught",
-      "cause",
-      "cave",
-      "cell",
-      "cent",
-      "center",
-      "central",
-      "century",
-      "certain",
-      "certainly",
-      "chain",
-      "chair",
-      "chamber",
-      "chance",
-      "change",
-      "changing",
-      "chapter",
-      "character",
-      "characteristic",
-      "charge",
-      "chart",
-      "check",
-      "cheese",
-      "chemical",
-      "chest",
-      "chicken",
-      "chief",
-      "child",
-      "children",
-      "choice",
-      "choose",
-      "chose",
-      "chosen",
-      "church",
-      "circle",
-      "circus",
-      "citizen",
-      "city",
-      "class",
-      "classroom",
-      "claws",
-      "clay",
-      "clean",
-      "clear",
-      "clearly",
-      "climate",
-      "climb",
-      "clock",
-      "close",
-      "closely",
-      "closer",
-      "cloth",
-      "clothes",
-      "clothing",
-      "cloud",
-      "club",
-      "coach",
-      "coal",
-      "coast",
-      "coat",
-      "coffee",
-      "cold",
-      "collect",
-      "college",
-      "colony",
-      "color",
-      "column",
-      "combination",
-      "combine",
-      "come",
-      "comfortable",
-      "coming",
-      "command",
-      "common",
-      "community",
-      "company",
-      "compare",
-      "compass",
-      "complete",
-      "completely",
-      "complex",
-      "composed",
-      "composition",
-      "compound",
-      "concerned",
-      "condition",
-      "congress",
-      "connected",
-      "consider",
-      "consist",
-      "consonant",
-      "constantly",
-      "construction",
-      "contain",
-      "continent",
-      "continued",
-      "contrast",
-      "control",
-      "conversation",
-      "cook",
-      "cookies",
-      "cool",
-      "copper",
-      "copy",
-      "corn",
-      "corner",
-      "correct",
-      "correctly",
-      "cost",
-      "cotton",
-      "could",
-      "count",
-      "country",
-      "couple",
-      "courage",
-      "course",
-      "court",
-      "cover",
-      "cow",
-      "cowboy",
-      "crack",
-      "cream",
-      "create",
-      "creature",
-      "crew",
-      "crop",
-      "cross",
-      "crowd",
-      "cry",
-      "cup",
-      "curious",
-      "current",
-      "curve",
-      "customs",
-      "cut",
-      "cutting",
-      "daily",
-      "damage",
-      "dance",
-      "danger",
-      "dangerous",
-      "dark",
-      "darkness",
-      "date",
-      "daughter",
-      "dawn",
-      "day",
-      "dead",
-      "deal",
-      "dear",
-      "death",
-      "decide",
-      "declared",
-      "deep",
-      "deeply",
-      "deer",
-      "definition",
-      "degree",
-      "depend",
-      "depth",
-      "describe",
-      "desert",
-      "design",
-      "desk",
-      "detail",
-      "determine",
-      "develop",
-      "development",
-      "diagram",
-      "diameter",
-      "did",
-      "die",
-      "differ",
-      "difference",
-      "different",
-      "difficult",
-      "difficulty",
-      "dig",
-      "dinner",
-      "direct",
-      "direction",
-      "directly",
-      "dirt",
-      "dirty",
-      "disappear",
-      "discover",
-      "discovery",
-      "discuss",
-      "discussion",
-      "disease",
-      "dish",
-      "distance",
-      "distant",
-      "divide",
-      "division",
-      "do",
-      "doctor",
-      "does",
-      "dog",
-      "doing",
-      "doll",
-      "dollar",
-      "done",
-      "donkey",
-      "door",
-      "dot",
-      "double",
-      "doubt",
-      "down",
-      "dozen",
-      "draw",
-      "drawn",
-      "dream",
-      "dress",
-      "drew",
-      "dried",
-      "drink",
-      "drive",
-      "driven",
-      "driver",
-      "driving",
-      "drop",
-      "dropped",
-      "drove",
-      "dry",
-      "duck",
-      "due",
-      "dug",
-      "dull",
-      "during",
-      "dust",
-      "duty",
-      "each",
-      "eager",
-      "ear",
-      "earlier",
-      "early",
-      "earn",
-      "earth",
-      "easier",
-      "easily",
-      "east",
-      "easy",
-      "eat",
-      "eaten",
-      "edge",
-      "education",
-      "effect",
-      "effort",
-      "egg",
-      "eight",
-      "either",
-      "electric",
-      "electricity",
-      "element",
-      "elephant",
-      "eleven",
-      "else",
-      "empty",
-      "end",
-      "enemy",
-      "energy",
-      "engine",
-      "engineer",
-      "enjoy",
-      "enough",
-      "enter",
-      "entire",
-      "entirely",
-      "environment",
-      "equal",
-      "equally",
-      "equator",
-      "equipment",
-      "escape",
-      "especially",
-      "essential",
-      "establish",
-      "even",
-      "evening",
-      "event",
-      "eventually",
-      "ever",
-      "every",
-      "everybody",
-      "everyone",
-      "everything",
-      "everywhere",
-      "evidence",
-      "exact",
-      "exactly",
-      "examine",
-      "example",
-      "excellent",
-      "except",
-      "exchange",
-      "excited",
-      "excitement",
-      "exciting",
-      "exclaimed",
-      "exercise",
-      "exist",
-      "expect",
-      "experience",
-      "experiment",
-      "explain",
-      "explanation",
-      "explore",
-      "express",
-      "expression",
-      "extra",
-      "eye",
-      "face",
-      "facing",
-      "fact",
-      "factor",
-      "factory",
-      "failed",
-      "fair",
-      "fairly",
-      "fall",
-      "fallen",
-      "familiar",
-      "family",
-      "famous",
-      "far",
-      "farm",
-      "farmer",
-      "farther",
-      "fast",
-      "fastened",
-      "faster",
-      "fat",
-      "father",
-      "favorite",
-      "fear",
-      "feathers",
-      "feature",
-      "fed",
-      "feed",
-      "feel",
-      "feet",
-      "fell",
-      "fellow",
-      "felt",
-      "fence",
-      "few",
-      "fewer",
-      "field",
-      "fierce",
-      "fifteen",
-      "fifth",
-      "fifty",
-      "fight",
-      "fighting",
-      "figure",
-      "fill",
-      "film",
-      "final",
-      "finally",
-      "find",
-      "fine",
-      "finest",
-      "finger",
-      "finish",
-      "fire",
-      "fireplace",
-      "firm",
-      "first",
-      "fish",
-      "five",
-      "fix",
-      "flag",
-      "flame",
-      "flat",
-      "flew",
-      "flies",
-      "flight",
-      "floating",
-      "floor",
-      "flow",
-      "flower",
-      "fly",
-      "fog",
-      "folks",
-      "follow",
-      "food",
-      "foot",
-      "football",
-      "for",
-      "force",
-      "foreign",
-      "forest",
-      "forget",
-      "forgot",
-      "forgotten",
-      "form",
-      "former",
-      "fort",
-      "forth",
-      "forty",
-      "forward",
-      "fought",
-      "found",
-      "four",
-      "fourth",
-      "fox",
-      "frame",
-      "free",
-      "freedom",
-      "frequently",
-      "fresh",
-      "friend",
-      "friendly",
-      "frighten",
-      "frog",
-      "from",
-      "front",
-      "frozen",
-      "fruit",
-      "fuel",
-      "full",
-      "fully",
-      "fun",
-      "function",
-      "funny",
-      "fur",
-      "furniture",
-      "further",
-      "future",
-      "gain",
-      "game",
-      "garage",
-      "garden",
-      "gas",
-      "gasoline",
-      "gate",
-      "gather",
-      "gave",
-      "general",
-      "generally",
-      "gentle",
-      "gently",
-      "get",
-      "getting",
-      "giant",
-      "gift",
-      "girl",
-      "give",
-      "given",
-      "giving",
-      "glad",
-      "glass",
-      "globe",
-      "go",
-      "goes",
-      "gold",
-      "golden",
-      "gone",
-      "good",
-      "goose",
-      "got",
-      "government",
-      "grabbed",
-      "grade",
-      "gradually",
-      "grain",
-      "grandfather",
-      "grandmother",
-      "graph",
-      "grass",
-      "gravity",
-      "gray",
-      "great",
-      "greater",
-      "greatest",
-      "greatly",
-      "green",
-      "grew",
-      "ground",
-      "group",
-      "grow",
-      "grown",
-      "growth",
-      "guard",
-      "guess",
-      "guide",
-      "gulf",
-      "gun",
-      "habit",
-      "had",
-      "hair",
-      "half",
-      "halfway",
-      "hall",
-      "hand",
-      "handle",
-      "handsome",
-      "hang",
-      "happen",
-      "happened",
-      "happily",
-      "happy",
-      "harbor",
-      "hard",
-      "harder",
-      "hardly",
-      "has",
-      "hat",
-      "have",
-      "having",
-      "hay",
-      "he",
-      "headed",
-      "heading",
-      "health",
-      "heard",
-      "hearing",
-      "heart",
-      "heat",
-      "heavy",
-      "height",
-      "held",
-      "hello",
-      "help",
-      "helpful",
-      "her",
-      "herd",
-      "here",
-      "herself",
-      "hidden",
-      "hide",
-      "high",
-      "higher",
-      "highest",
-      "highway",
-      "hill",
-      "him",
-      "himself",
-      "his",
-      "history",
-      "hit",
-      "hold",
-      "hole",
-      "hollow",
-      "home",
-      "honor",
-      "hope",
-      "horn",
-      "horse",
-      "hospital",
-      "hot",
-      "hour",
-      "house",
-      "how",
-      "however",
-      "huge",
-      "human",
-      "hundred",
-      "hung",
-      "hungry",
-      "hunt",
-      "hunter",
-      "hurried",
-      "hurry",
-      "hurt",
-      "husband",
-      "ice",
-      "idea",
-      "identity",
-      "if",
-      "ill",
-      "image",
-      "imagine",
-      "immediately",
-      "importance",
-      "important",
-      "impossible",
-      "improve",
-      "in",
-      "inch",
-      "include",
-      "including",
-      "income",
-      "increase",
-      "indeed",
-      "independent",
-      "indicate",
-      "individual",
-      "industrial",
-      "industry",
-      "influence",
-      "information",
-      "inside",
-      "instance",
-      "instant",
-      "instead",
-      "instrument",
-      "interest",
-      "interior",
-      "into",
-      "introduced",
-      "invented",
-      "involved",
-      "iron",
-      "is",
-      "island",
-      "it",
-      "its",
-      "itself",
-      "jack",
-      "jar",
-      "jet",
-      "job",
-      "join",
-      "joined",
-      "journey",
-      "joy",
-      "judge",
-      "jump",
-      "jungle",
-      "just",
-      "keep",
-      "kept",
-      "key",
-      "kids",
-      "kill",
-      "kind",
-      "kitchen",
-      "knew",
-      "knife",
-      "know",
-      "knowledge",
-      "known",
-      "label",
-      "labor",
-      "lack",
-      "lady",
-      "laid",
-      "lake",
-      "lamp",
-      "land",
-      "language",
-      "large",
-      "larger",
-      "largest",
-      "last",
-      "late",
-      "later",
-      "laugh",
-      "law",
-      "lay",
-      "layers",
-      "lead",
-      "leader",
-      "leaf",
-      "learn",
-      "least",
-      "leather",
-      "leave",
-      "leaving",
-      "led",
-      "left",
-      "leg",
-      "length",
-      "lesson",
-      "let",
-      "letter",
-      "level",
-      "library",
-      "lie",
-      "life",
-      "lift",
-      "light",
-      "like",
-      "likely",
-      "limited",
-      "line",
-      "lion",
-      "lips",
-      "liquid",
-      "list",
-      "listen",
-      "little",
-      "live",
-      "living",
-      "load",
-      "local",
-      "locate",
-      "location",
-      "log",
-      "lonely",
-      "long",
-      "longer",
-      "look",
-      "loose",
-      "lose",
-      "loss",
-      "lost",
-      "lot",
-      "loud",
-      "love",
-      "lovely",
-      "low",
-      "lower",
-      "luck",
-      "lucky",
-      "lunch",
-      "lungs",
-      "lying",
-      "machine",
-      "machinery",
-      "mad",
-      "made",
-      "magic",
-      "magnet",
-      "mail",
-      "main",
-      "mainly",
-      "major",
-      "make",
-      "making",
-      "man",
-      "managed",
-      "manner",
-      "manufacturing",
-      "many",
-      "map",
-      "mark",
-      "market",
-      "married",
-      "mass",
-      "massage",
-      "master",
-      "material",
-      "mathematics",
-      "matter",
-      "may",
-      "maybe",
-      "me",
-      "meal",
-      "mean",
-      "means",
-      "meant",
-      "measure",
-      "meat",
-      "medicine",
-      "meet",
-      "melted",
-      "member",
-      "memory",
-      "men",
-      "mental",
-      "merely",
-      "met",
-      "metal",
-      "method",
-      "mice",
-      "middle",
-      "might",
-      "mighty",
-      "mile",
-      "military",
-      "milk",
-      "mill",
-      "mind",
-      "mine",
-      "minerals",
-      "minute",
-      "mirror",
-      "missing",
-      "mission",
-      "mistake",
-      "mix",
-      "mixture",
-      "model",
-      "modern",
-      "molecular",
-      "moment",
-      "money",
-      "monkey",
-      "month",
-      "mood",
-      "moon",
-      "more",
-      "morning",
-      "most",
-      "mostly",
-      "mother",
-      "motion",
-      "motor",
-      "mountain",
-      "mouse",
-      "mouth",
-      "move",
-      "movement",
-      "movie",
-      "moving",
-      "mud",
-      "muscle",
-      "music",
-      "musical",
-      "must",
-      "my",
-      "myself",
-      "mysterious",
-      "nails",
-      "name",
-      "nation",
-      "national",
-      "native",
-      "natural",
-      "naturally",
-      "nature",
-      "near",
-      "nearby",
-      "nearer",
-      "nearest",
-      "nearly",
-      "necessary",
-      "neck",
-      "needed",
-      "needle",
-      "needs",
-      "negative",
-      "neighbor",
-      "neighborhood",
-      "nervous",
-      "nest",
-      "never",
-      "new",
-      "news",
-      "newspaper",
-      "next",
-      "nice",
-      "night",
-      "nine",
-      "no",
-      "nobody",
-      "nodded",
-      "noise",
-      "none",
-      "noon",
-      "nor",
-      "north",
-      "nose",
-      "not",
-      "note",
-      "noted",
-      "nothing",
-      "notice",
-      "noun",
-      "now",
-      "number",
-      "numeral",
-      "nuts",
-      "object",
-      "observe",
-      "obtain",
-      "occasionally",
-      "occur",
-      "ocean",
-      "of",
-      "off",
-      "offer",
-      "office",
-      "officer",
-      "official",
-      "oil",
-      "old",
-      "older",
-      "oldest",
-      "on",
-      "once",
-      "one",
-      "only",
-      "onto",
-      "open",
-      "operation",
-      "opinion",
-      "opportunity",
-      "opposite",
-      "or",
-      "orange",
-      "orbit",
-      "order",
-      "ordinary",
-      "organization",
-      "organized",
-      "origin",
-      "original",
-      "other",
-      "ought",
-      "our",
-      "ourselves",
-      "out",
-      "outer",
-      "outline",
-      "outside",
-      "over",
-      "own",
-      "owner",
-      "oxygen",
-      "pack",
-      "package",
-      "page",
-      "paid",
-      "pain",
-      "paint",
-      "pair",
-      "palace",
-      "pale",
-      "pan",
-      "paper",
-      "paragraph",
-      "parallel",
-      "parent",
-      "park",
-      "part",
-      "particles",
-      "particular",
-      "particularly",
-      "partly",
-      "parts",
-      "party",
-      "pass",
-      "passage",
-      "past",
-      "path",
-      "pattern",
-      "pay",
-      "peace",
-      "pen",
-      "pencil",
-      "people",
-      "per",
-      "percent",
-      "perfect",
-      "perfectly",
-      "perhaps",
-      "period",
-      "person",
-      "personal",
-      "pet",
-      "phrase",
-      "physical",
-      "piano",
-      "pick",
-      "picture",
-      "pictured",
-      "pie",
-      "piece",
-      "pig",
-      "pile",
-      "pilot",
-      "pine",
-      "pink",
-      "pipe",
-      "pitch",
-      "place",
-      "plain",
-      "plan",
-      "plane",
-      "planet",
-      "planned",
-      "planning",
-      "plant",
-      "plastic",
-      "plate",
-      "plates",
-      "play",
-      "pleasant",
-      "please",
-      "pleasure",
-      "plenty",
-      "plural",
-      "plus",
-      "pocket",
-      "poem",
-      "poet",
-      "poetry",
-      "point",
-      "pole",
-      "police",
-      "policeman",
-      "political",
-      "pond",
-      "pony",
-      "pool",
-      "poor",
-      "popular",
-      "population",
-      "porch",
-      "port",
-      "position",
-      "positive",
-      "possible",
-      "possibly",
-      "post",
-      "pot",
-      "potatoes",
-      "pound",
-      "pour",
-      "powder",
-      "power",
-      "powerful",
-      "practical",
-      "practice",
-      "prepare",
-      "present",
-      "president",
-      "press",
-      "pressure",
-      "pretty",
-      "prevent",
-      "previous",
-      "price",
-      "pride",
-      "primitive",
-      "principal",
-      "principle",
-      "printed",
-      "private",
-      "prize",
-      "probably",
-      "problem",
-      "process",
-      "produce",
-      "product",
-      "production",
-      "program",
-      "progress",
-      "promised",
-      "proper",
-      "properly",
-      "property",
-      "protection",
-      "proud",
-      "prove",
-      "provide",
-      "public",
-      "pull",
-      "pupil",
-      "pure",
-      "purple",
-      "purpose",
-      "push",
-      "put",
-      "putting",
-      "quarter",
-      "queen",
-      "question",
-      "quick",
-      "quickly",
-      "quiet",
-      "quietly",
-      "quite",
-      "rabbit",
-      "race",
-      "radio",
-      "railroad",
-      "rain",
-      "raise",
-      "ran",
-      "ranch",
-      "range",
-      "rapidly",
-      "rate",
-      "rather",
-      "raw",
-      "rays",
-      "reach",
-      "read",
-      "reader",
-      "ready",
-      "real",
-      "realize",
-      "rear",
-      "reason",
-      "recall",
-      "receive",
-      "recent",
-      "recently",
-      "recognize",
-      "record",
-      "red",
-      "refer",
-      "refused",
-      "region",
-      "regular",
-      "related",
-      "relationship",
-      "religious",
-      "remain",
-      "remarkable",
-      "remember",
-      "remove",
-      "repeat",
-      "replace",
-      "replied",
-      "report",
-      "represent",
-      "require",
-      "research",
-      "respect",
-      "rest",
-      "result",
-      "return",
-      "review",
-      "rhyme",
-      "rhythm",
-      "rice",
-      "rich",
-      "ride",
-      "riding",
-      "right",
-      "ring",
-      "rise",
-      "rising",
-      "river",
-      "road",
-      "roar",
-      "rock",
-      "rocket",
-      "rocky",
-      "rod",
-      "roll",
-      "roof",
-      "room",
-      "root",
-      "rope",
-      "rose",
-      "rough",
-      "round",
-      "route",
-      "row",
-      "rubbed",
-      "rubber",
-      "rule",
-      "ruler",
-      "run",
-      "running",
-      "rush",
-      "sad",
-      "saddle",
-      "safe",
-      "safety",
-      "said",
-      "sail",
-      "sale",
-      "salmon",
-      "salt",
-      "same",
-      "sand",
-      "sang",
-      "sat",
-      "satellites",
-      "satisfied",
-      "save",
-      "saved",
-      "saw",
-      "say",
-      "scale",
-      "scared",
-      "scene",
-      "school",
-      "science",
-      "scientific",
-      "scientist",
-      "score",
-      "screen",
-      "sea",
-      "search",
-      "season",
-      "seat",
-      "second",
-      "secret",
-      "section",
-      "see",
-      "seed",
-      "seeing",
-      "seems",
-      "seen",
-      "seldom",
-      "select",
-      "selection",
-      "sell",
-      "send",
-      "sense",
-      "sent",
-      "sentence",
-      "separate",
-      "series",
-      "serious",
-      "serve",
-      "service",
-      "sets",
-      "setting",
-      "settle",
-      "settlers",
-      "seven",
-      "several",
-      "shade",
-      "shadow",
-      "shake",
-      "shaking",
-      "shall",
-      "shallow",
-      "shape",
-      "share",
-      "sharp",
-      "she",
-      "sheep",
-      "sheet",
-      "shelf",
-      "shells",
-      "shelter",
-      "shine",
-      "shinning",
-      "ship",
-      "shirt",
-      "shoe",
-      "shoot",
-      "shop",
-      "shore",
-      "short",
-      "shorter",
-      "shot",
-      "should",
-      "shoulder",
-      "shout",
-      "show",
-      "shown",
-      "shut",
-      "sick",
-      "sides",
-      "sight",
-      "sign",
-      "signal",
-      "silence",
-      "silent",
-      "silk",
-      "silly",
-      "silver",
-      "similar",
-      "simple",
-      "simplest",
-      "simply",
-      "since",
-      "sing",
-      "single",
-      "sink",
-      "sister",
-      "sit",
-      "sitting",
-      "situation",
-      "six",
-      "size",
-      "skill",
-      "skin",
-      "sky",
-      "slabs",
-      "slave",
-      "sleep",
-      "slept",
-      "slide",
-      "slight",
-      "slightly",
-      "slip",
-      "slipped",
-      "slope",
-      "slow",
-      "slowly",
-      "small",
-      "smaller",
-      "smallest",
-      "smell",
-      "smile",
-      "smoke",
-      "smooth",
-      "snake",
-      "snow",
-      "so",
-      "soap",
-      "social",
-      "society",
-      "soft",
-      "softly",
-      "soil",
-      "solar",
-      "sold",
-      "soldier",
-      "solid",
-      "solution",
-      "solve",
-      "some",
-      "somebody",
-      "somehow",
-      "someone",
-      "something",
-      "sometime",
-      "somewhere",
-      "son",
-      "song",
-      "soon",
-      "sort",
-      "sound",
-      "source",
-      "south",
-      "southern",
-      "space",
-      "speak",
-      "special",
-      "species",
-      "specific",
-      "speech",
-      "speed",
-      "spell",
-      "spend",
-      "spent",
-      "spider",
-      "spin",
-      "spirit",
-      "spite",
-      "split",
-      "spoken",
-      "sport",
-      "spread",
-      "spring",
-      "square",
-      "stage",
-      "stairs",
-      "stand",
-      "standard",
-      "star",
-      "stared",
-      "start",
-      "state",
-      "statement",
-      "station",
-      "stay",
-      "steady",
-      "steam",
-      "steel",
-      "steep",
-      "stems",
-      "step",
-      "stepped",
-      "stick",
-      "stiff",
-      "still",
-      "stock",
-      "stomach",
-      "stone",
-      "stood",
-      "stop",
-      "stopped",
-      "store",
-      "storm",
-      "story",
-      "stove",
-      "straight",
-      "strange",
-      "stranger",
-      "straw",
-      "stream",
-      "street",
-      "strength",
-      "stretch",
-      "strike",
-      "string",
-      "strip",
-      "strong",
-      "stronger",
-      "struck",
-      "structure",
-      "struggle",
-      "stuck",
-      "student",
-      "studied",
-      "studying",
-      "subject",
-      "substance",
-      "success",
-      "successful",
-      "such",
-      "sudden",
-      "suddenly",
-      "sugar",
-      "suggest",
-      "suit",
-      "sum",
-      "summer",
-      "sun",
-      "sunlight",
-      "supper",
-      "supply",
-      "support",
-      "suppose",
-      "sure",
-      "surface",
-      "surprise",
-      "surrounded",
-      "swam",
-      "sweet",
-      "swept",
-      "swim",
-      "swimming",
-      "swing",
-      "swung",
-      "syllable",
-      "symbol",
-      "system",
-      "table",
-      "tail",
-      "take",
-      "taken",
-      "tales",
-      "talk",
-      "tall",
-      "tank",
-      "tape",
-      "task",
-      "taste",
-      "taught",
-      "tax",
-      "tea",
-      "teach",
-      "teacher",
-      "team",
-      "tears",
-      "teeth",
-      "telephone",
-      "television",
-      "tell",
-      "temperature",
-      "ten",
-      "tent",
-      "term",
-      "terrible",
-      "test",
-      "than",
-      "thank",
-      "that",
-      "thee",
-      "them",
-      "themselves",
-      "then",
-      "theory",
-      "there",
-      "therefore",
-      "these",
-      "they",
-      "thick",
-      "thin",
-      "thing",
-      "think",
-      "third",
-      "thirty",
-      "this",
-      "those",
-      "thou",
-      "though",
-      "thought",
-      "thousand",
-      "thread",
-      "three",
-      "threw",
-      "throat",
-      "through",
-      "throughout",
-      "throw",
-      "thrown",
-      "thumb",
-      "thus",
-      "thy",
-      "tide",
-      "tie",
-      "tight",
-      "tightly",
-      "till",
-      "time",
-      "tin",
-      "tiny",
-      "tip",
-      "tired",
-      "title",
-      "to",
-      "tobacco",
-      "today",
-      "together",
-      "told",
-      "tomorrow",
-      "tone",
-      "tongue",
-      "tonight",
-      "too",
-      "took",
-      "tool",
-      "top",
-      "topic",
-      "torn",
-      "total",
-      "touch",
-      "toward",
-      "tower",
-      "town",
-      "toy",
-      "trace",
-      "track",
-      "trade",
-      "traffic",
-      "trail",
-      "train",
-      "transportation",
-      "trap",
-      "travel",
-      "treated",
-      "tree",
-      "triangle",
-      "tribe",
-      "trick",
-      "tried",
-      "trip",
-      "troops",
-      "tropical",
-      "trouble",
-      "truck",
-      "trunk",
-      "truth",
-      "try",
-      "tube",
-      "tune",
-      "turn",
-      "twelve",
-      "twenty",
-      "twice",
-      "two",
-      "type",
-      "typical",
-      "uncle",
-      "under",
-      "underline",
-      "understanding",
-      "unhappy",
-      "union",
-      "unit",
-      "universe",
-      "unknown",
-      "unless",
-      "until",
-      "unusual",
-      "up",
-      "upon",
-      "upper",
-      "upward",
-      "us",
-      "use",
-      "useful",
-      "using",
-      "usual",
-      "usually",
-      "valley",
-      "valuable",
-      "value",
-      "vapor",
-      "variety",
-      "various",
-      "vast",
-      "vegetable",
-      "verb",
-      "vertical",
-      "very",
-      "vessels",
-      "victory",
-      "view",
-      "village",
-      "visit",
-      "visitor",
-      "voice",
-      "volume",
-      "vote",
-      "vowel",
-      "voyage",
-      "wagon",
-      "wait",
-      "walk",
-      "wall",
-      "want",
-      "war",
-      "warm",
-      "warn",
-      "was",
-      "wash",
-      "waste",
-      "watch",
-      "water",
-      "wave",
-      "way",
-      "we",
-      "weak",
-      "wealth",
-      "wear",
-      "weather",
-      "week",
-      "weigh",
-      "weight",
-      "welcome",
-      "well",
-      "went",
-      "were",
-      "west",
-      "western",
-      "wet",
-      "whale",
-      "what",
-      "whatever",
-      "wheat",
-      "wheel",
-      "when",
-      "whenever",
-      "where",
-      "wherever",
-      "whether",
-      "which",
-      "while",
-      "whispered",
-      "whistle",
-      "white",
-      "who",
-      "whole",
-      "whom",
-      "whose",
-      "why",
-      "wide",
-      "widely",
-      "wife",
-      "wild",
-      "will",
-      "willing",
-      "win",
-      "wind",
-      "window",
-      "wing",
-      "winter",
-      "wire",
-      "wise",
-      "wish",
-      "with",
-      "within",
-      "without",
-      "wolf",
-      "women",
-      "won",
-      "wonder",
-      "wonderful",
-      "wood",
-      "wooden",
-      "wool",
-      "word",
-      "wore",
-      "work",
-      "worker",
-      "world",
-      "worried",
-      "worry",
-      "worse",
-      "worth",
-      "would",
-      "wrapped",
-      "write",
-      "writer",
-      "writing",
-      "written",
-      "wrong",
-      "wrote",
-      "yard",
-      "year",
-      "yellow",
-      "yes",
-      "yesterday",
-      "yet",
-      "you",
-      "young",
-      "younger",
-      "your",
-      "yourself",
-      "youth",
-      "zero",
-      "zebra",
-      "zipper",
-      "zoo",
-      "zulu"
-    ];
-    function words(options) {
-      const random = options?.seed ? new seedrandom(options.seed) : null;
-      function word() {
-        if (options && options.maxLength > 1) {
-          return generateWordWithMaxLength();
-        } else {
-          return generateRandomWord();
-        }
-      }
-      function generateWordWithMaxLength() {
-        var rightSize = false;
-        var wordUsed;
-        while (!rightSize) {
-          wordUsed = generateRandomWord();
-          if (wordUsed.length <= options.maxLength) {
-            rightSize = true;
-          }
-        }
-        return wordUsed;
-      }
-      function generateRandomWord() {
-        return wordList[randInt(wordList.length)];
-      }
-      function randInt(lessThan) {
-        const r = random ? random() : Math.random();
-        return Math.floor(r * lessThan);
-      }
-      if (typeof options === "undefined") {
-        return word();
-      }
-      if (typeof options === "number") {
-        options = { exactly: options };
-      }
-      if (options.exactly) {
-        options.min = options.exactly;
-        options.max = options.exactly;
-      }
-      if (typeof options.wordsPerString !== "number") {
-        options.wordsPerString = 1;
-      }
-      if (typeof options.formatter !== "function") {
-        options.formatter = (word2) => word2;
-      }
-      if (typeof options.separator !== "string") {
-        options.separator = " ";
-      }
-      var total = options.min + randInt(options.max + 1 - options.min);
-      var results = [];
-      var token = "";
-      var relativeIndex = 0;
-      for (var i = 0; i < total * options.wordsPerString; i++) {
-        if (relativeIndex === options.wordsPerString - 1) {
-          token += options.formatter(word(), relativeIndex);
-        } else {
-          token += options.formatter(word(), relativeIndex) + options.separator;
-        }
-        relativeIndex++;
-        if ((i + 1) % options.wordsPerString === 0) {
-          results.push(token);
-          token = "";
-          relativeIndex = 0;
-        }
-      }
-      if (typeof options.join === "string") {
-        results = results.join(options.join);
-      }
-      return results;
-    }
-    module.exports = words;
-    words.wordList = wordList;
+// external-global-plugin:uuid
+var require_uuid = __commonJS({
+  "external-global-plugin:uuid"(exports, module) {
+    module.exports = window.uuid;
   }
 });
 
@@ -3236,13 +499,6 @@ var require_jsx_runtime = __commonJS({
   }
 });
 
-// external-global-plugin:uuid
-var require_uuid = __commonJS({
-  "external-global-plugin:uuid"(exports, module) {
-    module.exports = window.uuid;
-  }
-});
-
 // external-global-plugin:date-fns
 var require_date_fns = __commonJS({
   "external-global-plugin:date-fns"(exports, module) {
@@ -3250,7 +506,14 @@ var require_date_fns = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/Context.js
+// external-global-plugin:react-router-dom
+var require_react_router_dom = __commonJS({
+  "external-global-plugin:react-router-dom"(exports, module) {
+    module.exports = window.reactrouterdom;
+  }
+});
+
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/Context.js
 var import_react = __toESM(require_react());
 var IconContext = /* @__PURE__ */ (0, import_react.createContext)({});
 var Context_default = IconContext;
@@ -3421,7 +684,7 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/AntdIcon.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/AntdIcon.js
 var React3 = __toESM(require_react());
 var import_classnames = __toESM(require_classnames());
 
@@ -3451,12 +714,12 @@ function isOnePointZero(n) {
 function isPercentage(n) {
   return typeof n === "string" && n.indexOf("%") !== -1;
 }
-function boundAlpha(a) {
-  a = parseFloat(a);
-  if (isNaN(a) || a < 0 || a > 1) {
-    a = 1;
+function boundAlpha(a2) {
+  a2 = parseFloat(a2);
+  if (isNaN(a2) || a2 < 0 || a2 > 1) {
+    a2 = 1;
   }
-  return a;
+  return a2;
 }
 function convertToPercentage(n) {
   if (n <= 1) {
@@ -3464,38 +727,38 @@ function convertToPercentage(n) {
   }
   return n;
 }
-function pad2(c) {
-  return c.length === 1 ? "0" + c : String(c);
+function pad2(c2) {
+  return c2.length === 1 ? "0" + c2 : String(c2);
 }
 
 // node_modules/.pnpm/@ctrl+tinycolor@3.6.0/node_modules/@ctrl/tinycolor/dist/module/conversion.js
-function rgbToRgb(r, g, b) {
+function rgbToRgb(r2, g, b) {
   return {
-    r: bound01(r, 255) * 255,
+    r: bound01(r2, 255) * 255,
     g: bound01(g, 255) * 255,
     b: bound01(b, 255) * 255
   };
 }
-function hue2rgb(p, q, t) {
-  if (t < 0) {
-    t += 1;
+function hue2rgb(p, q, t2) {
+  if (t2 < 0) {
+    t2 += 1;
   }
-  if (t > 1) {
-    t -= 1;
+  if (t2 > 1) {
+    t2 -= 1;
   }
-  if (t < 1 / 6) {
-    return p + (q - p) * (6 * t);
+  if (t2 < 1 / 6) {
+    return p + (q - p) * (6 * t2);
   }
-  if (t < 1 / 2) {
+  if (t2 < 1 / 2) {
     return q;
   }
-  if (t < 2 / 3) {
-    return p + (q - p) * (2 / 3 - t) * 6;
+  if (t2 < 2 / 3) {
+    return p + (q - p) * (2 / 3 - t2) * 6;
   }
   return p;
 }
 function hslToRgb(h, s, l) {
-  var r;
+  var r2;
   var g;
   var b;
   h = bound01(h, 360);
@@ -3504,38 +767,38 @@ function hslToRgb(h, s, l) {
   if (s === 0) {
     g = l;
     b = l;
-    r = l;
+    r2 = l;
   } else {
     var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
     var p = 2 * l - q;
-    r = hue2rgb(p, q, h + 1 / 3);
+    r2 = hue2rgb(p, q, h + 1 / 3);
     g = hue2rgb(p, q, h);
     b = hue2rgb(p, q, h - 1 / 3);
   }
-  return { r: r * 255, g: g * 255, b: b * 255 };
+  return { r: r2 * 255, g: g * 255, b: b * 255 };
 }
-function rgbToHsv(r, g, b) {
-  r = bound01(r, 255);
+function rgbToHsv(r2, g, b) {
+  r2 = bound01(r2, 255);
   g = bound01(g, 255);
   b = bound01(b, 255);
-  var max = Math.max(r, g, b);
-  var min = Math.min(r, g, b);
+  var max = Math.max(r2, g, b);
+  var min = Math.min(r2, g, b);
   var h = 0;
   var v = max;
-  var d = max - min;
-  var s = max === 0 ? 0 : d / max;
+  var d2 = max - min;
+  var s = max === 0 ? 0 : d2 / max;
   if (max === min) {
     h = 0;
   } else {
     switch (max) {
-      case r:
-        h = (g - b) / d + (g < b ? 6 : 0);
+      case r2:
+        h = (g - b) / d2 + (g < b ? 6 : 0);
         break;
       case g:
-        h = (b - r) / d + 2;
+        h = (b - r2) / d2 + 2;
         break;
       case b:
-        h = (r - g) / d + 4;
+        h = (r2 - g) / d2 + 4;
         break;
       default:
         break;
@@ -3552,16 +815,16 @@ function hsvToRgb(h, s, v) {
   var f = h - i;
   var p = v * (1 - s);
   var q = v * (1 - f * s);
-  var t = v * (1 - (1 - f) * s);
+  var t2 = v * (1 - (1 - f) * s);
   var mod = i % 6;
-  var r = [v, q, p, p, t, v][mod];
-  var g = [t, v, v, q, p, p][mod];
-  var b = [p, p, t, v, v, q][mod];
-  return { r: r * 255, g: g * 255, b: b * 255 };
+  var r2 = [v, q, p, p, t2, v][mod];
+  var g = [t2, v, v, q, p, p][mod];
+  var b = [p, p, t2, v, v, q][mod];
+  return { r: r2 * 255, g: g * 255, b: b * 255 };
 }
-function rgbToHex(r, g, b, allow3Char) {
+function rgbToHex(r2, g, b, allow3Char) {
   var hex = [
-    pad2(Math.round(r).toString(16)),
+    pad2(Math.round(r2).toString(16)),
     pad2(Math.round(g).toString(16)),
     pad2(Math.round(b).toString(16))
   ];
@@ -3732,12 +995,12 @@ var names = {
 // node_modules/.pnpm/@ctrl+tinycolor@3.6.0/node_modules/@ctrl/tinycolor/dist/module/format-input.js
 function inputToRGB(color) {
   var rgb = { r: 0, g: 0, b: 0 };
-  var a = 1;
+  var a2 = 1;
   var s = null;
   var v = null;
   var l = null;
   var ok = false;
-  var format2 = false;
+  var format = false;
   if (typeof color === "string") {
     color = stringInputToObject(color);
   }
@@ -3745,32 +1008,32 @@ function inputToRGB(color) {
     if (isValidCSSUnit(color.r) && isValidCSSUnit(color.g) && isValidCSSUnit(color.b)) {
       rgb = rgbToRgb(color.r, color.g, color.b);
       ok = true;
-      format2 = String(color.r).substr(-1) === "%" ? "prgb" : "rgb";
+      format = String(color.r).substr(-1) === "%" ? "prgb" : "rgb";
     } else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.v)) {
       s = convertToPercentage(color.s);
       v = convertToPercentage(color.v);
       rgb = hsvToRgb(color.h, s, v);
       ok = true;
-      format2 = "hsv";
+      format = "hsv";
     } else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.l)) {
       s = convertToPercentage(color.s);
       l = convertToPercentage(color.l);
       rgb = hslToRgb(color.h, s, l);
       ok = true;
-      format2 = "hsl";
+      format = "hsl";
     }
     if (Object.prototype.hasOwnProperty.call(color, "a")) {
-      a = color.a;
+      a2 = color.a;
     }
   }
-  a = boundAlpha(a);
+  a2 = boundAlpha(a2);
   return {
     ok,
-    format: color.format || format2,
+    format: color.format || format,
     r: Math.min(255, Math.max(rgb.r, 0)),
     g: Math.min(255, Math.max(rgb.g, 0)),
     b: Math.min(255, Math.max(rgb.b, 0)),
-    a
+    a: a2
   };
 }
 var CSS_INTEGER = "[-\\+]?\\d+%?";
@@ -3911,8 +1174,8 @@ var darkColorMap = [{
   opacity: 0.98
 }];
 function toHsv(_ref) {
-  var r = _ref.r, g = _ref.g, b = _ref.b;
-  var hsv = rgbToHsv(r, g, b);
+  var r2 = _ref.r, g = _ref.g, b = _ref.b;
+  var hsv = rgbToHsv(r2, g, b);
   return {
     h: hsv.h * 360,
     s: hsv.s,
@@ -3920,8 +1183,8 @@ function toHsv(_ref) {
   };
 }
 function toHex(_ref2) {
-  var r = _ref2.r, g = _ref2.g, b = _ref2.b;
-  return "#".concat(rgbToHex(r, g, b, false));
+  var r2 = _ref2.r, g = _ref2.g, b = _ref2.b;
+  return "#".concat(rgbToHex(r2, g, b, false));
 }
 function mix(rgb1, rgb2, amount) {
   var p = amount / 100;
@@ -4079,18 +1342,18 @@ function _objectSpread2(target) {
   return target;
 }
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/IconBase.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/IconBase.js
 var React2 = __toESM(require_react());
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/utils.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/utils.js
 var import_lodash = __toESM(require_lodash());
 
-// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/canUseDom.js
+// node_modules/.pnpm/rc-util@5.36.0(react@18.2.0)/node_modules/rc-util/es/Dom/canUseDom.js
 function canUseDom() {
   return !!(typeof window !== "undefined" && window.document && window.document.createElement);
 }
 
-// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/contains.js
+// node_modules/.pnpm/rc-util@5.36.0(react@18.2.0)/node_modules/rc-util/es/Dom/contains.js
 function contains(root, n) {
   if (!root) {
     return false;
@@ -4108,7 +1371,7 @@ function contains(root, n) {
   return false;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/dynamicCSS.js
+// node_modules/.pnpm/rc-util@5.36.0(react@18.2.0)/node_modules/rc-util/es/Dom/dynamicCSS.js
 var APPEND_ORDER = "data-rc-order";
 var APPEND_PRIORITY = "data-rc-priority";
 var MARK_KEY = "rc-util-key";
@@ -4214,7 +1477,7 @@ function updateCSS(css, key) {
   return newNode;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/shadow.js
+// node_modules/.pnpm/rc-util@5.36.0(react@18.2.0)/node_modules/rc-util/es/Dom/shadow.js
 function getRoot(ele) {
   var _ele$getRootNode;
   return ele === null || ele === void 0 ? void 0 : (_ele$getRootNode = ele.getRootNode) === null || _ele$getRootNode === void 0 ? void 0 : _ele$getRootNode.call(ele);
@@ -4226,7 +1489,7 @@ function getShadowRoot(ele) {
   return inShadow(ele) ? getRoot(ele) : null;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/warning.js
+// node_modules/.pnpm/rc-util@5.36.0(react@18.2.0)/node_modules/rc-util/es/warning.js
 var warned = {};
 var preWarningFns = [];
 var preMessage = function preMessage2(fn) {
@@ -4272,7 +1535,7 @@ warningOnce.resetWarned = resetWarned;
 warningOnce.noteOnce = noteOnce;
 var warning_default = warningOnce;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/utils.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/utils.js
 var import_react2 = __toESM(require_react());
 function warning2(valid, message) {
   warning_default(valid, "[@ant-design/icons] ".concat(message));
@@ -4337,7 +1600,7 @@ var useInsertStyles = function useInsertStyles2(eleRef) {
   }, []);
 };
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/IconBase.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/IconBase.js
 var _excluded = ["icon", "className", "onClick", "style", "primaryColor", "secondaryColor"];
 var twoToneColorPalette = {
   primaryColor: "#333",
@@ -4392,7 +1655,7 @@ IconBase.getTwoToneColors = getTwoToneColors;
 IconBase.setTwoToneColors = setTwoToneColors;
 var IconBase_default = IconBase;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/twoTonePrimaryColor.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/twoTonePrimaryColor.js
 function setTwoToneColor(twoToneColor) {
   var _normalizeTwoToneColo = normalizeTwoToneColors(twoToneColor), _normalizeTwoToneColo2 = _slicedToArray(_normalizeTwoToneColo, 2), primaryColor = _normalizeTwoToneColo2[0], secondaryColor = _normalizeTwoToneColo2[1];
   return IconBase_default.setTwoToneColors({
@@ -4408,7 +1671,7 @@ function getTwoToneColor() {
   return [colors.primaryColor, colors.secondaryColor];
 }
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/AntdIcon.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/AntdIcon.js
 var _excluded2 = ["className", "icon", "spin", "rotate", "tabIndex", "onClick", "twoToneColor"];
 setTwoToneColor(blue.primary);
 var Icon = /* @__PURE__ */ React3.forwardRef(function(props, ref) {
@@ -4445,14 +1708,14 @@ Icon.getTwoToneColor = getTwoToneColor;
 Icon.setTwoToneColor = setTwoToneColor;
 var AntdIcon_default = Icon;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/CodeOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/CodeOutlined.js
 var React4 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/CodeOutlined.js
 var CodeOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M516 673c0 4.4 3.4 8 7.5 8h185c4.1 0 7.5-3.6 7.5-8v-48c0-4.4-3.4-8-7.5-8h-185c-4.1 0-7.5 3.6-7.5 8v48zm-194.9 6.1l192-161c3.8-3.2 3.8-9.1 0-12.3l-192-160.9A7.95 7.95 0 00308 351v62.7c0 2.4 1 4.6 2.9 6.1L420.7 512l-109.8 92.2a8.1 8.1 0 00-2.9 6.1V673c0 6.8 7.9 10.5 13.1 6.1zM880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z" } }] }, "name": "code", "theme": "outlined" };
 var CodeOutlined_default = CodeOutlined;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/CodeOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/CodeOutlined.js
 var CodeOutlined2 = function CodeOutlined3(props, ref) {
   return /* @__PURE__ */ React4.createElement(AntdIcon_default, _extends({}, props, {
     ref,
@@ -4464,492 +1727,66 @@ if (true) {
 }
 var CodeOutlined_default2 = /* @__PURE__ */ React4.forwardRef(CodeOutlined2);
 
-// src/DataGenerator.tsx
-var import_react4 = __toESM(require_react(), 1);
-var import_antd = __toESM(require_antd(), 1);
-var import_veramo_react = __toESM(require_veramo_react(), 1);
-var import_react_query = __toESM(require_react_query(), 1);
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
+var React5 = __toESM(require_react());
 
-// src/utils/dataGenerator.ts
-var import_random_words = __toESM(require_random_words(), 1);
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/DownloadOutlined.js
+var DownloadOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z" } }] }, "name": "download", "theme": "outlined" };
+var DownloadOutlined_default = DownloadOutlined;
 
-// src/utils/kudos-messages.ts
-var kudosMessages = [
-  "Great job on that project; your expertise really shined through!",
-  "Your creativity never ceases to amaze me; well done!",
-  "Thanks for stepping up; you're a team player.",
-  "Outstanding presentation; you nailed it!",
-  "Your hard work is paying off; keep it up!",
-  "Excellent problem-solving; you found a solution no one else could.",
-  "Your dedication to quality is commendable.",
-  "Thanks for going the extra mile; it didn't go unnoticed.",
-  "Your leadership skills are inspiring to us all.",
-  "You have a knack for making complex issues look easy; kudos!",
-  "Consistent performance, well done!",
-  "Your enthusiasm is contagious.",
-  "You've got a great attitude, and it shows.",
-  "Thanks for always being so dependable.",
-  "You make teamwork look easy.",
-  "Fantastic effort on the latest project.",
-  "You're setting the bar high for the rest of us.",
-  "You're a rockstar at what you do.",
-  "Excellent execution; couldn't ask for more.",
-  "Your drive for success is admirable.",
-  "You've outdone yourself, again.",
-  "Your focus and precision are remarkable.",
-  "You're a great communicator; thanks for the clarity.",
-  "Your work ethic is second to none.",
-  "Your commitment to our mission is impressive.",
-  "Your resilience during challenges is commendable.",
-  "You've really mastered your craft.",
-  "Your adaptability is a key asset.",
-  "Thanks for taking ownership and seeing it through.",
-  "Your positivity lights up the room.",
-  "You made sense of the chaos; well played.",
-  "Your contribution to the team is invaluable.",
-  "Great collaboration skills; you make us better.",
-  "You're always two steps ahead; keep it up.",
-  "Exceptional attention to detail; it makes a difference.",
-  "Your insights are always so helpful.",
-  "You handled that difficult situation with grace.",
-  "Thanks for the quick turnaround; it saved the day.",
-  "Your humility adds to your greatness.",
-  "Your initiative shows your dedication.",
-  "Your mentorship has been invaluable.",
-  "Thanks for being a standout colleague.",
-  "You make a real difference; thank you.",
-  "Your discipline is admirable.",
-  "You bring out the best in others.",
-  "You're a great example to us all.",
-  "Thanks for always respecting deadlines.",
-  "Your work always exceeds expectations.",
-  "You're a pro at customer service.",
-  "You have a great knack for problem-solving.",
-  "You're very resourceful; it doesn't go unnoticed.",
-  "Your passion for the work is inspiring.",
-  "You keep the team focused and on track.",
-  "Your technical skills are unmatched.",
-  "You make challenging tasks look easy.",
-  "Your innovation is a game-changer.",
-  "Thanks for always being so organized.",
-  "Your ability to lead is truly remarkable.",
-  "You're great at making the workplace enjoyable.",
-  "Thanks for the unwavering professionalism.",
-  "Your strategic thinking is exceptional.",
-  "You're the go-to person for sound advice.",
-  "Your dependability is rock-solid.",
-  "You're a quick learner; it's impressive.",
-  "Thanks for adding value to every team meeting.",
-  "Your confidence boosts the team's morale.",
-  "You're the epitome of reliability.",
-  "You make success look effortless.",
-  "You have an eye for quality; it's refreshing.",
-  "Your empathy makes you a great teammate.",
-  "Your perseverance has paid off; well done.",
-  "You're a visionary; you see the bigger picture.",
-  "You've set a new standard for excellence.",
-  "Your contributions to the project were key.",
-  "You have a strong sense of responsibility.",
-  "You're great at juggling multiple tasks.",
-  "You've really fine-tuned your skills.",
-  "You make the impossible look possible.",
-  "Your ability to stay calm under pressure is admirable.",
-  "Thanks for always bringing your A-game.",
-  "Your positive energy is infectious.",
-  "You're an excellent role model for the team.",
-  "You're a catalyst for change; great work.",
-  "Your work always hits the mark.",
-  "Your ability to handle stress is inspiring.",
-  "Your fearlessness in taking risks is commendable.",
-  "You're the definition of a team player.",
-  "You keep setting new benchmarks; amazing.",
-  "Your humility makes you an even greater leader.",
-  "Your time management skills are top-notch.",
-  "You always bring fresh ideas to the table.",
-  "Your professionalism sets you apart.",
-  "Thanks for always stepping in when needed.",
-  "You're an incredible asset to this team."
-];
-
-// src/utils/dataGenerator.ts
-function getRandomDate(from, to) {
-  const fromTime = from.getTime();
-  const toTime = to.getTime();
-  return new Date(fromTime + Math.random() * (toTime - fromTime));
-}
-function selectRandomIndexes(total, count) {
-  const min = Math.ceil(0);
-  const max = Math.floor(total);
-  let selected = [];
-  let n;
-  for (n = 1; n <= count; n++) {
-    var i = Math.floor(Math.random() * (max - min) + min);
-    selected.push(i);
-  }
-  return selected;
-}
-async function createIdentifiers(createIdentifer, domain, provider, count, alias) {
-  let promises = [];
-  if (count) {
-    let i;
-    for (i = 0; i < count; i++) {
-      promises.push(i);
-    }
-    return Promise.all(
-      promises.map(async () => {
-        const _alias = (0, import_random_words.default)({
-          exactly: 1,
-          wordsPerString: 2,
-          join: "-"
-        });
-        const generatedAlias = provider === "did:web" ? domain + ":" + _alias : _alias;
-        if (provider === "did:peer") {
-          return await createIdentifer({
-            provider,
-            alias: generatedAlias,
-            options: {
-              num_algo: 2,
-              service: {
-                id: "1234",
-                type: "DIDCommMessaging",
-                serviceEndpoint: "did:web:dev-didcomm-mediator.herokuapp.com",
-                description: "a DIDComm endpoint"
-              }
-            }
-          });
-        }
-        return await createIdentifer({
-          provider,
-          alias: count === 1 && alias ? provider === "did:web" ? domain + ":" + alias : alias : generatedAlias
-        });
-      })
-    );
-  }
-}
-async function getRandomProfiles(count) {
-  const url = `https://randomuser.me/api/?results=${count}`;
-  const response = await fetch(url, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Cache-Control": "no-cache"
-    }
-  });
-  return await response.json();
-}
-async function createProfileCredentials(createVerifiableCredential, identifiers) {
-  if (!identifiers)
-    return;
-  const { results } = await getRandomProfiles(identifiers?.length);
-  return Promise.all(
-    results.map(async (profile, key) => {
-      return await createVerifiableCredential({
-        save: true,
-        proofFormat: "jwt",
-        credential: {
-          "@context": ["https://www.w3.org/2018/credentials/v1"],
-          type: ["VerifiableCredential", "Profile"],
-          issuer: { id: identifiers[key].did },
-          issuanceDate: (/* @__PURE__ */ new Date()).toISOString(),
-          credentialSubject: {
-            id: identifiers[key].did,
-            name: profile.name.first + " " + profile.name.last,
-            firstName: profile.name.first,
-            lastName: profile.name.last,
-            nickname: profile.username,
-            email: profile.email,
-            picture: profile.picture.large
-          }
-        }
-      });
-    })
-  );
-}
-async function createKudosCredentials(identifiers, createVerifiableCredential, count, date, agent) {
-  if (!identifiers)
-    return;
-  const fromSelected = selectRandomIndexes(identifiers.length, count.from);
-  const toSelected = selectRandomIndexes(identifiers.length, count.to);
-  return Promise.all(
-    fromSelected.map(async (fromIndex) => {
-      const issuerProfile = await agent.getIdentifierProfile({ did: identifiers[fromIndex].did });
-      return await Promise.all(
-        toSelected.map(async (toIndex) => {
-          const subjectProfile = await agent.getIdentifierProfile({ did: identifiers[toIndex].did });
-          const kudos = kudosMessages[Math.floor(Math.random() * kudosMessages.length)];
-          return await createVerifiableCredential({
-            save: true,
-            proofFormat: "jwt",
-            credential: {
-              "@context": ["https://www.w3.org/2018/credentials/v1"],
-              type: ["VerifiableCredential", "Kudos"],
-              issuer: { id: identifiers[fromIndex].did },
-              issuanceDate: getRandomDate(
-                new Date(date.from),
-                new Date(date.to)
-              ).toISOString(),
-              credentialSubject: {
-                id: identifiers[toIndex].did,
-                name: subjectProfile?.name,
-                avatar: subjectProfile?.picture,
-                kudos,
-                "authorId": issuerProfile?.did,
-                "authorName": issuerProfile?.name,
-                "authorAvatar": issuerProfile?.picture,
-                "channelId": "878293684620234755",
-                "channelName": "\u{1F4AC}\uFF5Cgeneral-chats",
-                "guildId": "878293684620234752",
-                "guildName": "Veramolabs",
-                "guildAvatar": "https://cdn.discordapp.com/icons/878293684620234752/3a6e2e86c563b4f327e86d51289dd294.png"
-              }
-            }
-          });
-        })
-      );
-    })
-  );
-}
-
-// src/utils/useGenerator.ts
-var import_react3 = __toESM(require_react(), 1);
-function useGenerator() {
-  const [identifierProvider, setIdentifierProvider] = (0, import_react3.useState)("did:ethr:goerli");
-  const [identifierCount, setIdentifierCount] = (0, import_react3.useState)(50);
-  const [identifiersGenerating, setIdentifiersGenerating] = (0, import_react3.useState)(false);
-  const [alias, setAlias] = (0, import_react3.useState)("");
-  const [domain, setDomain] = (0, import_react3.useState)("");
-  const [credentialProfilesGenerating, setCredentialProfilesGenerating] = (0, import_react3.useState)(false);
-  const [credentialIssueFromCount, setCredentialIssueFromCount] = (0, import_react3.useState)(1);
-  const [credentialIssueToCount, setCredentialIssueToCount] = (0, import_react3.useState)(1);
-  const [credentialsP2PGenerating, setCredentialsP2PGenerating] = (0, import_react3.useState)(false);
-  return {
-    domain,
-    identifierProvider,
-    identifierCount,
-    identifiersGenerating,
-    credentialProfilesGenerating,
-    credentialIssueFromCount,
-    credentialIssueToCount,
-    credentialsP2PGenerating,
-    alias,
-    setDomain,
-    setCredentialsP2PGenerating,
-    setCredentialIssueToCount,
-    setCredentialIssueFromCount,
-    setCredentialProfilesGenerating,
-    setIdentifierProvider,
-    setIdentifierCount,
-    setIdentifiersGenerating,
-    setAlias
-  };
-}
-
-// src/DataGenerator.tsx
-var import_pro_components = __toESM(require_pro_components(), 1);
-var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-var { Title, Text } = import_antd.Typography;
-var { Panel } = import_antd.Collapse;
-var DataGenerator = () => {
-  const queryClient = (0, import_react_query.useQueryClient)();
-  const { agent } = (0, import_veramo_react.useVeramo)();
-  const { data: identifiers } = (0, import_react_query.useQuery)(
-    ["identifiers", { agentId: agent?.context.id }],
-    () => agent?.didManagerFind()
-  );
-  const { data: providers } = (0, import_react_query.useQuery)(
-    ["providers", { agentId: agent?.context.id }],
-    () => agent?.didManagerGetProviders()
-  );
-  const {
-    domain,
-    identifierProvider,
-    identifierCount,
-    identifiersGenerating,
-    credentialProfilesGenerating,
-    credentialIssueFromCount,
-    credentialIssueToCount,
-    credentialsP2PGenerating,
-    setDomain,
-    setCredentialsP2PGenerating,
-    setCredentialIssueToCount,
-    setCredentialIssueFromCount,
-    setCredentialProfilesGenerating,
-    setIdentifierProvider,
-    setIdentifierCount,
-    setIdentifiersGenerating
-  } = useGenerator();
-  const generateIdentifiers = async () => {
-    setIdentifiersGenerating(true);
-    await createIdentifiers(
-      agent?.didManagerCreate,
-      domain,
-      identifierProvider,
-      identifierCount
-    );
-    setIdentifiersGenerating(false);
-    queryClient.invalidateQueries("identifiers");
-  };
-  const generateProfileCredentials = async () => {
-    if (identifiers) {
-      setCredentialProfilesGenerating(true);
-      await createProfileCredentials(
-        // @ts-ignore
-        agent?.createVerifiableCredential,
-        // @ts-ignore
-        identifiers
-      );
-      setCredentialProfilesGenerating(false);
-    }
-  };
-  const generateP2PCredentials = async () => {
-    if (identifiers) {
-      setCredentialsP2PGenerating(true);
-      const fromCount = credentialIssueFromCount > identifiers.length ? identifiers.length : credentialIssueFromCount;
-      const toCount = credentialIssueToCount > identifiers.length ? identifiers.length : credentialIssueToCount;
-      await createKudosCredentials(
-        // @ts-ignore
-        identifiers,
-        // @ts-ignore
-        agent?.createVerifiableCredential,
-        { from: fromCount, to: toCount },
-        // @todo allow date to be user selectable
-        { from: "2019-01-01T00:00:00.271Z", to: "2021-02-01T01:00:00.271Z" },
-        agent
-      );
-      setCredentialsP2PGenerating(false);
-    }
-  };
-  (0, import_react4.useEffect)(() => {
-    setIdentifierProvider("did:ethr:goerli");
-  }, [setIdentifierProvider]);
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_pro_components.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Collapse, { bordered: false, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Panel, { header: `Identifiers (${identifiers?.length})`, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-      import_antd.Form,
-      {
-        labelCol: { span: 4 },
-        wrapperCol: { span: 14 },
-        layout: "vertical",
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text, { children: "Generate multiple identifiers" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { label: "Identifier count", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            import_antd.Input,
-            {
-              defaultValue: identifierCount,
-              onChange: (e) => setIdentifierCount(parseInt(e.target.value))
-            }
-          ) }),
-          identifierProvider === "did:web" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { label: "Domain", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            import_antd.Input,
-            {
-              defaultValue: domain,
-              onChange: (e) => setDomain(e.target.value)
-            }
-          ) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { label: "Provider", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            import_antd.Select,
-            {
-              onSelect: (value) => setIdentifierProvider(value),
-              defaultValue: "did:ethr:goerli",
-              children: providers?.map((provider) => {
-                return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Select.Option, { value: provider, children: provider }, provider);
-              })
-            }
-          ) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            import_antd.Button,
-            {
-              onClick: () => generateIdentifiers(),
-              disabled: identifierProvider === "did:web" && !domain || identifiersGenerating || !identifierCount || !identifierProvider,
-              children: "Generate"
-            }
-          ) }),
-          identifiersGenerating && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text, { children: [
-            "Generating ",
-            identifierCount,
-            " identifiers.."
-          ] })
-        ]
-      }
-    ) }, "1"),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Panel, { header: "Credentials", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Title, { level: 5, children: "Profile Credentials" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        import_antd.Form,
-        {
-          labelCol: { span: 4 },
-          wrapperCol: { span: 14 },
-          layout: "vertical",
-          children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Space, { direction: "vertical", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text, { children: [
-              "Generate self-signed random profile credentials for",
-              " ",
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: identifiers?.length }),
-              " identifiers. Note profiles will be different everytime this is run."
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              import_antd.Button,
-              {
-                onClick: () => generateProfileCredentials(),
-                disabled: credentialProfilesGenerating || !identifiers,
-                children: "Generate Credentials"
-              }
-            ) }),
-            credentialProfilesGenerating && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text, { children: [
-              "Generating ",
-              identifierCount,
-              " credentials.."
-            ] })
-          ] })
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Divider, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Title, { level: 5, children: "Peer to Peer Credentials" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Space, { direction: "vertical", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text, { children: "Issue Kudos credential schema between identifiers" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text, { children: "Issue Kudos credential schema between identifiers. Using higher numbers of identifiers will take longer. Run multiple times with lower numbers for varying results. Number should not be more that the amount of identifiers in your agent. Putting 2 and 5 in the boxes below will issue 1 credential from 2 random identifiers to 5 random identifers." }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { label: "Issuer count", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          import_antd.Input,
-          {
-            width: 200,
-            defaultValue: credentialIssueFromCount,
-            onChange: (e) => setCredentialIssueFromCount(parseInt(e.target.value))
-          }
-        ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { label: "Subject count", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          import_antd.Input,
-          {
-            width: 200,
-            defaultValue: credentialIssueToCount,
-            onChange: (e) => setCredentialIssueToCount(parseInt(e.target.value))
-          }
-        ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          import_antd.Button,
-          {
-            disabled: credentialsP2PGenerating || !identifiers,
-            onClick: () => generateP2PCredentials(),
-            children: "Generate Credentials"
-          }
-        ) }),
-        credentialsP2PGenerating && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Text, { children: [
-          "Issuing credentials from ",
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: credentialIssueFromCount }),
-          " ",
-          "identifiers to ",
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: credentialIssueToCount }),
-          " identifers"
-        ] })
-      ] }) })
-    ] }, "2")
-  ] }) });
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
+var DownloadOutlined2 = function DownloadOutlined3(props, ref) {
+  return /* @__PURE__ */ React5.createElement(AntdIcon_default, _extends({}, props, {
+    ref,
+    icon: DownloadOutlined_default
+  }));
 };
-var DataGenerator_default = DataGenerator;
+if (true) {
+  DownloadOutlined2.displayName = "DownloadOutlined";
+}
+var DownloadOutlined_default2 = /* @__PURE__ */ React5.forwardRef(DownloadOutlined2);
 
-// src/CreateProfileCredential.tsx
-var import_react5 = __toESM(require_react(), 1);
-var import_antd2 = __toESM(require_antd(), 1);
-var import_veramo_react2 = __toESM(require_veramo_react(), 1);
-var import_react_query2 = __toESM(require_react_query(), 1);
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
+var React6 = __toESM(require_react());
+
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/EllipsisOutlined.js
+var EllipsisOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z" } }] }, "name": "ellipsis", "theme": "outlined" };
+var EllipsisOutlined_default = EllipsisOutlined;
+
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
+var EllipsisOutlined2 = function EllipsisOutlined3(props, ref) {
+  return /* @__PURE__ */ React6.createElement(AntdIcon_default, _extends({}, props, {
+    ref,
+    icon: EllipsisOutlined_default
+  }));
+};
+if (true) {
+  EllipsisOutlined2.displayName = "EllipsisOutlined";
+}
+var EllipsisOutlined_default2 = /* @__PURE__ */ React6.forwardRef(EllipsisOutlined2);
+
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
+var React7 = __toESM(require_react());
+
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/InfoCircleOutlined.js
+var InfoCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }, { "tag": "path", "attrs": { "d": "M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z" } }] }, "name": "info-circle", "theme": "outlined" };
+var InfoCircleOutlined_default = InfoCircleOutlined;
+
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
+var InfoCircleOutlined2 = function InfoCircleOutlined3(props, ref) {
+  return /* @__PURE__ */ React7.createElement(AntdIcon_default, _extends({}, props, {
+    ref,
+    icon: InfoCircleOutlined_default
+  }));
+};
+if (true) {
+  InfoCircleOutlined2.displayName = "InfoCircleOutlined";
+}
+var InfoCircleOutlined_default2 = /* @__PURE__ */ React7.forwardRef(InfoCircleOutlined2);
+
+// src/IssueCredential.tsx
+var import_react3 = __toESM(require_react(), 1);
+var import_antd = __toESM(require_antd(), 1);
 
 // src/utils/signing.ts
 var claimToObject = (arr) => {
@@ -4981,147 +1818,14 @@ var issueCredential = async (agent, iss, sub, claims, proofFormat, customContext
   }
   return await agent?.createVerifiableCredential(credentialObj);
 };
-var signVerifiablePresentation = async (agent, did, verifier, selected, proofFormat) => {
-  return await agent?.createVerifiablePresentation({
-    presentation: {
-      holder: did,
-      verifier,
-      "@context": ["https://www.w3.org/2018/credentials/v1"],
-      verifiableCredential: selected
-    },
-    proofFormat,
-    save: true
-  });
-};
-
-// src/CreateProfileCredential.tsx
-var import_uuid = __toESM(require_uuid(), 1);
-var import_pro_components2 = __toESM(require_pro_components(), 1);
-var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
-var { TextArea } = import_antd2.Input;
-var { Option } = import_antd2.Select;
-var CreateProfileCredential = () => {
-  const { agent } = (0, import_veramo_react2.useVeramo)();
-  const { data: identifiers, isLoading: identifiersLoading } = (0, import_react_query2.useQuery)(
-    ["identifiers", { agentId: agent?.context.id }],
-    () => agent?.didManagerFind()
-  );
-  const [issuer, setIssuer] = (0, import_react5.useState)("");
-  const [proofFormat, setProofFormat] = (0, import_react5.useState)("");
-  const [name, setName] = (0, import_react5.useState)("");
-  const [bio, setBio] = (0, import_react5.useState)("");
-  const [recipient, setRecipient] = (0, import_react5.useState)("");
-  const [inFlight, setInFlight] = (0, import_react5.useState)(false);
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_pro_components2.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_antd2.Card, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      import_antd2.Select,
-      {
-        style: { width: "60%" },
-        loading: identifiersLoading,
-        onChange: (e) => setIssuer(e),
-        placeholder: "issuer DID",
-        defaultActiveFirstOption: true,
-        children: identifiers && identifiers.map((id) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Option, { value: id.did, children: id.did }, id.did))
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input, { placeholder: "Name", onChange: (e) => setName(e.target.value) }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(TextArea, { placeholder: "Bio", onChange: (e) => setBio(e.target.value) }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-      import_antd2.Select,
-      {
-        style: { width: "60%" },
-        onChange: (e) => setProofFormat(e),
-        placeholder: "Proof type",
-        defaultActiveFirstOption: true,
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-            Option,
-            {
-              value: "EthereumEip712Signature2021",
-              children: "EthereumEip712Signature2021"
-            },
-            "EthereumEip712Signature2021lds"
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Option, { value: "jwt", children: "jwt" }, "jwt"),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Option, { value: "lds", children: "lds" }, "lds")
-        ]
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      import_antd2.Input,
-      {
-        placeholder: "Recipient DID",
-        onChange: (e) => setRecipient(e.target.value)
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      import_antd2.Button,
-      {
-        type: "primary",
-        disabled: inFlight || !proofFormat || !issuer,
-        onClick: async () => {
-          try {
-            setInFlight(true);
-            const cred = await issueCredential(
-              agent,
-              issuer,
-              issuer,
-              [
-                { type: "name", value: name },
-                { type: "bio", value: bio }
-              ],
-              proofFormat,
-              "",
-              "ProfileCredentialSchema",
-              "did:web:veramo.io;id=62a8ca5d-7e78-4e7b-a2c1-0bf2d37437ad;version=1.0"
-            );
-            console.log("cred: ", cred);
-            if (recipient) {
-              const packedMessage = await agent?.packDIDCommMessage({
-                packing: "none",
-                message: {
-                  from: issuer,
-                  to: recipient,
-                  id: (0, import_uuid.v4)(),
-                  type: "w3c.vc",
-                  body: cred
-                }
-              });
-              console.log("packedMessage: ", packedMessage);
-              const res = await agent?.sendDIDCommMessage({
-                messageId: (0, import_uuid.v4)(),
-                packedMessage,
-                recipientDidUrl: recipient
-              });
-              console.log("res: ", res);
-            }
-            setInFlight(false);
-          } catch (ex) {
-            console.error("ex: ", ex);
-            setInFlight(false);
-          }
-        },
-        children: "Create Profile"
-      }
-    )
-  ] }) });
-};
-var CreateProfileCredential_default = CreateProfileCredential;
 
 // src/IssueCredential.tsx
-var import_react6 = __toESM(require_react(), 1);
-var import_antd3 = __toESM(require_antd(), 1);
-var import_veramo_react3 = __toESM(require_veramo_react(), 1);
-var import_react_query3 = __toESM(require_react_query(), 1);
-var import_uuid2 = __toESM(require_uuid(), 1);
-var import_pro_components3 = __toESM(require_pro_components(), 1);
-var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
-var { Option: Option2 } = import_antd3.Select;
+var import_veramo_react = __toESM(require_veramo_react(), 1);
+var import_react_query = __toESM(require_react_query(), 1);
+var import_uuid = __toESM(require_uuid(), 1);
+var import_pro_components = __toESM(require_pro_components(), 1);
+var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+var { Option } = import_antd.Select;
 var formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -5133,18 +1837,18 @@ var formItemLayout = {
   }
 };
 var IssueCredential = () => {
-  const { agent } = (0, import_veramo_react3.useVeramo)();
-  const [claimType, setClaimType] = (0, import_react6.useState)("");
-  const [claimValue, setClaimValue] = (0, import_react6.useState)("");
-  const [credentialType, setCredentialType] = (0, import_react6.useState)("");
-  const [customContext, setCustomContext] = (0, import_react6.useState)("");
-  const [errorMessage, setErrorMessage] = (0, import_react6.useState)();
-  const [sending] = (0, import_react6.useState)(false);
-  const [issuer, setIssuer] = (0, import_react6.useState)("");
-  const [subject, setSubject] = (0, import_react6.useState)();
-  const [fields, updateFields] = (0, import_react6.useState)([]);
-  const [proofFormat, setProofFormat] = (0, import_react6.useState)("jwt");
-  const { data: identifiers, isLoading: identifiersLoading } = (0, import_react_query3.useQuery)(
+  const { agent } = (0, import_veramo_react.useVeramo)();
+  const [claimType, setClaimType] = (0, import_react3.useState)("");
+  const [claimValue, setClaimValue] = (0, import_react3.useState)("");
+  const [credentialType, setCredentialType] = (0, import_react3.useState)("");
+  const [customContext, setCustomContext] = (0, import_react3.useState)("");
+  const [errorMessage, setErrorMessage] = (0, import_react3.useState)();
+  const [sending] = (0, import_react3.useState)(false);
+  const [issuer, setIssuer] = (0, import_react3.useState)("");
+  const [subject, setSubject] = (0, import_react3.useState)();
+  const [fields, updateFields] = (0, import_react3.useState)([]);
+  const [proofFormat, setProofFormat] = (0, import_react3.useState)("jwt");
+  const { data: identifiers, isLoading: identifiersLoading } = (0, import_react_query.useQuery)(
     ["identifiers", { agentId: agent?.context.id }],
     () => agent?.didManagerFind()
   );
@@ -5187,7 +1891,7 @@ var IssueCredential = () => {
   };
   const sendVC = async (body) => {
     try {
-      const messageId = (0, import_uuid2.v4)();
+      const messageId = (0, import_uuid.v4)();
       const message = {
         type: "veramo.io/chat/v1/basicmessage",
         to: subject,
@@ -5212,62 +1916,62 @@ var IssueCredential = () => {
       agent?.handleMessage({ raw: body.proof.jwt, save: true });
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_pro_components3.PageContainer, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Typography.Text, { children: "Credential preview" }),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_antd3.Form, { ...formItemLayout, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Row, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("code", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("pre", { children: JSON.stringify(claimToObject(fields), null, 2) }) }) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-        import_antd3.Input,
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_pro_components.PageContainer, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Typography.Text, { children: "Credential preview" }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Form, { ...formItemLayout, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Row, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("code", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", { children: JSON.stringify(claimToObject(fields), null, 2) }) }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        import_antd.Input,
         {
           value: subject,
           placeholder: "subject DID",
           style: { width: "60%" },
-          onChange: (e) => setSubject(e.target.value)
+          onChange: (e2) => setSubject(e2.target.value)
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-        import_antd3.Select,
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        import_antd.Select,
         {
           style: { width: "60%" },
           loading: identifiersLoading,
-          onChange: (e) => setIssuer(e),
+          onChange: (e2) => setIssuer(e2),
           placeholder: "issuer DID",
           defaultActiveFirstOption: true,
-          children: identifiers && identifiers.map((id) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Option2, { value: id.did, children: id.did }, id.did))
+          children: identifiers && identifiers.map((id) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: id.did, children: id.did }, id.did))
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-        import_antd3.Input,
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        import_antd.Input,
         {
           value: credentialType,
           placeholder: "credential type e.g Profile",
           style: { width: "60%" },
-          onChange: (e) => setCredentialType(e.target.value)
+          onChange: (e2) => setCredentialType(e2.target.value)
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-        import_antd3.Input,
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        import_antd.Input,
         {
           value: customContext,
           placeholder: "custom context url",
           style: { width: "60%" },
-          onChange: (e) => setCustomContext(e.target.value)
+          onChange: (e2) => setCustomContext(e2.target.value)
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
-        import_antd3.Select,
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+        import_antd.Select,
         {
           style: { width: "60%" },
-          onChange: (e) => setProofFormat(e),
+          onChange: (e2) => setProofFormat(e2),
           placeholder: "Proof type",
           defaultActiveFirstOption: true,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Option2, { value: "jwt", children: "jwt" }, "jwt"),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Option2, { value: "lds", children: "lds" }, "lds"),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-              Option2,
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: "jwt", children: "jwt" }, "jwt"),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: "lds", children: "lds" }, "lds"),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              Option,
               {
                 value: "EthereumEip712Signature2021",
                 children: "EthereumEip712Signature2021"
@@ -5277,27 +1981,27 @@ var IssueCredential = () => {
           ]
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_antd3.Form.Item, { style: { padding: 15 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          import_antd3.Input,
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Form.Item, { style: { padding: 15 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          import_antd.Input,
           {
             placeholder: "claim type e.g. 'name'",
             value: claimType,
             style: { width: "60%" },
-            onChange: (e) => setClaimType(e.target.value)
+            onChange: (e2) => setClaimType(e2.target.value)
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          import_antd3.Input,
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          import_antd.Input,
           {
             placeholder: "claim value e.g. Alice",
             value: claimValue,
             style: { width: "60%" },
-            onChange: (e) => setClaimValue(e.target.value)
+            onChange: (e2) => setClaimValue(e2.target.value)
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          import_antd3.Button,
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          import_antd.Button,
           {
             type: "primary",
             htmlType: "submit",
@@ -5310,11 +2014,11 @@ var IssueCredential = () => {
             children: "Add"
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Typography.Text, { children: errorMessage })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Typography.Text, { children: errorMessage })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_antd3.Row, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          import_antd3.Button,
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Row, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          import_antd.Button,
           {
             type: "primary",
             onClick: () => signVc(),
@@ -5323,8 +2027,8 @@ var IssueCredential = () => {
             children: "Issue"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          import_antd3.Button,
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          import_antd.Button,
           {
             onClick: () => signVc(true),
             type: "primary",
@@ -5338,188 +2042,260 @@ var IssueCredential = () => {
 };
 var IssueCredential_default = IssueCredential;
 
-// src/CreatePresentation.tsx
-var import_react7 = __toESM(require_react(), 1);
-var import_antd4 = __toESM(require_antd(), 1);
-var import_veramo_react4 = __toESM(require_veramo_react(), 1);
-var import_react_query4 = __toESM(require_react_query(), 1);
+// src/BrainshareFeed.tsx
 var import_date_fns = __toESM(require_date_fns(), 1);
-var import_uuid3 = __toESM(require_uuid(), 1);
-var import_pro_components4 = __toESM(require_pro_components(), 1);
-var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
-var { Option: Option3 } = import_antd4.Select;
-var formItemLayout2 = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 4 }
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 20 }
-  }
+var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
+var import_react_query3 = __toESM(require_react_query(), 1);
+var import_veramo_react4 = __toESM(require_veramo_react(), 1);
+var import_pro_components2 = __toESM(require_pro_components(), 1);
+
+// node_modules/.pnpm/@veramo-community+react-components@1.5.0(react@18.2.0)/node_modules/@veramo-community/react-components/dist/esm/index.js
+var e = __toESM(require_react(), 1);
+var t = function(t2) {
+  var a2 = t2.credential;
+  return e.createElement("div", { className: "message-embed" }, e.createElement("div", { className: "embed-content" }, e.createElement("div", { className: "embed-title description" }, "\u{1F3C6} Kudos to ", e.createElement("a", { href: a2.credentialSubject.id }, a2.credentialSubject.name)), e.createElement("div", { className: "embed-description description" }, a2.credentialSubject.kudos), e.createElement("div", { className: "embed-footer" }, e.createElement("img", { className: "footer-icon", src: a2.credentialSubject.authorAvatar, alt: "" }), e.createElement("a", { href: a2.credentialSubject.authorId }, a2.credentialSubject.authorName), e.createElement("span", { className: "divider" }, "\u2022"), e.createElement("a", { href: "https://discord.com/channels/".concat(a2.credentialSubject.guildId, "/").concat(a2.credentialSubject.channelId, "/").concat(a2.id) }, a2.credentialSubject.channelName), e.createElement("span", { className: "divider" }, "\u2022"), e.createElement("a", { href: "https://discord.com/channels/".concat(a2.credentialSubject.guildId, "/").concat(a2.credentialSubject.channelId, "/").concat(a2.id) }, a2.credentialSubject.guildName))), e.createElement("div", { className: "embed-thumbnail" }, e.createElement("div", { className: "avatar-large ".concat(a2.credentialSubject.avatar && "" !== a2.credentialSubject.avatar ? "" : "hidden") }, " ", e.createElement("img", { src: a2.credentialSubject.avatar }), " ")));
 };
-var historyColumns = [
-  {
-    title: "Issuance Date",
-    dataIndex: "verifiableCredential",
-    sorter: {
-      compare: (a, b) => new Date(a.verifiableCredential.issuanceDate).getTime() - new Date(b.verifiableCredential.issuanceDate).getTime(),
-      multiple: 1
-    },
-    render: (verifiableCredential) => (0, import_date_fns.format)(new Date(verifiableCredential.issuanceDate), "PPP")
-  },
-  {
-    title: "Type",
-    dataIndex: "verifiableCredential",
-    render: (verifiableCredential) => verifiableCredential.type.map((type, i) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Tag, { color: "geekblue", children: type }, i))
+var a = function(t2) {
+  var a2 = t2.credential;
+  return e.createElement("div", { className: "message-embed" }, e.createElement("div", { className: "embed-content" }, e.createElement("div", { className: "embed-title description" }, "\u{1F3C6} Kudos to ", e.createElement("a", { href: a2.credentialSubject.discordUserId }, a2.credentialSubject.discordUserName)), e.createElement("div", { className: "embed-description description" }, a2.credentialSubject.kudos), e.createElement("div", { className: "embed-footer" }, e.createElement("img", { className: "footer-icon", src: a2.credentialSubject.discordAuthorAvatar, alt: "" }), e.createElement("a", { href: a2.credentialSubject.discordAuthorId }, a2.credentialSubject.discordAuthorName), e.createElement("span", { className: "divider" }, "\u2022"), e.createElement("a", { href: "https://discord.com/channels/".concat(a2.credentialSubject.discordGuildId, "/").concat(a2.credentialSubject.discordChannelId, "/").concat(a2.id) }, a2.credentialSubject.discordChannelName), e.createElement("span", { className: "divider" }, "\u2022"), e.createElement("a", { href: "https://discord.com/channels/".concat(a2.credentialSubject.discordGuildId, "/").concat(a2.credentialSubject.discordChannelId, "/").concat(a2.id) }, a2.credentialSubject.discordGuildName))), e.createElement("div", { className: "embed-thumbnail" }, e.createElement("div", { className: "avatar-large ".concat(a2.credentialSubject.discordUserAvatar && "" !== a2.credentialSubject.discordUserAvatar ? "" : "hidden") }, " ", e.createElement("img", { src: a2.credentialSubject.discordUserAvatar }), " ")));
+};
+var c = function(t2) {
+  var a2 = t2.credential;
+  return e.createElement("div", { className: "message-embed" }, e.createElement("div", { className: "embed-content" }, e.createElement("div", { className: "embed-title description" }, a2.type.join(", ")), e.createElement("div", { className: "embed-fields" }, Object.entries(a2.credentialSubject).map(function(t3) {
+    var a3 = t3[0], c2 = t3[1];
+    return e.createElement("div", { className: "embed-field", key: a3 }, e.createElement("div", { className: "embed-field-name" }, a3), e.createElement("div", { className: "embed-field-value" }, "object" == typeof c2 || Array.isArray(c2) ? JSON.stringify(c2) : c2));
+  }))));
+};
+var r = function(t2) {
+  var a2 = t2.credential;
+  return e.createElement("div", { className: "message-embed" }, e.createElement("div", { className: "embed-content" }, e.createElement("div", { className: "embed-fields" }, Object.entries(a2.credentialSubject).map(function(t3) {
+    var a3 = t3[0], c2 = t3[1];
+    return "picture" === a3 || "id" === a3 ? null : e.createElement("div", { className: "embed-field", key: a3 }, e.createElement("div", { className: "embed-field-name" }, a3), e.createElement("div", { className: "embed-field-value" }, "object" == typeof c2 || Array.isArray(c2) ? JSON.stringify(c2) : c2));
+  }))), e.createElement("div", { className: "embed-thumbnail" }, e.createElement("div", { className: "avatar-large ".concat(a2.credentialSubject.picture && "" !== a2.credentialSubject.picture ? "" : "hidden") }, " ", e.createElement("img", { src: a2.credentialSubject.picture }), " ")));
+};
+var d = function(d2) {
+  var n, i, l, s = d2.credential;
+  return (null === (n = s.type) || void 0 === n ? void 0 : n.includes("Kudos")) ? e.createElement(t, { credential: s }) : (null === (i = s.type) || void 0 === i ? void 0 : i.includes("Profile")) ? e.createElement(r, { credential: s }) : (null === (l = s.type) || void 0 === l ? void 0 : l.includes("DiscordKudos")) ? e.createElement(a, { credential: s }) : e.createElement(c, { credential: s });
+};
+
+// src/components/IdentifierProfile.tsx
+var import_antd2 = __toESM(require_antd(), 1);
+var import_veramo_react2 = __toESM(require_veramo_react(), 1);
+var import_react_query2 = __toESM(require_react_query(), 1);
+
+// src/utils/did.ts
+function shortId(id) {
+  if (!id)
+    return "";
+  function shortDotSeparatedString(str) {
+    const parts2 = str.split(".");
+    if (parts2.length === 1) {
+      return str;
+    }
+    return parts2.map((part) => {
+      if (part.length > 10) {
+        return part.substring(0, 1) + "." + part.substring(part.length - 1);
+      } else {
+        return part;
+      }
+    }).join(".");
   }
-];
-var CreatePresentation = () => {
-  const { agent } = (0, import_veramo_react4.useVeramo)();
-  if (!agent)
-    throw Error("No agent");
-  const [selectedCredentials, setSelectedCredentials] = (0, import_react7.useState)([]);
-  const [sending] = (0, import_react7.useState)(false);
-  const [issuer, setIssuer] = (0, import_react7.useState)("");
-  const [subject, setSubject] = (0, import_react7.useState)("");
-  const [proofFormat, setProofFormat] = (0, import_react7.useState)("jwt");
-  const { data: credentials, isLoading: credentialHistoryLoading } = (0, import_react_query4.useQuery)(
-    ["credentials"],
-    () => agent?.dataStoreORMGetVerifiableCredentials()
+  const parts = id.split(":");
+  return parts.map((part) => {
+    if (part.length > 41) {
+      const str = shortDotSeparatedString(part);
+      if (part !== str)
+        return str;
+      return str.substring(0, 7) + "..." + str.substring(str.length - 5);
+    } else {
+      return part;
+    }
+  }).join(":");
+}
+function getIssuerDID(credential) {
+  if (typeof credential.issuer === "string") {
+    return credential.issuer;
+  } else {
+    return credential.issuer.id;
+  }
+}
+
+// src/components/IdentifierProfile.tsx
+var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+var IdentifierProfile = ({
+  did,
+  showShortId = true
+}) => {
+  const { agent } = (0, import_veramo_react2.useVeramo)();
+  const { token } = import_antd2.theme.useToken();
+  const { data, isLoading } = (0, import_react_query2.useQuery)(
+    ["identifierProfile", did, agent?.context.id],
+    () => did ? agent?.getIdentifierProfile({ did }) : void 0
   );
-  const { data: identifiers, isLoading: identifiersLoading } = (0, import_react_query4.useQuery)(
-    ["identifiers", { agentId: agent?.context.id }],
-    () => agent?.didManagerFind()
-  );
-  const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {
-      setSelectedCredentials(
-        selectedRows.map((row) => row.verifiableCredential)
-      );
-    }
-  };
-  const signVP = async (send) => {
-    const vp = await signVerifiablePresentation(
-      agent,
-      issuer,
-      [subject],
-      selectedCredentials,
-      proofFormat
-    );
-    setIssuer("");
-    setSubject("");
-    setSelectedCredentials([]);
-    if (send) {
-      await sendVP(vp);
-    }
-  };
-  const sendVP = async (body) => {
-    try {
-      const messageId = (0, import_uuid3.v4)();
-      const message = {
-        type: "veramo.io/chat/v1/basicmessage",
-        to: subject,
-        from: issuer,
-        id: messageId,
-        body
-      };
-      const packedMessage = await agent?.packDIDCommMessage({
-        packing: "authcrypt",
-        message
-      });
-      if (packedMessage) {
-        await agent?.sendDIDCommMessage({
-          messageId,
-          packedMessage,
-          recipientDidUrl: subject
-        });
-      }
-    } catch (err) {
-      console.log(err);
-      agent?.handleMessage({ raw: body.proof.jwt, save: true });
-    }
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_pro_components4.PageContainer, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_antd4.Card, { bordered: false, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Typography.Text, { children: "Select credentials to create presentation" }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Form.Item, { noStyle: true, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-        import_antd4.Input,
-        {
-          value: subject,
-          placeholder: "verifier DID",
-          style: { width: "60%", marginBottom: 15 },
-          onChange: (e) => setSubject(e.target.value)
-        }
-      ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-        import_antd4.Select,
-        {
-          style: { width: "60%" },
-          loading: identifiersLoading,
-          onChange: (e) => setIssuer(e),
-          placeholder: "issuer DID",
-          defaultActiveFirstOption: true,
-          children: identifiers && identifiers.map((id) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Option3, { value: id.did, children: id.did }, id.did))
-        }
-      ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
-        import_antd4.Select,
-        {
-          style: { width: "60%" },
-          onChange: (e) => setProofFormat(e),
-          placeholder: "jwt or lds",
-          defaultActiveFirstOption: true,
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Option3, { value: "jwt", children: "jwt" }, "jwt"),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Option3, { value: "lds", children: "lds" }, "lds")
-          ]
-        }
-      ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_antd4.Row, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          import_antd4.Button,
-          {
-            type: "primary",
-            onClick: () => signVP(),
-            style: { marginRight: 5 },
-            disabled: sending || selectedCredentials.length === 0 || !subject || !issuer,
-            children: "Create Presentation"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          import_antd4.Button,
-          {
-            onClick: () => signVP(true),
-            type: "primary",
-            disabled: sending || selectedCredentials.length === 0 || !subject || !issuer,
-            children: "Create Presentation & Send"
-          }
-        )
-      ] })
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_antd2.Row, { align: "middle", wrap: false, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_antd2.Col, { style: { marginRight: token.padding }, children: [
+      !isLoading && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Avatar, { src: data?.picture }),
+      isLoading && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Skeleton.Avatar, { active: true })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Form, { ...formItemLayout2, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Form.Item, { noStyle: true, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-      import_antd4.Table,
-      {
-        loading: credentialHistoryLoading,
-        rowSelection,
-        expandable: {
-          expandedRowRender: (record) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("pre", { children: JSON.stringify(
-            record.verifiableCredential.credentialSubject,
-            null,
-            2
-          ) })
-        },
-        rowKey: (record) => record.hash,
-        columns: historyColumns,
-        dataSource: credentials,
-        pagination: false
-      }
-    ) }) }) })
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_antd2.Col, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { justifyItems: "flex-start", display: "flex" }, children: [
+        !isLoading && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Typography.Text, { ellipsis: true, children: data?.name }),
+        isLoading && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Skeleton.Input, { style: { width: 100 }, active: true })
+      ] }),
+      showShortId && data?.name && data?.name !== shortId(did) && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        import_antd2.Typography.Text,
+        {
+          ellipsis: true,
+          style: { color: token.colorTextSecondary },
+          children: shortId(did)
+        }
+      ) })
+    ] })
   ] });
 };
-var CreatePresentation_default = CreatePresentation;
+var IdentifierProfile_default = IdentifierProfile;
+
+// src/components/CredentialActionsDropdown.tsx
+var import_antd3 = __toESM(require_antd(), 1);
+var import_veramo_react3 = __toESM(require_veramo_react(), 1);
+var import_react_router_dom = __toESM(require_react_router_dom(), 1);
+var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
+var CredentialActionsDropdown = ({ children, credential }) => {
+  const { agents, getAgent } = (0, import_veramo_react3.useVeramo)();
+  const navigate = (0, import_react_router_dom.useNavigate)();
+  const { notification } = import_antd3.App.useApp();
+  const agentsToCopyTo = agents.filter(
+    (agent) => agent.availableMethods().includes("dataStoreSaveVerifiableCredential")
+  );
+  const handleCopyTo = async (agentId) => {
+    const agent = getAgent(agentId);
+    try {
+      await agent.dataStoreSaveVerifiableCredential({
+        verifiableCredential: credential
+      });
+      notification.success({
+        message: "Credential copied to: " + agent.context.name
+      });
+    } catch (e2) {
+      notification.error({
+        message: "Error copying credential to: " + agent.context.name,
+        description: e2.message
+      });
+    }
+  };
+  const handleDownload = () => {
+    const element = document.createElement("a");
+    const file = new Blob([JSON.stringify(credential, null, 2)], {
+      type: "text/plain"
+    });
+    element.href = URL.createObjectURL(file);
+    element.download = "verifiable-credential.json";
+    document.body.appendChild(element);
+    element.click();
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    import_antd3.Dropdown,
+    {
+      menu: {
+        items: [
+          {
+            key: "issuer",
+            label: "Issuer",
+            icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InfoCircleOutlined_default2, {}),
+            onClick: () => navigate("/contacts/" + getIssuerDID(credential))
+          },
+          {
+            key: "subject",
+            label: "Subject",
+            icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InfoCircleOutlined_default2, {}),
+            onClick: () => navigate(
+              "/contacts/" + encodeURIComponent(credential.credentialSubject.id)
+            )
+          },
+          {
+            key: "download",
+            label: "Download",
+            icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(DownloadOutlined_default2, {}),
+            onClick: handleDownload
+          },
+          {
+            key: "copy",
+            label: "Copy to",
+            type: "group",
+            children: agentsToCopyTo.map((_agent, index) => {
+              return {
+                key: index,
+                onClick: () => handleCopyTo(_agent.context?.id),
+                label: _agent.context?.name
+              };
+            })
+          }
+        ]
+      },
+      children
+    }
+  );
+};
+var CredentialActionsDropdown_default = CredentialActionsDropdown;
+
+// src/BrainshareFeed.tsx
+var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+var BrainshareFeed = () => {
+  const navigate = (0, import_react_router_dom2.useNavigate)();
+  const { agent } = (0, import_veramo_react4.useVeramo)();
+  const { data: credentials, isLoading } = (0, import_react_query3.useQuery)(
+    ["credentials", { agentId: agent?.context.name }],
+    () => agent?.dataStoreORMGetVerifiableCredentials({
+      order: [{ column: "issuanceDate", direction: "DESC" }]
+    })
+  );
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_pro_components2.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+    import_pro_components2.ProList,
+    {
+      ghost: true,
+      loading: isLoading,
+      pagination: {
+        defaultPageSize: 20,
+        showSizeChanger: true
+      },
+      grid: { column: 1, lg: 2, xxl: 2, xl: 2 },
+      onItem: (record) => {
+        return {
+          onClick: () => {
+            navigate("/credentials/" + record.hash);
+          }
+        };
+      },
+      metas: {
+        title: {},
+        content: {},
+        actions: {
+          cardActionProps: "extra"
+        }
+      },
+      dataSource: credentials?.map((item) => {
+        return {
+          title: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            IdentifierProfile_default,
+            {
+              did: getIssuerDID(item.verifiableCredential)
+            }
+          ),
+          actions: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: (0, import_date_fns.formatRelative)(
+              new Date(item.verifiableCredential.issuanceDate),
+              /* @__PURE__ */ new Date()
+            ) }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CredentialActionsDropdown_default, { credential: item.verifiableCredential, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(EllipsisOutlined_default2, {}) })
+          ],
+          content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(d, { credential: item.verifiableCredential }) }),
+          hash: item.hash
+        };
+      })
+    }
+  ) });
+};
+var BrainshareFeed_default = BrainshareFeed;
 
 // src/index.tsx
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
@@ -5527,24 +2303,20 @@ var Plugin = {
   //@ts-ignore
   init: (agent) => {
     return {
-      name: "Developer tools",
-      description: "Collection of tools for experimenting with verifiable data",
+      name: "BrainShare",
+      description: "Extremely Cool Something",
       routes: [
         {
-          path: "/developer/data-generator",
-          element: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(DataGenerator_default, {})
+          path: "/brainshare/feed",
+          element: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(BrainshareFeed_default, {})
         },
-        {
-          path: "/developer/issue-profile-credential",
-          element: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(CreateProfileCredential_default, {})
-        },
+        // {
+        //   path: '/brainshare/issue-profile-credential',
+        //   element: <CreateProfileCredential />,
+        // },
         {
           path: "/developer/issue-credential",
           element: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(IssueCredential_default, {})
-        },
-        {
-          path: "/developer/create-presentation",
-          element: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(CreatePresentation_default, {})
         }
       ],
       menuItems: [
@@ -5564,10 +2336,6 @@ var Plugin = {
             {
               path: "/developer/issue-credential",
               name: "Issue credential"
-            },
-            {
-              path: "/developer/create-presentation",
-              name: "Create presentation"
             }
           ]
         }
