@@ -4472,6 +4472,106 @@ var import_react_query = __toESM(require_react_query(), 1);
 
 // src/utils/dataGenerator.ts
 var import_random_words = __toESM(require_random_words(), 1);
+
+// src/utils/kudos-messages.ts
+var kudosMessages = [
+  "Great job on that project; your expertise really shined through!",
+  "Your creativity never ceases to amaze me; well done!",
+  "Thanks for stepping up; you're a team player.",
+  "Outstanding presentation; you nailed it!",
+  "Your hard work is paying off; keep it up!",
+  "Excellent problem-solving; you found a solution no one else could.",
+  "Your dedication to quality is commendable.",
+  "Thanks for going the extra mile; it didn't go unnoticed.",
+  "Your leadership skills are inspiring to us all.",
+  "You have a knack for making complex issues look easy; kudos!",
+  "Consistent performance, well done!",
+  "Your enthusiasm is contagious.",
+  "You've got a great attitude, and it shows.",
+  "Thanks for always being so dependable.",
+  "You make teamwork look easy.",
+  "Fantastic effort on the latest project.",
+  "You're setting the bar high for the rest of us.",
+  "You're a rockstar at what you do.",
+  "Excellent execution; couldn't ask for more.",
+  "Your drive for success is admirable.",
+  "You've outdone yourself, again.",
+  "Your focus and precision are remarkable.",
+  "You're a great communicator; thanks for the clarity.",
+  "Your work ethic is second to none.",
+  "Your commitment to our mission is impressive.",
+  "Your resilience during challenges is commendable.",
+  "You've really mastered your craft.",
+  "Your adaptability is a key asset.",
+  "Thanks for taking ownership and seeing it through.",
+  "Your positivity lights up the room.",
+  "You made sense of the chaos; well played.",
+  "Your contribution to the team is invaluable.",
+  "Great collaboration skills; you make us better.",
+  "You're always two steps ahead; keep it up.",
+  "Exceptional attention to detail; it makes a difference.",
+  "Your insights are always so helpful.",
+  "You handled that difficult situation with grace.",
+  "Thanks for the quick turnaround; it saved the day.",
+  "Your humility adds to your greatness.",
+  "Your initiative shows your dedication.",
+  "Your mentorship has been invaluable.",
+  "Thanks for being a standout colleague.",
+  "You make a real difference; thank you.",
+  "Your discipline is admirable.",
+  "You bring out the best in others.",
+  "You're a great example to us all.",
+  "Thanks for always respecting deadlines.",
+  "Your work always exceeds expectations.",
+  "You're a pro at customer service.",
+  "You have a great knack for problem-solving.",
+  "You're very resourceful; it doesn't go unnoticed.",
+  "Your passion for the work is inspiring.",
+  "You keep the team focused and on track.",
+  "Your technical skills are unmatched.",
+  "You make challenging tasks look easy.",
+  "Your innovation is a game-changer.",
+  "Thanks for always being so organized.",
+  "Your ability to lead is truly remarkable.",
+  "You're great at making the workplace enjoyable.",
+  "Thanks for the unwavering professionalism.",
+  "Your strategic thinking is exceptional.",
+  "You're the go-to person for sound advice.",
+  "Your dependability is rock-solid.",
+  "You're a quick learner; it's impressive.",
+  "Thanks for adding value to every team meeting.",
+  "Your confidence boosts the team's morale.",
+  "You're the epitome of reliability.",
+  "You make success look effortless.",
+  "You have an eye for quality; it's refreshing.",
+  "Your empathy makes you a great teammate.",
+  "Your perseverance has paid off; well done.",
+  "You're a visionary; you see the bigger picture.",
+  "You've set a new standard for excellence.",
+  "Your contributions to the project were key.",
+  "You have a strong sense of responsibility.",
+  "You're great at juggling multiple tasks.",
+  "You've really fine-tuned your skills.",
+  "You make the impossible look possible.",
+  "Your ability to stay calm under pressure is admirable.",
+  "Thanks for always bringing your A-game.",
+  "Your positive energy is infectious.",
+  "You're an excellent role model for the team.",
+  "You're a catalyst for change; great work.",
+  "Your work always hits the mark.",
+  "Your ability to handle stress is inspiring.",
+  "Your fearlessness in taking risks is commendable.",
+  "You're the definition of a team player.",
+  "You keep setting new benchmarks; amazing.",
+  "Your humility makes you an even greater leader.",
+  "Your time management skills are top-notch.",
+  "You always bring fresh ideas to the table.",
+  "Your professionalism sets you apart.",
+  "Thanks for always stepping in when needed.",
+  "You're an incredible asset to this team."
+];
+
+// src/utils/dataGenerator.ts
 function getRandomDate(from, to) {
   const fromTime = from.getTime();
   const toTime = to.getTime();
@@ -4558,28 +4658,31 @@ async function createProfileCredentials(createVerifiableCredential, identifiers)
             lastName: profile.name.last,
             nickname: profile.username,
             email: profile.email,
-            profileImage: profile.picture.large
+            picture: profile.picture.large
           }
         }
       });
     })
   );
 }
-async function createP2PCredentials(identifiers, createVerifiableCredential, type, subjectBody, count, date) {
+async function createKudosCredentials(identifiers, createVerifiableCredential, count, date, agent) {
   if (!identifiers)
     return;
   const fromSelected = selectRandomIndexes(identifiers.length, count.from);
   const toSelected = selectRandomIndexes(identifiers.length, count.to);
   return Promise.all(
     fromSelected.map(async (fromIndex) => {
+      const issuerProfile = await agent.getIdentifierProfile({ did: identifiers[fromIndex].did });
       return await Promise.all(
         toSelected.map(async (toIndex) => {
+          const subjectProfile = await agent.getIdentifierProfile({ did: identifiers[toIndex].did });
+          const kudos = kudosMessages[Math.floor(Math.random() * kudosMessages.length)];
           return await createVerifiableCredential({
             save: true,
             proofFormat: "jwt",
             credential: {
               "@context": ["https://www.w3.org/2018/credentials/v1"],
-              type: ["VerifiableCredential"].concat([type]),
+              type: ["VerifiableCredential", "Kudos"],
               issuer: { id: identifiers[fromIndex].did },
               issuanceDate: getRandomDate(
                 new Date(date.from),
@@ -4587,7 +4690,17 @@ async function createP2PCredentials(identifiers, createVerifiableCredential, typ
               ).toISOString(),
               credentialSubject: {
                 id: identifiers[toIndex].did,
-                ...subjectBody
+                name: subjectProfile?.name,
+                avatar: subjectProfile?.picture,
+                kudos,
+                "authorId": issuerProfile?.did,
+                "authorName": issuerProfile?.name,
+                "authorAvatar": issuerProfile?.picture,
+                "channelId": "878293684620234755",
+                "channelName": "\u{1F4AC}\uFF5Cgeneral-chats",
+                "guildId": "878293684620234752",
+                "guildName": "Veramolabs",
+                "guildAvatar": "https://cdn.discordapp.com/icons/878293684620234752/3a6e2e86c563b4f327e86d51289dd294.png"
               }
             }
           });
@@ -4641,7 +4754,7 @@ var DataGenerator = () => {
   const { agent } = (0, import_veramo_react.useVeramo)();
   const { data: identifiers } = (0, import_react_query.useQuery)(
     ["identifiers", { agentId: agent?.context.id }],
-    () => agent?.dataStoreORMGetIdentifiers()
+    () => agent?.didManagerFind()
   );
   const { data: providers } = (0, import_react_query.useQuery)(
     ["providers", { agentId: agent?.context.id }],
@@ -4693,17 +4806,15 @@ var DataGenerator = () => {
       setCredentialsP2PGenerating(true);
       const fromCount = credentialIssueFromCount > identifiers.length ? identifiers.length : credentialIssueFromCount;
       const toCount = credentialIssueToCount > identifiers.length ? identifiers.length : credentialIssueToCount;
-      await createP2PCredentials(
+      await createKudosCredentials(
         // @ts-ignore
         identifiers,
         // @ts-ignore
         agent?.createVerifiableCredential,
-        "Kudos",
-        // @todo allow custom credential
-        { kudos: 1 },
         { from: fromCount, to: toCount },
         // @todo allow date to be user selectable
-        { from: "2019-01-01T00:00:00.271Z", to: "2021-02-01T01:00:00.271Z" }
+        { from: "2019-01-01T00:00:00.271Z", to: "2021-02-01T01:00:00.271Z" },
+        agent
       );
       setCredentialsP2PGenerating(false);
     }
@@ -4775,16 +4886,6 @@ var DataGenerator = () => {
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: identifiers?.length }),
               " identifiers. Note profiles will be different everytime this is run."
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Row, { style: { padding: "20px 0" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("code", { children: JSON.stringify(
-              {
-                name: "string",
-                nickname: "string",
-                email: "string",
-                profileImage: "string"
-              },
-              null,
-              2
-            ) }) }) }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               import_antd.Button,
               {
@@ -4805,13 +4906,6 @@ var DataGenerator = () => {
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Title, { level: 5, children: "Peer to Peer Credentials" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Space, { direction: "vertical", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text, { children: "Issue Kudos credential schema between identifiers" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Row, { style: { padding: "20px 0" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("code", { children: JSON.stringify(
-          {
-            kudos: 1
-          },
-          null,
-          2
-        ) }) }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Text, { children: "Issue Kudos credential schema between identifiers. Using higher numbers of identifiers will take longer. Run multiple times with lower numbers for varying results. Number should not be more that the amount of identifiers in your agent. Putting 2 and 5 in the boxes below will issue 1 credential from 2 random identifiers to 5 random identifers." }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { label: "Issuer count", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           import_antd.Input,

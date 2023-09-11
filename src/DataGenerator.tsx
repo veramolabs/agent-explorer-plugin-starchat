@@ -15,16 +15,17 @@ import { useQuery, useQueryClient } from 'react-query'
 import * as generatorUtils from './utils/dataGenerator'
 import { useGenerator } from './utils/useGenerator'
 import { PageContainer } from '@ant-design/pro-components'
+import { IDIDManager, IDataStoreORM } from '@veramo/core'
 
 const { Title, Text } = Typography
 const { Panel } = Collapse
 
 const DataGenerator: React.FC = () => {
   const queryClient = useQueryClient()
-  const { agent } = useVeramo()
+  const { agent } = useVeramo<IDIDManager & IDataStoreORM>()
   const { data: identifiers } = useQuery(
     ['identifiers', { agentId: agent?.context.id }],
-    () => agent?.dataStoreORMGetIdentifiers(),
+    () => agent?.didManagerFind(),
   )
   const { data: providers } = useQuery(
     ['providers', { agentId: agent?.context.id }],
@@ -93,17 +94,16 @@ const DataGenerator: React.FC = () => {
           ? identifiers.length
           : credentialIssueToCount
 
-      await generatorUtils.createP2PCredentials(
+      await generatorUtils.createKudosCredentials(
         // @ts-ignore
         identifiers,
         // @ts-ignore
         agent?.createVerifiableCredential,
-        'Kudos',
-        // @todo allow custom credential
-        { kudos: 1 },
+
         { from: fromCount, to: toCount },
         // @todo allow date to be user selectable
         { from: '2019-01-01T00:00:00.271Z', to: '2021-02-01T01:00:00.271Z' },
+        agent,
       )
 
       setCredentialsP2PGenerating(false)
@@ -184,22 +184,6 @@ const DataGenerator: React.FC = () => {
                 <b>{identifiers?.length}</b> identifiers. Note profiles will be
                 different everytime this is run.
               </Text>
-              <Row style={{ padding: '20px 0' }}>
-                <pre>
-                  <code>
-                    {JSON.stringify(
-                      {
-                        name: 'string',
-                        nickname: 'string',
-                        email: 'string',
-                        profileImage: 'string',
-                      },
-                      null,
-                      2,
-                    )}
-                  </code>
-                </pre>
-              </Row>
               <Form.Item>
                 <Button
                   onClick={() => generateProfileCredentials()}
@@ -218,19 +202,6 @@ const DataGenerator: React.FC = () => {
           <Form>
             <Space direction="vertical">
               <Text>Issue Kudos credential schema between identifiers</Text>
-              <Row style={{ padding: '20px 0' }}>
-                <pre>
-                  <code>
-                    {JSON.stringify(
-                      {
-                        kudos: 1,
-                      },
-                      null,
-                      2,
-                    )}
-                  </code>
-                </pre>
-              </Row>
 
               <Form.Item>
                 <Text>

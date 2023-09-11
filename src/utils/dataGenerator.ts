@@ -2,8 +2,10 @@ import {
   VerifiableCredential,
   IIdentifier,
   ICreateVerifiableCredentialArgs,
+  TAgent,
 } from '@veramo/core'
 import randomWords from 'random-words'
+import { kudosMessages } from './kudos-messages'
 
 export function getRandomDate(from: Date, to: Date) {
   const fromTime = from.getTime()
@@ -121,7 +123,7 @@ export async function createProfileCredentials(
             lastName: profile.name.last,
             nickname: profile.username,
             email: profile.email,
-            profileImage: profile.picture.large,
+            picture: profile.picture.large,
           },
         },
       })
@@ -131,31 +133,33 @@ export async function createProfileCredentials(
 
 // new Date('2019-01-01T00:00:00.271Z'),
 // new Date('2021-02-01T01:00:00.271Z'),
-export async function createP2PCredentials(
+export async function createKudosCredentials(
   identifiers: IIdentifier[],
   createVerifiableCredential: (
     args: ICreateVerifiableCredentialArgs,
   ) => Promise<VerifiableCredential>,
-  type: string,
-  subjectBody: any,
   count: { from: number; to: number },
   date: { from: string; to: string },
+  agent: TAgent<any>,
 ) {
   if (!identifiers) return
 
   const fromSelected = selectRandomIndexes(identifiers.length, count.from)
   const toSelected = selectRandomIndexes(identifiers.length, count.to)
-
   return Promise.all(
     fromSelected.map(async (fromIndex: number) => {
+      const issuerProfile = await agent.getIdentifierProfile({ did: identifiers[fromIndex].did})
       return await Promise.all(
         toSelected.map(async (toIndex: number) => {
+          const subjectProfile = await agent.getIdentifierProfile({ did: identifiers[toIndex].did})
+          const kudos = kudosMessages[Math.floor(Math.random() * kudosMessages.length)]
+
           return await createVerifiableCredential({
             save: true,
             proofFormat: 'jwt',
             credential: {
               '@context': ['https://www.w3.org/2018/credentials/v1'],
-              type: ['VerifiableCredential'].concat([type]),
+              type: ['VerifiableCredential', 'Kudos'],
               issuer: { id: identifiers[fromIndex].did as string },
               issuanceDate: getRandomDate(
                 new Date(date.from),
@@ -163,7 +167,20 @@ export async function createP2PCredentials(
               ).toISOString(),
               credentialSubject: {
                 id: identifiers[toIndex].did,
-                ...subjectBody,
+                name: subjectProfile?.name,
+                avatar: subjectProfile?.picture,
+                kudos: kudos,
+                
+                "authorId": issuerProfile?.did,
+                "authorName": issuerProfile?.name,
+                "authorAvatar": issuerProfile?.picture,
+                
+                "channelId": "878293684620234755",
+                "channelName": "💬｜general-chats",
+                "guildId": "878293684620234752",
+                "guildName": "Veramolabs",
+                "guildAvatar": "https://cdn.discordapp.com/icons/878293684620234752/3a6e2e86c563b4f327e86d51289dd294.png",
+      
               },
             },
           })
