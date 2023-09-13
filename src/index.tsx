@@ -32,13 +32,13 @@ const Plugin: IPlugin = {
           ],
           menuItems: [
             {
-              name: 'Feed',
+              name: 'BrainShare',
               path: '/brainshare',
               icon: <CodeOutlined />,
               routes: [
                 {
                   path: '/brainshare/feed',
-                  name: 'Feed',
+                  name: 'BrainShare Feed',
                 },
                 // {
                 //   path: '/developer/issue-profile-credential',
