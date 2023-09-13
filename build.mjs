@@ -2,7 +2,7 @@ import * as esbuild from 'esbuild'
 import pkg from 'esbuild-plugin-external-global';
 const { externalGlobalPlugin } = pkg;
 
-await esbuild.build({
+let ctx = await esbuild.context({
   entryPoints: ['./src/index.jsx'],
   outfile: './dist/plugin.js',
   bundle: true,
@@ -36,3 +36,11 @@ await esbuild.build({
     })
   ]
 })
+
+if (process.argv.includes('--serve')) {
+  await ctx.watch()
+  let { port } = await ctx.serve({ servedir: './dist', port: 8080 })
+  console.log(`Plugin available at http://localhost:${port}/plugin.js`)
+} else {
+  await ctx.rebuild().finally(() => process.exit(0))
+}
