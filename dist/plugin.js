@@ -492,6 +492,13 @@ var require_pro_components = __commonJS({
   }
 });
 
+// external-global-plugin:@veramo-community/react-components
+var require_react_components = __commonJS({
+  "external-global-plugin:@veramo-community/react-components"(exports, module) {
+    module.exports = window.veramoreactcomponents;
+  }
+});
+
 // external-global-plugin:antd
 var require_antd = __commonJS({
   "external-global-plugin:antd"(exports, module) {
@@ -506,7 +513,7 @@ var require_jsx_runtime = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/Context.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/Context.js
 var import_react = __toESM(require_react());
 var IconContext = /* @__PURE__ */ (0, import_react.createContext)({});
 var Context_default = IconContext;
@@ -677,7 +684,7 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/AntdIcon.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/AntdIcon.js
 var React3 = __toESM(require_react());
 var import_classnames = __toESM(require_classnames());
 
@@ -707,12 +714,12 @@ function isOnePointZero(n) {
 function isPercentage(n) {
   return typeof n === "string" && n.indexOf("%") !== -1;
 }
-function boundAlpha(a2) {
-  a2 = parseFloat(a2);
-  if (isNaN(a2) || a2 < 0 || a2 > 1) {
-    a2 = 1;
+function boundAlpha(a) {
+  a = parseFloat(a);
+  if (isNaN(a) || a < 0 || a > 1) {
+    a = 1;
   }
-  return a2;
+  return a;
 }
 function convertToPercentage(n) {
   if (n <= 1) {
@@ -720,38 +727,38 @@ function convertToPercentage(n) {
   }
   return n;
 }
-function pad2(c2) {
-  return c2.length === 1 ? "0" + c2 : String(c2);
+function pad2(c) {
+  return c.length === 1 ? "0" + c : String(c);
 }
 
 // node_modules/.pnpm/@ctrl+tinycolor@3.6.0/node_modules/@ctrl/tinycolor/dist/module/conversion.js
-function rgbToRgb(r2, g, b) {
+function rgbToRgb(r, g, b) {
   return {
-    r: bound01(r2, 255) * 255,
+    r: bound01(r, 255) * 255,
     g: bound01(g, 255) * 255,
     b: bound01(b, 255) * 255
   };
 }
-function hue2rgb(p, q, t2) {
-  if (t2 < 0) {
-    t2 += 1;
+function hue2rgb(p, q, t) {
+  if (t < 0) {
+    t += 1;
   }
-  if (t2 > 1) {
-    t2 -= 1;
+  if (t > 1) {
+    t -= 1;
   }
-  if (t2 < 1 / 6) {
-    return p + (q - p) * (6 * t2);
+  if (t < 1 / 6) {
+    return p + (q - p) * (6 * t);
   }
-  if (t2 < 1 / 2) {
+  if (t < 1 / 2) {
     return q;
   }
-  if (t2 < 2 / 3) {
-    return p + (q - p) * (2 / 3 - t2) * 6;
+  if (t < 2 / 3) {
+    return p + (q - p) * (2 / 3 - t) * 6;
   }
   return p;
 }
 function hslToRgb(h, s, l) {
-  var r2;
+  var r;
   var g;
   var b;
   h = bound01(h, 360);
@@ -760,38 +767,38 @@ function hslToRgb(h, s, l) {
   if (s === 0) {
     g = l;
     b = l;
-    r2 = l;
+    r = l;
   } else {
     var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
     var p = 2 * l - q;
-    r2 = hue2rgb(p, q, h + 1 / 3);
+    r = hue2rgb(p, q, h + 1 / 3);
     g = hue2rgb(p, q, h);
     b = hue2rgb(p, q, h - 1 / 3);
   }
-  return { r: r2 * 255, g: g * 255, b: b * 255 };
+  return { r: r * 255, g: g * 255, b: b * 255 };
 }
-function rgbToHsv(r2, g, b) {
-  r2 = bound01(r2, 255);
+function rgbToHsv(r, g, b) {
+  r = bound01(r, 255);
   g = bound01(g, 255);
   b = bound01(b, 255);
-  var max = Math.max(r2, g, b);
-  var min = Math.min(r2, g, b);
+  var max = Math.max(r, g, b);
+  var min = Math.min(r, g, b);
   var h = 0;
   var v = max;
-  var d2 = max - min;
-  var s = max === 0 ? 0 : d2 / max;
+  var d = max - min;
+  var s = max === 0 ? 0 : d / max;
   if (max === min) {
     h = 0;
   } else {
     switch (max) {
-      case r2:
-        h = (g - b) / d2 + (g < b ? 6 : 0);
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
         break;
       case g:
-        h = (b - r2) / d2 + 2;
+        h = (b - r) / d + 2;
         break;
       case b:
-        h = (r2 - g) / d2 + 4;
+        h = (r - g) / d + 4;
         break;
       default:
         break;
@@ -808,16 +815,16 @@ function hsvToRgb(h, s, v) {
   var f = h - i;
   var p = v * (1 - s);
   var q = v * (1 - f * s);
-  var t2 = v * (1 - (1 - f) * s);
+  var t = v * (1 - (1 - f) * s);
   var mod = i % 6;
-  var r2 = [v, q, p, p, t2, v][mod];
-  var g = [t2, v, v, q, p, p][mod];
-  var b = [p, p, t2, v, v, q][mod];
-  return { r: r2 * 255, g: g * 255, b: b * 255 };
+  var r = [v, q, p, p, t, v][mod];
+  var g = [t, v, v, q, p, p][mod];
+  var b = [p, p, t, v, v, q][mod];
+  return { r: r * 255, g: g * 255, b: b * 255 };
 }
-function rgbToHex(r2, g, b, allow3Char) {
+function rgbToHex(r, g, b, allow3Char) {
   var hex = [
-    pad2(Math.round(r2).toString(16)),
+    pad2(Math.round(r).toString(16)),
     pad2(Math.round(g).toString(16)),
     pad2(Math.round(b).toString(16))
   ];
@@ -988,7 +995,7 @@ var names = {
 // node_modules/.pnpm/@ctrl+tinycolor@3.6.0/node_modules/@ctrl/tinycolor/dist/module/format-input.js
 function inputToRGB(color) {
   var rgb = { r: 0, g: 0, b: 0 };
-  var a2 = 1;
+  var a = 1;
   var s = null;
   var v = null;
   var l = null;
@@ -1016,17 +1023,17 @@ function inputToRGB(color) {
       format = "hsl";
     }
     if (Object.prototype.hasOwnProperty.call(color, "a")) {
-      a2 = color.a;
+      a = color.a;
     }
   }
-  a2 = boundAlpha(a2);
+  a = boundAlpha(a);
   return {
     ok,
     format: color.format || format,
     r: Math.min(255, Math.max(rgb.r, 0)),
     g: Math.min(255, Math.max(rgb.g, 0)),
     b: Math.min(255, Math.max(rgb.b, 0)),
-    a: a2
+    a
   };
 }
 var CSS_INTEGER = "[-\\+]?\\d+%?";
@@ -1167,8 +1174,8 @@ var darkColorMap = [{
   opacity: 0.98
 }];
 function toHsv(_ref) {
-  var r2 = _ref.r, g = _ref.g, b = _ref.b;
-  var hsv = rgbToHsv(r2, g, b);
+  var r = _ref.r, g = _ref.g, b = _ref.b;
+  var hsv = rgbToHsv(r, g, b);
   return {
     h: hsv.h * 360,
     s: hsv.s,
@@ -1176,8 +1183,8 @@ function toHsv(_ref) {
   };
 }
 function toHex(_ref2) {
-  var r2 = _ref2.r, g = _ref2.g, b = _ref2.b;
-  return "#".concat(rgbToHex(r2, g, b, false));
+  var r = _ref2.r, g = _ref2.g, b = _ref2.b;
+  return "#".concat(rgbToHex(r, g, b, false));
 }
 function mix(rgb1, rgb2, amount) {
   var p = amount / 100;
@@ -1335,18 +1342,18 @@ function _objectSpread2(target) {
   return target;
 }
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/IconBase.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/IconBase.js
 var React2 = __toESM(require_react());
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/utils.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/utils.js
 var import_lodash = __toESM(require_lodash());
 
-// node_modules/.pnpm/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)/node_modules/rc-util/es/Dom/canUseDom.js
+// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/canUseDom.js
 function canUseDom() {
   return !!(typeof window !== "undefined" && window.document && window.document.createElement);
 }
 
-// node_modules/.pnpm/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)/node_modules/rc-util/es/Dom/contains.js
+// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/contains.js
 function contains(root, n) {
   if (!root) {
     return false;
@@ -1364,7 +1371,7 @@ function contains(root, n) {
   return false;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)/node_modules/rc-util/es/Dom/dynamicCSS.js
+// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/dynamicCSS.js
 var APPEND_ORDER = "data-rc-order";
 var APPEND_PRIORITY = "data-rc-priority";
 var MARK_KEY = "rc-util-key";
@@ -1470,7 +1477,7 @@ function updateCSS(css, key) {
   return newNode;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)/node_modules/rc-util/es/Dom/shadow.js
+// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/shadow.js
 function getRoot(ele) {
   var _ele$getRootNode;
   return ele === null || ele === void 0 ? void 0 : (_ele$getRootNode = ele.getRootNode) === null || _ele$getRootNode === void 0 ? void 0 : _ele$getRootNode.call(ele);
@@ -1482,7 +1489,7 @@ function getShadowRoot(ele) {
   return inShadow(ele) ? getRoot(ele) : null;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)/node_modules/rc-util/es/warning.js
+// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/warning.js
 var warned = {};
 var preWarningFns = [];
 var preMessage = function preMessage2(fn) {
@@ -1528,7 +1535,7 @@ warningOnce.resetWarned = resetWarned;
 warningOnce.noteOnce = noteOnce;
 var warning_default = warningOnce;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/utils.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/utils.js
 var import_react2 = __toESM(require_react());
 function warning2(valid, message) {
   warning_default(valid, "[@ant-design/icons] ".concat(message));
@@ -1593,7 +1600,7 @@ var useInsertStyles = function useInsertStyles2(eleRef) {
   }, []);
 };
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/IconBase.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/IconBase.js
 var _excluded = ["icon", "className", "onClick", "style", "primaryColor", "secondaryColor"];
 var twoToneColorPalette = {
   primaryColor: "#333",
@@ -1648,7 +1655,7 @@ IconBase.getTwoToneColors = getTwoToneColors;
 IconBase.setTwoToneColors = setTwoToneColors;
 var IconBase_default = IconBase;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/twoTonePrimaryColor.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/twoTonePrimaryColor.js
 function setTwoToneColor(twoToneColor) {
   var _normalizeTwoToneColo = normalizeTwoToneColors(twoToneColor), _normalizeTwoToneColo2 = _slicedToArray(_normalizeTwoToneColo, 2), primaryColor = _normalizeTwoToneColo2[0], secondaryColor = _normalizeTwoToneColo2[1];
   return IconBase_default.setTwoToneColors({
@@ -1664,7 +1671,7 @@ function getTwoToneColor() {
   return [colors.primaryColor, colors.secondaryColor];
 }
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/AntdIcon.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/AntdIcon.js
 var _excluded2 = ["className", "icon", "spin", "rotate", "tabIndex", "onClick", "twoToneColor"];
 setTwoToneColor(blue.primary);
 var Icon = /* @__PURE__ */ React3.forwardRef(function(props, ref) {
@@ -1701,35 +1708,16 @@ Icon.getTwoToneColor = getTwoToneColor;
 Icon.setTwoToneColor = setTwoToneColor;
 var AntdIcon_default = Icon;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/CodeOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
 var React4 = __toESM(require_react());
-
-// node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/CodeOutlined.js
-var CodeOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M516 673c0 4.4 3.4 8 7.5 8h185c4.1 0 7.5-3.6 7.5-8v-48c0-4.4-3.4-8-7.5-8h-185c-4.1 0-7.5 3.6-7.5 8v48zm-194.9 6.1l192-161c3.8-3.2 3.8-9.1 0-12.3l-192-160.9A7.95 7.95 0 00308 351v62.7c0 2.4 1 4.6 2.9 6.1L420.7 512l-109.8 92.2a8.1 8.1 0 00-2.9 6.1V673c0 6.8 7.9 10.5 13.1 6.1zM880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z" } }] }, "name": "code", "theme": "outlined" };
-var CodeOutlined_default = CodeOutlined;
-
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/CodeOutlined.js
-var CodeOutlined2 = function CodeOutlined3(props, ref) {
-  return /* @__PURE__ */ React4.createElement(AntdIcon_default, _extends({}, props, {
-    ref,
-    icon: CodeOutlined_default
-  }));
-};
-if (true) {
-  CodeOutlined2.displayName = "CodeOutlined";
-}
-var CodeOutlined_default2 = /* @__PURE__ */ React4.forwardRef(CodeOutlined2);
-
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
-var React5 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/DownloadOutlined.js
 var DownloadOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z" } }] }, "name": "download", "theme": "outlined" };
 var DownloadOutlined_default = DownloadOutlined;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
 var DownloadOutlined2 = function DownloadOutlined3(props, ref) {
-  return /* @__PURE__ */ React5.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React4.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: DownloadOutlined_default
   }));
@@ -1737,18 +1725,18 @@ var DownloadOutlined2 = function DownloadOutlined3(props, ref) {
 if (true) {
   DownloadOutlined2.displayName = "DownloadOutlined";
 }
-var DownloadOutlined_default2 = /* @__PURE__ */ React5.forwardRef(DownloadOutlined2);
+var DownloadOutlined_default2 = /* @__PURE__ */ React4.forwardRef(DownloadOutlined2);
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
-var React6 = __toESM(require_react());
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
+var React5 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/EllipsisOutlined.js
 var EllipsisOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z" } }] }, "name": "ellipsis", "theme": "outlined" };
 var EllipsisOutlined_default = EllipsisOutlined;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
 var EllipsisOutlined2 = function EllipsisOutlined3(props, ref) {
-  return /* @__PURE__ */ React6.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React5.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: EllipsisOutlined_default
   }));
@@ -1756,16 +1744,35 @@ var EllipsisOutlined2 = function EllipsisOutlined3(props, ref) {
 if (true) {
   EllipsisOutlined2.displayName = "EllipsisOutlined";
 }
-var EllipsisOutlined_default2 = /* @__PURE__ */ React6.forwardRef(EllipsisOutlined2);
+var EllipsisOutlined_default2 = /* @__PURE__ */ React5.forwardRef(EllipsisOutlined2);
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileTextOutlined.js
+var React6 = __toESM(require_react());
+
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/FileTextOutlined.js
+var FileTextOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z" } }] }, "name": "file-text", "theme": "outlined" };
+var FileTextOutlined_default = FileTextOutlined;
+
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileTextOutlined.js
+var FileTextOutlined2 = function FileTextOutlined3(props, ref) {
+  return /* @__PURE__ */ React6.createElement(AntdIcon_default, _extends({}, props, {
+    ref,
+    icon: FileTextOutlined_default
+  }));
+};
+if (true) {
+  FileTextOutlined2.displayName = "FileTextOutlined";
+}
+var FileTextOutlined_default2 = /* @__PURE__ */ React6.forwardRef(FileTextOutlined2);
+
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
 var React7 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/InfoCircleOutlined.js
 var InfoCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }, { "tag": "path", "attrs": { "d": "M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z" } }] }, "name": "info-circle", "theme": "outlined" };
 var InfoCircleOutlined_default = InfoCircleOutlined;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
 var InfoCircleOutlined2 = function InfoCircleOutlined3(props, ref) {
   return /* @__PURE__ */ React7.createElement(AntdIcon_default, _extends({}, props, {
     ref,
@@ -1784,35 +1791,7 @@ var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
 var import_react_query3 = __toESM(require_react_query(), 1);
 var import_veramo_react4 = __toESM(require_veramo_react(), 1);
 var import_pro_components = __toESM(require_pro_components(), 1);
-
-// node_modules/.pnpm/@veramo-community+react-components@1.5.0(react@18.2.0)/node_modules/@veramo-community/react-components/dist/esm/index.js
-var e = __toESM(require_react(), 1);
-var t = function(t2) {
-  var a2 = t2.credential;
-  return e.createElement("div", { className: "message-embed" }, e.createElement("div", { className: "embed-content" }, e.createElement("div", { className: "embed-title description" }, "\u{1F3C6} Kudos to ", e.createElement("a", { href: a2.credentialSubject.id }, a2.credentialSubject.name)), e.createElement("div", { className: "embed-description description" }, a2.credentialSubject.kudos), e.createElement("div", { className: "embed-footer" }, e.createElement("img", { className: "footer-icon", src: a2.credentialSubject.authorAvatar, alt: "" }), e.createElement("a", { href: a2.credentialSubject.authorId }, a2.credentialSubject.authorName), e.createElement("span", { className: "divider" }, "\u2022"), e.createElement("a", { href: "https://discord.com/channels/".concat(a2.credentialSubject.guildId, "/").concat(a2.credentialSubject.channelId, "/").concat(a2.id) }, a2.credentialSubject.channelName), e.createElement("span", { className: "divider" }, "\u2022"), e.createElement("a", { href: "https://discord.com/channels/".concat(a2.credentialSubject.guildId, "/").concat(a2.credentialSubject.channelId, "/").concat(a2.id) }, a2.credentialSubject.guildName))), e.createElement("div", { className: "embed-thumbnail" }, e.createElement("div", { className: "avatar-large ".concat(a2.credentialSubject.avatar && "" !== a2.credentialSubject.avatar ? "" : "hidden") }, " ", e.createElement("img", { src: a2.credentialSubject.avatar }), " ")));
-};
-var a = function(t2) {
-  var a2 = t2.credential;
-  return e.createElement("div", { className: "message-embed" }, e.createElement("div", { className: "embed-content" }, e.createElement("div", { className: "embed-title description" }, "\u{1F3C6} Kudos to ", e.createElement("a", { href: a2.credentialSubject.discordUserId }, a2.credentialSubject.discordUserName)), e.createElement("div", { className: "embed-description description" }, a2.credentialSubject.kudos), e.createElement("div", { className: "embed-footer" }, e.createElement("img", { className: "footer-icon", src: a2.credentialSubject.discordAuthorAvatar, alt: "" }), e.createElement("a", { href: a2.credentialSubject.discordAuthorId }, a2.credentialSubject.discordAuthorName), e.createElement("span", { className: "divider" }, "\u2022"), e.createElement("a", { href: "https://discord.com/channels/".concat(a2.credentialSubject.discordGuildId, "/").concat(a2.credentialSubject.discordChannelId, "/").concat(a2.id) }, a2.credentialSubject.discordChannelName), e.createElement("span", { className: "divider" }, "\u2022"), e.createElement("a", { href: "https://discord.com/channels/".concat(a2.credentialSubject.discordGuildId, "/").concat(a2.credentialSubject.discordChannelId, "/").concat(a2.id) }, a2.credentialSubject.discordGuildName))), e.createElement("div", { className: "embed-thumbnail" }, e.createElement("div", { className: "avatar-large ".concat(a2.credentialSubject.discordUserAvatar && "" !== a2.credentialSubject.discordUserAvatar ? "" : "hidden") }, " ", e.createElement("img", { src: a2.credentialSubject.discordUserAvatar }), " ")));
-};
-var c = function(t2) {
-  var a2 = t2.credential;
-  return e.createElement("div", { className: "message-embed" }, e.createElement("div", { className: "embed-content" }, e.createElement("div", { className: "embed-title description" }, a2.type.join(", ")), e.createElement("div", { className: "embed-fields" }, Object.entries(a2.credentialSubject).map(function(t3) {
-    var a3 = t3[0], c2 = t3[1];
-    return e.createElement("div", { className: "embed-field", key: a3 }, e.createElement("div", { className: "embed-field-name" }, a3), e.createElement("div", { className: "embed-field-value" }, "object" == typeof c2 || Array.isArray(c2) ? JSON.stringify(c2) : c2));
-  }))));
-};
-var r = function(t2) {
-  var a2 = t2.credential;
-  return e.createElement("div", { className: "message-embed" }, e.createElement("div", { className: "embed-content" }, e.createElement("div", { className: "embed-fields" }, Object.entries(a2.credentialSubject).map(function(t3) {
-    var a3 = t3[0], c2 = t3[1];
-    return "picture" === a3 || "id" === a3 ? null : e.createElement("div", { className: "embed-field", key: a3 }, e.createElement("div", { className: "embed-field-name" }, a3), e.createElement("div", { className: "embed-field-value" }, "object" == typeof c2 || Array.isArray(c2) ? JSON.stringify(c2) : c2));
-  }))), e.createElement("div", { className: "embed-thumbnail" }, e.createElement("div", { className: "avatar-large ".concat(a2.credentialSubject.picture && "" !== a2.credentialSubject.picture ? "" : "hidden") }, " ", e.createElement("img", { src: a2.credentialSubject.picture }), " ")));
-};
-var d = function(d2) {
-  var n, i, l, s = d2.credential;
-  return (null === (n = s.type) || void 0 === n ? void 0 : n.includes("Kudos")) ? e.createElement(t, { credential: s }) : (null === (i = s.type) || void 0 === i ? void 0 : i.includes("Profile")) ? e.createElement(r, { credential: s }) : (null === (l = s.type) || void 0 === l ? void 0 : l.includes("DiscordKudos")) ? e.createElement(a, { credential: s }) : e.createElement(c, { credential: s });
-};
+var import_react_components = __toESM(require_react_components(), 1);
 
 // src/components/IdentifierProfile.tsx
 var import_antd = __toESM(require_antd(), 1);
@@ -1912,10 +1891,10 @@ var CredentialActionsDropdown = ({ children, credential }) => {
       notification.success({
         message: "Credential copied to: " + agent.context.name
       });
-    } catch (e2) {
+    } catch (e) {
       notification.error({
         message: "Error copying credential to: " + agent.context.name,
-        description: e2.message
+        description: e.message
       });
     }
   };
@@ -2052,8 +2031,8 @@ var CreatePost = ({}) => {
         placeholder: `Compose...`,
         value: message,
         rows: 40,
-        onChange: (e2) => {
-          setMessage(e2.target.value);
+        onChange: (e) => {
+          setMessage(e.target.value);
         }
       }
     ),
@@ -2139,7 +2118,7 @@ var BrainshareFeed = () => {
                   ) }),
                   /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CredentialActionsDropdown_default, { credential: item.verifiableCredential, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(EllipsisOutlined_default2, {}) })
                 ],
-                content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(d, { credential: item.verifiableCredential }) }),
+                content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_react_components.VerifiableCredential, { credential: item.verifiableCredential }) }),
                 hash: item.hash
               };
             })
@@ -2176,13 +2155,13 @@ var Plugin = {
       ],
       menuItems: [
         {
-          name: "Feed",
+          name: "BrainShare",
           path: "/brainshare",
-          icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(CodeOutlined_default2, {}),
+          icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(FileTextOutlined_default2, {}),
           routes: [
             {
               path: "/brainshare/feed",
-              name: "Feed"
+              name: "BrainShare Feed"
             }
             // {
             //   path: '/developer/issue-profile-credential',

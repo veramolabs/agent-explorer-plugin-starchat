@@ -2,7 +2,7 @@ import * as esbuild from 'esbuild'
 import pkg from 'esbuild-plugin-external-global';
 const { externalGlobalPlugin } = pkg;
 
-await esbuild.build({
+let ctx = await esbuild.context({
   entryPoints: ['./src/index.jsx'],
   outfile: './dist/plugin.js',
   bundle: true,
@@ -15,6 +15,7 @@ await esbuild.build({
     '@ant-design/pro-components',
     'react-query',
     '@veramo-community/veramo-react',
+    '@veramo-community/react-components',
     'react-router-dom',
     'uuid',
     'date-fns',
@@ -29,6 +30,7 @@ await esbuild.build({
       '@ant-design/pro-components': 'window.antdPro',
       'react-query': 'window.reactquery',
       '@veramo-community/veramo-react': 'window.veramoreact',
+      '@veramo-community/react-components': 'window.veramoreactcomponents',
       'react-router-dom': 'window.reactrouterdom',
       'uuid': 'window.uuid',
       'date-fns': 'window.datefns',
@@ -36,3 +38,11 @@ await esbuild.build({
     })
   ]
 })
+
+if (process.argv.includes('--serve')) {
+  await ctx.watch()
+  let { port } = await ctx.serve({ servedir: './dist', port: 8080 })
+  console.log(`Plugin available at http://localhost:${port}/plugin.js`)
+} else {
+  await ctx.rebuild().finally(() => process.exit(0))
+}

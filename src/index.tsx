@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  CodeOutlined,
+  FileTextOutlined,
 } from '@ant-design/icons'
 
 import { IPlugin } from './types';
@@ -34,7 +34,7 @@ const Plugin: IPlugin = {
             {
               name: 'BrainShare',
               path: '/brainshare',
-              icon: <CodeOutlined />,
+              icon: <FileTextOutlined />,
               routes: [
                 {
                   path: '/brainshare/feed',
