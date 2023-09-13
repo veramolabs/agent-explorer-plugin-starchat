@@ -457,48 +457,6 @@ var require_lodash = __commonJS({
   }
 });
 
-// external-global-plugin:antd
-var require_antd = __commonJS({
-  "external-global-plugin:antd"(exports, module) {
-    module.exports = window.antd;
-  }
-});
-
-// external-global-plugin:@veramo-community/veramo-react
-var require_veramo_react = __commonJS({
-  "external-global-plugin:@veramo-community/veramo-react"(exports, module) {
-    module.exports = window.veramoreact;
-  }
-});
-
-// external-global-plugin:react-query
-var require_react_query = __commonJS({
-  "external-global-plugin:react-query"(exports, module) {
-    module.exports = window.reactquery;
-  }
-});
-
-// external-global-plugin:uuid
-var require_uuid = __commonJS({
-  "external-global-plugin:uuid"(exports, module) {
-    module.exports = window.uuid;
-  }
-});
-
-// external-global-plugin:@ant-design/pro-components
-var require_pro_components = __commonJS({
-  "external-global-plugin:@ant-design/pro-components"(exports, module) {
-    module.exports = window.antdPro;
-  }
-});
-
-// external-global-plugin:react/jsx-runtime
-var require_jsx_runtime = __commonJS({
-  "external-global-plugin:react/jsx-runtime"(exports, module) {
-    module.exports = window.reactjsxruntime;
-  }
-});
-
 // external-global-plugin:date-fns
 var require_date_fns = __commonJS({
   "external-global-plugin:date-fns"(exports, module) {
@@ -513,7 +471,42 @@ var require_react_router_dom = __commonJS({
   }
 });
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/Context.js
+// external-global-plugin:react-query
+var require_react_query = __commonJS({
+  "external-global-plugin:react-query"(exports, module) {
+    module.exports = window.reactquery;
+  }
+});
+
+// external-global-plugin:@veramo-community/veramo-react
+var require_veramo_react = __commonJS({
+  "external-global-plugin:@veramo-community/veramo-react"(exports, module) {
+    module.exports = window.veramoreact;
+  }
+});
+
+// external-global-plugin:@ant-design/pro-components
+var require_pro_components = __commonJS({
+  "external-global-plugin:@ant-design/pro-components"(exports, module) {
+    module.exports = window.antdPro;
+  }
+});
+
+// external-global-plugin:antd
+var require_antd = __commonJS({
+  "external-global-plugin:antd"(exports, module) {
+    module.exports = window.antd;
+  }
+});
+
+// external-global-plugin:react/jsx-runtime
+var require_jsx_runtime = __commonJS({
+  "external-global-plugin:react/jsx-runtime"(exports, module) {
+    module.exports = window.reactjsxruntime;
+  }
+});
+
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/Context.js
 var import_react = __toESM(require_react());
 var IconContext = /* @__PURE__ */ (0, import_react.createContext)({});
 var Context_default = IconContext;
@@ -684,7 +677,7 @@ function _objectWithoutProperties(source, excluded) {
   return target;
 }
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/AntdIcon.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/AntdIcon.js
 var React3 = __toESM(require_react());
 var import_classnames = __toESM(require_classnames());
 
@@ -1342,18 +1335,18 @@ function _objectSpread2(target) {
   return target;
 }
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/IconBase.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/IconBase.js
 var React2 = __toESM(require_react());
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/utils.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/utils.js
 var import_lodash = __toESM(require_lodash());
 
-// node_modules/.pnpm/rc-util@5.36.0(react@18.2.0)/node_modules/rc-util/es/Dom/canUseDom.js
+// node_modules/.pnpm/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)/node_modules/rc-util/es/Dom/canUseDom.js
 function canUseDom() {
   return !!(typeof window !== "undefined" && window.document && window.document.createElement);
 }
 
-// node_modules/.pnpm/rc-util@5.36.0(react@18.2.0)/node_modules/rc-util/es/Dom/contains.js
+// node_modules/.pnpm/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)/node_modules/rc-util/es/Dom/contains.js
 function contains(root, n) {
   if (!root) {
     return false;
@@ -1371,7 +1364,7 @@ function contains(root, n) {
   return false;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0(react@18.2.0)/node_modules/rc-util/es/Dom/dynamicCSS.js
+// node_modules/.pnpm/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)/node_modules/rc-util/es/Dom/dynamicCSS.js
 var APPEND_ORDER = "data-rc-order";
 var APPEND_PRIORITY = "data-rc-priority";
 var MARK_KEY = "rc-util-key";
@@ -1477,7 +1470,7 @@ function updateCSS(css, key) {
   return newNode;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0(react@18.2.0)/node_modules/rc-util/es/Dom/shadow.js
+// node_modules/.pnpm/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)/node_modules/rc-util/es/Dom/shadow.js
 function getRoot(ele) {
   var _ele$getRootNode;
   return ele === null || ele === void 0 ? void 0 : (_ele$getRootNode = ele.getRootNode) === null || _ele$getRootNode === void 0 ? void 0 : _ele$getRootNode.call(ele);
@@ -1489,7 +1482,7 @@ function getShadowRoot(ele) {
   return inShadow(ele) ? getRoot(ele) : null;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0(react@18.2.0)/node_modules/rc-util/es/warning.js
+// node_modules/.pnpm/rc-util@5.36.0(react-dom@18.2.0)(react@18.2.0)/node_modules/rc-util/es/warning.js
 var warned = {};
 var preWarningFns = [];
 var preMessage = function preMessage2(fn) {
@@ -1535,7 +1528,7 @@ warningOnce.resetWarned = resetWarned;
 warningOnce.noteOnce = noteOnce;
 var warning_default = warningOnce;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/utils.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/utils.js
 var import_react2 = __toESM(require_react());
 function warning2(valid, message) {
   warning_default(valid, "[@ant-design/icons] ".concat(message));
@@ -1600,7 +1593,7 @@ var useInsertStyles = function useInsertStyles2(eleRef) {
   }, []);
 };
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/IconBase.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/IconBase.js
 var _excluded = ["icon", "className", "onClick", "style", "primaryColor", "secondaryColor"];
 var twoToneColorPalette = {
   primaryColor: "#333",
@@ -1655,7 +1648,7 @@ IconBase.getTwoToneColors = getTwoToneColors;
 IconBase.setTwoToneColors = setTwoToneColors;
 var IconBase_default = IconBase;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/twoTonePrimaryColor.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/twoTonePrimaryColor.js
 function setTwoToneColor(twoToneColor) {
   var _normalizeTwoToneColo = normalizeTwoToneColors(twoToneColor), _normalizeTwoToneColo2 = _slicedToArray(_normalizeTwoToneColo, 2), primaryColor = _normalizeTwoToneColo2[0], secondaryColor = _normalizeTwoToneColo2[1];
   return IconBase_default.setTwoToneColors({
@@ -1671,7 +1664,7 @@ function getTwoToneColor() {
   return [colors.primaryColor, colors.secondaryColor];
 }
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/components/AntdIcon.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/components/AntdIcon.js
 var _excluded2 = ["className", "icon", "spin", "rotate", "tabIndex", "onClick", "twoToneColor"];
 setTwoToneColor(blue.primary);
 var Icon = /* @__PURE__ */ React3.forwardRef(function(props, ref) {
@@ -1708,14 +1701,14 @@ Icon.getTwoToneColor = getTwoToneColor;
 Icon.setTwoToneColor = setTwoToneColor;
 var AntdIcon_default = Icon;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/CodeOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/CodeOutlined.js
 var React4 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/CodeOutlined.js
 var CodeOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M516 673c0 4.4 3.4 8 7.5 8h185c4.1 0 7.5-3.6 7.5-8v-48c0-4.4-3.4-8-7.5-8h-185c-4.1 0-7.5 3.6-7.5 8v48zm-194.9 6.1l192-161c3.8-3.2 3.8-9.1 0-12.3l-192-160.9A7.95 7.95 0 00308 351v62.7c0 2.4 1 4.6 2.9 6.1L420.7 512l-109.8 92.2a8.1 8.1 0 00-2.9 6.1V673c0 6.8 7.9 10.5 13.1 6.1zM880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z" } }] }, "name": "code", "theme": "outlined" };
 var CodeOutlined_default = CodeOutlined;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/CodeOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/CodeOutlined.js
 var CodeOutlined2 = function CodeOutlined3(props, ref) {
   return /* @__PURE__ */ React4.createElement(AntdIcon_default, _extends({}, props, {
     ref,
@@ -1727,14 +1720,14 @@ if (true) {
 }
 var CodeOutlined_default2 = /* @__PURE__ */ React4.forwardRef(CodeOutlined2);
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
 var React5 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/DownloadOutlined.js
 var DownloadOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z" } }] }, "name": "download", "theme": "outlined" };
 var DownloadOutlined_default = DownloadOutlined;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
 var DownloadOutlined2 = function DownloadOutlined3(props, ref) {
   return /* @__PURE__ */ React5.createElement(AntdIcon_default, _extends({}, props, {
     ref,
@@ -1746,14 +1739,14 @@ if (true) {
 }
 var DownloadOutlined_default2 = /* @__PURE__ */ React5.forwardRef(DownloadOutlined2);
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
 var React6 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/EllipsisOutlined.js
 var EllipsisOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z" } }] }, "name": "ellipsis", "theme": "outlined" };
 var EllipsisOutlined_default = EllipsisOutlined;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
 var EllipsisOutlined2 = function EllipsisOutlined3(props, ref) {
   return /* @__PURE__ */ React6.createElement(AntdIcon_default, _extends({}, props, {
     ref,
@@ -1765,14 +1758,14 @@ if (true) {
 }
 var EllipsisOutlined_default2 = /* @__PURE__ */ React6.forwardRef(EllipsisOutlined2);
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
 var React7 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/InfoCircleOutlined.js
 var InfoCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }, { "tag": "path", "attrs": { "d": "M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z" } }] }, "name": "info-circle", "theme": "outlined" };
 var InfoCircleOutlined_default = InfoCircleOutlined;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5(react@18.2.0)/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5(react-dom@18.2.0)(react@18.2.0)/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
 var InfoCircleOutlined2 = function InfoCircleOutlined3(props, ref) {
   return /* @__PURE__ */ React7.createElement(AntdIcon_default, _extends({}, props, {
     ref,
@@ -1784,270 +1777,13 @@ if (true) {
 }
 var InfoCircleOutlined_default2 = /* @__PURE__ */ React7.forwardRef(InfoCircleOutlined2);
 
-// src/IssueCredential.tsx
-var import_react3 = __toESM(require_react(), 1);
-var import_antd = __toESM(require_antd(), 1);
-
-// src/utils/signing.ts
-var claimToObject = (arr) => {
-  return arr.reduce(
-    (obj, item) => Object.assign(obj, { [item.type]: item.value }),
-    {}
-  );
-};
-var issueCredential = async (agent, iss, sub, claims, proofFormat, customContext, type, credentialSchemaId) => {
-  let credentialObj = {
-    credential: {
-      issuer: { id: iss },
-      issuanceDate: (/* @__PURE__ */ new Date()).toISOString(),
-      "@context": customContext ? ["https://www.w3.org/2018/credentials/v1", customContext] : ["https://www.w3.org/2018/credentials/v1"],
-      type: type ? ["VerifiableCredential", type] : ["VerifiableCredential"],
-      credentialSubject: { id: sub, ...claimToObject(claims) }
-    },
-    proofFormat,
-    save: true
-  };
-  if (credentialSchemaId) {
-    credentialObj = {
-      ...credentialObj,
-      credentialSchema: {
-        id: credentialSchemaId,
-        type: "JsonSchemaValidator2018"
-      }
-    };
-  }
-  return await agent?.createVerifiableCredential(credentialObj);
-};
-
-// src/IssueCredential.tsx
-var import_veramo_react = __toESM(require_veramo_react(), 1);
-var import_react_query = __toESM(require_react_query(), 1);
-var import_uuid = __toESM(require_uuid(), 1);
-var import_pro_components = __toESM(require_pro_components(), 1);
-var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-var { Option } = import_antd.Select;
-var formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 4 }
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 20 }
-  }
-};
-var IssueCredential = () => {
-  const { agent } = (0, import_veramo_react.useVeramo)();
-  const [claimType, setClaimType] = (0, import_react3.useState)("");
-  const [claimValue, setClaimValue] = (0, import_react3.useState)("");
-  const [credentialType, setCredentialType] = (0, import_react3.useState)("");
-  const [customContext, setCustomContext] = (0, import_react3.useState)("");
-  const [errorMessage, setErrorMessage] = (0, import_react3.useState)();
-  const [sending] = (0, import_react3.useState)(false);
-  const [issuer, setIssuer] = (0, import_react3.useState)("");
-  const [subject, setSubject] = (0, import_react3.useState)();
-  const [fields, updateFields] = (0, import_react3.useState)([]);
-  const [proofFormat, setProofFormat] = (0, import_react3.useState)("jwt");
-  const { data: identifiers, isLoading: identifiersLoading } = (0, import_react_query.useQuery)(
-    ["identifiers", { agentId: agent?.context.id }],
-    () => agent?.didManagerFind()
-  );
-  const updateClaimFields = (field) => {
-    const claimTypes = fields.map((field2) => field2.type);
-    const newFields = fields.concat([field]);
-    setErrorMessage(null);
-    if (!field.type) {
-      setErrorMessage("Enter claim type");
-      return;
-    }
-    if (!field.value) {
-      setErrorMessage("Enter claim value");
-      return;
-    }
-    if (claimTypes.includes(field.type)) {
-      setErrorMessage("Claim type already exists");
-      return;
-    }
-    updateFields(newFields);
-    setClaimValue("");
-    setClaimType("");
-  };
-  const signVc = async (send) => {
-    const credential = await issueCredential(
-      agent,
-      issuer,
-      subject,
-      fields,
-      proofFormat,
-      customContext,
-      credentialType
-    );
-    setIssuer("");
-    setSubject("");
-    updateFields([]);
-    if (send) {
-      sendVC(credential);
-    }
-  };
-  const sendVC = async (body) => {
-    try {
-      const messageId = (0, import_uuid.v4)();
-      const message = {
-        type: "veramo.io/chat/v1/basicmessage",
-        to: subject,
-        from: issuer,
-        id: messageId,
-        body
-      };
-      const packedMessage = await agent?.packDIDCommMessage({
-        packing: "authcrypt",
-        message
-      });
-      if (packedMessage) {
-        console.log(packedMessage);
-        await agent?.sendDIDCommMessage({
-          messageId,
-          packedMessage,
-          recipientDidUrl: subject
-        });
-      }
-    } catch (err) {
-      console.error(err);
-      agent?.handleMessage({ raw: body.proof.jwt, save: true });
-    }
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_pro_components.PageContainer, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Typography.Text, { children: "Credential preview" }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Form, { ...formItemLayout, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Row, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("code", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", { children: JSON.stringify(claimToObject(fields), null, 2) }) }) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        import_antd.Input,
-        {
-          value: subject,
-          placeholder: "subject DID",
-          style: { width: "60%" },
-          onChange: (e2) => setSubject(e2.target.value)
-        }
-      ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        import_antd.Select,
-        {
-          style: { width: "60%" },
-          loading: identifiersLoading,
-          onChange: (e2) => setIssuer(e2),
-          placeholder: "issuer DID",
-          defaultActiveFirstOption: true,
-          children: identifiers && identifiers.map((id) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: id.did, children: id.did }, id.did))
-        }
-      ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        import_antd.Input,
-        {
-          value: credentialType,
-          placeholder: "credential type e.g Profile",
-          style: { width: "60%" },
-          onChange: (e2) => setCredentialType(e2.target.value)
-        }
-      ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        import_antd.Input,
-        {
-          value: customContext,
-          placeholder: "custom context url",
-          style: { width: "60%" },
-          onChange: (e2) => setCustomContext(e2.target.value)
-        }
-      ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-        import_antd.Select,
-        {
-          style: { width: "60%" },
-          onChange: (e2) => setProofFormat(e2),
-          placeholder: "Proof type",
-          defaultActiveFirstOption: true,
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: "jwt", children: "jwt" }, "jwt"),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: "lds", children: "lds" }, "lds"),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              Option,
-              {
-                value: "EthereumEip712Signature2021",
-                children: "EthereumEip712Signature2021"
-              },
-              "EthereumEip712Signature2021lds"
-            )
-          ]
-        }
-      ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Form.Item, { style: { padding: 15 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          import_antd.Input,
-          {
-            placeholder: "claim type e.g. 'name'",
-            value: claimType,
-            style: { width: "60%" },
-            onChange: (e2) => setClaimType(e2.target.value)
-          }
-        ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          import_antd.Input,
-          {
-            placeholder: "claim value e.g. Alice",
-            value: claimValue,
-            style: { width: "60%" },
-            onChange: (e2) => setClaimValue(e2.target.value)
-          }
-        ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          import_antd.Button,
-          {
-            type: "primary",
-            htmlType: "submit",
-            onClick: () => {
-              updateClaimFields({
-                type: claimType,
-                value: claimValue
-              });
-            },
-            children: "Add"
-          }
-        ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Typography.Text, { children: errorMessage })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Row, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          import_antd.Button,
-          {
-            type: "primary",
-            onClick: () => signVc(),
-            style: { marginRight: 5 },
-            disabled: sending || fields.length === 0 || !subject || !issuer,
-            children: "Issue"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Form.Item, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          import_antd.Button,
-          {
-            onClick: () => signVc(true),
-            type: "primary",
-            disabled: sending || fields.length === 0 || !subject || !issuer,
-            children: "Issue & Send"
-          }
-        ) })
-      ] }) })
-    ] })
-  ] });
-};
-var IssueCredential_default = IssueCredential;
-
 // src/BrainshareFeed.tsx
+var import_react4 = __toESM(require_react(), 1);
 var import_date_fns = __toESM(require_date_fns(), 1);
 var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
 var import_react_query3 = __toESM(require_react_query(), 1);
 var import_veramo_react4 = __toESM(require_veramo_react(), 1);
-var import_pro_components2 = __toESM(require_pro_components(), 1);
+var import_pro_components = __toESM(require_pro_components(), 1);
 
 // node_modules/.pnpm/@veramo-community+react-components@1.5.0(react@18.2.0)/node_modules/@veramo-community/react-components/dist/esm/index.js
 var e = __toESM(require_react(), 1);
@@ -2079,9 +1815,9 @@ var d = function(d2) {
 };
 
 // src/components/IdentifierProfile.tsx
-var import_antd2 = __toESM(require_antd(), 1);
-var import_veramo_react2 = __toESM(require_veramo_react(), 1);
-var import_react_query2 = __toESM(require_react_query(), 1);
+var import_antd = __toESM(require_antd(), 1);
+var import_veramo_react = __toESM(require_veramo_react(), 1);
+var import_react_query = __toESM(require_react_query(), 1);
 
 // src/utils/did.ts
 function shortId(id) {
@@ -2121,29 +1857,29 @@ function getIssuerDID(credential) {
 }
 
 // src/components/IdentifierProfile.tsx
-var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
 var IdentifierProfile = ({
   did,
   showShortId = true
 }) => {
-  const { agent } = (0, import_veramo_react2.useVeramo)();
-  const { token } = import_antd2.theme.useToken();
-  const { data, isLoading } = (0, import_react_query2.useQuery)(
+  const { agent } = (0, import_veramo_react.useVeramo)();
+  const { token } = import_antd.theme.useToken();
+  const { data, isLoading } = (0, import_react_query.useQuery)(
     ["identifierProfile", did, agent?.context.id],
     () => did ? agent?.getIdentifierProfile({ did }) : void 0
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_antd2.Row, { align: "middle", wrap: false, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_antd2.Col, { style: { marginRight: token.padding }, children: [
-      !isLoading && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Avatar, { src: data?.picture }),
-      isLoading && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Skeleton.Avatar, { active: true })
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Row, { align: "middle", wrap: false, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Col, { style: { marginRight: token.padding }, children: [
+      !isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Avatar, { src: data?.picture }),
+      isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Skeleton.Avatar, { active: true })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_antd2.Col, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { justifyItems: "flex-start", display: "flex" }, children: [
-        !isLoading && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Typography.Text, { ellipsis: true, children: data?.name }),
-        isLoading && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Skeleton.Input, { style: { width: 100 }, active: true })
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Col, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { justifyItems: "flex-start", display: "flex" }, children: [
+        !isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Typography.Text, { ellipsis: true, children: data?.name }),
+        isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Skeleton.Input, { style: { width: 100 }, active: true })
       ] }),
-      showShortId && data?.name && data?.name !== shortId(did) && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-        import_antd2.Typography.Text,
+      showShortId && data?.name && data?.name !== shortId(did) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        import_antd.Typography.Text,
         {
           ellipsis: true,
           style: { color: token.colorTextSecondary },
@@ -2156,14 +1892,14 @@ var IdentifierProfile = ({
 var IdentifierProfile_default = IdentifierProfile;
 
 // src/components/CredentialActionsDropdown.tsx
-var import_antd3 = __toESM(require_antd(), 1);
-var import_veramo_react3 = __toESM(require_veramo_react(), 1);
+var import_antd2 = __toESM(require_antd(), 1);
+var import_veramo_react2 = __toESM(require_veramo_react(), 1);
 var import_react_router_dom = __toESM(require_react_router_dom(), 1);
-var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
 var CredentialActionsDropdown = ({ children, credential }) => {
-  const { agents, getAgent } = (0, import_veramo_react3.useVeramo)();
+  const { agents, getAgent } = (0, import_veramo_react2.useVeramo)();
   const navigate = (0, import_react_router_dom.useNavigate)();
-  const { notification } = import_antd3.App.useApp();
+  const { notification } = import_antd2.App.useApp();
   const agentsToCopyTo = agents.filter(
     (agent) => agent.availableMethods().includes("dataStoreSaveVerifiableCredential")
   );
@@ -2193,21 +1929,21 @@ var CredentialActionsDropdown = ({ children, credential }) => {
     document.body.appendChild(element);
     element.click();
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-    import_antd3.Dropdown,
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    import_antd2.Dropdown,
     {
       menu: {
         items: [
           {
             key: "issuer",
             label: "Issuer",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InfoCircleOutlined_default2, {}),
+            icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(InfoCircleOutlined_default2, {}),
             onClick: () => navigate("/contacts/" + getIssuerDID(credential))
           },
           {
             key: "subject",
             label: "Subject",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(InfoCircleOutlined_default2, {}),
+            icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(InfoCircleOutlined_default2, {}),
             onClick: () => navigate(
               "/contacts/" + encodeURIComponent(credential.credentialSubject.id)
             )
@@ -2215,7 +1951,7 @@ var CredentialActionsDropdown = ({ children, credential }) => {
           {
             key: "download",
             label: "Download",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(DownloadOutlined_default2, {}),
+            icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DownloadOutlined_default2, {}),
             onClick: handleDownload
           },
           {
@@ -2239,61 +1975,180 @@ var CredentialActionsDropdown = ({ children, credential }) => {
 var CredentialActionsDropdown_default = CredentialActionsDropdown;
 
 // src/BrainshareFeed.tsx
+var import_antd4 = __toESM(require_antd(), 1);
+
+// src/components/CreatePost.tsx
+var import_antd3 = __toESM(require_antd(), 1);
+var import_react3 = __toESM(require_react(), 1);
+var import_veramo_react3 = __toESM(require_veramo_react(), 1);
+
+// src/utils/signing.ts
+var claimToObject = (arr) => {
+  return arr.reduce(
+    (obj, item) => Object.assign(obj, { [item.type]: item.value }),
+    {}
+  );
+};
+var issueCredential = async (agent, iss, sub, claims, proofFormat, customContext, type, credentialSchemaId) => {
+  console.log("claims: ", claims);
+  console.log("claimToObject: ", claimToObject(claims));
+  let credentialObj = {
+    credential: {
+      issuer: { id: iss },
+      issuanceDate: (/* @__PURE__ */ new Date()).toISOString(),
+      "@context": customContext ? ["https://www.w3.org/2018/credentials/v1", customContext] : ["https://www.w3.org/2018/credentials/v1"],
+      type: type ? ["VerifiableCredential", type] : ["VerifiableCredential"],
+      credentialSubject: { id: sub, ...claimToObject(claims) }
+    },
+    proofFormat,
+    save: true
+  };
+  if (credentialSchemaId) {
+    credentialObj = {
+      ...credentialObj,
+      credentialSchema: {
+        id: credentialSchemaId,
+        type: "JsonSchemaValidator2018"
+      }
+    };
+  }
+  return await agent?.createVerifiableCredential(credentialObj);
+};
+
+// src/components/CreatePost.tsx
+var import_react_query2 = __toESM(require_react_query(), 1);
+var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
+var { TextArea } = import_antd3.Input;
+var CreatePost = ({}) => {
+  const [message, setMessage] = (0, import_react3.useState)();
+  const { agent } = (0, import_veramo_react3.useVeramo)();
+  const [agentChatIdentifiers, setAgentChatIdentifiers] = (0, import_react3.useState)([]);
+  const [selectedDid, setSelectedDid] = (0, import_react3.useState)("");
+  const [
+    agentChatIdentifiersWithProfiles,
+    setAgentChatIdentifiersWithProfiles
+  ] = (0, import_react3.useState)([]);
+  (0, import_react_query2.useQuery)(
+    ["identifiers", { id: agent?.context.id }],
+    () => agent?.didManagerFind(),
+    {
+      onSuccess: (data) => {
+        if (data) {
+          const didsWithDIDComm = data.filter(
+            (did) => did.keys.some(
+              (key) => key.type === "Ed25519"
+            )
+          );
+          setAgentChatIdentifiers(didsWithDIDComm);
+          setSelectedDid(didsWithDIDComm[0].did);
+        }
+      }
+    }
+  );
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      TextArea,
+      {
+        placeholder: `Compose...`,
+        value: message,
+        rows: 40,
+        onChange: (e2) => {
+          setMessage(e2.target.value);
+        }
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Button, { onClick: async () => {
+      console.log("lets go issue. message: ", message);
+      const credential = await issueCredential(
+        agent,
+        selectedDid,
+        "",
+        [{ type: "post", value: message }],
+        "jwt",
+        "",
+        "BrainsharePost"
+      );
+      console.log("credential: ", credential);
+    }, children: "Create Post" })
+  ] });
+};
+var CreatePost_default = CreatePost;
+
+// src/BrainshareFeed.tsx
 var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
 var BrainshareFeed = () => {
+  const [open, setOpen] = (0, import_react4.useState)(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
   const navigate = (0, import_react_router_dom2.useNavigate)();
   const { agent } = (0, import_veramo_react4.useVeramo)();
   const { data: credentials, isLoading } = (0, import_react_query3.useQuery)(
     ["credentials", { agentId: agent?.context.name }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
+      where: [{ column: "type", value: ["VerifiableCredential,BrainsharePost"] }],
       order: [{ column: "issuanceDate", direction: "DESC" }]
     })
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_pro_components2.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-    import_pro_components2.ProList,
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+    import_pro_components.PageContainer,
     {
-      ghost: true,
-      loading: isLoading,
-      pagination: {
-        defaultPageSize: 20,
-        showSizeChanger: true
-      },
-      grid: { column: 1, lg: 2, xxl: 2, xl: 2 },
-      onItem: (record) => {
-        return {
-          onClick: () => {
-            navigate("/credentials/" + record.hash);
+      footer: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Button, { type: "primary", onClick: showDrawer, children: "Compose" })
+      ],
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          import_pro_components.ProList,
+          {
+            ghost: true,
+            loading: isLoading,
+            pagination: {
+              defaultPageSize: 20,
+              showSizeChanger: true
+            },
+            grid: { column: 1, lg: 2, xxl: 2, xl: 2 },
+            onItem: (record) => {
+              return {
+                onClick: () => {
+                  navigate("/credentials/" + record.hash);
+                }
+              };
+            },
+            metas: {
+              title: {},
+              content: {},
+              actions: {
+                cardActionProps: "extra"
+              }
+            },
+            dataSource: credentials?.map((item) => {
+              return {
+                title: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                  IdentifierProfile_default,
+                  {
+                    did: getIssuerDID(item.verifiableCredential)
+                  }
+                ),
+                actions: [
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: (0, import_date_fns.formatRelative)(
+                    new Date(item.verifiableCredential.issuanceDate),
+                    /* @__PURE__ */ new Date()
+                  ) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CredentialActionsDropdown_default, { credential: item.verifiableCredential, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(EllipsisOutlined_default2, {}) })
+                ],
+                content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(d, { credential: item.verifiableCredential }) }),
+                hash: item.hash
+              };
+            })
           }
-        };
-      },
-      metas: {
-        title: {},
-        content: {},
-        actions: {
-          cardActionProps: "extra"
-        }
-      },
-      dataSource: credentials?.map((item) => {
-        return {
-          title: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-            IdentifierProfile_default,
-            {
-              did: getIssuerDID(item.verifiableCredential)
-            }
-          ),
-          actions: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: (0, import_date_fns.formatRelative)(
-              new Date(item.verifiableCredential.issuanceDate),
-              /* @__PURE__ */ new Date()
-            ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CredentialActionsDropdown_default, { credential: item.verifiableCredential, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(EllipsisOutlined_default2, {}) })
-          ],
-          content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(d, { credential: item.verifiableCredential }) }),
-          hash: item.hash
-        };
-      })
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Drawer, { title: "Basic Drawer", placement: "right", onClose, open, width: 800, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CreatePost_default, {}) }) })
+      ]
     }
-  ) });
+  );
 };
 var BrainshareFeed_default = BrainshareFeed;
 
@@ -2309,34 +2164,34 @@ var Plugin = {
         {
           path: "/brainshare/feed",
           element: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(BrainshareFeed_default, {})
-        },
+        }
         // {
         //   path: '/brainshare/issue-profile-credential',
         //   element: <CreateProfileCredential />,
         // },
-        {
-          path: "/developer/issue-credential",
-          element: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(IssueCredential_default, {})
-        }
+        // {
+        //   path: '/developer/issue-credential',
+        //   element: <IssueCredential />,
+        // },
       ],
       menuItems: [
         {
-          name: "Developer tools",
-          path: "/developer",
+          name: "Feed",
+          path: "/brainshare",
           icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(CodeOutlined_default2, {}),
           routes: [
             {
-              path: "/developer/data-generator",
-              name: "Data generator"
-            },
-            {
-              path: "/developer/issue-profile-credential",
-              name: "Issue profile credential"
-            },
-            {
-              path: "/developer/issue-credential",
-              name: "Issue credential"
+              path: "/brainshare/feed",
+              name: "Feed"
             }
+            // {
+            //   path: '/developer/issue-profile-credential',
+            //   name: 'Issue profile credential',
+            // },
+            // {
+            //   path: '/developer/issue-credential',
+            //   name: 'Issue credential',
+            // },
           ]
         }
       ]

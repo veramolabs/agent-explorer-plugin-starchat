@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { formatRelative } from 'date-fns'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from 'react-query'
@@ -10,20 +10,38 @@ import { EllipsisOutlined } from '@ant-design/icons'
 import IdentifierProfile from './components/IdentifierProfile'
 import { getIssuerDID } from './utils/did'
 import CredentialActionsDropdown from './components/CredentialActionsDropdown'
+import { Button, Drawer } from 'antd'
+import CreatePost from './components/CreatePost.js'
 
 const BrainshareFeed = () => {
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
   const navigate = useNavigate()
   const { agent } = useVeramo<IDataStoreORM>()
   const { data: credentials, isLoading } = useQuery(
     ['credentials', { agentId: agent?.context.name }],
     () =>
       agent?.dataStoreORMGetVerifiableCredentials({
+        where: [{ column: 'type', value: ['VerifiableCredential,BrainsharePost'] }],
         order: [{ column: 'issuanceDate', direction: 'DESC' }],
       }),
   )
 
+
   return (
-    <PageContainer>
+    <PageContainer
+      footer={[
+        <Button type="primary" onClick={showDrawer}>
+        Compose
+      </Button>
+      ]}
+    >
       <ProList
         ghost
         loading={isLoading}
@@ -73,6 +91,11 @@ const BrainshareFeed = () => {
           }
         })}
       />
+    <>
+      <Drawer title="Basic Drawer" placement="right" onClose={onClose} open={open} width={800}>
+        <CreatePost />
+      </Drawer>
+    </>
     </PageContainer>
   )
 }

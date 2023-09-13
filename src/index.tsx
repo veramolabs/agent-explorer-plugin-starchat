@@ -25,29 +25,29 @@ const Plugin: IPlugin = {
             //   path: '/brainshare/issue-profile-credential',
             //   element: <CreateProfileCredential />,
             // },
-            {
-              path: '/developer/issue-credential',
-              element: <IssueCredential />,
-            },
+            // {
+            //   path: '/developer/issue-credential',
+            //   element: <IssueCredential />,
+            // },
           ],
           menuItems: [
             {
-              name: 'Developer tools',
-              path: '/developer',
+              name: 'Feed',
+              path: '/brainshare',
               icon: <CodeOutlined />,
               routes: [
                 {
-                  path: '/developer/data-generator',
-                  name: 'Data generator',
+                  path: '/brainshare/feed',
+                  name: 'Feed',
                 },
-                {
-                  path: '/developer/issue-profile-credential',
-                  name: 'Issue profile credential',
-                },
-                {
-                  path: '/developer/issue-credential',
-                  name: 'Issue credential',
-                },
+                // {
+                //   path: '/developer/issue-profile-credential',
+                //   name: 'Issue profile credential',
+                // },
+                // {
+                //   path: '/developer/issue-credential',
+                //   name: 'Issue credential',
+                // },
               ],
             },
           ],

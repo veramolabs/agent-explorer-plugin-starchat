@@ -17,6 +17,10 @@ const issueCredential = async (
   type?: string,
   credentialSchemaId?: string,
 ) => {
+
+  console.log("claims: ", claims)
+  console.log("claimToObject: ", claimToObject(claims))
+
   let credentialObj: any = {
     credential: {
       issuer: { id: iss },
