@@ -2,12 +2,9 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useVeramo } from '@veramo-community/veramo-react'
-
-import '@veramo-community/react-components/dist/cjs/index.css'
 import { PageContainer } from '@ant-design/pro-components'
-import CredentialTabs from './components/CredentialTabs'
 
-const BrainsharePost = () => {
+export const Post = () => {
   const { id } = useParams<{ id: string }>()
   const { agent } = useVeramo()
 
@@ -17,10 +14,10 @@ const BrainsharePost = () => {
   )
 
   return (
-    <PageContainer title="Verifiable Credential">
-      {!credentialLoading && <CredentialTabs credential={credential} />}
+    <PageContainer title="Post">
+      <pre>
+        <code>{JSON.stringify(credential, null, 2)}</code>
+      </pre>
     </PageContainer>
   )
 }
-
-export default BrainsharePost

@@ -6,22 +6,16 @@ import { useVeramo } from '@veramo-community/veramo-react'
 import { PageContainer, ProList } from '@ant-design/pro-components'
 import { VerifiableCredential } from '@veramo-community/react-components'
 import { IDataStoreORM, UniqueVerifiableCredential } from '@veramo/core'
-import { EllipsisOutlined } from '@ant-design/icons'
+import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons'
 import IdentifierProfile from './components/IdentifierProfile'
 import { getIssuerDID } from './utils/did'
 import CredentialActionsDropdown from './components/CredentialActionsDropdown'
-import { Button, Drawer } from 'antd'
-import CreatePost from './components/CreatePost.js'
+import { App, Button, Drawer } from 'antd'
+import { PostForm } from './PostForm.js'
 
-const BrainshareFeed = () => {
-  const [open, setOpen] = useState(false);
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
+export const Feed = () => {
+  const { notification } = App.useApp()
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate()
   const { agent } = useVeramo<IDataStoreORM>()
   const { data: credentials, isLoading } = useQuery(
@@ -33,14 +27,25 @@ const BrainshareFeed = () => {
       }),
   )
 
+  const handleNewPost = async (hash: string) => {
+    notification.success({
+      message: 'Post created'
+    })
+    navigate('/brainshare/' + hash)
+  }
+
 
   return (
     <PageContainer
-      footer={[
-        <Button type="primary" onClick={showDrawer}>
-        Compose
-      </Button>
-      ]}
+    extra={[
+      <Button
+        key={'add'}
+        icon={<PlusOutlined />}
+        type="primary"
+        title="Compose new post"
+        onClick={() => setDrawerOpen(true)}
+      >Compose</Button>,
+    ]}
     >
       <ProList
         ghost
@@ -53,7 +58,7 @@ const BrainshareFeed = () => {
         onItem={(record: any) => {
           return {
             onClick: () => {
-              navigate('/credentials/' + record.hash)
+              navigate('/brainshare/' + record.hash)
             },
           }
         }}
@@ -83,21 +88,25 @@ const BrainshareFeed = () => {
               </CredentialActionsDropdown>,
             ],
             content: (
-              <div style={{ width: '100%' }}>
-                <VerifiableCredential credential={item.verifiableCredential} />
-              </div>
+              <pre style={{ width: '100%' }}>
+                {item.verifiableCredential.credentialSubject.post}
+              </pre>
             ),
             hash: item.hash,
           }
         })}
       />
     <>
-      <Drawer title="Basic Drawer" placement="right" onClose={onClose} open={open} width={800}>
-        <CreatePost />
+      <Drawer 
+        title="Compose new post"
+        placement="right"
+        onClose={() => setDrawerOpen(false)}
+        open={drawerOpen} 
+        width={800}
+      >
+        <PostForm onOk={handleNewPost}/>
       </Drawer>
     </>
     </PageContainer>
   )
 }
-
-export default BrainshareFeed

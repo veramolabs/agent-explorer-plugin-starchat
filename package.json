@@ -1,5 +1,5 @@
 {
-	"name": "agent-explorer-plugin-developer-tools",
+	"name": "agent-explorer-plugin-brainshare",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -12,13 +12,10 @@
 		"@ant-design/pro-components": "^2.6.12",
 		"@types/react": "^18.2.20",
 		"@types/react-router-dom": "^5.3.3",
-		"@types/uuid": "^9.0.2",
+		"@veramo-community/react-components": "^1.5.0",
 		"@veramo-community/veramo-react": "^1.0.82",
 		"@veramo/core": "^5.4.1",
 		"@veramo/core-types": "^5.4.1",
-		"@veramo/credential-w3c": "^5.4.1",
-		"@veramo/did-discovery": "^5.4.1",
-		"@veramo/selective-disclosure": "^5.4.1",
 		"antd": "^5.8.3",
 		"date-fns": "^2.30.0",
 		"esbuild": "^0.19.2",
@@ -26,15 +23,6 @@
 		"react": "^18.2.0",
 		"react-query": "^3.39.3",
 		"react-router-dom": "^6.15.0",
-		"typescript": "^5.1.6",
-		"uuid": "^9.0.0"
-	},
-	"dependencies": {
-		"@types/md5": "^2.3.2",
-		"@types/url-parse": "^1.4.9",
-		"@veramo-community/react-components": "^1.5.0",
-		"@veramo/data-store": "^5.4.1",
-		"md5": "^2.3.0",
-		"url-parse": "^1.5.10"
+		"typescript": "^5.1.6"
 	}
 }

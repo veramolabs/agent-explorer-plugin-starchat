@@ -492,13 +492,6 @@ var require_pro_components = __commonJS({
   }
 });
 
-// external-global-plugin:@veramo-community/react-components
-var require_react_components = __commonJS({
-  "external-global-plugin:@veramo-community/react-components"(exports, module) {
-    module.exports = window.veramoreactcomponents;
-  }
-});
-
 // external-global-plugin:antd
 var require_antd = __commonJS({
   "external-global-plugin:antd"(exports, module) {
@@ -518,7 +511,7 @@ var import_react = __toESM(require_react());
 var IconContext = /* @__PURE__ */ (0, import_react.createContext)({});
 var Context_default = IconContext;
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/extends.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function(target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -534,41 +527,41 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr))
     return arr;
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js
-function _iterableToArrayLimit(arr, i) {
-  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
-  if (null != _i) {
-    var _s, _e, _x, _r, _arr = [], _n = true, _d = false;
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js
+function _iterableToArrayLimit(r, l) {
+  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  if (null != t) {
+    var e, n, i, u, a = [], f = true, o = false;
     try {
-      if (_x = (_i = _i.call(arr)).next, 0 === i) {
-        if (Object(_i) !== _i)
+      if (i = (t = t.call(r)).next, 0 === l) {
+        if (Object(t) !== t)
           return;
-        _n = false;
+        f = false;
       } else
-        for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = true)
+        for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = true)
           ;
-    } catch (err) {
-      _d = true, _e = err;
+    } catch (r2) {
+      o = true, n = r2;
     } finally {
       try {
-        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r))
+        if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u))
           return;
       } finally {
-        if (_d)
-          throw _e;
+        if (o)
+          throw n;
       }
     }
-    return _arr;
+    return a;
   }
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length)
     len = arr.length;
@@ -577,7 +570,7 @@ function _arrayLikeToArray(arr, len) {
   return arr2;
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
 function _unsupportedIterableToArray(o, minLen) {
   if (!o)
     return;
@@ -592,27 +585,27 @@ function _unsupportedIterableToArray(o, minLen) {
     return _arrayLikeToArray(o, minLen);
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/slicedToArray.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/slicedToArray.js
 function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/typeof.js
-function _typeof(obj) {
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/typeof.js
+function _typeof(o) {
   "@babel/helpers - typeof";
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
-    return typeof obj2;
-  } : function(obj2) {
-    return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
-  }, _typeof(obj);
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o2) {
+    return typeof o2;
+  } : function(o2) {
+    return o2 && "function" == typeof Symbol && o2.constructor === Symbol && o2 !== Symbol.prototype ? "symbol" : typeof o2;
+  }, _typeof(o);
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/toPrimitive.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/toPrimitive.js
 function _toPrimitive(input, hint) {
   if (_typeof(input) !== "object" || input === null)
     return input;
@@ -626,13 +619,13 @@ function _toPrimitive(input, hint) {
   return (hint === "string" ? String : Number)(input);
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
 function _toPropertyKey(arg) {
   var key = _toPrimitive(arg, "string");
   return _typeof(key) === "symbol" ? key : String(key);
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/defineProperty.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/defineProperty.js
 function _defineProperty(obj, key, value) {
   key = _toPropertyKey(key);
   if (key in obj) {
@@ -648,7 +641,7 @@ function _defineProperty(obj, key, value) {
   return obj;
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null)
     return {};
@@ -664,7 +657,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
 function _objectWithoutProperties(source, excluded) {
   if (source == null)
     return {};
@@ -688,7 +681,7 @@ function _objectWithoutProperties(source, excluded) {
 var React3 = __toESM(require_react());
 var import_classnames = __toESM(require_classnames());
 
-// node_modules/.pnpm/@ctrl+tinycolor@3.6.0/node_modules/@ctrl/tinycolor/dist/module/util.js
+// node_modules/.pnpm/@ctrl+tinycolor@3.6.1/node_modules/@ctrl/tinycolor/dist/module/util.js
 function bound01(n, max) {
   if (isOnePointZero(n)) {
     n = "100%";
@@ -731,7 +724,7 @@ function pad2(c) {
   return c.length === 1 ? "0" + c : String(c);
 }
 
-// node_modules/.pnpm/@ctrl+tinycolor@3.6.0/node_modules/@ctrl/tinycolor/dist/module/conversion.js
+// node_modules/.pnpm/@ctrl+tinycolor@3.6.1/node_modules/@ctrl/tinycolor/dist/module/conversion.js
 function rgbToRgb(r, g, b) {
   return {
     r: bound01(r, 255) * 255,
@@ -840,7 +833,7 @@ function parseIntFromHex(val) {
   return parseInt(val, 16);
 }
 
-// node_modules/.pnpm/@ctrl+tinycolor@3.6.0/node_modules/@ctrl/tinycolor/dist/module/css-color-names.js
+// node_modules/.pnpm/@ctrl+tinycolor@3.6.1/node_modules/@ctrl/tinycolor/dist/module/css-color-names.js
 var names = {
   aliceblue: "#f0f8ff",
   antiquewhite: "#faebd7",
@@ -992,7 +985,7 @@ var names = {
   yellowgreen: "#9acd32"
 };
 
-// node_modules/.pnpm/@ctrl+tinycolor@3.6.0/node_modules/@ctrl/tinycolor/dist/module/format-input.js
+// node_modules/.pnpm/@ctrl+tinycolor@3.6.1/node_modules/@ctrl/tinycolor/dist/module/format-input.js
 function inputToRGB(color) {
   var rgb = { r: 0, g: 0, b: 0 };
   var a = 1;
@@ -1319,27 +1312,27 @@ var magenta = presetPalettes.magenta;
 var grey = presetPalettes.grey;
 var gray = presetPalettes.grey;
 
-// node_modules/.pnpm/@babel+runtime@7.22.10/node_modules/@babel/runtime/helpers/esm/objectSpread2.js
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
+// node_modules/.pnpm/@babel+runtime@7.22.15/node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+function ownKeys(e, r) {
+  var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function(sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    var o = Object.getOwnPropertySymbols(e);
+    r && (o = o.filter(function(r2) {
+      return Object.getOwnPropertyDescriptor(e, r2).enumerable;
+    })), t.push.apply(t, o);
   }
-  return keys;
+  return t;
 }
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+function _objectSpread2(e) {
+  for (var r = 1; r < arguments.length; r++) {
+    var t = null != arguments[r] ? arguments[r] : {};
+    r % 2 ? ownKeys(Object(t), true).forEach(function(r2) {
+      _defineProperty(e, r2, t[r2]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r2) {
+      Object.defineProperty(e, r2, Object.getOwnPropertyDescriptor(t, r2));
     });
   }
-  return target;
+  return e;
 }
 
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/IconBase.js
@@ -1348,12 +1341,12 @@ var React2 = __toESM(require_react());
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/utils.js
 var import_lodash = __toESM(require_lodash());
 
-// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/canUseDom.js
+// node_modules/.pnpm/rc-util@5.37.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/canUseDom.js
 function canUseDom() {
   return !!(typeof window !== "undefined" && window.document && window.document.createElement);
 }
 
-// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/contains.js
+// node_modules/.pnpm/rc-util@5.37.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/contains.js
 function contains(root, n) {
   if (!root) {
     return false;
@@ -1371,7 +1364,7 @@ function contains(root, n) {
   return false;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/dynamicCSS.js
+// node_modules/.pnpm/rc-util@5.37.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/dynamicCSS.js
 var APPEND_ORDER = "data-rc-order";
 var APPEND_PRIORITY = "data-rc-priority";
 var MARK_KEY = "rc-util-key";
@@ -1477,7 +1470,7 @@ function updateCSS(css, key) {
   return newNode;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/shadow.js
+// node_modules/.pnpm/rc-util@5.37.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/shadow.js
 function getRoot(ele) {
   var _ele$getRootNode;
   return ele === null || ele === void 0 ? void 0 : (_ele$getRootNode = ele.getRootNode) === null || _ele$getRootNode === void 0 ? void 0 : _ele$getRootNode.call(ele);
@@ -1489,7 +1482,7 @@ function getShadowRoot(ele) {
   return inShadow(ele) ? getRoot(ele) : null;
 }
 
-// node_modules/.pnpm/rc-util@5.36.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/warning.js
+// node_modules/.pnpm/rc-util@5.37.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/warning.js
 var warned = {};
 var preWarningFns = [];
 var preMessage = function preMessage2(fn) {
@@ -1711,7 +1704,7 @@ var AntdIcon_default = Icon;
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
 var React4 = __toESM(require_react());
 
-// node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/DownloadOutlined.js
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/DownloadOutlined.js
 var DownloadOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z" } }] }, "name": "download", "theme": "outlined" };
 var DownloadOutlined_default = DownloadOutlined;
 
@@ -1730,7 +1723,7 @@ var DownloadOutlined_default2 = /* @__PURE__ */ React4.forwardRef(DownloadOutlin
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
 var React5 = __toESM(require_react());
 
-// node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/EllipsisOutlined.js
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/EllipsisOutlined.js
 var EllipsisOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z" } }] }, "name": "ellipsis", "theme": "outlined" };
 var EllipsisOutlined_default = EllipsisOutlined;
 
@@ -1749,7 +1742,7 @@ var EllipsisOutlined_default2 = /* @__PURE__ */ React5.forwardRef(EllipsisOutlin
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileTextOutlined.js
 var React6 = __toESM(require_react());
 
-// node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/FileTextOutlined.js
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/FileTextOutlined.js
 var FileTextOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z" } }] }, "name": "file-text", "theme": "outlined" };
 var FileTextOutlined_default = FileTextOutlined;
 
@@ -1768,7 +1761,7 @@ var FileTextOutlined_default2 = /* @__PURE__ */ React6.forwardRef(FileTextOutlin
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
 var React7 = __toESM(require_react());
 
-// node_modules/.pnpm/@ant-design+icons-svg@4.3.0/node_modules/@ant-design/icons-svg/es/asn/InfoCircleOutlined.js
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/InfoCircleOutlined.js
 var InfoCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }, { "tag": "path", "attrs": { "d": "M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z" } }] }, "name": "info-circle", "theme": "outlined" };
 var InfoCircleOutlined_default = InfoCircleOutlined;
 
@@ -1784,14 +1777,32 @@ if (true) {
 }
 var InfoCircleOutlined_default2 = /* @__PURE__ */ React7.forwardRef(InfoCircleOutlined2);
 
-// src/BrainshareFeed.tsx
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/PlusOutlined.js
+var React8 = __toESM(require_react());
+
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/PlusOutlined.js
+var PlusOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z" } }, { "tag": "path", "attrs": { "d": "M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z" } }] }, "name": "plus", "theme": "outlined" };
+var PlusOutlined_default = PlusOutlined;
+
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/PlusOutlined.js
+var PlusOutlined2 = function PlusOutlined3(props, ref) {
+  return /* @__PURE__ */ React8.createElement(AntdIcon_default, _extends({}, props, {
+    ref,
+    icon: PlusOutlined_default
+  }));
+};
+if (true) {
+  PlusOutlined2.displayName = "PlusOutlined";
+}
+var PlusOutlined_default2 = /* @__PURE__ */ React8.forwardRef(PlusOutlined2);
+
+// src/Feed.tsx
 var import_react4 = __toESM(require_react(), 1);
 var import_date_fns = __toESM(require_date_fns(), 1);
 var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
 var import_react_query3 = __toESM(require_react_query(), 1);
 var import_veramo_react4 = __toESM(require_veramo_react(), 1);
 var import_pro_components = __toESM(require_pro_components(), 1);
-var import_react_components = __toESM(require_react_components(), 1);
 
 // src/components/IdentifierProfile.tsx
 var import_antd = __toESM(require_antd(), 1);
@@ -1953,59 +1964,25 @@ var CredentialActionsDropdown = ({ children, credential }) => {
 };
 var CredentialActionsDropdown_default = CredentialActionsDropdown;
 
-// src/BrainshareFeed.tsx
+// src/Feed.tsx
 var import_antd4 = __toESM(require_antd(), 1);
 
-// src/components/CreatePost.tsx
+// src/PostForm.tsx
 var import_antd3 = __toESM(require_antd(), 1);
 var import_react3 = __toESM(require_react(), 1);
 var import_veramo_react3 = __toESM(require_veramo_react(), 1);
-
-// src/utils/signing.ts
-var claimToObject = (arr) => {
-  return arr.reduce(
-    (obj, item) => Object.assign(obj, { [item.type]: item.value }),
-    {}
-  );
-};
-var issueCredential = async (agent, iss, sub, claims, proofFormat, customContext, type, credentialSchemaId) => {
-  console.log("claims: ", claims);
-  console.log("claimToObject: ", claimToObject(claims));
-  let credentialObj = {
-    credential: {
-      issuer: { id: iss },
-      issuanceDate: (/* @__PURE__ */ new Date()).toISOString(),
-      "@context": customContext ? ["https://www.w3.org/2018/credentials/v1", customContext] : ["https://www.w3.org/2018/credentials/v1"],
-      type: type ? ["VerifiableCredential", type] : ["VerifiableCredential"],
-      credentialSubject: { id: sub, ...claimToObject(claims) }
-    },
-    proofFormat,
-    save: true
-  };
-  if (credentialSchemaId) {
-    credentialObj = {
-      ...credentialObj,
-      credentialSchema: {
-        id: credentialSchemaId,
-        type: "JsonSchemaValidator2018"
-      }
-    };
-  }
-  return await agent?.createVerifiableCredential(credentialObj);
-};
-
-// src/components/CreatePost.tsx
 var import_react_query2 = __toESM(require_react_query(), 1);
 var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
 var { TextArea } = import_antd3.Input;
-var CreatePost = ({}) => {
-  const [message, setMessage] = (0, import_react3.useState)();
+var PostForm = ({ onOk }) => {
+  const [post, setPost] = (0, import_react3.useState)();
   const { agent } = (0, import_veramo_react3.useVeramo)();
-  const [agentChatIdentifiers, setAgentChatIdentifiers] = (0, import_react3.useState)([]);
   const [selectedDid, setSelectedDid] = (0, import_react3.useState)("");
+  const [issuerProfile, setIssuerProfile] = (0, import_react3.useState)();
+  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react3.useState)([]);
   const [
-    agentChatIdentifiersWithProfiles,
-    setAgentChatIdentifiersWithProfiles
+    managedIdentifiersWithProfiles,
+    setManagedIdentifiersWithProfiles
   ] = (0, import_react3.useState)([]);
   (0, import_react_query2.useQuery)(
     ["identifiers", { id: agent?.context.id }],
@@ -2013,56 +1990,94 @@ var CreatePost = ({}) => {
     {
       onSuccess: (data) => {
         if (data) {
-          const didsWithDIDComm = data.filter(
-            (did) => did.keys.some(
-              (key) => key.type === "Ed25519"
-            )
-          );
-          setAgentChatIdentifiers(didsWithDIDComm);
-          setSelectedDid(didsWithDIDComm[0].did);
+          setManagedIdentifiers(data);
+          setSelectedDid(data[0].did);
         }
       }
     }
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+  (0, import_react3.useEffect)(() => {
+    if (agent) {
+      Promise.all(
+        managedIdentifiers.map((identifier) => {
+          return agent.getIdentifierProfile({ did: identifier.did });
+        })
+      ).then((profiles) => {
+        setIssuerProfile(profiles[0]);
+        setManagedIdentifiersWithProfiles(profiles);
+      }).catch(console.log);
+    }
+  }, [managedIdentifiers, agent]);
+  const handleCreatePost = async () => {
+    try {
+      const credential = await agent?.createVerifiableCredential({
+        save: true,
+        proofFormat: "jwt",
+        credential: {
+          "@context": ["https://www.w3.org/2018/credentials/v1"],
+          type: ["VerifiableCredential", "BrainsharePost"],
+          issuer: { id: selectedDid },
+          issuanceDate: (/* @__PURE__ */ new Date()).toISOString(),
+          credentialSubject: {
+            post
+          }
+        }
+      });
+      if (credential) {
+        const hash = await agent?.dataStoreSaveVerifiableCredential({ verifiableCredential: credential });
+        if (hash) {
+          onOk(hash);
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_antd3.Space, { direction: "vertical", style: { width: "100%" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
       TextArea,
       {
         placeholder: `Compose...`,
-        value: message,
+        value: post,
         rows: 40,
         onChange: (e) => {
-          setMessage(e.target.value);
+          setPost(e.target.value);
         }
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Button, { onClick: async () => {
-      console.log("lets go issue. message: ", message);
-      const credential = await issueCredential(
-        agent,
-        selectedDid,
-        "",
-        [{ type: "post", value: message }],
-        "jwt",
-        "",
-        "BrainsharePost"
-      );
-      console.log("credential: ", credential);
-    }, children: "Create Post" })
+    managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      import_antd3.Dropdown.Button,
+      {
+        type: "primary",
+        onClick: handleCreatePost,
+        icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Avatar, { size: "small", src: issuerProfile?.picture }),
+        menu: {
+          items: [
+            ...managedIdentifiersWithProfiles.map((profile) => {
+              return {
+                key: profile.did,
+                onClick: () => {
+                  setIssuerProfile(profile);
+                  setSelectedDid(profile.did);
+                },
+                label: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(IdentifierProfile_default, { did: profile.did })
+              };
+            })
+          ],
+          selectable: true,
+          defaultSelectedKeys: [selectedDid]
+        },
+        children: "Create Post as"
+      }
+    )
   ] });
 };
-var CreatePost_default = CreatePost;
 
-// src/BrainshareFeed.tsx
+// src/Feed.tsx
 var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
-var BrainshareFeed = () => {
-  const [open, setOpen] = (0, import_react4.useState)(false);
-  const showDrawer = () => {
-    setOpen(true);
-  };
-  const onClose = () => {
-    setOpen(false);
-  };
+var Feed = () => {
+  const { notification } = import_antd4.App.useApp();
+  const [drawerOpen, setDrawerOpen] = (0, import_react4.useState)(false);
   const navigate = (0, import_react_router_dom2.useNavigate)();
   const { agent } = (0, import_veramo_react4.useVeramo)();
   const { data: credentials, isLoading } = (0, import_react_query3.useQuery)(
@@ -2072,11 +2087,27 @@ var BrainshareFeed = () => {
       order: [{ column: "issuanceDate", direction: "DESC" }]
     })
   );
+  const handleNewPost = async (hash) => {
+    notification.success({
+      message: "Post created"
+    });
+    navigate("/brainshare/" + hash);
+  };
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
     import_pro_components.PageContainer,
     {
-      footer: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Button, { type: "primary", onClick: showDrawer, children: "Compose" })
+      extra: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          import_antd4.Button,
+          {
+            icon: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(PlusOutlined_default2, {}),
+            type: "primary",
+            title: "Compose new post",
+            onClick: () => setDrawerOpen(true),
+            children: "Compose"
+          },
+          "add"
+        )
       ],
       children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
@@ -2092,7 +2123,7 @@ var BrainshareFeed = () => {
             onItem: (record) => {
               return {
                 onClick: () => {
-                  navigate("/credentials/" + record.hash);
+                  navigate("/brainshare/" + record.hash);
                 }
               };
             },
@@ -2118,60 +2149,66 @@ var BrainshareFeed = () => {
                   ) }),
                   /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CredentialActionsDropdown_default, { credential: item.verifiableCredential, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(EllipsisOutlined_default2, {}) })
                 ],
-                content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_react_components.VerifiableCredential, { credential: item.verifiableCredential }) }),
+                content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("pre", { style: { width: "100%" }, children: item.verifiableCredential.credentialSubject.post }),
                 hash: item.hash
               };
             })
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Drawer, { title: "Basic Drawer", placement: "right", onClose, open, width: 800, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CreatePost_default, {}) }) })
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          import_antd4.Drawer,
+          {
+            title: "Compose new post",
+            placement: "right",
+            onClose: () => setDrawerOpen(false),
+            open: drawerOpen,
+            width: 800,
+            children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(PostForm, { onOk: handleNewPost })
+          }
+        ) })
       ]
     }
   );
 };
-var BrainshareFeed_default = BrainshareFeed;
+
+// src/Post.tsx
+var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
+var import_react_query4 = __toESM(require_react_query(), 1);
+var import_veramo_react5 = __toESM(require_veramo_react(), 1);
+var import_pro_components2 = __toESM(require_pro_components(), 1);
+var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+var Post = () => {
+  const { id } = (0, import_react_router_dom3.useParams)();
+  const { agent } = (0, import_veramo_react5.useVeramo)();
+  const { data: credential, isLoading: credentialLoading } = (0, import_react_query4.useQuery)(
+    ["credential", { id }],
+    () => agent?.dataStoreGetVerifiableCredential({ hash: id })
+  );
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_pro_components2.PageContainer, { title: "Post", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("pre", { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("code", { children: JSON.stringify(credential, null, 2) }) }) });
+};
 
 // src/index.tsx
-var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
 var Plugin = {
-  //@ts-ignore
-  init: (agent) => {
+  init: () => {
     return {
       name: "BrainShare",
-      description: "Extremely Cool Something",
+      description: "Decentralized wiki",
       routes: [
         {
-          path: "/brainshare/feed",
-          element: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(BrainshareFeed_default, {})
+          path: "/brainshare",
+          element: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Feed, {})
+        },
+        {
+          path: "/brainshare/:id",
+          element: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Post, {})
         }
-        // {
-        //   path: '/brainshare/issue-profile-credential',
-        //   element: <CreateProfileCredential />,
-        // },
-        // {
-        //   path: '/developer/issue-credential',
-        //   element: <IssueCredential />,
-        // },
       ],
       menuItems: [
         {
           name: "BrainShare",
           path: "/brainshare",
-          icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(FileTextOutlined_default2, {}),
-          routes: [
-            {
-              path: "/brainshare/feed",
-              name: "BrainShare Feed"
-            }
-            // {
-            //   path: '/developer/issue-profile-credential',
-            //   name: 'Issue profile credential',
-            // },
-            // {
-            //   path: '/developer/issue-credential',
-            //   name: 'Issue credential',
-            // },
-          ]
+          icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(FileTextOutlined_default2, {})
         }
       ]
     };
