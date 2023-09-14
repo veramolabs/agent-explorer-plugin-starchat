@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useVeramo } from '@veramo-community/veramo-react'
 import { PageContainer, ProList } from '@ant-design/pro-components'
-import { VerifiableCredential } from '@veramo-community/react-components'
 import { IDataStoreORM, UniqueVerifiableCredential } from '@veramo/core'
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons'
 import IdentifierProfile from './components/IdentifierProfile'
@@ -12,14 +11,15 @@ import { getIssuerDID } from './utils/did'
 import CredentialActionsDropdown from './components/CredentialActionsDropdown'
 import { App, Button, Drawer } from 'antd'
 import { PostForm } from './PostForm.js'
+import { MarkDown } from './MarkDown'
 
 export const Feed = () => {
   const { notification } = App.useApp()
   const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate()
   const { agent } = useVeramo<IDataStoreORM>()
-  const { data: credentials, isLoading } = useQuery(
-    ['credentials', { agentId: agent?.context.name }],
+  const { data: credentials, isLoading, refetch } = useQuery(
+    ['brainshare-posts', { agentId: agent?.context.name }],
     () =>
       agent?.dataStoreORMGetVerifiableCredentials({
         where: [{ column: 'type', value: ['VerifiableCredential,BrainsharePost'] }],
@@ -31,6 +31,7 @@ export const Feed = () => {
     notification.success({
       message: 'Post created'
     })
+    await refetch()
     navigate('/brainshare/' + hash)
   }
 
@@ -51,10 +52,10 @@ export const Feed = () => {
         ghost
         loading={isLoading}
         pagination={{
-          defaultPageSize: 20,
+          defaultPageSize: 5,
           showSizeChanger: true,
         }}
-        grid={{ column: 1, lg: 2, xxl: 2, xl: 2 }}
+        grid={{ column: 1, lg: 1, xxl: 1, xl: 1 }}
         onItem={(record: any) => {
           return {
             onClick: () => {
@@ -88,9 +89,7 @@ export const Feed = () => {
               </CredentialActionsDropdown>,
             ],
             content: (
-              <pre style={{ width: '100%' }}>
-                {item.verifiableCredential.credentialSubject.post}
-              </pre>
+              <MarkDown content={item.verifiableCredential.credentialSubject.post}/>
             ),
             hash: item.hash,
           }
@@ -103,6 +102,7 @@ export const Feed = () => {
         onClose={() => setDrawerOpen(false)}
         open={drawerOpen} 
         width={800}
+        destroyOnClose={true}
       >
         <PostForm onOk={handleNewPost}/>
       </Drawer>

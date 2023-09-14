@@ -2,6 +2,7 @@ import React from 'react';
 import {
   FileTextOutlined,
 } from '@ant-design/icons'
+import './style.css'
 
 import { IPlugin } from './types';
 import { Feed } from './Feed'
@@ -29,7 +30,7 @@ const Plugin: IPlugin = {
               icon: <FileTextOutlined />,
             },
           ],
-          
+          hasCss: true,
         }
     }
 };

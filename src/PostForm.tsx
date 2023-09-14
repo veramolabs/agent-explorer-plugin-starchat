@@ -1,4 +1,4 @@
-import { Input, Button, App, Dropdown, Avatar, Space } from 'antd'
+import { Input, Button, App, Dropdown, Avatar, Space, Tabs, theme } from 'antd'
 import React, { useState, useEffect } from 'react'
 const { TextArea } = Input
 import { useVeramo } from '@veramo-community/veramo-react'
@@ -6,15 +6,19 @@ import { ICredentialIssuer, IDIDManager, IDataStore, IIdentifier } from '@veramo
 import { useQuery } from 'react-query'
 import IdentifierProfile from './components/IdentifierProfile.js'
 import { IIdentifierProfile } from './types.js'
+import { MarkDown } from './MarkDown.js'
+import Editor from '@monaco-editor/react';
 
 interface CreatePostProps {
   onOk: (hash: string) => void
 }
 
 export const PostForm: React.FC<CreatePostProps> = ({ onOk }) => {
-  const [post, setPost] = useState<string>()
+  const token = theme.useToken()
+  
+  const [post, setPost] = useState<string>('')
   const { agent } = useVeramo<ICredentialIssuer & IDataStore & IDIDManager>()
-  const [selectedDid, setSelectedDid] = useState("")
+  const [selectedDid, setSelectedDid] = useState('')
   const [issuerProfile, setIssuerProfile] = useState<IIdentifierProfile>()
   const [managedIdentifiers, setManagedIdentifiers] = useState<
     IIdentifier[]
@@ -83,40 +87,65 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk }) => {
 
   return (
     <Space direction='vertical' style={{ width: '100%' }}>
-        <TextArea
-          placeholder={`Compose...`}
-          value={post}
-          rows={40}
-          onChange={(e) => {
-            setPost(e.target.value)
+    <Tabs
+      items={[
+        {
+          key: '1',
+          label: 'Write',
+          children: (
+            <Editor
+              theme={token.theme.id === 4 ? 'vs-dark' : 'light'}
+              height="50vh"
+              options={{
+                lineNumbers: 'off',
+                fontSize: 14,
+                minimap: { enabled: false },
+              }}
+              defaultLanguage="markdown"
+              defaultValue={post}
+              value={post}
+              onChange={(e) => {
+                setPost(e || '')
+              }}
+            />
+
+          )
+        },
+        {
+          key: '2',
+          label: 'Preview',
+          children: (<MarkDown content={post}/>)
+        },
+        ]}
+    />
+
+      {managedIdentifiersWithProfiles.length > 0 && (
+        <Dropdown.Button
+          // overlayStyle={{ height: '50px' }}
+          type='primary'
+          onClick={handleCreatePost}
+          disabled={post===''}
+          icon={<Avatar size={'small'} src={issuerProfile?.picture} />}
+          menu={{
+            items: [
+              ...managedIdentifiersWithProfiles.map((profile) => {
+                return {
+                  key: profile.did,
+                  onClick: () => {
+                    setIssuerProfile(profile)
+                    setSelectedDid(profile.did)
+                  },
+                  label: <IdentifierProfile did={profile.did} />,
+                }
+              }),
+            ],
+            selectable: true,
+            defaultSelectedKeys: [selectedDid],
           }}
-        />
-        {managedIdentifiersWithProfiles.length > 0 && (
-          <Dropdown.Button
-            // overlayStyle={{ height: '50px' }}
-            type='primary'
-            onClick={handleCreatePost}
-            icon={<Avatar size={'small'} src={issuerProfile?.picture} />}
-            menu={{
-              items: [
-                ...managedIdentifiersWithProfiles.map((profile) => {
-                  return {
-                    key: profile.did,
-                    onClick: () => {
-                      setIssuerProfile(profile)
-                      setSelectedDid(profile.did)
-                    },
-                    label: <IdentifierProfile did={profile.did} />,
-                  }
-                }),
-              ],
-              selectable: true,
-              defaultSelectedKeys: [selectedDid],
-            }}
-          >
-            Create Post as
-          </Dropdown.Button>
-        )}
-    </Space>
+        >
+          Create Post as
+        </Dropdown.Button>
+      )}
+      </Space>
   )
 }
