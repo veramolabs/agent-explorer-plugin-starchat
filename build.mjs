@@ -19,7 +19,7 @@ let ctx = await esbuild.context({
     'react-router-dom',
     'uuid',
     'date-fns',
-    'antd/lib/button',
+    'react-dom/server',
   ],
   plugins: [
     externalGlobalPlugin({
@@ -34,7 +34,7 @@ let ctx = await esbuild.context({
       'react-router-dom': 'window.reactrouterdom',
       'uuid': 'window.uuid',
       'date-fns': 'window.datefns',
-      'antd/lib/button': 'window.antlibbutton',
+      'react-dom/server': 'window.ReactDOMServer',
     })
   ]
 })
