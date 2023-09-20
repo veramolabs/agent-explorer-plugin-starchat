@@ -31,6 +31,7 @@ export const Feed = () => {
     notification.success({
       message: 'Post created'
     })
+    setDrawerOpen(false)
     await refetch()
     navigate('/brainshare/' + hash)
   }

@@ -11,16 +11,22 @@ import Editor from '@monaco-editor/react';
 
 interface CreatePostProps {
   onOk: (hash: string) => void
+  initialIssuer?: string
+  initialTitle?: string
+  initialText?: string
+  initialIndexed?: boolean
 }
 
-export const PostForm: React.FC<CreatePostProps> = ({ onOk }) => {
+export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed }) => {
   const token = theme.useToken()
   
-  const [title, setTitle] = useState<string>('')
-  const [shouldBeIndexed, setShouldBeIndexed] = useState<boolean>(false)
-  const [post, setPost] = useState<string>('')
+  console.log("initialIndexed: ", initialIndexed)
+
+  const [title, setTitle] = useState<string>(initialTitle || '')
+  const [shouldBeIndexed, setShouldBeIndexed] = useState<boolean>(initialIndexed || false)
+  const [post, setPost] = useState<string>(initialText || '')
   const { agent } = useVeramo<ICredentialIssuer & IDataStore & IDataStoreORM & IDIDManager>()
-  const [selectedDid, setSelectedDid] = useState('')
+  const [selectedDid, setSelectedDid] = useState(initialIssuer || '')
   const [issuerProfile, setIssuerProfile] = useState<IIdentifierProfile>()
   const [managedIdentifiers, setManagedIdentifiers] = useState<
     IIdentifier[]
@@ -38,7 +44,9 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk }) => {
       onSuccess: (data: IIdentifier[]) => {
         if (data) {
           setManagedIdentifiers(data)
-          setSelectedDid(data[0].did);
+          if (!initialIssuer) {
+            setSelectedDid(data[0].did);
+          }
         }
       },
     },
@@ -144,8 +152,8 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk }) => {
           label: 'Write',
           children: (
             <>
-              <Input onChange={(e) => setTitle(e.target.value)} placeholder='Title (optional)'/>
-              <Checkbox onChange={(e) => setShouldBeIndexed(e.target.checked)}>Index</Checkbox>
+              <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title (optional)'/>
+              <Checkbox defaultChecked={shouldBeIndexed} onChange={(e) => setShouldBeIndexed(e.target.checked)}>Index</Checkbox>
               <br />
               <Editor
                 theme={token.theme.id === 4 ? 'vs-dark' : 'light'}

@@ -62232,10 +62232,10 @@ if (true) {
 var PlusOutlined_default2 = /* @__PURE__ */ React8.forwardRef(PlusOutlined2);
 
 // src/Feed.tsx
-var import_react17 = __toESM(require_react(), 1);
+var import_react18 = __toESM(require_react(), 1);
 var import_date_fns2 = __toESM(require_date_fns(), 1);
 var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
-var import_react_query3 = __toESM(require_react_query(), 1);
+var import_react_query4 = __toESM(require_react_query(), 1);
 var import_veramo_react5 = __toESM(require_veramo_react(), 1);
 var import_pro_components = __toESM(require_pro_components(), 1);
 
@@ -62318,28 +62318,49 @@ var IdentifierProfile_default = IdentifierProfile;
 
 // src/components/CredentialActionsDropdown.tsx
 var import_antd2 = __toESM(require_antd(), 1);
+var import_react3 = __toESM(require_react(), 1);
 var import_veramo_react2 = __toESM(require_veramo_react(), 1);
 var import_react_router_dom = __toESM(require_react_router_dom(), 1);
+var import_react_query2 = __toESM(require_react_query(), 1);
 var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
-var CredentialActionsDropdown = ({ children, credential }) => {
-  const { agents, getAgent } = (0, import_veramo_react2.useVeramo)();
+var CredentialActionsDropdown = ({ children, credential, onCreateRevision }) => {
+  const { agent, agents, getAgent } = (0, import_veramo_react2.useVeramo)();
   const navigate = (0, import_react_router_dom.useNavigate)();
   const { notification } = import_antd2.App.useApp();
+  const [selectedDid, setSelectedDid] = (0, import_react3.useState)("");
+  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react3.useState)([]);
+  (0, import_react_query2.useQuery)(
+    ["identifiers", { id: agent?.context.id }],
+    () => agent?.didManagerFind(),
+    {
+      onSuccess: (data) => {
+        if (data) {
+          setManagedIdentifiers(data);
+          data.forEach((managedDID) => {
+            if (credential.issuer.id === managedDID.did) {
+              console.log("set selected yep.");
+              setSelectedDid(managedDID.did);
+            }
+          });
+        }
+      }
+    }
+  );
   const agentsToCopyTo = agents.filter(
-    (agent) => agent.availableMethods().includes("dataStoreSaveVerifiableCredential")
+    (agent2) => agent2.availableMethods().includes("dataStoreSaveVerifiableCredential")
   );
   const handleCopyTo = async (agentId) => {
-    const agent = getAgent(agentId);
+    const agent2 = getAgent(agentId);
     try {
-      await agent.dataStoreSaveVerifiableCredential({
+      await agent2.dataStoreSaveVerifiableCredential({
         verifiableCredential: credential
       });
       notification.success({
-        message: "Credential copied to: " + agent.context.name
+        message: "Credential copied to: " + agent2.context.name
       });
     } catch (e) {
       notification.error({
-        message: "Error copying credential to: " + agent.context.name,
+        message: "Error copying credential to: " + agent2.context.name,
         description: e.message
       });
     }
@@ -62354,44 +62375,53 @@ var CredentialActionsDropdown = ({ children, credential }) => {
     document.body.appendChild(element);
     element.click();
   };
+  const actionItems = [
+    {
+      key: "issuer",
+      label: "Issuer",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(InfoCircleOutlined_default2, {}),
+      onClick: () => navigate("/contacts/" + getIssuerDID(credential))
+    },
+    {
+      key: "subject",
+      label: "Subject",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(InfoCircleOutlined_default2, {}),
+      onClick: () => navigate(
+        "/contacts/" + encodeURIComponent(credential.credentialSubject.id)
+      )
+    },
+    {
+      key: "download",
+      label: "Download",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DownloadOutlined_default2, {}),
+      onClick: handleDownload
+    },
+    {
+      key: "copy",
+      label: "Copy to",
+      type: "group",
+      children: agentsToCopyTo.map((_agent, index2) => {
+        return {
+          key: index2,
+          onClick: () => handleCopyTo(_agent.context?.id),
+          label: _agent.context?.name
+        };
+      })
+    }
+  ];
+  if (selectedDid && onCreateRevision) {
+    actionItems.push({
+      key: "create-revision",
+      label: "Create New Revision",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DownloadOutlined_default2, {}),
+      onClick: onCreateRevision
+    });
+  }
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
     import_antd2.Dropdown,
     {
       menu: {
-        items: [
-          {
-            key: "issuer",
-            label: "Issuer",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(InfoCircleOutlined_default2, {}),
-            onClick: () => navigate("/contacts/" + getIssuerDID(credential))
-          },
-          {
-            key: "subject",
-            label: "Subject",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(InfoCircleOutlined_default2, {}),
-            onClick: () => navigate(
-              "/contacts/" + encodeURIComponent(credential.credentialSubject.id)
-            )
-          },
-          {
-            key: "download",
-            label: "Download",
-            icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DownloadOutlined_default2, {}),
-            onClick: handleDownload
-          },
-          {
-            key: "copy",
-            label: "Copy to",
-            type: "group",
-            children: agentsToCopyTo.map((_agent, index2) => {
-              return {
-                key: index2,
-                onClick: () => handleCopyTo(_agent.context?.id),
-                label: _agent.context?.name
-              };
-            })
-          }
-        ]
+        items: actionItems
       },
       children
     }
@@ -62404,9 +62434,9 @@ var import_antd4 = __toESM(require_antd(), 1);
 
 // src/PostForm.tsx
 var import_antd3 = __toESM(require_antd(), 1);
-var import_react15 = __toESM(require_react(), 1);
+var import_react16 = __toESM(require_react(), 1);
 var import_veramo_react4 = __toESM(require_veramo_react(), 1);
-var import_react_query2 = __toESM(require_react_query(), 1);
+var import_react_query3 = __toESM(require_react_query(), 1);
 
 // src/MarkDown.tsx
 var ReactDOMServer = __toESM(require_server(), 1);
@@ -62486,7 +62516,7 @@ function markdownPlugin(md) {
 }
 
 // src/MarkDown.tsx
-var import_react3 = __toESM(require_react(), 1);
+var import_react4 = __toESM(require_react(), 1);
 var import_react_components2 = __toESM(require_react_components(), 1);
 var import_veramo_react3 = __toESM(require_veramo_react(), 1);
 
@@ -67505,7 +67535,7 @@ var CredentialVerificationView = ({ verifyResult, credential }) => {
 // src/MarkDown.tsx
 var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
 var MarkDown = ({ content }) => {
-  const [html, setHtml] = (0, import_react3.useState)("");
+  const [html, setHtml] = (0, import_react4.useState)("");
   const { agent } = (0, import_veramo_react3.useVeramo)();
   const md = new import_markdown_it.default({
     html: true,
@@ -67521,7 +67551,7 @@ var MarkDown = ({ content }) => {
     }
   });
   markdownPlugin(md);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     const htmlStr = md.render(content);
     setHtml(htmlStr);
     async function getVerifiedHtml(lang, source) {
@@ -68097,7 +68127,6 @@ var loader = {
 var loader_default = loader;
 
 // node_modules/.pnpm/@monaco-editor+react@4.5.2_monaco-editor@0.43.0_react-dom@18.2.0_react@18.2.0/node_modules/@monaco-editor/react/dist/index.mjs
-var import_react4 = __toESM(require_react(), 1);
 var import_react5 = __toESM(require_react(), 1);
 var import_react6 = __toESM(require_react(), 1);
 var import_react7 = __toESM(require_react(), 1);
@@ -68108,27 +68137,28 @@ var import_react11 = __toESM(require_react(), 1);
 var import_react12 = __toESM(require_react(), 1);
 var import_react13 = __toESM(require_react(), 1);
 var import_react14 = __toESM(require_react(), 1);
+var import_react15 = __toESM(require_react(), 1);
 var lt = { wrapper: { display: "flex", position: "relative", textAlign: "initial" }, fullWidth: { width: "100%" }, hide: { display: "none" } };
 var v = lt;
 var at = { container: { display: "flex", height: "100%", width: "100%", justifyContent: "center", alignItems: "center" } };
 var Y = at;
 function Mt({ children: t }) {
-  return import_react8.default.createElement("div", { style: Y.container }, t);
+  return import_react9.default.createElement("div", { style: Y.container }, t);
 }
 var Z = Mt;
 var $ = Z;
 function Et({ width: t, height: r, isEditorReady: n, loading: e, _ref: a, className: m, wrapperProps: E }) {
-  return import_react7.default.createElement("section", { style: { ...v.wrapper, width: t, height: r }, ...E }, !n && import_react7.default.createElement($, null, e), import_react7.default.createElement("div", { ref: a, style: { ...v.fullWidth, ...!n && v.hide }, className: m }));
+  return import_react8.default.createElement("section", { style: { ...v.wrapper, width: t, height: r }, ...E }, !n && import_react8.default.createElement($, null, e), import_react8.default.createElement("div", { ref: a, style: { ...v.fullWidth, ...!n && v.hide }, className: m }));
 }
 var tt = Et;
-var H = (0, import_react6.memo)(tt);
+var H = (0, import_react7.memo)(tt);
 function Ct(t) {
-  (0, import_react9.useEffect)(t, []);
+  (0, import_react10.useEffect)(t, []);
 }
 var b = Ct;
 function ht(t, r, n = true) {
-  let e = (0, import_react10.useRef)(true);
-  (0, import_react10.useEffect)(e.current || !n ? () => {
+  let e = (0, import_react11.useRef)(true);
+  (0, import_react11.useEffect)(e.current || !n ? () => {
     e.current = false;
   } : t, r);
 }
@@ -68148,7 +68178,7 @@ function et(t, r) {
   return t.Uri.parse(r);
 }
 function Ot({ original: t, modified: r, language: n, originalLanguage: e, modifiedLanguage: a, originalModelPath: m, modifiedModelPath: E, keepCurrentOriginalModel: S = false, keepCurrentModifiedModel: N = false, theme: x = "light", loading: P = "Loading...", options: y = {}, height: V = "100%", width: z = "100%", className: F, wrapperProps: j = {}, beforeMount: A = h, onMount: q = h }) {
-  let [M, O] = (0, import_react5.useState)(false), [T, s] = (0, import_react5.useState)(true), u = (0, import_react5.useRef)(null), c = (0, import_react5.useRef)(null), w = (0, import_react5.useRef)(null), d = (0, import_react5.useRef)(q), o = (0, import_react5.useRef)(A), D = (0, import_react5.useRef)(false);
+  let [M, O] = (0, import_react6.useState)(false), [T, s] = (0, import_react6.useState)(true), u = (0, import_react6.useRef)(null), c = (0, import_react6.useRef)(null), w = (0, import_react6.useRef)(null), d = (0, import_react6.useRef)(q), o = (0, import_react6.useRef)(A), D = (0, import_react6.useRef)(false);
   b(() => {
     let i = loader_default.init();
     return i.then((f2) => (c.current = f2) && s(false)).catch((f2) => f2?.type !== "cancelation" && console.error("Monaco initialization: error:", f2)), () => u.current ? I() : i.cancel();
@@ -68175,38 +68205,38 @@ function Ot({ original: t, modified: r, language: n, originalLanguage: e, modifi
   }, [x], M), l(() => {
     u.current?.updateOptions(y);
   }, [y], M);
-  let U = (0, import_react5.useCallback)(() => {
+  let U = (0, import_react6.useCallback)(() => {
     if (!c.current)
       return;
     o.current(c.current);
     let i = R(c.current, t || "", e || n || "text", m || ""), f2 = R(c.current, r || "", a || n || "text", E || "");
     u.current?.setModel({ original: i, modified: f2 });
-  }, [n, r, a, t, e, m, E]), L = (0, import_react5.useCallback)(() => {
+  }, [n, r, a, t, e, m, E]), L = (0, import_react6.useCallback)(() => {
     !D.current && w.current && (u.current = c.current.editor.createDiffEditor(w.current, { automaticLayout: true, ...y }), U(), c.current?.editor.setTheme(x), O(true), D.current = true);
   }, [y, x, U]);
-  (0, import_react5.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     M && d.current(u.current, c.current);
-  }, [M]), (0, import_react5.useEffect)(() => {
+  }, [M]), (0, import_react6.useEffect)(() => {
     !T && !M && L();
   }, [T, M, L]);
   function I() {
     let i = u.current?.getModel();
     S || i?.original?.dispose(), N || i?.modified?.dispose(), u.current?.dispose();
   }
-  return import_react5.default.createElement(H, { width: z, height: V, isEditorReady: M, loading: P, _ref: w, className: F, wrapperProps: j });
+  return import_react6.default.createElement(H, { width: z, height: V, isEditorReady: M, loading: P, _ref: w, className: F, wrapperProps: j });
 }
 var it = Ot;
-var wt = (0, import_react4.memo)(it);
+var wt = (0, import_react5.memo)(it);
 function Ht(t) {
-  let r = (0, import_react14.useRef)();
-  return (0, import_react14.useEffect)(() => {
+  let r = (0, import_react15.useRef)();
+  return (0, import_react15.useEffect)(() => {
     r.current = t;
   }, [t]), r.current;
 }
 var st = Ht;
 var _ = /* @__PURE__ */ new Map();
 function Vt({ defaultValue: t, defaultLanguage: r, defaultPath: n, value: e, language: a, path: m, theme: E = "light", line: S, loading: N = "Loading...", options: x = {}, overrideServices: P = {}, saveViewState: y = true, keepCurrentModel: V = false, width: z = "100%", height: F = "100%", className: j, wrapperProps: A = {}, beforeMount: q = h, onMount: M = h, onChange: O, onValidate: T = h }) {
-  let [s, u] = (0, import_react13.useState)(false), [c, w] = (0, import_react13.useState)(true), d = (0, import_react13.useRef)(null), o = (0, import_react13.useRef)(null), D = (0, import_react13.useRef)(null), U = (0, import_react13.useRef)(M), L = (0, import_react13.useRef)(q), I = (0, import_react13.useRef)(), i = (0, import_react13.useRef)(e), f2 = st(m), Q = (0, import_react13.useRef)(false), B = (0, import_react13.useRef)(false);
+  let [s, u] = (0, import_react14.useState)(false), [c, w] = (0, import_react14.useState)(true), d = (0, import_react14.useRef)(null), o = (0, import_react14.useRef)(null), D = (0, import_react14.useRef)(null), U = (0, import_react14.useRef)(M), L = (0, import_react14.useRef)(q), I = (0, import_react14.useRef)(), i = (0, import_react14.useRef)(e), f2 = st(m), Q = (0, import_react14.useRef)(false), B = (0, import_react14.useRef)(false);
   b(() => {
     let p = loader_default.init();
     return p.then((g) => (d.current = g) && w(false)).catch((g) => g?.type !== "cancelation" && console.error("Monaco initialization: error:", g)), () => o.current ? pt() : p.cancel();
@@ -68225,22 +68255,22 @@ function Vt({ defaultValue: t, defaultLanguage: r, defaultPath: n, value: e, lan
   }, [S], s), l(() => {
     d.current?.editor.setTheme(E);
   }, [E], s);
-  let X = (0, import_react13.useCallback)(() => {
+  let X = (0, import_react14.useCallback)(() => {
     if (!(!D.current || !d.current) && !Q.current) {
       L.current(d.current);
       let p = m || n, g = R(d.current, e || t || "", r || a || "", p || "");
       o.current = d.current?.editor.create(D.current, { model: g, automaticLayout: true, ...x }, P), y && o.current.restoreViewState(_.get(p)), d.current.editor.setTheme(E), u(true), Q.current = true;
     }
   }, [t, r, n, e, a, m, x, P, y, E]);
-  (0, import_react13.useEffect)(() => {
+  (0, import_react14.useEffect)(() => {
     s && U.current(o.current, d.current);
-  }, [s]), (0, import_react13.useEffect)(() => {
+  }, [s]), (0, import_react14.useEffect)(() => {
     !c && !s && X();
-  }, [c, s, X]), i.current = e, (0, import_react13.useEffect)(() => {
+  }, [c, s, X]), i.current = e, (0, import_react14.useEffect)(() => {
     s && O && (I.current?.dispose(), I.current = o.current?.onDidChangeModelContent((p) => {
       B.current || O(o.current.getValue(), p);
     }));
-  }, [s, O]), (0, import_react13.useEffect)(() => {
+  }, [s, O]), (0, import_react14.useEffect)(() => {
     if (s) {
       let p = d.current.editor.onDidChangeMarkers((g) => {
         let G = o.current.getModel()?.uri;
@@ -68259,41 +68289,44 @@ function Vt({ defaultValue: t, defaultLanguage: r, defaultPath: n, value: e, lan
   function pt() {
     I.current?.dispose(), V ? y && _.set(m, o.current.saveViewState()) : o.current.getModel()?.dispose(), o.current.dispose();
   }
-  return import_react13.default.createElement(H, { width: z, height: F, isEditorReady: s, loading: N, _ref: D, className: j, wrapperProps: A });
+  return import_react14.default.createElement(H, { width: z, height: F, isEditorReady: s, loading: N, _ref: D, className: j, wrapperProps: A });
 }
 var ft = Vt;
-var dt = (0, import_react12.memo)(ft);
+var dt = (0, import_react13.memo)(ft);
 var Fe = dt;
 
 // src/PostForm.tsx
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var { TextArea } = import_antd3.Input;
-var PostForm = ({ onOk }) => {
+var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed }) => {
   const token = import_antd3.theme.useToken();
-  const [title, setTitle] = (0, import_react15.useState)("");
-  const [shouldBeIndexed, setShouldBeIndexed] = (0, import_react15.useState)(false);
-  const [post, setPost] = (0, import_react15.useState)("");
+  console.log("initialIndexed: ", initialIndexed);
+  const [title, setTitle] = (0, import_react16.useState)(initialTitle || "");
+  const [shouldBeIndexed, setShouldBeIndexed] = (0, import_react16.useState)(initialIndexed || false);
+  const [post, setPost] = (0, import_react16.useState)(initialText || "");
   const { agent } = (0, import_veramo_react4.useVeramo)();
-  const [selectedDid, setSelectedDid] = (0, import_react15.useState)("");
-  const [issuerProfile, setIssuerProfile] = (0, import_react15.useState)();
-  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react15.useState)([]);
+  const [selectedDid, setSelectedDid] = (0, import_react16.useState)(initialIssuer || "");
+  const [issuerProfile, setIssuerProfile] = (0, import_react16.useState)();
+  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react16.useState)([]);
   const [
     managedIdentifiersWithProfiles,
     setManagedIdentifiersWithProfiles
-  ] = (0, import_react15.useState)([]);
-  (0, import_react_query2.useQuery)(
+  ] = (0, import_react16.useState)([]);
+  (0, import_react_query3.useQuery)(
     ["identifiers", { id: agent?.context.id }],
     () => agent?.didManagerFind(),
     {
       onSuccess: (data) => {
         if (data) {
           setManagedIdentifiers(data);
-          setSelectedDid(data[0].did);
+          if (!initialIssuer) {
+            setSelectedDid(data[0].did);
+          }
         }
       }
     }
   );
-  (0, import_react15.useEffect)(() => {
+  (0, import_react16.useEffect)(() => {
     if (agent) {
       Promise.all(
         managedIdentifiers.map((identifier) => {
@@ -68377,8 +68410,8 @@ var PostForm = ({ onOk }) => {
             key: "1",
             label: "Write",
             children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd3.Input, { onChange: (e) => setTitle(e.target.value), placeholder: "Title (optional)" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd3.Checkbox, { onChange: (e) => setShouldBeIndexed(e.target.checked), children: "Index" }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd3.Input, { value: title, onChange: (e) => setTitle(e.target.value), placeholder: "Title (optional)" }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd3.Checkbox, { defaultChecked: shouldBeIndexed, onChange: (e) => setShouldBeIndexed(e.target.checked), children: "Index" }),
               /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
               /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
                 Fe,
@@ -68444,10 +68477,10 @@ var PostForm = ({ onOk }) => {
 var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
 var Feed = () => {
   const { notification } = import_antd4.App.useApp();
-  const [drawerOpen, setDrawerOpen] = (0, import_react17.useState)(false);
+  const [drawerOpen, setDrawerOpen] = (0, import_react18.useState)(false);
   const navigate = (0, import_react_router_dom2.useNavigate)();
   const { agent } = (0, import_veramo_react5.useVeramo)();
-  const { data: credentials, isLoading, refetch } = (0, import_react_query3.useQuery)(
+  const { data: credentials, isLoading, refetch } = (0, import_react_query4.useQuery)(
     ["brainshare-posts", { agentId: agent?.context.name }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
       where: [{ column: "type", value: ["VerifiableCredential,BrainSharePost"] }],
@@ -68458,6 +68491,7 @@ var Feed = () => {
     notification.success({
       message: "Post created"
     });
+    setDrawerOpen(false);
     await refetch();
     navigate("/brainshare/" + hash2);
   };
@@ -68544,25 +68578,35 @@ var Feed = () => {
 };
 
 // src/Post.tsx
+var import_react19 = __toESM(require_react(), 1);
 var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
-var import_react_query4 = __toESM(require_react_query(), 1);
+var import_react_query5 = __toESM(require_react_query(), 1);
 var import_veramo_react6 = __toESM(require_veramo_react(), 1);
 var import_pro_components2 = __toESM(require_pro_components(), 1);
 var import_antd5 = __toESM(require_antd(), 1);
 var import_date_fns3 = __toESM(require_date_fns(), 1);
 var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
 var Post = () => {
+  const { notification } = import_antd5.App.useApp();
   const { id } = (0, import_react_router_dom3.useParams)();
   const { agent } = (0, import_veramo_react6.useVeramo)();
+  const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
+  const navigate = (0, import_react_router_dom3.useNavigate)();
   if (!id)
     return null;
-  const { data: credential, isLoading: credentialLoading } = (0, import_react_query4.useQuery)(
+  const { data: credential, isLoading: credentialLoading } = (0, import_react_query5.useQuery)(
     ["credential", { id }],
     () => agent?.dataStoreGetVerifiableCredential({ hash: id })
   );
+  const handleNewPost = async (hash2) => {
+    notification.success({
+      message: "Post created"
+    });
+    navigate("/brainshare/" + hash2);
+  };
   if (!credential)
     return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
     import_pro_components2.PageContainer,
     {
       loading: credentialLoading,
@@ -68577,12 +68621,26 @@ var Post = () => {
           new Date(credential.issuanceDate),
           /* @__PURE__ */ new Date()
         ) }, "1"),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CredentialActionsDropdown_default, { credential, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(EllipsisOutlined_default2, {}) }, "2")
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CredentialActionsDropdown_default, { credential, onCreateRevision: () => setDrawerOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(EllipsisOutlined_default2, {}) }, "2")
       ],
-      children: credential && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-        credential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h2", { children: credential.credentialSubject.title }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(MarkDown, { content: credential.credentialSubject.post })
-      ] })
+      children: [
+        credential && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
+          credential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h2", { children: credential.credentialSubject.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(MarkDown, { content: credential.credentialSubject.post })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          import_antd5.Drawer,
+          {
+            title: "Compose new post",
+            placement: "right",
+            onClose: () => setDrawerOpen(false),
+            open: drawerOpen,
+            width: 800,
+            destroyOnClose: true,
+            children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(PostForm, { onOk: handleNewPost, initialIssuer: credential.issuer.id, initialTitle: credential.credentialSubject.title, initialText: credential.credentialSubject.post, initialIndexed: credential.credentialSubject.shouldBeIndexed })
+          }
+        ) })
+      ]
     }
   );
 };
