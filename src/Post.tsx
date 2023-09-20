@@ -42,7 +42,10 @@ export const Post = () => {
         </CredentialActionsDropdown>,
       ]}
     >
-      {credential && <MarkDown content={credential.credentialSubject.post} />}
+      {credential && <>
+        {credential.credentialSubject.title && <h2>{credential.credentialSubject.title}</h2>}
+        <MarkDown content={credential.credentialSubject.post} />
+      </>}
     </PageContainer>
   )
 }

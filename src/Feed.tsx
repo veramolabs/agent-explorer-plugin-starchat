@@ -22,7 +22,7 @@ export const Feed = () => {
     ['brainshare-posts', { agentId: agent?.context.name }],
     () =>
       agent?.dataStoreORMGetVerifiableCredentials({
-        where: [{ column: 'type', value: ['VerifiableCredential,BrainsharePost'] }],
+        where: [{ column: 'type', value: ['VerifiableCredential,BrainSharePost'] }],
         order: [{ column: 'issuanceDate', direction: 'DESC' }],
       }),
   )
@@ -89,7 +89,10 @@ export const Feed = () => {
               </CredentialActionsDropdown>,
             ],
             content: (
-              <MarkDown content={item.verifiableCredential.credentialSubject.post}/>
+              <>
+                {item.verifiableCredential.credentialSubject.title && <h2>{item.verifiableCredential.credentialSubject.title}</h2>}
+                {!item.verifiableCredential.credentialSubject.title && <MarkDown content={item.verifiableCredential.credentialSubject.post}/>}
+              </>
             ),
             hash: item.hash,
           }

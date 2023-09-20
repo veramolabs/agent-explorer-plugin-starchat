@@ -1,8 +1,8 @@
-import { Input, Button, App, Dropdown, Avatar, Space, Tabs, theme } from 'antd'
+import { Input, Checkbox, Button, App, Dropdown, Avatar, Space, Tabs, theme } from 'antd'
 import React, { useState, useEffect } from 'react'
 const { TextArea } = Input
 import { useVeramo } from '@veramo-community/veramo-react'
-import { ICredentialIssuer, IDIDManager, IDataStore, IIdentifier } from '@veramo/core'
+import { ICredentialIssuer, IDIDManager, IDataStore, IDataStoreORM, IIdentifier } from '@veramo/core'
 import { useQuery } from 'react-query'
 import IdentifierProfile from './components/IdentifierProfile.js'
 import { IIdentifierProfile } from './types.js'
@@ -16,8 +16,10 @@ interface CreatePostProps {
 export const PostForm: React.FC<CreatePostProps> = ({ onOk }) => {
   const token = theme.useToken()
   
+  const [title, setTitle] = useState<string>('')
+  const [shouldBeIndexed, setShouldBeIndexed] = useState<boolean>(false)
   const [post, setPost] = useState<string>('')
-  const { agent } = useVeramo<ICredentialIssuer & IDataStore & IDIDManager>()
+  const { agent } = useVeramo<ICredentialIssuer & IDataStore & IDataStoreORM & IDIDManager>()
   const [selectedDid, setSelectedDid] = useState('')
   const [issuerProfile, setIssuerProfile] = useState<IIdentifierProfile>()
   const [managedIdentifiers, setManagedIdentifiers] = useState<
@@ -60,25 +62,73 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk }) => {
   const handleCreatePost = async () => {
     try {
 
+      // console.log("agent: ", agent)
       const credential = await agent?.createVerifiableCredential({
         save: true,
         proofFormat: 'jwt',
         credential: {
           '@context': ['https://www.w3.org/2018/credentials/v1'],
-          type: ['VerifiableCredential', 'BrainsharePost'],
+          type: ['VerifiableCredential', 'BrainSharePost'],
           issuer: { id: selectedDid },
           issuanceDate: new Date().toISOString(),
           credentialSubject: {
+            title,
+            shouldBeIndexed,
             post
           },
         },
       })
       
       if (credential) {
-        const hash = await agent?.dataStoreSaveVerifiableCredential({verifiableCredential: credential})      
+        const hash = await agent?.dataStoreSaveVerifiableCredential({verifiableCredential: credential})
+        
+        // also send to appropriate DID via DIDComm if desired, but always store locally as well
+
         if (hash) {
+
+          // if appropriate, create new index credential
+          if (shouldBeIndexed) {
+            const credentials = await agent?.dataStoreORMGetVerifiableCredentials({
+              where: [
+                { column: 'type', value: ['VerifiableCredential','BrainSharePost'] },
+                { column: 'issuer', value: [selectedDid] },
+              ],
+            })
+
+            const indexableCreds = credentials?.filter((cred) => cred.verifiableCredential.credentialSubject.shouldBeIndexed)
+
+            if (indexableCreds) {
+              const index = new Map()
+              indexableCreds.forEach((cred) => {
+                let revisions = index.get(cred.verifiableCredential.credentialSubject.title)
+                if (!revisions) {
+                  revisions = []
+                }
+                revisions = [...revisions, cred.hash]
+                index.set(cred.verifiableCredential.credentialSubject.title, revisions)
+              }) 
+              const indexCred = await agent?.createVerifiableCredential({
+                save: true,
+                proofFormat: 'jwt',
+                credential: {
+                  '@context': ['https://www.w3.org/2018/credentials/v1'],
+                  type: ['VerifiableCredential', 'BrainShareIndex'],
+                  issuer: { id: selectedDid },
+                  issuanceDate: new Date().toISOString(),
+                  credentialSubject: {
+                    index: Object.fromEntries(index.entries())
+                  },
+                },
+              })
+              if (indexCred) {
+                await agent?.dataStoreSaveVerifiableCredential({verifiableCredential: indexCred})
+              }
+            }
+          }
+          // callback
           onOk(hash)
         }
+
       }
     } catch (e) {
       console.error(e)
@@ -93,28 +143,36 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk }) => {
           key: '1',
           label: 'Write',
           children: (
-            <Editor
-              theme={token.theme.id === 4 ? 'vs-dark' : 'light'}
-              height="50vh"
-              options={{
-                lineNumbers: 'off',
-                fontSize: 14,
-                minimap: { enabled: false },
-              }}
-              defaultLanguage="markdown"
-              defaultValue={post}
-              value={post}
-              onChange={(e) => {
-                setPost(e || '')
-              }}
-            />
-
+            <>
+              <Input onChange={(e) => setTitle(e.target.value)} placeholder='Title (optional)'/>
+              <Checkbox onChange={(e) => setShouldBeIndexed(e.target.checked)}>Index</Checkbox>
+              <br />
+              <Editor
+                theme={token.theme.id === 4 ? 'vs-dark' : 'light'}
+                height="50vh"
+                options={{
+                  lineNumbers: 'off',
+                  fontSize: 14,
+                  minimap: { enabled: false },
+                }}
+                defaultLanguage="markdown"
+                defaultValue={post}
+                value={post}
+                onChange={(e) => {
+                  setPost(e || '')
+                }}
+              />
+            </>
           )
         },
         {
           key: '2',
           label: 'Preview',
-          children: (<MarkDown content={post}/>)
+          children: (
+          <>
+            <h2>{title}</h2>
+            <MarkDown content={post}/>
+          </>)
         },
         ]}
     />

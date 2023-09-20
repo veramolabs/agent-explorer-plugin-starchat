@@ -68270,6 +68270,8 @@ var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var { TextArea } = import_antd3.Input;
 var PostForm = ({ onOk }) => {
   const token = import_antd3.theme.useToken();
+  const [title, setTitle] = (0, import_react15.useState)("");
+  const [shouldBeIndexed, setShouldBeIndexed] = (0, import_react15.useState)(false);
   const [post, setPost] = (0, import_react15.useState)("");
   const { agent } = (0, import_veramo_react4.useVeramo)();
   const [selectedDid, setSelectedDid] = (0, import_react15.useState)("");
@@ -68310,10 +68312,12 @@ var PostForm = ({ onOk }) => {
         proofFormat: "jwt",
         credential: {
           "@context": ["https://www.w3.org/2018/credentials/v1"],
-          type: ["VerifiableCredential", "BrainsharePost"],
+          type: ["VerifiableCredential", "BrainSharePost"],
           issuer: { id: selectedDid },
           issuanceDate: (/* @__PURE__ */ new Date()).toISOString(),
           credentialSubject: {
+            title,
+            shouldBeIndexed,
             post
           }
         }
@@ -68321,6 +68325,42 @@ var PostForm = ({ onOk }) => {
       if (credential) {
         const hash2 = await agent?.dataStoreSaveVerifiableCredential({ verifiableCredential: credential });
         if (hash2) {
+          if (shouldBeIndexed) {
+            const credentials = await agent?.dataStoreORMGetVerifiableCredentials({
+              where: [
+                { column: "type", value: ["VerifiableCredential", "BrainSharePost"] },
+                { column: "issuer", value: [selectedDid] }
+              ]
+            });
+            const indexableCreds = credentials?.filter((cred) => cred.verifiableCredential.credentialSubject.shouldBeIndexed);
+            if (indexableCreds) {
+              const index2 = /* @__PURE__ */ new Map();
+              indexableCreds.forEach((cred) => {
+                let revisions = index2.get(cred.verifiableCredential.credentialSubject.title);
+                if (!revisions) {
+                  revisions = [];
+                }
+                revisions = [...revisions, cred.hash];
+                index2.set(cred.verifiableCredential.credentialSubject.title, revisions);
+              });
+              const indexCred = await agent?.createVerifiableCredential({
+                save: true,
+                proofFormat: "jwt",
+                credential: {
+                  "@context": ["https://www.w3.org/2018/credentials/v1"],
+                  type: ["VerifiableCredential", "BrainShareIndex"],
+                  issuer: { id: selectedDid },
+                  issuanceDate: (/* @__PURE__ */ new Date()).toISOString(),
+                  credentialSubject: {
+                    index: Object.fromEntries(index2.entries())
+                  }
+                }
+              });
+              if (indexCred) {
+                await agent?.dataStoreSaveVerifiableCredential({ verifiableCredential: indexCred });
+              }
+            }
+          }
           onOk(hash2);
         }
       }
@@ -68336,29 +68376,37 @@ var PostForm = ({ onOk }) => {
           {
             key: "1",
             label: "Write",
-            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-              Fe,
-              {
-                theme: token.theme.id === 4 ? "vs-dark" : "light",
-                height: "50vh",
-                options: {
-                  lineNumbers: "off",
-                  fontSize: 14,
-                  minimap: { enabled: false }
-                },
-                defaultLanguage: "markdown",
-                defaultValue: post,
-                value: post,
-                onChange: (e) => {
-                  setPost(e || "");
+            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd3.Input, { onChange: (e) => setTitle(e.target.value), placeholder: "Title (optional)" }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd3.Checkbox, { onChange: (e) => setShouldBeIndexed(e.target.checked), children: "Index" }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+                Fe,
+                {
+                  theme: token.theme.id === 4 ? "vs-dark" : "light",
+                  height: "50vh",
+                  options: {
+                    lineNumbers: "off",
+                    fontSize: 14,
+                    minimap: { enabled: false }
+                  },
+                  defaultLanguage: "markdown",
+                  defaultValue: post,
+                  value: post,
+                  onChange: (e) => {
+                    setPost(e || "");
+                  }
                 }
-              }
-            )
+              )
+            ] })
           },
           {
             key: "2",
             label: "Preview",
-            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(MarkDown, { content: post })
+            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { children: title }),
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(MarkDown, { content: post })
+            ] })
           }
         ]
       }
@@ -68402,7 +68450,7 @@ var Feed = () => {
   const { data: credentials, isLoading, refetch } = (0, import_react_query3.useQuery)(
     ["brainshare-posts", { agentId: agent?.context.name }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
-      where: [{ column: "type", value: ["VerifiableCredential,BrainsharePost"] }],
+      where: [{ column: "type", value: ["VerifiableCredential,BrainSharePost"] }],
       order: [{ column: "issuanceDate", direction: "DESC" }]
     })
   );
@@ -68469,7 +68517,10 @@ var Feed = () => {
                   ) }),
                   /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CredentialActionsDropdown_default, { credential: item.verifiableCredential, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(EllipsisOutlined_default2, {}) })
                 ],
-                content: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(MarkDown, { content: item.verifiableCredential.credentialSubject.post }),
+                content: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+                  item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { children: item.verifiableCredential.credentialSubject.title }),
+                  !item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(MarkDown, { content: item.verifiableCredential.credentialSubject.post })
+                ] }),
                 hash: item.hash
               };
             })
@@ -68528,7 +68579,10 @@ var Post = () => {
         ) }, "1"),
         /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CredentialActionsDropdown_default, { credential, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(EllipsisOutlined_default2, {}) }, "2")
       ],
-      children: credential && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(MarkDown, { content: credential.credentialSubject.post })
+      children: credential && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
+        credential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h2", { children: credential.credentialSubject.title }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(MarkDown, { content: credential.credentialSubject.post })
+      ] })
     }
   );
 };

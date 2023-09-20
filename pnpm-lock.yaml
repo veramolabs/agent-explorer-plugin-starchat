@@ -1096,6 +1096,17 @@ packages:
       - supports-color
     dev: true
 
+  /@veramo/core-types@5.5.0:
+    resolution: {integrity: sha512-LRmwzAv4igIhb+kuxFAqqhvnilIqTsw6vQoz9pcvt6R+CcmR6YhvudWXFKtQvfvxvPqVeMr1Ov/kuVG0kVIgTA==}
+    dependencies:
+      credential-status: 2.0.6
+      debug: 4.3.4
+      did-jwt-vc: 3.2.7
+      did-resolver: 4.1.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@veramo/core@5.4.1:
     resolution: {integrity: sha512-qmd/0lYKuxZyT3N85VrRe6XwJDRqs+NRHFbWnO9T+/G2LGu1P/VBKeHNdPaLHTK4jTyfkyXTwHc2513T1Tvfjg==}
     dependencies:
@@ -1110,7 +1121,7 @@ packages:
   /@veramo/remote-client@5.1.5-next.13:
     resolution: {integrity: sha512-oty2zTeAH+YkaldW94dKIduif81f9qPru8jocRGo/yozYBi048V/D9nAXOwuruHI5ocdMtiXymHRF15SAI+6hA==}
     dependencies:
-      '@veramo/core-types': 5.4.1
+      '@veramo/core-types': 5.5.0
       cross-fetch: 3.1.8
       debug: 4.3.4
       openapi-types: 12.1.0
