@@ -35,6 +35,7 @@
 		"typescript": "^5.1.6"
 	},
 	"dependencies": {
-		"@monaco-editor/react": "^4.5.2"
+		"@monaco-editor/react": "^4.5.2",
+		"uuid": "^9.0.1"
 	}
 }

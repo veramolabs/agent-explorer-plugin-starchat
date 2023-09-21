@@ -7,6 +7,8 @@ import './style.css'
 import { IPlugin } from './types';
 import { Feed } from './Feed'
 import { Post } from './Post'
+import { FindIndex } from './FindIndex.js';
+import { Home } from './Home.js';
 
 const Plugin: IPlugin = {
     init: () => {
@@ -15,8 +17,16 @@ const Plugin: IPlugin = {
           description: 'Decentralized wiki',
           routes: [
             {
-              path: '/brainshare',
+              path: '/brainshare/feed',
               element: <Feed />,
+            },
+            {
+              path: '/brainshare/find-index',
+              element: <FindIndex />,
+            },
+            {
+              path: '/brainshare/home/:did',
+              element: <Home />,
             },
             {
               path: '/brainshare/:id',
@@ -25,10 +35,20 @@ const Plugin: IPlugin = {
           ],
           menuItems: [
             {
-              name: 'BrainShare',
-              path: '/brainshare',
+              name: "BrainShare",
               icon: <FileTextOutlined />,
-            },
+              path: '/brainshare',
+              routes:[
+                {
+                  name: 'BrainShare',
+                  path: '/brainshare/feed',
+                },
+                {
+                  name: 'BS Index',
+                  path: '/brainshare/find-index',
+                }
+              ]
+            }
           ],
           hasCss: true,
         }

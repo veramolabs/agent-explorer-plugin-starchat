@@ -98,7 +98,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
           if (shouldBeIndexed) {
             const credentials = await agent?.dataStoreORMGetVerifiableCredentials({
               where: [
-                { column: 'type', value: ['VerifiableCredential','BrainSharePost'] },
+                { column: 'type', value: ['VerifiableCredential,BrainSharePost'] },
                 { column: 'issuer', value: [selectedDid] },
               ],
             })

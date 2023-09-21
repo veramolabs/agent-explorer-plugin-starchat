@@ -60941,6 +60941,13 @@ var require_xchacha20poly1305 = __commonJS({
   }
 });
 
+// external-global-plugin:uuid
+var require_uuid = __commonJS({
+  "external-global-plugin:uuid"(exports2, module2) {
+    module2.exports = window.uuid;
+  }
+});
+
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/Context.js
 var import_react = __toESM(require_react());
 var IconContext = /* @__PURE__ */ (0, import_react.createContext)({});
@@ -68361,7 +68368,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
           if (shouldBeIndexed) {
             const credentials = await agent?.dataStoreORMGetVerifiableCredentials({
               where: [
-                { column: "type", value: ["VerifiableCredential", "BrainSharePost"] },
+                { column: "type", value: ["VerifiableCredential,BrainSharePost"] },
                 { column: "issuer", value: [selectedDid] }
               ]
             });
@@ -68645,8 +68652,168 @@ var Post = () => {
   );
 };
 
-// src/index.tsx
+// src/FindIndex.tsx
+var import_react20 = __toESM(require_react(), 1);
+var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
+var import_react_query6 = __toESM(require_react_query(), 1);
+var import_veramo_react7 = __toESM(require_veramo_react(), 1);
+var import_pro_components3 = __toESM(require_pro_components(), 1);
+var import_antd6 = __toESM(require_antd(), 1);
+var import_uuid = __toESM(require_uuid(), 1);
 var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+var FindIndex = () => {
+  const { notification } = import_antd6.App.useApp();
+  const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
+  const [did, setDID] = (0, import_react20.useState)("");
+  const [selectedDid, setSelectedDid] = (0, import_react20.useState)("");
+  const navigate = (0, import_react_router_dom4.useNavigate)();
+  const { agent } = (0, import_veramo_react7.useVeramo)();
+  (0, import_react_query6.useQuery)(
+    ["identifiers", { id: agent?.context.id }],
+    () => agent?.didManagerFind(),
+    {
+      onSuccess: (data) => {
+        if (data) {
+          setSelectedDid(data[0].did);
+        }
+      }
+    }
+  );
+  const handleNewPost = async (hash2) => {
+    notification.success({
+      message: "Post created"
+    });
+    setDrawerOpen(false);
+    navigate("/brainshare/" + hash2);
+  };
+  const getIndex = async () => {
+    const message = {
+      type: "https://veramo.io/didcomm/brainshare/1.0/request-index",
+      from: selectedDid,
+      to: did,
+      id: (0, import_uuid.v4)(),
+      body: {}
+    };
+    const packedMessage = await agent?.packDIDCommMessage({
+      packing: "authcrypt",
+      message
+    });
+    const res = await agent?.sendDIDCommMessage({
+      messageId: message.id,
+      packedMessage,
+      recipientDidUrl: did
+    });
+    console.log("res: ", res);
+    navigate(`/brainshare/home/${did}`);
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    import_pro_components3.PageContainer,
+    {
+      extra: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          import_antd6.Button,
+          {
+            icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PlusOutlined_default2, {}),
+            type: "primary",
+            title: "Compose new post",
+            onClick: () => setDrawerOpen(true),
+            children: "Compose"
+          },
+          "add"
+        )
+      ],
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd6.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd6.Button, { onClick: () => getIndex(), children: "Find Index" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_jsx_runtime8.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          import_antd6.Drawer,
+          {
+            title: "Compose new post",
+            placement: "right",
+            onClose: () => setDrawerOpen(false),
+            open: drawerOpen,
+            width: 800,
+            destroyOnClose: true,
+            children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PostForm, { onOk: handleNewPost })
+          }
+        ) })
+      ]
+    }
+  );
+};
+
+// src/Home.tsx
+var import_react21 = __toESM(require_react(), 1);
+var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
+var import_react_query7 = __toESM(require_react_query(), 1);
+var import_veramo_react8 = __toESM(require_veramo_react(), 1);
+var import_pro_components4 = __toESM(require_pro_components(), 1);
+var import_antd7 = __toESM(require_antd(), 1);
+var import_date_fns4 = __toESM(require_date_fns(), 1);
+var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+var Home = () => {
+  const { notification } = import_antd7.App.useApp();
+  const { did } = (0, import_react_router_dom5.useParams)();
+  const { agent } = (0, import_veramo_react8.useVeramo)();
+  const [drawerOpen, setDrawerOpen] = (0, import_react21.useState)(false);
+  const navigate = (0, import_react_router_dom5.useNavigate)();
+  if (!did)
+    return null;
+  const { data: credentials, isLoading: credentialLoading } = (0, import_react_query7.useQuery)(
+    ["credentials", { did }],
+    () => agent?.dataStoreORMGetVerifiableCredentials({
+      where: [{ column: "type", value: ["VerifiableCredential,BrainShareIndex"] }, { column: "issuer", value: [did] }]
+    })
+  );
+  const credential = credentials && credentials.length > 0 && credentials[0].verifiableCredential;
+  console.log("credential: ", credential);
+  const handleNewPost = async (hash2) => {
+    notification.success({
+      message: "Post created"
+    });
+    navigate("/brainshare/" + hash2);
+  };
+  if (!credential)
+    return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+    import_pro_components4.PageContainer,
+    {
+      loading: credentialLoading,
+      title: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        IdentifierProfile_default,
+        {
+          did: getIssuerDID(credential)
+        }
+      ),
+      extra: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_antd7.Typography.Text, { children: credential && (0, import_date_fns4.formatRelative)(
+          new Date(credential.issuanceDate),
+          /* @__PURE__ */ new Date()
+        ) }, "1")
+      ],
+      children: [
+        credential && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_jsx_runtime9.Fragment, { children: JSON.stringify(credential) }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_jsx_runtime9.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+          import_antd7.Drawer,
+          {
+            title: "Compose new post",
+            placement: "right",
+            onClose: () => setDrawerOpen(false),
+            open: drawerOpen,
+            width: 800,
+            destroyOnClose: true,
+            children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PostForm, { onOk: handleNewPost, initialIssuer: credential.issuer.id, initialTitle: credential.credentialSubject.title, initialText: credential.credentialSubject.post, initialIndexed: credential.credentialSubject.shouldBeIndexed })
+          }
+        ) })
+      ]
+    }
+  );
+};
+
+// src/index.tsx
+var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
 var Plugin = {
   init: () => {
     return {
@@ -68654,19 +68821,37 @@ var Plugin = {
       description: "Decentralized wiki",
       routes: [
         {
-          path: "/brainshare",
-          element: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Feed, {})
+          path: "/brainshare/feed",
+          element: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Feed, {})
+        },
+        {
+          path: "/brainshare/find-index",
+          element: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(FindIndex, {})
+        },
+        {
+          path: "/brainshare/home/:did",
+          element: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Home, {})
         },
         {
           path: "/brainshare/:id",
-          element: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Post, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Post, {})
         }
       ],
       menuItems: [
         {
           name: "BrainShare",
+          icon: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(FileTextOutlined_default2, {}),
           path: "/brainshare",
-          icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(FileTextOutlined_default2, {})
+          routes: [
+            {
+              name: "BrainShare",
+              path: "/brainshare/feed"
+            },
+            {
+              name: "BS Index",
+              path: "/brainshare/find-index"
+            }
+          ]
         }
       ],
       hasCss: true
