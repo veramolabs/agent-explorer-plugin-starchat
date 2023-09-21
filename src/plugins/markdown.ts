@@ -12,7 +12,7 @@ export function markdownPlugin(md: MarkdownIt){
   function fence(tokens: Token[], idx: number, options: MarkdownIt.Options, env: any, self: Renderer): string {
 
     const token = tokens[idx];
-    if (token.info === 'vc+jwt' || token.info === 'vc+json') {
+    if (token.info === 'vc+jwt' || token.info === 'vc+json' || token.info === 'vc+multihash') {
       const source = encode(JSON.stringify(token.content));
       return `<div class="veramo" data-lang="${token.info}" data-source="${source}"><div class="spinner"></div></div>`;
     }

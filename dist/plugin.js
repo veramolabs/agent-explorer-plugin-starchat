@@ -62463,7 +62463,7 @@ function markdownPlugin(md) {
   var defaultRender = md.renderer.rules.fence;
   function fence(tokens, idx, options2, env, self2) {
     const token = tokens[idx];
-    if (token.info === "vc+jwt" || token.info === "vc+json") {
+    if (token.info === "vc+jwt" || token.info === "vc+json" || token.info === "vc+multihash") {
       const source = (0, import_html_entities.encode)(JSON.stringify(token.content));
       return `<div class="veramo" data-lang="${token.info}" data-source="${source}"><div class="spinner"></div></div>`;
     }
@@ -67571,8 +67571,22 @@ var MarkDown = ({ content }) => {
           credential = JSON.parse(parsed);
         } else if (lang === "vc+jwt") {
           credential = normalizeCredential(parsed.replace(/\s/g, ""));
+        } else if (lang === "vc+multihash") {
+          const items = parsed.replace(/\s/g, "").split("/");
+          let hash2 = "";
+          let did = "";
+          if (items.length === 2) {
+            did = items[0];
+            hash2 = items[1];
+          } else {
+            hash2 = items[0];
+          }
+          credential = await agent?.dataStoreGetVerifiableCredential({
+            hash: hash2
+          });
+          if (!credential) {
+          }
         }
-        console.log("credential", credential);
         if (credential) {
           const verifyResult = await agent?.verifyCredential({ credential, fetchRemoteContexts: true });
           if (verifyResult) {

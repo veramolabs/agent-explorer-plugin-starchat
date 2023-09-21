@@ -5,7 +5,7 @@ import MarkdownIt from 'markdown-it';
 import "highlight.js/styles/base16/solarized-dark.css";
 import { markdownPlugin } from './plugins/markdown';
 import { useEffect, useState } from 'react';
-import { ICredentialVerifier, VerifiableCredential } from '@veramo/core';
+import { ICredentialVerifier, IDataStore, VerifiableCredential } from '@veramo/core';
 import { VerifiableCredential as VerifiableCredentialView } from '@veramo-community/react-components'
 import { useVeramo } from '@veramo-community/veramo-react';
 import { normalizeCredential } from 'did-jwt-vc';
@@ -17,7 +17,7 @@ interface MarkDownProps {
 
 export const MarkDown: React.FC<MarkDownProps> = ({ content }) => {
     const [ html, setHtml ] = useState<string>('')
-    const { agent } = useVeramo<ICredentialVerifier>()
+    const { agent } = useVeramo<ICredentialVerifier & IDataStore>()
 
     const md = new MarkdownIt({
         html: true,
@@ -51,8 +51,25 @@ export const MarkDown: React.FC<MarkDownProps> = ({ content }) => {
             credential = JSON.parse(parsed);
           } else if (lang === 'vc+jwt') {
             credential = normalizeCredential(parsed.replace(/\s/g, ''));
+          } else if (lang === 'vc+multihash') {
+            const items = parsed.replace(/\s/g, '').split('/');
+            let hash = '';
+            let did = '';
+            if (items.length === 2) {
+              did = items[0];
+              hash = items[1];
+            } else {
+              hash = items[0];
+            }
+
+            credential = await agent?.dataStoreGetVerifiableCredential({
+              hash,
+            });
+            
+            if (!credential) {
+              // TODO: fetch using IPFS or DIDComm
+            }
           }
-          console.log('credential', credential)
       
           if (credential) {
             const verifyResult = await agent?.verifyCredential({ credential, fetchRemoteContexts: true })
