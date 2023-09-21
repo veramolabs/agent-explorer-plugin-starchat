@@ -36,13 +36,13 @@ devDependencies:
     version: 1.5.0(react@18.2.0)
   '@veramo-community/veramo-react':
     specifier: ^1.0.82
-    version: 1.0.82(@veramo/core@5.4.1)(@veramo/remote-client@5.1.5-next.13)(react@18.2.0)
+    version: 1.0.82(@veramo/core@5.5.2-next.3)(@veramo/remote-client@5.1.5-next.13)(react@18.2.0)
   '@veramo/core':
-    specifier: ^5.4.1
-    version: 5.4.1
+    specifier: 5.5.2-next.3
+    version: 5.5.2-next.3
   '@veramo/core-types':
-    specifier: ^5.4.1
-    version: 5.4.1
+    specifier: 5.5.2-next.3
+    version: 5.5.2-next.3
   antd:
     specifier: ^5.8.3
     version: 5.8.3(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
@@ -1074,29 +1074,18 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@veramo-community/veramo-react@1.0.82(@veramo/core@5.4.1)(@veramo/remote-client@5.1.5-next.13)(react@18.2.0):
+  /@veramo-community/veramo-react@1.0.82(@veramo/core@5.5.2-next.3)(@veramo/remote-client@5.1.5-next.13)(react@18.2.0):
     resolution: {integrity: sha512-K/TOWUZw4wiJrb+JUdQZ6uW7FVOBSABK0UiT+qDaSdrLRiztNxLdd05tGdoPFKsxt+DIOeHM35uFxBXtts/IPw==}
     peerDependencies:
       '@veramo/core': 5.1.5-next.13
       '@veramo/remote-client': 5.1.5-next.13
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@veramo/core': 5.4.1
+      '@veramo/core': 5.5.2-next.3
       '@veramo/remote-client': 5.1.5-next.13
       react: 18.2.0
       ts-jest-resolver: 2.0.1
       uuid: 9.0.1
-    dev: true
-
-  /@veramo/core-types@5.4.1:
-    resolution: {integrity: sha512-ps0DmSpQsVvFdKyPt6EogdIbYJu08U9WUYMee8mGf9AYS+1QthVfvfRtqrbtdR+NuvW4ac/tVO9VcXHrFqNYXw==}
-    dependencies:
-      credential-status: 2.0.6
-      debug: 4.3.4
-      did-jwt-vc: 3.2.7
-      did-resolver: 4.1.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@veramo/core-types@5.5.0:
@@ -1110,10 +1099,21 @@ packages:
       - supports-color
     dev: true
 
-  /@veramo/core@5.4.1:
-    resolution: {integrity: sha512-qmd/0lYKuxZyT3N85VrRe6XwJDRqs+NRHFbWnO9T+/G2LGu1P/VBKeHNdPaLHTK4jTyfkyXTwHc2513T1Tvfjg==}
+  /@veramo/core-types@5.5.2-next.3:
+    resolution: {integrity: sha512-X2MRiK4Q0dQDdbHUdZ/R2VFeUssYDXn3Co5Udi/Jy9pV1HQwxqoUFYT92kGqcZIAKhFIU4V3P4436np5ZYNCGQ==}
     dependencies:
-      '@veramo/core-types': 5.4.1
+      credential-status: 2.0.6
+      debug: 4.3.4
+      did-jwt-vc: 3.2.7
+      did-resolver: 4.1.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@veramo/core@5.5.2-next.3:
+    resolution: {integrity: sha512-lPeOq7/+IvRMP4zEac7vp7PAhcnxA5U8lsqiExfZHetw6aUQGZxbrDAbqT2W9TI/A1oqz+7a0y3DmEcy1rLlRw==}
+    dependencies:
+      '@veramo/core-types': 5.5.2-next.3
       debug: 4.3.4
       events: 3.3.0
       z-schema: 6.0.1
