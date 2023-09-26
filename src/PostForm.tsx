@@ -8,6 +8,8 @@ import IdentifierProfile from './components/IdentifierProfile.js'
 import { IIdentifierProfile } from './types.js'
 import { MarkDown } from './MarkDown.js'
 import Editor from '@monaco-editor/react';
+import MarkdownIt from 'markdown-it'
+import hljs from 'highlight.js'
 
 interface CreatePostProps {
   onOk: (hash: string) => void
@@ -70,7 +72,31 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
   const handleCreatePost = async () => {
     try {
 
-      // console.log("agent: ", agent)
+        // find all credentials referenced by this one
+        const md = new MarkdownIt({
+          html: true,
+          highlight: function (str, lang) {
+              if (lang && hljs.getLanguage(lang)) {
+                  try {
+                      return hljs.highlight(str, { language: lang }).value;
+                  } catch (e) {
+                      console.error(e);
+                      /* empty */
+                  }
+              }
+
+              return ''; // use external default escaping
+          },
+      })
+      // markdownPlugin(md)
+      const tokens = md.parse(post, {})
+
+      const references = tokens.filter((token) => {
+        return token.type === 'fence' && token.tag === 'code' && token.info === 'vc+multihash'
+      }).map((token) => {
+        return token.content.trimEnd()
+      })
+
       const credential = await agent?.createVerifiableCredential({
         save: true,
         proofFormat: 'jwt',
@@ -82,7 +108,8 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
           credentialSubject: {
             title,
             shouldBeIndexed,
-            post
+            post,
+            references
           },
         },
       })

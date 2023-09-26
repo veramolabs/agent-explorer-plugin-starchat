@@ -55629,9 +55629,9 @@ var require_lib3 = __commonJS({
       }
       return mdurl.decode(mdurl.format(parsed), mdurl.decode.defaultChars + "%");
     }
-    function MarkdownIt2(presetName, options2) {
-      if (!(this instanceof MarkdownIt2)) {
-        return new MarkdownIt2(presetName, options2);
+    function MarkdownIt3(presetName, options2) {
+      if (!(this instanceof MarkdownIt3)) {
+        return new MarkdownIt3(presetName, options2);
       }
       if (!options2) {
         if (!utils.isString(presetName)) {
@@ -55655,11 +55655,11 @@ var require_lib3 = __commonJS({
         this.set(options2);
       }
     }
-    MarkdownIt2.prototype.set = function(options2) {
+    MarkdownIt3.prototype.set = function(options2) {
       utils.assign(this.options, options2);
       return this;
     };
-    MarkdownIt2.prototype.configure = function(presets) {
+    MarkdownIt3.prototype.configure = function(presets) {
       var self2 = this, presetName;
       if (utils.isString(presets)) {
         presetName = presets;
@@ -55686,7 +55686,7 @@ var require_lib3 = __commonJS({
       }
       return this;
     };
-    MarkdownIt2.prototype.enable = function(list, ignoreInvalid) {
+    MarkdownIt3.prototype.enable = function(list, ignoreInvalid) {
       var result = [];
       if (!Array.isArray(list)) {
         list = [list];
@@ -55703,7 +55703,7 @@ var require_lib3 = __commonJS({
       }
       return this;
     };
-    MarkdownIt2.prototype.disable = function(list, ignoreInvalid) {
+    MarkdownIt3.prototype.disable = function(list, ignoreInvalid) {
       var result = [];
       if (!Array.isArray(list)) {
         list = [list];
@@ -55720,12 +55720,12 @@ var require_lib3 = __commonJS({
       }
       return this;
     };
-    MarkdownIt2.prototype.use = function(plugin) {
+    MarkdownIt3.prototype.use = function(plugin) {
       var args = [this].concat(Array.prototype.slice.call(arguments, 1));
       plugin.apply(plugin, args);
       return this;
     };
-    MarkdownIt2.prototype.parse = function(src2, env) {
+    MarkdownIt3.prototype.parse = function(src2, env) {
       if (typeof src2 !== "string") {
         throw new Error("Input data should be a String");
       }
@@ -55733,21 +55733,21 @@ var require_lib3 = __commonJS({
       this.core.process(state);
       return state.tokens;
     };
-    MarkdownIt2.prototype.render = function(src2, env) {
+    MarkdownIt3.prototype.render = function(src2, env) {
       env = env || {};
       return this.renderer.render(this.parse(src2, env), this.options, env);
     };
-    MarkdownIt2.prototype.parseInline = function(src2, env) {
+    MarkdownIt3.prototype.parseInline = function(src2, env) {
       var state = new this.core.State(src2, this, env);
       state.inlineMode = true;
       this.core.process(state);
       return state.tokens;
     };
-    MarkdownIt2.prototype.renderInline = function(src2, env) {
+    MarkdownIt3.prototype.renderInline = function(src2, env) {
       env = env || {};
       return this.renderer.render(this.parseInline(src2, env), this.options, env);
     };
-    module2.exports = MarkdownIt2;
+    module2.exports = MarkdownIt3;
   }
 });
 
@@ -68317,6 +68317,7 @@ var dt = (0, import_react13.memo)(ft);
 var Fe = dt;
 
 // src/PostForm.tsx
+var import_markdown_it2 = __toESM(require_markdown_it(), 1);
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var { TextArea } = import_antd3.Input;
 var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed }) => {
@@ -68361,6 +68362,25 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
   }, [managedIdentifiers, agent]);
   const handleCreatePost = async () => {
     try {
+      const md = new import_markdown_it2.default({
+        html: true,
+        highlight: function(str2, lang) {
+          if (lang && es_default.getLanguage(lang)) {
+            try {
+              return es_default.highlight(str2, { language: lang }).value;
+            } catch (e) {
+              console.error(e);
+            }
+          }
+          return "";
+        }
+      });
+      const tokens = md.parse(post, {});
+      const references = tokens.filter((token2) => {
+        return token2.type === "fence" && token2.tag === "code" && token2.info === "vc+multihash";
+      }).map((token2) => {
+        return token2.content.trimEnd();
+      });
       const credential = await agent?.createVerifiableCredential({
         save: true,
         proofFormat: "jwt",
@@ -68372,7 +68392,8 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
           credentialSubject: {
             title,
             shouldBeIndexed,
-            post
+            post,
+            references
           }
         }
       });
@@ -68619,6 +68640,25 @@ var Post = () => {
     ["credential", { id }],
     () => agent?.dataStoreGetVerifiableCredential({ hash: id })
   );
+  const { data: references, isLoading: referencesLoading } = (0, import_react_query5.useQuery)(
+    ["references", { id }],
+    () => {
+      return agent?.dataStoreORMGetVerifiableCredentialsByClaims({
+        where: [
+          {
+            column: "type",
+            value: ["references"]
+          },
+          {
+            column: "value",
+            value: [`%${id}%`],
+            op: "Like"
+          }
+        ]
+      });
+    }
+  );
+  console.log("references: ", references);
   const handleNewPost = async (hash2) => {
     notification.success({
       message: "Post created"

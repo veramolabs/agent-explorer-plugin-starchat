@@ -5,7 +5,7 @@ import { useVeramo } from '@veramo-community/veramo-react'
 import { PageContainer } from '@ant-design/pro-components'
 import { MarkDown } from './MarkDown'
 import { App, Drawer, Spin, Typography } from 'antd'
-import { IDataStore, IIdentifier } from '@veramo/core'
+import { IDataStore, IDataStoreORM, IIdentifier } from '@veramo/core'
 import { formatRelative } from 'date-fns'
 import CredentialActionsDropdown from './components/CredentialActionsDropdown'
 import { EllipsisOutlined } from '@ant-design/icons'
@@ -17,7 +17,7 @@ import { PostForm } from './PostForm.js'
 export const Post = () => {
   const { notification } = App.useApp()
   const { id } = useParams<{ id: string }>()
-  const { agent } = useVeramo<IDataStore>()
+  const { agent } = useVeramo<IDataStore & IDataStoreORM>()
   const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate()
 
@@ -28,6 +28,22 @@ export const Post = () => {
     () => agent?.dataStoreGetVerifiableCredential({ hash: id }),
   )
 
+  const { data: references, isLoading: referencesLoading } = useQuery(
+    ['references', { id }],
+    () => {
+      return agent?.dataStoreORMGetVerifiableCredentialsByClaims({
+      where: [
+        {
+          column: 'type', value: ['references']
+        },{
+          column: 'value', value: [`%${id}%`], op: 'Like'
+        }
+      ]
+    })
+  }
+  )
+
+  console.log("references: ", references)
   
   const handleNewPost = async (hash: string) => {
     notification.success({
