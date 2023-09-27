@@ -6,18 +6,28 @@ import { useVeramo } from '@veramo-community/veramo-react'
 import { PageContainer, ProList } from '@ant-design/pro-components'
 import { IDataStoreORM, UniqueVerifiableCredential } from '@veramo/core'
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons'
-import IdentifierProfile from './components/IdentifierProfile'
-import { getIssuerDID } from './utils/did'
-import CredentialActionsDropdown from './components/CredentialActionsDropdown'
-import { App, Button, Drawer } from 'antd'
+import { IdentifierProfile, getIssuerDID, CredentialActionsDropdown, VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
+import { App, Button, Drawer, List } from 'antd'
 import { PostForm } from './PostForm.js'
 import { MarkDown } from './MarkDown'
 
 export const Feed = () => {
   const { notification } = App.useApp()
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [pageSize, setPageSize] = React.useState(10)
+  const [page, setPage] = React.useState(1)
   const navigate = useNavigate()
   const { agent } = useVeramo<IDataStoreORM>()
+
+
+  const { data: credentialsCount } = useQuery(
+    ['credentialsCount', { agentId: agent?.context.name }],
+    () =>
+      agent?.dataStoreORMGetVerifiableCredentialsCount({
+        where: [{ column: 'type', value: ['VerifiableCredential,BrainSharePost'] }],
+      }),
+  )
+
   const { data: credentials, isLoading, refetch } = useQuery(
     ['brainshare-posts', { agentId: agent?.context.name }],
     () =>
@@ -49,57 +59,29 @@ export const Feed = () => {
       >Compose</Button>,
     ]}
     >
-      <ProList
-        ghost
-        loading={isLoading}
+
+      <List
+        itemLayout="vertical"
+        size="large"
         pagination={{
-          defaultPageSize: 5,
+          position: 'both',
+          pageSize: pageSize,
+          current: page,
+          total: credentialsCount,
           showSizeChanger: true,
-        }}
-        grid={{ column: 1, lg: 1, xxl: 1, xl: 1 }}
-        onItem={(record: any) => {
-          return {
-            onClick: () => {
-              navigate('/brainshare/' + record.hash)
-            },
-          }
-        }}
-        metas={{
-          title: {},
-          content: {},
-          actions: {
-            cardActionProps: 'extra',
+          onChange(page, pageSize) {
+            setPage(page)
+            setPageSize(pageSize)
           },
         }}
-        dataSource={credentials?.map((item: UniqueVerifiableCredential) => {
-          return {
-            title: (
-              <IdentifierProfile
-                did={getIssuerDID(item.verifiableCredential)}
-              />
-            ),
-            actions: [
-              <div>
-                {formatRelative(
-                  new Date(item.verifiableCredential.issuanceDate),
-                  new Date(),
-                )}
-              </div>,
-              <CredentialActionsDropdown credential={item.verifiableCredential}>
-                <EllipsisOutlined />
-              </CredentialActionsDropdown>,
-            ],
-            content: (
-              <>
-                {item.verifiableCredential.credentialSubject.title && <h2>{item.verifiableCredential.credentialSubject.title}</h2>}
-                {!item.verifiableCredential.credentialSubject.title && <MarkDown content={item.verifiableCredential.credentialSubject.post}/>}
-              </>
-            ),
-            hash: item.hash,
-          }
-        })}
+        dataSource={credentials}
+        renderItem={(item) => (
+          <div style={{marginTop: '20px'}}>
+          <VerifiableCredentialComponent credential={item} />
+          </div>
+        )}
       />
-    <>
+
       <Drawer 
         title="Compose new post"
         placement="right"
@@ -110,7 +92,6 @@ export const Feed = () => {
       >
         <PostForm onOk={handleNewPost}/>
       </Drawer>
-    </>
     </PageContainer>
   )
 }

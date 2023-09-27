@@ -1,9 +1,11 @@
-import type MarkdownIt from 'markdown-it';
 import Renderer from 'markdown-it/lib/renderer';
 import Token from 'markdown-it/lib/token';
 import StateBlock from 'markdown-it/lib/rules_block/state_block';
 import { encode } from 'html-entities';
 import matter from 'gray-matter';
+import hljs from 'highlight.js';
+import MarkdownIt from 'markdown-it';
+import "highlight.js/styles/base16/solarized-dark.css";
 
 export function markdownPlugin(md: MarkdownIt){
 
@@ -71,8 +73,6 @@ export function markdownPlugin(md: MarkdownIt){
   }
 
   function metaRender(tokens:  Token[], idx: number) {
-
-
     return `<div class="veramo-meta" data-source="${encode(tokens[idx].content)}"><div class="spinner"></div></div>`;
   }
   md.block.ruler.before('code', 'meta', metaParse);
@@ -81,4 +81,23 @@ export function markdownPlugin(md: MarkdownIt){
   return true;
 }
 
+
+const md = new MarkdownIt({
+  html: true,
+  highlight: function (str, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+          try {
+              return hljs.highlight(str, { language: lang }).value;
+          } catch (e) {
+              console.error(e);
+              /* empty */
+          }
+      }
+
+      return ''; // use external default escaping
+  },
+})
+markdownPlugin(md)
+
+export { md }
 

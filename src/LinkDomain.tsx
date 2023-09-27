@@ -7,14 +7,12 @@ import { PageContainer, ProList } from '@ant-design/pro-components'
 import { IDataStoreORM, IIdentifier, UniqueVerifiableCredential } from '@veramo/core'
 // import { IDIDComm } from '@veramo/core-types'
 import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons'
-import IdentifierProfile from './components/IdentifierProfile'
-import { getIssuerDID } from './utils/did'
-import CredentialActionsDropdown from './components/CredentialActionsDropdown'
+import { CredentialActionsDropdown, IdentifierProfile, IIdentifierProfile } from '@veramo-community/agent-explorer-plugin'
 import { App, Avatar, Button, Drawer, Dropdown, Input } from 'antd'
 import { PostForm } from './PostForm.js'
 import { MarkDown } from './MarkDown'
 import { v4 } from 'uuid'
-import { IIdentifierProfile } from './types.js'
+
 
 export const LinkDomain = () => {
   const { notification } = App.useApp()

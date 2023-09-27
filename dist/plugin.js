@@ -11,8 +11,8 @@ var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require
     return require.apply(this, arguments);
   throw Error('Dynamic require of "' + x + '" is not supported');
 });
-var __commonJS = (cb, mod2) => function __require2() {
-  return mod2 || (0, cb[__getOwnPropNames(cb)[0]])((mod2 = { exports: {} }).exports, mod2), mod2.exports;
+var __commonJS = (cb, mod3) => function __require2() {
+  return mod3 || (0, cb[__getOwnPropNames(cb)[0]])((mod3 = { exports: {} }).exports, mod3), mod3.exports;
 };
 var __export = (target, all) => {
   for (var name2 in all)
@@ -26,13 +26,13 @@ var __copyProps = (to, from3, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod2, isNodeMode, target) => (target = mod2 != null ? __create(__getProtoOf(mod2)) : {}, __copyProps(
+var __toESM = (mod3, isNodeMode, target) => (target = mod3 != null ? __create(__getProtoOf(mod3)) : {}, __copyProps(
   // If the importer is in node compatibility mode or this is not an ESM
   // file that has been converted to a CommonJS file using a Babel-
   // compatible transform (i.e. "__esModule" has not been set), then set
   // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod2 || !mod2.__esModule ? __defProp(target, "default", { value: mod2, enumerable: true }) : target,
-  mod2
+  isNodeMode || !mod3 || !mod3.__esModule ? __defProp(target, "default", { value: mod3, enumerable: true }) : target,
+  mod3
 ));
 
 // external-global-plugin:react
@@ -468,13 +468,6 @@ var require_lodash = __commonJS({
   }
 });
 
-// external-global-plugin:date-fns
-var require_date_fns = __commonJS({
-  "external-global-plugin:date-fns"(exports2, module2) {
-    module2.exports = window.datefns;
-  }
-});
-
 // external-global-plugin:react-router-dom
 var require_react_router_dom = __commonJS({
   "external-global-plugin:react-router-dom"(exports2, module2) {
@@ -503,6 +496,13 @@ var require_pro_components = __commonJS({
   }
 });
 
+// external-global-plugin:@veramo-community/agent-explorer-plugin
+var require_agent_explorer_plugin = __commonJS({
+  "external-global-plugin:@veramo-community/agent-explorer-plugin"(exports2, module2) {
+    module2.exports = window.agentexplorerplugin;
+  }
+});
+
 // external-global-plugin:antd
 var require_antd = __commonJS({
   "external-global-plugin:antd"(exports2, module2) {
@@ -510,22 +510,3782 @@ var require_antd = __commonJS({
   }
 });
 
-// external-global-plugin:react/jsx-runtime
-var require_jsx_runtime = __commonJS({
-  "external-global-plugin:react/jsx-runtime"(exports2, module2) {
-    module2.exports = window.reactjsxruntime;
+// node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/named-references.js
+var require_named_references = __commonJS({
+  "node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/named-references.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.bodyRegExps = { xml: /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);?/g, html4: /&notin;|&(?:nbsp|iexcl|cent|pound|curren|yen|brvbar|sect|uml|copy|ordf|laquo|not|shy|reg|macr|deg|plusmn|sup2|sup3|acute|micro|para|middot|cedil|sup1|ordm|raquo|frac14|frac12|frac34|iquest|Agrave|Aacute|Acirc|Atilde|Auml|Aring|AElig|Ccedil|Egrave|Eacute|Ecirc|Euml|Igrave|Iacute|Icirc|Iuml|ETH|Ntilde|Ograve|Oacute|Ocirc|Otilde|Ouml|times|Oslash|Ugrave|Uacute|Ucirc|Uuml|Yacute|THORN|szlig|agrave|aacute|acirc|atilde|auml|aring|aelig|ccedil|egrave|eacute|ecirc|euml|igrave|iacute|icirc|iuml|eth|ntilde|ograve|oacute|ocirc|otilde|ouml|divide|oslash|ugrave|uacute|ucirc|uuml|yacute|thorn|yuml|quot|amp|lt|gt|#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);?/g, html5: /&centerdot;|&copysr;|&divideontimes;|&gtcc;|&gtcir;|&gtdot;|&gtlPar;|&gtquest;|&gtrapprox;|&gtrarr;|&gtrdot;|&gtreqless;|&gtreqqless;|&gtrless;|&gtrsim;|&ltcc;|&ltcir;|&ltdot;|&lthree;|&ltimes;|&ltlarr;|&ltquest;|&ltrPar;|&ltri;|&ltrie;|&ltrif;|&notin;|&notinE;|&notindot;|&notinva;|&notinvb;|&notinvc;|&notni;|&notniva;|&notnivb;|&notnivc;|&parallel;|&timesb;|&timesbar;|&timesd;|&(?:AElig|AMP|Aacute|Acirc|Agrave|Aring|Atilde|Auml|COPY|Ccedil|ETH|Eacute|Ecirc|Egrave|Euml|GT|Iacute|Icirc|Igrave|Iuml|LT|Ntilde|Oacute|Ocirc|Ograve|Oslash|Otilde|Ouml|QUOT|REG|THORN|Uacute|Ucirc|Ugrave|Uuml|Yacute|aacute|acirc|acute|aelig|agrave|amp|aring|atilde|auml|brvbar|ccedil|cedil|cent|copy|curren|deg|divide|eacute|ecirc|egrave|eth|euml|frac12|frac14|frac34|gt|iacute|icirc|iexcl|igrave|iquest|iuml|laquo|lt|macr|micro|middot|nbsp|not|ntilde|oacute|ocirc|ograve|ordf|ordm|oslash|otilde|ouml|para|plusmn|pound|quot|raquo|reg|sect|shy|sup1|sup2|sup3|szlig|thorn|times|uacute|ucirc|ugrave|uml|uuml|yacute|yen|yuml|#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);?/g };
+    exports2.namedReferences = { xml: { entities: { "&lt;": "<", "&gt;": ">", "&quot;": '"', "&apos;": "'", "&amp;": "&" }, characters: { "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;", "&": "&amp;" } }, html4: { entities: { "&apos;": "'", "&nbsp": "\xA0", "&nbsp;": "\xA0", "&iexcl": "\xA1", "&iexcl;": "\xA1", "&cent": "\xA2", "&cent;": "\xA2", "&pound": "\xA3", "&pound;": "\xA3", "&curren": "\xA4", "&curren;": "\xA4", "&yen": "\xA5", "&yen;": "\xA5", "&brvbar": "\xA6", "&brvbar;": "\xA6", "&sect": "\xA7", "&sect;": "\xA7", "&uml": "\xA8", "&uml;": "\xA8", "&copy": "\xA9", "&copy;": "\xA9", "&ordf": "\xAA", "&ordf;": "\xAA", "&laquo": "\xAB", "&laquo;": "\xAB", "&not": "\xAC", "&not;": "\xAC", "&shy": "\xAD", "&shy;": "\xAD", "&reg": "\xAE", "&reg;": "\xAE", "&macr": "\xAF", "&macr;": "\xAF", "&deg": "\xB0", "&deg;": "\xB0", "&plusmn": "\xB1", "&plusmn;": "\xB1", "&sup2": "\xB2", "&sup2;": "\xB2", "&sup3": "\xB3", "&sup3;": "\xB3", "&acute": "\xB4", "&acute;": "\xB4", "&micro": "\xB5", "&micro;": "\xB5", "&para": "\xB6", "&para;": "\xB6", "&middot": "\xB7", "&middot;": "\xB7", "&cedil": "\xB8", "&cedil;": "\xB8", "&sup1": "\xB9", "&sup1;": "\xB9", "&ordm": "\xBA", "&ordm;": "\xBA", "&raquo": "\xBB", "&raquo;": "\xBB", "&frac14": "\xBC", "&frac14;": "\xBC", "&frac12": "\xBD", "&frac12;": "\xBD", "&frac34": "\xBE", "&frac34;": "\xBE", "&iquest": "\xBF", "&iquest;": "\xBF", "&Agrave": "\xC0", "&Agrave;": "\xC0", "&Aacute": "\xC1", "&Aacute;": "\xC1", "&Acirc": "\xC2", "&Acirc;": "\xC2", "&Atilde": "\xC3", "&Atilde;": "\xC3", "&Auml": "\xC4", "&Auml;": "\xC4", "&Aring": "\xC5", "&Aring;": "\xC5", "&AElig": "\xC6", "&AElig;": "\xC6", "&Ccedil": "\xC7", "&Ccedil;": "\xC7", "&Egrave": "\xC8", "&Egrave;": "\xC8", "&Eacute": "\xC9", "&Eacute;": "\xC9", "&Ecirc": "\xCA", "&Ecirc;": "\xCA", "&Euml": "\xCB", "&Euml;": "\xCB", "&Igrave": "\xCC", "&Igrave;": "\xCC", "&Iacute": "\xCD", "&Iacute;": "\xCD", "&Icirc": "\xCE", "&Icirc;": "\xCE", "&Iuml": "\xCF", "&Iuml;": "\xCF", "&ETH": "\xD0", "&ETH;": "\xD0", "&Ntilde": "\xD1", "&Ntilde;": "\xD1", "&Ograve": "\xD2", "&Ograve;": "\xD2", "&Oacute": "\xD3", "&Oacute;": "\xD3", "&Ocirc": "\xD4", "&Ocirc;": "\xD4", "&Otilde": "\xD5", "&Otilde;": "\xD5", "&Ouml": "\xD6", "&Ouml;": "\xD6", "&times": "\xD7", "&times;": "\xD7", "&Oslash": "\xD8", "&Oslash;": "\xD8", "&Ugrave": "\xD9", "&Ugrave;": "\xD9", "&Uacute": "\xDA", "&Uacute;": "\xDA", "&Ucirc": "\xDB", "&Ucirc;": "\xDB", "&Uuml": "\xDC", "&Uuml;": "\xDC", "&Yacute": "\xDD", "&Yacute;": "\xDD", "&THORN": "\xDE", "&THORN;": "\xDE", "&szlig": "\xDF", "&szlig;": "\xDF", "&agrave": "\xE0", "&agrave;": "\xE0", "&aacute": "\xE1", "&aacute;": "\xE1", "&acirc": "\xE2", "&acirc;": "\xE2", "&atilde": "\xE3", "&atilde;": "\xE3", "&auml": "\xE4", "&auml;": "\xE4", "&aring": "\xE5", "&aring;": "\xE5", "&aelig": "\xE6", "&aelig;": "\xE6", "&ccedil": "\xE7", "&ccedil;": "\xE7", "&egrave": "\xE8", "&egrave;": "\xE8", "&eacute": "\xE9", "&eacute;": "\xE9", "&ecirc": "\xEA", "&ecirc;": "\xEA", "&euml": "\xEB", "&euml;": "\xEB", "&igrave": "\xEC", "&igrave;": "\xEC", "&iacute": "\xED", "&iacute;": "\xED", "&icirc": "\xEE", "&icirc;": "\xEE", "&iuml": "\xEF", "&iuml;": "\xEF", "&eth": "\xF0", "&eth;": "\xF0", "&ntilde": "\xF1", "&ntilde;": "\xF1", "&ograve": "\xF2", "&ograve;": "\xF2", "&oacute": "\xF3", "&oacute;": "\xF3", "&ocirc": "\xF4", "&ocirc;": "\xF4", "&otilde": "\xF5", "&otilde;": "\xF5", "&ouml": "\xF6", "&ouml;": "\xF6", "&divide": "\xF7", "&divide;": "\xF7", "&oslash": "\xF8", "&oslash;": "\xF8", "&ugrave": "\xF9", "&ugrave;": "\xF9", "&uacute": "\xFA", "&uacute;": "\xFA", "&ucirc": "\xFB", "&ucirc;": "\xFB", "&uuml": "\xFC", "&uuml;": "\xFC", "&yacute": "\xFD", "&yacute;": "\xFD", "&thorn": "\xFE", "&thorn;": "\xFE", "&yuml": "\xFF", "&yuml;": "\xFF", "&quot": '"', "&quot;": '"', "&amp": "&", "&amp;": "&", "&lt": "<", "&lt;": "<", "&gt": ">", "&gt;": ">", "&OElig;": "\u0152", "&oelig;": "\u0153", "&Scaron;": "\u0160", "&scaron;": "\u0161", "&Yuml;": "\u0178", "&circ;": "\u02C6", "&tilde;": "\u02DC", "&ensp;": "\u2002", "&emsp;": "\u2003", "&thinsp;": "\u2009", "&zwnj;": "\u200C", "&zwj;": "\u200D", "&lrm;": "\u200E", "&rlm;": "\u200F", "&ndash;": "\u2013", "&mdash;": "\u2014", "&lsquo;": "\u2018", "&rsquo;": "\u2019", "&sbquo;": "\u201A", "&ldquo;": "\u201C", "&rdquo;": "\u201D", "&bdquo;": "\u201E", "&dagger;": "\u2020", "&Dagger;": "\u2021", "&permil;": "\u2030", "&lsaquo;": "\u2039", "&rsaquo;": "\u203A", "&euro;": "\u20AC", "&fnof;": "\u0192", "&Alpha;": "\u0391", "&Beta;": "\u0392", "&Gamma;": "\u0393", "&Delta;": "\u0394", "&Epsilon;": "\u0395", "&Zeta;": "\u0396", "&Eta;": "\u0397", "&Theta;": "\u0398", "&Iota;": "\u0399", "&Kappa;": "\u039A", "&Lambda;": "\u039B", "&Mu;": "\u039C", "&Nu;": "\u039D", "&Xi;": "\u039E", "&Omicron;": "\u039F", "&Pi;": "\u03A0", "&Rho;": "\u03A1", "&Sigma;": "\u03A3", "&Tau;": "\u03A4", "&Upsilon;": "\u03A5", "&Phi;": "\u03A6", "&Chi;": "\u03A7", "&Psi;": "\u03A8", "&Omega;": "\u03A9", "&alpha;": "\u03B1", "&beta;": "\u03B2", "&gamma;": "\u03B3", "&delta;": "\u03B4", "&epsilon;": "\u03B5", "&zeta;": "\u03B6", "&eta;": "\u03B7", "&theta;": "\u03B8", "&iota;": "\u03B9", "&kappa;": "\u03BA", "&lambda;": "\u03BB", "&mu;": "\u03BC", "&nu;": "\u03BD", "&xi;": "\u03BE", "&omicron;": "\u03BF", "&pi;": "\u03C0", "&rho;": "\u03C1", "&sigmaf;": "\u03C2", "&sigma;": "\u03C3", "&tau;": "\u03C4", "&upsilon;": "\u03C5", "&phi;": "\u03C6", "&chi;": "\u03C7", "&psi;": "\u03C8", "&omega;": "\u03C9", "&thetasym;": "\u03D1", "&upsih;": "\u03D2", "&piv;": "\u03D6", "&bull;": "\u2022", "&hellip;": "\u2026", "&prime;": "\u2032", "&Prime;": "\u2033", "&oline;": "\u203E", "&frasl;": "\u2044", "&weierp;": "\u2118", "&image;": "\u2111", "&real;": "\u211C", "&trade;": "\u2122", "&alefsym;": "\u2135", "&larr;": "\u2190", "&uarr;": "\u2191", "&rarr;": "\u2192", "&darr;": "\u2193", "&harr;": "\u2194", "&crarr;": "\u21B5", "&lArr;": "\u21D0", "&uArr;": "\u21D1", "&rArr;": "\u21D2", "&dArr;": "\u21D3", "&hArr;": "\u21D4", "&forall;": "\u2200", "&part;": "\u2202", "&exist;": "\u2203", "&empty;": "\u2205", "&nabla;": "\u2207", "&isin;": "\u2208", "&notin;": "\u2209", "&ni;": "\u220B", "&prod;": "\u220F", "&sum;": "\u2211", "&minus;": "\u2212", "&lowast;": "\u2217", "&radic;": "\u221A", "&prop;": "\u221D", "&infin;": "\u221E", "&ang;": "\u2220", "&and;": "\u2227", "&or;": "\u2228", "&cap;": "\u2229", "&cup;": "\u222A", "&int;": "\u222B", "&there4;": "\u2234", "&sim;": "\u223C", "&cong;": "\u2245", "&asymp;": "\u2248", "&ne;": "\u2260", "&equiv;": "\u2261", "&le;": "\u2264", "&ge;": "\u2265", "&sub;": "\u2282", "&sup;": "\u2283", "&nsub;": "\u2284", "&sube;": "\u2286", "&supe;": "\u2287", "&oplus;": "\u2295", "&otimes;": "\u2297", "&perp;": "\u22A5", "&sdot;": "\u22C5", "&lceil;": "\u2308", "&rceil;": "\u2309", "&lfloor;": "\u230A", "&rfloor;": "\u230B", "&lang;": "\u2329", "&rang;": "\u232A", "&loz;": "\u25CA", "&spades;": "\u2660", "&clubs;": "\u2663", "&hearts;": "\u2665", "&diams;": "\u2666" }, characters: { "'": "&apos;", "\xA0": "&nbsp;", "\xA1": "&iexcl;", "\xA2": "&cent;", "\xA3": "&pound;", "\xA4": "&curren;", "\xA5": "&yen;", "\xA6": "&brvbar;", "\xA7": "&sect;", "\xA8": "&uml;", "\xA9": "&copy;", "\xAA": "&ordf;", "\xAB": "&laquo;", "\xAC": "&not;", "\xAD": "&shy;", "\xAE": "&reg;", "\xAF": "&macr;", "\xB0": "&deg;", "\xB1": "&plusmn;", "\xB2": "&sup2;", "\xB3": "&sup3;", "\xB4": "&acute;", "\xB5": "&micro;", "\xB6": "&para;", "\xB7": "&middot;", "\xB8": "&cedil;", "\xB9": "&sup1;", "\xBA": "&ordm;", "\xBB": "&raquo;", "\xBC": "&frac14;", "\xBD": "&frac12;", "\xBE": "&frac34;", "\xBF": "&iquest;", "\xC0": "&Agrave;", "\xC1": "&Aacute;", "\xC2": "&Acirc;", "\xC3": "&Atilde;", "\xC4": "&Auml;", "\xC5": "&Aring;", "\xC6": "&AElig;", "\xC7": "&Ccedil;", "\xC8": "&Egrave;", "\xC9": "&Eacute;", "\xCA": "&Ecirc;", "\xCB": "&Euml;", "\xCC": "&Igrave;", "\xCD": "&Iacute;", "\xCE": "&Icirc;", "\xCF": "&Iuml;", "\xD0": "&ETH;", "\xD1": "&Ntilde;", "\xD2": "&Ograve;", "\xD3": "&Oacute;", "\xD4": "&Ocirc;", "\xD5": "&Otilde;", "\xD6": "&Ouml;", "\xD7": "&times;", "\xD8": "&Oslash;", "\xD9": "&Ugrave;", "\xDA": "&Uacute;", "\xDB": "&Ucirc;", "\xDC": "&Uuml;", "\xDD": "&Yacute;", "\xDE": "&THORN;", "\xDF": "&szlig;", "\xE0": "&agrave;", "\xE1": "&aacute;", "\xE2": "&acirc;", "\xE3": "&atilde;", "\xE4": "&auml;", "\xE5": "&aring;", "\xE6": "&aelig;", "\xE7": "&ccedil;", "\xE8": "&egrave;", "\xE9": "&eacute;", "\xEA": "&ecirc;", "\xEB": "&euml;", "\xEC": "&igrave;", "\xED": "&iacute;", "\xEE": "&icirc;", "\xEF": "&iuml;", "\xF0": "&eth;", "\xF1": "&ntilde;", "\xF2": "&ograve;", "\xF3": "&oacute;", "\xF4": "&ocirc;", "\xF5": "&otilde;", "\xF6": "&ouml;", "\xF7": "&divide;", "\xF8": "&oslash;", "\xF9": "&ugrave;", "\xFA": "&uacute;", "\xFB": "&ucirc;", "\xFC": "&uuml;", "\xFD": "&yacute;", "\xFE": "&thorn;", "\xFF": "&yuml;", '"': "&quot;", "&": "&amp;", "<": "&lt;", ">": "&gt;", "\u0152": "&OElig;", "\u0153": "&oelig;", "\u0160": "&Scaron;", "\u0161": "&scaron;", "\u0178": "&Yuml;", "\u02C6": "&circ;", "\u02DC": "&tilde;", "\u2002": "&ensp;", "\u2003": "&emsp;", "\u2009": "&thinsp;", "\u200C": "&zwnj;", "\u200D": "&zwj;", "\u200E": "&lrm;", "\u200F": "&rlm;", "\u2013": "&ndash;", "\u2014": "&mdash;", "\u2018": "&lsquo;", "\u2019": "&rsquo;", "\u201A": "&sbquo;", "\u201C": "&ldquo;", "\u201D": "&rdquo;", "\u201E": "&bdquo;", "\u2020": "&dagger;", "\u2021": "&Dagger;", "\u2030": "&permil;", "\u2039": "&lsaquo;", "\u203A": "&rsaquo;", "\u20AC": "&euro;", "\u0192": "&fnof;", "\u0391": "&Alpha;", "\u0392": "&Beta;", "\u0393": "&Gamma;", "\u0394": "&Delta;", "\u0395": "&Epsilon;", "\u0396": "&Zeta;", "\u0397": "&Eta;", "\u0398": "&Theta;", "\u0399": "&Iota;", "\u039A": "&Kappa;", "\u039B": "&Lambda;", "\u039C": "&Mu;", "\u039D": "&Nu;", "\u039E": "&Xi;", "\u039F": "&Omicron;", "\u03A0": "&Pi;", "\u03A1": "&Rho;", "\u03A3": "&Sigma;", "\u03A4": "&Tau;", "\u03A5": "&Upsilon;", "\u03A6": "&Phi;", "\u03A7": "&Chi;", "\u03A8": "&Psi;", "\u03A9": "&Omega;", "\u03B1": "&alpha;", "\u03B2": "&beta;", "\u03B3": "&gamma;", "\u03B4": "&delta;", "\u03B5": "&epsilon;", "\u03B6": "&zeta;", "\u03B7": "&eta;", "\u03B8": "&theta;", "\u03B9": "&iota;", "\u03BA": "&kappa;", "\u03BB": "&lambda;", "\u03BC": "&mu;", "\u03BD": "&nu;", "\u03BE": "&xi;", "\u03BF": "&omicron;", "\u03C0": "&pi;", "\u03C1": "&rho;", "\u03C2": "&sigmaf;", "\u03C3": "&sigma;", "\u03C4": "&tau;", "\u03C5": "&upsilon;", "\u03C6": "&phi;", "\u03C7": "&chi;", "\u03C8": "&psi;", "\u03C9": "&omega;", "\u03D1": "&thetasym;", "\u03D2": "&upsih;", "\u03D6": "&piv;", "\u2022": "&bull;", "\u2026": "&hellip;", "\u2032": "&prime;", "\u2033": "&Prime;", "\u203E": "&oline;", "\u2044": "&frasl;", "\u2118": "&weierp;", "\u2111": "&image;", "\u211C": "&real;", "\u2122": "&trade;", "\u2135": "&alefsym;", "\u2190": "&larr;", "\u2191": "&uarr;", "\u2192": "&rarr;", "\u2193": "&darr;", "\u2194": "&harr;", "\u21B5": "&crarr;", "\u21D0": "&lArr;", "\u21D1": "&uArr;", "\u21D2": "&rArr;", "\u21D3": "&dArr;", "\u21D4": "&hArr;", "\u2200": "&forall;", "\u2202": "&part;", "\u2203": "&exist;", "\u2205": "&empty;", "\u2207": "&nabla;", "\u2208": "&isin;", "\u2209": "&notin;", "\u220B": "&ni;", "\u220F": "&prod;", "\u2211": "&sum;", "\u2212": "&minus;", "\u2217": "&lowast;", "\u221A": "&radic;", "\u221D": "&prop;", "\u221E": "&infin;", "\u2220": "&ang;", "\u2227": "&and;", "\u2228": "&or;", "\u2229": "&cap;", "\u222A": "&cup;", "\u222B": "&int;", "\u2234": "&there4;", "\u223C": "&sim;", "\u2245": "&cong;", "\u2248": "&asymp;", "\u2260": "&ne;", "\u2261": "&equiv;", "\u2264": "&le;", "\u2265": "&ge;", "\u2282": "&sub;", "\u2283": "&sup;", "\u2284": "&nsub;", "\u2286": "&sube;", "\u2287": "&supe;", "\u2295": "&oplus;", "\u2297": "&otimes;", "\u22A5": "&perp;", "\u22C5": "&sdot;", "\u2308": "&lceil;", "\u2309": "&rceil;", "\u230A": "&lfloor;", "\u230B": "&rfloor;", "\u2329": "&lang;", "\u232A": "&rang;", "\u25CA": "&loz;", "\u2660": "&spades;", "\u2663": "&clubs;", "\u2665": "&hearts;", "\u2666": "&diams;" } }, html5: { entities: { "&AElig": "\xC6", "&AElig;": "\xC6", "&AMP": "&", "&AMP;": "&", "&Aacute": "\xC1", "&Aacute;": "\xC1", "&Abreve;": "\u0102", "&Acirc": "\xC2", "&Acirc;": "\xC2", "&Acy;": "\u0410", "&Afr;": "\u{1D504}", "&Agrave": "\xC0", "&Agrave;": "\xC0", "&Alpha;": "\u0391", "&Amacr;": "\u0100", "&And;": "\u2A53", "&Aogon;": "\u0104", "&Aopf;": "\u{1D538}", "&ApplyFunction;": "\u2061", "&Aring": "\xC5", "&Aring;": "\xC5", "&Ascr;": "\u{1D49C}", "&Assign;": "\u2254", "&Atilde": "\xC3", "&Atilde;": "\xC3", "&Auml": "\xC4", "&Auml;": "\xC4", "&Backslash;": "\u2216", "&Barv;": "\u2AE7", "&Barwed;": "\u2306", "&Bcy;": "\u0411", "&Because;": "\u2235", "&Bernoullis;": "\u212C", "&Beta;": "\u0392", "&Bfr;": "\u{1D505}", "&Bopf;": "\u{1D539}", "&Breve;": "\u02D8", "&Bscr;": "\u212C", "&Bumpeq;": "\u224E", "&CHcy;": "\u0427", "&COPY": "\xA9", "&COPY;": "\xA9", "&Cacute;": "\u0106", "&Cap;": "\u22D2", "&CapitalDifferentialD;": "\u2145", "&Cayleys;": "\u212D", "&Ccaron;": "\u010C", "&Ccedil": "\xC7", "&Ccedil;": "\xC7", "&Ccirc;": "\u0108", "&Cconint;": "\u2230", "&Cdot;": "\u010A", "&Cedilla;": "\xB8", "&CenterDot;": "\xB7", "&Cfr;": "\u212D", "&Chi;": "\u03A7", "&CircleDot;": "\u2299", "&CircleMinus;": "\u2296", "&CirclePlus;": "\u2295", "&CircleTimes;": "\u2297", "&ClockwiseContourIntegral;": "\u2232", "&CloseCurlyDoubleQuote;": "\u201D", "&CloseCurlyQuote;": "\u2019", "&Colon;": "\u2237", "&Colone;": "\u2A74", "&Congruent;": "\u2261", "&Conint;": "\u222F", "&ContourIntegral;": "\u222E", "&Copf;": "\u2102", "&Coproduct;": "\u2210", "&CounterClockwiseContourIntegral;": "\u2233", "&Cross;": "\u2A2F", "&Cscr;": "\u{1D49E}", "&Cup;": "\u22D3", "&CupCap;": "\u224D", "&DD;": "\u2145", "&DDotrahd;": "\u2911", "&DJcy;": "\u0402", "&DScy;": "\u0405", "&DZcy;": "\u040F", "&Dagger;": "\u2021", "&Darr;": "\u21A1", "&Dashv;": "\u2AE4", "&Dcaron;": "\u010E", "&Dcy;": "\u0414", "&Del;": "\u2207", "&Delta;": "\u0394", "&Dfr;": "\u{1D507}", "&DiacriticalAcute;": "\xB4", "&DiacriticalDot;": "\u02D9", "&DiacriticalDoubleAcute;": "\u02DD", "&DiacriticalGrave;": "`", "&DiacriticalTilde;": "\u02DC", "&Diamond;": "\u22C4", "&DifferentialD;": "\u2146", "&Dopf;": "\u{1D53B}", "&Dot;": "\xA8", "&DotDot;": "\u20DC", "&DotEqual;": "\u2250", "&DoubleContourIntegral;": "\u222F", "&DoubleDot;": "\xA8", "&DoubleDownArrow;": "\u21D3", "&DoubleLeftArrow;": "\u21D0", "&DoubleLeftRightArrow;": "\u21D4", "&DoubleLeftTee;": "\u2AE4", "&DoubleLongLeftArrow;": "\u27F8", "&DoubleLongLeftRightArrow;": "\u27FA", "&DoubleLongRightArrow;": "\u27F9", "&DoubleRightArrow;": "\u21D2", "&DoubleRightTee;": "\u22A8", "&DoubleUpArrow;": "\u21D1", "&DoubleUpDownArrow;": "\u21D5", "&DoubleVerticalBar;": "\u2225", "&DownArrow;": "\u2193", "&DownArrowBar;": "\u2913", "&DownArrowUpArrow;": "\u21F5", "&DownBreve;": "\u0311", "&DownLeftRightVector;": "\u2950", "&DownLeftTeeVector;": "\u295E", "&DownLeftVector;": "\u21BD", "&DownLeftVectorBar;": "\u2956", "&DownRightTeeVector;": "\u295F", "&DownRightVector;": "\u21C1", "&DownRightVectorBar;": "\u2957", "&DownTee;": "\u22A4", "&DownTeeArrow;": "\u21A7", "&Downarrow;": "\u21D3", "&Dscr;": "\u{1D49F}", "&Dstrok;": "\u0110", "&ENG;": "\u014A", "&ETH": "\xD0", "&ETH;": "\xD0", "&Eacute": "\xC9", "&Eacute;": "\xC9", "&Ecaron;": "\u011A", "&Ecirc": "\xCA", "&Ecirc;": "\xCA", "&Ecy;": "\u042D", "&Edot;": "\u0116", "&Efr;": "\u{1D508}", "&Egrave": "\xC8", "&Egrave;": "\xC8", "&Element;": "\u2208", "&Emacr;": "\u0112", "&EmptySmallSquare;": "\u25FB", "&EmptyVerySmallSquare;": "\u25AB", "&Eogon;": "\u0118", "&Eopf;": "\u{1D53C}", "&Epsilon;": "\u0395", "&Equal;": "\u2A75", "&EqualTilde;": "\u2242", "&Equilibrium;": "\u21CC", "&Escr;": "\u2130", "&Esim;": "\u2A73", "&Eta;": "\u0397", "&Euml": "\xCB", "&Euml;": "\xCB", "&Exists;": "\u2203", "&ExponentialE;": "\u2147", "&Fcy;": "\u0424", "&Ffr;": "\u{1D509}", "&FilledSmallSquare;": "\u25FC", "&FilledVerySmallSquare;": "\u25AA", "&Fopf;": "\u{1D53D}", "&ForAll;": "\u2200", "&Fouriertrf;": "\u2131", "&Fscr;": "\u2131", "&GJcy;": "\u0403", "&GT": ">", "&GT;": ">", "&Gamma;": "\u0393", "&Gammad;": "\u03DC", "&Gbreve;": "\u011E", "&Gcedil;": "\u0122", "&Gcirc;": "\u011C", "&Gcy;": "\u0413", "&Gdot;": "\u0120", "&Gfr;": "\u{1D50A}", "&Gg;": "\u22D9", "&Gopf;": "\u{1D53E}", "&GreaterEqual;": "\u2265", "&GreaterEqualLess;": "\u22DB", "&GreaterFullEqual;": "\u2267", "&GreaterGreater;": "\u2AA2", "&GreaterLess;": "\u2277", "&GreaterSlantEqual;": "\u2A7E", "&GreaterTilde;": "\u2273", "&Gscr;": "\u{1D4A2}", "&Gt;": "\u226B", "&HARDcy;": "\u042A", "&Hacek;": "\u02C7", "&Hat;": "^", "&Hcirc;": "\u0124", "&Hfr;": "\u210C", "&HilbertSpace;": "\u210B", "&Hopf;": "\u210D", "&HorizontalLine;": "\u2500", "&Hscr;": "\u210B", "&Hstrok;": "\u0126", "&HumpDownHump;": "\u224E", "&HumpEqual;": "\u224F", "&IEcy;": "\u0415", "&IJlig;": "\u0132", "&IOcy;": "\u0401", "&Iacute": "\xCD", "&Iacute;": "\xCD", "&Icirc": "\xCE", "&Icirc;": "\xCE", "&Icy;": "\u0418", "&Idot;": "\u0130", "&Ifr;": "\u2111", "&Igrave": "\xCC", "&Igrave;": "\xCC", "&Im;": "\u2111", "&Imacr;": "\u012A", "&ImaginaryI;": "\u2148", "&Implies;": "\u21D2", "&Int;": "\u222C", "&Integral;": "\u222B", "&Intersection;": "\u22C2", "&InvisibleComma;": "\u2063", "&InvisibleTimes;": "\u2062", "&Iogon;": "\u012E", "&Iopf;": "\u{1D540}", "&Iota;": "\u0399", "&Iscr;": "\u2110", "&Itilde;": "\u0128", "&Iukcy;": "\u0406", "&Iuml": "\xCF", "&Iuml;": "\xCF", "&Jcirc;": "\u0134", "&Jcy;": "\u0419", "&Jfr;": "\u{1D50D}", "&Jopf;": "\u{1D541}", "&Jscr;": "\u{1D4A5}", "&Jsercy;": "\u0408", "&Jukcy;": "\u0404", "&KHcy;": "\u0425", "&KJcy;": "\u040C", "&Kappa;": "\u039A", "&Kcedil;": "\u0136", "&Kcy;": "\u041A", "&Kfr;": "\u{1D50E}", "&Kopf;": "\u{1D542}", "&Kscr;": "\u{1D4A6}", "&LJcy;": "\u0409", "&LT": "<", "&LT;": "<", "&Lacute;": "\u0139", "&Lambda;": "\u039B", "&Lang;": "\u27EA", "&Laplacetrf;": "\u2112", "&Larr;": "\u219E", "&Lcaron;": "\u013D", "&Lcedil;": "\u013B", "&Lcy;": "\u041B", "&LeftAngleBracket;": "\u27E8", "&LeftArrow;": "\u2190", "&LeftArrowBar;": "\u21E4", "&LeftArrowRightArrow;": "\u21C6", "&LeftCeiling;": "\u2308", "&LeftDoubleBracket;": "\u27E6", "&LeftDownTeeVector;": "\u2961", "&LeftDownVector;": "\u21C3", "&LeftDownVectorBar;": "\u2959", "&LeftFloor;": "\u230A", "&LeftRightArrow;": "\u2194", "&LeftRightVector;": "\u294E", "&LeftTee;": "\u22A3", "&LeftTeeArrow;": "\u21A4", "&LeftTeeVector;": "\u295A", "&LeftTriangle;": "\u22B2", "&LeftTriangleBar;": "\u29CF", "&LeftTriangleEqual;": "\u22B4", "&LeftUpDownVector;": "\u2951", "&LeftUpTeeVector;": "\u2960", "&LeftUpVector;": "\u21BF", "&LeftUpVectorBar;": "\u2958", "&LeftVector;": "\u21BC", "&LeftVectorBar;": "\u2952", "&Leftarrow;": "\u21D0", "&Leftrightarrow;": "\u21D4", "&LessEqualGreater;": "\u22DA", "&LessFullEqual;": "\u2266", "&LessGreater;": "\u2276", "&LessLess;": "\u2AA1", "&LessSlantEqual;": "\u2A7D", "&LessTilde;": "\u2272", "&Lfr;": "\u{1D50F}", "&Ll;": "\u22D8", "&Lleftarrow;": "\u21DA", "&Lmidot;": "\u013F", "&LongLeftArrow;": "\u27F5", "&LongLeftRightArrow;": "\u27F7", "&LongRightArrow;": "\u27F6", "&Longleftarrow;": "\u27F8", "&Longleftrightarrow;": "\u27FA", "&Longrightarrow;": "\u27F9", "&Lopf;": "\u{1D543}", "&LowerLeftArrow;": "\u2199", "&LowerRightArrow;": "\u2198", "&Lscr;": "\u2112", "&Lsh;": "\u21B0", "&Lstrok;": "\u0141", "&Lt;": "\u226A", "&Map;": "\u2905", "&Mcy;": "\u041C", "&MediumSpace;": "\u205F", "&Mellintrf;": "\u2133", "&Mfr;": "\u{1D510}", "&MinusPlus;": "\u2213", "&Mopf;": "\u{1D544}", "&Mscr;": "\u2133", "&Mu;": "\u039C", "&NJcy;": "\u040A", "&Nacute;": "\u0143", "&Ncaron;": "\u0147", "&Ncedil;": "\u0145", "&Ncy;": "\u041D", "&NegativeMediumSpace;": "\u200B", "&NegativeThickSpace;": "\u200B", "&NegativeThinSpace;": "\u200B", "&NegativeVeryThinSpace;": "\u200B", "&NestedGreaterGreater;": "\u226B", "&NestedLessLess;": "\u226A", "&NewLine;": "\n", "&Nfr;": "\u{1D511}", "&NoBreak;": "\u2060", "&NonBreakingSpace;": "\xA0", "&Nopf;": "\u2115", "&Not;": "\u2AEC", "&NotCongruent;": "\u2262", "&NotCupCap;": "\u226D", "&NotDoubleVerticalBar;": "\u2226", "&NotElement;": "\u2209", "&NotEqual;": "\u2260", "&NotEqualTilde;": "\u2242\u0338", "&NotExists;": "\u2204", "&NotGreater;": "\u226F", "&NotGreaterEqual;": "\u2271", "&NotGreaterFullEqual;": "\u2267\u0338", "&NotGreaterGreater;": "\u226B\u0338", "&NotGreaterLess;": "\u2279", "&NotGreaterSlantEqual;": "\u2A7E\u0338", "&NotGreaterTilde;": "\u2275", "&NotHumpDownHump;": "\u224E\u0338", "&NotHumpEqual;": "\u224F\u0338", "&NotLeftTriangle;": "\u22EA", "&NotLeftTriangleBar;": "\u29CF\u0338", "&NotLeftTriangleEqual;": "\u22EC", "&NotLess;": "\u226E", "&NotLessEqual;": "\u2270", "&NotLessGreater;": "\u2278", "&NotLessLess;": "\u226A\u0338", "&NotLessSlantEqual;": "\u2A7D\u0338", "&NotLessTilde;": "\u2274", "&NotNestedGreaterGreater;": "\u2AA2\u0338", "&NotNestedLessLess;": "\u2AA1\u0338", "&NotPrecedes;": "\u2280", "&NotPrecedesEqual;": "\u2AAF\u0338", "&NotPrecedesSlantEqual;": "\u22E0", "&NotReverseElement;": "\u220C", "&NotRightTriangle;": "\u22EB", "&NotRightTriangleBar;": "\u29D0\u0338", "&NotRightTriangleEqual;": "\u22ED", "&NotSquareSubset;": "\u228F\u0338", "&NotSquareSubsetEqual;": "\u22E2", "&NotSquareSuperset;": "\u2290\u0338", "&NotSquareSupersetEqual;": "\u22E3", "&NotSubset;": "\u2282\u20D2", "&NotSubsetEqual;": "\u2288", "&NotSucceeds;": "\u2281", "&NotSucceedsEqual;": "\u2AB0\u0338", "&NotSucceedsSlantEqual;": "\u22E1", "&NotSucceedsTilde;": "\u227F\u0338", "&NotSuperset;": "\u2283\u20D2", "&NotSupersetEqual;": "\u2289", "&NotTilde;": "\u2241", "&NotTildeEqual;": "\u2244", "&NotTildeFullEqual;": "\u2247", "&NotTildeTilde;": "\u2249", "&NotVerticalBar;": "\u2224", "&Nscr;": "\u{1D4A9}", "&Ntilde": "\xD1", "&Ntilde;": "\xD1", "&Nu;": "\u039D", "&OElig;": "\u0152", "&Oacute": "\xD3", "&Oacute;": "\xD3", "&Ocirc": "\xD4", "&Ocirc;": "\xD4", "&Ocy;": "\u041E", "&Odblac;": "\u0150", "&Ofr;": "\u{1D512}", "&Ograve": "\xD2", "&Ograve;": "\xD2", "&Omacr;": "\u014C", "&Omega;": "\u03A9", "&Omicron;": "\u039F", "&Oopf;": "\u{1D546}", "&OpenCurlyDoubleQuote;": "\u201C", "&OpenCurlyQuote;": "\u2018", "&Or;": "\u2A54", "&Oscr;": "\u{1D4AA}", "&Oslash": "\xD8", "&Oslash;": "\xD8", "&Otilde": "\xD5", "&Otilde;": "\xD5", "&Otimes;": "\u2A37", "&Ouml": "\xD6", "&Ouml;": "\xD6", "&OverBar;": "\u203E", "&OverBrace;": "\u23DE", "&OverBracket;": "\u23B4", "&OverParenthesis;": "\u23DC", "&PartialD;": "\u2202", "&Pcy;": "\u041F", "&Pfr;": "\u{1D513}", "&Phi;": "\u03A6", "&Pi;": "\u03A0", "&PlusMinus;": "\xB1", "&Poincareplane;": "\u210C", "&Popf;": "\u2119", "&Pr;": "\u2ABB", "&Precedes;": "\u227A", "&PrecedesEqual;": "\u2AAF", "&PrecedesSlantEqual;": "\u227C", "&PrecedesTilde;": "\u227E", "&Prime;": "\u2033", "&Product;": "\u220F", "&Proportion;": "\u2237", "&Proportional;": "\u221D", "&Pscr;": "\u{1D4AB}", "&Psi;": "\u03A8", "&QUOT": '"', "&QUOT;": '"', "&Qfr;": "\u{1D514}", "&Qopf;": "\u211A", "&Qscr;": "\u{1D4AC}", "&RBarr;": "\u2910", "&REG": "\xAE", "&REG;": "\xAE", "&Racute;": "\u0154", "&Rang;": "\u27EB", "&Rarr;": "\u21A0", "&Rarrtl;": "\u2916", "&Rcaron;": "\u0158", "&Rcedil;": "\u0156", "&Rcy;": "\u0420", "&Re;": "\u211C", "&ReverseElement;": "\u220B", "&ReverseEquilibrium;": "\u21CB", "&ReverseUpEquilibrium;": "\u296F", "&Rfr;": "\u211C", "&Rho;": "\u03A1", "&RightAngleBracket;": "\u27E9", "&RightArrow;": "\u2192", "&RightArrowBar;": "\u21E5", "&RightArrowLeftArrow;": "\u21C4", "&RightCeiling;": "\u2309", "&RightDoubleBracket;": "\u27E7", "&RightDownTeeVector;": "\u295D", "&RightDownVector;": "\u21C2", "&RightDownVectorBar;": "\u2955", "&RightFloor;": "\u230B", "&RightTee;": "\u22A2", "&RightTeeArrow;": "\u21A6", "&RightTeeVector;": "\u295B", "&RightTriangle;": "\u22B3", "&RightTriangleBar;": "\u29D0", "&RightTriangleEqual;": "\u22B5", "&RightUpDownVector;": "\u294F", "&RightUpTeeVector;": "\u295C", "&RightUpVector;": "\u21BE", "&RightUpVectorBar;": "\u2954", "&RightVector;": "\u21C0", "&RightVectorBar;": "\u2953", "&Rightarrow;": "\u21D2", "&Ropf;": "\u211D", "&RoundImplies;": "\u2970", "&Rrightarrow;": "\u21DB", "&Rscr;": "\u211B", "&Rsh;": "\u21B1", "&RuleDelayed;": "\u29F4", "&SHCHcy;": "\u0429", "&SHcy;": "\u0428", "&SOFTcy;": "\u042C", "&Sacute;": "\u015A", "&Sc;": "\u2ABC", "&Scaron;": "\u0160", "&Scedil;": "\u015E", "&Scirc;": "\u015C", "&Scy;": "\u0421", "&Sfr;": "\u{1D516}", "&ShortDownArrow;": "\u2193", "&ShortLeftArrow;": "\u2190", "&ShortRightArrow;": "\u2192", "&ShortUpArrow;": "\u2191", "&Sigma;": "\u03A3", "&SmallCircle;": "\u2218", "&Sopf;": "\u{1D54A}", "&Sqrt;": "\u221A", "&Square;": "\u25A1", "&SquareIntersection;": "\u2293", "&SquareSubset;": "\u228F", "&SquareSubsetEqual;": "\u2291", "&SquareSuperset;": "\u2290", "&SquareSupersetEqual;": "\u2292", "&SquareUnion;": "\u2294", "&Sscr;": "\u{1D4AE}", "&Star;": "\u22C6", "&Sub;": "\u22D0", "&Subset;": "\u22D0", "&SubsetEqual;": "\u2286", "&Succeeds;": "\u227B", "&SucceedsEqual;": "\u2AB0", "&SucceedsSlantEqual;": "\u227D", "&SucceedsTilde;": "\u227F", "&SuchThat;": "\u220B", "&Sum;": "\u2211", "&Sup;": "\u22D1", "&Superset;": "\u2283", "&SupersetEqual;": "\u2287", "&Supset;": "\u22D1", "&THORN": "\xDE", "&THORN;": "\xDE", "&TRADE;": "\u2122", "&TSHcy;": "\u040B", "&TScy;": "\u0426", "&Tab;": "	", "&Tau;": "\u03A4", "&Tcaron;": "\u0164", "&Tcedil;": "\u0162", "&Tcy;": "\u0422", "&Tfr;": "\u{1D517}", "&Therefore;": "\u2234", "&Theta;": "\u0398", "&ThickSpace;": "\u205F\u200A", "&ThinSpace;": "\u2009", "&Tilde;": "\u223C", "&TildeEqual;": "\u2243", "&TildeFullEqual;": "\u2245", "&TildeTilde;": "\u2248", "&Topf;": "\u{1D54B}", "&TripleDot;": "\u20DB", "&Tscr;": "\u{1D4AF}", "&Tstrok;": "\u0166", "&Uacute": "\xDA", "&Uacute;": "\xDA", "&Uarr;": "\u219F", "&Uarrocir;": "\u2949", "&Ubrcy;": "\u040E", "&Ubreve;": "\u016C", "&Ucirc": "\xDB", "&Ucirc;": "\xDB", "&Ucy;": "\u0423", "&Udblac;": "\u0170", "&Ufr;": "\u{1D518}", "&Ugrave": "\xD9", "&Ugrave;": "\xD9", "&Umacr;": "\u016A", "&UnderBar;": "_", "&UnderBrace;": "\u23DF", "&UnderBracket;": "\u23B5", "&UnderParenthesis;": "\u23DD", "&Union;": "\u22C3", "&UnionPlus;": "\u228E", "&Uogon;": "\u0172", "&Uopf;": "\u{1D54C}", "&UpArrow;": "\u2191", "&UpArrowBar;": "\u2912", "&UpArrowDownArrow;": "\u21C5", "&UpDownArrow;": "\u2195", "&UpEquilibrium;": "\u296E", "&UpTee;": "\u22A5", "&UpTeeArrow;": "\u21A5", "&Uparrow;": "\u21D1", "&Updownarrow;": "\u21D5", "&UpperLeftArrow;": "\u2196", "&UpperRightArrow;": "\u2197", "&Upsi;": "\u03D2", "&Upsilon;": "\u03A5", "&Uring;": "\u016E", "&Uscr;": "\u{1D4B0}", "&Utilde;": "\u0168", "&Uuml": "\xDC", "&Uuml;": "\xDC", "&VDash;": "\u22AB", "&Vbar;": "\u2AEB", "&Vcy;": "\u0412", "&Vdash;": "\u22A9", "&Vdashl;": "\u2AE6", "&Vee;": "\u22C1", "&Verbar;": "\u2016", "&Vert;": "\u2016", "&VerticalBar;": "\u2223", "&VerticalLine;": "|", "&VerticalSeparator;": "\u2758", "&VerticalTilde;": "\u2240", "&VeryThinSpace;": "\u200A", "&Vfr;": "\u{1D519}", "&Vopf;": "\u{1D54D}", "&Vscr;": "\u{1D4B1}", "&Vvdash;": "\u22AA", "&Wcirc;": "\u0174", "&Wedge;": "\u22C0", "&Wfr;": "\u{1D51A}", "&Wopf;": "\u{1D54E}", "&Wscr;": "\u{1D4B2}", "&Xfr;": "\u{1D51B}", "&Xi;": "\u039E", "&Xopf;": "\u{1D54F}", "&Xscr;": "\u{1D4B3}", "&YAcy;": "\u042F", "&YIcy;": "\u0407", "&YUcy;": "\u042E", "&Yacute": "\xDD", "&Yacute;": "\xDD", "&Ycirc;": "\u0176", "&Ycy;": "\u042B", "&Yfr;": "\u{1D51C}", "&Yopf;": "\u{1D550}", "&Yscr;": "\u{1D4B4}", "&Yuml;": "\u0178", "&ZHcy;": "\u0416", "&Zacute;": "\u0179", "&Zcaron;": "\u017D", "&Zcy;": "\u0417", "&Zdot;": "\u017B", "&ZeroWidthSpace;": "\u200B", "&Zeta;": "\u0396", "&Zfr;": "\u2128", "&Zopf;": "\u2124", "&Zscr;": "\u{1D4B5}", "&aacute": "\xE1", "&aacute;": "\xE1", "&abreve;": "\u0103", "&ac;": "\u223E", "&acE;": "\u223E\u0333", "&acd;": "\u223F", "&acirc": "\xE2", "&acirc;": "\xE2", "&acute": "\xB4", "&acute;": "\xB4", "&acy;": "\u0430", "&aelig": "\xE6", "&aelig;": "\xE6", "&af;": "\u2061", "&afr;": "\u{1D51E}", "&agrave": "\xE0", "&agrave;": "\xE0", "&alefsym;": "\u2135", "&aleph;": "\u2135", "&alpha;": "\u03B1", "&amacr;": "\u0101", "&amalg;": "\u2A3F", "&amp": "&", "&amp;": "&", "&and;": "\u2227", "&andand;": "\u2A55", "&andd;": "\u2A5C", "&andslope;": "\u2A58", "&andv;": "\u2A5A", "&ang;": "\u2220", "&ange;": "\u29A4", "&angle;": "\u2220", "&angmsd;": "\u2221", "&angmsdaa;": "\u29A8", "&angmsdab;": "\u29A9", "&angmsdac;": "\u29AA", "&angmsdad;": "\u29AB", "&angmsdae;": "\u29AC", "&angmsdaf;": "\u29AD", "&angmsdag;": "\u29AE", "&angmsdah;": "\u29AF", "&angrt;": "\u221F", "&angrtvb;": "\u22BE", "&angrtvbd;": "\u299D", "&angsph;": "\u2222", "&angst;": "\xC5", "&angzarr;": "\u237C", "&aogon;": "\u0105", "&aopf;": "\u{1D552}", "&ap;": "\u2248", "&apE;": "\u2A70", "&apacir;": "\u2A6F", "&ape;": "\u224A", "&apid;": "\u224B", "&apos;": "'", "&approx;": "\u2248", "&approxeq;": "\u224A", "&aring": "\xE5", "&aring;": "\xE5", "&ascr;": "\u{1D4B6}", "&ast;": "*", "&asymp;": "\u2248", "&asympeq;": "\u224D", "&atilde": "\xE3", "&atilde;": "\xE3", "&auml": "\xE4", "&auml;": "\xE4", "&awconint;": "\u2233", "&awint;": "\u2A11", "&bNot;": "\u2AED", "&backcong;": "\u224C", "&backepsilon;": "\u03F6", "&backprime;": "\u2035", "&backsim;": "\u223D", "&backsimeq;": "\u22CD", "&barvee;": "\u22BD", "&barwed;": "\u2305", "&barwedge;": "\u2305", "&bbrk;": "\u23B5", "&bbrktbrk;": "\u23B6", "&bcong;": "\u224C", "&bcy;": "\u0431", "&bdquo;": "\u201E", "&becaus;": "\u2235", "&because;": "\u2235", "&bemptyv;": "\u29B0", "&bepsi;": "\u03F6", "&bernou;": "\u212C", "&beta;": "\u03B2", "&beth;": "\u2136", "&between;": "\u226C", "&bfr;": "\u{1D51F}", "&bigcap;": "\u22C2", "&bigcirc;": "\u25EF", "&bigcup;": "\u22C3", "&bigodot;": "\u2A00", "&bigoplus;": "\u2A01", "&bigotimes;": "\u2A02", "&bigsqcup;": "\u2A06", "&bigstar;": "\u2605", "&bigtriangledown;": "\u25BD", "&bigtriangleup;": "\u25B3", "&biguplus;": "\u2A04", "&bigvee;": "\u22C1", "&bigwedge;": "\u22C0", "&bkarow;": "\u290D", "&blacklozenge;": "\u29EB", "&blacksquare;": "\u25AA", "&blacktriangle;": "\u25B4", "&blacktriangledown;": "\u25BE", "&blacktriangleleft;": "\u25C2", "&blacktriangleright;": "\u25B8", "&blank;": "\u2423", "&blk12;": "\u2592", "&blk14;": "\u2591", "&blk34;": "\u2593", "&block;": "\u2588", "&bne;": "=\u20E5", "&bnequiv;": "\u2261\u20E5", "&bnot;": "\u2310", "&bopf;": "\u{1D553}", "&bot;": "\u22A5", "&bottom;": "\u22A5", "&bowtie;": "\u22C8", "&boxDL;": "\u2557", "&boxDR;": "\u2554", "&boxDl;": "\u2556", "&boxDr;": "\u2553", "&boxH;": "\u2550", "&boxHD;": "\u2566", "&boxHU;": "\u2569", "&boxHd;": "\u2564", "&boxHu;": "\u2567", "&boxUL;": "\u255D", "&boxUR;": "\u255A", "&boxUl;": "\u255C", "&boxUr;": "\u2559", "&boxV;": "\u2551", "&boxVH;": "\u256C", "&boxVL;": "\u2563", "&boxVR;": "\u2560", "&boxVh;": "\u256B", "&boxVl;": "\u2562", "&boxVr;": "\u255F", "&boxbox;": "\u29C9", "&boxdL;": "\u2555", "&boxdR;": "\u2552", "&boxdl;": "\u2510", "&boxdr;": "\u250C", "&boxh;": "\u2500", "&boxhD;": "\u2565", "&boxhU;": "\u2568", "&boxhd;": "\u252C", "&boxhu;": "\u2534", "&boxminus;": "\u229F", "&boxplus;": "\u229E", "&boxtimes;": "\u22A0", "&boxuL;": "\u255B", "&boxuR;": "\u2558", "&boxul;": "\u2518", "&boxur;": "\u2514", "&boxv;": "\u2502", "&boxvH;": "\u256A", "&boxvL;": "\u2561", "&boxvR;": "\u255E", "&boxvh;": "\u253C", "&boxvl;": "\u2524", "&boxvr;": "\u251C", "&bprime;": "\u2035", "&breve;": "\u02D8", "&brvbar": "\xA6", "&brvbar;": "\xA6", "&bscr;": "\u{1D4B7}", "&bsemi;": "\u204F", "&bsim;": "\u223D", "&bsime;": "\u22CD", "&bsol;": "\\", "&bsolb;": "\u29C5", "&bsolhsub;": "\u27C8", "&bull;": "\u2022", "&bullet;": "\u2022", "&bump;": "\u224E", "&bumpE;": "\u2AAE", "&bumpe;": "\u224F", "&bumpeq;": "\u224F", "&cacute;": "\u0107", "&cap;": "\u2229", "&capand;": "\u2A44", "&capbrcup;": "\u2A49", "&capcap;": "\u2A4B", "&capcup;": "\u2A47", "&capdot;": "\u2A40", "&caps;": "\u2229\uFE00", "&caret;": "\u2041", "&caron;": "\u02C7", "&ccaps;": "\u2A4D", "&ccaron;": "\u010D", "&ccedil": "\xE7", "&ccedil;": "\xE7", "&ccirc;": "\u0109", "&ccups;": "\u2A4C", "&ccupssm;": "\u2A50", "&cdot;": "\u010B", "&cedil": "\xB8", "&cedil;": "\xB8", "&cemptyv;": "\u29B2", "&cent": "\xA2", "&cent;": "\xA2", "&centerdot;": "\xB7", "&cfr;": "\u{1D520}", "&chcy;": "\u0447", "&check;": "\u2713", "&checkmark;": "\u2713", "&chi;": "\u03C7", "&cir;": "\u25CB", "&cirE;": "\u29C3", "&circ;": "\u02C6", "&circeq;": "\u2257", "&circlearrowleft;": "\u21BA", "&circlearrowright;": "\u21BB", "&circledR;": "\xAE", "&circledS;": "\u24C8", "&circledast;": "\u229B", "&circledcirc;": "\u229A", "&circleddash;": "\u229D", "&cire;": "\u2257", "&cirfnint;": "\u2A10", "&cirmid;": "\u2AEF", "&cirscir;": "\u29C2", "&clubs;": "\u2663", "&clubsuit;": "\u2663", "&colon;": ":", "&colone;": "\u2254", "&coloneq;": "\u2254", "&comma;": ",", "&commat;": "@", "&comp;": "\u2201", "&compfn;": "\u2218", "&complement;": "\u2201", "&complexes;": "\u2102", "&cong;": "\u2245", "&congdot;": "\u2A6D", "&conint;": "\u222E", "&copf;": "\u{1D554}", "&coprod;": "\u2210", "&copy": "\xA9", "&copy;": "\xA9", "&copysr;": "\u2117", "&crarr;": "\u21B5", "&cross;": "\u2717", "&cscr;": "\u{1D4B8}", "&csub;": "\u2ACF", "&csube;": "\u2AD1", "&csup;": "\u2AD0", "&csupe;": "\u2AD2", "&ctdot;": "\u22EF", "&cudarrl;": "\u2938", "&cudarrr;": "\u2935", "&cuepr;": "\u22DE", "&cuesc;": "\u22DF", "&cularr;": "\u21B6", "&cularrp;": "\u293D", "&cup;": "\u222A", "&cupbrcap;": "\u2A48", "&cupcap;": "\u2A46", "&cupcup;": "\u2A4A", "&cupdot;": "\u228D", "&cupor;": "\u2A45", "&cups;": "\u222A\uFE00", "&curarr;": "\u21B7", "&curarrm;": "\u293C", "&curlyeqprec;": "\u22DE", "&curlyeqsucc;": "\u22DF", "&curlyvee;": "\u22CE", "&curlywedge;": "\u22CF", "&curren": "\xA4", "&curren;": "\xA4", "&curvearrowleft;": "\u21B6", "&curvearrowright;": "\u21B7", "&cuvee;": "\u22CE", "&cuwed;": "\u22CF", "&cwconint;": "\u2232", "&cwint;": "\u2231", "&cylcty;": "\u232D", "&dArr;": "\u21D3", "&dHar;": "\u2965", "&dagger;": "\u2020", "&daleth;": "\u2138", "&darr;": "\u2193", "&dash;": "\u2010", "&dashv;": "\u22A3", "&dbkarow;": "\u290F", "&dblac;": "\u02DD", "&dcaron;": "\u010F", "&dcy;": "\u0434", "&dd;": "\u2146", "&ddagger;": "\u2021", "&ddarr;": "\u21CA", "&ddotseq;": "\u2A77", "&deg": "\xB0", "&deg;": "\xB0", "&delta;": "\u03B4", "&demptyv;": "\u29B1", "&dfisht;": "\u297F", "&dfr;": "\u{1D521}", "&dharl;": "\u21C3", "&dharr;": "\u21C2", "&diam;": "\u22C4", "&diamond;": "\u22C4", "&diamondsuit;": "\u2666", "&diams;": "\u2666", "&die;": "\xA8", "&digamma;": "\u03DD", "&disin;": "\u22F2", "&div;": "\xF7", "&divide": "\xF7", "&divide;": "\xF7", "&divideontimes;": "\u22C7", "&divonx;": "\u22C7", "&djcy;": "\u0452", "&dlcorn;": "\u231E", "&dlcrop;": "\u230D", "&dollar;": "$", "&dopf;": "\u{1D555}", "&dot;": "\u02D9", "&doteq;": "\u2250", "&doteqdot;": "\u2251", "&dotminus;": "\u2238", "&dotplus;": "\u2214", "&dotsquare;": "\u22A1", "&doublebarwedge;": "\u2306", "&downarrow;": "\u2193", "&downdownarrows;": "\u21CA", "&downharpoonleft;": "\u21C3", "&downharpoonright;": "\u21C2", "&drbkarow;": "\u2910", "&drcorn;": "\u231F", "&drcrop;": "\u230C", "&dscr;": "\u{1D4B9}", "&dscy;": "\u0455", "&dsol;": "\u29F6", "&dstrok;": "\u0111", "&dtdot;": "\u22F1", "&dtri;": "\u25BF", "&dtrif;": "\u25BE", "&duarr;": "\u21F5", "&duhar;": "\u296F", "&dwangle;": "\u29A6", "&dzcy;": "\u045F", "&dzigrarr;": "\u27FF", "&eDDot;": "\u2A77", "&eDot;": "\u2251", "&eacute": "\xE9", "&eacute;": "\xE9", "&easter;": "\u2A6E", "&ecaron;": "\u011B", "&ecir;": "\u2256", "&ecirc": "\xEA", "&ecirc;": "\xEA", "&ecolon;": "\u2255", "&ecy;": "\u044D", "&edot;": "\u0117", "&ee;": "\u2147", "&efDot;": "\u2252", "&efr;": "\u{1D522}", "&eg;": "\u2A9A", "&egrave": "\xE8", "&egrave;": "\xE8", "&egs;": "\u2A96", "&egsdot;": "\u2A98", "&el;": "\u2A99", "&elinters;": "\u23E7", "&ell;": "\u2113", "&els;": "\u2A95", "&elsdot;": "\u2A97", "&emacr;": "\u0113", "&empty;": "\u2205", "&emptyset;": "\u2205", "&emptyv;": "\u2205", "&emsp13;": "\u2004", "&emsp14;": "\u2005", "&emsp;": "\u2003", "&eng;": "\u014B", "&ensp;": "\u2002", "&eogon;": "\u0119", "&eopf;": "\u{1D556}", "&epar;": "\u22D5", "&eparsl;": "\u29E3", "&eplus;": "\u2A71", "&epsi;": "\u03B5", "&epsilon;": "\u03B5", "&epsiv;": "\u03F5", "&eqcirc;": "\u2256", "&eqcolon;": "\u2255", "&eqsim;": "\u2242", "&eqslantgtr;": "\u2A96", "&eqslantless;": "\u2A95", "&equals;": "=", "&equest;": "\u225F", "&equiv;": "\u2261", "&equivDD;": "\u2A78", "&eqvparsl;": "\u29E5", "&erDot;": "\u2253", "&erarr;": "\u2971", "&escr;": "\u212F", "&esdot;": "\u2250", "&esim;": "\u2242", "&eta;": "\u03B7", "&eth": "\xF0", "&eth;": "\xF0", "&euml": "\xEB", "&euml;": "\xEB", "&euro;": "\u20AC", "&excl;": "!", "&exist;": "\u2203", "&expectation;": "\u2130", "&exponentiale;": "\u2147", "&fallingdotseq;": "\u2252", "&fcy;": "\u0444", "&female;": "\u2640", "&ffilig;": "\uFB03", "&fflig;": "\uFB00", "&ffllig;": "\uFB04", "&ffr;": "\u{1D523}", "&filig;": "\uFB01", "&fjlig;": "fj", "&flat;": "\u266D", "&fllig;": "\uFB02", "&fltns;": "\u25B1", "&fnof;": "\u0192", "&fopf;": "\u{1D557}", "&forall;": "\u2200", "&fork;": "\u22D4", "&forkv;": "\u2AD9", "&fpartint;": "\u2A0D", "&frac12": "\xBD", "&frac12;": "\xBD", "&frac13;": "\u2153", "&frac14": "\xBC", "&frac14;": "\xBC", "&frac15;": "\u2155", "&frac16;": "\u2159", "&frac18;": "\u215B", "&frac23;": "\u2154", "&frac25;": "\u2156", "&frac34": "\xBE", "&frac34;": "\xBE", "&frac35;": "\u2157", "&frac38;": "\u215C", "&frac45;": "\u2158", "&frac56;": "\u215A", "&frac58;": "\u215D", "&frac78;": "\u215E", "&frasl;": "\u2044", "&frown;": "\u2322", "&fscr;": "\u{1D4BB}", "&gE;": "\u2267", "&gEl;": "\u2A8C", "&gacute;": "\u01F5", "&gamma;": "\u03B3", "&gammad;": "\u03DD", "&gap;": "\u2A86", "&gbreve;": "\u011F", "&gcirc;": "\u011D", "&gcy;": "\u0433", "&gdot;": "\u0121", "&ge;": "\u2265", "&gel;": "\u22DB", "&geq;": "\u2265", "&geqq;": "\u2267", "&geqslant;": "\u2A7E", "&ges;": "\u2A7E", "&gescc;": "\u2AA9", "&gesdot;": "\u2A80", "&gesdoto;": "\u2A82", "&gesdotol;": "\u2A84", "&gesl;": "\u22DB\uFE00", "&gesles;": "\u2A94", "&gfr;": "\u{1D524}", "&gg;": "\u226B", "&ggg;": "\u22D9", "&gimel;": "\u2137", "&gjcy;": "\u0453", "&gl;": "\u2277", "&glE;": "\u2A92", "&gla;": "\u2AA5", "&glj;": "\u2AA4", "&gnE;": "\u2269", "&gnap;": "\u2A8A", "&gnapprox;": "\u2A8A", "&gne;": "\u2A88", "&gneq;": "\u2A88", "&gneqq;": "\u2269", "&gnsim;": "\u22E7", "&gopf;": "\u{1D558}", "&grave;": "`", "&gscr;": "\u210A", "&gsim;": "\u2273", "&gsime;": "\u2A8E", "&gsiml;": "\u2A90", "&gt": ">", "&gt;": ">", "&gtcc;": "\u2AA7", "&gtcir;": "\u2A7A", "&gtdot;": "\u22D7", "&gtlPar;": "\u2995", "&gtquest;": "\u2A7C", "&gtrapprox;": "\u2A86", "&gtrarr;": "\u2978", "&gtrdot;": "\u22D7", "&gtreqless;": "\u22DB", "&gtreqqless;": "\u2A8C", "&gtrless;": "\u2277", "&gtrsim;": "\u2273", "&gvertneqq;": "\u2269\uFE00", "&gvnE;": "\u2269\uFE00", "&hArr;": "\u21D4", "&hairsp;": "\u200A", "&half;": "\xBD", "&hamilt;": "\u210B", "&hardcy;": "\u044A", "&harr;": "\u2194", "&harrcir;": "\u2948", "&harrw;": "\u21AD", "&hbar;": "\u210F", "&hcirc;": "\u0125", "&hearts;": "\u2665", "&heartsuit;": "\u2665", "&hellip;": "\u2026", "&hercon;": "\u22B9", "&hfr;": "\u{1D525}", "&hksearow;": "\u2925", "&hkswarow;": "\u2926", "&hoarr;": "\u21FF", "&homtht;": "\u223B", "&hookleftarrow;": "\u21A9", "&hookrightarrow;": "\u21AA", "&hopf;": "\u{1D559}", "&horbar;": "\u2015", "&hscr;": "\u{1D4BD}", "&hslash;": "\u210F", "&hstrok;": "\u0127", "&hybull;": "\u2043", "&hyphen;": "\u2010", "&iacute": "\xED", "&iacute;": "\xED", "&ic;": "\u2063", "&icirc": "\xEE", "&icirc;": "\xEE", "&icy;": "\u0438", "&iecy;": "\u0435", "&iexcl": "\xA1", "&iexcl;": "\xA1", "&iff;": "\u21D4", "&ifr;": "\u{1D526}", "&igrave": "\xEC", "&igrave;": "\xEC", "&ii;": "\u2148", "&iiiint;": "\u2A0C", "&iiint;": "\u222D", "&iinfin;": "\u29DC", "&iiota;": "\u2129", "&ijlig;": "\u0133", "&imacr;": "\u012B", "&image;": "\u2111", "&imagline;": "\u2110", "&imagpart;": "\u2111", "&imath;": "\u0131", "&imof;": "\u22B7", "&imped;": "\u01B5", "&in;": "\u2208", "&incare;": "\u2105", "&infin;": "\u221E", "&infintie;": "\u29DD", "&inodot;": "\u0131", "&int;": "\u222B", "&intcal;": "\u22BA", "&integers;": "\u2124", "&intercal;": "\u22BA", "&intlarhk;": "\u2A17", "&intprod;": "\u2A3C", "&iocy;": "\u0451", "&iogon;": "\u012F", "&iopf;": "\u{1D55A}", "&iota;": "\u03B9", "&iprod;": "\u2A3C", "&iquest": "\xBF", "&iquest;": "\xBF", "&iscr;": "\u{1D4BE}", "&isin;": "\u2208", "&isinE;": "\u22F9", "&isindot;": "\u22F5", "&isins;": "\u22F4", "&isinsv;": "\u22F3", "&isinv;": "\u2208", "&it;": "\u2062", "&itilde;": "\u0129", "&iukcy;": "\u0456", "&iuml": "\xEF", "&iuml;": "\xEF", "&jcirc;": "\u0135", "&jcy;": "\u0439", "&jfr;": "\u{1D527}", "&jmath;": "\u0237", "&jopf;": "\u{1D55B}", "&jscr;": "\u{1D4BF}", "&jsercy;": "\u0458", "&jukcy;": "\u0454", "&kappa;": "\u03BA", "&kappav;": "\u03F0", "&kcedil;": "\u0137", "&kcy;": "\u043A", "&kfr;": "\u{1D528}", "&kgreen;": "\u0138", "&khcy;": "\u0445", "&kjcy;": "\u045C", "&kopf;": "\u{1D55C}", "&kscr;": "\u{1D4C0}", "&lAarr;": "\u21DA", "&lArr;": "\u21D0", "&lAtail;": "\u291B", "&lBarr;": "\u290E", "&lE;": "\u2266", "&lEg;": "\u2A8B", "&lHar;": "\u2962", "&lacute;": "\u013A", "&laemptyv;": "\u29B4", "&lagran;": "\u2112", "&lambda;": "\u03BB", "&lang;": "\u27E8", "&langd;": "\u2991", "&langle;": "\u27E8", "&lap;": "\u2A85", "&laquo": "\xAB", "&laquo;": "\xAB", "&larr;": "\u2190", "&larrb;": "\u21E4", "&larrbfs;": "\u291F", "&larrfs;": "\u291D", "&larrhk;": "\u21A9", "&larrlp;": "\u21AB", "&larrpl;": "\u2939", "&larrsim;": "\u2973", "&larrtl;": "\u21A2", "&lat;": "\u2AAB", "&latail;": "\u2919", "&late;": "\u2AAD", "&lates;": "\u2AAD\uFE00", "&lbarr;": "\u290C", "&lbbrk;": "\u2772", "&lbrace;": "{", "&lbrack;": "[", "&lbrke;": "\u298B", "&lbrksld;": "\u298F", "&lbrkslu;": "\u298D", "&lcaron;": "\u013E", "&lcedil;": "\u013C", "&lceil;": "\u2308", "&lcub;": "{", "&lcy;": "\u043B", "&ldca;": "\u2936", "&ldquo;": "\u201C", "&ldquor;": "\u201E", "&ldrdhar;": "\u2967", "&ldrushar;": "\u294B", "&ldsh;": "\u21B2", "&le;": "\u2264", "&leftarrow;": "\u2190", "&leftarrowtail;": "\u21A2", "&leftharpoondown;": "\u21BD", "&leftharpoonup;": "\u21BC", "&leftleftarrows;": "\u21C7", "&leftrightarrow;": "\u2194", "&leftrightarrows;": "\u21C6", "&leftrightharpoons;": "\u21CB", "&leftrightsquigarrow;": "\u21AD", "&leftthreetimes;": "\u22CB", "&leg;": "\u22DA", "&leq;": "\u2264", "&leqq;": "\u2266", "&leqslant;": "\u2A7D", "&les;": "\u2A7D", "&lescc;": "\u2AA8", "&lesdot;": "\u2A7F", "&lesdoto;": "\u2A81", "&lesdotor;": "\u2A83", "&lesg;": "\u22DA\uFE00", "&lesges;": "\u2A93", "&lessapprox;": "\u2A85", "&lessdot;": "\u22D6", "&lesseqgtr;": "\u22DA", "&lesseqqgtr;": "\u2A8B", "&lessgtr;": "\u2276", "&lesssim;": "\u2272", "&lfisht;": "\u297C", "&lfloor;": "\u230A", "&lfr;": "\u{1D529}", "&lg;": "\u2276", "&lgE;": "\u2A91", "&lhard;": "\u21BD", "&lharu;": "\u21BC", "&lharul;": "\u296A", "&lhblk;": "\u2584", "&ljcy;": "\u0459", "&ll;": "\u226A", "&llarr;": "\u21C7", "&llcorner;": "\u231E", "&llhard;": "\u296B", "&lltri;": "\u25FA", "&lmidot;": "\u0140", "&lmoust;": "\u23B0", "&lmoustache;": "\u23B0", "&lnE;": "\u2268", "&lnap;": "\u2A89", "&lnapprox;": "\u2A89", "&lne;": "\u2A87", "&lneq;": "\u2A87", "&lneqq;": "\u2268", "&lnsim;": "\u22E6", "&loang;": "\u27EC", "&loarr;": "\u21FD", "&lobrk;": "\u27E6", "&longleftarrow;": "\u27F5", "&longleftrightarrow;": "\u27F7", "&longmapsto;": "\u27FC", "&longrightarrow;": "\u27F6", "&looparrowleft;": "\u21AB", "&looparrowright;": "\u21AC", "&lopar;": "\u2985", "&lopf;": "\u{1D55D}", "&loplus;": "\u2A2D", "&lotimes;": "\u2A34", "&lowast;": "\u2217", "&lowbar;": "_", "&loz;": "\u25CA", "&lozenge;": "\u25CA", "&lozf;": "\u29EB", "&lpar;": "(", "&lparlt;": "\u2993", "&lrarr;": "\u21C6", "&lrcorner;": "\u231F", "&lrhar;": "\u21CB", "&lrhard;": "\u296D", "&lrm;": "\u200E", "&lrtri;": "\u22BF", "&lsaquo;": "\u2039", "&lscr;": "\u{1D4C1}", "&lsh;": "\u21B0", "&lsim;": "\u2272", "&lsime;": "\u2A8D", "&lsimg;": "\u2A8F", "&lsqb;": "[", "&lsquo;": "\u2018", "&lsquor;": "\u201A", "&lstrok;": "\u0142", "&lt": "<", "&lt;": "<", "&ltcc;": "\u2AA6", "&ltcir;": "\u2A79", "&ltdot;": "\u22D6", "&lthree;": "\u22CB", "&ltimes;": "\u22C9", "&ltlarr;": "\u2976", "&ltquest;": "\u2A7B", "&ltrPar;": "\u2996", "&ltri;": "\u25C3", "&ltrie;": "\u22B4", "&ltrif;": "\u25C2", "&lurdshar;": "\u294A", "&luruhar;": "\u2966", "&lvertneqq;": "\u2268\uFE00", "&lvnE;": "\u2268\uFE00", "&mDDot;": "\u223A", "&macr": "\xAF", "&macr;": "\xAF", "&male;": "\u2642", "&malt;": "\u2720", "&maltese;": "\u2720", "&map;": "\u21A6", "&mapsto;": "\u21A6", "&mapstodown;": "\u21A7", "&mapstoleft;": "\u21A4", "&mapstoup;": "\u21A5", "&marker;": "\u25AE", "&mcomma;": "\u2A29", "&mcy;": "\u043C", "&mdash;": "\u2014", "&measuredangle;": "\u2221", "&mfr;": "\u{1D52A}", "&mho;": "\u2127", "&micro": "\xB5", "&micro;": "\xB5", "&mid;": "\u2223", "&midast;": "*", "&midcir;": "\u2AF0", "&middot": "\xB7", "&middot;": "\xB7", "&minus;": "\u2212", "&minusb;": "\u229F", "&minusd;": "\u2238", "&minusdu;": "\u2A2A", "&mlcp;": "\u2ADB", "&mldr;": "\u2026", "&mnplus;": "\u2213", "&models;": "\u22A7", "&mopf;": "\u{1D55E}", "&mp;": "\u2213", "&mscr;": "\u{1D4C2}", "&mstpos;": "\u223E", "&mu;": "\u03BC", "&multimap;": "\u22B8", "&mumap;": "\u22B8", "&nGg;": "\u22D9\u0338", "&nGt;": "\u226B\u20D2", "&nGtv;": "\u226B\u0338", "&nLeftarrow;": "\u21CD", "&nLeftrightarrow;": "\u21CE", "&nLl;": "\u22D8\u0338", "&nLt;": "\u226A\u20D2", "&nLtv;": "\u226A\u0338", "&nRightarrow;": "\u21CF", "&nVDash;": "\u22AF", "&nVdash;": "\u22AE", "&nabla;": "\u2207", "&nacute;": "\u0144", "&nang;": "\u2220\u20D2", "&nap;": "\u2249", "&napE;": "\u2A70\u0338", "&napid;": "\u224B\u0338", "&napos;": "\u0149", "&napprox;": "\u2249", "&natur;": "\u266E", "&natural;": "\u266E", "&naturals;": "\u2115", "&nbsp": "\xA0", "&nbsp;": "\xA0", "&nbump;": "\u224E\u0338", "&nbumpe;": "\u224F\u0338", "&ncap;": "\u2A43", "&ncaron;": "\u0148", "&ncedil;": "\u0146", "&ncong;": "\u2247", "&ncongdot;": "\u2A6D\u0338", "&ncup;": "\u2A42", "&ncy;": "\u043D", "&ndash;": "\u2013", "&ne;": "\u2260", "&neArr;": "\u21D7", "&nearhk;": "\u2924", "&nearr;": "\u2197", "&nearrow;": "\u2197", "&nedot;": "\u2250\u0338", "&nequiv;": "\u2262", "&nesear;": "\u2928", "&nesim;": "\u2242\u0338", "&nexist;": "\u2204", "&nexists;": "\u2204", "&nfr;": "\u{1D52B}", "&ngE;": "\u2267\u0338", "&nge;": "\u2271", "&ngeq;": "\u2271", "&ngeqq;": "\u2267\u0338", "&ngeqslant;": "\u2A7E\u0338", "&nges;": "\u2A7E\u0338", "&ngsim;": "\u2275", "&ngt;": "\u226F", "&ngtr;": "\u226F", "&nhArr;": "\u21CE", "&nharr;": "\u21AE", "&nhpar;": "\u2AF2", "&ni;": "\u220B", "&nis;": "\u22FC", "&nisd;": "\u22FA", "&niv;": "\u220B", "&njcy;": "\u045A", "&nlArr;": "\u21CD", "&nlE;": "\u2266\u0338", "&nlarr;": "\u219A", "&nldr;": "\u2025", "&nle;": "\u2270", "&nleftarrow;": "\u219A", "&nleftrightarrow;": "\u21AE", "&nleq;": "\u2270", "&nleqq;": "\u2266\u0338", "&nleqslant;": "\u2A7D\u0338", "&nles;": "\u2A7D\u0338", "&nless;": "\u226E", "&nlsim;": "\u2274", "&nlt;": "\u226E", "&nltri;": "\u22EA", "&nltrie;": "\u22EC", "&nmid;": "\u2224", "&nopf;": "\u{1D55F}", "&not": "\xAC", "&not;": "\xAC", "&notin;": "\u2209", "&notinE;": "\u22F9\u0338", "&notindot;": "\u22F5\u0338", "&notinva;": "\u2209", "&notinvb;": "\u22F7", "&notinvc;": "\u22F6", "&notni;": "\u220C", "&notniva;": "\u220C", "&notnivb;": "\u22FE", "&notnivc;": "\u22FD", "&npar;": "\u2226", "&nparallel;": "\u2226", "&nparsl;": "\u2AFD\u20E5", "&npart;": "\u2202\u0338", "&npolint;": "\u2A14", "&npr;": "\u2280", "&nprcue;": "\u22E0", "&npre;": "\u2AAF\u0338", "&nprec;": "\u2280", "&npreceq;": "\u2AAF\u0338", "&nrArr;": "\u21CF", "&nrarr;": "\u219B", "&nrarrc;": "\u2933\u0338", "&nrarrw;": "\u219D\u0338", "&nrightarrow;": "\u219B", "&nrtri;": "\u22EB", "&nrtrie;": "\u22ED", "&nsc;": "\u2281", "&nsccue;": "\u22E1", "&nsce;": "\u2AB0\u0338", "&nscr;": "\u{1D4C3}", "&nshortmid;": "\u2224", "&nshortparallel;": "\u2226", "&nsim;": "\u2241", "&nsime;": "\u2244", "&nsimeq;": "\u2244", "&nsmid;": "\u2224", "&nspar;": "\u2226", "&nsqsube;": "\u22E2", "&nsqsupe;": "\u22E3", "&nsub;": "\u2284", "&nsubE;": "\u2AC5\u0338", "&nsube;": "\u2288", "&nsubset;": "\u2282\u20D2", "&nsubseteq;": "\u2288", "&nsubseteqq;": "\u2AC5\u0338", "&nsucc;": "\u2281", "&nsucceq;": "\u2AB0\u0338", "&nsup;": "\u2285", "&nsupE;": "\u2AC6\u0338", "&nsupe;": "\u2289", "&nsupset;": "\u2283\u20D2", "&nsupseteq;": "\u2289", "&nsupseteqq;": "\u2AC6\u0338", "&ntgl;": "\u2279", "&ntilde": "\xF1", "&ntilde;": "\xF1", "&ntlg;": "\u2278", "&ntriangleleft;": "\u22EA", "&ntrianglelefteq;": "\u22EC", "&ntriangleright;": "\u22EB", "&ntrianglerighteq;": "\u22ED", "&nu;": "\u03BD", "&num;": "#", "&numero;": "\u2116", "&numsp;": "\u2007", "&nvDash;": "\u22AD", "&nvHarr;": "\u2904", "&nvap;": "\u224D\u20D2", "&nvdash;": "\u22AC", "&nvge;": "\u2265\u20D2", "&nvgt;": ">\u20D2", "&nvinfin;": "\u29DE", "&nvlArr;": "\u2902", "&nvle;": "\u2264\u20D2", "&nvlt;": "<\u20D2", "&nvltrie;": "\u22B4\u20D2", "&nvrArr;": "\u2903", "&nvrtrie;": "\u22B5\u20D2", "&nvsim;": "\u223C\u20D2", "&nwArr;": "\u21D6", "&nwarhk;": "\u2923", "&nwarr;": "\u2196", "&nwarrow;": "\u2196", "&nwnear;": "\u2927", "&oS;": "\u24C8", "&oacute": "\xF3", "&oacute;": "\xF3", "&oast;": "\u229B", "&ocir;": "\u229A", "&ocirc": "\xF4", "&ocirc;": "\xF4", "&ocy;": "\u043E", "&odash;": "\u229D", "&odblac;": "\u0151", "&odiv;": "\u2A38", "&odot;": "\u2299", "&odsold;": "\u29BC", "&oelig;": "\u0153", "&ofcir;": "\u29BF", "&ofr;": "\u{1D52C}", "&ogon;": "\u02DB", "&ograve": "\xF2", "&ograve;": "\xF2", "&ogt;": "\u29C1", "&ohbar;": "\u29B5", "&ohm;": "\u03A9", "&oint;": "\u222E", "&olarr;": "\u21BA", "&olcir;": "\u29BE", "&olcross;": "\u29BB", "&oline;": "\u203E", "&olt;": "\u29C0", "&omacr;": "\u014D", "&omega;": "\u03C9", "&omicron;": "\u03BF", "&omid;": "\u29B6", "&ominus;": "\u2296", "&oopf;": "\u{1D560}", "&opar;": "\u29B7", "&operp;": "\u29B9", "&oplus;": "\u2295", "&or;": "\u2228", "&orarr;": "\u21BB", "&ord;": "\u2A5D", "&order;": "\u2134", "&orderof;": "\u2134", "&ordf": "\xAA", "&ordf;": "\xAA", "&ordm": "\xBA", "&ordm;": "\xBA", "&origof;": "\u22B6", "&oror;": "\u2A56", "&orslope;": "\u2A57", "&orv;": "\u2A5B", "&oscr;": "\u2134", "&oslash": "\xF8", "&oslash;": "\xF8", "&osol;": "\u2298", "&otilde": "\xF5", "&otilde;": "\xF5", "&otimes;": "\u2297", "&otimesas;": "\u2A36", "&ouml": "\xF6", "&ouml;": "\xF6", "&ovbar;": "\u233D", "&par;": "\u2225", "&para": "\xB6", "&para;": "\xB6", "&parallel;": "\u2225", "&parsim;": "\u2AF3", "&parsl;": "\u2AFD", "&part;": "\u2202", "&pcy;": "\u043F", "&percnt;": "%", "&period;": ".", "&permil;": "\u2030", "&perp;": "\u22A5", "&pertenk;": "\u2031", "&pfr;": "\u{1D52D}", "&phi;": "\u03C6", "&phiv;": "\u03D5", "&phmmat;": "\u2133", "&phone;": "\u260E", "&pi;": "\u03C0", "&pitchfork;": "\u22D4", "&piv;": "\u03D6", "&planck;": "\u210F", "&planckh;": "\u210E", "&plankv;": "\u210F", "&plus;": "+", "&plusacir;": "\u2A23", "&plusb;": "\u229E", "&pluscir;": "\u2A22", "&plusdo;": "\u2214", "&plusdu;": "\u2A25", "&pluse;": "\u2A72", "&plusmn": "\xB1", "&plusmn;": "\xB1", "&plussim;": "\u2A26", "&plustwo;": "\u2A27", "&pm;": "\xB1", "&pointint;": "\u2A15", "&popf;": "\u{1D561}", "&pound": "\xA3", "&pound;": "\xA3", "&pr;": "\u227A", "&prE;": "\u2AB3", "&prap;": "\u2AB7", "&prcue;": "\u227C", "&pre;": "\u2AAF", "&prec;": "\u227A", "&precapprox;": "\u2AB7", "&preccurlyeq;": "\u227C", "&preceq;": "\u2AAF", "&precnapprox;": "\u2AB9", "&precneqq;": "\u2AB5", "&precnsim;": "\u22E8", "&precsim;": "\u227E", "&prime;": "\u2032", "&primes;": "\u2119", "&prnE;": "\u2AB5", "&prnap;": "\u2AB9", "&prnsim;": "\u22E8", "&prod;": "\u220F", "&profalar;": "\u232E", "&profline;": "\u2312", "&profsurf;": "\u2313", "&prop;": "\u221D", "&propto;": "\u221D", "&prsim;": "\u227E", "&prurel;": "\u22B0", "&pscr;": "\u{1D4C5}", "&psi;": "\u03C8", "&puncsp;": "\u2008", "&qfr;": "\u{1D52E}", "&qint;": "\u2A0C", "&qopf;": "\u{1D562}", "&qprime;": "\u2057", "&qscr;": "\u{1D4C6}", "&quaternions;": "\u210D", "&quatint;": "\u2A16", "&quest;": "?", "&questeq;": "\u225F", "&quot": '"', "&quot;": '"', "&rAarr;": "\u21DB", "&rArr;": "\u21D2", "&rAtail;": "\u291C", "&rBarr;": "\u290F", "&rHar;": "\u2964", "&race;": "\u223D\u0331", "&racute;": "\u0155", "&radic;": "\u221A", "&raemptyv;": "\u29B3", "&rang;": "\u27E9", "&rangd;": "\u2992", "&range;": "\u29A5", "&rangle;": "\u27E9", "&raquo": "\xBB", "&raquo;": "\xBB", "&rarr;": "\u2192", "&rarrap;": "\u2975", "&rarrb;": "\u21E5", "&rarrbfs;": "\u2920", "&rarrc;": "\u2933", "&rarrfs;": "\u291E", "&rarrhk;": "\u21AA", "&rarrlp;": "\u21AC", "&rarrpl;": "\u2945", "&rarrsim;": "\u2974", "&rarrtl;": "\u21A3", "&rarrw;": "\u219D", "&ratail;": "\u291A", "&ratio;": "\u2236", "&rationals;": "\u211A", "&rbarr;": "\u290D", "&rbbrk;": "\u2773", "&rbrace;": "}", "&rbrack;": "]", "&rbrke;": "\u298C", "&rbrksld;": "\u298E", "&rbrkslu;": "\u2990", "&rcaron;": "\u0159", "&rcedil;": "\u0157", "&rceil;": "\u2309", "&rcub;": "}", "&rcy;": "\u0440", "&rdca;": "\u2937", "&rdldhar;": "\u2969", "&rdquo;": "\u201D", "&rdquor;": "\u201D", "&rdsh;": "\u21B3", "&real;": "\u211C", "&realine;": "\u211B", "&realpart;": "\u211C", "&reals;": "\u211D", "&rect;": "\u25AD", "&reg": "\xAE", "&reg;": "\xAE", "&rfisht;": "\u297D", "&rfloor;": "\u230B", "&rfr;": "\u{1D52F}", "&rhard;": "\u21C1", "&rharu;": "\u21C0", "&rharul;": "\u296C", "&rho;": "\u03C1", "&rhov;": "\u03F1", "&rightarrow;": "\u2192", "&rightarrowtail;": "\u21A3", "&rightharpoondown;": "\u21C1", "&rightharpoonup;": "\u21C0", "&rightleftarrows;": "\u21C4", "&rightleftharpoons;": "\u21CC", "&rightrightarrows;": "\u21C9", "&rightsquigarrow;": "\u219D", "&rightthreetimes;": "\u22CC", "&ring;": "\u02DA", "&risingdotseq;": "\u2253", "&rlarr;": "\u21C4", "&rlhar;": "\u21CC", "&rlm;": "\u200F", "&rmoust;": "\u23B1", "&rmoustache;": "\u23B1", "&rnmid;": "\u2AEE", "&roang;": "\u27ED", "&roarr;": "\u21FE", "&robrk;": "\u27E7", "&ropar;": "\u2986", "&ropf;": "\u{1D563}", "&roplus;": "\u2A2E", "&rotimes;": "\u2A35", "&rpar;": ")", "&rpargt;": "\u2994", "&rppolint;": "\u2A12", "&rrarr;": "\u21C9", "&rsaquo;": "\u203A", "&rscr;": "\u{1D4C7}", "&rsh;": "\u21B1", "&rsqb;": "]", "&rsquo;": "\u2019", "&rsquor;": "\u2019", "&rthree;": "\u22CC", "&rtimes;": "\u22CA", "&rtri;": "\u25B9", "&rtrie;": "\u22B5", "&rtrif;": "\u25B8", "&rtriltri;": "\u29CE", "&ruluhar;": "\u2968", "&rx;": "\u211E", "&sacute;": "\u015B", "&sbquo;": "\u201A", "&sc;": "\u227B", "&scE;": "\u2AB4", "&scap;": "\u2AB8", "&scaron;": "\u0161", "&sccue;": "\u227D", "&sce;": "\u2AB0", "&scedil;": "\u015F", "&scirc;": "\u015D", "&scnE;": "\u2AB6", "&scnap;": "\u2ABA", "&scnsim;": "\u22E9", "&scpolint;": "\u2A13", "&scsim;": "\u227F", "&scy;": "\u0441", "&sdot;": "\u22C5", "&sdotb;": "\u22A1", "&sdote;": "\u2A66", "&seArr;": "\u21D8", "&searhk;": "\u2925", "&searr;": "\u2198", "&searrow;": "\u2198", "&sect": "\xA7", "&sect;": "\xA7", "&semi;": ";", "&seswar;": "\u2929", "&setminus;": "\u2216", "&setmn;": "\u2216", "&sext;": "\u2736", "&sfr;": "\u{1D530}", "&sfrown;": "\u2322", "&sharp;": "\u266F", "&shchcy;": "\u0449", "&shcy;": "\u0448", "&shortmid;": "\u2223", "&shortparallel;": "\u2225", "&shy": "\xAD", "&shy;": "\xAD", "&sigma;": "\u03C3", "&sigmaf;": "\u03C2", "&sigmav;": "\u03C2", "&sim;": "\u223C", "&simdot;": "\u2A6A", "&sime;": "\u2243", "&simeq;": "\u2243", "&simg;": "\u2A9E", "&simgE;": "\u2AA0", "&siml;": "\u2A9D", "&simlE;": "\u2A9F", "&simne;": "\u2246", "&simplus;": "\u2A24", "&simrarr;": "\u2972", "&slarr;": "\u2190", "&smallsetminus;": "\u2216", "&smashp;": "\u2A33", "&smeparsl;": "\u29E4", "&smid;": "\u2223", "&smile;": "\u2323", "&smt;": "\u2AAA", "&smte;": "\u2AAC", "&smtes;": "\u2AAC\uFE00", "&softcy;": "\u044C", "&sol;": "/", "&solb;": "\u29C4", "&solbar;": "\u233F", "&sopf;": "\u{1D564}", "&spades;": "\u2660", "&spadesuit;": "\u2660", "&spar;": "\u2225", "&sqcap;": "\u2293", "&sqcaps;": "\u2293\uFE00", "&sqcup;": "\u2294", "&sqcups;": "\u2294\uFE00", "&sqsub;": "\u228F", "&sqsube;": "\u2291", "&sqsubset;": "\u228F", "&sqsubseteq;": "\u2291", "&sqsup;": "\u2290", "&sqsupe;": "\u2292", "&sqsupset;": "\u2290", "&sqsupseteq;": "\u2292", "&squ;": "\u25A1", "&square;": "\u25A1", "&squarf;": "\u25AA", "&squf;": "\u25AA", "&srarr;": "\u2192", "&sscr;": "\u{1D4C8}", "&ssetmn;": "\u2216", "&ssmile;": "\u2323", "&sstarf;": "\u22C6", "&star;": "\u2606", "&starf;": "\u2605", "&straightepsilon;": "\u03F5", "&straightphi;": "\u03D5", "&strns;": "\xAF", "&sub;": "\u2282", "&subE;": "\u2AC5", "&subdot;": "\u2ABD", "&sube;": "\u2286", "&subedot;": "\u2AC3", "&submult;": "\u2AC1", "&subnE;": "\u2ACB", "&subne;": "\u228A", "&subplus;": "\u2ABF", "&subrarr;": "\u2979", "&subset;": "\u2282", "&subseteq;": "\u2286", "&subseteqq;": "\u2AC5", "&subsetneq;": "\u228A", "&subsetneqq;": "\u2ACB", "&subsim;": "\u2AC7", "&subsub;": "\u2AD5", "&subsup;": "\u2AD3", "&succ;": "\u227B", "&succapprox;": "\u2AB8", "&succcurlyeq;": "\u227D", "&succeq;": "\u2AB0", "&succnapprox;": "\u2ABA", "&succneqq;": "\u2AB6", "&succnsim;": "\u22E9", "&succsim;": "\u227F", "&sum;": "\u2211", "&sung;": "\u266A", "&sup1": "\xB9", "&sup1;": "\xB9", "&sup2": "\xB2", "&sup2;": "\xB2", "&sup3": "\xB3", "&sup3;": "\xB3", "&sup;": "\u2283", "&supE;": "\u2AC6", "&supdot;": "\u2ABE", "&supdsub;": "\u2AD8", "&supe;": "\u2287", "&supedot;": "\u2AC4", "&suphsol;": "\u27C9", "&suphsub;": "\u2AD7", "&suplarr;": "\u297B", "&supmult;": "\u2AC2", "&supnE;": "\u2ACC", "&supne;": "\u228B", "&supplus;": "\u2AC0", "&supset;": "\u2283", "&supseteq;": "\u2287", "&supseteqq;": "\u2AC6", "&supsetneq;": "\u228B", "&supsetneqq;": "\u2ACC", "&supsim;": "\u2AC8", "&supsub;": "\u2AD4", "&supsup;": "\u2AD6", "&swArr;": "\u21D9", "&swarhk;": "\u2926", "&swarr;": "\u2199", "&swarrow;": "\u2199", "&swnwar;": "\u292A", "&szlig": "\xDF", "&szlig;": "\xDF", "&target;": "\u2316", "&tau;": "\u03C4", "&tbrk;": "\u23B4", "&tcaron;": "\u0165", "&tcedil;": "\u0163", "&tcy;": "\u0442", "&tdot;": "\u20DB", "&telrec;": "\u2315", "&tfr;": "\u{1D531}", "&there4;": "\u2234", "&therefore;": "\u2234", "&theta;": "\u03B8", "&thetasym;": "\u03D1", "&thetav;": "\u03D1", "&thickapprox;": "\u2248", "&thicksim;": "\u223C", "&thinsp;": "\u2009", "&thkap;": "\u2248", "&thksim;": "\u223C", "&thorn": "\xFE", "&thorn;": "\xFE", "&tilde;": "\u02DC", "&times": "\xD7", "&times;": "\xD7", "&timesb;": "\u22A0", "&timesbar;": "\u2A31", "&timesd;": "\u2A30", "&tint;": "\u222D", "&toea;": "\u2928", "&top;": "\u22A4", "&topbot;": "\u2336", "&topcir;": "\u2AF1", "&topf;": "\u{1D565}", "&topfork;": "\u2ADA", "&tosa;": "\u2929", "&tprime;": "\u2034", "&trade;": "\u2122", "&triangle;": "\u25B5", "&triangledown;": "\u25BF", "&triangleleft;": "\u25C3", "&trianglelefteq;": "\u22B4", "&triangleq;": "\u225C", "&triangleright;": "\u25B9", "&trianglerighteq;": "\u22B5", "&tridot;": "\u25EC", "&trie;": "\u225C", "&triminus;": "\u2A3A", "&triplus;": "\u2A39", "&trisb;": "\u29CD", "&tritime;": "\u2A3B", "&trpezium;": "\u23E2", "&tscr;": "\u{1D4C9}", "&tscy;": "\u0446", "&tshcy;": "\u045B", "&tstrok;": "\u0167", "&twixt;": "\u226C", "&twoheadleftarrow;": "\u219E", "&twoheadrightarrow;": "\u21A0", "&uArr;": "\u21D1", "&uHar;": "\u2963", "&uacute": "\xFA", "&uacute;": "\xFA", "&uarr;": "\u2191", "&ubrcy;": "\u045E", "&ubreve;": "\u016D", "&ucirc": "\xFB", "&ucirc;": "\xFB", "&ucy;": "\u0443", "&udarr;": "\u21C5", "&udblac;": "\u0171", "&udhar;": "\u296E", "&ufisht;": "\u297E", "&ufr;": "\u{1D532}", "&ugrave": "\xF9", "&ugrave;": "\xF9", "&uharl;": "\u21BF", "&uharr;": "\u21BE", "&uhblk;": "\u2580", "&ulcorn;": "\u231C", "&ulcorner;": "\u231C", "&ulcrop;": "\u230F", "&ultri;": "\u25F8", "&umacr;": "\u016B", "&uml": "\xA8", "&uml;": "\xA8", "&uogon;": "\u0173", "&uopf;": "\u{1D566}", "&uparrow;": "\u2191", "&updownarrow;": "\u2195", "&upharpoonleft;": "\u21BF", "&upharpoonright;": "\u21BE", "&uplus;": "\u228E", "&upsi;": "\u03C5", "&upsih;": "\u03D2", "&upsilon;": "\u03C5", "&upuparrows;": "\u21C8", "&urcorn;": "\u231D", "&urcorner;": "\u231D", "&urcrop;": "\u230E", "&uring;": "\u016F", "&urtri;": "\u25F9", "&uscr;": "\u{1D4CA}", "&utdot;": "\u22F0", "&utilde;": "\u0169", "&utri;": "\u25B5", "&utrif;": "\u25B4", "&uuarr;": "\u21C8", "&uuml": "\xFC", "&uuml;": "\xFC", "&uwangle;": "\u29A7", "&vArr;": "\u21D5", "&vBar;": "\u2AE8", "&vBarv;": "\u2AE9", "&vDash;": "\u22A8", "&vangrt;": "\u299C", "&varepsilon;": "\u03F5", "&varkappa;": "\u03F0", "&varnothing;": "\u2205", "&varphi;": "\u03D5", "&varpi;": "\u03D6", "&varpropto;": "\u221D", "&varr;": "\u2195", "&varrho;": "\u03F1", "&varsigma;": "\u03C2", "&varsubsetneq;": "\u228A\uFE00", "&varsubsetneqq;": "\u2ACB\uFE00", "&varsupsetneq;": "\u228B\uFE00", "&varsupsetneqq;": "\u2ACC\uFE00", "&vartheta;": "\u03D1", "&vartriangleleft;": "\u22B2", "&vartriangleright;": "\u22B3", "&vcy;": "\u0432", "&vdash;": "\u22A2", "&vee;": "\u2228", "&veebar;": "\u22BB", "&veeeq;": "\u225A", "&vellip;": "\u22EE", "&verbar;": "|", "&vert;": "|", "&vfr;": "\u{1D533}", "&vltri;": "\u22B2", "&vnsub;": "\u2282\u20D2", "&vnsup;": "\u2283\u20D2", "&vopf;": "\u{1D567}", "&vprop;": "\u221D", "&vrtri;": "\u22B3", "&vscr;": "\u{1D4CB}", "&vsubnE;": "\u2ACB\uFE00", "&vsubne;": "\u228A\uFE00", "&vsupnE;": "\u2ACC\uFE00", "&vsupne;": "\u228B\uFE00", "&vzigzag;": "\u299A", "&wcirc;": "\u0175", "&wedbar;": "\u2A5F", "&wedge;": "\u2227", "&wedgeq;": "\u2259", "&weierp;": "\u2118", "&wfr;": "\u{1D534}", "&wopf;": "\u{1D568}", "&wp;": "\u2118", "&wr;": "\u2240", "&wreath;": "\u2240", "&wscr;": "\u{1D4CC}", "&xcap;": "\u22C2", "&xcirc;": "\u25EF", "&xcup;": "\u22C3", "&xdtri;": "\u25BD", "&xfr;": "\u{1D535}", "&xhArr;": "\u27FA", "&xharr;": "\u27F7", "&xi;": "\u03BE", "&xlArr;": "\u27F8", "&xlarr;": "\u27F5", "&xmap;": "\u27FC", "&xnis;": "\u22FB", "&xodot;": "\u2A00", "&xopf;": "\u{1D569}", "&xoplus;": "\u2A01", "&xotime;": "\u2A02", "&xrArr;": "\u27F9", "&xrarr;": "\u27F6", "&xscr;": "\u{1D4CD}", "&xsqcup;": "\u2A06", "&xuplus;": "\u2A04", "&xutri;": "\u25B3", "&xvee;": "\u22C1", "&xwedge;": "\u22C0", "&yacute": "\xFD", "&yacute;": "\xFD", "&yacy;": "\u044F", "&ycirc;": "\u0177", "&ycy;": "\u044B", "&yen": "\xA5", "&yen;": "\xA5", "&yfr;": "\u{1D536}", "&yicy;": "\u0457", "&yopf;": "\u{1D56A}", "&yscr;": "\u{1D4CE}", "&yucy;": "\u044E", "&yuml": "\xFF", "&yuml;": "\xFF", "&zacute;": "\u017A", "&zcaron;": "\u017E", "&zcy;": "\u0437", "&zdot;": "\u017C", "&zeetrf;": "\u2128", "&zeta;": "\u03B6", "&zfr;": "\u{1D537}", "&zhcy;": "\u0436", "&zigrarr;": "\u21DD", "&zopf;": "\u{1D56B}", "&zscr;": "\u{1D4CF}", "&zwj;": "\u200D", "&zwnj;": "\u200C" }, characters: { "\xC6": "&AElig;", "&": "&amp;", "\xC1": "&Aacute;", "\u0102": "&Abreve;", "\xC2": "&Acirc;", "\u0410": "&Acy;", "\u{1D504}": "&Afr;", "\xC0": "&Agrave;", "\u0391": "&Alpha;", "\u0100": "&Amacr;", "\u2A53": "&And;", "\u0104": "&Aogon;", "\u{1D538}": "&Aopf;", "\u2061": "&af;", "\xC5": "&angst;", "\u{1D49C}": "&Ascr;", "\u2254": "&coloneq;", "\xC3": "&Atilde;", "\xC4": "&Auml;", "\u2216": "&ssetmn;", "\u2AE7": "&Barv;", "\u2306": "&doublebarwedge;", "\u0411": "&Bcy;", "\u2235": "&because;", "\u212C": "&bernou;", "\u0392": "&Beta;", "\u{1D505}": "&Bfr;", "\u{1D539}": "&Bopf;", "\u02D8": "&breve;", "\u224E": "&bump;", "\u0427": "&CHcy;", "\xA9": "&copy;", "\u0106": "&Cacute;", "\u22D2": "&Cap;", "\u2145": "&DD;", "\u212D": "&Cfr;", "\u010C": "&Ccaron;", "\xC7": "&Ccedil;", "\u0108": "&Ccirc;", "\u2230": "&Cconint;", "\u010A": "&Cdot;", "\xB8": "&cedil;", "\xB7": "&middot;", "\u03A7": "&Chi;", "\u2299": "&odot;", "\u2296": "&ominus;", "\u2295": "&oplus;", "\u2297": "&otimes;", "\u2232": "&cwconint;", "\u201D": "&rdquor;", "\u2019": "&rsquor;", "\u2237": "&Proportion;", "\u2A74": "&Colone;", "\u2261": "&equiv;", "\u222F": "&DoubleContourIntegral;", "\u222E": "&oint;", "\u2102": "&complexes;", "\u2210": "&coprod;", "\u2233": "&awconint;", "\u2A2F": "&Cross;", "\u{1D49E}": "&Cscr;", "\u22D3": "&Cup;", "\u224D": "&asympeq;", "\u2911": "&DDotrahd;", "\u0402": "&DJcy;", "\u0405": "&DScy;", "\u040F": "&DZcy;", "\u2021": "&ddagger;", "\u21A1": "&Darr;", "\u2AE4": "&DoubleLeftTee;", "\u010E": "&Dcaron;", "\u0414": "&Dcy;", "\u2207": "&nabla;", "\u0394": "&Delta;", "\u{1D507}": "&Dfr;", "\xB4": "&acute;", "\u02D9": "&dot;", "\u02DD": "&dblac;", "`": "&grave;", "\u02DC": "&tilde;", "\u22C4": "&diamond;", "\u2146": "&dd;", "\u{1D53B}": "&Dopf;", "\xA8": "&uml;", "\u20DC": "&DotDot;", "\u2250": "&esdot;", "\u21D3": "&dArr;", "\u21D0": "&lArr;", "\u21D4": "&iff;", "\u27F8": "&xlArr;", "\u27FA": "&xhArr;", "\u27F9": "&xrArr;", "\u21D2": "&rArr;", "\u22A8": "&vDash;", "\u21D1": "&uArr;", "\u21D5": "&vArr;", "\u2225": "&spar;", "\u2193": "&downarrow;", "\u2913": "&DownArrowBar;", "\u21F5": "&duarr;", "\u0311": "&DownBreve;", "\u2950": "&DownLeftRightVector;", "\u295E": "&DownLeftTeeVector;", "\u21BD": "&lhard;", "\u2956": "&DownLeftVectorBar;", "\u295F": "&DownRightTeeVector;", "\u21C1": "&rightharpoondown;", "\u2957": "&DownRightVectorBar;", "\u22A4": "&top;", "\u21A7": "&mapstodown;", "\u{1D49F}": "&Dscr;", "\u0110": "&Dstrok;", "\u014A": "&ENG;", "\xD0": "&ETH;", "\xC9": "&Eacute;", "\u011A": "&Ecaron;", "\xCA": "&Ecirc;", "\u042D": "&Ecy;", "\u0116": "&Edot;", "\u{1D508}": "&Efr;", "\xC8": "&Egrave;", "\u2208": "&isinv;", "\u0112": "&Emacr;", "\u25FB": "&EmptySmallSquare;", "\u25AB": "&EmptyVerySmallSquare;", "\u0118": "&Eogon;", "\u{1D53C}": "&Eopf;", "\u0395": "&Epsilon;", "\u2A75": "&Equal;", "\u2242": "&esim;", "\u21CC": "&rlhar;", "\u2130": "&expectation;", "\u2A73": "&Esim;", "\u0397": "&Eta;", "\xCB": "&Euml;", "\u2203": "&exist;", "\u2147": "&exponentiale;", "\u0424": "&Fcy;", "\u{1D509}": "&Ffr;", "\u25FC": "&FilledSmallSquare;", "\u25AA": "&squf;", "\u{1D53D}": "&Fopf;", "\u2200": "&forall;", "\u2131": "&Fscr;", "\u0403": "&GJcy;", ">": "&gt;", "\u0393": "&Gamma;", "\u03DC": "&Gammad;", "\u011E": "&Gbreve;", "\u0122": "&Gcedil;", "\u011C": "&Gcirc;", "\u0413": "&Gcy;", "\u0120": "&Gdot;", "\u{1D50A}": "&Gfr;", "\u22D9": "&ggg;", "\u{1D53E}": "&Gopf;", "\u2265": "&geq;", "\u22DB": "&gtreqless;", "\u2267": "&geqq;", "\u2AA2": "&GreaterGreater;", "\u2277": "&gtrless;", "\u2A7E": "&ges;", "\u2273": "&gtrsim;", "\u{1D4A2}": "&Gscr;", "\u226B": "&gg;", "\u042A": "&HARDcy;", "\u02C7": "&caron;", "^": "&Hat;", "\u0124": "&Hcirc;", "\u210C": "&Poincareplane;", "\u210B": "&hamilt;", "\u210D": "&quaternions;", "\u2500": "&boxh;", "\u0126": "&Hstrok;", "\u224F": "&bumpeq;", "\u0415": "&IEcy;", "\u0132": "&IJlig;", "\u0401": "&IOcy;", "\xCD": "&Iacute;", "\xCE": "&Icirc;", "\u0418": "&Icy;", "\u0130": "&Idot;", "\u2111": "&imagpart;", "\xCC": "&Igrave;", "\u012A": "&Imacr;", "\u2148": "&ii;", "\u222C": "&Int;", "\u222B": "&int;", "\u22C2": "&xcap;", "\u2063": "&ic;", "\u2062": "&it;", "\u012E": "&Iogon;", "\u{1D540}": "&Iopf;", "\u0399": "&Iota;", "\u2110": "&imagline;", "\u0128": "&Itilde;", "\u0406": "&Iukcy;", "\xCF": "&Iuml;", "\u0134": "&Jcirc;", "\u0419": "&Jcy;", "\u{1D50D}": "&Jfr;", "\u{1D541}": "&Jopf;", "\u{1D4A5}": "&Jscr;", "\u0408": "&Jsercy;", "\u0404": "&Jukcy;", "\u0425": "&KHcy;", "\u040C": "&KJcy;", "\u039A": "&Kappa;", "\u0136": "&Kcedil;", "\u041A": "&Kcy;", "\u{1D50E}": "&Kfr;", "\u{1D542}": "&Kopf;", "\u{1D4A6}": "&Kscr;", "\u0409": "&LJcy;", "<": "&lt;", "\u0139": "&Lacute;", "\u039B": "&Lambda;", "\u27EA": "&Lang;", "\u2112": "&lagran;", "\u219E": "&twoheadleftarrow;", "\u013D": "&Lcaron;", "\u013B": "&Lcedil;", "\u041B": "&Lcy;", "\u27E8": "&langle;", "\u2190": "&slarr;", "\u21E4": "&larrb;", "\u21C6": "&lrarr;", "\u2308": "&lceil;", "\u27E6": "&lobrk;", "\u2961": "&LeftDownTeeVector;", "\u21C3": "&downharpoonleft;", "\u2959": "&LeftDownVectorBar;", "\u230A": "&lfloor;", "\u2194": "&leftrightarrow;", "\u294E": "&LeftRightVector;", "\u22A3": "&dashv;", "\u21A4": "&mapstoleft;", "\u295A": "&LeftTeeVector;", "\u22B2": "&vltri;", "\u29CF": "&LeftTriangleBar;", "\u22B4": "&trianglelefteq;", "\u2951": "&LeftUpDownVector;", "\u2960": "&LeftUpTeeVector;", "\u21BF": "&upharpoonleft;", "\u2958": "&LeftUpVectorBar;", "\u21BC": "&lharu;", "\u2952": "&LeftVectorBar;", "\u22DA": "&lesseqgtr;", "\u2266": "&leqq;", "\u2276": "&lg;", "\u2AA1": "&LessLess;", "\u2A7D": "&les;", "\u2272": "&lsim;", "\u{1D50F}": "&Lfr;", "\u22D8": "&Ll;", "\u21DA": "&lAarr;", "\u013F": "&Lmidot;", "\u27F5": "&xlarr;", "\u27F7": "&xharr;", "\u27F6": "&xrarr;", "\u{1D543}": "&Lopf;", "\u2199": "&swarrow;", "\u2198": "&searrow;", "\u21B0": "&lsh;", "\u0141": "&Lstrok;", "\u226A": "&ll;", "\u2905": "&Map;", "\u041C": "&Mcy;", "\u205F": "&MediumSpace;", "\u2133": "&phmmat;", "\u{1D510}": "&Mfr;", "\u2213": "&mp;", "\u{1D544}": "&Mopf;", "\u039C": "&Mu;", "\u040A": "&NJcy;", "\u0143": "&Nacute;", "\u0147": "&Ncaron;", "\u0145": "&Ncedil;", "\u041D": "&Ncy;", "\u200B": "&ZeroWidthSpace;", "\n": "&NewLine;", "\u{1D511}": "&Nfr;", "\u2060": "&NoBreak;", "\xA0": "&nbsp;", "\u2115": "&naturals;", "\u2AEC": "&Not;", "\u2262": "&nequiv;", "\u226D": "&NotCupCap;", "\u2226": "&nspar;", "\u2209": "&notinva;", "\u2260": "&ne;", "\u2242\u0338": "&nesim;", "\u2204": "&nexists;", "\u226F": "&ngtr;", "\u2271": "&ngeq;", "\u2267\u0338": "&ngeqq;", "\u226B\u0338": "&nGtv;", "\u2279": "&ntgl;", "\u2A7E\u0338": "&nges;", "\u2275": "&ngsim;", "\u224E\u0338": "&nbump;", "\u224F\u0338": "&nbumpe;", "\u22EA": "&ntriangleleft;", "\u29CF\u0338": "&NotLeftTriangleBar;", "\u22EC": "&ntrianglelefteq;", "\u226E": "&nlt;", "\u2270": "&nleq;", "\u2278": "&ntlg;", "\u226A\u0338": "&nLtv;", "\u2A7D\u0338": "&nles;", "\u2274": "&nlsim;", "\u2AA2\u0338": "&NotNestedGreaterGreater;", "\u2AA1\u0338": "&NotNestedLessLess;", "\u2280": "&nprec;", "\u2AAF\u0338": "&npreceq;", "\u22E0": "&nprcue;", "\u220C": "&notniva;", "\u22EB": "&ntriangleright;", "\u29D0\u0338": "&NotRightTriangleBar;", "\u22ED": "&ntrianglerighteq;", "\u228F\u0338": "&NotSquareSubset;", "\u22E2": "&nsqsube;", "\u2290\u0338": "&NotSquareSuperset;", "\u22E3": "&nsqsupe;", "\u2282\u20D2": "&vnsub;", "\u2288": "&nsubseteq;", "\u2281": "&nsucc;", "\u2AB0\u0338": "&nsucceq;", "\u22E1": "&nsccue;", "\u227F\u0338": "&NotSucceedsTilde;", "\u2283\u20D2": "&vnsup;", "\u2289": "&nsupseteq;", "\u2241": "&nsim;", "\u2244": "&nsimeq;", "\u2247": "&ncong;", "\u2249": "&napprox;", "\u2224": "&nsmid;", "\u{1D4A9}": "&Nscr;", "\xD1": "&Ntilde;", "\u039D": "&Nu;", "\u0152": "&OElig;", "\xD3": "&Oacute;", "\xD4": "&Ocirc;", "\u041E": "&Ocy;", "\u0150": "&Odblac;", "\u{1D512}": "&Ofr;", "\xD2": "&Ograve;", "\u014C": "&Omacr;", "\u03A9": "&ohm;", "\u039F": "&Omicron;", "\u{1D546}": "&Oopf;", "\u201C": "&ldquo;", "\u2018": "&lsquo;", "\u2A54": "&Or;", "\u{1D4AA}": "&Oscr;", "\xD8": "&Oslash;", "\xD5": "&Otilde;", "\u2A37": "&Otimes;", "\xD6": "&Ouml;", "\u203E": "&oline;", "\u23DE": "&OverBrace;", "\u23B4": "&tbrk;", "\u23DC": "&OverParenthesis;", "\u2202": "&part;", "\u041F": "&Pcy;", "\u{1D513}": "&Pfr;", "\u03A6": "&Phi;", "\u03A0": "&Pi;", "\xB1": "&pm;", "\u2119": "&primes;", "\u2ABB": "&Pr;", "\u227A": "&prec;", "\u2AAF": "&preceq;", "\u227C": "&preccurlyeq;", "\u227E": "&prsim;", "\u2033": "&Prime;", "\u220F": "&prod;", "\u221D": "&vprop;", "\u{1D4AB}": "&Pscr;", "\u03A8": "&Psi;", '"': "&quot;", "\u{1D514}": "&Qfr;", "\u211A": "&rationals;", "\u{1D4AC}": "&Qscr;", "\u2910": "&drbkarow;", "\xAE": "&reg;", "\u0154": "&Racute;", "\u27EB": "&Rang;", "\u21A0": "&twoheadrightarrow;", "\u2916": "&Rarrtl;", "\u0158": "&Rcaron;", "\u0156": "&Rcedil;", "\u0420": "&Rcy;", "\u211C": "&realpart;", "\u220B": "&niv;", "\u21CB": "&lrhar;", "\u296F": "&duhar;", "\u03A1": "&Rho;", "\u27E9": "&rangle;", "\u2192": "&srarr;", "\u21E5": "&rarrb;", "\u21C4": "&rlarr;", "\u2309": "&rceil;", "\u27E7": "&robrk;", "\u295D": "&RightDownTeeVector;", "\u21C2": "&downharpoonright;", "\u2955": "&RightDownVectorBar;", "\u230B": "&rfloor;", "\u22A2": "&vdash;", "\u21A6": "&mapsto;", "\u295B": "&RightTeeVector;", "\u22B3": "&vrtri;", "\u29D0": "&RightTriangleBar;", "\u22B5": "&trianglerighteq;", "\u294F": "&RightUpDownVector;", "\u295C": "&RightUpTeeVector;", "\u21BE": "&upharpoonright;", "\u2954": "&RightUpVectorBar;", "\u21C0": "&rightharpoonup;", "\u2953": "&RightVectorBar;", "\u211D": "&reals;", "\u2970": "&RoundImplies;", "\u21DB": "&rAarr;", "\u211B": "&realine;", "\u21B1": "&rsh;", "\u29F4": "&RuleDelayed;", "\u0429": "&SHCHcy;", "\u0428": "&SHcy;", "\u042C": "&SOFTcy;", "\u015A": "&Sacute;", "\u2ABC": "&Sc;", "\u0160": "&Scaron;", "\u015E": "&Scedil;", "\u015C": "&Scirc;", "\u0421": "&Scy;", "\u{1D516}": "&Sfr;", "\u2191": "&uparrow;", "\u03A3": "&Sigma;", "\u2218": "&compfn;", "\u{1D54A}": "&Sopf;", "\u221A": "&radic;", "\u25A1": "&square;", "\u2293": "&sqcap;", "\u228F": "&sqsubset;", "\u2291": "&sqsubseteq;", "\u2290": "&sqsupset;", "\u2292": "&sqsupseteq;", "\u2294": "&sqcup;", "\u{1D4AE}": "&Sscr;", "\u22C6": "&sstarf;", "\u22D0": "&Subset;", "\u2286": "&subseteq;", "\u227B": "&succ;", "\u2AB0": "&succeq;", "\u227D": "&succcurlyeq;", "\u227F": "&succsim;", "\u2211": "&sum;", "\u22D1": "&Supset;", "\u2283": "&supset;", "\u2287": "&supseteq;", "\xDE": "&THORN;", "\u2122": "&trade;", "\u040B": "&TSHcy;", "\u0426": "&TScy;", "	": "&Tab;", "\u03A4": "&Tau;", "\u0164": "&Tcaron;", "\u0162": "&Tcedil;", "\u0422": "&Tcy;", "\u{1D517}": "&Tfr;", "\u2234": "&therefore;", "\u0398": "&Theta;", "\u205F\u200A": "&ThickSpace;", "\u2009": "&thinsp;", "\u223C": "&thksim;", "\u2243": "&simeq;", "\u2245": "&cong;", "\u2248": "&thkap;", "\u{1D54B}": "&Topf;", "\u20DB": "&tdot;", "\u{1D4AF}": "&Tscr;", "\u0166": "&Tstrok;", "\xDA": "&Uacute;", "\u219F": "&Uarr;", "\u2949": "&Uarrocir;", "\u040E": "&Ubrcy;", "\u016C": "&Ubreve;", "\xDB": "&Ucirc;", "\u0423": "&Ucy;", "\u0170": "&Udblac;", "\u{1D518}": "&Ufr;", "\xD9": "&Ugrave;", "\u016A": "&Umacr;", _: "&lowbar;", "\u23DF": "&UnderBrace;", "\u23B5": "&bbrk;", "\u23DD": "&UnderParenthesis;", "\u22C3": "&xcup;", "\u228E": "&uplus;", "\u0172": "&Uogon;", "\u{1D54C}": "&Uopf;", "\u2912": "&UpArrowBar;", "\u21C5": "&udarr;", "\u2195": "&varr;", "\u296E": "&udhar;", "\u22A5": "&perp;", "\u21A5": "&mapstoup;", "\u2196": "&nwarrow;", "\u2197": "&nearrow;", "\u03D2": "&upsih;", "\u03A5": "&Upsilon;", "\u016E": "&Uring;", "\u{1D4B0}": "&Uscr;", "\u0168": "&Utilde;", "\xDC": "&Uuml;", "\u22AB": "&VDash;", "\u2AEB": "&Vbar;", "\u0412": "&Vcy;", "\u22A9": "&Vdash;", "\u2AE6": "&Vdashl;", "\u22C1": "&xvee;", "\u2016": "&Vert;", "\u2223": "&smid;", "|": "&vert;", "\u2758": "&VerticalSeparator;", "\u2240": "&wreath;", "\u200A": "&hairsp;", "\u{1D519}": "&Vfr;", "\u{1D54D}": "&Vopf;", "\u{1D4B1}": "&Vscr;", "\u22AA": "&Vvdash;", "\u0174": "&Wcirc;", "\u22C0": "&xwedge;", "\u{1D51A}": "&Wfr;", "\u{1D54E}": "&Wopf;", "\u{1D4B2}": "&Wscr;", "\u{1D51B}": "&Xfr;", "\u039E": "&Xi;", "\u{1D54F}": "&Xopf;", "\u{1D4B3}": "&Xscr;", "\u042F": "&YAcy;", "\u0407": "&YIcy;", "\u042E": "&YUcy;", "\xDD": "&Yacute;", "\u0176": "&Ycirc;", "\u042B": "&Ycy;", "\u{1D51C}": "&Yfr;", "\u{1D550}": "&Yopf;", "\u{1D4B4}": "&Yscr;", "\u0178": "&Yuml;", "\u0416": "&ZHcy;", "\u0179": "&Zacute;", "\u017D": "&Zcaron;", "\u0417": "&Zcy;", "\u017B": "&Zdot;", "\u0396": "&Zeta;", "\u2128": "&zeetrf;", "\u2124": "&integers;", "\u{1D4B5}": "&Zscr;", "\xE1": "&aacute;", "\u0103": "&abreve;", "\u223E": "&mstpos;", "\u223E\u0333": "&acE;", "\u223F": "&acd;", "\xE2": "&acirc;", "\u0430": "&acy;", "\xE6": "&aelig;", "\u{1D51E}": "&afr;", "\xE0": "&agrave;", "\u2135": "&aleph;", "\u03B1": "&alpha;", "\u0101": "&amacr;", "\u2A3F": "&amalg;", "\u2227": "&wedge;", "\u2A55": "&andand;", "\u2A5C": "&andd;", "\u2A58": "&andslope;", "\u2A5A": "&andv;", "\u2220": "&angle;", "\u29A4": "&ange;", "\u2221": "&measuredangle;", "\u29A8": "&angmsdaa;", "\u29A9": "&angmsdab;", "\u29AA": "&angmsdac;", "\u29AB": "&angmsdad;", "\u29AC": "&angmsdae;", "\u29AD": "&angmsdaf;", "\u29AE": "&angmsdag;", "\u29AF": "&angmsdah;", "\u221F": "&angrt;", "\u22BE": "&angrtvb;", "\u299D": "&angrtvbd;", "\u2222": "&angsph;", "\u237C": "&angzarr;", "\u0105": "&aogon;", "\u{1D552}": "&aopf;", "\u2A70": "&apE;", "\u2A6F": "&apacir;", "\u224A": "&approxeq;", "\u224B": "&apid;", "'": "&apos;", "\xE5": "&aring;", "\u{1D4B6}": "&ascr;", "*": "&midast;", "\xE3": "&atilde;", "\xE4": "&auml;", "\u2A11": "&awint;", "\u2AED": "&bNot;", "\u224C": "&bcong;", "\u03F6": "&bepsi;", "\u2035": "&bprime;", "\u223D": "&bsim;", "\u22CD": "&bsime;", "\u22BD": "&barvee;", "\u2305": "&barwedge;", "\u23B6": "&bbrktbrk;", "\u0431": "&bcy;", "\u201E": "&ldquor;", "\u29B0": "&bemptyv;", "\u03B2": "&beta;", "\u2136": "&beth;", "\u226C": "&twixt;", "\u{1D51F}": "&bfr;", "\u25EF": "&xcirc;", "\u2A00": "&xodot;", "\u2A01": "&xoplus;", "\u2A02": "&xotime;", "\u2A06": "&xsqcup;", "\u2605": "&starf;", "\u25BD": "&xdtri;", "\u25B3": "&xutri;", "\u2A04": "&xuplus;", "\u290D": "&rbarr;", "\u29EB": "&lozf;", "\u25B4": "&utrif;", "\u25BE": "&dtrif;", "\u25C2": "&ltrif;", "\u25B8": "&rtrif;", "\u2423": "&blank;", "\u2592": "&blk12;", "\u2591": "&blk14;", "\u2593": "&blk34;", "\u2588": "&block;", "=\u20E5": "&bne;", "\u2261\u20E5": "&bnequiv;", "\u2310": "&bnot;", "\u{1D553}": "&bopf;", "\u22C8": "&bowtie;", "\u2557": "&boxDL;", "\u2554": "&boxDR;", "\u2556": "&boxDl;", "\u2553": "&boxDr;", "\u2550": "&boxH;", "\u2566": "&boxHD;", "\u2569": "&boxHU;", "\u2564": "&boxHd;", "\u2567": "&boxHu;", "\u255D": "&boxUL;", "\u255A": "&boxUR;", "\u255C": "&boxUl;", "\u2559": "&boxUr;", "\u2551": "&boxV;", "\u256C": "&boxVH;", "\u2563": "&boxVL;", "\u2560": "&boxVR;", "\u256B": "&boxVh;", "\u2562": "&boxVl;", "\u255F": "&boxVr;", "\u29C9": "&boxbox;", "\u2555": "&boxdL;", "\u2552": "&boxdR;", "\u2510": "&boxdl;", "\u250C": "&boxdr;", "\u2565": "&boxhD;", "\u2568": "&boxhU;", "\u252C": "&boxhd;", "\u2534": "&boxhu;", "\u229F": "&minusb;", "\u229E": "&plusb;", "\u22A0": "&timesb;", "\u255B": "&boxuL;", "\u2558": "&boxuR;", "\u2518": "&boxul;", "\u2514": "&boxur;", "\u2502": "&boxv;", "\u256A": "&boxvH;", "\u2561": "&boxvL;", "\u255E": "&boxvR;", "\u253C": "&boxvh;", "\u2524": "&boxvl;", "\u251C": "&boxvr;", "\xA6": "&brvbar;", "\u{1D4B7}": "&bscr;", "\u204F": "&bsemi;", "\\": "&bsol;", "\u29C5": "&bsolb;", "\u27C8": "&bsolhsub;", "\u2022": "&bullet;", "\u2AAE": "&bumpE;", "\u0107": "&cacute;", "\u2229": "&cap;", "\u2A44": "&capand;", "\u2A49": "&capbrcup;", "\u2A4B": "&capcap;", "\u2A47": "&capcup;", "\u2A40": "&capdot;", "\u2229\uFE00": "&caps;", "\u2041": "&caret;", "\u2A4D": "&ccaps;", "\u010D": "&ccaron;", "\xE7": "&ccedil;", "\u0109": "&ccirc;", "\u2A4C": "&ccups;", "\u2A50": "&ccupssm;", "\u010B": "&cdot;", "\u29B2": "&cemptyv;", "\xA2": "&cent;", "\u{1D520}": "&cfr;", "\u0447": "&chcy;", "\u2713": "&checkmark;", "\u03C7": "&chi;", "\u25CB": "&cir;", "\u29C3": "&cirE;", "\u02C6": "&circ;", "\u2257": "&cire;", "\u21BA": "&olarr;", "\u21BB": "&orarr;", "\u24C8": "&oS;", "\u229B": "&oast;", "\u229A": "&ocir;", "\u229D": "&odash;", "\u2A10": "&cirfnint;", "\u2AEF": "&cirmid;", "\u29C2": "&cirscir;", "\u2663": "&clubsuit;", ":": "&colon;", ",": "&comma;", "@": "&commat;", "\u2201": "&complement;", "\u2A6D": "&congdot;", "\u{1D554}": "&copf;", "\u2117": "&copysr;", "\u21B5": "&crarr;", "\u2717": "&cross;", "\u{1D4B8}": "&cscr;", "\u2ACF": "&csub;", "\u2AD1": "&csube;", "\u2AD0": "&csup;", "\u2AD2": "&csupe;", "\u22EF": "&ctdot;", "\u2938": "&cudarrl;", "\u2935": "&cudarrr;", "\u22DE": "&curlyeqprec;", "\u22DF": "&curlyeqsucc;", "\u21B6": "&curvearrowleft;", "\u293D": "&cularrp;", "\u222A": "&cup;", "\u2A48": "&cupbrcap;", "\u2A46": "&cupcap;", "\u2A4A": "&cupcup;", "\u228D": "&cupdot;", "\u2A45": "&cupor;", "\u222A\uFE00": "&cups;", "\u21B7": "&curvearrowright;", "\u293C": "&curarrm;", "\u22CE": "&cuvee;", "\u22CF": "&cuwed;", "\xA4": "&curren;", "\u2231": "&cwint;", "\u232D": "&cylcty;", "\u2965": "&dHar;", "\u2020": "&dagger;", "\u2138": "&daleth;", "\u2010": "&hyphen;", "\u290F": "&rBarr;", "\u010F": "&dcaron;", "\u0434": "&dcy;", "\u21CA": "&downdownarrows;", "\u2A77": "&eDDot;", "\xB0": "&deg;", "\u03B4": "&delta;", "\u29B1": "&demptyv;", "\u297F": "&dfisht;", "\u{1D521}": "&dfr;", "\u2666": "&diams;", "\u03DD": "&gammad;", "\u22F2": "&disin;", "\xF7": "&divide;", "\u22C7": "&divonx;", "\u0452": "&djcy;", "\u231E": "&llcorner;", "\u230D": "&dlcrop;", $: "&dollar;", "\u{1D555}": "&dopf;", "\u2251": "&eDot;", "\u2238": "&minusd;", "\u2214": "&plusdo;", "\u22A1": "&sdotb;", "\u231F": "&lrcorner;", "\u230C": "&drcrop;", "\u{1D4B9}": "&dscr;", "\u0455": "&dscy;", "\u29F6": "&dsol;", "\u0111": "&dstrok;", "\u22F1": "&dtdot;", "\u25BF": "&triangledown;", "\u29A6": "&dwangle;", "\u045F": "&dzcy;", "\u27FF": "&dzigrarr;", "\xE9": "&eacute;", "\u2A6E": "&easter;", "\u011B": "&ecaron;", "\u2256": "&eqcirc;", "\xEA": "&ecirc;", "\u2255": "&eqcolon;", "\u044D": "&ecy;", "\u0117": "&edot;", "\u2252": "&fallingdotseq;", "\u{1D522}": "&efr;", "\u2A9A": "&eg;", "\xE8": "&egrave;", "\u2A96": "&eqslantgtr;", "\u2A98": "&egsdot;", "\u2A99": "&el;", "\u23E7": "&elinters;", "\u2113": "&ell;", "\u2A95": "&eqslantless;", "\u2A97": "&elsdot;", "\u0113": "&emacr;", "\u2205": "&varnothing;", "\u2004": "&emsp13;", "\u2005": "&emsp14;", "\u2003": "&emsp;", "\u014B": "&eng;", "\u2002": "&ensp;", "\u0119": "&eogon;", "\u{1D556}": "&eopf;", "\u22D5": "&epar;", "\u29E3": "&eparsl;", "\u2A71": "&eplus;", "\u03B5": "&epsilon;", "\u03F5": "&varepsilon;", "=": "&equals;", "\u225F": "&questeq;", "\u2A78": "&equivDD;", "\u29E5": "&eqvparsl;", "\u2253": "&risingdotseq;", "\u2971": "&erarr;", "\u212F": "&escr;", "\u03B7": "&eta;", "\xF0": "&eth;", "\xEB": "&euml;", "\u20AC": "&euro;", "!": "&excl;", "\u0444": "&fcy;", "\u2640": "&female;", "\uFB03": "&ffilig;", "\uFB00": "&fflig;", "\uFB04": "&ffllig;", "\u{1D523}": "&ffr;", "\uFB01": "&filig;", fj: "&fjlig;", "\u266D": "&flat;", "\uFB02": "&fllig;", "\u25B1": "&fltns;", "\u0192": "&fnof;", "\u{1D557}": "&fopf;", "\u22D4": "&pitchfork;", "\u2AD9": "&forkv;", "\u2A0D": "&fpartint;", "\xBD": "&half;", "\u2153": "&frac13;", "\xBC": "&frac14;", "\u2155": "&frac15;", "\u2159": "&frac16;", "\u215B": "&frac18;", "\u2154": "&frac23;", "\u2156": "&frac25;", "\xBE": "&frac34;", "\u2157": "&frac35;", "\u215C": "&frac38;", "\u2158": "&frac45;", "\u215A": "&frac56;", "\u215D": "&frac58;", "\u215E": "&frac78;", "\u2044": "&frasl;", "\u2322": "&sfrown;", "\u{1D4BB}": "&fscr;", "\u2A8C": "&gtreqqless;", "\u01F5": "&gacute;", "\u03B3": "&gamma;", "\u2A86": "&gtrapprox;", "\u011F": "&gbreve;", "\u011D": "&gcirc;", "\u0433": "&gcy;", "\u0121": "&gdot;", "\u2AA9": "&gescc;", "\u2A80": "&gesdot;", "\u2A82": "&gesdoto;", "\u2A84": "&gesdotol;", "\u22DB\uFE00": "&gesl;", "\u2A94": "&gesles;", "\u{1D524}": "&gfr;", "\u2137": "&gimel;", "\u0453": "&gjcy;", "\u2A92": "&glE;", "\u2AA5": "&gla;", "\u2AA4": "&glj;", "\u2269": "&gneqq;", "\u2A8A": "&gnapprox;", "\u2A88": "&gneq;", "\u22E7": "&gnsim;", "\u{1D558}": "&gopf;", "\u210A": "&gscr;", "\u2A8E": "&gsime;", "\u2A90": "&gsiml;", "\u2AA7": "&gtcc;", "\u2A7A": "&gtcir;", "\u22D7": "&gtrdot;", "\u2995": "&gtlPar;", "\u2A7C": "&gtquest;", "\u2978": "&gtrarr;", "\u2269\uFE00": "&gvnE;", "\u044A": "&hardcy;", "\u2948": "&harrcir;", "\u21AD": "&leftrightsquigarrow;", "\u210F": "&plankv;", "\u0125": "&hcirc;", "\u2665": "&heartsuit;", "\u2026": "&mldr;", "\u22B9": "&hercon;", "\u{1D525}": "&hfr;", "\u2925": "&searhk;", "\u2926": "&swarhk;", "\u21FF": "&hoarr;", "\u223B": "&homtht;", "\u21A9": "&larrhk;", "\u21AA": "&rarrhk;", "\u{1D559}": "&hopf;", "\u2015": "&horbar;", "\u{1D4BD}": "&hscr;", "\u0127": "&hstrok;", "\u2043": "&hybull;", "\xED": "&iacute;", "\xEE": "&icirc;", "\u0438": "&icy;", "\u0435": "&iecy;", "\xA1": "&iexcl;", "\u{1D526}": "&ifr;", "\xEC": "&igrave;", "\u2A0C": "&qint;", "\u222D": "&tint;", "\u29DC": "&iinfin;", "\u2129": "&iiota;", "\u0133": "&ijlig;", "\u012B": "&imacr;", "\u0131": "&inodot;", "\u22B7": "&imof;", "\u01B5": "&imped;", "\u2105": "&incare;", "\u221E": "&infin;", "\u29DD": "&infintie;", "\u22BA": "&intercal;", "\u2A17": "&intlarhk;", "\u2A3C": "&iprod;", "\u0451": "&iocy;", "\u012F": "&iogon;", "\u{1D55A}": "&iopf;", "\u03B9": "&iota;", "\xBF": "&iquest;", "\u{1D4BE}": "&iscr;", "\u22F9": "&isinE;", "\u22F5": "&isindot;", "\u22F4": "&isins;", "\u22F3": "&isinsv;", "\u0129": "&itilde;", "\u0456": "&iukcy;", "\xEF": "&iuml;", "\u0135": "&jcirc;", "\u0439": "&jcy;", "\u{1D527}": "&jfr;", "\u0237": "&jmath;", "\u{1D55B}": "&jopf;", "\u{1D4BF}": "&jscr;", "\u0458": "&jsercy;", "\u0454": "&jukcy;", "\u03BA": "&kappa;", "\u03F0": "&varkappa;", "\u0137": "&kcedil;", "\u043A": "&kcy;", "\u{1D528}": "&kfr;", "\u0138": "&kgreen;", "\u0445": "&khcy;", "\u045C": "&kjcy;", "\u{1D55C}": "&kopf;", "\u{1D4C0}": "&kscr;", "\u291B": "&lAtail;", "\u290E": "&lBarr;", "\u2A8B": "&lesseqqgtr;", "\u2962": "&lHar;", "\u013A": "&lacute;", "\u29B4": "&laemptyv;", "\u03BB": "&lambda;", "\u2991": "&langd;", "\u2A85": "&lessapprox;", "\xAB": "&laquo;", "\u291F": "&larrbfs;", "\u291D": "&larrfs;", "\u21AB": "&looparrowleft;", "\u2939": "&larrpl;", "\u2973": "&larrsim;", "\u21A2": "&leftarrowtail;", "\u2AAB": "&lat;", "\u2919": "&latail;", "\u2AAD": "&late;", "\u2AAD\uFE00": "&lates;", "\u290C": "&lbarr;", "\u2772": "&lbbrk;", "{": "&lcub;", "[": "&lsqb;", "\u298B": "&lbrke;", "\u298F": "&lbrksld;", "\u298D": "&lbrkslu;", "\u013E": "&lcaron;", "\u013C": "&lcedil;", "\u043B": "&lcy;", "\u2936": "&ldca;", "\u2967": "&ldrdhar;", "\u294B": "&ldrushar;", "\u21B2": "&ldsh;", "\u2264": "&leq;", "\u21C7": "&llarr;", "\u22CB": "&lthree;", "\u2AA8": "&lescc;", "\u2A7F": "&lesdot;", "\u2A81": "&lesdoto;", "\u2A83": "&lesdotor;", "\u22DA\uFE00": "&lesg;", "\u2A93": "&lesges;", "\u22D6": "&ltdot;", "\u297C": "&lfisht;", "\u{1D529}": "&lfr;", "\u2A91": "&lgE;", "\u296A": "&lharul;", "\u2584": "&lhblk;", "\u0459": "&ljcy;", "\u296B": "&llhard;", "\u25FA": "&lltri;", "\u0140": "&lmidot;", "\u23B0": "&lmoustache;", "\u2268": "&lneqq;", "\u2A89": "&lnapprox;", "\u2A87": "&lneq;", "\u22E6": "&lnsim;", "\u27EC": "&loang;", "\u21FD": "&loarr;", "\u27FC": "&xmap;", "\u21AC": "&rarrlp;", "\u2985": "&lopar;", "\u{1D55D}": "&lopf;", "\u2A2D": "&loplus;", "\u2A34": "&lotimes;", "\u2217": "&lowast;", "\u25CA": "&lozenge;", "(": "&lpar;", "\u2993": "&lparlt;", "\u296D": "&lrhard;", "\u200E": "&lrm;", "\u22BF": "&lrtri;", "\u2039": "&lsaquo;", "\u{1D4C1}": "&lscr;", "\u2A8D": "&lsime;", "\u2A8F": "&lsimg;", "\u201A": "&sbquo;", "\u0142": "&lstrok;", "\u2AA6": "&ltcc;", "\u2A79": "&ltcir;", "\u22C9": "&ltimes;", "\u2976": "&ltlarr;", "\u2A7B": "&ltquest;", "\u2996": "&ltrPar;", "\u25C3": "&triangleleft;", "\u294A": "&lurdshar;", "\u2966": "&luruhar;", "\u2268\uFE00": "&lvnE;", "\u223A": "&mDDot;", "\xAF": "&strns;", "\u2642": "&male;", "\u2720": "&maltese;", "\u25AE": "&marker;", "\u2A29": "&mcomma;", "\u043C": "&mcy;", "\u2014": "&mdash;", "\u{1D52A}": "&mfr;", "\u2127": "&mho;", "\xB5": "&micro;", "\u2AF0": "&midcir;", "\u2212": "&minus;", "\u2A2A": "&minusdu;", "\u2ADB": "&mlcp;", "\u22A7": "&models;", "\u{1D55E}": "&mopf;", "\u{1D4C2}": "&mscr;", "\u03BC": "&mu;", "\u22B8": "&mumap;", "\u22D9\u0338": "&nGg;", "\u226B\u20D2": "&nGt;", "\u21CD": "&nlArr;", "\u21CE": "&nhArr;", "\u22D8\u0338": "&nLl;", "\u226A\u20D2": "&nLt;", "\u21CF": "&nrArr;", "\u22AF": "&nVDash;", "\u22AE": "&nVdash;", "\u0144": "&nacute;", "\u2220\u20D2": "&nang;", "\u2A70\u0338": "&napE;", "\u224B\u0338": "&napid;", "\u0149": "&napos;", "\u266E": "&natural;", "\u2A43": "&ncap;", "\u0148": "&ncaron;", "\u0146": "&ncedil;", "\u2A6D\u0338": "&ncongdot;", "\u2A42": "&ncup;", "\u043D": "&ncy;", "\u2013": "&ndash;", "\u21D7": "&neArr;", "\u2924": "&nearhk;", "\u2250\u0338": "&nedot;", "\u2928": "&toea;", "\u{1D52B}": "&nfr;", "\u21AE": "&nleftrightarrow;", "\u2AF2": "&nhpar;", "\u22FC": "&nis;", "\u22FA": "&nisd;", "\u045A": "&njcy;", "\u2266\u0338": "&nleqq;", "\u219A": "&nleftarrow;", "\u2025": "&nldr;", "\u{1D55F}": "&nopf;", "\xAC": "&not;", "\u22F9\u0338": "&notinE;", "\u22F5\u0338": "&notindot;", "\u22F7": "&notinvb;", "\u22F6": "&notinvc;", "\u22FE": "&notnivb;", "\u22FD": "&notnivc;", "\u2AFD\u20E5": "&nparsl;", "\u2202\u0338": "&npart;", "\u2A14": "&npolint;", "\u219B": "&nrightarrow;", "\u2933\u0338": "&nrarrc;", "\u219D\u0338": "&nrarrw;", "\u{1D4C3}": "&nscr;", "\u2284": "&nsub;", "\u2AC5\u0338": "&nsubseteqq;", "\u2285": "&nsup;", "\u2AC6\u0338": "&nsupseteqq;", "\xF1": "&ntilde;", "\u03BD": "&nu;", "#": "&num;", "\u2116": "&numero;", "\u2007": "&numsp;", "\u22AD": "&nvDash;", "\u2904": "&nvHarr;", "\u224D\u20D2": "&nvap;", "\u22AC": "&nvdash;", "\u2265\u20D2": "&nvge;", ">\u20D2": "&nvgt;", "\u29DE": "&nvinfin;", "\u2902": "&nvlArr;", "\u2264\u20D2": "&nvle;", "<\u20D2": "&nvlt;", "\u22B4\u20D2": "&nvltrie;", "\u2903": "&nvrArr;", "\u22B5\u20D2": "&nvrtrie;", "\u223C\u20D2": "&nvsim;", "\u21D6": "&nwArr;", "\u2923": "&nwarhk;", "\u2927": "&nwnear;", "\xF3": "&oacute;", "\xF4": "&ocirc;", "\u043E": "&ocy;", "\u0151": "&odblac;", "\u2A38": "&odiv;", "\u29BC": "&odsold;", "\u0153": "&oelig;", "\u29BF": "&ofcir;", "\u{1D52C}": "&ofr;", "\u02DB": "&ogon;", "\xF2": "&ograve;", "\u29C1": "&ogt;", "\u29B5": "&ohbar;", "\u29BE": "&olcir;", "\u29BB": "&olcross;", "\u29C0": "&olt;", "\u014D": "&omacr;", "\u03C9": "&omega;", "\u03BF": "&omicron;", "\u29B6": "&omid;", "\u{1D560}": "&oopf;", "\u29B7": "&opar;", "\u29B9": "&operp;", "\u2228": "&vee;", "\u2A5D": "&ord;", "\u2134": "&oscr;", "\xAA": "&ordf;", "\xBA": "&ordm;", "\u22B6": "&origof;", "\u2A56": "&oror;", "\u2A57": "&orslope;", "\u2A5B": "&orv;", "\xF8": "&oslash;", "\u2298": "&osol;", "\xF5": "&otilde;", "\u2A36": "&otimesas;", "\xF6": "&ouml;", "\u233D": "&ovbar;", "\xB6": "&para;", "\u2AF3": "&parsim;", "\u2AFD": "&parsl;", "\u043F": "&pcy;", "%": "&percnt;", ".": "&period;", "\u2030": "&permil;", "\u2031": "&pertenk;", "\u{1D52D}": "&pfr;", "\u03C6": "&phi;", "\u03D5": "&varphi;", "\u260E": "&phone;", "\u03C0": "&pi;", "\u03D6": "&varpi;", "\u210E": "&planckh;", "+": "&plus;", "\u2A23": "&plusacir;", "\u2A22": "&pluscir;", "\u2A25": "&plusdu;", "\u2A72": "&pluse;", "\u2A26": "&plussim;", "\u2A27": "&plustwo;", "\u2A15": "&pointint;", "\u{1D561}": "&popf;", "\xA3": "&pound;", "\u2AB3": "&prE;", "\u2AB7": "&precapprox;", "\u2AB9": "&prnap;", "\u2AB5": "&prnE;", "\u22E8": "&prnsim;", "\u2032": "&prime;", "\u232E": "&profalar;", "\u2312": "&profline;", "\u2313": "&profsurf;", "\u22B0": "&prurel;", "\u{1D4C5}": "&pscr;", "\u03C8": "&psi;", "\u2008": "&puncsp;", "\u{1D52E}": "&qfr;", "\u{1D562}": "&qopf;", "\u2057": "&qprime;", "\u{1D4C6}": "&qscr;", "\u2A16": "&quatint;", "?": "&quest;", "\u291C": "&rAtail;", "\u2964": "&rHar;", "\u223D\u0331": "&race;", "\u0155": "&racute;", "\u29B3": "&raemptyv;", "\u2992": "&rangd;", "\u29A5": "&range;", "\xBB": "&raquo;", "\u2975": "&rarrap;", "\u2920": "&rarrbfs;", "\u2933": "&rarrc;", "\u291E": "&rarrfs;", "\u2945": "&rarrpl;", "\u2974": "&rarrsim;", "\u21A3": "&rightarrowtail;", "\u219D": "&rightsquigarrow;", "\u291A": "&ratail;", "\u2236": "&ratio;", "\u2773": "&rbbrk;", "}": "&rcub;", "]": "&rsqb;", "\u298C": "&rbrke;", "\u298E": "&rbrksld;", "\u2990": "&rbrkslu;", "\u0159": "&rcaron;", "\u0157": "&rcedil;", "\u0440": "&rcy;", "\u2937": "&rdca;", "\u2969": "&rdldhar;", "\u21B3": "&rdsh;", "\u25AD": "&rect;", "\u297D": "&rfisht;", "\u{1D52F}": "&rfr;", "\u296C": "&rharul;", "\u03C1": "&rho;", "\u03F1": "&varrho;", "\u21C9": "&rrarr;", "\u22CC": "&rthree;", "\u02DA": "&ring;", "\u200F": "&rlm;", "\u23B1": "&rmoustache;", "\u2AEE": "&rnmid;", "\u27ED": "&roang;", "\u21FE": "&roarr;", "\u2986": "&ropar;", "\u{1D563}": "&ropf;", "\u2A2E": "&roplus;", "\u2A35": "&rotimes;", ")": "&rpar;", "\u2994": "&rpargt;", "\u2A12": "&rppolint;", "\u203A": "&rsaquo;", "\u{1D4C7}": "&rscr;", "\u22CA": "&rtimes;", "\u25B9": "&triangleright;", "\u29CE": "&rtriltri;", "\u2968": "&ruluhar;", "\u211E": "&rx;", "\u015B": "&sacute;", "\u2AB4": "&scE;", "\u2AB8": "&succapprox;", "\u0161": "&scaron;", "\u015F": "&scedil;", "\u015D": "&scirc;", "\u2AB6": "&succneqq;", "\u2ABA": "&succnapprox;", "\u22E9": "&succnsim;", "\u2A13": "&scpolint;", "\u0441": "&scy;", "\u22C5": "&sdot;", "\u2A66": "&sdote;", "\u21D8": "&seArr;", "\xA7": "&sect;", ";": "&semi;", "\u2929": "&tosa;", "\u2736": "&sext;", "\u{1D530}": "&sfr;", "\u266F": "&sharp;", "\u0449": "&shchcy;", "\u0448": "&shcy;", "\xAD": "&shy;", "\u03C3": "&sigma;", "\u03C2": "&varsigma;", "\u2A6A": "&simdot;", "\u2A9E": "&simg;", "\u2AA0": "&simgE;", "\u2A9D": "&siml;", "\u2A9F": "&simlE;", "\u2246": "&simne;", "\u2A24": "&simplus;", "\u2972": "&simrarr;", "\u2A33": "&smashp;", "\u29E4": "&smeparsl;", "\u2323": "&ssmile;", "\u2AAA": "&smt;", "\u2AAC": "&smte;", "\u2AAC\uFE00": "&smtes;", "\u044C": "&softcy;", "/": "&sol;", "\u29C4": "&solb;", "\u233F": "&solbar;", "\u{1D564}": "&sopf;", "\u2660": "&spadesuit;", "\u2293\uFE00": "&sqcaps;", "\u2294\uFE00": "&sqcups;", "\u{1D4C8}": "&sscr;", "\u2606": "&star;", "\u2282": "&subset;", "\u2AC5": "&subseteqq;", "\u2ABD": "&subdot;", "\u2AC3": "&subedot;", "\u2AC1": "&submult;", "\u2ACB": "&subsetneqq;", "\u228A": "&subsetneq;", "\u2ABF": "&subplus;", "\u2979": "&subrarr;", "\u2AC7": "&subsim;", "\u2AD5": "&subsub;", "\u2AD3": "&subsup;", "\u266A": "&sung;", "\xB9": "&sup1;", "\xB2": "&sup2;", "\xB3": "&sup3;", "\u2AC6": "&supseteqq;", "\u2ABE": "&supdot;", "\u2AD8": "&supdsub;", "\u2AC4": "&supedot;", "\u27C9": "&suphsol;", "\u2AD7": "&suphsub;", "\u297B": "&suplarr;", "\u2AC2": "&supmult;", "\u2ACC": "&supsetneqq;", "\u228B": "&supsetneq;", "\u2AC0": "&supplus;", "\u2AC8": "&supsim;", "\u2AD4": "&supsub;", "\u2AD6": "&supsup;", "\u21D9": "&swArr;", "\u292A": "&swnwar;", "\xDF": "&szlig;", "\u2316": "&target;", "\u03C4": "&tau;", "\u0165": "&tcaron;", "\u0163": "&tcedil;", "\u0442": "&tcy;", "\u2315": "&telrec;", "\u{1D531}": "&tfr;", "\u03B8": "&theta;", "\u03D1": "&vartheta;", "\xFE": "&thorn;", "\xD7": "&times;", "\u2A31": "&timesbar;", "\u2A30": "&timesd;", "\u2336": "&topbot;", "\u2AF1": "&topcir;", "\u{1D565}": "&topf;", "\u2ADA": "&topfork;", "\u2034": "&tprime;", "\u25B5": "&utri;", "\u225C": "&trie;", "\u25EC": "&tridot;", "\u2A3A": "&triminus;", "\u2A39": "&triplus;", "\u29CD": "&trisb;", "\u2A3B": "&tritime;", "\u23E2": "&trpezium;", "\u{1D4C9}": "&tscr;", "\u0446": "&tscy;", "\u045B": "&tshcy;", "\u0167": "&tstrok;", "\u2963": "&uHar;", "\xFA": "&uacute;", "\u045E": "&ubrcy;", "\u016D": "&ubreve;", "\xFB": "&ucirc;", "\u0443": "&ucy;", "\u0171": "&udblac;", "\u297E": "&ufisht;", "\u{1D532}": "&ufr;", "\xF9": "&ugrave;", "\u2580": "&uhblk;", "\u231C": "&ulcorner;", "\u230F": "&ulcrop;", "\u25F8": "&ultri;", "\u016B": "&umacr;", "\u0173": "&uogon;", "\u{1D566}": "&uopf;", "\u03C5": "&upsilon;", "\u21C8": "&uuarr;", "\u231D": "&urcorner;", "\u230E": "&urcrop;", "\u016F": "&uring;", "\u25F9": "&urtri;", "\u{1D4CA}": "&uscr;", "\u22F0": "&utdot;", "\u0169": "&utilde;", "\xFC": "&uuml;", "\u29A7": "&uwangle;", "\u2AE8": "&vBar;", "\u2AE9": "&vBarv;", "\u299C": "&vangrt;", "\u228A\uFE00": "&vsubne;", "\u2ACB\uFE00": "&vsubnE;", "\u228B\uFE00": "&vsupne;", "\u2ACC\uFE00": "&vsupnE;", "\u0432": "&vcy;", "\u22BB": "&veebar;", "\u225A": "&veeeq;", "\u22EE": "&vellip;", "\u{1D533}": "&vfr;", "\u{1D567}": "&vopf;", "\u{1D4CB}": "&vscr;", "\u299A": "&vzigzag;", "\u0175": "&wcirc;", "\u2A5F": "&wedbar;", "\u2259": "&wedgeq;", "\u2118": "&wp;", "\u{1D534}": "&wfr;", "\u{1D568}": "&wopf;", "\u{1D4CC}": "&wscr;", "\u{1D535}": "&xfr;", "\u03BE": "&xi;", "\u22FB": "&xnis;", "\u{1D569}": "&xopf;", "\u{1D4CD}": "&xscr;", "\xFD": "&yacute;", "\u044F": "&yacy;", "\u0177": "&ycirc;", "\u044B": "&ycy;", "\xA5": "&yen;", "\u{1D536}": "&yfr;", "\u0457": "&yicy;", "\u{1D56A}": "&yopf;", "\u{1D4CE}": "&yscr;", "\u044E": "&yucy;", "\xFF": "&yuml;", "\u017A": "&zacute;", "\u017E": "&zcaron;", "\u0437": "&zcy;", "\u017C": "&zdot;", "\u03B6": "&zeta;", "\u{1D537}": "&zfr;", "\u0436": "&zhcy;", "\u21DD": "&zigrarr;", "\u{1D56B}": "&zopf;", "\u{1D4CF}": "&zscr;", "\u200D": "&zwj;", "\u200C": "&zwnj;" } } };
   }
 });
 
-// external-global-plugin:react-dom/server
-var require_server = __commonJS({
-  "external-global-plugin:react-dom/server"(exports2, module2) {
-    module2.exports = window.ReactDOMServer;
+// node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/numeric-unicode-map.js
+var require_numeric_unicode_map = __commonJS({
+  "node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/numeric-unicode-map.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.numericUnicodeMap = { 0: 65533, 128: 8364, 130: 8218, 131: 402, 132: 8222, 133: 8230, 134: 8224, 135: 8225, 136: 710, 137: 8240, 138: 352, 139: 8249, 140: 338, 142: 381, 145: 8216, 146: 8217, 147: 8220, 148: 8221, 149: 8226, 150: 8211, 151: 8212, 152: 732, 153: 8482, 154: 353, 155: 8250, 156: 339, 158: 382, 159: 376 };
+  }
+});
+
+// node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/surrogate-pairs.js
+var require_surrogate_pairs = __commonJS({
+  "node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/surrogate-pairs.js"(exports2) {
+    "use strict";
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.fromCodePoint = String.fromCodePoint || function(astralCodePoint) {
+      return String.fromCharCode(Math.floor((astralCodePoint - 65536) / 1024) + 55296, (astralCodePoint - 65536) % 1024 + 56320);
+    };
+    exports2.getCodePoint = String.prototype.codePointAt ? function(input, position) {
+      return input.codePointAt(position);
+    } : function(input, position) {
+      return (input.charCodeAt(position) - 55296) * 1024 + input.charCodeAt(position + 1) - 56320 + 65536;
+    };
+    exports2.highSurrogateFrom = 55296;
+    exports2.highSurrogateTo = 56319;
+  }
+});
+
+// node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/index.js
+var require_lib = __commonJS({
+  "node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/index.js"(exports2) {
+    "use strict";
+    var __assign = exports2 && exports2.__assign || function() {
+      __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+          s = arguments[i];
+          for (var p in s)
+            if (Object.prototype.hasOwnProperty.call(s, p))
+              t[p] = s[p];
+        }
+        return t;
+      };
+      return __assign.apply(this, arguments);
+    };
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    var named_references_1 = require_named_references();
+    var numeric_unicode_map_1 = require_numeric_unicode_map();
+    var surrogate_pairs_1 = require_surrogate_pairs();
+    var allNamedReferences = __assign(__assign({}, named_references_1.namedReferences), { all: named_references_1.namedReferences.html5 });
+    var encodeRegExps = {
+      specialChars: /[<>'"&]/g,
+      nonAscii: /[<>'"&\u0080-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
+      nonAsciiPrintable: /[<>'"&\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
+      nonAsciiPrintableOnly: /[\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
+      extensive: /[\x01-\x0c\x0e-\x1f\x21-\x2c\x2e-\x2f\x3a-\x40\x5b-\x60\x7b-\x7d\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g
+    };
+    var defaultEncodeOptions = {
+      mode: "specialChars",
+      level: "all",
+      numeric: "decimal"
+    };
+    function encode7(text, _a) {
+      var _b = _a === void 0 ? defaultEncodeOptions : _a, _c = _b.mode, mode = _c === void 0 ? "specialChars" : _c, _d = _b.numeric, numeric = _d === void 0 ? "decimal" : _d, _e = _b.level, level = _e === void 0 ? "all" : _e;
+      if (!text) {
+        return "";
+      }
+      var encodeRegExp = encodeRegExps[mode];
+      var references = allNamedReferences[level].characters;
+      var isHex = numeric === "hexadecimal";
+      encodeRegExp.lastIndex = 0;
+      var _b = encodeRegExp.exec(text);
+      var _c;
+      if (_b) {
+        _c = "";
+        var _d = 0;
+        do {
+          if (_d !== _b.index) {
+            _c += text.substring(_d, _b.index);
+          }
+          var _e = _b[0];
+          var result_1 = references[_e];
+          if (!result_1) {
+            var code_1 = _e.length > 1 ? surrogate_pairs_1.getCodePoint(_e, 0) : _e.charCodeAt(0);
+            result_1 = (isHex ? "&#x" + code_1.toString(16) : "&#" + code_1) + ";";
+          }
+          _c += result_1;
+          _d = _b.index + _e.length;
+        } while (_b = encodeRegExp.exec(text));
+        if (_d !== text.length) {
+          _c += text.substring(_d);
+        }
+      } else {
+        _c = text;
+      }
+      return _c;
+    }
+    exports2.encode = encode7;
+    var defaultDecodeOptions = {
+      scope: "body",
+      level: "all"
+    };
+    var strict = /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);/g;
+    var attribute = /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+)[;=]?/g;
+    var baseDecodeRegExps = {
+      xml: {
+        strict,
+        attribute,
+        body: named_references_1.bodyRegExps.xml
+      },
+      html4: {
+        strict,
+        attribute,
+        body: named_references_1.bodyRegExps.html4
+      },
+      html5: {
+        strict,
+        attribute,
+        body: named_references_1.bodyRegExps.html5
+      }
+    };
+    var decodeRegExps = __assign(__assign({}, baseDecodeRegExps), { all: baseDecodeRegExps.html5 });
+    var fromCharCode = String.fromCharCode;
+    var outOfBoundsChar = fromCharCode(65533);
+    var defaultDecodeEntityOptions = {
+      level: "all"
+    };
+    function decodeEntity(entity, _a) {
+      var _b = (_a === void 0 ? defaultDecodeEntityOptions : _a).level, level = _b === void 0 ? "all" : _b;
+      if (!entity) {
+        return "";
+      }
+      var _b = entity;
+      var decodeEntityLastChar_1 = entity[entity.length - 1];
+      if (false) {
+        _b = entity;
+      } else if (false) {
+        _b = entity;
+      } else {
+        var decodeResultByReference_1 = allNamedReferences[level].entities[entity];
+        if (decodeResultByReference_1) {
+          _b = decodeResultByReference_1;
+        } else if (entity[0] === "&" && entity[1] === "#") {
+          var decodeSecondChar_1 = entity[2];
+          var decodeCode_1 = decodeSecondChar_1 == "x" || decodeSecondChar_1 == "X" ? parseInt(entity.substr(3), 16) : parseInt(entity.substr(2));
+          _b = decodeCode_1 >= 1114111 ? outOfBoundsChar : decodeCode_1 > 65535 ? surrogate_pairs_1.fromCodePoint(decodeCode_1) : fromCharCode(numeric_unicode_map_1.numericUnicodeMap[decodeCode_1] || decodeCode_1);
+        }
+      }
+      return _b;
+    }
+    exports2.decodeEntity = decodeEntity;
+    function decode6(text, _a) {
+      var decodeSecondChar_1 = _a === void 0 ? defaultDecodeOptions : _a, decodeCode_1 = decodeSecondChar_1.level, level = decodeCode_1 === void 0 ? "all" : decodeCode_1, _b = decodeSecondChar_1.scope, scope = _b === void 0 ? level === "xml" ? "strict" : "body" : _b;
+      if (!text) {
+        return "";
+      }
+      var decodeRegExp = decodeRegExps[level][scope];
+      var references = allNamedReferences[level].entities;
+      var isAttribute = scope === "attribute";
+      var isStrict = scope === "strict";
+      decodeRegExp.lastIndex = 0;
+      var replaceMatch_1 = decodeRegExp.exec(text);
+      var replaceResult_1;
+      if (replaceMatch_1) {
+        replaceResult_1 = "";
+        var replaceLastIndex_1 = 0;
+        do {
+          if (replaceLastIndex_1 !== replaceMatch_1.index) {
+            replaceResult_1 += text.substring(replaceLastIndex_1, replaceMatch_1.index);
+          }
+          var replaceInput_1 = replaceMatch_1[0];
+          var decodeResult_1 = replaceInput_1;
+          var decodeEntityLastChar_2 = replaceInput_1[replaceInput_1.length - 1];
+          if (isAttribute && decodeEntityLastChar_2 === "=") {
+            decodeResult_1 = replaceInput_1;
+          } else if (isStrict && decodeEntityLastChar_2 !== ";") {
+            decodeResult_1 = replaceInput_1;
+          } else {
+            var decodeResultByReference_2 = references[replaceInput_1];
+            if (decodeResultByReference_2) {
+              decodeResult_1 = decodeResultByReference_2;
+            } else if (replaceInput_1[0] === "&" && replaceInput_1[1] === "#") {
+              var decodeSecondChar_2 = replaceInput_1[2];
+              var decodeCode_2 = decodeSecondChar_2 == "x" || decodeSecondChar_2 == "X" ? parseInt(replaceInput_1.substr(3), 16) : parseInt(replaceInput_1.substr(2));
+              decodeResult_1 = decodeCode_2 >= 1114111 ? outOfBoundsChar : decodeCode_2 > 65535 ? surrogate_pairs_1.fromCodePoint(decodeCode_2) : fromCharCode(numeric_unicode_map_1.numericUnicodeMap[decodeCode_2] || decodeCode_2);
+            }
+          }
+          replaceResult_1 += decodeResult_1;
+          replaceLastIndex_1 = replaceMatch_1.index + replaceInput_1.length;
+        } while (replaceMatch_1 = decodeRegExp.exec(text));
+        if (replaceLastIndex_1 !== text.length) {
+          replaceResult_1 += text.substring(replaceLastIndex_1);
+        }
+      } else {
+        replaceResult_1 = text;
+      }
+      return replaceResult_1;
+    }
+    exports2.decode = decode6;
+  }
+});
+
+// (disabled):fs
+var require_fs = __commonJS({
+  "(disabled):fs"() {
+  }
+});
+
+// node_modules/.pnpm/kind-of@6.0.3/node_modules/kind-of/index.js
+var require_kind_of = __commonJS({
+  "node_modules/.pnpm/kind-of@6.0.3/node_modules/kind-of/index.js"(exports2, module2) {
+    var toString3 = Object.prototype.toString;
+    module2.exports = function kindOf(val) {
+      if (val === void 0)
+        return "undefined";
+      if (val === null)
+        return "null";
+      var type = typeof val;
+      if (type === "boolean")
+        return "boolean";
+      if (type === "string")
+        return "string";
+      if (type === "number")
+        return "number";
+      if (type === "symbol")
+        return "symbol";
+      if (type === "function") {
+        return isGeneratorFn(val) ? "generatorfunction" : "function";
+      }
+      if (isArray(val))
+        return "array";
+      if (isBuffer(val))
+        return "buffer";
+      if (isArguments(val))
+        return "arguments";
+      if (isDate(val))
+        return "date";
+      if (isError(val))
+        return "error";
+      if (isRegexp(val))
+        return "regexp";
+      switch (ctorName(val)) {
+        case "Symbol":
+          return "symbol";
+        case "Promise":
+          return "promise";
+        case "WeakMap":
+          return "weakmap";
+        case "WeakSet":
+          return "weakset";
+        case "Map":
+          return "map";
+        case "Set":
+          return "set";
+        case "Int8Array":
+          return "int8array";
+        case "Uint8Array":
+          return "uint8array";
+        case "Uint8ClampedArray":
+          return "uint8clampedarray";
+        case "Int16Array":
+          return "int16array";
+        case "Uint16Array":
+          return "uint16array";
+        case "Int32Array":
+          return "int32array";
+        case "Uint32Array":
+          return "uint32array";
+        case "Float32Array":
+          return "float32array";
+        case "Float64Array":
+          return "float64array";
+      }
+      if (isGeneratorObj(val)) {
+        return "generator";
+      }
+      type = toString3.call(val);
+      switch (type) {
+        case "[object Object]":
+          return "object";
+        case "[object Map Iterator]":
+          return "mapiterator";
+        case "[object Set Iterator]":
+          return "setiterator";
+        case "[object String Iterator]":
+          return "stringiterator";
+        case "[object Array Iterator]":
+          return "arrayiterator";
+      }
+      return type.slice(8, -1).toLowerCase().replace(/\s/g, "");
+    };
+    function ctorName(val) {
+      return typeof val.constructor === "function" ? val.constructor.name : null;
+    }
+    function isArray(val) {
+      if (Array.isArray)
+        return Array.isArray(val);
+      return val instanceof Array;
+    }
+    function isError(val) {
+      return val instanceof Error || typeof val.message === "string" && val.constructor && typeof val.constructor.stackTraceLimit === "number";
+    }
+    function isDate(val) {
+      if (val instanceof Date)
+        return true;
+      return typeof val.toDateString === "function" && typeof val.getDate === "function" && typeof val.setDate === "function";
+    }
+    function isRegexp(val) {
+      if (val instanceof RegExp)
+        return true;
+      return typeof val.flags === "string" && typeof val.ignoreCase === "boolean" && typeof val.multiline === "boolean" && typeof val.global === "boolean";
+    }
+    function isGeneratorFn(name2, val) {
+      return ctorName(name2) === "GeneratorFunction";
+    }
+    function isGeneratorObj(val) {
+      return typeof val.throw === "function" && typeof val.return === "function" && typeof val.next === "function";
+    }
+    function isArguments(val) {
+      try {
+        if (typeof val.length === "number" && typeof val.callee === "function") {
+          return true;
+        }
+      } catch (err) {
+        if (err.message.indexOf("callee") !== -1) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function isBuffer(val) {
+      if (val.constructor && typeof val.constructor.isBuffer === "function") {
+        return val.constructor.isBuffer(val);
+      }
+      return false;
+    }
+  }
+});
+
+// node_modules/.pnpm/is-extendable@0.1.1/node_modules/is-extendable/index.js
+var require_is_extendable = __commonJS({
+  "node_modules/.pnpm/is-extendable@0.1.1/node_modules/is-extendable/index.js"(exports2, module2) {
+    "use strict";
+    module2.exports = function isExtendable(val) {
+      return typeof val !== "undefined" && val !== null && (typeof val === "object" || typeof val === "function");
+    };
+  }
+});
+
+// node_modules/.pnpm/extend-shallow@2.0.1/node_modules/extend-shallow/index.js
+var require_extend_shallow = __commonJS({
+  "node_modules/.pnpm/extend-shallow@2.0.1/node_modules/extend-shallow/index.js"(exports2, module2) {
+    "use strict";
+    var isObject3 = require_is_extendable();
+    module2.exports = function extend(o) {
+      if (!isObject3(o)) {
+        o = {};
+      }
+      var len = arguments.length;
+      for (var i = 1; i < len; i++) {
+        var obj = arguments[i];
+        if (isObject3(obj)) {
+          assign(o, obj);
+        }
+      }
+      return o;
+    };
+    function assign(a, b2) {
+      for (var key in b2) {
+        if (hasOwn(b2, key)) {
+          a[key] = b2[key];
+        }
+      }
+    }
+    function hasOwn(obj, key) {
+      return Object.prototype.hasOwnProperty.call(obj, key);
+    }
+  }
+});
+
+// node_modules/.pnpm/section-matter@1.0.0/node_modules/section-matter/index.js
+var require_section_matter = __commonJS({
+  "node_modules/.pnpm/section-matter@1.0.0/node_modules/section-matter/index.js"(exports2, module2) {
+    "use strict";
+    var typeOf = require_kind_of();
+    var extend = require_extend_shallow();
+    module2.exports = function(input, options2) {
+      if (typeof options2 === "function") {
+        options2 = { parse: options2 };
+      }
+      var file = toObject(input);
+      var defaults = { section_delimiter: "---", parse: identity3 };
+      var opts = extend({}, defaults, options2);
+      var delim = opts.section_delimiter;
+      var lines = file.content.split(/\r?\n/);
+      var sections = null;
+      var section = createSection();
+      var content = [];
+      var stack = [];
+      function initSections(val) {
+        file.content = val;
+        sections = [];
+        content = [];
+      }
+      function closeSection(val) {
+        if (stack.length) {
+          section.key = getKey(stack[0], delim);
+          section.content = val;
+          opts.parse(section, sections);
+          sections.push(section);
+          section = createSection();
+          content = [];
+          stack = [];
+        }
+      }
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        var len = stack.length;
+        var ln = line.trim();
+        if (isDelimiter(ln, delim)) {
+          if (ln.length === 3 && i !== 0) {
+            if (len === 0 || len === 2) {
+              content.push(line);
+              continue;
+            }
+            stack.push(ln);
+            section.data = content.join("\n");
+            content = [];
+            continue;
+          }
+          if (sections === null) {
+            initSections(content.join("\n"));
+          }
+          if (len === 2) {
+            closeSection(content.join("\n"));
+          }
+          stack.push(ln);
+          continue;
+        }
+        content.push(line);
+      }
+      if (sections === null) {
+        initSections(content.join("\n"));
+      } else {
+        closeSection(content.join("\n"));
+      }
+      file.sections = sections;
+      return file;
+    };
+    function isDelimiter(line, delim) {
+      if (line.slice(0, delim.length) !== delim) {
+        return false;
+      }
+      if (line.charAt(delim.length + 1) === delim.slice(-1)) {
+        return false;
+      }
+      return true;
+    }
+    function toObject(input) {
+      if (typeOf(input) !== "object") {
+        input = { content: input };
+      }
+      if (typeof input.content !== "string" && !isBuffer(input.content)) {
+        throw new TypeError("expected a buffer or string");
+      }
+      input.content = input.content.toString();
+      input.sections = [];
+      return input;
+    }
+    function getKey(val, delim) {
+      return val ? val.slice(delim.length).trim() : "";
+    }
+    function createSection() {
+      return { key: "", data: "", content: "" };
+    }
+    function identity3(val) {
+      return val;
+    }
+    function isBuffer(val) {
+      if (val && val.constructor && typeof val.constructor.isBuffer === "function") {
+        return val.constructor.isBuffer(val);
+      }
+      return false;
+    }
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/common.js
+var require_common = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/common.js"(exports2, module2) {
+    "use strict";
+    function isNothing(subject) {
+      return typeof subject === "undefined" || subject === null;
+    }
+    function isObject3(subject) {
+      return typeof subject === "object" && subject !== null;
+    }
+    function toArray(sequence) {
+      if (Array.isArray(sequence))
+        return sequence;
+      else if (isNothing(sequence))
+        return [];
+      return [sequence];
+    }
+    function extend(target, source) {
+      var index2, length2, key, sourceKeys;
+      if (source) {
+        sourceKeys = Object.keys(source);
+        for (index2 = 0, length2 = sourceKeys.length; index2 < length2; index2 += 1) {
+          key = sourceKeys[index2];
+          target[key] = source[key];
+        }
+      }
+      return target;
+    }
+    function repeat(string2, count) {
+      var result = "", cycle;
+      for (cycle = 0; cycle < count; cycle += 1) {
+        result += string2;
+      }
+      return result;
+    }
+    function isNegativeZero(number2) {
+      return number2 === 0 && Number.NEGATIVE_INFINITY === 1 / number2;
+    }
+    module2.exports.isNothing = isNothing;
+    module2.exports.isObject = isObject3;
+    module2.exports.toArray = toArray;
+    module2.exports.repeat = repeat;
+    module2.exports.isNegativeZero = isNegativeZero;
+    module2.exports.extend = extend;
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/exception.js
+var require_exception = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/exception.js"(exports2, module2) {
+    "use strict";
+    function YAMLException(reason, mark) {
+      Error.call(this);
+      this.name = "YAMLException";
+      this.reason = reason;
+      this.mark = mark;
+      this.message = (this.reason || "(unknown reason)") + (this.mark ? " " + this.mark.toString() : "");
+      if (Error.captureStackTrace) {
+        Error.captureStackTrace(this, this.constructor);
+      } else {
+        this.stack = new Error().stack || "";
+      }
+    }
+    YAMLException.prototype = Object.create(Error.prototype);
+    YAMLException.prototype.constructor = YAMLException;
+    YAMLException.prototype.toString = function toString3(compact) {
+      var result = this.name + ": ";
+      result += this.reason || "(unknown reason)";
+      if (!compact && this.mark) {
+        result += " " + this.mark.toString();
+      }
+      return result;
+    };
+    module2.exports = YAMLException;
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/mark.js
+var require_mark = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/mark.js"(exports2, module2) {
+    "use strict";
+    var common = require_common();
+    function Mark(name2, buffer, position, line, column) {
+      this.name = name2;
+      this.buffer = buffer;
+      this.position = position;
+      this.line = line;
+      this.column = column;
+    }
+    Mark.prototype.getSnippet = function getSnippet(indent, maxLength) {
+      var head, start, tail, end, snippet;
+      if (!this.buffer)
+        return null;
+      indent = indent || 4;
+      maxLength = maxLength || 75;
+      head = "";
+      start = this.position;
+      while (start > 0 && "\0\r\n\x85\u2028\u2029".indexOf(this.buffer.charAt(start - 1)) === -1) {
+        start -= 1;
+        if (this.position - start > maxLength / 2 - 1) {
+          head = " ... ";
+          start += 5;
+          break;
+        }
+      }
+      tail = "";
+      end = this.position;
+      while (end < this.buffer.length && "\0\r\n\x85\u2028\u2029".indexOf(this.buffer.charAt(end)) === -1) {
+        end += 1;
+        if (end - this.position > maxLength / 2 - 1) {
+          tail = " ... ";
+          end -= 5;
+          break;
+        }
+      }
+      snippet = this.buffer.slice(start, end);
+      return common.repeat(" ", indent) + head + snippet + tail + "\n" + common.repeat(" ", indent + this.position - start + head.length) + "^";
+    };
+    Mark.prototype.toString = function toString3(compact) {
+      var snippet, where = "";
+      if (this.name) {
+        where += 'in "' + this.name + '" ';
+      }
+      where += "at line " + (this.line + 1) + ", column " + (this.column + 1);
+      if (!compact) {
+        snippet = this.getSnippet();
+        if (snippet) {
+          where += ":\n" + snippet;
+        }
+      }
+      return where;
+    };
+    module2.exports = Mark;
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type.js
+var require_type = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type.js"(exports2, module2) {
+    "use strict";
+    var YAMLException = require_exception();
+    var TYPE_CONSTRUCTOR_OPTIONS = [
+      "kind",
+      "resolve",
+      "construct",
+      "instanceOf",
+      "predicate",
+      "represent",
+      "defaultStyle",
+      "styleAliases"
+    ];
+    var YAML_NODE_KINDS = [
+      "scalar",
+      "sequence",
+      "mapping"
+    ];
+    function compileStyleAliases(map) {
+      var result = {};
+      if (map !== null) {
+        Object.keys(map).forEach(function(style) {
+          map[style].forEach(function(alias) {
+            result[String(alias)] = style;
+          });
+        });
+      }
+      return result;
+    }
+    function Type(tag, options2) {
+      options2 = options2 || {};
+      Object.keys(options2).forEach(function(name2) {
+        if (TYPE_CONSTRUCTOR_OPTIONS.indexOf(name2) === -1) {
+          throw new YAMLException('Unknown option "' + name2 + '" is met in definition of "' + tag + '" YAML type.');
+        }
+      });
+      this.tag = tag;
+      this.kind = options2["kind"] || null;
+      this.resolve = options2["resolve"] || function() {
+        return true;
+      };
+      this.construct = options2["construct"] || function(data) {
+        return data;
+      };
+      this.instanceOf = options2["instanceOf"] || null;
+      this.predicate = options2["predicate"] || null;
+      this.represent = options2["represent"] || null;
+      this.defaultStyle = options2["defaultStyle"] || null;
+      this.styleAliases = compileStyleAliases(options2["styleAliases"] || null);
+      if (YAML_NODE_KINDS.indexOf(this.kind) === -1) {
+        throw new YAMLException('Unknown kind "' + this.kind + '" is specified for "' + tag + '" YAML type.');
+      }
+    }
+    module2.exports = Type;
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema.js
+var require_schema = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema.js"(exports2, module2) {
+    "use strict";
+    var common = require_common();
+    var YAMLException = require_exception();
+    var Type = require_type();
+    function compileList(schema, name2, result) {
+      var exclude = [];
+      schema.include.forEach(function(includedSchema) {
+        result = compileList(includedSchema, name2, result);
+      });
+      schema[name2].forEach(function(currentType) {
+        result.forEach(function(previousType, previousIndex) {
+          if (previousType.tag === currentType.tag && previousType.kind === currentType.kind) {
+            exclude.push(previousIndex);
+          }
+        });
+        result.push(currentType);
+      });
+      return result.filter(function(type, index2) {
+        return exclude.indexOf(index2) === -1;
+      });
+    }
+    function compileMap() {
+      var result = {
+        scalar: {},
+        sequence: {},
+        mapping: {},
+        fallback: {}
+      }, index2, length2;
+      function collectType(type) {
+        result[type.kind][type.tag] = result["fallback"][type.tag] = type;
+      }
+      for (index2 = 0, length2 = arguments.length; index2 < length2; index2 += 1) {
+        arguments[index2].forEach(collectType);
+      }
+      return result;
+    }
+    function Schema(definition) {
+      this.include = definition.include || [];
+      this.implicit = definition.implicit || [];
+      this.explicit = definition.explicit || [];
+      this.implicit.forEach(function(type) {
+        if (type.loadKind && type.loadKind !== "scalar") {
+          throw new YAMLException("There is a non-scalar type in the implicit list of a schema. Implicit resolving of such types is not supported.");
+        }
+      });
+      this.compiledImplicit = compileList(this, "implicit", []);
+      this.compiledExplicit = compileList(this, "explicit", []);
+      this.compiledTypeMap = compileMap(this.compiledImplicit, this.compiledExplicit);
+    }
+    Schema.DEFAULT = null;
+    Schema.create = function createSchema() {
+      var schemas, types2;
+      switch (arguments.length) {
+        case 1:
+          schemas = Schema.DEFAULT;
+          types2 = arguments[0];
+          break;
+        case 2:
+          schemas = arguments[0];
+          types2 = arguments[1];
+          break;
+        default:
+          throw new YAMLException("Wrong number of arguments for Schema.create function");
+      }
+      schemas = common.toArray(schemas);
+      types2 = common.toArray(types2);
+      if (!schemas.every(function(schema) {
+        return schema instanceof Schema;
+      })) {
+        throw new YAMLException("Specified list of super schemas (or a single Schema object) contains a non-Schema object.");
+      }
+      if (!types2.every(function(type) {
+        return type instanceof Type;
+      })) {
+        throw new YAMLException("Specified list of YAML types (or a single Type object) contains a non-Type object.");
+      }
+      return new Schema({
+        include: schemas,
+        explicit: types2
+      });
+    };
+    module2.exports = Schema;
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/str.js
+var require_str = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/str.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    module2.exports = new Type("tag:yaml.org,2002:str", {
+      kind: "scalar",
+      construct: function(data) {
+        return data !== null ? data : "";
+      }
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/seq.js
+var require_seq = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/seq.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    module2.exports = new Type("tag:yaml.org,2002:seq", {
+      kind: "sequence",
+      construct: function(data) {
+        return data !== null ? data : [];
+      }
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/map.js
+var require_map = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/map.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    module2.exports = new Type("tag:yaml.org,2002:map", {
+      kind: "mapping",
+      construct: function(data) {
+        return data !== null ? data : {};
+      }
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/failsafe.js
+var require_failsafe = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/failsafe.js"(exports2, module2) {
+    "use strict";
+    var Schema = require_schema();
+    module2.exports = new Schema({
+      explicit: [
+        require_str(),
+        require_seq(),
+        require_map()
+      ]
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/null.js
+var require_null = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/null.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    function resolveYamlNull(data) {
+      if (data === null)
+        return true;
+      var max = data.length;
+      return max === 1 && data === "~" || max === 4 && (data === "null" || data === "Null" || data === "NULL");
+    }
+    function constructYamlNull() {
+      return null;
+    }
+    function isNull(object) {
+      return object === null;
+    }
+    module2.exports = new Type("tag:yaml.org,2002:null", {
+      kind: "scalar",
+      resolve: resolveYamlNull,
+      construct: constructYamlNull,
+      predicate: isNull,
+      represent: {
+        canonical: function() {
+          return "~";
+        },
+        lowercase: function() {
+          return "null";
+        },
+        uppercase: function() {
+          return "NULL";
+        },
+        camelcase: function() {
+          return "Null";
+        }
+      },
+      defaultStyle: "lowercase"
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/bool.js
+var require_bool = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/bool.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    function resolveYamlBoolean(data) {
+      if (data === null)
+        return false;
+      var max = data.length;
+      return max === 4 && (data === "true" || data === "True" || data === "TRUE") || max === 5 && (data === "false" || data === "False" || data === "FALSE");
+    }
+    function constructYamlBoolean(data) {
+      return data === "true" || data === "True" || data === "TRUE";
+    }
+    function isBoolean(object) {
+      return Object.prototype.toString.call(object) === "[object Boolean]";
+    }
+    module2.exports = new Type("tag:yaml.org,2002:bool", {
+      kind: "scalar",
+      resolve: resolveYamlBoolean,
+      construct: constructYamlBoolean,
+      predicate: isBoolean,
+      represent: {
+        lowercase: function(object) {
+          return object ? "true" : "false";
+        },
+        uppercase: function(object) {
+          return object ? "TRUE" : "FALSE";
+        },
+        camelcase: function(object) {
+          return object ? "True" : "False";
+        }
+      },
+      defaultStyle: "lowercase"
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/int.js
+var require_int = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/int.js"(exports2, module2) {
+    "use strict";
+    var common = require_common();
+    var Type = require_type();
+    function isHexCode(c) {
+      return 48 <= c && c <= 57 || 65 <= c && c <= 70 || 97 <= c && c <= 102;
+    }
+    function isOctCode(c) {
+      return 48 <= c && c <= 55;
+    }
+    function isDecCode(c) {
+      return 48 <= c && c <= 57;
+    }
+    function resolveYamlInteger(data) {
+      if (data === null)
+        return false;
+      var max = data.length, index2 = 0, hasDigits = false, ch;
+      if (!max)
+        return false;
+      ch = data[index2];
+      if (ch === "-" || ch === "+") {
+        ch = data[++index2];
+      }
+      if (ch === "0") {
+        if (index2 + 1 === max)
+          return true;
+        ch = data[++index2];
+        if (ch === "b") {
+          index2++;
+          for (; index2 < max; index2++) {
+            ch = data[index2];
+            if (ch === "_")
+              continue;
+            if (ch !== "0" && ch !== "1")
+              return false;
+            hasDigits = true;
+          }
+          return hasDigits && ch !== "_";
+        }
+        if (ch === "x") {
+          index2++;
+          for (; index2 < max; index2++) {
+            ch = data[index2];
+            if (ch === "_")
+              continue;
+            if (!isHexCode(data.charCodeAt(index2)))
+              return false;
+            hasDigits = true;
+          }
+          return hasDigits && ch !== "_";
+        }
+        for (; index2 < max; index2++) {
+          ch = data[index2];
+          if (ch === "_")
+            continue;
+          if (!isOctCode(data.charCodeAt(index2)))
+            return false;
+          hasDigits = true;
+        }
+        return hasDigits && ch !== "_";
+      }
+      if (ch === "_")
+        return false;
+      for (; index2 < max; index2++) {
+        ch = data[index2];
+        if (ch === "_")
+          continue;
+        if (ch === ":")
+          break;
+        if (!isDecCode(data.charCodeAt(index2))) {
+          return false;
+        }
+        hasDigits = true;
+      }
+      if (!hasDigits || ch === "_")
+        return false;
+      if (ch !== ":")
+        return true;
+      return /^(:[0-5]?[0-9])+$/.test(data.slice(index2));
+    }
+    function constructYamlInteger(data) {
+      var value = data, sign = 1, ch, base3, digits = [];
+      if (value.indexOf("_") !== -1) {
+        value = value.replace(/_/g, "");
+      }
+      ch = value[0];
+      if (ch === "-" || ch === "+") {
+        if (ch === "-")
+          sign = -1;
+        value = value.slice(1);
+        ch = value[0];
+      }
+      if (value === "0")
+        return 0;
+      if (ch === "0") {
+        if (value[1] === "b")
+          return sign * parseInt(value.slice(2), 2);
+        if (value[1] === "x")
+          return sign * parseInt(value, 16);
+        return sign * parseInt(value, 8);
+      }
+      if (value.indexOf(":") !== -1) {
+        value.split(":").forEach(function(v2) {
+          digits.unshift(parseInt(v2, 10));
+        });
+        value = 0;
+        base3 = 1;
+        digits.forEach(function(d) {
+          value += d * base3;
+          base3 *= 60;
+        });
+        return sign * value;
+      }
+      return sign * parseInt(value, 10);
+    }
+    function isInteger(object) {
+      return Object.prototype.toString.call(object) === "[object Number]" && (object % 1 === 0 && !common.isNegativeZero(object));
+    }
+    module2.exports = new Type("tag:yaml.org,2002:int", {
+      kind: "scalar",
+      resolve: resolveYamlInteger,
+      construct: constructYamlInteger,
+      predicate: isInteger,
+      represent: {
+        binary: function(obj) {
+          return obj >= 0 ? "0b" + obj.toString(2) : "-0b" + obj.toString(2).slice(1);
+        },
+        octal: function(obj) {
+          return obj >= 0 ? "0" + obj.toString(8) : "-0" + obj.toString(8).slice(1);
+        },
+        decimal: function(obj) {
+          return obj.toString(10);
+        },
+        /* eslint-disable max-len */
+        hexadecimal: function(obj) {
+          return obj >= 0 ? "0x" + obj.toString(16).toUpperCase() : "-0x" + obj.toString(16).toUpperCase().slice(1);
+        }
+      },
+      defaultStyle: "decimal",
+      styleAliases: {
+        binary: [2, "bin"],
+        octal: [8, "oct"],
+        decimal: [10, "dec"],
+        hexadecimal: [16, "hex"]
+      }
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/float.js
+var require_float = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/float.js"(exports2, module2) {
+    "use strict";
+    var common = require_common();
+    var Type = require_type();
+    var YAML_FLOAT_PATTERN = new RegExp(
+      // 2.5e4, 2.5 and integers
+      "^(?:[-+]?(?:0|[1-9][0-9_]*)(?:\\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?|\\.[0-9_]+(?:[eE][-+]?[0-9]+)?|[-+]?[0-9][0-9_]*(?::[0-5]?[0-9])+\\.[0-9_]*|[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$"
+    );
+    function resolveYamlFloat(data) {
+      if (data === null)
+        return false;
+      if (!YAML_FLOAT_PATTERN.test(data) || // Quick hack to not allow integers end with `_`
+      // Probably should update regexp & check speed
+      data[data.length - 1] === "_") {
+        return false;
+      }
+      return true;
+    }
+    function constructYamlFloat(data) {
+      var value, sign, base3, digits;
+      value = data.replace(/_/g, "").toLowerCase();
+      sign = value[0] === "-" ? -1 : 1;
+      digits = [];
+      if ("+-".indexOf(value[0]) >= 0) {
+        value = value.slice(1);
+      }
+      if (value === ".inf") {
+        return sign === 1 ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+      } else if (value === ".nan") {
+        return NaN;
+      } else if (value.indexOf(":") >= 0) {
+        value.split(":").forEach(function(v2) {
+          digits.unshift(parseFloat(v2, 10));
+        });
+        value = 0;
+        base3 = 1;
+        digits.forEach(function(d) {
+          value += d * base3;
+          base3 *= 60;
+        });
+        return sign * value;
+      }
+      return sign * parseFloat(value, 10);
+    }
+    var SCIENTIFIC_WITHOUT_DOT = /^[-+]?[0-9]+e/;
+    function representYamlFloat(object, style) {
+      var res;
+      if (isNaN(object)) {
+        switch (style) {
+          case "lowercase":
+            return ".nan";
+          case "uppercase":
+            return ".NAN";
+          case "camelcase":
+            return ".NaN";
+        }
+      } else if (Number.POSITIVE_INFINITY === object) {
+        switch (style) {
+          case "lowercase":
+            return ".inf";
+          case "uppercase":
+            return ".INF";
+          case "camelcase":
+            return ".Inf";
+        }
+      } else if (Number.NEGATIVE_INFINITY === object) {
+        switch (style) {
+          case "lowercase":
+            return "-.inf";
+          case "uppercase":
+            return "-.INF";
+          case "camelcase":
+            return "-.Inf";
+        }
+      } else if (common.isNegativeZero(object)) {
+        return "-0.0";
+      }
+      res = object.toString(10);
+      return SCIENTIFIC_WITHOUT_DOT.test(res) ? res.replace("e", ".e") : res;
+    }
+    function isFloat(object) {
+      return Object.prototype.toString.call(object) === "[object Number]" && (object % 1 !== 0 || common.isNegativeZero(object));
+    }
+    module2.exports = new Type("tag:yaml.org,2002:float", {
+      kind: "scalar",
+      resolve: resolveYamlFloat,
+      construct: constructYamlFloat,
+      predicate: isFloat,
+      represent: representYamlFloat,
+      defaultStyle: "lowercase"
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/json.js
+var require_json = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/json.js"(exports2, module2) {
+    "use strict";
+    var Schema = require_schema();
+    module2.exports = new Schema({
+      include: [
+        require_failsafe()
+      ],
+      implicit: [
+        require_null(),
+        require_bool(),
+        require_int(),
+        require_float()
+      ]
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/core.js
+var require_core = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/core.js"(exports2, module2) {
+    "use strict";
+    var Schema = require_schema();
+    module2.exports = new Schema({
+      include: [
+        require_json()
+      ]
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/timestamp.js
+var require_timestamp = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/timestamp.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    var YAML_DATE_REGEXP = new RegExp(
+      "^([0-9][0-9][0-9][0-9])-([0-9][0-9])-([0-9][0-9])$"
+    );
+    var YAML_TIMESTAMP_REGEXP = new RegExp(
+      "^([0-9][0-9][0-9][0-9])-([0-9][0-9]?)-([0-9][0-9]?)(?:[Tt]|[ \\t]+)([0-9][0-9]?):([0-9][0-9]):([0-9][0-9])(?:\\.([0-9]*))?(?:[ \\t]*(Z|([-+])([0-9][0-9]?)(?::([0-9][0-9]))?))?$"
+    );
+    function resolveYamlTimestamp(data) {
+      if (data === null)
+        return false;
+      if (YAML_DATE_REGEXP.exec(data) !== null)
+        return true;
+      if (YAML_TIMESTAMP_REGEXP.exec(data) !== null)
+        return true;
+      return false;
+    }
+    function constructYamlTimestamp(data) {
+      var match, year, month, day, hour, minute, second, fraction = 0, delta = null, tz_hour, tz_minute, date;
+      match = YAML_DATE_REGEXP.exec(data);
+      if (match === null)
+        match = YAML_TIMESTAMP_REGEXP.exec(data);
+      if (match === null)
+        throw new Error("Date resolve error");
+      year = +match[1];
+      month = +match[2] - 1;
+      day = +match[3];
+      if (!match[4]) {
+        return new Date(Date.UTC(year, month, day));
+      }
+      hour = +match[4];
+      minute = +match[5];
+      second = +match[6];
+      if (match[7]) {
+        fraction = match[7].slice(0, 3);
+        while (fraction.length < 3) {
+          fraction += "0";
+        }
+        fraction = +fraction;
+      }
+      if (match[9]) {
+        tz_hour = +match[10];
+        tz_minute = +(match[11] || 0);
+        delta = (tz_hour * 60 + tz_minute) * 6e4;
+        if (match[9] === "-")
+          delta = -delta;
+      }
+      date = new Date(Date.UTC(year, month, day, hour, minute, second, fraction));
+      if (delta)
+        date.setTime(date.getTime() - delta);
+      return date;
+    }
+    function representYamlTimestamp(object) {
+      return object.toISOString();
+    }
+    module2.exports = new Type("tag:yaml.org,2002:timestamp", {
+      kind: "scalar",
+      resolve: resolveYamlTimestamp,
+      construct: constructYamlTimestamp,
+      instanceOf: Date,
+      represent: representYamlTimestamp
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/merge.js
+var require_merge = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/merge.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    function resolveYamlMerge(data) {
+      return data === "<<" || data === null;
+    }
+    module2.exports = new Type("tag:yaml.org,2002:merge", {
+      kind: "scalar",
+      resolve: resolveYamlMerge
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/binary.js
+var require_binary = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/binary.js"(exports2, module2) {
+    "use strict";
+    var NodeBuffer;
+    try {
+      _require = __require;
+      NodeBuffer = _require("buffer").Buffer;
+    } catch (__) {
+    }
+    var _require;
+    var Type = require_type();
+    var BASE64_MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\n\r";
+    function resolveYamlBinary(data) {
+      if (data === null)
+        return false;
+      var code3, idx, bitlen = 0, max = data.length, map = BASE64_MAP;
+      for (idx = 0; idx < max; idx++) {
+        code3 = map.indexOf(data.charAt(idx));
+        if (code3 > 64)
+          continue;
+        if (code3 < 0)
+          return false;
+        bitlen += 6;
+      }
+      return bitlen % 8 === 0;
+    }
+    function constructYamlBinary(data) {
+      var idx, tailbits, input = data.replace(/[\r\n=]/g, ""), max = input.length, map = BASE64_MAP, bits = 0, result = [];
+      for (idx = 0; idx < max; idx++) {
+        if (idx % 4 === 0 && idx) {
+          result.push(bits >> 16 & 255);
+          result.push(bits >> 8 & 255);
+          result.push(bits & 255);
+        }
+        bits = bits << 6 | map.indexOf(input.charAt(idx));
+      }
+      tailbits = max % 4 * 6;
+      if (tailbits === 0) {
+        result.push(bits >> 16 & 255);
+        result.push(bits >> 8 & 255);
+        result.push(bits & 255);
+      } else if (tailbits === 18) {
+        result.push(bits >> 10 & 255);
+        result.push(bits >> 2 & 255);
+      } else if (tailbits === 12) {
+        result.push(bits >> 4 & 255);
+      }
+      if (NodeBuffer) {
+        return NodeBuffer.from ? NodeBuffer.from(result) : new NodeBuffer(result);
+      }
+      return result;
+    }
+    function representYamlBinary(object) {
+      var result = "", bits = 0, idx, tail, max = object.length, map = BASE64_MAP;
+      for (idx = 0; idx < max; idx++) {
+        if (idx % 3 === 0 && idx) {
+          result += map[bits >> 18 & 63];
+          result += map[bits >> 12 & 63];
+          result += map[bits >> 6 & 63];
+          result += map[bits & 63];
+        }
+        bits = (bits << 8) + object[idx];
+      }
+      tail = max % 3;
+      if (tail === 0) {
+        result += map[bits >> 18 & 63];
+        result += map[bits >> 12 & 63];
+        result += map[bits >> 6 & 63];
+        result += map[bits & 63];
+      } else if (tail === 2) {
+        result += map[bits >> 10 & 63];
+        result += map[bits >> 4 & 63];
+        result += map[bits << 2 & 63];
+        result += map[64];
+      } else if (tail === 1) {
+        result += map[bits >> 2 & 63];
+        result += map[bits << 4 & 63];
+        result += map[64];
+        result += map[64];
+      }
+      return result;
+    }
+    function isBinary(object) {
+      return NodeBuffer && NodeBuffer.isBuffer(object);
+    }
+    module2.exports = new Type("tag:yaml.org,2002:binary", {
+      kind: "scalar",
+      resolve: resolveYamlBinary,
+      construct: constructYamlBinary,
+      predicate: isBinary,
+      represent: representYamlBinary
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/omap.js
+var require_omap = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/omap.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    var _hasOwnProperty = Object.prototype.hasOwnProperty;
+    var _toString = Object.prototype.toString;
+    function resolveYamlOmap(data) {
+      if (data === null)
+        return true;
+      var objectKeys = [], index2, length2, pair, pairKey, pairHasKey, object = data;
+      for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
+        pair = object[index2];
+        pairHasKey = false;
+        if (_toString.call(pair) !== "[object Object]")
+          return false;
+        for (pairKey in pair) {
+          if (_hasOwnProperty.call(pair, pairKey)) {
+            if (!pairHasKey)
+              pairHasKey = true;
+            else
+              return false;
+          }
+        }
+        if (!pairHasKey)
+          return false;
+        if (objectKeys.indexOf(pairKey) === -1)
+          objectKeys.push(pairKey);
+        else
+          return false;
+      }
+      return true;
+    }
+    function constructYamlOmap(data) {
+      return data !== null ? data : [];
+    }
+    module2.exports = new Type("tag:yaml.org,2002:omap", {
+      kind: "sequence",
+      resolve: resolveYamlOmap,
+      construct: constructYamlOmap
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/pairs.js
+var require_pairs = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/pairs.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    var _toString = Object.prototype.toString;
+    function resolveYamlPairs(data) {
+      if (data === null)
+        return true;
+      var index2, length2, pair, keys, result, object = data;
+      result = new Array(object.length);
+      for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
+        pair = object[index2];
+        if (_toString.call(pair) !== "[object Object]")
+          return false;
+        keys = Object.keys(pair);
+        if (keys.length !== 1)
+          return false;
+        result[index2] = [keys[0], pair[keys[0]]];
+      }
+      return true;
+    }
+    function constructYamlPairs(data) {
+      if (data === null)
+        return [];
+      var index2, length2, pair, keys, result, object = data;
+      result = new Array(object.length);
+      for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
+        pair = object[index2];
+        keys = Object.keys(pair);
+        result[index2] = [keys[0], pair[keys[0]]];
+      }
+      return result;
+    }
+    module2.exports = new Type("tag:yaml.org,2002:pairs", {
+      kind: "sequence",
+      resolve: resolveYamlPairs,
+      construct: constructYamlPairs
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/set.js
+var require_set = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/set.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    var _hasOwnProperty = Object.prototype.hasOwnProperty;
+    function resolveYamlSet(data) {
+      if (data === null)
+        return true;
+      var key, object = data;
+      for (key in object) {
+        if (_hasOwnProperty.call(object, key)) {
+          if (object[key] !== null)
+            return false;
+        }
+      }
+      return true;
+    }
+    function constructYamlSet(data) {
+      return data !== null ? data : {};
+    }
+    module2.exports = new Type("tag:yaml.org,2002:set", {
+      kind: "mapping",
+      resolve: resolveYamlSet,
+      construct: constructYamlSet
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/default_safe.js
+var require_default_safe = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/default_safe.js"(exports2, module2) {
+    "use strict";
+    var Schema = require_schema();
+    module2.exports = new Schema({
+      include: [
+        require_core()
+      ],
+      implicit: [
+        require_timestamp(),
+        require_merge()
+      ],
+      explicit: [
+        require_binary(),
+        require_omap(),
+        require_pairs(),
+        require_set()
+      ]
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/undefined.js
+var require_undefined = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/undefined.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    function resolveJavascriptUndefined() {
+      return true;
+    }
+    function constructJavascriptUndefined() {
+      return void 0;
+    }
+    function representJavascriptUndefined() {
+      return "";
+    }
+    function isUndefined(object) {
+      return typeof object === "undefined";
+    }
+    module2.exports = new Type("tag:yaml.org,2002:js/undefined", {
+      kind: "scalar",
+      resolve: resolveJavascriptUndefined,
+      construct: constructJavascriptUndefined,
+      predicate: isUndefined,
+      represent: representJavascriptUndefined
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/regexp.js
+var require_regexp = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/regexp.js"(exports2, module2) {
+    "use strict";
+    var Type = require_type();
+    function resolveJavascriptRegExp(data) {
+      if (data === null)
+        return false;
+      if (data.length === 0)
+        return false;
+      var regexp = data, tail = /\/([gim]*)$/.exec(data), modifiers = "";
+      if (regexp[0] === "/") {
+        if (tail)
+          modifiers = tail[1];
+        if (modifiers.length > 3)
+          return false;
+        if (regexp[regexp.length - modifiers.length - 1] !== "/")
+          return false;
+      }
+      return true;
+    }
+    function constructJavascriptRegExp(data) {
+      var regexp = data, tail = /\/([gim]*)$/.exec(data), modifiers = "";
+      if (regexp[0] === "/") {
+        if (tail)
+          modifiers = tail[1];
+        regexp = regexp.slice(1, regexp.length - modifiers.length - 1);
+      }
+      return new RegExp(regexp, modifiers);
+    }
+    function representJavascriptRegExp(object) {
+      var result = "/" + object.source + "/";
+      if (object.global)
+        result += "g";
+      if (object.multiline)
+        result += "m";
+      if (object.ignoreCase)
+        result += "i";
+      return result;
+    }
+    function isRegExp(object) {
+      return Object.prototype.toString.call(object) === "[object RegExp]";
+    }
+    module2.exports = new Type("tag:yaml.org,2002:js/regexp", {
+      kind: "scalar",
+      resolve: resolveJavascriptRegExp,
+      construct: constructJavascriptRegExp,
+      predicate: isRegExp,
+      represent: representJavascriptRegExp
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/function.js
+var require_function = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/function.js"(exports2, module2) {
+    "use strict";
+    var esprima;
+    try {
+      _require = __require;
+      esprima = _require("esprima");
+    } catch (_2) {
+      if (typeof window !== "undefined")
+        esprima = window.esprima;
+    }
+    var _require;
+    var Type = require_type();
+    function resolveJavascriptFunction(data) {
+      if (data === null)
+        return false;
+      try {
+        var source = "(" + data + ")", ast = esprima.parse(source, { range: true });
+        if (ast.type !== "Program" || ast.body.length !== 1 || ast.body[0].type !== "ExpressionStatement" || ast.body[0].expression.type !== "ArrowFunctionExpression" && ast.body[0].expression.type !== "FunctionExpression") {
+          return false;
+        }
+        return true;
+      } catch (err) {
+        return false;
+      }
+    }
+    function constructJavascriptFunction(data) {
+      var source = "(" + data + ")", ast = esprima.parse(source, { range: true }), params = [], body;
+      if (ast.type !== "Program" || ast.body.length !== 1 || ast.body[0].type !== "ExpressionStatement" || ast.body[0].expression.type !== "ArrowFunctionExpression" && ast.body[0].expression.type !== "FunctionExpression") {
+        throw new Error("Failed to resolve function");
+      }
+      ast.body[0].expression.params.forEach(function(param) {
+        params.push(param.name);
+      });
+      body = ast.body[0].expression.body.range;
+      if (ast.body[0].expression.body.type === "BlockStatement") {
+        return new Function(params, source.slice(body[0] + 1, body[1] - 1));
+      }
+      return new Function(params, "return " + source.slice(body[0], body[1]));
+    }
+    function representJavascriptFunction(object) {
+      return object.toString();
+    }
+    function isFunction2(object) {
+      return Object.prototype.toString.call(object) === "[object Function]";
+    }
+    module2.exports = new Type("tag:yaml.org,2002:js/function", {
+      kind: "scalar",
+      resolve: resolveJavascriptFunction,
+      construct: constructJavascriptFunction,
+      predicate: isFunction2,
+      represent: representJavascriptFunction
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/default_full.js
+var require_default_full = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/default_full.js"(exports2, module2) {
+    "use strict";
+    var Schema = require_schema();
+    module2.exports = Schema.DEFAULT = new Schema({
+      include: [
+        require_default_safe()
+      ],
+      explicit: [
+        require_undefined(),
+        require_regexp(),
+        require_function()
+      ]
+    });
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/loader.js
+var require_loader = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/loader.js"(exports2, module2) {
+    "use strict";
+    var common = require_common();
+    var YAMLException = require_exception();
+    var Mark = require_mark();
+    var DEFAULT_SAFE_SCHEMA = require_default_safe();
+    var DEFAULT_FULL_SCHEMA = require_default_full();
+    var _hasOwnProperty = Object.prototype.hasOwnProperty;
+    var CONTEXT_FLOW_IN = 1;
+    var CONTEXT_FLOW_OUT = 2;
+    var CONTEXT_BLOCK_IN = 3;
+    var CONTEXT_BLOCK_OUT = 4;
+    var CHOMPING_CLIP = 1;
+    var CHOMPING_STRIP = 2;
+    var CHOMPING_KEEP = 3;
+    var PATTERN_NON_PRINTABLE = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
+    var PATTERN_NON_ASCII_LINE_BREAKS = /[\x85\u2028\u2029]/;
+    var PATTERN_FLOW_INDICATORS = /[,\[\]\{\}]/;
+    var PATTERN_TAG_HANDLE = /^(?:!|!!|![a-z\-]+!)$/i;
+    var PATTERN_TAG_URI = /^(?:!|[^,\[\]\{\}])(?:%[0-9a-f]{2}|[0-9a-z\-#;\/\?:@&=\+\$,_\.!~\*'\(\)\[\]])*$/i;
+    function _class(obj) {
+      return Object.prototype.toString.call(obj);
+    }
+    function is_EOL(c) {
+      return c === 10 || c === 13;
+    }
+    function is_WHITE_SPACE(c) {
+      return c === 9 || c === 32;
+    }
+    function is_WS_OR_EOL(c) {
+      return c === 9 || c === 32 || c === 10 || c === 13;
+    }
+    function is_FLOW_INDICATOR(c) {
+      return c === 44 || c === 91 || c === 93 || c === 123 || c === 125;
+    }
+    function fromHexCode(c) {
+      var lc;
+      if (48 <= c && c <= 57) {
+        return c - 48;
+      }
+      lc = c | 32;
+      if (97 <= lc && lc <= 102) {
+        return lc - 97 + 10;
+      }
+      return -1;
+    }
+    function escapedHexLen(c) {
+      if (c === 120) {
+        return 2;
+      }
+      if (c === 117) {
+        return 4;
+      }
+      if (c === 85) {
+        return 8;
+      }
+      return 0;
+    }
+    function fromDecimalCode(c) {
+      if (48 <= c && c <= 57) {
+        return c - 48;
+      }
+      return -1;
+    }
+    function simpleEscapeSequence(c) {
+      return c === 48 ? "\0" : c === 97 ? "\x07" : c === 98 ? "\b" : c === 116 ? "	" : c === 9 ? "	" : c === 110 ? "\n" : c === 118 ? "\v" : c === 102 ? "\f" : c === 114 ? "\r" : c === 101 ? "\x1B" : c === 32 ? " " : c === 34 ? '"' : c === 47 ? "/" : c === 92 ? "\\" : c === 78 ? "\x85" : c === 95 ? "\xA0" : c === 76 ? "\u2028" : c === 80 ? "\u2029" : "";
+    }
+    function charFromCodepoint(c) {
+      if (c <= 65535) {
+        return String.fromCharCode(c);
+      }
+      return String.fromCharCode(
+        (c - 65536 >> 10) + 55296,
+        (c - 65536 & 1023) + 56320
+      );
+    }
+    var simpleEscapeCheck = new Array(256);
+    var simpleEscapeMap = new Array(256);
+    for (i = 0; i < 256; i++) {
+      simpleEscapeCheck[i] = simpleEscapeSequence(i) ? 1 : 0;
+      simpleEscapeMap[i] = simpleEscapeSequence(i);
+    }
+    var i;
+    function State(input, options2) {
+      this.input = input;
+      this.filename = options2["filename"] || null;
+      this.schema = options2["schema"] || DEFAULT_FULL_SCHEMA;
+      this.onWarning = options2["onWarning"] || null;
+      this.legacy = options2["legacy"] || false;
+      this.json = options2["json"] || false;
+      this.listener = options2["listener"] || null;
+      this.implicitTypes = this.schema.compiledImplicit;
+      this.typeMap = this.schema.compiledTypeMap;
+      this.length = input.length;
+      this.position = 0;
+      this.line = 0;
+      this.lineStart = 0;
+      this.lineIndent = 0;
+      this.documents = [];
+    }
+    function generateError(state, message2) {
+      return new YAMLException(
+        message2,
+        new Mark(state.filename, state.input, state.position, state.line, state.position - state.lineStart)
+      );
+    }
+    function throwError3(state, message2) {
+      throw generateError(state, message2);
+    }
+    function throwWarning(state, message2) {
+      if (state.onWarning) {
+        state.onWarning.call(null, generateError(state, message2));
+      }
+    }
+    var directiveHandlers = {
+      YAML: function handleYamlDirective(state, name2, args) {
+        var match, major, minor;
+        if (state.version !== null) {
+          throwError3(state, "duplication of %YAML directive");
+        }
+        if (args.length !== 1) {
+          throwError3(state, "YAML directive accepts exactly one argument");
+        }
+        match = /^([0-9]+)\.([0-9]+)$/.exec(args[0]);
+        if (match === null) {
+          throwError3(state, "ill-formed argument of the YAML directive");
+        }
+        major = parseInt(match[1], 10);
+        minor = parseInt(match[2], 10);
+        if (major !== 1) {
+          throwError3(state, "unacceptable YAML version of the document");
+        }
+        state.version = args[0];
+        state.checkLineBreaks = minor < 2;
+        if (minor !== 1 && minor !== 2) {
+          throwWarning(state, "unsupported YAML version of the document");
+        }
+      },
+      TAG: function handleTagDirective(state, name2, args) {
+        var handle, prefix;
+        if (args.length !== 2) {
+          throwError3(state, "TAG directive accepts exactly two arguments");
+        }
+        handle = args[0];
+        prefix = args[1];
+        if (!PATTERN_TAG_HANDLE.test(handle)) {
+          throwError3(state, "ill-formed tag handle (first argument) of the TAG directive");
+        }
+        if (_hasOwnProperty.call(state.tagMap, handle)) {
+          throwError3(state, 'there is a previously declared suffix for "' + handle + '" tag handle');
+        }
+        if (!PATTERN_TAG_URI.test(prefix)) {
+          throwError3(state, "ill-formed tag prefix (second argument) of the TAG directive");
+        }
+        state.tagMap[handle] = prefix;
+      }
+    };
+    function captureSegment(state, start, end, checkJson) {
+      var _position, _length, _character, _result;
+      if (start < end) {
+        _result = state.input.slice(start, end);
+        if (checkJson) {
+          for (_position = 0, _length = _result.length; _position < _length; _position += 1) {
+            _character = _result.charCodeAt(_position);
+            if (!(_character === 9 || 32 <= _character && _character <= 1114111)) {
+              throwError3(state, "expected valid JSON character");
+            }
+          }
+        } else if (PATTERN_NON_PRINTABLE.test(_result)) {
+          throwError3(state, "the stream contains non-printable characters");
+        }
+        state.result += _result;
+      }
+    }
+    function mergeMappings(state, destination, source, overridableKeys) {
+      var sourceKeys, key, index2, quantity;
+      if (!common.isObject(source)) {
+        throwError3(state, "cannot merge mappings; the provided source object is unacceptable");
+      }
+      sourceKeys = Object.keys(source);
+      for (index2 = 0, quantity = sourceKeys.length; index2 < quantity; index2 += 1) {
+        key = sourceKeys[index2];
+        if (!_hasOwnProperty.call(destination, key)) {
+          destination[key] = source[key];
+          overridableKeys[key] = true;
+        }
+      }
+    }
+    function storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode, startLine, startPos) {
+      var index2, quantity;
+      if (Array.isArray(keyNode)) {
+        keyNode = Array.prototype.slice.call(keyNode);
+        for (index2 = 0, quantity = keyNode.length; index2 < quantity; index2 += 1) {
+          if (Array.isArray(keyNode[index2])) {
+            throwError3(state, "nested arrays are not supported inside keys");
+          }
+          if (typeof keyNode === "object" && _class(keyNode[index2]) === "[object Object]") {
+            keyNode[index2] = "[object Object]";
+          }
+        }
+      }
+      if (typeof keyNode === "object" && _class(keyNode) === "[object Object]") {
+        keyNode = "[object Object]";
+      }
+      keyNode = String(keyNode);
+      if (_result === null) {
+        _result = {};
+      }
+      if (keyTag === "tag:yaml.org,2002:merge") {
+        if (Array.isArray(valueNode)) {
+          for (index2 = 0, quantity = valueNode.length; index2 < quantity; index2 += 1) {
+            mergeMappings(state, _result, valueNode[index2], overridableKeys);
+          }
+        } else {
+          mergeMappings(state, _result, valueNode, overridableKeys);
+        }
+      } else {
+        if (!state.json && !_hasOwnProperty.call(overridableKeys, keyNode) && _hasOwnProperty.call(_result, keyNode)) {
+          state.line = startLine || state.line;
+          state.position = startPos || state.position;
+          throwError3(state, "duplicated mapping key");
+        }
+        _result[keyNode] = valueNode;
+        delete overridableKeys[keyNode];
+      }
+      return _result;
+    }
+    function readLineBreak(state) {
+      var ch;
+      ch = state.input.charCodeAt(state.position);
+      if (ch === 10) {
+        state.position++;
+      } else if (ch === 13) {
+        state.position++;
+        if (state.input.charCodeAt(state.position) === 10) {
+          state.position++;
+        }
+      } else {
+        throwError3(state, "a line break is expected");
+      }
+      state.line += 1;
+      state.lineStart = state.position;
+    }
+    function skipSeparationSpace(state, allowComments, checkIndent) {
+      var lineBreaks = 0, ch = state.input.charCodeAt(state.position);
+      while (ch !== 0) {
+        while (is_WHITE_SPACE(ch)) {
+          ch = state.input.charCodeAt(++state.position);
+        }
+        if (allowComments && ch === 35) {
+          do {
+            ch = state.input.charCodeAt(++state.position);
+          } while (ch !== 10 && ch !== 13 && ch !== 0);
+        }
+        if (is_EOL(ch)) {
+          readLineBreak(state);
+          ch = state.input.charCodeAt(state.position);
+          lineBreaks++;
+          state.lineIndent = 0;
+          while (ch === 32) {
+            state.lineIndent++;
+            ch = state.input.charCodeAt(++state.position);
+          }
+        } else {
+          break;
+        }
+      }
+      if (checkIndent !== -1 && lineBreaks !== 0 && state.lineIndent < checkIndent) {
+        throwWarning(state, "deficient indentation");
+      }
+      return lineBreaks;
+    }
+    function testDocumentSeparator(state) {
+      var _position = state.position, ch;
+      ch = state.input.charCodeAt(_position);
+      if ((ch === 45 || ch === 46) && ch === state.input.charCodeAt(_position + 1) && ch === state.input.charCodeAt(_position + 2)) {
+        _position += 3;
+        ch = state.input.charCodeAt(_position);
+        if (ch === 0 || is_WS_OR_EOL(ch)) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function writeFoldedLines(state, count) {
+      if (count === 1) {
+        state.result += " ";
+      } else if (count > 1) {
+        state.result += common.repeat("\n", count - 1);
+      }
+    }
+    function readPlainScalar(state, nodeIndent, withinFlowCollection) {
+      var preceding, following, captureStart, captureEnd, hasPendingContent, _line, _lineStart, _lineIndent, _kind = state.kind, _result = state.result, ch;
+      ch = state.input.charCodeAt(state.position);
+      if (is_WS_OR_EOL(ch) || is_FLOW_INDICATOR(ch) || ch === 35 || ch === 38 || ch === 42 || ch === 33 || ch === 124 || ch === 62 || ch === 39 || ch === 34 || ch === 37 || ch === 64 || ch === 96) {
+        return false;
+      }
+      if (ch === 63 || ch === 45) {
+        following = state.input.charCodeAt(state.position + 1);
+        if (is_WS_OR_EOL(following) || withinFlowCollection && is_FLOW_INDICATOR(following)) {
+          return false;
+        }
+      }
+      state.kind = "scalar";
+      state.result = "";
+      captureStart = captureEnd = state.position;
+      hasPendingContent = false;
+      while (ch !== 0) {
+        if (ch === 58) {
+          following = state.input.charCodeAt(state.position + 1);
+          if (is_WS_OR_EOL(following) || withinFlowCollection && is_FLOW_INDICATOR(following)) {
+            break;
+          }
+        } else if (ch === 35) {
+          preceding = state.input.charCodeAt(state.position - 1);
+          if (is_WS_OR_EOL(preceding)) {
+            break;
+          }
+        } else if (state.position === state.lineStart && testDocumentSeparator(state) || withinFlowCollection && is_FLOW_INDICATOR(ch)) {
+          break;
+        } else if (is_EOL(ch)) {
+          _line = state.line;
+          _lineStart = state.lineStart;
+          _lineIndent = state.lineIndent;
+          skipSeparationSpace(state, false, -1);
+          if (state.lineIndent >= nodeIndent) {
+            hasPendingContent = true;
+            ch = state.input.charCodeAt(state.position);
+            continue;
+          } else {
+            state.position = captureEnd;
+            state.line = _line;
+            state.lineStart = _lineStart;
+            state.lineIndent = _lineIndent;
+            break;
+          }
+        }
+        if (hasPendingContent) {
+          captureSegment(state, captureStart, captureEnd, false);
+          writeFoldedLines(state, state.line - _line);
+          captureStart = captureEnd = state.position;
+          hasPendingContent = false;
+        }
+        if (!is_WHITE_SPACE(ch)) {
+          captureEnd = state.position + 1;
+        }
+        ch = state.input.charCodeAt(++state.position);
+      }
+      captureSegment(state, captureStart, captureEnd, false);
+      if (state.result) {
+        return true;
+      }
+      state.kind = _kind;
+      state.result = _result;
+      return false;
+    }
+    function readSingleQuotedScalar(state, nodeIndent) {
+      var ch, captureStart, captureEnd;
+      ch = state.input.charCodeAt(state.position);
+      if (ch !== 39) {
+        return false;
+      }
+      state.kind = "scalar";
+      state.result = "";
+      state.position++;
+      captureStart = captureEnd = state.position;
+      while ((ch = state.input.charCodeAt(state.position)) !== 0) {
+        if (ch === 39) {
+          captureSegment(state, captureStart, state.position, true);
+          ch = state.input.charCodeAt(++state.position);
+          if (ch === 39) {
+            captureStart = state.position;
+            state.position++;
+            captureEnd = state.position;
+          } else {
+            return true;
+          }
+        } else if (is_EOL(ch)) {
+          captureSegment(state, captureStart, captureEnd, true);
+          writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
+          captureStart = captureEnd = state.position;
+        } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
+          throwError3(state, "unexpected end of the document within a single quoted scalar");
+        } else {
+          state.position++;
+          captureEnd = state.position;
+        }
+      }
+      throwError3(state, "unexpected end of the stream within a single quoted scalar");
+    }
+    function readDoubleQuotedScalar(state, nodeIndent) {
+      var captureStart, captureEnd, hexLength, hexResult, tmp, ch;
+      ch = state.input.charCodeAt(state.position);
+      if (ch !== 34) {
+        return false;
+      }
+      state.kind = "scalar";
+      state.result = "";
+      state.position++;
+      captureStart = captureEnd = state.position;
+      while ((ch = state.input.charCodeAt(state.position)) !== 0) {
+        if (ch === 34) {
+          captureSegment(state, captureStart, state.position, true);
+          state.position++;
+          return true;
+        } else if (ch === 92) {
+          captureSegment(state, captureStart, state.position, true);
+          ch = state.input.charCodeAt(++state.position);
+          if (is_EOL(ch)) {
+            skipSeparationSpace(state, false, nodeIndent);
+          } else if (ch < 256 && simpleEscapeCheck[ch]) {
+            state.result += simpleEscapeMap[ch];
+            state.position++;
+          } else if ((tmp = escapedHexLen(ch)) > 0) {
+            hexLength = tmp;
+            hexResult = 0;
+            for (; hexLength > 0; hexLength--) {
+              ch = state.input.charCodeAt(++state.position);
+              if ((tmp = fromHexCode(ch)) >= 0) {
+                hexResult = (hexResult << 4) + tmp;
+              } else {
+                throwError3(state, "expected hexadecimal character");
+              }
+            }
+            state.result += charFromCodepoint(hexResult);
+            state.position++;
+          } else {
+            throwError3(state, "unknown escape sequence");
+          }
+          captureStart = captureEnd = state.position;
+        } else if (is_EOL(ch)) {
+          captureSegment(state, captureStart, captureEnd, true);
+          writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
+          captureStart = captureEnd = state.position;
+        } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
+          throwError3(state, "unexpected end of the document within a double quoted scalar");
+        } else {
+          state.position++;
+          captureEnd = state.position;
+        }
+      }
+      throwError3(state, "unexpected end of the stream within a double quoted scalar");
+    }
+    function readFlowCollection(state, nodeIndent) {
+      var readNext = true, _line, _tag = state.tag, _result, _anchor = state.anchor, following, terminator, isPair, isExplicitPair, isMapping, overridableKeys = {}, keyNode, keyTag, valueNode, ch;
+      ch = state.input.charCodeAt(state.position);
+      if (ch === 91) {
+        terminator = 93;
+        isMapping = false;
+        _result = [];
+      } else if (ch === 123) {
+        terminator = 125;
+        isMapping = true;
+        _result = {};
+      } else {
+        return false;
+      }
+      if (state.anchor !== null) {
+        state.anchorMap[state.anchor] = _result;
+      }
+      ch = state.input.charCodeAt(++state.position);
+      while (ch !== 0) {
+        skipSeparationSpace(state, true, nodeIndent);
+        ch = state.input.charCodeAt(state.position);
+        if (ch === terminator) {
+          state.position++;
+          state.tag = _tag;
+          state.anchor = _anchor;
+          state.kind = isMapping ? "mapping" : "sequence";
+          state.result = _result;
+          return true;
+        } else if (!readNext) {
+          throwError3(state, "missed comma between flow collection entries");
+        }
+        keyTag = keyNode = valueNode = null;
+        isPair = isExplicitPair = false;
+        if (ch === 63) {
+          following = state.input.charCodeAt(state.position + 1);
+          if (is_WS_OR_EOL(following)) {
+            isPair = isExplicitPair = true;
+            state.position++;
+            skipSeparationSpace(state, true, nodeIndent);
+          }
+        }
+        _line = state.line;
+        composeNode(state, nodeIndent, CONTEXT_FLOW_IN, false, true);
+        keyTag = state.tag;
+        keyNode = state.result;
+        skipSeparationSpace(state, true, nodeIndent);
+        ch = state.input.charCodeAt(state.position);
+        if ((isExplicitPair || state.line === _line) && ch === 58) {
+          isPair = true;
+          ch = state.input.charCodeAt(++state.position);
+          skipSeparationSpace(state, true, nodeIndent);
+          composeNode(state, nodeIndent, CONTEXT_FLOW_IN, false, true);
+          valueNode = state.result;
+        }
+        if (isMapping) {
+          storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode);
+        } else if (isPair) {
+          _result.push(storeMappingPair(state, null, overridableKeys, keyTag, keyNode, valueNode));
+        } else {
+          _result.push(keyNode);
+        }
+        skipSeparationSpace(state, true, nodeIndent);
+        ch = state.input.charCodeAt(state.position);
+        if (ch === 44) {
+          readNext = true;
+          ch = state.input.charCodeAt(++state.position);
+        } else {
+          readNext = false;
+        }
+      }
+      throwError3(state, "unexpected end of the stream within a flow collection");
+    }
+    function readBlockScalar(state, nodeIndent) {
+      var captureStart, folding, chomping = CHOMPING_CLIP, didReadContent = false, detectedIndent = false, textIndent = nodeIndent, emptyLines = 0, atMoreIndented = false, tmp, ch;
+      ch = state.input.charCodeAt(state.position);
+      if (ch === 124) {
+        folding = false;
+      } else if (ch === 62) {
+        folding = true;
+      } else {
+        return false;
+      }
+      state.kind = "scalar";
+      state.result = "";
+      while (ch !== 0) {
+        ch = state.input.charCodeAt(++state.position);
+        if (ch === 43 || ch === 45) {
+          if (CHOMPING_CLIP === chomping) {
+            chomping = ch === 43 ? CHOMPING_KEEP : CHOMPING_STRIP;
+          } else {
+            throwError3(state, "repeat of a chomping mode identifier");
+          }
+        } else if ((tmp = fromDecimalCode(ch)) >= 0) {
+          if (tmp === 0) {
+            throwError3(state, "bad explicit indentation width of a block scalar; it cannot be less than one");
+          } else if (!detectedIndent) {
+            textIndent = nodeIndent + tmp - 1;
+            detectedIndent = true;
+          } else {
+            throwError3(state, "repeat of an indentation width identifier");
+          }
+        } else {
+          break;
+        }
+      }
+      if (is_WHITE_SPACE(ch)) {
+        do {
+          ch = state.input.charCodeAt(++state.position);
+        } while (is_WHITE_SPACE(ch));
+        if (ch === 35) {
+          do {
+            ch = state.input.charCodeAt(++state.position);
+          } while (!is_EOL(ch) && ch !== 0);
+        }
+      }
+      while (ch !== 0) {
+        readLineBreak(state);
+        state.lineIndent = 0;
+        ch = state.input.charCodeAt(state.position);
+        while ((!detectedIndent || state.lineIndent < textIndent) && ch === 32) {
+          state.lineIndent++;
+          ch = state.input.charCodeAt(++state.position);
+        }
+        if (!detectedIndent && state.lineIndent > textIndent) {
+          textIndent = state.lineIndent;
+        }
+        if (is_EOL(ch)) {
+          emptyLines++;
+          continue;
+        }
+        if (state.lineIndent < textIndent) {
+          if (chomping === CHOMPING_KEEP) {
+            state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
+          } else if (chomping === CHOMPING_CLIP) {
+            if (didReadContent) {
+              state.result += "\n";
+            }
+          }
+          break;
+        }
+        if (folding) {
+          if (is_WHITE_SPACE(ch)) {
+            atMoreIndented = true;
+            state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
+          } else if (atMoreIndented) {
+            atMoreIndented = false;
+            state.result += common.repeat("\n", emptyLines + 1);
+          } else if (emptyLines === 0) {
+            if (didReadContent) {
+              state.result += " ";
+            }
+          } else {
+            state.result += common.repeat("\n", emptyLines);
+          }
+        } else {
+          state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
+        }
+        didReadContent = true;
+        detectedIndent = true;
+        emptyLines = 0;
+        captureStart = state.position;
+        while (!is_EOL(ch) && ch !== 0) {
+          ch = state.input.charCodeAt(++state.position);
+        }
+        captureSegment(state, captureStart, state.position, false);
+      }
+      return true;
+    }
+    function readBlockSequence(state, nodeIndent) {
+      var _line, _tag = state.tag, _anchor = state.anchor, _result = [], following, detected = false, ch;
+      if (state.anchor !== null) {
+        state.anchorMap[state.anchor] = _result;
+      }
+      ch = state.input.charCodeAt(state.position);
+      while (ch !== 0) {
+        if (ch !== 45) {
+          break;
+        }
+        following = state.input.charCodeAt(state.position + 1);
+        if (!is_WS_OR_EOL(following)) {
+          break;
+        }
+        detected = true;
+        state.position++;
+        if (skipSeparationSpace(state, true, -1)) {
+          if (state.lineIndent <= nodeIndent) {
+            _result.push(null);
+            ch = state.input.charCodeAt(state.position);
+            continue;
+          }
+        }
+        _line = state.line;
+        composeNode(state, nodeIndent, CONTEXT_BLOCK_IN, false, true);
+        _result.push(state.result);
+        skipSeparationSpace(state, true, -1);
+        ch = state.input.charCodeAt(state.position);
+        if ((state.line === _line || state.lineIndent > nodeIndent) && ch !== 0) {
+          throwError3(state, "bad indentation of a sequence entry");
+        } else if (state.lineIndent < nodeIndent) {
+          break;
+        }
+      }
+      if (detected) {
+        state.tag = _tag;
+        state.anchor = _anchor;
+        state.kind = "sequence";
+        state.result = _result;
+        return true;
+      }
+      return false;
+    }
+    function readBlockMapping(state, nodeIndent, flowIndent) {
+      var following, allowCompact, _line, _pos, _tag = state.tag, _anchor = state.anchor, _result = {}, overridableKeys = {}, keyTag = null, keyNode = null, valueNode = null, atExplicitKey = false, detected = false, ch;
+      if (state.anchor !== null) {
+        state.anchorMap[state.anchor] = _result;
+      }
+      ch = state.input.charCodeAt(state.position);
+      while (ch !== 0) {
+        following = state.input.charCodeAt(state.position + 1);
+        _line = state.line;
+        _pos = state.position;
+        if ((ch === 63 || ch === 58) && is_WS_OR_EOL(following)) {
+          if (ch === 63) {
+            if (atExplicitKey) {
+              storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
+              keyTag = keyNode = valueNode = null;
+            }
+            detected = true;
+            atExplicitKey = true;
+            allowCompact = true;
+          } else if (atExplicitKey) {
+            atExplicitKey = false;
+            allowCompact = true;
+          } else {
+            throwError3(state, "incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line");
+          }
+          state.position += 1;
+          ch = following;
+        } else if (composeNode(state, flowIndent, CONTEXT_FLOW_OUT, false, true)) {
+          if (state.line === _line) {
+            ch = state.input.charCodeAt(state.position);
+            while (is_WHITE_SPACE(ch)) {
+              ch = state.input.charCodeAt(++state.position);
+            }
+            if (ch === 58) {
+              ch = state.input.charCodeAt(++state.position);
+              if (!is_WS_OR_EOL(ch)) {
+                throwError3(state, "a whitespace character is expected after the key-value separator within a block mapping");
+              }
+              if (atExplicitKey) {
+                storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
+                keyTag = keyNode = valueNode = null;
+              }
+              detected = true;
+              atExplicitKey = false;
+              allowCompact = false;
+              keyTag = state.tag;
+              keyNode = state.result;
+            } else if (detected) {
+              throwError3(state, "can not read an implicit mapping pair; a colon is missed");
+            } else {
+              state.tag = _tag;
+              state.anchor = _anchor;
+              return true;
+            }
+          } else if (detected) {
+            throwError3(state, "can not read a block mapping entry; a multiline key may not be an implicit key");
+          } else {
+            state.tag = _tag;
+            state.anchor = _anchor;
+            return true;
+          }
+        } else {
+          break;
+        }
+        if (state.line === _line || state.lineIndent > nodeIndent) {
+          if (composeNode(state, nodeIndent, CONTEXT_BLOCK_OUT, true, allowCompact)) {
+            if (atExplicitKey) {
+              keyNode = state.result;
+            } else {
+              valueNode = state.result;
+            }
+          }
+          if (!atExplicitKey) {
+            storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode, _line, _pos);
+            keyTag = keyNode = valueNode = null;
+          }
+          skipSeparationSpace(state, true, -1);
+          ch = state.input.charCodeAt(state.position);
+        }
+        if (state.lineIndent > nodeIndent && ch !== 0) {
+          throwError3(state, "bad indentation of a mapping entry");
+        } else if (state.lineIndent < nodeIndent) {
+          break;
+        }
+      }
+      if (atExplicitKey) {
+        storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
+      }
+      if (detected) {
+        state.tag = _tag;
+        state.anchor = _anchor;
+        state.kind = "mapping";
+        state.result = _result;
+      }
+      return detected;
+    }
+    function readTagProperty(state) {
+      var _position, isVerbatim = false, isNamed = false, tagHandle, tagName, ch;
+      ch = state.input.charCodeAt(state.position);
+      if (ch !== 33)
+        return false;
+      if (state.tag !== null) {
+        throwError3(state, "duplication of a tag property");
+      }
+      ch = state.input.charCodeAt(++state.position);
+      if (ch === 60) {
+        isVerbatim = true;
+        ch = state.input.charCodeAt(++state.position);
+      } else if (ch === 33) {
+        isNamed = true;
+        tagHandle = "!!";
+        ch = state.input.charCodeAt(++state.position);
+      } else {
+        tagHandle = "!";
+      }
+      _position = state.position;
+      if (isVerbatim) {
+        do {
+          ch = state.input.charCodeAt(++state.position);
+        } while (ch !== 0 && ch !== 62);
+        if (state.position < state.length) {
+          tagName = state.input.slice(_position, state.position);
+          ch = state.input.charCodeAt(++state.position);
+        } else {
+          throwError3(state, "unexpected end of the stream within a verbatim tag");
+        }
+      } else {
+        while (ch !== 0 && !is_WS_OR_EOL(ch)) {
+          if (ch === 33) {
+            if (!isNamed) {
+              tagHandle = state.input.slice(_position - 1, state.position + 1);
+              if (!PATTERN_TAG_HANDLE.test(tagHandle)) {
+                throwError3(state, "named tag handle cannot contain such characters");
+              }
+              isNamed = true;
+              _position = state.position + 1;
+            } else {
+              throwError3(state, "tag suffix cannot contain exclamation marks");
+            }
+          }
+          ch = state.input.charCodeAt(++state.position);
+        }
+        tagName = state.input.slice(_position, state.position);
+        if (PATTERN_FLOW_INDICATORS.test(tagName)) {
+          throwError3(state, "tag suffix cannot contain flow indicator characters");
+        }
+      }
+      if (tagName && !PATTERN_TAG_URI.test(tagName)) {
+        throwError3(state, "tag name cannot contain such characters: " + tagName);
+      }
+      if (isVerbatim) {
+        state.tag = tagName;
+      } else if (_hasOwnProperty.call(state.tagMap, tagHandle)) {
+        state.tag = state.tagMap[tagHandle] + tagName;
+      } else if (tagHandle === "!") {
+        state.tag = "!" + tagName;
+      } else if (tagHandle === "!!") {
+        state.tag = "tag:yaml.org,2002:" + tagName;
+      } else {
+        throwError3(state, 'undeclared tag handle "' + tagHandle + '"');
+      }
+      return true;
+    }
+    function readAnchorProperty(state) {
+      var _position, ch;
+      ch = state.input.charCodeAt(state.position);
+      if (ch !== 38)
+        return false;
+      if (state.anchor !== null) {
+        throwError3(state, "duplication of an anchor property");
+      }
+      ch = state.input.charCodeAt(++state.position);
+      _position = state.position;
+      while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
+        ch = state.input.charCodeAt(++state.position);
+      }
+      if (state.position === _position) {
+        throwError3(state, "name of an anchor node must contain at least one character");
+      }
+      state.anchor = state.input.slice(_position, state.position);
+      return true;
+    }
+    function readAlias(state) {
+      var _position, alias, ch;
+      ch = state.input.charCodeAt(state.position);
+      if (ch !== 42)
+        return false;
+      ch = state.input.charCodeAt(++state.position);
+      _position = state.position;
+      while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
+        ch = state.input.charCodeAt(++state.position);
+      }
+      if (state.position === _position) {
+        throwError3(state, "name of an alias node must contain at least one character");
+      }
+      alias = state.input.slice(_position, state.position);
+      if (!_hasOwnProperty.call(state.anchorMap, alias)) {
+        throwError3(state, 'unidentified alias "' + alias + '"');
+      }
+      state.result = state.anchorMap[alias];
+      skipSeparationSpace(state, true, -1);
+      return true;
+    }
+    function composeNode(state, parentIndent, nodeContext, allowToSeek, allowCompact) {
+      var allowBlockStyles, allowBlockScalars, allowBlockCollections, indentStatus = 1, atNewLine = false, hasContent = false, typeIndex, typeQuantity, type, flowIndent, blockIndent;
+      if (state.listener !== null) {
+        state.listener("open", state);
+      }
+      state.tag = null;
+      state.anchor = null;
+      state.kind = null;
+      state.result = null;
+      allowBlockStyles = allowBlockScalars = allowBlockCollections = CONTEXT_BLOCK_OUT === nodeContext || CONTEXT_BLOCK_IN === nodeContext;
+      if (allowToSeek) {
+        if (skipSeparationSpace(state, true, -1)) {
+          atNewLine = true;
+          if (state.lineIndent > parentIndent) {
+            indentStatus = 1;
+          } else if (state.lineIndent === parentIndent) {
+            indentStatus = 0;
+          } else if (state.lineIndent < parentIndent) {
+            indentStatus = -1;
+          }
+        }
+      }
+      if (indentStatus === 1) {
+        while (readTagProperty(state) || readAnchorProperty(state)) {
+          if (skipSeparationSpace(state, true, -1)) {
+            atNewLine = true;
+            allowBlockCollections = allowBlockStyles;
+            if (state.lineIndent > parentIndent) {
+              indentStatus = 1;
+            } else if (state.lineIndent === parentIndent) {
+              indentStatus = 0;
+            } else if (state.lineIndent < parentIndent) {
+              indentStatus = -1;
+            }
+          } else {
+            allowBlockCollections = false;
+          }
+        }
+      }
+      if (allowBlockCollections) {
+        allowBlockCollections = atNewLine || allowCompact;
+      }
+      if (indentStatus === 1 || CONTEXT_BLOCK_OUT === nodeContext) {
+        if (CONTEXT_FLOW_IN === nodeContext || CONTEXT_FLOW_OUT === nodeContext) {
+          flowIndent = parentIndent;
+        } else {
+          flowIndent = parentIndent + 1;
+        }
+        blockIndent = state.position - state.lineStart;
+        if (indentStatus === 1) {
+          if (allowBlockCollections && (readBlockSequence(state, blockIndent) || readBlockMapping(state, blockIndent, flowIndent)) || readFlowCollection(state, flowIndent)) {
+            hasContent = true;
+          } else {
+            if (allowBlockScalars && readBlockScalar(state, flowIndent) || readSingleQuotedScalar(state, flowIndent) || readDoubleQuotedScalar(state, flowIndent)) {
+              hasContent = true;
+            } else if (readAlias(state)) {
+              hasContent = true;
+              if (state.tag !== null || state.anchor !== null) {
+                throwError3(state, "alias node should not have any properties");
+              }
+            } else if (readPlainScalar(state, flowIndent, CONTEXT_FLOW_IN === nodeContext)) {
+              hasContent = true;
+              if (state.tag === null) {
+                state.tag = "?";
+              }
+            }
+            if (state.anchor !== null) {
+              state.anchorMap[state.anchor] = state.result;
+            }
+          }
+        } else if (indentStatus === 0) {
+          hasContent = allowBlockCollections && readBlockSequence(state, blockIndent);
+        }
+      }
+      if (state.tag !== null && state.tag !== "!") {
+        if (state.tag === "?") {
+          if (state.result !== null && state.kind !== "scalar") {
+            throwError3(state, 'unacceptable node kind for !<?> tag; it should be "scalar", not "' + state.kind + '"');
+          }
+          for (typeIndex = 0, typeQuantity = state.implicitTypes.length; typeIndex < typeQuantity; typeIndex += 1) {
+            type = state.implicitTypes[typeIndex];
+            if (type.resolve(state.result)) {
+              state.result = type.construct(state.result);
+              state.tag = type.tag;
+              if (state.anchor !== null) {
+                state.anchorMap[state.anchor] = state.result;
+              }
+              break;
+            }
+          }
+        } else if (_hasOwnProperty.call(state.typeMap[state.kind || "fallback"], state.tag)) {
+          type = state.typeMap[state.kind || "fallback"][state.tag];
+          if (state.result !== null && type.kind !== state.kind) {
+            throwError3(state, "unacceptable node kind for !<" + state.tag + '> tag; it should be "' + type.kind + '", not "' + state.kind + '"');
+          }
+          if (!type.resolve(state.result)) {
+            throwError3(state, "cannot resolve a node with !<" + state.tag + "> explicit tag");
+          } else {
+            state.result = type.construct(state.result);
+            if (state.anchor !== null) {
+              state.anchorMap[state.anchor] = state.result;
+            }
+          }
+        } else {
+          throwError3(state, "unknown tag !<" + state.tag + ">");
+        }
+      }
+      if (state.listener !== null) {
+        state.listener("close", state);
+      }
+      return state.tag !== null || state.anchor !== null || hasContent;
+    }
+    function readDocument(state) {
+      var documentStart = state.position, _position, directiveName, directiveArgs, hasDirectives = false, ch;
+      state.version = null;
+      state.checkLineBreaks = state.legacy;
+      state.tagMap = {};
+      state.anchorMap = {};
+      while ((ch = state.input.charCodeAt(state.position)) !== 0) {
+        skipSeparationSpace(state, true, -1);
+        ch = state.input.charCodeAt(state.position);
+        if (state.lineIndent > 0 || ch !== 37) {
+          break;
+        }
+        hasDirectives = true;
+        ch = state.input.charCodeAt(++state.position);
+        _position = state.position;
+        while (ch !== 0 && !is_WS_OR_EOL(ch)) {
+          ch = state.input.charCodeAt(++state.position);
+        }
+        directiveName = state.input.slice(_position, state.position);
+        directiveArgs = [];
+        if (directiveName.length < 1) {
+          throwError3(state, "directive name must not be less than one character in length");
+        }
+        while (ch !== 0) {
+          while (is_WHITE_SPACE(ch)) {
+            ch = state.input.charCodeAt(++state.position);
+          }
+          if (ch === 35) {
+            do {
+              ch = state.input.charCodeAt(++state.position);
+            } while (ch !== 0 && !is_EOL(ch));
+            break;
+          }
+          if (is_EOL(ch))
+            break;
+          _position = state.position;
+          while (ch !== 0 && !is_WS_OR_EOL(ch)) {
+            ch = state.input.charCodeAt(++state.position);
+          }
+          directiveArgs.push(state.input.slice(_position, state.position));
+        }
+        if (ch !== 0)
+          readLineBreak(state);
+        if (_hasOwnProperty.call(directiveHandlers, directiveName)) {
+          directiveHandlers[directiveName](state, directiveName, directiveArgs);
+        } else {
+          throwWarning(state, 'unknown document directive "' + directiveName + '"');
+        }
+      }
+      skipSeparationSpace(state, true, -1);
+      if (state.lineIndent === 0 && state.input.charCodeAt(state.position) === 45 && state.input.charCodeAt(state.position + 1) === 45 && state.input.charCodeAt(state.position + 2) === 45) {
+        state.position += 3;
+        skipSeparationSpace(state, true, -1);
+      } else if (hasDirectives) {
+        throwError3(state, "directives end mark is expected");
+      }
+      composeNode(state, state.lineIndent - 1, CONTEXT_BLOCK_OUT, false, true);
+      skipSeparationSpace(state, true, -1);
+      if (state.checkLineBreaks && PATTERN_NON_ASCII_LINE_BREAKS.test(state.input.slice(documentStart, state.position))) {
+        throwWarning(state, "non-ASCII line breaks are interpreted as content");
+      }
+      state.documents.push(state.result);
+      if (state.position === state.lineStart && testDocumentSeparator(state)) {
+        if (state.input.charCodeAt(state.position) === 46) {
+          state.position += 3;
+          skipSeparationSpace(state, true, -1);
+        }
+        return;
+      }
+      if (state.position < state.length - 1) {
+        throwError3(state, "end of the stream or a document separator is expected");
+      } else {
+        return;
+      }
+    }
+    function loadDocuments(input, options2) {
+      input = String(input);
+      options2 = options2 || {};
+      if (input.length !== 0) {
+        if (input.charCodeAt(input.length - 1) !== 10 && input.charCodeAt(input.length - 1) !== 13) {
+          input += "\n";
+        }
+        if (input.charCodeAt(0) === 65279) {
+          input = input.slice(1);
+        }
+      }
+      var state = new State(input, options2);
+      var nullpos = input.indexOf("\0");
+      if (nullpos !== -1) {
+        state.position = nullpos;
+        throwError3(state, "null byte is not allowed in input");
+      }
+      state.input += "\0";
+      while (state.input.charCodeAt(state.position) === 32) {
+        state.lineIndent += 1;
+        state.position += 1;
+      }
+      while (state.position < state.length - 1) {
+        readDocument(state);
+      }
+      return state.documents;
+    }
+    function loadAll(input, iterator, options2) {
+      if (iterator !== null && typeof iterator === "object" && typeof options2 === "undefined") {
+        options2 = iterator;
+        iterator = null;
+      }
+      var documents = loadDocuments(input, options2);
+      if (typeof iterator !== "function") {
+        return documents;
+      }
+      for (var index2 = 0, length2 = documents.length; index2 < length2; index2 += 1) {
+        iterator(documents[index2]);
+      }
+    }
+    function load(input, options2) {
+      var documents = loadDocuments(input, options2);
+      if (documents.length === 0) {
+        return void 0;
+      } else if (documents.length === 1) {
+        return documents[0];
+      }
+      throw new YAMLException("expected a single document in the stream, but found more");
+    }
+    function safeLoadAll(input, iterator, options2) {
+      if (typeof iterator === "object" && iterator !== null && typeof options2 === "undefined") {
+        options2 = iterator;
+        iterator = null;
+      }
+      return loadAll(input, iterator, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options2));
+    }
+    function safeLoad(input, options2) {
+      return load(input, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options2));
+    }
+    module2.exports.loadAll = loadAll;
+    module2.exports.load = load;
+    module2.exports.safeLoadAll = safeLoadAll;
+    module2.exports.safeLoad = safeLoad;
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/dumper.js
+var require_dumper = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/dumper.js"(exports2, module2) {
+    "use strict";
+    var common = require_common();
+    var YAMLException = require_exception();
+    var DEFAULT_FULL_SCHEMA = require_default_full();
+    var DEFAULT_SAFE_SCHEMA = require_default_safe();
+    var _toString = Object.prototype.toString;
+    var _hasOwnProperty = Object.prototype.hasOwnProperty;
+    var CHAR_TAB = 9;
+    var CHAR_LINE_FEED = 10;
+    var CHAR_CARRIAGE_RETURN = 13;
+    var CHAR_SPACE = 32;
+    var CHAR_EXCLAMATION = 33;
+    var CHAR_DOUBLE_QUOTE = 34;
+    var CHAR_SHARP = 35;
+    var CHAR_PERCENT = 37;
+    var CHAR_AMPERSAND = 38;
+    var CHAR_SINGLE_QUOTE = 39;
+    var CHAR_ASTERISK = 42;
+    var CHAR_COMMA = 44;
+    var CHAR_MINUS = 45;
+    var CHAR_COLON = 58;
+    var CHAR_EQUALS = 61;
+    var CHAR_GREATER_THAN = 62;
+    var CHAR_QUESTION = 63;
+    var CHAR_COMMERCIAL_AT = 64;
+    var CHAR_LEFT_SQUARE_BRACKET = 91;
+    var CHAR_RIGHT_SQUARE_BRACKET = 93;
+    var CHAR_GRAVE_ACCENT = 96;
+    var CHAR_LEFT_CURLY_BRACKET = 123;
+    var CHAR_VERTICAL_LINE = 124;
+    var CHAR_RIGHT_CURLY_BRACKET = 125;
+    var ESCAPE_SEQUENCES = {};
+    ESCAPE_SEQUENCES[0] = "\\0";
+    ESCAPE_SEQUENCES[7] = "\\a";
+    ESCAPE_SEQUENCES[8] = "\\b";
+    ESCAPE_SEQUENCES[9] = "\\t";
+    ESCAPE_SEQUENCES[10] = "\\n";
+    ESCAPE_SEQUENCES[11] = "\\v";
+    ESCAPE_SEQUENCES[12] = "\\f";
+    ESCAPE_SEQUENCES[13] = "\\r";
+    ESCAPE_SEQUENCES[27] = "\\e";
+    ESCAPE_SEQUENCES[34] = '\\"';
+    ESCAPE_SEQUENCES[92] = "\\\\";
+    ESCAPE_SEQUENCES[133] = "\\N";
+    ESCAPE_SEQUENCES[160] = "\\_";
+    ESCAPE_SEQUENCES[8232] = "\\L";
+    ESCAPE_SEQUENCES[8233] = "\\P";
+    var DEPRECATED_BOOLEANS_SYNTAX = [
+      "y",
+      "Y",
+      "yes",
+      "Yes",
+      "YES",
+      "on",
+      "On",
+      "ON",
+      "n",
+      "N",
+      "no",
+      "No",
+      "NO",
+      "off",
+      "Off",
+      "OFF"
+    ];
+    function compileStyleMap(schema, map) {
+      var result, keys, index2, length2, tag, style, type;
+      if (map === null)
+        return {};
+      result = {};
+      keys = Object.keys(map);
+      for (index2 = 0, length2 = keys.length; index2 < length2; index2 += 1) {
+        tag = keys[index2];
+        style = String(map[tag]);
+        if (tag.slice(0, 2) === "!!") {
+          tag = "tag:yaml.org,2002:" + tag.slice(2);
+        }
+        type = schema.compiledTypeMap["fallback"][tag];
+        if (type && _hasOwnProperty.call(type.styleAliases, style)) {
+          style = type.styleAliases[style];
+        }
+        result[tag] = style;
+      }
+      return result;
+    }
+    function encodeHex(character) {
+      var string2, handle, length2;
+      string2 = character.toString(16).toUpperCase();
+      if (character <= 255) {
+        handle = "x";
+        length2 = 2;
+      } else if (character <= 65535) {
+        handle = "u";
+        length2 = 4;
+      } else if (character <= 4294967295) {
+        handle = "U";
+        length2 = 8;
+      } else {
+        throw new YAMLException("code point within a string may not be greater than 0xFFFFFFFF");
+      }
+      return "\\" + handle + common.repeat("0", length2 - string2.length) + string2;
+    }
+    function State(options2) {
+      this.schema = options2["schema"] || DEFAULT_FULL_SCHEMA;
+      this.indent = Math.max(1, options2["indent"] || 2);
+      this.noArrayIndent = options2["noArrayIndent"] || false;
+      this.skipInvalid = options2["skipInvalid"] || false;
+      this.flowLevel = common.isNothing(options2["flowLevel"]) ? -1 : options2["flowLevel"];
+      this.styleMap = compileStyleMap(this.schema, options2["styles"] || null);
+      this.sortKeys = options2["sortKeys"] || false;
+      this.lineWidth = options2["lineWidth"] || 80;
+      this.noRefs = options2["noRefs"] || false;
+      this.noCompatMode = options2["noCompatMode"] || false;
+      this.condenseFlow = options2["condenseFlow"] || false;
+      this.implicitTypes = this.schema.compiledImplicit;
+      this.explicitTypes = this.schema.compiledExplicit;
+      this.tag = null;
+      this.result = "";
+      this.duplicates = [];
+      this.usedDuplicates = null;
+    }
+    function indentString(string2, spaces) {
+      var ind = common.repeat(" ", spaces), position = 0, next = -1, result = "", line, length2 = string2.length;
+      while (position < length2) {
+        next = string2.indexOf("\n", position);
+        if (next === -1) {
+          line = string2.slice(position);
+          position = length2;
+        } else {
+          line = string2.slice(position, next + 1);
+          position = next + 1;
+        }
+        if (line.length && line !== "\n")
+          result += ind;
+        result += line;
+      }
+      return result;
+    }
+    function generateNextLine(state, level) {
+      return "\n" + common.repeat(" ", state.indent * level);
+    }
+    function testImplicitResolving(state, str2) {
+      var index2, length2, type;
+      for (index2 = 0, length2 = state.implicitTypes.length; index2 < length2; index2 += 1) {
+        type = state.implicitTypes[index2];
+        if (type.resolve(str2)) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function isWhitespace(c) {
+      return c === CHAR_SPACE || c === CHAR_TAB;
+    }
+    function isPrintable(c) {
+      return 32 <= c && c <= 126 || 161 <= c && c <= 55295 && c !== 8232 && c !== 8233 || 57344 <= c && c <= 65533 && c !== 65279 || 65536 <= c && c <= 1114111;
+    }
+    function isNsChar(c) {
+      return isPrintable(c) && !isWhitespace(c) && c !== 65279 && c !== CHAR_CARRIAGE_RETURN && c !== CHAR_LINE_FEED;
+    }
+    function isPlainSafe(c, prev) {
+      return isPrintable(c) && c !== 65279 && c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET && c !== CHAR_COLON && (c !== CHAR_SHARP || prev && isNsChar(prev));
+    }
+    function isPlainSafeFirst(c) {
+      return isPrintable(c) && c !== 65279 && !isWhitespace(c) && c !== CHAR_MINUS && c !== CHAR_QUESTION && c !== CHAR_COLON && c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET && c !== CHAR_SHARP && c !== CHAR_AMPERSAND && c !== CHAR_ASTERISK && c !== CHAR_EXCLAMATION && c !== CHAR_VERTICAL_LINE && c !== CHAR_EQUALS && c !== CHAR_GREATER_THAN && c !== CHAR_SINGLE_QUOTE && c !== CHAR_DOUBLE_QUOTE && c !== CHAR_PERCENT && c !== CHAR_COMMERCIAL_AT && c !== CHAR_GRAVE_ACCENT;
+    }
+    function needIndentIndicator(string2) {
+      var leadingSpaceRe = /^\n* /;
+      return leadingSpaceRe.test(string2);
+    }
+    var STYLE_PLAIN = 1;
+    var STYLE_SINGLE = 2;
+    var STYLE_LITERAL = 3;
+    var STYLE_FOLDED = 4;
+    var STYLE_DOUBLE = 5;
+    function chooseScalarStyle(string2, singleLineOnly, indentPerLevel, lineWidth, testAmbiguousType) {
+      var i;
+      var char, prev_char;
+      var hasLineBreak = false;
+      var hasFoldableLine = false;
+      var shouldTrackWidth = lineWidth !== -1;
+      var previousLineBreak = -1;
+      var plain = isPlainSafeFirst(string2.charCodeAt(0)) && !isWhitespace(string2.charCodeAt(string2.length - 1));
+      if (singleLineOnly) {
+        for (i = 0; i < string2.length; i++) {
+          char = string2.charCodeAt(i);
+          if (!isPrintable(char)) {
+            return STYLE_DOUBLE;
+          }
+          prev_char = i > 0 ? string2.charCodeAt(i - 1) : null;
+          plain = plain && isPlainSafe(char, prev_char);
+        }
+      } else {
+        for (i = 0; i < string2.length; i++) {
+          char = string2.charCodeAt(i);
+          if (char === CHAR_LINE_FEED) {
+            hasLineBreak = true;
+            if (shouldTrackWidth) {
+              hasFoldableLine = hasFoldableLine || // Foldable line = too long, and not more-indented.
+              i - previousLineBreak - 1 > lineWidth && string2[previousLineBreak + 1] !== " ";
+              previousLineBreak = i;
+            }
+          } else if (!isPrintable(char)) {
+            return STYLE_DOUBLE;
+          }
+          prev_char = i > 0 ? string2.charCodeAt(i - 1) : null;
+          plain = plain && isPlainSafe(char, prev_char);
+        }
+        hasFoldableLine = hasFoldableLine || shouldTrackWidth && (i - previousLineBreak - 1 > lineWidth && string2[previousLineBreak + 1] !== " ");
+      }
+      if (!hasLineBreak && !hasFoldableLine) {
+        return plain && !testAmbiguousType(string2) ? STYLE_PLAIN : STYLE_SINGLE;
+      }
+      if (indentPerLevel > 9 && needIndentIndicator(string2)) {
+        return STYLE_DOUBLE;
+      }
+      return hasFoldableLine ? STYLE_FOLDED : STYLE_LITERAL;
+    }
+    function writeScalar(state, string2, level, iskey) {
+      state.dump = function() {
+        if (string2.length === 0) {
+          return "''";
+        }
+        if (!state.noCompatMode && DEPRECATED_BOOLEANS_SYNTAX.indexOf(string2) !== -1) {
+          return "'" + string2 + "'";
+        }
+        var indent = state.indent * Math.max(1, level);
+        var lineWidth = state.lineWidth === -1 ? -1 : Math.max(Math.min(state.lineWidth, 40), state.lineWidth - indent);
+        var singleLineOnly = iskey || state.flowLevel > -1 && level >= state.flowLevel;
+        function testAmbiguity(string3) {
+          return testImplicitResolving(state, string3);
+        }
+        switch (chooseScalarStyle(string2, singleLineOnly, state.indent, lineWidth, testAmbiguity)) {
+          case STYLE_PLAIN:
+            return string2;
+          case STYLE_SINGLE:
+            return "'" + string2.replace(/'/g, "''") + "'";
+          case STYLE_LITERAL:
+            return "|" + blockHeader(string2, state.indent) + dropEndingNewline(indentString(string2, indent));
+          case STYLE_FOLDED:
+            return ">" + blockHeader(string2, state.indent) + dropEndingNewline(indentString(foldString(string2, lineWidth), indent));
+          case STYLE_DOUBLE:
+            return '"' + escapeString(string2, lineWidth) + '"';
+          default:
+            throw new YAMLException("impossible error: invalid scalar style");
+        }
+      }();
+    }
+    function blockHeader(string2, indentPerLevel) {
+      var indentIndicator = needIndentIndicator(string2) ? String(indentPerLevel) : "";
+      var clip = string2[string2.length - 1] === "\n";
+      var keep = clip && (string2[string2.length - 2] === "\n" || string2 === "\n");
+      var chomp = keep ? "+" : clip ? "" : "-";
+      return indentIndicator + chomp + "\n";
+    }
+    function dropEndingNewline(string2) {
+      return string2[string2.length - 1] === "\n" ? string2.slice(0, -1) : string2;
+    }
+    function foldString(string2, width) {
+      var lineRe = /(\n+)([^\n]*)/g;
+      var result = function() {
+        var nextLF = string2.indexOf("\n");
+        nextLF = nextLF !== -1 ? nextLF : string2.length;
+        lineRe.lastIndex = nextLF;
+        return foldLine(string2.slice(0, nextLF), width);
+      }();
+      var prevMoreIndented = string2[0] === "\n" || string2[0] === " ";
+      var moreIndented;
+      var match;
+      while (match = lineRe.exec(string2)) {
+        var prefix = match[1], line = match[2];
+        moreIndented = line[0] === " ";
+        result += prefix + (!prevMoreIndented && !moreIndented && line !== "" ? "\n" : "") + foldLine(line, width);
+        prevMoreIndented = moreIndented;
+      }
+      return result;
+    }
+    function foldLine(line, width) {
+      if (line === "" || line[0] === " ")
+        return line;
+      var breakRe = / [^ ]/g;
+      var match;
+      var start = 0, end, curr = 0, next = 0;
+      var result = "";
+      while (match = breakRe.exec(line)) {
+        next = match.index;
+        if (next - start > width) {
+          end = curr > start ? curr : next;
+          result += "\n" + line.slice(start, end);
+          start = end + 1;
+        }
+        curr = next;
+      }
+      result += "\n";
+      if (line.length - start > width && curr > start) {
+        result += line.slice(start, curr) + "\n" + line.slice(curr + 1);
+      } else {
+        result += line.slice(start);
+      }
+      return result.slice(1);
+    }
+    function escapeString(string2) {
+      var result = "";
+      var char, nextChar;
+      var escapeSeq;
+      for (var i = 0; i < string2.length; i++) {
+        char = string2.charCodeAt(i);
+        if (char >= 55296 && char <= 56319) {
+          nextChar = string2.charCodeAt(i + 1);
+          if (nextChar >= 56320 && nextChar <= 57343) {
+            result += encodeHex((char - 55296) * 1024 + nextChar - 56320 + 65536);
+            i++;
+            continue;
+          }
+        }
+        escapeSeq = ESCAPE_SEQUENCES[char];
+        result += !escapeSeq && isPrintable(char) ? string2[i] : escapeSeq || encodeHex(char);
+      }
+      return result;
+    }
+    function writeFlowSequence(state, level, object) {
+      var _result = "", _tag = state.tag, index2, length2;
+      for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
+        if (writeNode(state, level, object[index2], false, false)) {
+          if (index2 !== 0)
+            _result += "," + (!state.condenseFlow ? " " : "");
+          _result += state.dump;
+        }
+      }
+      state.tag = _tag;
+      state.dump = "[" + _result + "]";
+    }
+    function writeBlockSequence(state, level, object, compact) {
+      var _result = "", _tag = state.tag, index2, length2;
+      for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
+        if (writeNode(state, level + 1, object[index2], true, true)) {
+          if (!compact || index2 !== 0) {
+            _result += generateNextLine(state, level);
+          }
+          if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
+            _result += "-";
+          } else {
+            _result += "- ";
+          }
+          _result += state.dump;
+        }
+      }
+      state.tag = _tag;
+      state.dump = _result || "[]";
+    }
+    function writeFlowMapping(state, level, object) {
+      var _result = "", _tag = state.tag, objectKeyList = Object.keys(object), index2, length2, objectKey, objectValue, pairBuffer;
+      for (index2 = 0, length2 = objectKeyList.length; index2 < length2; index2 += 1) {
+        pairBuffer = "";
+        if (index2 !== 0)
+          pairBuffer += ", ";
+        if (state.condenseFlow)
+          pairBuffer += '"';
+        objectKey = objectKeyList[index2];
+        objectValue = object[objectKey];
+        if (!writeNode(state, level, objectKey, false, false)) {
+          continue;
+        }
+        if (state.dump.length > 1024)
+          pairBuffer += "? ";
+        pairBuffer += state.dump + (state.condenseFlow ? '"' : "") + ":" + (state.condenseFlow ? "" : " ");
+        if (!writeNode(state, level, objectValue, false, false)) {
+          continue;
+        }
+        pairBuffer += state.dump;
+        _result += pairBuffer;
+      }
+      state.tag = _tag;
+      state.dump = "{" + _result + "}";
+    }
+    function writeBlockMapping(state, level, object, compact) {
+      var _result = "", _tag = state.tag, objectKeyList = Object.keys(object), index2, length2, objectKey, objectValue, explicitPair, pairBuffer;
+      if (state.sortKeys === true) {
+        objectKeyList.sort();
+      } else if (typeof state.sortKeys === "function") {
+        objectKeyList.sort(state.sortKeys);
+      } else if (state.sortKeys) {
+        throw new YAMLException("sortKeys must be a boolean or a function");
+      }
+      for (index2 = 0, length2 = objectKeyList.length; index2 < length2; index2 += 1) {
+        pairBuffer = "";
+        if (!compact || index2 !== 0) {
+          pairBuffer += generateNextLine(state, level);
+        }
+        objectKey = objectKeyList[index2];
+        objectValue = object[objectKey];
+        if (!writeNode(state, level + 1, objectKey, true, true, true)) {
+          continue;
+        }
+        explicitPair = state.tag !== null && state.tag !== "?" || state.dump && state.dump.length > 1024;
+        if (explicitPair) {
+          if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
+            pairBuffer += "?";
+          } else {
+            pairBuffer += "? ";
+          }
+        }
+        pairBuffer += state.dump;
+        if (explicitPair) {
+          pairBuffer += generateNextLine(state, level);
+        }
+        if (!writeNode(state, level + 1, objectValue, true, explicitPair)) {
+          continue;
+        }
+        if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
+          pairBuffer += ":";
+        } else {
+          pairBuffer += ": ";
+        }
+        pairBuffer += state.dump;
+        _result += pairBuffer;
+      }
+      state.tag = _tag;
+      state.dump = _result || "{}";
+    }
+    function detectType(state, object, explicit) {
+      var _result, typeList, index2, length2, type, style;
+      typeList = explicit ? state.explicitTypes : state.implicitTypes;
+      for (index2 = 0, length2 = typeList.length; index2 < length2; index2 += 1) {
+        type = typeList[index2];
+        if ((type.instanceOf || type.predicate) && (!type.instanceOf || typeof object === "object" && object instanceof type.instanceOf) && (!type.predicate || type.predicate(object))) {
+          state.tag = explicit ? type.tag : "?";
+          if (type.represent) {
+            style = state.styleMap[type.tag] || type.defaultStyle;
+            if (_toString.call(type.represent) === "[object Function]") {
+              _result = type.represent(object, style);
+            } else if (_hasOwnProperty.call(type.represent, style)) {
+              _result = type.represent[style](object, style);
+            } else {
+              throw new YAMLException("!<" + type.tag + '> tag resolver accepts not "' + style + '" style');
+            }
+            state.dump = _result;
+          }
+          return true;
+        }
+      }
+      return false;
+    }
+    function writeNode(state, level, object, block, compact, iskey) {
+      state.tag = null;
+      state.dump = object;
+      if (!detectType(state, object, false)) {
+        detectType(state, object, true);
+      }
+      var type = _toString.call(state.dump);
+      if (block) {
+        block = state.flowLevel < 0 || state.flowLevel > level;
+      }
+      var objectOrArray = type === "[object Object]" || type === "[object Array]", duplicateIndex, duplicate;
+      if (objectOrArray) {
+        duplicateIndex = state.duplicates.indexOf(object);
+        duplicate = duplicateIndex !== -1;
+      }
+      if (state.tag !== null && state.tag !== "?" || duplicate || state.indent !== 2 && level > 0) {
+        compact = false;
+      }
+      if (duplicate && state.usedDuplicates[duplicateIndex]) {
+        state.dump = "*ref_" + duplicateIndex;
+      } else {
+        if (objectOrArray && duplicate && !state.usedDuplicates[duplicateIndex]) {
+          state.usedDuplicates[duplicateIndex] = true;
+        }
+        if (type === "[object Object]") {
+          if (block && Object.keys(state.dump).length !== 0) {
+            writeBlockMapping(state, level, state.dump, compact);
+            if (duplicate) {
+              state.dump = "&ref_" + duplicateIndex + state.dump;
+            }
+          } else {
+            writeFlowMapping(state, level, state.dump);
+            if (duplicate) {
+              state.dump = "&ref_" + duplicateIndex + " " + state.dump;
+            }
+          }
+        } else if (type === "[object Array]") {
+          var arrayLevel = state.noArrayIndent && level > 0 ? level - 1 : level;
+          if (block && state.dump.length !== 0) {
+            writeBlockSequence(state, arrayLevel, state.dump, compact);
+            if (duplicate) {
+              state.dump = "&ref_" + duplicateIndex + state.dump;
+            }
+          } else {
+            writeFlowSequence(state, arrayLevel, state.dump);
+            if (duplicate) {
+              state.dump = "&ref_" + duplicateIndex + " " + state.dump;
+            }
+          }
+        } else if (type === "[object String]") {
+          if (state.tag !== "?") {
+            writeScalar(state, state.dump, level, iskey);
+          }
+        } else {
+          if (state.skipInvalid)
+            return false;
+          throw new YAMLException("unacceptable kind of an object to dump " + type);
+        }
+        if (state.tag !== null && state.tag !== "?") {
+          state.dump = "!<" + state.tag + "> " + state.dump;
+        }
+      }
+      return true;
+    }
+    function getDuplicateReferences(object, state) {
+      var objects = [], duplicatesIndexes = [], index2, length2;
+      inspectNode(object, objects, duplicatesIndexes);
+      for (index2 = 0, length2 = duplicatesIndexes.length; index2 < length2; index2 += 1) {
+        state.duplicates.push(objects[duplicatesIndexes[index2]]);
+      }
+      state.usedDuplicates = new Array(length2);
+    }
+    function inspectNode(object, objects, duplicatesIndexes) {
+      var objectKeyList, index2, length2;
+      if (object !== null && typeof object === "object") {
+        index2 = objects.indexOf(object);
+        if (index2 !== -1) {
+          if (duplicatesIndexes.indexOf(index2) === -1) {
+            duplicatesIndexes.push(index2);
+          }
+        } else {
+          objects.push(object);
+          if (Array.isArray(object)) {
+            for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
+              inspectNode(object[index2], objects, duplicatesIndexes);
+            }
+          } else {
+            objectKeyList = Object.keys(object);
+            for (index2 = 0, length2 = objectKeyList.length; index2 < length2; index2 += 1) {
+              inspectNode(object[objectKeyList[index2]], objects, duplicatesIndexes);
+            }
+          }
+        }
+      }
+    }
+    function dump(input, options2) {
+      options2 = options2 || {};
+      var state = new State(options2);
+      if (!state.noRefs)
+        getDuplicateReferences(input, state);
+      if (writeNode(state, 0, input, true, true))
+        return state.dump + "\n";
+      return "";
+    }
+    function safeDump(input, options2) {
+      return dump(input, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options2));
+    }
+    module2.exports.dump = dump;
+    module2.exports.safeDump = safeDump;
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml.js
+var require_js_yaml = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml.js"(exports2, module2) {
+    "use strict";
+    var loader2 = require_loader();
+    var dumper = require_dumper();
+    function deprecated(name2) {
+      return function() {
+        throw new Error("Function " + name2 + " is deprecated and cannot be used.");
+      };
+    }
+    module2.exports.Type = require_type();
+    module2.exports.Schema = require_schema();
+    module2.exports.FAILSAFE_SCHEMA = require_failsafe();
+    module2.exports.JSON_SCHEMA = require_json();
+    module2.exports.CORE_SCHEMA = require_core();
+    module2.exports.DEFAULT_SAFE_SCHEMA = require_default_safe();
+    module2.exports.DEFAULT_FULL_SCHEMA = require_default_full();
+    module2.exports.load = loader2.load;
+    module2.exports.loadAll = loader2.loadAll;
+    module2.exports.safeLoad = loader2.safeLoad;
+    module2.exports.safeLoadAll = loader2.safeLoadAll;
+    module2.exports.dump = dumper.dump;
+    module2.exports.safeDump = dumper.safeDump;
+    module2.exports.YAMLException = require_exception();
+    module2.exports.MINIMAL_SCHEMA = require_failsafe();
+    module2.exports.SAFE_SCHEMA = require_default_safe();
+    module2.exports.DEFAULT_SCHEMA = require_default_full();
+    module2.exports.scan = deprecated("scan");
+    module2.exports.parse = deprecated("parse");
+    module2.exports.compose = deprecated("compose");
+    module2.exports.addConstructor = deprecated("addConstructor");
+  }
+});
+
+// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/index.js
+var require_js_yaml2 = __commonJS({
+  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/index.js"(exports2, module2) {
+    "use strict";
+    var yaml2 = require_js_yaml();
+    module2.exports = yaml2;
+  }
+});
+
+// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/engines.js
+var require_engines = __commonJS({
+  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/engines.js"(exports, module) {
+    "use strict";
+    var yaml = require_js_yaml2();
+    var engines = exports = module.exports;
+    engines.yaml = {
+      parse: yaml.safeLoad.bind(yaml),
+      stringify: yaml.safeDump.bind(yaml)
+    };
+    engines.json = {
+      parse: JSON.parse.bind(JSON),
+      stringify: function(obj, options2) {
+        const opts = Object.assign({ replacer: null, space: 2 }, options2);
+        return JSON.stringify(obj, opts.replacer, opts.space);
+      }
+    };
+    engines.javascript = {
+      parse: function parse(str, options, wrap) {
+        try {
+          if (wrap !== false) {
+            str = "(function() {\nreturn " + str.trim() + ";\n}());";
+          }
+          return eval(str) || {};
+        } catch (err) {
+          if (wrap !== false && /(unexpected|identifier)/i.test(err.message)) {
+            return parse(str, options, false);
+          }
+          throw new SyntaxError(err);
+        }
+      },
+      stringify: function() {
+        throw new Error("stringifying JavaScript is not supported");
+      }
+    };
+  }
+});
+
+// node_modules/.pnpm/strip-bom-string@1.0.0/node_modules/strip-bom-string/index.js
+var require_strip_bom_string = __commonJS({
+  "node_modules/.pnpm/strip-bom-string@1.0.0/node_modules/strip-bom-string/index.js"(exports2, module2) {
+    "use strict";
+    module2.exports = function(str2) {
+      if (typeof str2 === "string" && str2.charAt(0) === "\uFEFF") {
+        return str2.slice(1);
+      }
+      return str2;
+    };
+  }
+});
+
+// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/utils.js
+var require_utils = __commonJS({
+  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/utils.js"(exports2) {
+    "use strict";
+    var stripBom = require_strip_bom_string();
+    var typeOf = require_kind_of();
+    exports2.define = function(obj, key, val) {
+      Reflect.defineProperty(obj, key, {
+        enumerable: false,
+        configurable: true,
+        writable: true,
+        value: val
+      });
+    };
+    exports2.isBuffer = function(val) {
+      return typeOf(val) === "buffer";
+    };
+    exports2.isObject = function(val) {
+      return typeOf(val) === "object";
+    };
+    exports2.toBuffer = function(input) {
+      return typeof input === "string" ? Buffer.from(input) : input;
+    };
+    exports2.toString = function(input) {
+      if (exports2.isBuffer(input))
+        return stripBom(String(input));
+      if (typeof input !== "string") {
+        throw new TypeError("expected input to be a string or buffer");
+      }
+      return stripBom(input);
+    };
+    exports2.arrayify = function(val) {
+      return val ? Array.isArray(val) ? val : [val] : [];
+    };
+    exports2.startsWith = function(str2, substr, len) {
+      if (typeof len !== "number")
+        len = substr.length;
+      return str2.slice(0, len) === substr;
+    };
+  }
+});
+
+// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/defaults.js
+var require_defaults = __commonJS({
+  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/defaults.js"(exports2, module2) {
+    "use strict";
+    var engines2 = require_engines();
+    var utils = require_utils();
+    module2.exports = function(options2) {
+      const opts = Object.assign({}, options2);
+      opts.delimiters = utils.arrayify(opts.delims || opts.delimiters || "---");
+      if (opts.delimiters.length === 1) {
+        opts.delimiters.push(opts.delimiters[0]);
+      }
+      opts.language = (opts.language || opts.lang || "yaml").toLowerCase();
+      opts.engines = Object.assign({}, engines2, opts.parsers, opts.engines);
+      return opts;
+    };
+  }
+});
+
+// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/engine.js
+var require_engine = __commonJS({
+  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/engine.js"(exports2, module2) {
+    "use strict";
+    module2.exports = function(name2, options2) {
+      let engine = options2.engines[name2] || options2.engines[aliase(name2)];
+      if (typeof engine === "undefined") {
+        throw new Error('gray-matter engine "' + name2 + '" is not registered');
+      }
+      if (typeof engine === "function") {
+        engine = { parse: engine };
+      }
+      return engine;
+    };
+    function aliase(name2) {
+      switch (name2.toLowerCase()) {
+        case "js":
+        case "javascript":
+          return "javascript";
+        case "coffee":
+        case "coffeescript":
+        case "cson":
+          return "coffee";
+        case "yaml":
+        case "yml":
+          return "yaml";
+        default: {
+          return name2;
+        }
+      }
+    }
+  }
+});
+
+// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/stringify.js
+var require_stringify = __commonJS({
+  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/stringify.js"(exports2, module2) {
+    "use strict";
+    var typeOf = require_kind_of();
+    var getEngine = require_engine();
+    var defaults = require_defaults();
+    module2.exports = function(file, data, options2) {
+      if (data == null && options2 == null) {
+        switch (typeOf(file)) {
+          case "object":
+            data = file.data;
+            options2 = {};
+            break;
+          case "string":
+            return file;
+          default: {
+            throw new TypeError("expected file to be a string or object");
+          }
+        }
+      }
+      const str2 = file.content;
+      const opts = defaults(options2);
+      if (data == null) {
+        if (!opts.data)
+          return file;
+        data = opts.data;
+      }
+      const language = file.language || opts.language;
+      const engine = getEngine(language, opts);
+      if (typeof engine.stringify !== "function") {
+        throw new TypeError('expected "' + language + '.stringify" to be a function');
+      }
+      data = Object.assign({}, file.data, data);
+      const open = opts.delimiters[0];
+      const close = opts.delimiters[1];
+      const matter2 = engine.stringify(data, options2).trim();
+      let buf = "";
+      if (matter2 !== "{}") {
+        buf = newline(open) + newline(matter2) + newline(close);
+      }
+      if (typeof file.excerpt === "string" && file.excerpt !== "") {
+        if (str2.indexOf(file.excerpt.trim()) === -1) {
+          buf += newline(file.excerpt) + newline(close);
+        }
+      }
+      return buf + newline(str2);
+    };
+    function newline(str2) {
+      return str2.slice(-1) !== "\n" ? str2 + "\n" : str2;
+    }
+  }
+});
+
+// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/excerpt.js
+var require_excerpt = __commonJS({
+  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/excerpt.js"(exports2, module2) {
+    "use strict";
+    var defaults = require_defaults();
+    module2.exports = function(file, options2) {
+      const opts = defaults(options2);
+      if (file.data == null) {
+        file.data = {};
+      }
+      if (typeof opts.excerpt === "function") {
+        return opts.excerpt(file, opts);
+      }
+      const sep = file.data.excerpt_separator || opts.excerpt_separator;
+      if (sep == null && (opts.excerpt === false || opts.excerpt == null)) {
+        return file;
+      }
+      const delimiter = typeof opts.excerpt === "string" ? opts.excerpt : sep || opts.delimiters[0];
+      const idx = file.content.indexOf(delimiter);
+      if (idx !== -1) {
+        file.excerpt = file.content.slice(0, idx);
+      }
+      return file;
+    };
+  }
+});
+
+// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/to-file.js
+var require_to_file = __commonJS({
+  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/to-file.js"(exports2, module2) {
+    "use strict";
+    var typeOf = require_kind_of();
+    var stringify = require_stringify();
+    var utils = require_utils();
+    module2.exports = function(file) {
+      if (typeOf(file) !== "object") {
+        file = { content: file };
+      }
+      if (typeOf(file.data) !== "object") {
+        file.data = {};
+      }
+      if (file.contents && file.content == null) {
+        file.content = file.contents;
+      }
+      utils.define(file, "orig", utils.toBuffer(file.content));
+      utils.define(file, "language", file.language || "");
+      utils.define(file, "matter", file.matter || "");
+      utils.define(file, "stringify", function(data, options2) {
+        if (options2 && options2.language) {
+          file.language = options2.language;
+        }
+        return stringify(file, data, options2);
+      });
+      file.content = utils.toString(file.content);
+      file.isEmpty = false;
+      file.excerpt = "";
+      return file;
+    };
+  }
+});
+
+// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/parse.js
+var require_parse = __commonJS({
+  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/parse.js"(exports2, module2) {
+    "use strict";
+    var getEngine = require_engine();
+    var defaults = require_defaults();
+    module2.exports = function(language, str2, options2) {
+      const opts = defaults(options2);
+      const engine = getEngine(language, opts);
+      if (typeof engine.parse !== "function") {
+        throw new TypeError('expected "' + language + '.parse" to be a function');
+      }
+      return engine.parse(str2, opts);
+    };
+  }
+});
+
+// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/index.js
+var require_gray_matter = __commonJS({
+  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/index.js"(exports2, module2) {
+    "use strict";
+    var fs = require_fs();
+    var sections = require_section_matter();
+    var defaults = require_defaults();
+    var stringify = require_stringify();
+    var excerpt = require_excerpt();
+    var engines2 = require_engines();
+    var toFile = require_to_file();
+    var parse2 = require_parse();
+    var utils = require_utils();
+    function matter2(input, options2) {
+      if (input === "") {
+        return { data: {}, content: input, excerpt: "", orig: input };
+      }
+      let file = toFile(input);
+      const cached = matter2.cache[file.content];
+      if (!options2) {
+        if (cached) {
+          file = Object.assign({}, cached);
+          file.orig = cached.orig;
+          return file;
+        }
+        matter2.cache[file.content] = file;
+      }
+      return parseMatter(file, options2);
+    }
+    function parseMatter(file, options2) {
+      const opts = defaults(options2);
+      const open = opts.delimiters[0];
+      const close = "\n" + opts.delimiters[1];
+      let str2 = file.content;
+      if (opts.language) {
+        file.language = opts.language;
+      }
+      const openLen = open.length;
+      if (!utils.startsWith(str2, open, openLen)) {
+        excerpt(file, opts);
+        return file;
+      }
+      if (str2.charAt(openLen) === open.slice(-1)) {
+        return file;
+      }
+      str2 = str2.slice(openLen);
+      const len = str2.length;
+      const language = matter2.language(str2, opts);
+      if (language.name) {
+        file.language = language.name;
+        str2 = str2.slice(language.raw.length);
+      }
+      let closeIndex = str2.indexOf(close);
+      if (closeIndex === -1) {
+        closeIndex = len;
+      }
+      file.matter = str2.slice(0, closeIndex);
+      const block = file.matter.replace(/^\s*#[^\n]+/gm, "").trim();
+      if (block === "") {
+        file.isEmpty = true;
+        file.empty = file.content;
+        file.data = {};
+      } else {
+        file.data = parse2(file.language, file.matter, opts);
+      }
+      if (closeIndex === len) {
+        file.content = "";
+      } else {
+        file.content = str2.slice(closeIndex + close.length);
+        if (file.content[0] === "\r") {
+          file.content = file.content.slice(1);
+        }
+        if (file.content[0] === "\n") {
+          file.content = file.content.slice(1);
+        }
+      }
+      excerpt(file, opts);
+      if (opts.sections === true || typeof opts.section === "function") {
+        sections(file, opts.section);
+      }
+      return file;
+    }
+    matter2.engines = engines2;
+    matter2.stringify = function(file, data, options2) {
+      if (typeof file === "string")
+        file = matter2(file, options2);
+      return stringify(file, data, options2);
+    };
+    matter2.read = function(filepath, options2) {
+      const str2 = fs.readFileSync(filepath, "utf8");
+      const file = matter2(str2, options2);
+      file.path = filepath;
+      return file;
+    };
+    matter2.test = function(str2, options2) {
+      return utils.startsWith(str2, defaults(options2).delimiters[0]);
+    };
+    matter2.language = function(str2, options2) {
+      const opts = defaults(options2);
+      const open = opts.delimiters[0];
+      if (matter2.test(str2)) {
+        str2 = str2.slice(open.length);
+      }
+      const language = str2.slice(0, str2.search(/\r?\n/));
+      return {
+        raw: language,
+        name: language ? language.trim() : ""
+      };
+    };
+    matter2.cache = {};
+    matter2.clearCache = function() {
+      matter2.cache = {};
+    };
+    module2.exports = matter2;
   }
 });
 
 // node_modules/.pnpm/highlight.js@11.8.0/node_modules/highlight.js/lib/core.js
-var require_core = __commonJS({
+var require_core2 = __commonJS({
   "node_modules/.pnpm/highlight.js@11.8.0/node_modules/highlight.js/lib/core.js"(exports2, module2) {
     function deepFreeze(obj) {
       if (obj instanceof Map) {
@@ -1172,17 +4932,17 @@ var require_core = __commonJS({
       return COMMON_KEYWORDS.includes(keyword.toLowerCase());
     }
     var seenDeprecations = {};
-    var error = (message) => {
-      console.error(message);
+    var error = (message2) => {
+      console.error(message2);
     };
-    var warn = (message, ...args) => {
-      console.log(`WARN: ${message}`, ...args);
+    var warn = (message2, ...args) => {
+      console.log(`WARN: ${message2}`, ...args);
     };
-    var deprecated = (version2, message) => {
-      if (seenDeprecations[`${version2}/${message}`])
+    var deprecated = (version2, message2) => {
+      if (seenDeprecations[`${version2}/${message2}`])
         return;
-      console.log(`Deprecated as of ${version2}. ${message}`);
-      seenDeprecations[`${version2}/${message}`] = true;
+      console.log(`Deprecated as of ${version2}. ${message2}`);
+      seenDeprecations[`${version2}/${message2}`] = true;
     };
     var MultiClassError = new Error();
     function remapScopeNames(mode, regexes, { key }) {
@@ -1505,23 +5265,23 @@ var require_core = __commonJS({
         return classes.split(/\s+/).find((_class) => shouldNotHighlight(_class) || getLanguage(_class));
       }
       function highlight2(codeOrLanguageName, optionsOrCode, ignoreIllegals) {
-        let code2 = "";
+        let code3 = "";
         let languageName = "";
         if (typeof optionsOrCode === "object") {
-          code2 = codeOrLanguageName;
+          code3 = codeOrLanguageName;
           ignoreIllegals = optionsOrCode.ignoreIllegals;
           languageName = optionsOrCode.language;
         } else {
           deprecated("10.7.0", "highlight(lang, code, ...args) has been deprecated.");
           deprecated("10.7.0", "Please use highlight(code, options) instead.\nhttps://github.com/highlightjs/highlight.js/issues/2277");
           languageName = codeOrLanguageName;
-          code2 = optionsOrCode;
+          code3 = optionsOrCode;
         }
         if (ignoreIllegals === void 0) {
           ignoreIllegals = true;
         }
         const context = {
-          code: code2,
+          code: code3,
           language: languageName
         };
         fire("before:highlight", context);
@@ -1790,9 +5550,9 @@ var require_core = __commonJS({
           error(LANGUAGE_NOT_FOUND.replace("{}", languageName));
           throw new Error('Unknown language: "' + languageName + '"');
         }
-        const md = compileLanguage(language);
+        const md2 = compileLanguage(language);
         let result = "";
-        let top = continuation || md;
+        let top = continuation || md2;
         const continuations = {};
         const emitter = new options2.__emitter(options2);
         processContinuations();
@@ -1864,22 +5624,22 @@ var require_core = __commonJS({
           }
         }
       }
-      function justTextHighlightResult(code2) {
+      function justTextHighlightResult(code3) {
         const result = {
-          value: escape(code2),
+          value: escape(code3),
           illegal: false,
           relevance: 0,
           _top: PLAINTEXT_LANGUAGE,
           _emitter: new options2.__emitter(options2)
         };
-        result._emitter.addText(code2);
+        result._emitter.addText(code3);
         return result;
       }
-      function highlightAuto(code2, languageSubset) {
+      function highlightAuto(code3, languageSubset) {
         languageSubset = languageSubset || options2.languages || Object.keys(languages);
-        const plaintext = justTextHighlightResult(code2);
+        const plaintext = justTextHighlightResult(code3);
         const results = languageSubset.filter(getLanguage).filter(autoDetection).map(
-          (name2) => _highlight(name2, code2, false)
+          (name2) => _highlight(name2, code3, false)
         );
         results.unshift(plaintext);
         const sorted = results.sort((a, b2) => {
@@ -1947,7 +5707,7 @@ var require_core = __commonJS({
         }
         fire("after:highlightElement", { el: element, result, text });
       }
-      function configure(userOptions) {
+      function configure2(userOptions) {
         options2 = inherit(options2, userOptions);
       }
       const initHighlighting = () => {
@@ -2068,7 +5828,7 @@ var require_core = __commonJS({
         highlightElement,
         // TODO: Remove with v12 API
         highlightBlock: deprecateHighlightBlock,
-        configure,
+        configure: configure2,
         initHighlighting,
         initHighlightingOnLoad,
         registerLanguage,
@@ -21256,7 +25016,7 @@ var require_jboss_cli = __commonJS({
 });
 
 // node_modules/.pnpm/highlight.js@11.8.0/node_modules/highlight.js/lib/languages/json.js
-var require_json = __commonJS({
+var require_json2 = __commonJS({
   "node_modules/.pnpm/highlight.js@11.8.0/node_modules/highlight.js/lib/languages/json.js"(exports2, module2) {
     function json(hljs) {
       const ATTRIBUTE = {
@@ -50138,9 +53898,9 @@ var require_zephir = __commonJS({
 });
 
 // node_modules/.pnpm/highlight.js@11.8.0/node_modules/highlight.js/lib/index.js
-var require_lib = __commonJS({
+var require_lib2 = __commonJS({
   "node_modules/.pnpm/highlight.js@11.8.0/node_modules/highlight.js/lib/index.js"(exports2, module2) {
-    var hljs = require_core();
+    var hljs = require_core2();
     hljs.registerLanguage("1c", require_c());
     hljs.registerLanguage("abnf", require_abnf());
     hljs.registerLanguage("accesslog", require_accesslog());
@@ -50230,7 +53990,7 @@ var require_lib = __commonJS({
     hljs.registerLanguage("java", require_java());
     hljs.registerLanguage("javascript", require_javascript());
     hljs.registerLanguage("jboss-cli", require_jboss_cli());
-    hljs.registerLanguage("json", require_json());
+    hljs.registerLanguage("json", require_json2());
     hljs.registerLanguage("julia", require_julia());
     hljs.registerLanguage("julia-repl", require_julia_repl());
     hljs.registerLanguage("kotlin", require_kotlin());
@@ -50339,216 +54099,6 @@ var require_lib = __commonJS({
   }
 });
 
-// node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/named-references.js
-var require_named_references = __commonJS({
-  "node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/named-references.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.bodyRegExps = { xml: /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);?/g, html4: /&notin;|&(?:nbsp|iexcl|cent|pound|curren|yen|brvbar|sect|uml|copy|ordf|laquo|not|shy|reg|macr|deg|plusmn|sup2|sup3|acute|micro|para|middot|cedil|sup1|ordm|raquo|frac14|frac12|frac34|iquest|Agrave|Aacute|Acirc|Atilde|Auml|Aring|AElig|Ccedil|Egrave|Eacute|Ecirc|Euml|Igrave|Iacute|Icirc|Iuml|ETH|Ntilde|Ograve|Oacute|Ocirc|Otilde|Ouml|times|Oslash|Ugrave|Uacute|Ucirc|Uuml|Yacute|THORN|szlig|agrave|aacute|acirc|atilde|auml|aring|aelig|ccedil|egrave|eacute|ecirc|euml|igrave|iacute|icirc|iuml|eth|ntilde|ograve|oacute|ocirc|otilde|ouml|divide|oslash|ugrave|uacute|ucirc|uuml|yacute|thorn|yuml|quot|amp|lt|gt|#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);?/g, html5: /&centerdot;|&copysr;|&divideontimes;|&gtcc;|&gtcir;|&gtdot;|&gtlPar;|&gtquest;|&gtrapprox;|&gtrarr;|&gtrdot;|&gtreqless;|&gtreqqless;|&gtrless;|&gtrsim;|&ltcc;|&ltcir;|&ltdot;|&lthree;|&ltimes;|&ltlarr;|&ltquest;|&ltrPar;|&ltri;|&ltrie;|&ltrif;|&notin;|&notinE;|&notindot;|&notinva;|&notinvb;|&notinvc;|&notni;|&notniva;|&notnivb;|&notnivc;|&parallel;|&timesb;|&timesbar;|&timesd;|&(?:AElig|AMP|Aacute|Acirc|Agrave|Aring|Atilde|Auml|COPY|Ccedil|ETH|Eacute|Ecirc|Egrave|Euml|GT|Iacute|Icirc|Igrave|Iuml|LT|Ntilde|Oacute|Ocirc|Ograve|Oslash|Otilde|Ouml|QUOT|REG|THORN|Uacute|Ucirc|Ugrave|Uuml|Yacute|aacute|acirc|acute|aelig|agrave|amp|aring|atilde|auml|brvbar|ccedil|cedil|cent|copy|curren|deg|divide|eacute|ecirc|egrave|eth|euml|frac12|frac14|frac34|gt|iacute|icirc|iexcl|igrave|iquest|iuml|laquo|lt|macr|micro|middot|nbsp|not|ntilde|oacute|ocirc|ograve|ordf|ordm|oslash|otilde|ouml|para|plusmn|pound|quot|raquo|reg|sect|shy|sup1|sup2|sup3|szlig|thorn|times|uacute|ucirc|ugrave|uml|uuml|yacute|yen|yuml|#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);?/g };
-    exports2.namedReferences = { xml: { entities: { "&lt;": "<", "&gt;": ">", "&quot;": '"', "&apos;": "'", "&amp;": "&" }, characters: { "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;", "&": "&amp;" } }, html4: { entities: { "&apos;": "'", "&nbsp": "\xA0", "&nbsp;": "\xA0", "&iexcl": "\xA1", "&iexcl;": "\xA1", "&cent": "\xA2", "&cent;": "\xA2", "&pound": "\xA3", "&pound;": "\xA3", "&curren": "\xA4", "&curren;": "\xA4", "&yen": "\xA5", "&yen;": "\xA5", "&brvbar": "\xA6", "&brvbar;": "\xA6", "&sect": "\xA7", "&sect;": "\xA7", "&uml": "\xA8", "&uml;": "\xA8", "&copy": "\xA9", "&copy;": "\xA9", "&ordf": "\xAA", "&ordf;": "\xAA", "&laquo": "\xAB", "&laquo;": "\xAB", "&not": "\xAC", "&not;": "\xAC", "&shy": "\xAD", "&shy;": "\xAD", "&reg": "\xAE", "&reg;": "\xAE", "&macr": "\xAF", "&macr;": "\xAF", "&deg": "\xB0", "&deg;": "\xB0", "&plusmn": "\xB1", "&plusmn;": "\xB1", "&sup2": "\xB2", "&sup2;": "\xB2", "&sup3": "\xB3", "&sup3;": "\xB3", "&acute": "\xB4", "&acute;": "\xB4", "&micro": "\xB5", "&micro;": "\xB5", "&para": "\xB6", "&para;": "\xB6", "&middot": "\xB7", "&middot;": "\xB7", "&cedil": "\xB8", "&cedil;": "\xB8", "&sup1": "\xB9", "&sup1;": "\xB9", "&ordm": "\xBA", "&ordm;": "\xBA", "&raquo": "\xBB", "&raquo;": "\xBB", "&frac14": "\xBC", "&frac14;": "\xBC", "&frac12": "\xBD", "&frac12;": "\xBD", "&frac34": "\xBE", "&frac34;": "\xBE", "&iquest": "\xBF", "&iquest;": "\xBF", "&Agrave": "\xC0", "&Agrave;": "\xC0", "&Aacute": "\xC1", "&Aacute;": "\xC1", "&Acirc": "\xC2", "&Acirc;": "\xC2", "&Atilde": "\xC3", "&Atilde;": "\xC3", "&Auml": "\xC4", "&Auml;": "\xC4", "&Aring": "\xC5", "&Aring;": "\xC5", "&AElig": "\xC6", "&AElig;": "\xC6", "&Ccedil": "\xC7", "&Ccedil;": "\xC7", "&Egrave": "\xC8", "&Egrave;": "\xC8", "&Eacute": "\xC9", "&Eacute;": "\xC9", "&Ecirc": "\xCA", "&Ecirc;": "\xCA", "&Euml": "\xCB", "&Euml;": "\xCB", "&Igrave": "\xCC", "&Igrave;": "\xCC", "&Iacute": "\xCD", "&Iacute;": "\xCD", "&Icirc": "\xCE", "&Icirc;": "\xCE", "&Iuml": "\xCF", "&Iuml;": "\xCF", "&ETH": "\xD0", "&ETH;": "\xD0", "&Ntilde": "\xD1", "&Ntilde;": "\xD1", "&Ograve": "\xD2", "&Ograve;": "\xD2", "&Oacute": "\xD3", "&Oacute;": "\xD3", "&Ocirc": "\xD4", "&Ocirc;": "\xD4", "&Otilde": "\xD5", "&Otilde;": "\xD5", "&Ouml": "\xD6", "&Ouml;": "\xD6", "&times": "\xD7", "&times;": "\xD7", "&Oslash": "\xD8", "&Oslash;": "\xD8", "&Ugrave": "\xD9", "&Ugrave;": "\xD9", "&Uacute": "\xDA", "&Uacute;": "\xDA", "&Ucirc": "\xDB", "&Ucirc;": "\xDB", "&Uuml": "\xDC", "&Uuml;": "\xDC", "&Yacute": "\xDD", "&Yacute;": "\xDD", "&THORN": "\xDE", "&THORN;": "\xDE", "&szlig": "\xDF", "&szlig;": "\xDF", "&agrave": "\xE0", "&agrave;": "\xE0", "&aacute": "\xE1", "&aacute;": "\xE1", "&acirc": "\xE2", "&acirc;": "\xE2", "&atilde": "\xE3", "&atilde;": "\xE3", "&auml": "\xE4", "&auml;": "\xE4", "&aring": "\xE5", "&aring;": "\xE5", "&aelig": "\xE6", "&aelig;": "\xE6", "&ccedil": "\xE7", "&ccedil;": "\xE7", "&egrave": "\xE8", "&egrave;": "\xE8", "&eacute": "\xE9", "&eacute;": "\xE9", "&ecirc": "\xEA", "&ecirc;": "\xEA", "&euml": "\xEB", "&euml;": "\xEB", "&igrave": "\xEC", "&igrave;": "\xEC", "&iacute": "\xED", "&iacute;": "\xED", "&icirc": "\xEE", "&icirc;": "\xEE", "&iuml": "\xEF", "&iuml;": "\xEF", "&eth": "\xF0", "&eth;": "\xF0", "&ntilde": "\xF1", "&ntilde;": "\xF1", "&ograve": "\xF2", "&ograve;": "\xF2", "&oacute": "\xF3", "&oacute;": "\xF3", "&ocirc": "\xF4", "&ocirc;": "\xF4", "&otilde": "\xF5", "&otilde;": "\xF5", "&ouml": "\xF6", "&ouml;": "\xF6", "&divide": "\xF7", "&divide;": "\xF7", "&oslash": "\xF8", "&oslash;": "\xF8", "&ugrave": "\xF9", "&ugrave;": "\xF9", "&uacute": "\xFA", "&uacute;": "\xFA", "&ucirc": "\xFB", "&ucirc;": "\xFB", "&uuml": "\xFC", "&uuml;": "\xFC", "&yacute": "\xFD", "&yacute;": "\xFD", "&thorn": "\xFE", "&thorn;": "\xFE", "&yuml": "\xFF", "&yuml;": "\xFF", "&quot": '"', "&quot;": '"', "&amp": "&", "&amp;": "&", "&lt": "<", "&lt;": "<", "&gt": ">", "&gt;": ">", "&OElig;": "\u0152", "&oelig;": "\u0153", "&Scaron;": "\u0160", "&scaron;": "\u0161", "&Yuml;": "\u0178", "&circ;": "\u02C6", "&tilde;": "\u02DC", "&ensp;": "\u2002", "&emsp;": "\u2003", "&thinsp;": "\u2009", "&zwnj;": "\u200C", "&zwj;": "\u200D", "&lrm;": "\u200E", "&rlm;": "\u200F", "&ndash;": "\u2013", "&mdash;": "\u2014", "&lsquo;": "\u2018", "&rsquo;": "\u2019", "&sbquo;": "\u201A", "&ldquo;": "\u201C", "&rdquo;": "\u201D", "&bdquo;": "\u201E", "&dagger;": "\u2020", "&Dagger;": "\u2021", "&permil;": "\u2030", "&lsaquo;": "\u2039", "&rsaquo;": "\u203A", "&euro;": "\u20AC", "&fnof;": "\u0192", "&Alpha;": "\u0391", "&Beta;": "\u0392", "&Gamma;": "\u0393", "&Delta;": "\u0394", "&Epsilon;": "\u0395", "&Zeta;": "\u0396", "&Eta;": "\u0397", "&Theta;": "\u0398", "&Iota;": "\u0399", "&Kappa;": "\u039A", "&Lambda;": "\u039B", "&Mu;": "\u039C", "&Nu;": "\u039D", "&Xi;": "\u039E", "&Omicron;": "\u039F", "&Pi;": "\u03A0", "&Rho;": "\u03A1", "&Sigma;": "\u03A3", "&Tau;": "\u03A4", "&Upsilon;": "\u03A5", "&Phi;": "\u03A6", "&Chi;": "\u03A7", "&Psi;": "\u03A8", "&Omega;": "\u03A9", "&alpha;": "\u03B1", "&beta;": "\u03B2", "&gamma;": "\u03B3", "&delta;": "\u03B4", "&epsilon;": "\u03B5", "&zeta;": "\u03B6", "&eta;": "\u03B7", "&theta;": "\u03B8", "&iota;": "\u03B9", "&kappa;": "\u03BA", "&lambda;": "\u03BB", "&mu;": "\u03BC", "&nu;": "\u03BD", "&xi;": "\u03BE", "&omicron;": "\u03BF", "&pi;": "\u03C0", "&rho;": "\u03C1", "&sigmaf;": "\u03C2", "&sigma;": "\u03C3", "&tau;": "\u03C4", "&upsilon;": "\u03C5", "&phi;": "\u03C6", "&chi;": "\u03C7", "&psi;": "\u03C8", "&omega;": "\u03C9", "&thetasym;": "\u03D1", "&upsih;": "\u03D2", "&piv;": "\u03D6", "&bull;": "\u2022", "&hellip;": "\u2026", "&prime;": "\u2032", "&Prime;": "\u2033", "&oline;": "\u203E", "&frasl;": "\u2044", "&weierp;": "\u2118", "&image;": "\u2111", "&real;": "\u211C", "&trade;": "\u2122", "&alefsym;": "\u2135", "&larr;": "\u2190", "&uarr;": "\u2191", "&rarr;": "\u2192", "&darr;": "\u2193", "&harr;": "\u2194", "&crarr;": "\u21B5", "&lArr;": "\u21D0", "&uArr;": "\u21D1", "&rArr;": "\u21D2", "&dArr;": "\u21D3", "&hArr;": "\u21D4", "&forall;": "\u2200", "&part;": "\u2202", "&exist;": "\u2203", "&empty;": "\u2205", "&nabla;": "\u2207", "&isin;": "\u2208", "&notin;": "\u2209", "&ni;": "\u220B", "&prod;": "\u220F", "&sum;": "\u2211", "&minus;": "\u2212", "&lowast;": "\u2217", "&radic;": "\u221A", "&prop;": "\u221D", "&infin;": "\u221E", "&ang;": "\u2220", "&and;": "\u2227", "&or;": "\u2228", "&cap;": "\u2229", "&cup;": "\u222A", "&int;": "\u222B", "&there4;": "\u2234", "&sim;": "\u223C", "&cong;": "\u2245", "&asymp;": "\u2248", "&ne;": "\u2260", "&equiv;": "\u2261", "&le;": "\u2264", "&ge;": "\u2265", "&sub;": "\u2282", "&sup;": "\u2283", "&nsub;": "\u2284", "&sube;": "\u2286", "&supe;": "\u2287", "&oplus;": "\u2295", "&otimes;": "\u2297", "&perp;": "\u22A5", "&sdot;": "\u22C5", "&lceil;": "\u2308", "&rceil;": "\u2309", "&lfloor;": "\u230A", "&rfloor;": "\u230B", "&lang;": "\u2329", "&rang;": "\u232A", "&loz;": "\u25CA", "&spades;": "\u2660", "&clubs;": "\u2663", "&hearts;": "\u2665", "&diams;": "\u2666" }, characters: { "'": "&apos;", "\xA0": "&nbsp;", "\xA1": "&iexcl;", "\xA2": "&cent;", "\xA3": "&pound;", "\xA4": "&curren;", "\xA5": "&yen;", "\xA6": "&brvbar;", "\xA7": "&sect;", "\xA8": "&uml;", "\xA9": "&copy;", "\xAA": "&ordf;", "\xAB": "&laquo;", "\xAC": "&not;", "\xAD": "&shy;", "\xAE": "&reg;", "\xAF": "&macr;", "\xB0": "&deg;", "\xB1": "&plusmn;", "\xB2": "&sup2;", "\xB3": "&sup3;", "\xB4": "&acute;", "\xB5": "&micro;", "\xB6": "&para;", "\xB7": "&middot;", "\xB8": "&cedil;", "\xB9": "&sup1;", "\xBA": "&ordm;", "\xBB": "&raquo;", "\xBC": "&frac14;", "\xBD": "&frac12;", "\xBE": "&frac34;", "\xBF": "&iquest;", "\xC0": "&Agrave;", "\xC1": "&Aacute;", "\xC2": "&Acirc;", "\xC3": "&Atilde;", "\xC4": "&Auml;", "\xC5": "&Aring;", "\xC6": "&AElig;", "\xC7": "&Ccedil;", "\xC8": "&Egrave;", "\xC9": "&Eacute;", "\xCA": "&Ecirc;", "\xCB": "&Euml;", "\xCC": "&Igrave;", "\xCD": "&Iacute;", "\xCE": "&Icirc;", "\xCF": "&Iuml;", "\xD0": "&ETH;", "\xD1": "&Ntilde;", "\xD2": "&Ograve;", "\xD3": "&Oacute;", "\xD4": "&Ocirc;", "\xD5": "&Otilde;", "\xD6": "&Ouml;", "\xD7": "&times;", "\xD8": "&Oslash;", "\xD9": "&Ugrave;", "\xDA": "&Uacute;", "\xDB": "&Ucirc;", "\xDC": "&Uuml;", "\xDD": "&Yacute;", "\xDE": "&THORN;", "\xDF": "&szlig;", "\xE0": "&agrave;", "\xE1": "&aacute;", "\xE2": "&acirc;", "\xE3": "&atilde;", "\xE4": "&auml;", "\xE5": "&aring;", "\xE6": "&aelig;", "\xE7": "&ccedil;", "\xE8": "&egrave;", "\xE9": "&eacute;", "\xEA": "&ecirc;", "\xEB": "&euml;", "\xEC": "&igrave;", "\xED": "&iacute;", "\xEE": "&icirc;", "\xEF": "&iuml;", "\xF0": "&eth;", "\xF1": "&ntilde;", "\xF2": "&ograve;", "\xF3": "&oacute;", "\xF4": "&ocirc;", "\xF5": "&otilde;", "\xF6": "&ouml;", "\xF7": "&divide;", "\xF8": "&oslash;", "\xF9": "&ugrave;", "\xFA": "&uacute;", "\xFB": "&ucirc;", "\xFC": "&uuml;", "\xFD": "&yacute;", "\xFE": "&thorn;", "\xFF": "&yuml;", '"': "&quot;", "&": "&amp;", "<": "&lt;", ">": "&gt;", "\u0152": "&OElig;", "\u0153": "&oelig;", "\u0160": "&Scaron;", "\u0161": "&scaron;", "\u0178": "&Yuml;", "\u02C6": "&circ;", "\u02DC": "&tilde;", "\u2002": "&ensp;", "\u2003": "&emsp;", "\u2009": "&thinsp;", "\u200C": "&zwnj;", "\u200D": "&zwj;", "\u200E": "&lrm;", "\u200F": "&rlm;", "\u2013": "&ndash;", "\u2014": "&mdash;", "\u2018": "&lsquo;", "\u2019": "&rsquo;", "\u201A": "&sbquo;", "\u201C": "&ldquo;", "\u201D": "&rdquo;", "\u201E": "&bdquo;", "\u2020": "&dagger;", "\u2021": "&Dagger;", "\u2030": "&permil;", "\u2039": "&lsaquo;", "\u203A": "&rsaquo;", "\u20AC": "&euro;", "\u0192": "&fnof;", "\u0391": "&Alpha;", "\u0392": "&Beta;", "\u0393": "&Gamma;", "\u0394": "&Delta;", "\u0395": "&Epsilon;", "\u0396": "&Zeta;", "\u0397": "&Eta;", "\u0398": "&Theta;", "\u0399": "&Iota;", "\u039A": "&Kappa;", "\u039B": "&Lambda;", "\u039C": "&Mu;", "\u039D": "&Nu;", "\u039E": "&Xi;", "\u039F": "&Omicron;", "\u03A0": "&Pi;", "\u03A1": "&Rho;", "\u03A3": "&Sigma;", "\u03A4": "&Tau;", "\u03A5": "&Upsilon;", "\u03A6": "&Phi;", "\u03A7": "&Chi;", "\u03A8": "&Psi;", "\u03A9": "&Omega;", "\u03B1": "&alpha;", "\u03B2": "&beta;", "\u03B3": "&gamma;", "\u03B4": "&delta;", "\u03B5": "&epsilon;", "\u03B6": "&zeta;", "\u03B7": "&eta;", "\u03B8": "&theta;", "\u03B9": "&iota;", "\u03BA": "&kappa;", "\u03BB": "&lambda;", "\u03BC": "&mu;", "\u03BD": "&nu;", "\u03BE": "&xi;", "\u03BF": "&omicron;", "\u03C0": "&pi;", "\u03C1": "&rho;", "\u03C2": "&sigmaf;", "\u03C3": "&sigma;", "\u03C4": "&tau;", "\u03C5": "&upsilon;", "\u03C6": "&phi;", "\u03C7": "&chi;", "\u03C8": "&psi;", "\u03C9": "&omega;", "\u03D1": "&thetasym;", "\u03D2": "&upsih;", "\u03D6": "&piv;", "\u2022": "&bull;", "\u2026": "&hellip;", "\u2032": "&prime;", "\u2033": "&Prime;", "\u203E": "&oline;", "\u2044": "&frasl;", "\u2118": "&weierp;", "\u2111": "&image;", "\u211C": "&real;", "\u2122": "&trade;", "\u2135": "&alefsym;", "\u2190": "&larr;", "\u2191": "&uarr;", "\u2192": "&rarr;", "\u2193": "&darr;", "\u2194": "&harr;", "\u21B5": "&crarr;", "\u21D0": "&lArr;", "\u21D1": "&uArr;", "\u21D2": "&rArr;", "\u21D3": "&dArr;", "\u21D4": "&hArr;", "\u2200": "&forall;", "\u2202": "&part;", "\u2203": "&exist;", "\u2205": "&empty;", "\u2207": "&nabla;", "\u2208": "&isin;", "\u2209": "&notin;", "\u220B": "&ni;", "\u220F": "&prod;", "\u2211": "&sum;", "\u2212": "&minus;", "\u2217": "&lowast;", "\u221A": "&radic;", "\u221D": "&prop;", "\u221E": "&infin;", "\u2220": "&ang;", "\u2227": "&and;", "\u2228": "&or;", "\u2229": "&cap;", "\u222A": "&cup;", "\u222B": "&int;", "\u2234": "&there4;", "\u223C": "&sim;", "\u2245": "&cong;", "\u2248": "&asymp;", "\u2260": "&ne;", "\u2261": "&equiv;", "\u2264": "&le;", "\u2265": "&ge;", "\u2282": "&sub;", "\u2283": "&sup;", "\u2284": "&nsub;", "\u2286": "&sube;", "\u2287": "&supe;", "\u2295": "&oplus;", "\u2297": "&otimes;", "\u22A5": "&perp;", "\u22C5": "&sdot;", "\u2308": "&lceil;", "\u2309": "&rceil;", "\u230A": "&lfloor;", "\u230B": "&rfloor;", "\u2329": "&lang;", "\u232A": "&rang;", "\u25CA": "&loz;", "\u2660": "&spades;", "\u2663": "&clubs;", "\u2665": "&hearts;", "\u2666": "&diams;" } }, html5: { entities: { "&AElig": "\xC6", "&AElig;": "\xC6", "&AMP": "&", "&AMP;": "&", "&Aacute": "\xC1", "&Aacute;": "\xC1", "&Abreve;": "\u0102", "&Acirc": "\xC2", "&Acirc;": "\xC2", "&Acy;": "\u0410", "&Afr;": "\u{1D504}", "&Agrave": "\xC0", "&Agrave;": "\xC0", "&Alpha;": "\u0391", "&Amacr;": "\u0100", "&And;": "\u2A53", "&Aogon;": "\u0104", "&Aopf;": "\u{1D538}", "&ApplyFunction;": "\u2061", "&Aring": "\xC5", "&Aring;": "\xC5", "&Ascr;": "\u{1D49C}", "&Assign;": "\u2254", "&Atilde": "\xC3", "&Atilde;": "\xC3", "&Auml": "\xC4", "&Auml;": "\xC4", "&Backslash;": "\u2216", "&Barv;": "\u2AE7", "&Barwed;": "\u2306", "&Bcy;": "\u0411", "&Because;": "\u2235", "&Bernoullis;": "\u212C", "&Beta;": "\u0392", "&Bfr;": "\u{1D505}", "&Bopf;": "\u{1D539}", "&Breve;": "\u02D8", "&Bscr;": "\u212C", "&Bumpeq;": "\u224E", "&CHcy;": "\u0427", "&COPY": "\xA9", "&COPY;": "\xA9", "&Cacute;": "\u0106", "&Cap;": "\u22D2", "&CapitalDifferentialD;": "\u2145", "&Cayleys;": "\u212D", "&Ccaron;": "\u010C", "&Ccedil": "\xC7", "&Ccedil;": "\xC7", "&Ccirc;": "\u0108", "&Cconint;": "\u2230", "&Cdot;": "\u010A", "&Cedilla;": "\xB8", "&CenterDot;": "\xB7", "&Cfr;": "\u212D", "&Chi;": "\u03A7", "&CircleDot;": "\u2299", "&CircleMinus;": "\u2296", "&CirclePlus;": "\u2295", "&CircleTimes;": "\u2297", "&ClockwiseContourIntegral;": "\u2232", "&CloseCurlyDoubleQuote;": "\u201D", "&CloseCurlyQuote;": "\u2019", "&Colon;": "\u2237", "&Colone;": "\u2A74", "&Congruent;": "\u2261", "&Conint;": "\u222F", "&ContourIntegral;": "\u222E", "&Copf;": "\u2102", "&Coproduct;": "\u2210", "&CounterClockwiseContourIntegral;": "\u2233", "&Cross;": "\u2A2F", "&Cscr;": "\u{1D49E}", "&Cup;": "\u22D3", "&CupCap;": "\u224D", "&DD;": "\u2145", "&DDotrahd;": "\u2911", "&DJcy;": "\u0402", "&DScy;": "\u0405", "&DZcy;": "\u040F", "&Dagger;": "\u2021", "&Darr;": "\u21A1", "&Dashv;": "\u2AE4", "&Dcaron;": "\u010E", "&Dcy;": "\u0414", "&Del;": "\u2207", "&Delta;": "\u0394", "&Dfr;": "\u{1D507}", "&DiacriticalAcute;": "\xB4", "&DiacriticalDot;": "\u02D9", "&DiacriticalDoubleAcute;": "\u02DD", "&DiacriticalGrave;": "`", "&DiacriticalTilde;": "\u02DC", "&Diamond;": "\u22C4", "&DifferentialD;": "\u2146", "&Dopf;": "\u{1D53B}", "&Dot;": "\xA8", "&DotDot;": "\u20DC", "&DotEqual;": "\u2250", "&DoubleContourIntegral;": "\u222F", "&DoubleDot;": "\xA8", "&DoubleDownArrow;": "\u21D3", "&DoubleLeftArrow;": "\u21D0", "&DoubleLeftRightArrow;": "\u21D4", "&DoubleLeftTee;": "\u2AE4", "&DoubleLongLeftArrow;": "\u27F8", "&DoubleLongLeftRightArrow;": "\u27FA", "&DoubleLongRightArrow;": "\u27F9", "&DoubleRightArrow;": "\u21D2", "&DoubleRightTee;": "\u22A8", "&DoubleUpArrow;": "\u21D1", "&DoubleUpDownArrow;": "\u21D5", "&DoubleVerticalBar;": "\u2225", "&DownArrow;": "\u2193", "&DownArrowBar;": "\u2913", "&DownArrowUpArrow;": "\u21F5", "&DownBreve;": "\u0311", "&DownLeftRightVector;": "\u2950", "&DownLeftTeeVector;": "\u295E", "&DownLeftVector;": "\u21BD", "&DownLeftVectorBar;": "\u2956", "&DownRightTeeVector;": "\u295F", "&DownRightVector;": "\u21C1", "&DownRightVectorBar;": "\u2957", "&DownTee;": "\u22A4", "&DownTeeArrow;": "\u21A7", "&Downarrow;": "\u21D3", "&Dscr;": "\u{1D49F}", "&Dstrok;": "\u0110", "&ENG;": "\u014A", "&ETH": "\xD0", "&ETH;": "\xD0", "&Eacute": "\xC9", "&Eacute;": "\xC9", "&Ecaron;": "\u011A", "&Ecirc": "\xCA", "&Ecirc;": "\xCA", "&Ecy;": "\u042D", "&Edot;": "\u0116", "&Efr;": "\u{1D508}", "&Egrave": "\xC8", "&Egrave;": "\xC8", "&Element;": "\u2208", "&Emacr;": "\u0112", "&EmptySmallSquare;": "\u25FB", "&EmptyVerySmallSquare;": "\u25AB", "&Eogon;": "\u0118", "&Eopf;": "\u{1D53C}", "&Epsilon;": "\u0395", "&Equal;": "\u2A75", "&EqualTilde;": "\u2242", "&Equilibrium;": "\u21CC", "&Escr;": "\u2130", "&Esim;": "\u2A73", "&Eta;": "\u0397", "&Euml": "\xCB", "&Euml;": "\xCB", "&Exists;": "\u2203", "&ExponentialE;": "\u2147", "&Fcy;": "\u0424", "&Ffr;": "\u{1D509}", "&FilledSmallSquare;": "\u25FC", "&FilledVerySmallSquare;": "\u25AA", "&Fopf;": "\u{1D53D}", "&ForAll;": "\u2200", "&Fouriertrf;": "\u2131", "&Fscr;": "\u2131", "&GJcy;": "\u0403", "&GT": ">", "&GT;": ">", "&Gamma;": "\u0393", "&Gammad;": "\u03DC", "&Gbreve;": "\u011E", "&Gcedil;": "\u0122", "&Gcirc;": "\u011C", "&Gcy;": "\u0413", "&Gdot;": "\u0120", "&Gfr;": "\u{1D50A}", "&Gg;": "\u22D9", "&Gopf;": "\u{1D53E}", "&GreaterEqual;": "\u2265", "&GreaterEqualLess;": "\u22DB", "&GreaterFullEqual;": "\u2267", "&GreaterGreater;": "\u2AA2", "&GreaterLess;": "\u2277", "&GreaterSlantEqual;": "\u2A7E", "&GreaterTilde;": "\u2273", "&Gscr;": "\u{1D4A2}", "&Gt;": "\u226B", "&HARDcy;": "\u042A", "&Hacek;": "\u02C7", "&Hat;": "^", "&Hcirc;": "\u0124", "&Hfr;": "\u210C", "&HilbertSpace;": "\u210B", "&Hopf;": "\u210D", "&HorizontalLine;": "\u2500", "&Hscr;": "\u210B", "&Hstrok;": "\u0126", "&HumpDownHump;": "\u224E", "&HumpEqual;": "\u224F", "&IEcy;": "\u0415", "&IJlig;": "\u0132", "&IOcy;": "\u0401", "&Iacute": "\xCD", "&Iacute;": "\xCD", "&Icirc": "\xCE", "&Icirc;": "\xCE", "&Icy;": "\u0418", "&Idot;": "\u0130", "&Ifr;": "\u2111", "&Igrave": "\xCC", "&Igrave;": "\xCC", "&Im;": "\u2111", "&Imacr;": "\u012A", "&ImaginaryI;": "\u2148", "&Implies;": "\u21D2", "&Int;": "\u222C", "&Integral;": "\u222B", "&Intersection;": "\u22C2", "&InvisibleComma;": "\u2063", "&InvisibleTimes;": "\u2062", "&Iogon;": "\u012E", "&Iopf;": "\u{1D540}", "&Iota;": "\u0399", "&Iscr;": "\u2110", "&Itilde;": "\u0128", "&Iukcy;": "\u0406", "&Iuml": "\xCF", "&Iuml;": "\xCF", "&Jcirc;": "\u0134", "&Jcy;": "\u0419", "&Jfr;": "\u{1D50D}", "&Jopf;": "\u{1D541}", "&Jscr;": "\u{1D4A5}", "&Jsercy;": "\u0408", "&Jukcy;": "\u0404", "&KHcy;": "\u0425", "&KJcy;": "\u040C", "&Kappa;": "\u039A", "&Kcedil;": "\u0136", "&Kcy;": "\u041A", "&Kfr;": "\u{1D50E}", "&Kopf;": "\u{1D542}", "&Kscr;": "\u{1D4A6}", "&LJcy;": "\u0409", "&LT": "<", "&LT;": "<", "&Lacute;": "\u0139", "&Lambda;": "\u039B", "&Lang;": "\u27EA", "&Laplacetrf;": "\u2112", "&Larr;": "\u219E", "&Lcaron;": "\u013D", "&Lcedil;": "\u013B", "&Lcy;": "\u041B", "&LeftAngleBracket;": "\u27E8", "&LeftArrow;": "\u2190", "&LeftArrowBar;": "\u21E4", "&LeftArrowRightArrow;": "\u21C6", "&LeftCeiling;": "\u2308", "&LeftDoubleBracket;": "\u27E6", "&LeftDownTeeVector;": "\u2961", "&LeftDownVector;": "\u21C3", "&LeftDownVectorBar;": "\u2959", "&LeftFloor;": "\u230A", "&LeftRightArrow;": "\u2194", "&LeftRightVector;": "\u294E", "&LeftTee;": "\u22A3", "&LeftTeeArrow;": "\u21A4", "&LeftTeeVector;": "\u295A", "&LeftTriangle;": "\u22B2", "&LeftTriangleBar;": "\u29CF", "&LeftTriangleEqual;": "\u22B4", "&LeftUpDownVector;": "\u2951", "&LeftUpTeeVector;": "\u2960", "&LeftUpVector;": "\u21BF", "&LeftUpVectorBar;": "\u2958", "&LeftVector;": "\u21BC", "&LeftVectorBar;": "\u2952", "&Leftarrow;": "\u21D0", "&Leftrightarrow;": "\u21D4", "&LessEqualGreater;": "\u22DA", "&LessFullEqual;": "\u2266", "&LessGreater;": "\u2276", "&LessLess;": "\u2AA1", "&LessSlantEqual;": "\u2A7D", "&LessTilde;": "\u2272", "&Lfr;": "\u{1D50F}", "&Ll;": "\u22D8", "&Lleftarrow;": "\u21DA", "&Lmidot;": "\u013F", "&LongLeftArrow;": "\u27F5", "&LongLeftRightArrow;": "\u27F7", "&LongRightArrow;": "\u27F6", "&Longleftarrow;": "\u27F8", "&Longleftrightarrow;": "\u27FA", "&Longrightarrow;": "\u27F9", "&Lopf;": "\u{1D543}", "&LowerLeftArrow;": "\u2199", "&LowerRightArrow;": "\u2198", "&Lscr;": "\u2112", "&Lsh;": "\u21B0", "&Lstrok;": "\u0141", "&Lt;": "\u226A", "&Map;": "\u2905", "&Mcy;": "\u041C", "&MediumSpace;": "\u205F", "&Mellintrf;": "\u2133", "&Mfr;": "\u{1D510}", "&MinusPlus;": "\u2213", "&Mopf;": "\u{1D544}", "&Mscr;": "\u2133", "&Mu;": "\u039C", "&NJcy;": "\u040A", "&Nacute;": "\u0143", "&Ncaron;": "\u0147", "&Ncedil;": "\u0145", "&Ncy;": "\u041D", "&NegativeMediumSpace;": "\u200B", "&NegativeThickSpace;": "\u200B", "&NegativeThinSpace;": "\u200B", "&NegativeVeryThinSpace;": "\u200B", "&NestedGreaterGreater;": "\u226B", "&NestedLessLess;": "\u226A", "&NewLine;": "\n", "&Nfr;": "\u{1D511}", "&NoBreak;": "\u2060", "&NonBreakingSpace;": "\xA0", "&Nopf;": "\u2115", "&Not;": "\u2AEC", "&NotCongruent;": "\u2262", "&NotCupCap;": "\u226D", "&NotDoubleVerticalBar;": "\u2226", "&NotElement;": "\u2209", "&NotEqual;": "\u2260", "&NotEqualTilde;": "\u2242\u0338", "&NotExists;": "\u2204", "&NotGreater;": "\u226F", "&NotGreaterEqual;": "\u2271", "&NotGreaterFullEqual;": "\u2267\u0338", "&NotGreaterGreater;": "\u226B\u0338", "&NotGreaterLess;": "\u2279", "&NotGreaterSlantEqual;": "\u2A7E\u0338", "&NotGreaterTilde;": "\u2275", "&NotHumpDownHump;": "\u224E\u0338", "&NotHumpEqual;": "\u224F\u0338", "&NotLeftTriangle;": "\u22EA", "&NotLeftTriangleBar;": "\u29CF\u0338", "&NotLeftTriangleEqual;": "\u22EC", "&NotLess;": "\u226E", "&NotLessEqual;": "\u2270", "&NotLessGreater;": "\u2278", "&NotLessLess;": "\u226A\u0338", "&NotLessSlantEqual;": "\u2A7D\u0338", "&NotLessTilde;": "\u2274", "&NotNestedGreaterGreater;": "\u2AA2\u0338", "&NotNestedLessLess;": "\u2AA1\u0338", "&NotPrecedes;": "\u2280", "&NotPrecedesEqual;": "\u2AAF\u0338", "&NotPrecedesSlantEqual;": "\u22E0", "&NotReverseElement;": "\u220C", "&NotRightTriangle;": "\u22EB", "&NotRightTriangleBar;": "\u29D0\u0338", "&NotRightTriangleEqual;": "\u22ED", "&NotSquareSubset;": "\u228F\u0338", "&NotSquareSubsetEqual;": "\u22E2", "&NotSquareSuperset;": "\u2290\u0338", "&NotSquareSupersetEqual;": "\u22E3", "&NotSubset;": "\u2282\u20D2", "&NotSubsetEqual;": "\u2288", "&NotSucceeds;": "\u2281", "&NotSucceedsEqual;": "\u2AB0\u0338", "&NotSucceedsSlantEqual;": "\u22E1", "&NotSucceedsTilde;": "\u227F\u0338", "&NotSuperset;": "\u2283\u20D2", "&NotSupersetEqual;": "\u2289", "&NotTilde;": "\u2241", "&NotTildeEqual;": "\u2244", "&NotTildeFullEqual;": "\u2247", "&NotTildeTilde;": "\u2249", "&NotVerticalBar;": "\u2224", "&Nscr;": "\u{1D4A9}", "&Ntilde": "\xD1", "&Ntilde;": "\xD1", "&Nu;": "\u039D", "&OElig;": "\u0152", "&Oacute": "\xD3", "&Oacute;": "\xD3", "&Ocirc": "\xD4", "&Ocirc;": "\xD4", "&Ocy;": "\u041E", "&Odblac;": "\u0150", "&Ofr;": "\u{1D512}", "&Ograve": "\xD2", "&Ograve;": "\xD2", "&Omacr;": "\u014C", "&Omega;": "\u03A9", "&Omicron;": "\u039F", "&Oopf;": "\u{1D546}", "&OpenCurlyDoubleQuote;": "\u201C", "&OpenCurlyQuote;": "\u2018", "&Or;": "\u2A54", "&Oscr;": "\u{1D4AA}", "&Oslash": "\xD8", "&Oslash;": "\xD8", "&Otilde": "\xD5", "&Otilde;": "\xD5", "&Otimes;": "\u2A37", "&Ouml": "\xD6", "&Ouml;": "\xD6", "&OverBar;": "\u203E", "&OverBrace;": "\u23DE", "&OverBracket;": "\u23B4", "&OverParenthesis;": "\u23DC", "&PartialD;": "\u2202", "&Pcy;": "\u041F", "&Pfr;": "\u{1D513}", "&Phi;": "\u03A6", "&Pi;": "\u03A0", "&PlusMinus;": "\xB1", "&Poincareplane;": "\u210C", "&Popf;": "\u2119", "&Pr;": "\u2ABB", "&Precedes;": "\u227A", "&PrecedesEqual;": "\u2AAF", "&PrecedesSlantEqual;": "\u227C", "&PrecedesTilde;": "\u227E", "&Prime;": "\u2033", "&Product;": "\u220F", "&Proportion;": "\u2237", "&Proportional;": "\u221D", "&Pscr;": "\u{1D4AB}", "&Psi;": "\u03A8", "&QUOT": '"', "&QUOT;": '"', "&Qfr;": "\u{1D514}", "&Qopf;": "\u211A", "&Qscr;": "\u{1D4AC}", "&RBarr;": "\u2910", "&REG": "\xAE", "&REG;": "\xAE", "&Racute;": "\u0154", "&Rang;": "\u27EB", "&Rarr;": "\u21A0", "&Rarrtl;": "\u2916", "&Rcaron;": "\u0158", "&Rcedil;": "\u0156", "&Rcy;": "\u0420", "&Re;": "\u211C", "&ReverseElement;": "\u220B", "&ReverseEquilibrium;": "\u21CB", "&ReverseUpEquilibrium;": "\u296F", "&Rfr;": "\u211C", "&Rho;": "\u03A1", "&RightAngleBracket;": "\u27E9", "&RightArrow;": "\u2192", "&RightArrowBar;": "\u21E5", "&RightArrowLeftArrow;": "\u21C4", "&RightCeiling;": "\u2309", "&RightDoubleBracket;": "\u27E7", "&RightDownTeeVector;": "\u295D", "&RightDownVector;": "\u21C2", "&RightDownVectorBar;": "\u2955", "&RightFloor;": "\u230B", "&RightTee;": "\u22A2", "&RightTeeArrow;": "\u21A6", "&RightTeeVector;": "\u295B", "&RightTriangle;": "\u22B3", "&RightTriangleBar;": "\u29D0", "&RightTriangleEqual;": "\u22B5", "&RightUpDownVector;": "\u294F", "&RightUpTeeVector;": "\u295C", "&RightUpVector;": "\u21BE", "&RightUpVectorBar;": "\u2954", "&RightVector;": "\u21C0", "&RightVectorBar;": "\u2953", "&Rightarrow;": "\u21D2", "&Ropf;": "\u211D", "&RoundImplies;": "\u2970", "&Rrightarrow;": "\u21DB", "&Rscr;": "\u211B", "&Rsh;": "\u21B1", "&RuleDelayed;": "\u29F4", "&SHCHcy;": "\u0429", "&SHcy;": "\u0428", "&SOFTcy;": "\u042C", "&Sacute;": "\u015A", "&Sc;": "\u2ABC", "&Scaron;": "\u0160", "&Scedil;": "\u015E", "&Scirc;": "\u015C", "&Scy;": "\u0421", "&Sfr;": "\u{1D516}", "&ShortDownArrow;": "\u2193", "&ShortLeftArrow;": "\u2190", "&ShortRightArrow;": "\u2192", "&ShortUpArrow;": "\u2191", "&Sigma;": "\u03A3", "&SmallCircle;": "\u2218", "&Sopf;": "\u{1D54A}", "&Sqrt;": "\u221A", "&Square;": "\u25A1", "&SquareIntersection;": "\u2293", "&SquareSubset;": "\u228F", "&SquareSubsetEqual;": "\u2291", "&SquareSuperset;": "\u2290", "&SquareSupersetEqual;": "\u2292", "&SquareUnion;": "\u2294", "&Sscr;": "\u{1D4AE}", "&Star;": "\u22C6", "&Sub;": "\u22D0", "&Subset;": "\u22D0", "&SubsetEqual;": "\u2286", "&Succeeds;": "\u227B", "&SucceedsEqual;": "\u2AB0", "&SucceedsSlantEqual;": "\u227D", "&SucceedsTilde;": "\u227F", "&SuchThat;": "\u220B", "&Sum;": "\u2211", "&Sup;": "\u22D1", "&Superset;": "\u2283", "&SupersetEqual;": "\u2287", "&Supset;": "\u22D1", "&THORN": "\xDE", "&THORN;": "\xDE", "&TRADE;": "\u2122", "&TSHcy;": "\u040B", "&TScy;": "\u0426", "&Tab;": "	", "&Tau;": "\u03A4", "&Tcaron;": "\u0164", "&Tcedil;": "\u0162", "&Tcy;": "\u0422", "&Tfr;": "\u{1D517}", "&Therefore;": "\u2234", "&Theta;": "\u0398", "&ThickSpace;": "\u205F\u200A", "&ThinSpace;": "\u2009", "&Tilde;": "\u223C", "&TildeEqual;": "\u2243", "&TildeFullEqual;": "\u2245", "&TildeTilde;": "\u2248", "&Topf;": "\u{1D54B}", "&TripleDot;": "\u20DB", "&Tscr;": "\u{1D4AF}", "&Tstrok;": "\u0166", "&Uacute": "\xDA", "&Uacute;": "\xDA", "&Uarr;": "\u219F", "&Uarrocir;": "\u2949", "&Ubrcy;": "\u040E", "&Ubreve;": "\u016C", "&Ucirc": "\xDB", "&Ucirc;": "\xDB", "&Ucy;": "\u0423", "&Udblac;": "\u0170", "&Ufr;": "\u{1D518}", "&Ugrave": "\xD9", "&Ugrave;": "\xD9", "&Umacr;": "\u016A", "&UnderBar;": "_", "&UnderBrace;": "\u23DF", "&UnderBracket;": "\u23B5", "&UnderParenthesis;": "\u23DD", "&Union;": "\u22C3", "&UnionPlus;": "\u228E", "&Uogon;": "\u0172", "&Uopf;": "\u{1D54C}", "&UpArrow;": "\u2191", "&UpArrowBar;": "\u2912", "&UpArrowDownArrow;": "\u21C5", "&UpDownArrow;": "\u2195", "&UpEquilibrium;": "\u296E", "&UpTee;": "\u22A5", "&UpTeeArrow;": "\u21A5", "&Uparrow;": "\u21D1", "&Updownarrow;": "\u21D5", "&UpperLeftArrow;": "\u2196", "&UpperRightArrow;": "\u2197", "&Upsi;": "\u03D2", "&Upsilon;": "\u03A5", "&Uring;": "\u016E", "&Uscr;": "\u{1D4B0}", "&Utilde;": "\u0168", "&Uuml": "\xDC", "&Uuml;": "\xDC", "&VDash;": "\u22AB", "&Vbar;": "\u2AEB", "&Vcy;": "\u0412", "&Vdash;": "\u22A9", "&Vdashl;": "\u2AE6", "&Vee;": "\u22C1", "&Verbar;": "\u2016", "&Vert;": "\u2016", "&VerticalBar;": "\u2223", "&VerticalLine;": "|", "&VerticalSeparator;": "\u2758", "&VerticalTilde;": "\u2240", "&VeryThinSpace;": "\u200A", "&Vfr;": "\u{1D519}", "&Vopf;": "\u{1D54D}", "&Vscr;": "\u{1D4B1}", "&Vvdash;": "\u22AA", "&Wcirc;": "\u0174", "&Wedge;": "\u22C0", "&Wfr;": "\u{1D51A}", "&Wopf;": "\u{1D54E}", "&Wscr;": "\u{1D4B2}", "&Xfr;": "\u{1D51B}", "&Xi;": "\u039E", "&Xopf;": "\u{1D54F}", "&Xscr;": "\u{1D4B3}", "&YAcy;": "\u042F", "&YIcy;": "\u0407", "&YUcy;": "\u042E", "&Yacute": "\xDD", "&Yacute;": "\xDD", "&Ycirc;": "\u0176", "&Ycy;": "\u042B", "&Yfr;": "\u{1D51C}", "&Yopf;": "\u{1D550}", "&Yscr;": "\u{1D4B4}", "&Yuml;": "\u0178", "&ZHcy;": "\u0416", "&Zacute;": "\u0179", "&Zcaron;": "\u017D", "&Zcy;": "\u0417", "&Zdot;": "\u017B", "&ZeroWidthSpace;": "\u200B", "&Zeta;": "\u0396", "&Zfr;": "\u2128", "&Zopf;": "\u2124", "&Zscr;": "\u{1D4B5}", "&aacute": "\xE1", "&aacute;": "\xE1", "&abreve;": "\u0103", "&ac;": "\u223E", "&acE;": "\u223E\u0333", "&acd;": "\u223F", "&acirc": "\xE2", "&acirc;": "\xE2", "&acute": "\xB4", "&acute;": "\xB4", "&acy;": "\u0430", "&aelig": "\xE6", "&aelig;": "\xE6", "&af;": "\u2061", "&afr;": "\u{1D51E}", "&agrave": "\xE0", "&agrave;": "\xE0", "&alefsym;": "\u2135", "&aleph;": "\u2135", "&alpha;": "\u03B1", "&amacr;": "\u0101", "&amalg;": "\u2A3F", "&amp": "&", "&amp;": "&", "&and;": "\u2227", "&andand;": "\u2A55", "&andd;": "\u2A5C", "&andslope;": "\u2A58", "&andv;": "\u2A5A", "&ang;": "\u2220", "&ange;": "\u29A4", "&angle;": "\u2220", "&angmsd;": "\u2221", "&angmsdaa;": "\u29A8", "&angmsdab;": "\u29A9", "&angmsdac;": "\u29AA", "&angmsdad;": "\u29AB", "&angmsdae;": "\u29AC", "&angmsdaf;": "\u29AD", "&angmsdag;": "\u29AE", "&angmsdah;": "\u29AF", "&angrt;": "\u221F", "&angrtvb;": "\u22BE", "&angrtvbd;": "\u299D", "&angsph;": "\u2222", "&angst;": "\xC5", "&angzarr;": "\u237C", "&aogon;": "\u0105", "&aopf;": "\u{1D552}", "&ap;": "\u2248", "&apE;": "\u2A70", "&apacir;": "\u2A6F", "&ape;": "\u224A", "&apid;": "\u224B", "&apos;": "'", "&approx;": "\u2248", "&approxeq;": "\u224A", "&aring": "\xE5", "&aring;": "\xE5", "&ascr;": "\u{1D4B6}", "&ast;": "*", "&asymp;": "\u2248", "&asympeq;": "\u224D", "&atilde": "\xE3", "&atilde;": "\xE3", "&auml": "\xE4", "&auml;": "\xE4", "&awconint;": "\u2233", "&awint;": "\u2A11", "&bNot;": "\u2AED", "&backcong;": "\u224C", "&backepsilon;": "\u03F6", "&backprime;": "\u2035", "&backsim;": "\u223D", "&backsimeq;": "\u22CD", "&barvee;": "\u22BD", "&barwed;": "\u2305", "&barwedge;": "\u2305", "&bbrk;": "\u23B5", "&bbrktbrk;": "\u23B6", "&bcong;": "\u224C", "&bcy;": "\u0431", "&bdquo;": "\u201E", "&becaus;": "\u2235", "&because;": "\u2235", "&bemptyv;": "\u29B0", "&bepsi;": "\u03F6", "&bernou;": "\u212C", "&beta;": "\u03B2", "&beth;": "\u2136", "&between;": "\u226C", "&bfr;": "\u{1D51F}", "&bigcap;": "\u22C2", "&bigcirc;": "\u25EF", "&bigcup;": "\u22C3", "&bigodot;": "\u2A00", "&bigoplus;": "\u2A01", "&bigotimes;": "\u2A02", "&bigsqcup;": "\u2A06", "&bigstar;": "\u2605", "&bigtriangledown;": "\u25BD", "&bigtriangleup;": "\u25B3", "&biguplus;": "\u2A04", "&bigvee;": "\u22C1", "&bigwedge;": "\u22C0", "&bkarow;": "\u290D", "&blacklozenge;": "\u29EB", "&blacksquare;": "\u25AA", "&blacktriangle;": "\u25B4", "&blacktriangledown;": "\u25BE", "&blacktriangleleft;": "\u25C2", "&blacktriangleright;": "\u25B8", "&blank;": "\u2423", "&blk12;": "\u2592", "&blk14;": "\u2591", "&blk34;": "\u2593", "&block;": "\u2588", "&bne;": "=\u20E5", "&bnequiv;": "\u2261\u20E5", "&bnot;": "\u2310", "&bopf;": "\u{1D553}", "&bot;": "\u22A5", "&bottom;": "\u22A5", "&bowtie;": "\u22C8", "&boxDL;": "\u2557", "&boxDR;": "\u2554", "&boxDl;": "\u2556", "&boxDr;": "\u2553", "&boxH;": "\u2550", "&boxHD;": "\u2566", "&boxHU;": "\u2569", "&boxHd;": "\u2564", "&boxHu;": "\u2567", "&boxUL;": "\u255D", "&boxUR;": "\u255A", "&boxUl;": "\u255C", "&boxUr;": "\u2559", "&boxV;": "\u2551", "&boxVH;": "\u256C", "&boxVL;": "\u2563", "&boxVR;": "\u2560", "&boxVh;": "\u256B", "&boxVl;": "\u2562", "&boxVr;": "\u255F", "&boxbox;": "\u29C9", "&boxdL;": "\u2555", "&boxdR;": "\u2552", "&boxdl;": "\u2510", "&boxdr;": "\u250C", "&boxh;": "\u2500", "&boxhD;": "\u2565", "&boxhU;": "\u2568", "&boxhd;": "\u252C", "&boxhu;": "\u2534", "&boxminus;": "\u229F", "&boxplus;": "\u229E", "&boxtimes;": "\u22A0", "&boxuL;": "\u255B", "&boxuR;": "\u2558", "&boxul;": "\u2518", "&boxur;": "\u2514", "&boxv;": "\u2502", "&boxvH;": "\u256A", "&boxvL;": "\u2561", "&boxvR;": "\u255E", "&boxvh;": "\u253C", "&boxvl;": "\u2524", "&boxvr;": "\u251C", "&bprime;": "\u2035", "&breve;": "\u02D8", "&brvbar": "\xA6", "&brvbar;": "\xA6", "&bscr;": "\u{1D4B7}", "&bsemi;": "\u204F", "&bsim;": "\u223D", "&bsime;": "\u22CD", "&bsol;": "\\", "&bsolb;": "\u29C5", "&bsolhsub;": "\u27C8", "&bull;": "\u2022", "&bullet;": "\u2022", "&bump;": "\u224E", "&bumpE;": "\u2AAE", "&bumpe;": "\u224F", "&bumpeq;": "\u224F", "&cacute;": "\u0107", "&cap;": "\u2229", "&capand;": "\u2A44", "&capbrcup;": "\u2A49", "&capcap;": "\u2A4B", "&capcup;": "\u2A47", "&capdot;": "\u2A40", "&caps;": "\u2229\uFE00", "&caret;": "\u2041", "&caron;": "\u02C7", "&ccaps;": "\u2A4D", "&ccaron;": "\u010D", "&ccedil": "\xE7", "&ccedil;": "\xE7", "&ccirc;": "\u0109", "&ccups;": "\u2A4C", "&ccupssm;": "\u2A50", "&cdot;": "\u010B", "&cedil": "\xB8", "&cedil;": "\xB8", "&cemptyv;": "\u29B2", "&cent": "\xA2", "&cent;": "\xA2", "&centerdot;": "\xB7", "&cfr;": "\u{1D520}", "&chcy;": "\u0447", "&check;": "\u2713", "&checkmark;": "\u2713", "&chi;": "\u03C7", "&cir;": "\u25CB", "&cirE;": "\u29C3", "&circ;": "\u02C6", "&circeq;": "\u2257", "&circlearrowleft;": "\u21BA", "&circlearrowright;": "\u21BB", "&circledR;": "\xAE", "&circledS;": "\u24C8", "&circledast;": "\u229B", "&circledcirc;": "\u229A", "&circleddash;": "\u229D", "&cire;": "\u2257", "&cirfnint;": "\u2A10", "&cirmid;": "\u2AEF", "&cirscir;": "\u29C2", "&clubs;": "\u2663", "&clubsuit;": "\u2663", "&colon;": ":", "&colone;": "\u2254", "&coloneq;": "\u2254", "&comma;": ",", "&commat;": "@", "&comp;": "\u2201", "&compfn;": "\u2218", "&complement;": "\u2201", "&complexes;": "\u2102", "&cong;": "\u2245", "&congdot;": "\u2A6D", "&conint;": "\u222E", "&copf;": "\u{1D554}", "&coprod;": "\u2210", "&copy": "\xA9", "&copy;": "\xA9", "&copysr;": "\u2117", "&crarr;": "\u21B5", "&cross;": "\u2717", "&cscr;": "\u{1D4B8}", "&csub;": "\u2ACF", "&csube;": "\u2AD1", "&csup;": "\u2AD0", "&csupe;": "\u2AD2", "&ctdot;": "\u22EF", "&cudarrl;": "\u2938", "&cudarrr;": "\u2935", "&cuepr;": "\u22DE", "&cuesc;": "\u22DF", "&cularr;": "\u21B6", "&cularrp;": "\u293D", "&cup;": "\u222A", "&cupbrcap;": "\u2A48", "&cupcap;": "\u2A46", "&cupcup;": "\u2A4A", "&cupdot;": "\u228D", "&cupor;": "\u2A45", "&cups;": "\u222A\uFE00", "&curarr;": "\u21B7", "&curarrm;": "\u293C", "&curlyeqprec;": "\u22DE", "&curlyeqsucc;": "\u22DF", "&curlyvee;": "\u22CE", "&curlywedge;": "\u22CF", "&curren": "\xA4", "&curren;": "\xA4", "&curvearrowleft;": "\u21B6", "&curvearrowright;": "\u21B7", "&cuvee;": "\u22CE", "&cuwed;": "\u22CF", "&cwconint;": "\u2232", "&cwint;": "\u2231", "&cylcty;": "\u232D", "&dArr;": "\u21D3", "&dHar;": "\u2965", "&dagger;": "\u2020", "&daleth;": "\u2138", "&darr;": "\u2193", "&dash;": "\u2010", "&dashv;": "\u22A3", "&dbkarow;": "\u290F", "&dblac;": "\u02DD", "&dcaron;": "\u010F", "&dcy;": "\u0434", "&dd;": "\u2146", "&ddagger;": "\u2021", "&ddarr;": "\u21CA", "&ddotseq;": "\u2A77", "&deg": "\xB0", "&deg;": "\xB0", "&delta;": "\u03B4", "&demptyv;": "\u29B1", "&dfisht;": "\u297F", "&dfr;": "\u{1D521}", "&dharl;": "\u21C3", "&dharr;": "\u21C2", "&diam;": "\u22C4", "&diamond;": "\u22C4", "&diamondsuit;": "\u2666", "&diams;": "\u2666", "&die;": "\xA8", "&digamma;": "\u03DD", "&disin;": "\u22F2", "&div;": "\xF7", "&divide": "\xF7", "&divide;": "\xF7", "&divideontimes;": "\u22C7", "&divonx;": "\u22C7", "&djcy;": "\u0452", "&dlcorn;": "\u231E", "&dlcrop;": "\u230D", "&dollar;": "$", "&dopf;": "\u{1D555}", "&dot;": "\u02D9", "&doteq;": "\u2250", "&doteqdot;": "\u2251", "&dotminus;": "\u2238", "&dotplus;": "\u2214", "&dotsquare;": "\u22A1", "&doublebarwedge;": "\u2306", "&downarrow;": "\u2193", "&downdownarrows;": "\u21CA", "&downharpoonleft;": "\u21C3", "&downharpoonright;": "\u21C2", "&drbkarow;": "\u2910", "&drcorn;": "\u231F", "&drcrop;": "\u230C", "&dscr;": "\u{1D4B9}", "&dscy;": "\u0455", "&dsol;": "\u29F6", "&dstrok;": "\u0111", "&dtdot;": "\u22F1", "&dtri;": "\u25BF", "&dtrif;": "\u25BE", "&duarr;": "\u21F5", "&duhar;": "\u296F", "&dwangle;": "\u29A6", "&dzcy;": "\u045F", "&dzigrarr;": "\u27FF", "&eDDot;": "\u2A77", "&eDot;": "\u2251", "&eacute": "\xE9", "&eacute;": "\xE9", "&easter;": "\u2A6E", "&ecaron;": "\u011B", "&ecir;": "\u2256", "&ecirc": "\xEA", "&ecirc;": "\xEA", "&ecolon;": "\u2255", "&ecy;": "\u044D", "&edot;": "\u0117", "&ee;": "\u2147", "&efDot;": "\u2252", "&efr;": "\u{1D522}", "&eg;": "\u2A9A", "&egrave": "\xE8", "&egrave;": "\xE8", "&egs;": "\u2A96", "&egsdot;": "\u2A98", "&el;": "\u2A99", "&elinters;": "\u23E7", "&ell;": "\u2113", "&els;": "\u2A95", "&elsdot;": "\u2A97", "&emacr;": "\u0113", "&empty;": "\u2205", "&emptyset;": "\u2205", "&emptyv;": "\u2205", "&emsp13;": "\u2004", "&emsp14;": "\u2005", "&emsp;": "\u2003", "&eng;": "\u014B", "&ensp;": "\u2002", "&eogon;": "\u0119", "&eopf;": "\u{1D556}", "&epar;": "\u22D5", "&eparsl;": "\u29E3", "&eplus;": "\u2A71", "&epsi;": "\u03B5", "&epsilon;": "\u03B5", "&epsiv;": "\u03F5", "&eqcirc;": "\u2256", "&eqcolon;": "\u2255", "&eqsim;": "\u2242", "&eqslantgtr;": "\u2A96", "&eqslantless;": "\u2A95", "&equals;": "=", "&equest;": "\u225F", "&equiv;": "\u2261", "&equivDD;": "\u2A78", "&eqvparsl;": "\u29E5", "&erDot;": "\u2253", "&erarr;": "\u2971", "&escr;": "\u212F", "&esdot;": "\u2250", "&esim;": "\u2242", "&eta;": "\u03B7", "&eth": "\xF0", "&eth;": "\xF0", "&euml": "\xEB", "&euml;": "\xEB", "&euro;": "\u20AC", "&excl;": "!", "&exist;": "\u2203", "&expectation;": "\u2130", "&exponentiale;": "\u2147", "&fallingdotseq;": "\u2252", "&fcy;": "\u0444", "&female;": "\u2640", "&ffilig;": "\uFB03", "&fflig;": "\uFB00", "&ffllig;": "\uFB04", "&ffr;": "\u{1D523}", "&filig;": "\uFB01", "&fjlig;": "fj", "&flat;": "\u266D", "&fllig;": "\uFB02", "&fltns;": "\u25B1", "&fnof;": "\u0192", "&fopf;": "\u{1D557}", "&forall;": "\u2200", "&fork;": "\u22D4", "&forkv;": "\u2AD9", "&fpartint;": "\u2A0D", "&frac12": "\xBD", "&frac12;": "\xBD", "&frac13;": "\u2153", "&frac14": "\xBC", "&frac14;": "\xBC", "&frac15;": "\u2155", "&frac16;": "\u2159", "&frac18;": "\u215B", "&frac23;": "\u2154", "&frac25;": "\u2156", "&frac34": "\xBE", "&frac34;": "\xBE", "&frac35;": "\u2157", "&frac38;": "\u215C", "&frac45;": "\u2158", "&frac56;": "\u215A", "&frac58;": "\u215D", "&frac78;": "\u215E", "&frasl;": "\u2044", "&frown;": "\u2322", "&fscr;": "\u{1D4BB}", "&gE;": "\u2267", "&gEl;": "\u2A8C", "&gacute;": "\u01F5", "&gamma;": "\u03B3", "&gammad;": "\u03DD", "&gap;": "\u2A86", "&gbreve;": "\u011F", "&gcirc;": "\u011D", "&gcy;": "\u0433", "&gdot;": "\u0121", "&ge;": "\u2265", "&gel;": "\u22DB", "&geq;": "\u2265", "&geqq;": "\u2267", "&geqslant;": "\u2A7E", "&ges;": "\u2A7E", "&gescc;": "\u2AA9", "&gesdot;": "\u2A80", "&gesdoto;": "\u2A82", "&gesdotol;": "\u2A84", "&gesl;": "\u22DB\uFE00", "&gesles;": "\u2A94", "&gfr;": "\u{1D524}", "&gg;": "\u226B", "&ggg;": "\u22D9", "&gimel;": "\u2137", "&gjcy;": "\u0453", "&gl;": "\u2277", "&glE;": "\u2A92", "&gla;": "\u2AA5", "&glj;": "\u2AA4", "&gnE;": "\u2269", "&gnap;": "\u2A8A", "&gnapprox;": "\u2A8A", "&gne;": "\u2A88", "&gneq;": "\u2A88", "&gneqq;": "\u2269", "&gnsim;": "\u22E7", "&gopf;": "\u{1D558}", "&grave;": "`", "&gscr;": "\u210A", "&gsim;": "\u2273", "&gsime;": "\u2A8E", "&gsiml;": "\u2A90", "&gt": ">", "&gt;": ">", "&gtcc;": "\u2AA7", "&gtcir;": "\u2A7A", "&gtdot;": "\u22D7", "&gtlPar;": "\u2995", "&gtquest;": "\u2A7C", "&gtrapprox;": "\u2A86", "&gtrarr;": "\u2978", "&gtrdot;": "\u22D7", "&gtreqless;": "\u22DB", "&gtreqqless;": "\u2A8C", "&gtrless;": "\u2277", "&gtrsim;": "\u2273", "&gvertneqq;": "\u2269\uFE00", "&gvnE;": "\u2269\uFE00", "&hArr;": "\u21D4", "&hairsp;": "\u200A", "&half;": "\xBD", "&hamilt;": "\u210B", "&hardcy;": "\u044A", "&harr;": "\u2194", "&harrcir;": "\u2948", "&harrw;": "\u21AD", "&hbar;": "\u210F", "&hcirc;": "\u0125", "&hearts;": "\u2665", "&heartsuit;": "\u2665", "&hellip;": "\u2026", "&hercon;": "\u22B9", "&hfr;": "\u{1D525}", "&hksearow;": "\u2925", "&hkswarow;": "\u2926", "&hoarr;": "\u21FF", "&homtht;": "\u223B", "&hookleftarrow;": "\u21A9", "&hookrightarrow;": "\u21AA", "&hopf;": "\u{1D559}", "&horbar;": "\u2015", "&hscr;": "\u{1D4BD}", "&hslash;": "\u210F", "&hstrok;": "\u0127", "&hybull;": "\u2043", "&hyphen;": "\u2010", "&iacute": "\xED", "&iacute;": "\xED", "&ic;": "\u2063", "&icirc": "\xEE", "&icirc;": "\xEE", "&icy;": "\u0438", "&iecy;": "\u0435", "&iexcl": "\xA1", "&iexcl;": "\xA1", "&iff;": "\u21D4", "&ifr;": "\u{1D526}", "&igrave": "\xEC", "&igrave;": "\xEC", "&ii;": "\u2148", "&iiiint;": "\u2A0C", "&iiint;": "\u222D", "&iinfin;": "\u29DC", "&iiota;": "\u2129", "&ijlig;": "\u0133", "&imacr;": "\u012B", "&image;": "\u2111", "&imagline;": "\u2110", "&imagpart;": "\u2111", "&imath;": "\u0131", "&imof;": "\u22B7", "&imped;": "\u01B5", "&in;": "\u2208", "&incare;": "\u2105", "&infin;": "\u221E", "&infintie;": "\u29DD", "&inodot;": "\u0131", "&int;": "\u222B", "&intcal;": "\u22BA", "&integers;": "\u2124", "&intercal;": "\u22BA", "&intlarhk;": "\u2A17", "&intprod;": "\u2A3C", "&iocy;": "\u0451", "&iogon;": "\u012F", "&iopf;": "\u{1D55A}", "&iota;": "\u03B9", "&iprod;": "\u2A3C", "&iquest": "\xBF", "&iquest;": "\xBF", "&iscr;": "\u{1D4BE}", "&isin;": "\u2208", "&isinE;": "\u22F9", "&isindot;": "\u22F5", "&isins;": "\u22F4", "&isinsv;": "\u22F3", "&isinv;": "\u2208", "&it;": "\u2062", "&itilde;": "\u0129", "&iukcy;": "\u0456", "&iuml": "\xEF", "&iuml;": "\xEF", "&jcirc;": "\u0135", "&jcy;": "\u0439", "&jfr;": "\u{1D527}", "&jmath;": "\u0237", "&jopf;": "\u{1D55B}", "&jscr;": "\u{1D4BF}", "&jsercy;": "\u0458", "&jukcy;": "\u0454", "&kappa;": "\u03BA", "&kappav;": "\u03F0", "&kcedil;": "\u0137", "&kcy;": "\u043A", "&kfr;": "\u{1D528}", "&kgreen;": "\u0138", "&khcy;": "\u0445", "&kjcy;": "\u045C", "&kopf;": "\u{1D55C}", "&kscr;": "\u{1D4C0}", "&lAarr;": "\u21DA", "&lArr;": "\u21D0", "&lAtail;": "\u291B", "&lBarr;": "\u290E", "&lE;": "\u2266", "&lEg;": "\u2A8B", "&lHar;": "\u2962", "&lacute;": "\u013A", "&laemptyv;": "\u29B4", "&lagran;": "\u2112", "&lambda;": "\u03BB", "&lang;": "\u27E8", "&langd;": "\u2991", "&langle;": "\u27E8", "&lap;": "\u2A85", "&laquo": "\xAB", "&laquo;": "\xAB", "&larr;": "\u2190", "&larrb;": "\u21E4", "&larrbfs;": "\u291F", "&larrfs;": "\u291D", "&larrhk;": "\u21A9", "&larrlp;": "\u21AB", "&larrpl;": "\u2939", "&larrsim;": "\u2973", "&larrtl;": "\u21A2", "&lat;": "\u2AAB", "&latail;": "\u2919", "&late;": "\u2AAD", "&lates;": "\u2AAD\uFE00", "&lbarr;": "\u290C", "&lbbrk;": "\u2772", "&lbrace;": "{", "&lbrack;": "[", "&lbrke;": "\u298B", "&lbrksld;": "\u298F", "&lbrkslu;": "\u298D", "&lcaron;": "\u013E", "&lcedil;": "\u013C", "&lceil;": "\u2308", "&lcub;": "{", "&lcy;": "\u043B", "&ldca;": "\u2936", "&ldquo;": "\u201C", "&ldquor;": "\u201E", "&ldrdhar;": "\u2967", "&ldrushar;": "\u294B", "&ldsh;": "\u21B2", "&le;": "\u2264", "&leftarrow;": "\u2190", "&leftarrowtail;": "\u21A2", "&leftharpoondown;": "\u21BD", "&leftharpoonup;": "\u21BC", "&leftleftarrows;": "\u21C7", "&leftrightarrow;": "\u2194", "&leftrightarrows;": "\u21C6", "&leftrightharpoons;": "\u21CB", "&leftrightsquigarrow;": "\u21AD", "&leftthreetimes;": "\u22CB", "&leg;": "\u22DA", "&leq;": "\u2264", "&leqq;": "\u2266", "&leqslant;": "\u2A7D", "&les;": "\u2A7D", "&lescc;": "\u2AA8", "&lesdot;": "\u2A7F", "&lesdoto;": "\u2A81", "&lesdotor;": "\u2A83", "&lesg;": "\u22DA\uFE00", "&lesges;": "\u2A93", "&lessapprox;": "\u2A85", "&lessdot;": "\u22D6", "&lesseqgtr;": "\u22DA", "&lesseqqgtr;": "\u2A8B", "&lessgtr;": "\u2276", "&lesssim;": "\u2272", "&lfisht;": "\u297C", "&lfloor;": "\u230A", "&lfr;": "\u{1D529}", "&lg;": "\u2276", "&lgE;": "\u2A91", "&lhard;": "\u21BD", "&lharu;": "\u21BC", "&lharul;": "\u296A", "&lhblk;": "\u2584", "&ljcy;": "\u0459", "&ll;": "\u226A", "&llarr;": "\u21C7", "&llcorner;": "\u231E", "&llhard;": "\u296B", "&lltri;": "\u25FA", "&lmidot;": "\u0140", "&lmoust;": "\u23B0", "&lmoustache;": "\u23B0", "&lnE;": "\u2268", "&lnap;": "\u2A89", "&lnapprox;": "\u2A89", "&lne;": "\u2A87", "&lneq;": "\u2A87", "&lneqq;": "\u2268", "&lnsim;": "\u22E6", "&loang;": "\u27EC", "&loarr;": "\u21FD", "&lobrk;": "\u27E6", "&longleftarrow;": "\u27F5", "&longleftrightarrow;": "\u27F7", "&longmapsto;": "\u27FC", "&longrightarrow;": "\u27F6", "&looparrowleft;": "\u21AB", "&looparrowright;": "\u21AC", "&lopar;": "\u2985", "&lopf;": "\u{1D55D}", "&loplus;": "\u2A2D", "&lotimes;": "\u2A34", "&lowast;": "\u2217", "&lowbar;": "_", "&loz;": "\u25CA", "&lozenge;": "\u25CA", "&lozf;": "\u29EB", "&lpar;": "(", "&lparlt;": "\u2993", "&lrarr;": "\u21C6", "&lrcorner;": "\u231F", "&lrhar;": "\u21CB", "&lrhard;": "\u296D", "&lrm;": "\u200E", "&lrtri;": "\u22BF", "&lsaquo;": "\u2039", "&lscr;": "\u{1D4C1}", "&lsh;": "\u21B0", "&lsim;": "\u2272", "&lsime;": "\u2A8D", "&lsimg;": "\u2A8F", "&lsqb;": "[", "&lsquo;": "\u2018", "&lsquor;": "\u201A", "&lstrok;": "\u0142", "&lt": "<", "&lt;": "<", "&ltcc;": "\u2AA6", "&ltcir;": "\u2A79", "&ltdot;": "\u22D6", "&lthree;": "\u22CB", "&ltimes;": "\u22C9", "&ltlarr;": "\u2976", "&ltquest;": "\u2A7B", "&ltrPar;": "\u2996", "&ltri;": "\u25C3", "&ltrie;": "\u22B4", "&ltrif;": "\u25C2", "&lurdshar;": "\u294A", "&luruhar;": "\u2966", "&lvertneqq;": "\u2268\uFE00", "&lvnE;": "\u2268\uFE00", "&mDDot;": "\u223A", "&macr": "\xAF", "&macr;": "\xAF", "&male;": "\u2642", "&malt;": "\u2720", "&maltese;": "\u2720", "&map;": "\u21A6", "&mapsto;": "\u21A6", "&mapstodown;": "\u21A7", "&mapstoleft;": "\u21A4", "&mapstoup;": "\u21A5", "&marker;": "\u25AE", "&mcomma;": "\u2A29", "&mcy;": "\u043C", "&mdash;": "\u2014", "&measuredangle;": "\u2221", "&mfr;": "\u{1D52A}", "&mho;": "\u2127", "&micro": "\xB5", "&micro;": "\xB5", "&mid;": "\u2223", "&midast;": "*", "&midcir;": "\u2AF0", "&middot": "\xB7", "&middot;": "\xB7", "&minus;": "\u2212", "&minusb;": "\u229F", "&minusd;": "\u2238", "&minusdu;": "\u2A2A", "&mlcp;": "\u2ADB", "&mldr;": "\u2026", "&mnplus;": "\u2213", "&models;": "\u22A7", "&mopf;": "\u{1D55E}", "&mp;": "\u2213", "&mscr;": "\u{1D4C2}", "&mstpos;": "\u223E", "&mu;": "\u03BC", "&multimap;": "\u22B8", "&mumap;": "\u22B8", "&nGg;": "\u22D9\u0338", "&nGt;": "\u226B\u20D2", "&nGtv;": "\u226B\u0338", "&nLeftarrow;": "\u21CD", "&nLeftrightarrow;": "\u21CE", "&nLl;": "\u22D8\u0338", "&nLt;": "\u226A\u20D2", "&nLtv;": "\u226A\u0338", "&nRightarrow;": "\u21CF", "&nVDash;": "\u22AF", "&nVdash;": "\u22AE", "&nabla;": "\u2207", "&nacute;": "\u0144", "&nang;": "\u2220\u20D2", "&nap;": "\u2249", "&napE;": "\u2A70\u0338", "&napid;": "\u224B\u0338", "&napos;": "\u0149", "&napprox;": "\u2249", "&natur;": "\u266E", "&natural;": "\u266E", "&naturals;": "\u2115", "&nbsp": "\xA0", "&nbsp;": "\xA0", "&nbump;": "\u224E\u0338", "&nbumpe;": "\u224F\u0338", "&ncap;": "\u2A43", "&ncaron;": "\u0148", "&ncedil;": "\u0146", "&ncong;": "\u2247", "&ncongdot;": "\u2A6D\u0338", "&ncup;": "\u2A42", "&ncy;": "\u043D", "&ndash;": "\u2013", "&ne;": "\u2260", "&neArr;": "\u21D7", "&nearhk;": "\u2924", "&nearr;": "\u2197", "&nearrow;": "\u2197", "&nedot;": "\u2250\u0338", "&nequiv;": "\u2262", "&nesear;": "\u2928", "&nesim;": "\u2242\u0338", "&nexist;": "\u2204", "&nexists;": "\u2204", "&nfr;": "\u{1D52B}", "&ngE;": "\u2267\u0338", "&nge;": "\u2271", "&ngeq;": "\u2271", "&ngeqq;": "\u2267\u0338", "&ngeqslant;": "\u2A7E\u0338", "&nges;": "\u2A7E\u0338", "&ngsim;": "\u2275", "&ngt;": "\u226F", "&ngtr;": "\u226F", "&nhArr;": "\u21CE", "&nharr;": "\u21AE", "&nhpar;": "\u2AF2", "&ni;": "\u220B", "&nis;": "\u22FC", "&nisd;": "\u22FA", "&niv;": "\u220B", "&njcy;": "\u045A", "&nlArr;": "\u21CD", "&nlE;": "\u2266\u0338", "&nlarr;": "\u219A", "&nldr;": "\u2025", "&nle;": "\u2270", "&nleftarrow;": "\u219A", "&nleftrightarrow;": "\u21AE", "&nleq;": "\u2270", "&nleqq;": "\u2266\u0338", "&nleqslant;": "\u2A7D\u0338", "&nles;": "\u2A7D\u0338", "&nless;": "\u226E", "&nlsim;": "\u2274", "&nlt;": "\u226E", "&nltri;": "\u22EA", "&nltrie;": "\u22EC", "&nmid;": "\u2224", "&nopf;": "\u{1D55F}", "&not": "\xAC", "&not;": "\xAC", "&notin;": "\u2209", "&notinE;": "\u22F9\u0338", "&notindot;": "\u22F5\u0338", "&notinva;": "\u2209", "&notinvb;": "\u22F7", "&notinvc;": "\u22F6", "&notni;": "\u220C", "&notniva;": "\u220C", "&notnivb;": "\u22FE", "&notnivc;": "\u22FD", "&npar;": "\u2226", "&nparallel;": "\u2226", "&nparsl;": "\u2AFD\u20E5", "&npart;": "\u2202\u0338", "&npolint;": "\u2A14", "&npr;": "\u2280", "&nprcue;": "\u22E0", "&npre;": "\u2AAF\u0338", "&nprec;": "\u2280", "&npreceq;": "\u2AAF\u0338", "&nrArr;": "\u21CF", "&nrarr;": "\u219B", "&nrarrc;": "\u2933\u0338", "&nrarrw;": "\u219D\u0338", "&nrightarrow;": "\u219B", "&nrtri;": "\u22EB", "&nrtrie;": "\u22ED", "&nsc;": "\u2281", "&nsccue;": "\u22E1", "&nsce;": "\u2AB0\u0338", "&nscr;": "\u{1D4C3}", "&nshortmid;": "\u2224", "&nshortparallel;": "\u2226", "&nsim;": "\u2241", "&nsime;": "\u2244", "&nsimeq;": "\u2244", "&nsmid;": "\u2224", "&nspar;": "\u2226", "&nsqsube;": "\u22E2", "&nsqsupe;": "\u22E3", "&nsub;": "\u2284", "&nsubE;": "\u2AC5\u0338", "&nsube;": "\u2288", "&nsubset;": "\u2282\u20D2", "&nsubseteq;": "\u2288", "&nsubseteqq;": "\u2AC5\u0338", "&nsucc;": "\u2281", "&nsucceq;": "\u2AB0\u0338", "&nsup;": "\u2285", "&nsupE;": "\u2AC6\u0338", "&nsupe;": "\u2289", "&nsupset;": "\u2283\u20D2", "&nsupseteq;": "\u2289", "&nsupseteqq;": "\u2AC6\u0338", "&ntgl;": "\u2279", "&ntilde": "\xF1", "&ntilde;": "\xF1", "&ntlg;": "\u2278", "&ntriangleleft;": "\u22EA", "&ntrianglelefteq;": "\u22EC", "&ntriangleright;": "\u22EB", "&ntrianglerighteq;": "\u22ED", "&nu;": "\u03BD", "&num;": "#", "&numero;": "\u2116", "&numsp;": "\u2007", "&nvDash;": "\u22AD", "&nvHarr;": "\u2904", "&nvap;": "\u224D\u20D2", "&nvdash;": "\u22AC", "&nvge;": "\u2265\u20D2", "&nvgt;": ">\u20D2", "&nvinfin;": "\u29DE", "&nvlArr;": "\u2902", "&nvle;": "\u2264\u20D2", "&nvlt;": "<\u20D2", "&nvltrie;": "\u22B4\u20D2", "&nvrArr;": "\u2903", "&nvrtrie;": "\u22B5\u20D2", "&nvsim;": "\u223C\u20D2", "&nwArr;": "\u21D6", "&nwarhk;": "\u2923", "&nwarr;": "\u2196", "&nwarrow;": "\u2196", "&nwnear;": "\u2927", "&oS;": "\u24C8", "&oacute": "\xF3", "&oacute;": "\xF3", "&oast;": "\u229B", "&ocir;": "\u229A", "&ocirc": "\xF4", "&ocirc;": "\xF4", "&ocy;": "\u043E", "&odash;": "\u229D", "&odblac;": "\u0151", "&odiv;": "\u2A38", "&odot;": "\u2299", "&odsold;": "\u29BC", "&oelig;": "\u0153", "&ofcir;": "\u29BF", "&ofr;": "\u{1D52C}", "&ogon;": "\u02DB", "&ograve": "\xF2", "&ograve;": "\xF2", "&ogt;": "\u29C1", "&ohbar;": "\u29B5", "&ohm;": "\u03A9", "&oint;": "\u222E", "&olarr;": "\u21BA", "&olcir;": "\u29BE", "&olcross;": "\u29BB", "&oline;": "\u203E", "&olt;": "\u29C0", "&omacr;": "\u014D", "&omega;": "\u03C9", "&omicron;": "\u03BF", "&omid;": "\u29B6", "&ominus;": "\u2296", "&oopf;": "\u{1D560}", "&opar;": "\u29B7", "&operp;": "\u29B9", "&oplus;": "\u2295", "&or;": "\u2228", "&orarr;": "\u21BB", "&ord;": "\u2A5D", "&order;": "\u2134", "&orderof;": "\u2134", "&ordf": "\xAA", "&ordf;": "\xAA", "&ordm": "\xBA", "&ordm;": "\xBA", "&origof;": "\u22B6", "&oror;": "\u2A56", "&orslope;": "\u2A57", "&orv;": "\u2A5B", "&oscr;": "\u2134", "&oslash": "\xF8", "&oslash;": "\xF8", "&osol;": "\u2298", "&otilde": "\xF5", "&otilde;": "\xF5", "&otimes;": "\u2297", "&otimesas;": "\u2A36", "&ouml": "\xF6", "&ouml;": "\xF6", "&ovbar;": "\u233D", "&par;": "\u2225", "&para": "\xB6", "&para;": "\xB6", "&parallel;": "\u2225", "&parsim;": "\u2AF3", "&parsl;": "\u2AFD", "&part;": "\u2202", "&pcy;": "\u043F", "&percnt;": "%", "&period;": ".", "&permil;": "\u2030", "&perp;": "\u22A5", "&pertenk;": "\u2031", "&pfr;": "\u{1D52D}", "&phi;": "\u03C6", "&phiv;": "\u03D5", "&phmmat;": "\u2133", "&phone;": "\u260E", "&pi;": "\u03C0", "&pitchfork;": "\u22D4", "&piv;": "\u03D6", "&planck;": "\u210F", "&planckh;": "\u210E", "&plankv;": "\u210F", "&plus;": "+", "&plusacir;": "\u2A23", "&plusb;": "\u229E", "&pluscir;": "\u2A22", "&plusdo;": "\u2214", "&plusdu;": "\u2A25", "&pluse;": "\u2A72", "&plusmn": "\xB1", "&plusmn;": "\xB1", "&plussim;": "\u2A26", "&plustwo;": "\u2A27", "&pm;": "\xB1", "&pointint;": "\u2A15", "&popf;": "\u{1D561}", "&pound": "\xA3", "&pound;": "\xA3", "&pr;": "\u227A", "&prE;": "\u2AB3", "&prap;": "\u2AB7", "&prcue;": "\u227C", "&pre;": "\u2AAF", "&prec;": "\u227A", "&precapprox;": "\u2AB7", "&preccurlyeq;": "\u227C", "&preceq;": "\u2AAF", "&precnapprox;": "\u2AB9", "&precneqq;": "\u2AB5", "&precnsim;": "\u22E8", "&precsim;": "\u227E", "&prime;": "\u2032", "&primes;": "\u2119", "&prnE;": "\u2AB5", "&prnap;": "\u2AB9", "&prnsim;": "\u22E8", "&prod;": "\u220F", "&profalar;": "\u232E", "&profline;": "\u2312", "&profsurf;": "\u2313", "&prop;": "\u221D", "&propto;": "\u221D", "&prsim;": "\u227E", "&prurel;": "\u22B0", "&pscr;": "\u{1D4C5}", "&psi;": "\u03C8", "&puncsp;": "\u2008", "&qfr;": "\u{1D52E}", "&qint;": "\u2A0C", "&qopf;": "\u{1D562}", "&qprime;": "\u2057", "&qscr;": "\u{1D4C6}", "&quaternions;": "\u210D", "&quatint;": "\u2A16", "&quest;": "?", "&questeq;": "\u225F", "&quot": '"', "&quot;": '"', "&rAarr;": "\u21DB", "&rArr;": "\u21D2", "&rAtail;": "\u291C", "&rBarr;": "\u290F", "&rHar;": "\u2964", "&race;": "\u223D\u0331", "&racute;": "\u0155", "&radic;": "\u221A", "&raemptyv;": "\u29B3", "&rang;": "\u27E9", "&rangd;": "\u2992", "&range;": "\u29A5", "&rangle;": "\u27E9", "&raquo": "\xBB", "&raquo;": "\xBB", "&rarr;": "\u2192", "&rarrap;": "\u2975", "&rarrb;": "\u21E5", "&rarrbfs;": "\u2920", "&rarrc;": "\u2933", "&rarrfs;": "\u291E", "&rarrhk;": "\u21AA", "&rarrlp;": "\u21AC", "&rarrpl;": "\u2945", "&rarrsim;": "\u2974", "&rarrtl;": "\u21A3", "&rarrw;": "\u219D", "&ratail;": "\u291A", "&ratio;": "\u2236", "&rationals;": "\u211A", "&rbarr;": "\u290D", "&rbbrk;": "\u2773", "&rbrace;": "}", "&rbrack;": "]", "&rbrke;": "\u298C", "&rbrksld;": "\u298E", "&rbrkslu;": "\u2990", "&rcaron;": "\u0159", "&rcedil;": "\u0157", "&rceil;": "\u2309", "&rcub;": "}", "&rcy;": "\u0440", "&rdca;": "\u2937", "&rdldhar;": "\u2969", "&rdquo;": "\u201D", "&rdquor;": "\u201D", "&rdsh;": "\u21B3", "&real;": "\u211C", "&realine;": "\u211B", "&realpart;": "\u211C", "&reals;": "\u211D", "&rect;": "\u25AD", "&reg": "\xAE", "&reg;": "\xAE", "&rfisht;": "\u297D", "&rfloor;": "\u230B", "&rfr;": "\u{1D52F}", "&rhard;": "\u21C1", "&rharu;": "\u21C0", "&rharul;": "\u296C", "&rho;": "\u03C1", "&rhov;": "\u03F1", "&rightarrow;": "\u2192", "&rightarrowtail;": "\u21A3", "&rightharpoondown;": "\u21C1", "&rightharpoonup;": "\u21C0", "&rightleftarrows;": "\u21C4", "&rightleftharpoons;": "\u21CC", "&rightrightarrows;": "\u21C9", "&rightsquigarrow;": "\u219D", "&rightthreetimes;": "\u22CC", "&ring;": "\u02DA", "&risingdotseq;": "\u2253", "&rlarr;": "\u21C4", "&rlhar;": "\u21CC", "&rlm;": "\u200F", "&rmoust;": "\u23B1", "&rmoustache;": "\u23B1", "&rnmid;": "\u2AEE", "&roang;": "\u27ED", "&roarr;": "\u21FE", "&robrk;": "\u27E7", "&ropar;": "\u2986", "&ropf;": "\u{1D563}", "&roplus;": "\u2A2E", "&rotimes;": "\u2A35", "&rpar;": ")", "&rpargt;": "\u2994", "&rppolint;": "\u2A12", "&rrarr;": "\u21C9", "&rsaquo;": "\u203A", "&rscr;": "\u{1D4C7}", "&rsh;": "\u21B1", "&rsqb;": "]", "&rsquo;": "\u2019", "&rsquor;": "\u2019", "&rthree;": "\u22CC", "&rtimes;": "\u22CA", "&rtri;": "\u25B9", "&rtrie;": "\u22B5", "&rtrif;": "\u25B8", "&rtriltri;": "\u29CE", "&ruluhar;": "\u2968", "&rx;": "\u211E", "&sacute;": "\u015B", "&sbquo;": "\u201A", "&sc;": "\u227B", "&scE;": "\u2AB4", "&scap;": "\u2AB8", "&scaron;": "\u0161", "&sccue;": "\u227D", "&sce;": "\u2AB0", "&scedil;": "\u015F", "&scirc;": "\u015D", "&scnE;": "\u2AB6", "&scnap;": "\u2ABA", "&scnsim;": "\u22E9", "&scpolint;": "\u2A13", "&scsim;": "\u227F", "&scy;": "\u0441", "&sdot;": "\u22C5", "&sdotb;": "\u22A1", "&sdote;": "\u2A66", "&seArr;": "\u21D8", "&searhk;": "\u2925", "&searr;": "\u2198", "&searrow;": "\u2198", "&sect": "\xA7", "&sect;": "\xA7", "&semi;": ";", "&seswar;": "\u2929", "&setminus;": "\u2216", "&setmn;": "\u2216", "&sext;": "\u2736", "&sfr;": "\u{1D530}", "&sfrown;": "\u2322", "&sharp;": "\u266F", "&shchcy;": "\u0449", "&shcy;": "\u0448", "&shortmid;": "\u2223", "&shortparallel;": "\u2225", "&shy": "\xAD", "&shy;": "\xAD", "&sigma;": "\u03C3", "&sigmaf;": "\u03C2", "&sigmav;": "\u03C2", "&sim;": "\u223C", "&simdot;": "\u2A6A", "&sime;": "\u2243", "&simeq;": "\u2243", "&simg;": "\u2A9E", "&simgE;": "\u2AA0", "&siml;": "\u2A9D", "&simlE;": "\u2A9F", "&simne;": "\u2246", "&simplus;": "\u2A24", "&simrarr;": "\u2972", "&slarr;": "\u2190", "&smallsetminus;": "\u2216", "&smashp;": "\u2A33", "&smeparsl;": "\u29E4", "&smid;": "\u2223", "&smile;": "\u2323", "&smt;": "\u2AAA", "&smte;": "\u2AAC", "&smtes;": "\u2AAC\uFE00", "&softcy;": "\u044C", "&sol;": "/", "&solb;": "\u29C4", "&solbar;": "\u233F", "&sopf;": "\u{1D564}", "&spades;": "\u2660", "&spadesuit;": "\u2660", "&spar;": "\u2225", "&sqcap;": "\u2293", "&sqcaps;": "\u2293\uFE00", "&sqcup;": "\u2294", "&sqcups;": "\u2294\uFE00", "&sqsub;": "\u228F", "&sqsube;": "\u2291", "&sqsubset;": "\u228F", "&sqsubseteq;": "\u2291", "&sqsup;": "\u2290", "&sqsupe;": "\u2292", "&sqsupset;": "\u2290", "&sqsupseteq;": "\u2292", "&squ;": "\u25A1", "&square;": "\u25A1", "&squarf;": "\u25AA", "&squf;": "\u25AA", "&srarr;": "\u2192", "&sscr;": "\u{1D4C8}", "&ssetmn;": "\u2216", "&ssmile;": "\u2323", "&sstarf;": "\u22C6", "&star;": "\u2606", "&starf;": "\u2605", "&straightepsilon;": "\u03F5", "&straightphi;": "\u03D5", "&strns;": "\xAF", "&sub;": "\u2282", "&subE;": "\u2AC5", "&subdot;": "\u2ABD", "&sube;": "\u2286", "&subedot;": "\u2AC3", "&submult;": "\u2AC1", "&subnE;": "\u2ACB", "&subne;": "\u228A", "&subplus;": "\u2ABF", "&subrarr;": "\u2979", "&subset;": "\u2282", "&subseteq;": "\u2286", "&subseteqq;": "\u2AC5", "&subsetneq;": "\u228A", "&subsetneqq;": "\u2ACB", "&subsim;": "\u2AC7", "&subsub;": "\u2AD5", "&subsup;": "\u2AD3", "&succ;": "\u227B", "&succapprox;": "\u2AB8", "&succcurlyeq;": "\u227D", "&succeq;": "\u2AB0", "&succnapprox;": "\u2ABA", "&succneqq;": "\u2AB6", "&succnsim;": "\u22E9", "&succsim;": "\u227F", "&sum;": "\u2211", "&sung;": "\u266A", "&sup1": "\xB9", "&sup1;": "\xB9", "&sup2": "\xB2", "&sup2;": "\xB2", "&sup3": "\xB3", "&sup3;": "\xB3", "&sup;": "\u2283", "&supE;": "\u2AC6", "&supdot;": "\u2ABE", "&supdsub;": "\u2AD8", "&supe;": "\u2287", "&supedot;": "\u2AC4", "&suphsol;": "\u27C9", "&suphsub;": "\u2AD7", "&suplarr;": "\u297B", "&supmult;": "\u2AC2", "&supnE;": "\u2ACC", "&supne;": "\u228B", "&supplus;": "\u2AC0", "&supset;": "\u2283", "&supseteq;": "\u2287", "&supseteqq;": "\u2AC6", "&supsetneq;": "\u228B", "&supsetneqq;": "\u2ACC", "&supsim;": "\u2AC8", "&supsub;": "\u2AD4", "&supsup;": "\u2AD6", "&swArr;": "\u21D9", "&swarhk;": "\u2926", "&swarr;": "\u2199", "&swarrow;": "\u2199", "&swnwar;": "\u292A", "&szlig": "\xDF", "&szlig;": "\xDF", "&target;": "\u2316", "&tau;": "\u03C4", "&tbrk;": "\u23B4", "&tcaron;": "\u0165", "&tcedil;": "\u0163", "&tcy;": "\u0442", "&tdot;": "\u20DB", "&telrec;": "\u2315", "&tfr;": "\u{1D531}", "&there4;": "\u2234", "&therefore;": "\u2234", "&theta;": "\u03B8", "&thetasym;": "\u03D1", "&thetav;": "\u03D1", "&thickapprox;": "\u2248", "&thicksim;": "\u223C", "&thinsp;": "\u2009", "&thkap;": "\u2248", "&thksim;": "\u223C", "&thorn": "\xFE", "&thorn;": "\xFE", "&tilde;": "\u02DC", "&times": "\xD7", "&times;": "\xD7", "&timesb;": "\u22A0", "&timesbar;": "\u2A31", "&timesd;": "\u2A30", "&tint;": "\u222D", "&toea;": "\u2928", "&top;": "\u22A4", "&topbot;": "\u2336", "&topcir;": "\u2AF1", "&topf;": "\u{1D565}", "&topfork;": "\u2ADA", "&tosa;": "\u2929", "&tprime;": "\u2034", "&trade;": "\u2122", "&triangle;": "\u25B5", "&triangledown;": "\u25BF", "&triangleleft;": "\u25C3", "&trianglelefteq;": "\u22B4", "&triangleq;": "\u225C", "&triangleright;": "\u25B9", "&trianglerighteq;": "\u22B5", "&tridot;": "\u25EC", "&trie;": "\u225C", "&triminus;": "\u2A3A", "&triplus;": "\u2A39", "&trisb;": "\u29CD", "&tritime;": "\u2A3B", "&trpezium;": "\u23E2", "&tscr;": "\u{1D4C9}", "&tscy;": "\u0446", "&tshcy;": "\u045B", "&tstrok;": "\u0167", "&twixt;": "\u226C", "&twoheadleftarrow;": "\u219E", "&twoheadrightarrow;": "\u21A0", "&uArr;": "\u21D1", "&uHar;": "\u2963", "&uacute": "\xFA", "&uacute;": "\xFA", "&uarr;": "\u2191", "&ubrcy;": "\u045E", "&ubreve;": "\u016D", "&ucirc": "\xFB", "&ucirc;": "\xFB", "&ucy;": "\u0443", "&udarr;": "\u21C5", "&udblac;": "\u0171", "&udhar;": "\u296E", "&ufisht;": "\u297E", "&ufr;": "\u{1D532}", "&ugrave": "\xF9", "&ugrave;": "\xF9", "&uharl;": "\u21BF", "&uharr;": "\u21BE", "&uhblk;": "\u2580", "&ulcorn;": "\u231C", "&ulcorner;": "\u231C", "&ulcrop;": "\u230F", "&ultri;": "\u25F8", "&umacr;": "\u016B", "&uml": "\xA8", "&uml;": "\xA8", "&uogon;": "\u0173", "&uopf;": "\u{1D566}", "&uparrow;": "\u2191", "&updownarrow;": "\u2195", "&upharpoonleft;": "\u21BF", "&upharpoonright;": "\u21BE", "&uplus;": "\u228E", "&upsi;": "\u03C5", "&upsih;": "\u03D2", "&upsilon;": "\u03C5", "&upuparrows;": "\u21C8", "&urcorn;": "\u231D", "&urcorner;": "\u231D", "&urcrop;": "\u230E", "&uring;": "\u016F", "&urtri;": "\u25F9", "&uscr;": "\u{1D4CA}", "&utdot;": "\u22F0", "&utilde;": "\u0169", "&utri;": "\u25B5", "&utrif;": "\u25B4", "&uuarr;": "\u21C8", "&uuml": "\xFC", "&uuml;": "\xFC", "&uwangle;": "\u29A7", "&vArr;": "\u21D5", "&vBar;": "\u2AE8", "&vBarv;": "\u2AE9", "&vDash;": "\u22A8", "&vangrt;": "\u299C", "&varepsilon;": "\u03F5", "&varkappa;": "\u03F0", "&varnothing;": "\u2205", "&varphi;": "\u03D5", "&varpi;": "\u03D6", "&varpropto;": "\u221D", "&varr;": "\u2195", "&varrho;": "\u03F1", "&varsigma;": "\u03C2", "&varsubsetneq;": "\u228A\uFE00", "&varsubsetneqq;": "\u2ACB\uFE00", "&varsupsetneq;": "\u228B\uFE00", "&varsupsetneqq;": "\u2ACC\uFE00", "&vartheta;": "\u03D1", "&vartriangleleft;": "\u22B2", "&vartriangleright;": "\u22B3", "&vcy;": "\u0432", "&vdash;": "\u22A2", "&vee;": "\u2228", "&veebar;": "\u22BB", "&veeeq;": "\u225A", "&vellip;": "\u22EE", "&verbar;": "|", "&vert;": "|", "&vfr;": "\u{1D533}", "&vltri;": "\u22B2", "&vnsub;": "\u2282\u20D2", "&vnsup;": "\u2283\u20D2", "&vopf;": "\u{1D567}", "&vprop;": "\u221D", "&vrtri;": "\u22B3", "&vscr;": "\u{1D4CB}", "&vsubnE;": "\u2ACB\uFE00", "&vsubne;": "\u228A\uFE00", "&vsupnE;": "\u2ACC\uFE00", "&vsupne;": "\u228B\uFE00", "&vzigzag;": "\u299A", "&wcirc;": "\u0175", "&wedbar;": "\u2A5F", "&wedge;": "\u2227", "&wedgeq;": "\u2259", "&weierp;": "\u2118", "&wfr;": "\u{1D534}", "&wopf;": "\u{1D568}", "&wp;": "\u2118", "&wr;": "\u2240", "&wreath;": "\u2240", "&wscr;": "\u{1D4CC}", "&xcap;": "\u22C2", "&xcirc;": "\u25EF", "&xcup;": "\u22C3", "&xdtri;": "\u25BD", "&xfr;": "\u{1D535}", "&xhArr;": "\u27FA", "&xharr;": "\u27F7", "&xi;": "\u03BE", "&xlArr;": "\u27F8", "&xlarr;": "\u27F5", "&xmap;": "\u27FC", "&xnis;": "\u22FB", "&xodot;": "\u2A00", "&xopf;": "\u{1D569}", "&xoplus;": "\u2A01", "&xotime;": "\u2A02", "&xrArr;": "\u27F9", "&xrarr;": "\u27F6", "&xscr;": "\u{1D4CD}", "&xsqcup;": "\u2A06", "&xuplus;": "\u2A04", "&xutri;": "\u25B3", "&xvee;": "\u22C1", "&xwedge;": "\u22C0", "&yacute": "\xFD", "&yacute;": "\xFD", "&yacy;": "\u044F", "&ycirc;": "\u0177", "&ycy;": "\u044B", "&yen": "\xA5", "&yen;": "\xA5", "&yfr;": "\u{1D536}", "&yicy;": "\u0457", "&yopf;": "\u{1D56A}", "&yscr;": "\u{1D4CE}", "&yucy;": "\u044E", "&yuml": "\xFF", "&yuml;": "\xFF", "&zacute;": "\u017A", "&zcaron;": "\u017E", "&zcy;": "\u0437", "&zdot;": "\u017C", "&zeetrf;": "\u2128", "&zeta;": "\u03B6", "&zfr;": "\u{1D537}", "&zhcy;": "\u0436", "&zigrarr;": "\u21DD", "&zopf;": "\u{1D56B}", "&zscr;": "\u{1D4CF}", "&zwj;": "\u200D", "&zwnj;": "\u200C" }, characters: { "\xC6": "&AElig;", "&": "&amp;", "\xC1": "&Aacute;", "\u0102": "&Abreve;", "\xC2": "&Acirc;", "\u0410": "&Acy;", "\u{1D504}": "&Afr;", "\xC0": "&Agrave;", "\u0391": "&Alpha;", "\u0100": "&Amacr;", "\u2A53": "&And;", "\u0104": "&Aogon;", "\u{1D538}": "&Aopf;", "\u2061": "&af;", "\xC5": "&angst;", "\u{1D49C}": "&Ascr;", "\u2254": "&coloneq;", "\xC3": "&Atilde;", "\xC4": "&Auml;", "\u2216": "&ssetmn;", "\u2AE7": "&Barv;", "\u2306": "&doublebarwedge;", "\u0411": "&Bcy;", "\u2235": "&because;", "\u212C": "&bernou;", "\u0392": "&Beta;", "\u{1D505}": "&Bfr;", "\u{1D539}": "&Bopf;", "\u02D8": "&breve;", "\u224E": "&bump;", "\u0427": "&CHcy;", "\xA9": "&copy;", "\u0106": "&Cacute;", "\u22D2": "&Cap;", "\u2145": "&DD;", "\u212D": "&Cfr;", "\u010C": "&Ccaron;", "\xC7": "&Ccedil;", "\u0108": "&Ccirc;", "\u2230": "&Cconint;", "\u010A": "&Cdot;", "\xB8": "&cedil;", "\xB7": "&middot;", "\u03A7": "&Chi;", "\u2299": "&odot;", "\u2296": "&ominus;", "\u2295": "&oplus;", "\u2297": "&otimes;", "\u2232": "&cwconint;", "\u201D": "&rdquor;", "\u2019": "&rsquor;", "\u2237": "&Proportion;", "\u2A74": "&Colone;", "\u2261": "&equiv;", "\u222F": "&DoubleContourIntegral;", "\u222E": "&oint;", "\u2102": "&complexes;", "\u2210": "&coprod;", "\u2233": "&awconint;", "\u2A2F": "&Cross;", "\u{1D49E}": "&Cscr;", "\u22D3": "&Cup;", "\u224D": "&asympeq;", "\u2911": "&DDotrahd;", "\u0402": "&DJcy;", "\u0405": "&DScy;", "\u040F": "&DZcy;", "\u2021": "&ddagger;", "\u21A1": "&Darr;", "\u2AE4": "&DoubleLeftTee;", "\u010E": "&Dcaron;", "\u0414": "&Dcy;", "\u2207": "&nabla;", "\u0394": "&Delta;", "\u{1D507}": "&Dfr;", "\xB4": "&acute;", "\u02D9": "&dot;", "\u02DD": "&dblac;", "`": "&grave;", "\u02DC": "&tilde;", "\u22C4": "&diamond;", "\u2146": "&dd;", "\u{1D53B}": "&Dopf;", "\xA8": "&uml;", "\u20DC": "&DotDot;", "\u2250": "&esdot;", "\u21D3": "&dArr;", "\u21D0": "&lArr;", "\u21D4": "&iff;", "\u27F8": "&xlArr;", "\u27FA": "&xhArr;", "\u27F9": "&xrArr;", "\u21D2": "&rArr;", "\u22A8": "&vDash;", "\u21D1": "&uArr;", "\u21D5": "&vArr;", "\u2225": "&spar;", "\u2193": "&downarrow;", "\u2913": "&DownArrowBar;", "\u21F5": "&duarr;", "\u0311": "&DownBreve;", "\u2950": "&DownLeftRightVector;", "\u295E": "&DownLeftTeeVector;", "\u21BD": "&lhard;", "\u2956": "&DownLeftVectorBar;", "\u295F": "&DownRightTeeVector;", "\u21C1": "&rightharpoondown;", "\u2957": "&DownRightVectorBar;", "\u22A4": "&top;", "\u21A7": "&mapstodown;", "\u{1D49F}": "&Dscr;", "\u0110": "&Dstrok;", "\u014A": "&ENG;", "\xD0": "&ETH;", "\xC9": "&Eacute;", "\u011A": "&Ecaron;", "\xCA": "&Ecirc;", "\u042D": "&Ecy;", "\u0116": "&Edot;", "\u{1D508}": "&Efr;", "\xC8": "&Egrave;", "\u2208": "&isinv;", "\u0112": "&Emacr;", "\u25FB": "&EmptySmallSquare;", "\u25AB": "&EmptyVerySmallSquare;", "\u0118": "&Eogon;", "\u{1D53C}": "&Eopf;", "\u0395": "&Epsilon;", "\u2A75": "&Equal;", "\u2242": "&esim;", "\u21CC": "&rlhar;", "\u2130": "&expectation;", "\u2A73": "&Esim;", "\u0397": "&Eta;", "\xCB": "&Euml;", "\u2203": "&exist;", "\u2147": "&exponentiale;", "\u0424": "&Fcy;", "\u{1D509}": "&Ffr;", "\u25FC": "&FilledSmallSquare;", "\u25AA": "&squf;", "\u{1D53D}": "&Fopf;", "\u2200": "&forall;", "\u2131": "&Fscr;", "\u0403": "&GJcy;", ">": "&gt;", "\u0393": "&Gamma;", "\u03DC": "&Gammad;", "\u011E": "&Gbreve;", "\u0122": "&Gcedil;", "\u011C": "&Gcirc;", "\u0413": "&Gcy;", "\u0120": "&Gdot;", "\u{1D50A}": "&Gfr;", "\u22D9": "&ggg;", "\u{1D53E}": "&Gopf;", "\u2265": "&geq;", "\u22DB": "&gtreqless;", "\u2267": "&geqq;", "\u2AA2": "&GreaterGreater;", "\u2277": "&gtrless;", "\u2A7E": "&ges;", "\u2273": "&gtrsim;", "\u{1D4A2}": "&Gscr;", "\u226B": "&gg;", "\u042A": "&HARDcy;", "\u02C7": "&caron;", "^": "&Hat;", "\u0124": "&Hcirc;", "\u210C": "&Poincareplane;", "\u210B": "&hamilt;", "\u210D": "&quaternions;", "\u2500": "&boxh;", "\u0126": "&Hstrok;", "\u224F": "&bumpeq;", "\u0415": "&IEcy;", "\u0132": "&IJlig;", "\u0401": "&IOcy;", "\xCD": "&Iacute;", "\xCE": "&Icirc;", "\u0418": "&Icy;", "\u0130": "&Idot;", "\u2111": "&imagpart;", "\xCC": "&Igrave;", "\u012A": "&Imacr;", "\u2148": "&ii;", "\u222C": "&Int;", "\u222B": "&int;", "\u22C2": "&xcap;", "\u2063": "&ic;", "\u2062": "&it;", "\u012E": "&Iogon;", "\u{1D540}": "&Iopf;", "\u0399": "&Iota;", "\u2110": "&imagline;", "\u0128": "&Itilde;", "\u0406": "&Iukcy;", "\xCF": "&Iuml;", "\u0134": "&Jcirc;", "\u0419": "&Jcy;", "\u{1D50D}": "&Jfr;", "\u{1D541}": "&Jopf;", "\u{1D4A5}": "&Jscr;", "\u0408": "&Jsercy;", "\u0404": "&Jukcy;", "\u0425": "&KHcy;", "\u040C": "&KJcy;", "\u039A": "&Kappa;", "\u0136": "&Kcedil;", "\u041A": "&Kcy;", "\u{1D50E}": "&Kfr;", "\u{1D542}": "&Kopf;", "\u{1D4A6}": "&Kscr;", "\u0409": "&LJcy;", "<": "&lt;", "\u0139": "&Lacute;", "\u039B": "&Lambda;", "\u27EA": "&Lang;", "\u2112": "&lagran;", "\u219E": "&twoheadleftarrow;", "\u013D": "&Lcaron;", "\u013B": "&Lcedil;", "\u041B": "&Lcy;", "\u27E8": "&langle;", "\u2190": "&slarr;", "\u21E4": "&larrb;", "\u21C6": "&lrarr;", "\u2308": "&lceil;", "\u27E6": "&lobrk;", "\u2961": "&LeftDownTeeVector;", "\u21C3": "&downharpoonleft;", "\u2959": "&LeftDownVectorBar;", "\u230A": "&lfloor;", "\u2194": "&leftrightarrow;", "\u294E": "&LeftRightVector;", "\u22A3": "&dashv;", "\u21A4": "&mapstoleft;", "\u295A": "&LeftTeeVector;", "\u22B2": "&vltri;", "\u29CF": "&LeftTriangleBar;", "\u22B4": "&trianglelefteq;", "\u2951": "&LeftUpDownVector;", "\u2960": "&LeftUpTeeVector;", "\u21BF": "&upharpoonleft;", "\u2958": "&LeftUpVectorBar;", "\u21BC": "&lharu;", "\u2952": "&LeftVectorBar;", "\u22DA": "&lesseqgtr;", "\u2266": "&leqq;", "\u2276": "&lg;", "\u2AA1": "&LessLess;", "\u2A7D": "&les;", "\u2272": "&lsim;", "\u{1D50F}": "&Lfr;", "\u22D8": "&Ll;", "\u21DA": "&lAarr;", "\u013F": "&Lmidot;", "\u27F5": "&xlarr;", "\u27F7": "&xharr;", "\u27F6": "&xrarr;", "\u{1D543}": "&Lopf;", "\u2199": "&swarrow;", "\u2198": "&searrow;", "\u21B0": "&lsh;", "\u0141": "&Lstrok;", "\u226A": "&ll;", "\u2905": "&Map;", "\u041C": "&Mcy;", "\u205F": "&MediumSpace;", "\u2133": "&phmmat;", "\u{1D510}": "&Mfr;", "\u2213": "&mp;", "\u{1D544}": "&Mopf;", "\u039C": "&Mu;", "\u040A": "&NJcy;", "\u0143": "&Nacute;", "\u0147": "&Ncaron;", "\u0145": "&Ncedil;", "\u041D": "&Ncy;", "\u200B": "&ZeroWidthSpace;", "\n": "&NewLine;", "\u{1D511}": "&Nfr;", "\u2060": "&NoBreak;", "\xA0": "&nbsp;", "\u2115": "&naturals;", "\u2AEC": "&Not;", "\u2262": "&nequiv;", "\u226D": "&NotCupCap;", "\u2226": "&nspar;", "\u2209": "&notinva;", "\u2260": "&ne;", "\u2242\u0338": "&nesim;", "\u2204": "&nexists;", "\u226F": "&ngtr;", "\u2271": "&ngeq;", "\u2267\u0338": "&ngeqq;", "\u226B\u0338": "&nGtv;", "\u2279": "&ntgl;", "\u2A7E\u0338": "&nges;", "\u2275": "&ngsim;", "\u224E\u0338": "&nbump;", "\u224F\u0338": "&nbumpe;", "\u22EA": "&ntriangleleft;", "\u29CF\u0338": "&NotLeftTriangleBar;", "\u22EC": "&ntrianglelefteq;", "\u226E": "&nlt;", "\u2270": "&nleq;", "\u2278": "&ntlg;", "\u226A\u0338": "&nLtv;", "\u2A7D\u0338": "&nles;", "\u2274": "&nlsim;", "\u2AA2\u0338": "&NotNestedGreaterGreater;", "\u2AA1\u0338": "&NotNestedLessLess;", "\u2280": "&nprec;", "\u2AAF\u0338": "&npreceq;", "\u22E0": "&nprcue;", "\u220C": "&notniva;", "\u22EB": "&ntriangleright;", "\u29D0\u0338": "&NotRightTriangleBar;", "\u22ED": "&ntrianglerighteq;", "\u228F\u0338": "&NotSquareSubset;", "\u22E2": "&nsqsube;", "\u2290\u0338": "&NotSquareSuperset;", "\u22E3": "&nsqsupe;", "\u2282\u20D2": "&vnsub;", "\u2288": "&nsubseteq;", "\u2281": "&nsucc;", "\u2AB0\u0338": "&nsucceq;", "\u22E1": "&nsccue;", "\u227F\u0338": "&NotSucceedsTilde;", "\u2283\u20D2": "&vnsup;", "\u2289": "&nsupseteq;", "\u2241": "&nsim;", "\u2244": "&nsimeq;", "\u2247": "&ncong;", "\u2249": "&napprox;", "\u2224": "&nsmid;", "\u{1D4A9}": "&Nscr;", "\xD1": "&Ntilde;", "\u039D": "&Nu;", "\u0152": "&OElig;", "\xD3": "&Oacute;", "\xD4": "&Ocirc;", "\u041E": "&Ocy;", "\u0150": "&Odblac;", "\u{1D512}": "&Ofr;", "\xD2": "&Ograve;", "\u014C": "&Omacr;", "\u03A9": "&ohm;", "\u039F": "&Omicron;", "\u{1D546}": "&Oopf;", "\u201C": "&ldquo;", "\u2018": "&lsquo;", "\u2A54": "&Or;", "\u{1D4AA}": "&Oscr;", "\xD8": "&Oslash;", "\xD5": "&Otilde;", "\u2A37": "&Otimes;", "\xD6": "&Ouml;", "\u203E": "&oline;", "\u23DE": "&OverBrace;", "\u23B4": "&tbrk;", "\u23DC": "&OverParenthesis;", "\u2202": "&part;", "\u041F": "&Pcy;", "\u{1D513}": "&Pfr;", "\u03A6": "&Phi;", "\u03A0": "&Pi;", "\xB1": "&pm;", "\u2119": "&primes;", "\u2ABB": "&Pr;", "\u227A": "&prec;", "\u2AAF": "&preceq;", "\u227C": "&preccurlyeq;", "\u227E": "&prsim;", "\u2033": "&Prime;", "\u220F": "&prod;", "\u221D": "&vprop;", "\u{1D4AB}": "&Pscr;", "\u03A8": "&Psi;", '"': "&quot;", "\u{1D514}": "&Qfr;", "\u211A": "&rationals;", "\u{1D4AC}": "&Qscr;", "\u2910": "&drbkarow;", "\xAE": "&reg;", "\u0154": "&Racute;", "\u27EB": "&Rang;", "\u21A0": "&twoheadrightarrow;", "\u2916": "&Rarrtl;", "\u0158": "&Rcaron;", "\u0156": "&Rcedil;", "\u0420": "&Rcy;", "\u211C": "&realpart;", "\u220B": "&niv;", "\u21CB": "&lrhar;", "\u296F": "&duhar;", "\u03A1": "&Rho;", "\u27E9": "&rangle;", "\u2192": "&srarr;", "\u21E5": "&rarrb;", "\u21C4": "&rlarr;", "\u2309": "&rceil;", "\u27E7": "&robrk;", "\u295D": "&RightDownTeeVector;", "\u21C2": "&downharpoonright;", "\u2955": "&RightDownVectorBar;", "\u230B": "&rfloor;", "\u22A2": "&vdash;", "\u21A6": "&mapsto;", "\u295B": "&RightTeeVector;", "\u22B3": "&vrtri;", "\u29D0": "&RightTriangleBar;", "\u22B5": "&trianglerighteq;", "\u294F": "&RightUpDownVector;", "\u295C": "&RightUpTeeVector;", "\u21BE": "&upharpoonright;", "\u2954": "&RightUpVectorBar;", "\u21C0": "&rightharpoonup;", "\u2953": "&RightVectorBar;", "\u211D": "&reals;", "\u2970": "&RoundImplies;", "\u21DB": "&rAarr;", "\u211B": "&realine;", "\u21B1": "&rsh;", "\u29F4": "&RuleDelayed;", "\u0429": "&SHCHcy;", "\u0428": "&SHcy;", "\u042C": "&SOFTcy;", "\u015A": "&Sacute;", "\u2ABC": "&Sc;", "\u0160": "&Scaron;", "\u015E": "&Scedil;", "\u015C": "&Scirc;", "\u0421": "&Scy;", "\u{1D516}": "&Sfr;", "\u2191": "&uparrow;", "\u03A3": "&Sigma;", "\u2218": "&compfn;", "\u{1D54A}": "&Sopf;", "\u221A": "&radic;", "\u25A1": "&square;", "\u2293": "&sqcap;", "\u228F": "&sqsubset;", "\u2291": "&sqsubseteq;", "\u2290": "&sqsupset;", "\u2292": "&sqsupseteq;", "\u2294": "&sqcup;", "\u{1D4AE}": "&Sscr;", "\u22C6": "&sstarf;", "\u22D0": "&Subset;", "\u2286": "&subseteq;", "\u227B": "&succ;", "\u2AB0": "&succeq;", "\u227D": "&succcurlyeq;", "\u227F": "&succsim;", "\u2211": "&sum;", "\u22D1": "&Supset;", "\u2283": "&supset;", "\u2287": "&supseteq;", "\xDE": "&THORN;", "\u2122": "&trade;", "\u040B": "&TSHcy;", "\u0426": "&TScy;", "	": "&Tab;", "\u03A4": "&Tau;", "\u0164": "&Tcaron;", "\u0162": "&Tcedil;", "\u0422": "&Tcy;", "\u{1D517}": "&Tfr;", "\u2234": "&therefore;", "\u0398": "&Theta;", "\u205F\u200A": "&ThickSpace;", "\u2009": "&thinsp;", "\u223C": "&thksim;", "\u2243": "&simeq;", "\u2245": "&cong;", "\u2248": "&thkap;", "\u{1D54B}": "&Topf;", "\u20DB": "&tdot;", "\u{1D4AF}": "&Tscr;", "\u0166": "&Tstrok;", "\xDA": "&Uacute;", "\u219F": "&Uarr;", "\u2949": "&Uarrocir;", "\u040E": "&Ubrcy;", "\u016C": "&Ubreve;", "\xDB": "&Ucirc;", "\u0423": "&Ucy;", "\u0170": "&Udblac;", "\u{1D518}": "&Ufr;", "\xD9": "&Ugrave;", "\u016A": "&Umacr;", _: "&lowbar;", "\u23DF": "&UnderBrace;", "\u23B5": "&bbrk;", "\u23DD": "&UnderParenthesis;", "\u22C3": "&xcup;", "\u228E": "&uplus;", "\u0172": "&Uogon;", "\u{1D54C}": "&Uopf;", "\u2912": "&UpArrowBar;", "\u21C5": "&udarr;", "\u2195": "&varr;", "\u296E": "&udhar;", "\u22A5": "&perp;", "\u21A5": "&mapstoup;", "\u2196": "&nwarrow;", "\u2197": "&nearrow;", "\u03D2": "&upsih;", "\u03A5": "&Upsilon;", "\u016E": "&Uring;", "\u{1D4B0}": "&Uscr;", "\u0168": "&Utilde;", "\xDC": "&Uuml;", "\u22AB": "&VDash;", "\u2AEB": "&Vbar;", "\u0412": "&Vcy;", "\u22A9": "&Vdash;", "\u2AE6": "&Vdashl;", "\u22C1": "&xvee;", "\u2016": "&Vert;", "\u2223": "&smid;", "|": "&vert;", "\u2758": "&VerticalSeparator;", "\u2240": "&wreath;", "\u200A": "&hairsp;", "\u{1D519}": "&Vfr;", "\u{1D54D}": "&Vopf;", "\u{1D4B1}": "&Vscr;", "\u22AA": "&Vvdash;", "\u0174": "&Wcirc;", "\u22C0": "&xwedge;", "\u{1D51A}": "&Wfr;", "\u{1D54E}": "&Wopf;", "\u{1D4B2}": "&Wscr;", "\u{1D51B}": "&Xfr;", "\u039E": "&Xi;", "\u{1D54F}": "&Xopf;", "\u{1D4B3}": "&Xscr;", "\u042F": "&YAcy;", "\u0407": "&YIcy;", "\u042E": "&YUcy;", "\xDD": "&Yacute;", "\u0176": "&Ycirc;", "\u042B": "&Ycy;", "\u{1D51C}": "&Yfr;", "\u{1D550}": "&Yopf;", "\u{1D4B4}": "&Yscr;", "\u0178": "&Yuml;", "\u0416": "&ZHcy;", "\u0179": "&Zacute;", "\u017D": "&Zcaron;", "\u0417": "&Zcy;", "\u017B": "&Zdot;", "\u0396": "&Zeta;", "\u2128": "&zeetrf;", "\u2124": "&integers;", "\u{1D4B5}": "&Zscr;", "\xE1": "&aacute;", "\u0103": "&abreve;", "\u223E": "&mstpos;", "\u223E\u0333": "&acE;", "\u223F": "&acd;", "\xE2": "&acirc;", "\u0430": "&acy;", "\xE6": "&aelig;", "\u{1D51E}": "&afr;", "\xE0": "&agrave;", "\u2135": "&aleph;", "\u03B1": "&alpha;", "\u0101": "&amacr;", "\u2A3F": "&amalg;", "\u2227": "&wedge;", "\u2A55": "&andand;", "\u2A5C": "&andd;", "\u2A58": "&andslope;", "\u2A5A": "&andv;", "\u2220": "&angle;", "\u29A4": "&ange;", "\u2221": "&measuredangle;", "\u29A8": "&angmsdaa;", "\u29A9": "&angmsdab;", "\u29AA": "&angmsdac;", "\u29AB": "&angmsdad;", "\u29AC": "&angmsdae;", "\u29AD": "&angmsdaf;", "\u29AE": "&angmsdag;", "\u29AF": "&angmsdah;", "\u221F": "&angrt;", "\u22BE": "&angrtvb;", "\u299D": "&angrtvbd;", "\u2222": "&angsph;", "\u237C": "&angzarr;", "\u0105": "&aogon;", "\u{1D552}": "&aopf;", "\u2A70": "&apE;", "\u2A6F": "&apacir;", "\u224A": "&approxeq;", "\u224B": "&apid;", "'": "&apos;", "\xE5": "&aring;", "\u{1D4B6}": "&ascr;", "*": "&midast;", "\xE3": "&atilde;", "\xE4": "&auml;", "\u2A11": "&awint;", "\u2AED": "&bNot;", "\u224C": "&bcong;", "\u03F6": "&bepsi;", "\u2035": "&bprime;", "\u223D": "&bsim;", "\u22CD": "&bsime;", "\u22BD": "&barvee;", "\u2305": "&barwedge;", "\u23B6": "&bbrktbrk;", "\u0431": "&bcy;", "\u201E": "&ldquor;", "\u29B0": "&bemptyv;", "\u03B2": "&beta;", "\u2136": "&beth;", "\u226C": "&twixt;", "\u{1D51F}": "&bfr;", "\u25EF": "&xcirc;", "\u2A00": "&xodot;", "\u2A01": "&xoplus;", "\u2A02": "&xotime;", "\u2A06": "&xsqcup;", "\u2605": "&starf;", "\u25BD": "&xdtri;", "\u25B3": "&xutri;", "\u2A04": "&xuplus;", "\u290D": "&rbarr;", "\u29EB": "&lozf;", "\u25B4": "&utrif;", "\u25BE": "&dtrif;", "\u25C2": "&ltrif;", "\u25B8": "&rtrif;", "\u2423": "&blank;", "\u2592": "&blk12;", "\u2591": "&blk14;", "\u2593": "&blk34;", "\u2588": "&block;", "=\u20E5": "&bne;", "\u2261\u20E5": "&bnequiv;", "\u2310": "&bnot;", "\u{1D553}": "&bopf;", "\u22C8": "&bowtie;", "\u2557": "&boxDL;", "\u2554": "&boxDR;", "\u2556": "&boxDl;", "\u2553": "&boxDr;", "\u2550": "&boxH;", "\u2566": "&boxHD;", "\u2569": "&boxHU;", "\u2564": "&boxHd;", "\u2567": "&boxHu;", "\u255D": "&boxUL;", "\u255A": "&boxUR;", "\u255C": "&boxUl;", "\u2559": "&boxUr;", "\u2551": "&boxV;", "\u256C": "&boxVH;", "\u2563": "&boxVL;", "\u2560": "&boxVR;", "\u256B": "&boxVh;", "\u2562": "&boxVl;", "\u255F": "&boxVr;", "\u29C9": "&boxbox;", "\u2555": "&boxdL;", "\u2552": "&boxdR;", "\u2510": "&boxdl;", "\u250C": "&boxdr;", "\u2565": "&boxhD;", "\u2568": "&boxhU;", "\u252C": "&boxhd;", "\u2534": "&boxhu;", "\u229F": "&minusb;", "\u229E": "&plusb;", "\u22A0": "&timesb;", "\u255B": "&boxuL;", "\u2558": "&boxuR;", "\u2518": "&boxul;", "\u2514": "&boxur;", "\u2502": "&boxv;", "\u256A": "&boxvH;", "\u2561": "&boxvL;", "\u255E": "&boxvR;", "\u253C": "&boxvh;", "\u2524": "&boxvl;", "\u251C": "&boxvr;", "\xA6": "&brvbar;", "\u{1D4B7}": "&bscr;", "\u204F": "&bsemi;", "\\": "&bsol;", "\u29C5": "&bsolb;", "\u27C8": "&bsolhsub;", "\u2022": "&bullet;", "\u2AAE": "&bumpE;", "\u0107": "&cacute;", "\u2229": "&cap;", "\u2A44": "&capand;", "\u2A49": "&capbrcup;", "\u2A4B": "&capcap;", "\u2A47": "&capcup;", "\u2A40": "&capdot;", "\u2229\uFE00": "&caps;", "\u2041": "&caret;", "\u2A4D": "&ccaps;", "\u010D": "&ccaron;", "\xE7": "&ccedil;", "\u0109": "&ccirc;", "\u2A4C": "&ccups;", "\u2A50": "&ccupssm;", "\u010B": "&cdot;", "\u29B2": "&cemptyv;", "\xA2": "&cent;", "\u{1D520}": "&cfr;", "\u0447": "&chcy;", "\u2713": "&checkmark;", "\u03C7": "&chi;", "\u25CB": "&cir;", "\u29C3": "&cirE;", "\u02C6": "&circ;", "\u2257": "&cire;", "\u21BA": "&olarr;", "\u21BB": "&orarr;", "\u24C8": "&oS;", "\u229B": "&oast;", "\u229A": "&ocir;", "\u229D": "&odash;", "\u2A10": "&cirfnint;", "\u2AEF": "&cirmid;", "\u29C2": "&cirscir;", "\u2663": "&clubsuit;", ":": "&colon;", ",": "&comma;", "@": "&commat;", "\u2201": "&complement;", "\u2A6D": "&congdot;", "\u{1D554}": "&copf;", "\u2117": "&copysr;", "\u21B5": "&crarr;", "\u2717": "&cross;", "\u{1D4B8}": "&cscr;", "\u2ACF": "&csub;", "\u2AD1": "&csube;", "\u2AD0": "&csup;", "\u2AD2": "&csupe;", "\u22EF": "&ctdot;", "\u2938": "&cudarrl;", "\u2935": "&cudarrr;", "\u22DE": "&curlyeqprec;", "\u22DF": "&curlyeqsucc;", "\u21B6": "&curvearrowleft;", "\u293D": "&cularrp;", "\u222A": "&cup;", "\u2A48": "&cupbrcap;", "\u2A46": "&cupcap;", "\u2A4A": "&cupcup;", "\u228D": "&cupdot;", "\u2A45": "&cupor;", "\u222A\uFE00": "&cups;", "\u21B7": "&curvearrowright;", "\u293C": "&curarrm;", "\u22CE": "&cuvee;", "\u22CF": "&cuwed;", "\xA4": "&curren;", "\u2231": "&cwint;", "\u232D": "&cylcty;", "\u2965": "&dHar;", "\u2020": "&dagger;", "\u2138": "&daleth;", "\u2010": "&hyphen;", "\u290F": "&rBarr;", "\u010F": "&dcaron;", "\u0434": "&dcy;", "\u21CA": "&downdownarrows;", "\u2A77": "&eDDot;", "\xB0": "&deg;", "\u03B4": "&delta;", "\u29B1": "&demptyv;", "\u297F": "&dfisht;", "\u{1D521}": "&dfr;", "\u2666": "&diams;", "\u03DD": "&gammad;", "\u22F2": "&disin;", "\xF7": "&divide;", "\u22C7": "&divonx;", "\u0452": "&djcy;", "\u231E": "&llcorner;", "\u230D": "&dlcrop;", $: "&dollar;", "\u{1D555}": "&dopf;", "\u2251": "&eDot;", "\u2238": "&minusd;", "\u2214": "&plusdo;", "\u22A1": "&sdotb;", "\u231F": "&lrcorner;", "\u230C": "&drcrop;", "\u{1D4B9}": "&dscr;", "\u0455": "&dscy;", "\u29F6": "&dsol;", "\u0111": "&dstrok;", "\u22F1": "&dtdot;", "\u25BF": "&triangledown;", "\u29A6": "&dwangle;", "\u045F": "&dzcy;", "\u27FF": "&dzigrarr;", "\xE9": "&eacute;", "\u2A6E": "&easter;", "\u011B": "&ecaron;", "\u2256": "&eqcirc;", "\xEA": "&ecirc;", "\u2255": "&eqcolon;", "\u044D": "&ecy;", "\u0117": "&edot;", "\u2252": "&fallingdotseq;", "\u{1D522}": "&efr;", "\u2A9A": "&eg;", "\xE8": "&egrave;", "\u2A96": "&eqslantgtr;", "\u2A98": "&egsdot;", "\u2A99": "&el;", "\u23E7": "&elinters;", "\u2113": "&ell;", "\u2A95": "&eqslantless;", "\u2A97": "&elsdot;", "\u0113": "&emacr;", "\u2205": "&varnothing;", "\u2004": "&emsp13;", "\u2005": "&emsp14;", "\u2003": "&emsp;", "\u014B": "&eng;", "\u2002": "&ensp;", "\u0119": "&eogon;", "\u{1D556}": "&eopf;", "\u22D5": "&epar;", "\u29E3": "&eparsl;", "\u2A71": "&eplus;", "\u03B5": "&epsilon;", "\u03F5": "&varepsilon;", "=": "&equals;", "\u225F": "&questeq;", "\u2A78": "&equivDD;", "\u29E5": "&eqvparsl;", "\u2253": "&risingdotseq;", "\u2971": "&erarr;", "\u212F": "&escr;", "\u03B7": "&eta;", "\xF0": "&eth;", "\xEB": "&euml;", "\u20AC": "&euro;", "!": "&excl;", "\u0444": "&fcy;", "\u2640": "&female;", "\uFB03": "&ffilig;", "\uFB00": "&fflig;", "\uFB04": "&ffllig;", "\u{1D523}": "&ffr;", "\uFB01": "&filig;", fj: "&fjlig;", "\u266D": "&flat;", "\uFB02": "&fllig;", "\u25B1": "&fltns;", "\u0192": "&fnof;", "\u{1D557}": "&fopf;", "\u22D4": "&pitchfork;", "\u2AD9": "&forkv;", "\u2A0D": "&fpartint;", "\xBD": "&half;", "\u2153": "&frac13;", "\xBC": "&frac14;", "\u2155": "&frac15;", "\u2159": "&frac16;", "\u215B": "&frac18;", "\u2154": "&frac23;", "\u2156": "&frac25;", "\xBE": "&frac34;", "\u2157": "&frac35;", "\u215C": "&frac38;", "\u2158": "&frac45;", "\u215A": "&frac56;", "\u215D": "&frac58;", "\u215E": "&frac78;", "\u2044": "&frasl;", "\u2322": "&sfrown;", "\u{1D4BB}": "&fscr;", "\u2A8C": "&gtreqqless;", "\u01F5": "&gacute;", "\u03B3": "&gamma;", "\u2A86": "&gtrapprox;", "\u011F": "&gbreve;", "\u011D": "&gcirc;", "\u0433": "&gcy;", "\u0121": "&gdot;", "\u2AA9": "&gescc;", "\u2A80": "&gesdot;", "\u2A82": "&gesdoto;", "\u2A84": "&gesdotol;", "\u22DB\uFE00": "&gesl;", "\u2A94": "&gesles;", "\u{1D524}": "&gfr;", "\u2137": "&gimel;", "\u0453": "&gjcy;", "\u2A92": "&glE;", "\u2AA5": "&gla;", "\u2AA4": "&glj;", "\u2269": "&gneqq;", "\u2A8A": "&gnapprox;", "\u2A88": "&gneq;", "\u22E7": "&gnsim;", "\u{1D558}": "&gopf;", "\u210A": "&gscr;", "\u2A8E": "&gsime;", "\u2A90": "&gsiml;", "\u2AA7": "&gtcc;", "\u2A7A": "&gtcir;", "\u22D7": "&gtrdot;", "\u2995": "&gtlPar;", "\u2A7C": "&gtquest;", "\u2978": "&gtrarr;", "\u2269\uFE00": "&gvnE;", "\u044A": "&hardcy;", "\u2948": "&harrcir;", "\u21AD": "&leftrightsquigarrow;", "\u210F": "&plankv;", "\u0125": "&hcirc;", "\u2665": "&heartsuit;", "\u2026": "&mldr;", "\u22B9": "&hercon;", "\u{1D525}": "&hfr;", "\u2925": "&searhk;", "\u2926": "&swarhk;", "\u21FF": "&hoarr;", "\u223B": "&homtht;", "\u21A9": "&larrhk;", "\u21AA": "&rarrhk;", "\u{1D559}": "&hopf;", "\u2015": "&horbar;", "\u{1D4BD}": "&hscr;", "\u0127": "&hstrok;", "\u2043": "&hybull;", "\xED": "&iacute;", "\xEE": "&icirc;", "\u0438": "&icy;", "\u0435": "&iecy;", "\xA1": "&iexcl;", "\u{1D526}": "&ifr;", "\xEC": "&igrave;", "\u2A0C": "&qint;", "\u222D": "&tint;", "\u29DC": "&iinfin;", "\u2129": "&iiota;", "\u0133": "&ijlig;", "\u012B": "&imacr;", "\u0131": "&inodot;", "\u22B7": "&imof;", "\u01B5": "&imped;", "\u2105": "&incare;", "\u221E": "&infin;", "\u29DD": "&infintie;", "\u22BA": "&intercal;", "\u2A17": "&intlarhk;", "\u2A3C": "&iprod;", "\u0451": "&iocy;", "\u012F": "&iogon;", "\u{1D55A}": "&iopf;", "\u03B9": "&iota;", "\xBF": "&iquest;", "\u{1D4BE}": "&iscr;", "\u22F9": "&isinE;", "\u22F5": "&isindot;", "\u22F4": "&isins;", "\u22F3": "&isinsv;", "\u0129": "&itilde;", "\u0456": "&iukcy;", "\xEF": "&iuml;", "\u0135": "&jcirc;", "\u0439": "&jcy;", "\u{1D527}": "&jfr;", "\u0237": "&jmath;", "\u{1D55B}": "&jopf;", "\u{1D4BF}": "&jscr;", "\u0458": "&jsercy;", "\u0454": "&jukcy;", "\u03BA": "&kappa;", "\u03F0": "&varkappa;", "\u0137": "&kcedil;", "\u043A": "&kcy;", "\u{1D528}": "&kfr;", "\u0138": "&kgreen;", "\u0445": "&khcy;", "\u045C": "&kjcy;", "\u{1D55C}": "&kopf;", "\u{1D4C0}": "&kscr;", "\u291B": "&lAtail;", "\u290E": "&lBarr;", "\u2A8B": "&lesseqqgtr;", "\u2962": "&lHar;", "\u013A": "&lacute;", "\u29B4": "&laemptyv;", "\u03BB": "&lambda;", "\u2991": "&langd;", "\u2A85": "&lessapprox;", "\xAB": "&laquo;", "\u291F": "&larrbfs;", "\u291D": "&larrfs;", "\u21AB": "&looparrowleft;", "\u2939": "&larrpl;", "\u2973": "&larrsim;", "\u21A2": "&leftarrowtail;", "\u2AAB": "&lat;", "\u2919": "&latail;", "\u2AAD": "&late;", "\u2AAD\uFE00": "&lates;", "\u290C": "&lbarr;", "\u2772": "&lbbrk;", "{": "&lcub;", "[": "&lsqb;", "\u298B": "&lbrke;", "\u298F": "&lbrksld;", "\u298D": "&lbrkslu;", "\u013E": "&lcaron;", "\u013C": "&lcedil;", "\u043B": "&lcy;", "\u2936": "&ldca;", "\u2967": "&ldrdhar;", "\u294B": "&ldrushar;", "\u21B2": "&ldsh;", "\u2264": "&leq;", "\u21C7": "&llarr;", "\u22CB": "&lthree;", "\u2AA8": "&lescc;", "\u2A7F": "&lesdot;", "\u2A81": "&lesdoto;", "\u2A83": "&lesdotor;", "\u22DA\uFE00": "&lesg;", "\u2A93": "&lesges;", "\u22D6": "&ltdot;", "\u297C": "&lfisht;", "\u{1D529}": "&lfr;", "\u2A91": "&lgE;", "\u296A": "&lharul;", "\u2584": "&lhblk;", "\u0459": "&ljcy;", "\u296B": "&llhard;", "\u25FA": "&lltri;", "\u0140": "&lmidot;", "\u23B0": "&lmoustache;", "\u2268": "&lneqq;", "\u2A89": "&lnapprox;", "\u2A87": "&lneq;", "\u22E6": "&lnsim;", "\u27EC": "&loang;", "\u21FD": "&loarr;", "\u27FC": "&xmap;", "\u21AC": "&rarrlp;", "\u2985": "&lopar;", "\u{1D55D}": "&lopf;", "\u2A2D": "&loplus;", "\u2A34": "&lotimes;", "\u2217": "&lowast;", "\u25CA": "&lozenge;", "(": "&lpar;", "\u2993": "&lparlt;", "\u296D": "&lrhard;", "\u200E": "&lrm;", "\u22BF": "&lrtri;", "\u2039": "&lsaquo;", "\u{1D4C1}": "&lscr;", "\u2A8D": "&lsime;", "\u2A8F": "&lsimg;", "\u201A": "&sbquo;", "\u0142": "&lstrok;", "\u2AA6": "&ltcc;", "\u2A79": "&ltcir;", "\u22C9": "&ltimes;", "\u2976": "&ltlarr;", "\u2A7B": "&ltquest;", "\u2996": "&ltrPar;", "\u25C3": "&triangleleft;", "\u294A": "&lurdshar;", "\u2966": "&luruhar;", "\u2268\uFE00": "&lvnE;", "\u223A": "&mDDot;", "\xAF": "&strns;", "\u2642": "&male;", "\u2720": "&maltese;", "\u25AE": "&marker;", "\u2A29": "&mcomma;", "\u043C": "&mcy;", "\u2014": "&mdash;", "\u{1D52A}": "&mfr;", "\u2127": "&mho;", "\xB5": "&micro;", "\u2AF0": "&midcir;", "\u2212": "&minus;", "\u2A2A": "&minusdu;", "\u2ADB": "&mlcp;", "\u22A7": "&models;", "\u{1D55E}": "&mopf;", "\u{1D4C2}": "&mscr;", "\u03BC": "&mu;", "\u22B8": "&mumap;", "\u22D9\u0338": "&nGg;", "\u226B\u20D2": "&nGt;", "\u21CD": "&nlArr;", "\u21CE": "&nhArr;", "\u22D8\u0338": "&nLl;", "\u226A\u20D2": "&nLt;", "\u21CF": "&nrArr;", "\u22AF": "&nVDash;", "\u22AE": "&nVdash;", "\u0144": "&nacute;", "\u2220\u20D2": "&nang;", "\u2A70\u0338": "&napE;", "\u224B\u0338": "&napid;", "\u0149": "&napos;", "\u266E": "&natural;", "\u2A43": "&ncap;", "\u0148": "&ncaron;", "\u0146": "&ncedil;", "\u2A6D\u0338": "&ncongdot;", "\u2A42": "&ncup;", "\u043D": "&ncy;", "\u2013": "&ndash;", "\u21D7": "&neArr;", "\u2924": "&nearhk;", "\u2250\u0338": "&nedot;", "\u2928": "&toea;", "\u{1D52B}": "&nfr;", "\u21AE": "&nleftrightarrow;", "\u2AF2": "&nhpar;", "\u22FC": "&nis;", "\u22FA": "&nisd;", "\u045A": "&njcy;", "\u2266\u0338": "&nleqq;", "\u219A": "&nleftarrow;", "\u2025": "&nldr;", "\u{1D55F}": "&nopf;", "\xAC": "&not;", "\u22F9\u0338": "&notinE;", "\u22F5\u0338": "&notindot;", "\u22F7": "&notinvb;", "\u22F6": "&notinvc;", "\u22FE": "&notnivb;", "\u22FD": "&notnivc;", "\u2AFD\u20E5": "&nparsl;", "\u2202\u0338": "&npart;", "\u2A14": "&npolint;", "\u219B": "&nrightarrow;", "\u2933\u0338": "&nrarrc;", "\u219D\u0338": "&nrarrw;", "\u{1D4C3}": "&nscr;", "\u2284": "&nsub;", "\u2AC5\u0338": "&nsubseteqq;", "\u2285": "&nsup;", "\u2AC6\u0338": "&nsupseteqq;", "\xF1": "&ntilde;", "\u03BD": "&nu;", "#": "&num;", "\u2116": "&numero;", "\u2007": "&numsp;", "\u22AD": "&nvDash;", "\u2904": "&nvHarr;", "\u224D\u20D2": "&nvap;", "\u22AC": "&nvdash;", "\u2265\u20D2": "&nvge;", ">\u20D2": "&nvgt;", "\u29DE": "&nvinfin;", "\u2902": "&nvlArr;", "\u2264\u20D2": "&nvle;", "<\u20D2": "&nvlt;", "\u22B4\u20D2": "&nvltrie;", "\u2903": "&nvrArr;", "\u22B5\u20D2": "&nvrtrie;", "\u223C\u20D2": "&nvsim;", "\u21D6": "&nwArr;", "\u2923": "&nwarhk;", "\u2927": "&nwnear;", "\xF3": "&oacute;", "\xF4": "&ocirc;", "\u043E": "&ocy;", "\u0151": "&odblac;", "\u2A38": "&odiv;", "\u29BC": "&odsold;", "\u0153": "&oelig;", "\u29BF": "&ofcir;", "\u{1D52C}": "&ofr;", "\u02DB": "&ogon;", "\xF2": "&ograve;", "\u29C1": "&ogt;", "\u29B5": "&ohbar;", "\u29BE": "&olcir;", "\u29BB": "&olcross;", "\u29C0": "&olt;", "\u014D": "&omacr;", "\u03C9": "&omega;", "\u03BF": "&omicron;", "\u29B6": "&omid;", "\u{1D560}": "&oopf;", "\u29B7": "&opar;", "\u29B9": "&operp;", "\u2228": "&vee;", "\u2A5D": "&ord;", "\u2134": "&oscr;", "\xAA": "&ordf;", "\xBA": "&ordm;", "\u22B6": "&origof;", "\u2A56": "&oror;", "\u2A57": "&orslope;", "\u2A5B": "&orv;", "\xF8": "&oslash;", "\u2298": "&osol;", "\xF5": "&otilde;", "\u2A36": "&otimesas;", "\xF6": "&ouml;", "\u233D": "&ovbar;", "\xB6": "&para;", "\u2AF3": "&parsim;", "\u2AFD": "&parsl;", "\u043F": "&pcy;", "%": "&percnt;", ".": "&period;", "\u2030": "&permil;", "\u2031": "&pertenk;", "\u{1D52D}": "&pfr;", "\u03C6": "&phi;", "\u03D5": "&varphi;", "\u260E": "&phone;", "\u03C0": "&pi;", "\u03D6": "&varpi;", "\u210E": "&planckh;", "+": "&plus;", "\u2A23": "&plusacir;", "\u2A22": "&pluscir;", "\u2A25": "&plusdu;", "\u2A72": "&pluse;", "\u2A26": "&plussim;", "\u2A27": "&plustwo;", "\u2A15": "&pointint;", "\u{1D561}": "&popf;", "\xA3": "&pound;", "\u2AB3": "&prE;", "\u2AB7": "&precapprox;", "\u2AB9": "&prnap;", "\u2AB5": "&prnE;", "\u22E8": "&prnsim;", "\u2032": "&prime;", "\u232E": "&profalar;", "\u2312": "&profline;", "\u2313": "&profsurf;", "\u22B0": "&prurel;", "\u{1D4C5}": "&pscr;", "\u03C8": "&psi;", "\u2008": "&puncsp;", "\u{1D52E}": "&qfr;", "\u{1D562}": "&qopf;", "\u2057": "&qprime;", "\u{1D4C6}": "&qscr;", "\u2A16": "&quatint;", "?": "&quest;", "\u291C": "&rAtail;", "\u2964": "&rHar;", "\u223D\u0331": "&race;", "\u0155": "&racute;", "\u29B3": "&raemptyv;", "\u2992": "&rangd;", "\u29A5": "&range;", "\xBB": "&raquo;", "\u2975": "&rarrap;", "\u2920": "&rarrbfs;", "\u2933": "&rarrc;", "\u291E": "&rarrfs;", "\u2945": "&rarrpl;", "\u2974": "&rarrsim;", "\u21A3": "&rightarrowtail;", "\u219D": "&rightsquigarrow;", "\u291A": "&ratail;", "\u2236": "&ratio;", "\u2773": "&rbbrk;", "}": "&rcub;", "]": "&rsqb;", "\u298C": "&rbrke;", "\u298E": "&rbrksld;", "\u2990": "&rbrkslu;", "\u0159": "&rcaron;", "\u0157": "&rcedil;", "\u0440": "&rcy;", "\u2937": "&rdca;", "\u2969": "&rdldhar;", "\u21B3": "&rdsh;", "\u25AD": "&rect;", "\u297D": "&rfisht;", "\u{1D52F}": "&rfr;", "\u296C": "&rharul;", "\u03C1": "&rho;", "\u03F1": "&varrho;", "\u21C9": "&rrarr;", "\u22CC": "&rthree;", "\u02DA": "&ring;", "\u200F": "&rlm;", "\u23B1": "&rmoustache;", "\u2AEE": "&rnmid;", "\u27ED": "&roang;", "\u21FE": "&roarr;", "\u2986": "&ropar;", "\u{1D563}": "&ropf;", "\u2A2E": "&roplus;", "\u2A35": "&rotimes;", ")": "&rpar;", "\u2994": "&rpargt;", "\u2A12": "&rppolint;", "\u203A": "&rsaquo;", "\u{1D4C7}": "&rscr;", "\u22CA": "&rtimes;", "\u25B9": "&triangleright;", "\u29CE": "&rtriltri;", "\u2968": "&ruluhar;", "\u211E": "&rx;", "\u015B": "&sacute;", "\u2AB4": "&scE;", "\u2AB8": "&succapprox;", "\u0161": "&scaron;", "\u015F": "&scedil;", "\u015D": "&scirc;", "\u2AB6": "&succneqq;", "\u2ABA": "&succnapprox;", "\u22E9": "&succnsim;", "\u2A13": "&scpolint;", "\u0441": "&scy;", "\u22C5": "&sdot;", "\u2A66": "&sdote;", "\u21D8": "&seArr;", "\xA7": "&sect;", ";": "&semi;", "\u2929": "&tosa;", "\u2736": "&sext;", "\u{1D530}": "&sfr;", "\u266F": "&sharp;", "\u0449": "&shchcy;", "\u0448": "&shcy;", "\xAD": "&shy;", "\u03C3": "&sigma;", "\u03C2": "&varsigma;", "\u2A6A": "&simdot;", "\u2A9E": "&simg;", "\u2AA0": "&simgE;", "\u2A9D": "&siml;", "\u2A9F": "&simlE;", "\u2246": "&simne;", "\u2A24": "&simplus;", "\u2972": "&simrarr;", "\u2A33": "&smashp;", "\u29E4": "&smeparsl;", "\u2323": "&ssmile;", "\u2AAA": "&smt;", "\u2AAC": "&smte;", "\u2AAC\uFE00": "&smtes;", "\u044C": "&softcy;", "/": "&sol;", "\u29C4": "&solb;", "\u233F": "&solbar;", "\u{1D564}": "&sopf;", "\u2660": "&spadesuit;", "\u2293\uFE00": "&sqcaps;", "\u2294\uFE00": "&sqcups;", "\u{1D4C8}": "&sscr;", "\u2606": "&star;", "\u2282": "&subset;", "\u2AC5": "&subseteqq;", "\u2ABD": "&subdot;", "\u2AC3": "&subedot;", "\u2AC1": "&submult;", "\u2ACB": "&subsetneqq;", "\u228A": "&subsetneq;", "\u2ABF": "&subplus;", "\u2979": "&subrarr;", "\u2AC7": "&subsim;", "\u2AD5": "&subsub;", "\u2AD3": "&subsup;", "\u266A": "&sung;", "\xB9": "&sup1;", "\xB2": "&sup2;", "\xB3": "&sup3;", "\u2AC6": "&supseteqq;", "\u2ABE": "&supdot;", "\u2AD8": "&supdsub;", "\u2AC4": "&supedot;", "\u27C9": "&suphsol;", "\u2AD7": "&suphsub;", "\u297B": "&suplarr;", "\u2AC2": "&supmult;", "\u2ACC": "&supsetneqq;", "\u228B": "&supsetneq;", "\u2AC0": "&supplus;", "\u2AC8": "&supsim;", "\u2AD4": "&supsub;", "\u2AD6": "&supsup;", "\u21D9": "&swArr;", "\u292A": "&swnwar;", "\xDF": "&szlig;", "\u2316": "&target;", "\u03C4": "&tau;", "\u0165": "&tcaron;", "\u0163": "&tcedil;", "\u0442": "&tcy;", "\u2315": "&telrec;", "\u{1D531}": "&tfr;", "\u03B8": "&theta;", "\u03D1": "&vartheta;", "\xFE": "&thorn;", "\xD7": "&times;", "\u2A31": "&timesbar;", "\u2A30": "&timesd;", "\u2336": "&topbot;", "\u2AF1": "&topcir;", "\u{1D565}": "&topf;", "\u2ADA": "&topfork;", "\u2034": "&tprime;", "\u25B5": "&utri;", "\u225C": "&trie;", "\u25EC": "&tridot;", "\u2A3A": "&triminus;", "\u2A39": "&triplus;", "\u29CD": "&trisb;", "\u2A3B": "&tritime;", "\u23E2": "&trpezium;", "\u{1D4C9}": "&tscr;", "\u0446": "&tscy;", "\u045B": "&tshcy;", "\u0167": "&tstrok;", "\u2963": "&uHar;", "\xFA": "&uacute;", "\u045E": "&ubrcy;", "\u016D": "&ubreve;", "\xFB": "&ucirc;", "\u0443": "&ucy;", "\u0171": "&udblac;", "\u297E": "&ufisht;", "\u{1D532}": "&ufr;", "\xF9": "&ugrave;", "\u2580": "&uhblk;", "\u231C": "&ulcorner;", "\u230F": "&ulcrop;", "\u25F8": "&ultri;", "\u016B": "&umacr;", "\u0173": "&uogon;", "\u{1D566}": "&uopf;", "\u03C5": "&upsilon;", "\u21C8": "&uuarr;", "\u231D": "&urcorner;", "\u230E": "&urcrop;", "\u016F": "&uring;", "\u25F9": "&urtri;", "\u{1D4CA}": "&uscr;", "\u22F0": "&utdot;", "\u0169": "&utilde;", "\xFC": "&uuml;", "\u29A7": "&uwangle;", "\u2AE8": "&vBar;", "\u2AE9": "&vBarv;", "\u299C": "&vangrt;", "\u228A\uFE00": "&vsubne;", "\u2ACB\uFE00": "&vsubnE;", "\u228B\uFE00": "&vsupne;", "\u2ACC\uFE00": "&vsupnE;", "\u0432": "&vcy;", "\u22BB": "&veebar;", "\u225A": "&veeeq;", "\u22EE": "&vellip;", "\u{1D533}": "&vfr;", "\u{1D567}": "&vopf;", "\u{1D4CB}": "&vscr;", "\u299A": "&vzigzag;", "\u0175": "&wcirc;", "\u2A5F": "&wedbar;", "\u2259": "&wedgeq;", "\u2118": "&wp;", "\u{1D534}": "&wfr;", "\u{1D568}": "&wopf;", "\u{1D4CC}": "&wscr;", "\u{1D535}": "&xfr;", "\u03BE": "&xi;", "\u22FB": "&xnis;", "\u{1D569}": "&xopf;", "\u{1D4CD}": "&xscr;", "\xFD": "&yacute;", "\u044F": "&yacy;", "\u0177": "&ycirc;", "\u044B": "&ycy;", "\xA5": "&yen;", "\u{1D536}": "&yfr;", "\u0457": "&yicy;", "\u{1D56A}": "&yopf;", "\u{1D4CE}": "&yscr;", "\u044E": "&yucy;", "\xFF": "&yuml;", "\u017A": "&zacute;", "\u017E": "&zcaron;", "\u0437": "&zcy;", "\u017C": "&zdot;", "\u03B6": "&zeta;", "\u{1D537}": "&zfr;", "\u0436": "&zhcy;", "\u21DD": "&zigrarr;", "\u{1D56B}": "&zopf;", "\u{1D4CF}": "&zscr;", "\u200D": "&zwj;", "\u200C": "&zwnj;" } } };
-  }
-});
-
-// node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/numeric-unicode-map.js
-var require_numeric_unicode_map = __commonJS({
-  "node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/numeric-unicode-map.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.numericUnicodeMap = { 0: 65533, 128: 8364, 130: 8218, 131: 402, 132: 8222, 133: 8230, 134: 8224, 135: 8225, 136: 710, 137: 8240, 138: 352, 139: 8249, 140: 338, 142: 381, 145: 8216, 146: 8217, 147: 8220, 148: 8221, 149: 8226, 150: 8211, 151: 8212, 152: 732, 153: 8482, 154: 353, 155: 8250, 156: 339, 158: 382, 159: 376 };
-  }
-});
-
-// node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/surrogate-pairs.js
-var require_surrogate_pairs = __commonJS({
-  "node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/surrogate-pairs.js"(exports2) {
-    "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.fromCodePoint = String.fromCodePoint || function(astralCodePoint) {
-      return String.fromCharCode(Math.floor((astralCodePoint - 65536) / 1024) + 55296, (astralCodePoint - 65536) % 1024 + 56320);
-    };
-    exports2.getCodePoint = String.prototype.codePointAt ? function(input, position) {
-      return input.codePointAt(position);
-    } : function(input, position) {
-      return (input.charCodeAt(position) - 55296) * 1024 + input.charCodeAt(position + 1) - 56320 + 65536;
-    };
-    exports2.highSurrogateFrom = 55296;
-    exports2.highSurrogateTo = 56319;
-  }
-});
-
-// node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/index.js
-var require_lib2 = __commonJS({
-  "node_modules/.pnpm/html-entities@2.4.0/node_modules/html-entities/lib/index.js"(exports2) {
-    "use strict";
-    var __assign = exports2 && exports2.__assign || function() {
-      __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-          s = arguments[i];
-          for (var p in s)
-            if (Object.prototype.hasOwnProperty.call(s, p))
-              t[p] = s[p];
-        }
-        return t;
-      };
-      return __assign.apply(this, arguments);
-    };
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    var named_references_1 = require_named_references();
-    var numeric_unicode_map_1 = require_numeric_unicode_map();
-    var surrogate_pairs_1 = require_surrogate_pairs();
-    var allNamedReferences = __assign(__assign({}, named_references_1.namedReferences), { all: named_references_1.namedReferences.html5 });
-    var encodeRegExps = {
-      specialChars: /[<>'"&]/g,
-      nonAscii: /[<>'"&\u0080-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
-      nonAsciiPrintable: /[<>'"&\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
-      nonAsciiPrintableOnly: /[\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
-      extensive: /[\x01-\x0c\x0e-\x1f\x21-\x2c\x2e-\x2f\x3a-\x40\x5b-\x60\x7b-\x7d\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g
-    };
-    var defaultEncodeOptions = {
-      mode: "specialChars",
-      level: "all",
-      numeric: "decimal"
-    };
-    function encode6(text, _a) {
-      var _b = _a === void 0 ? defaultEncodeOptions : _a, _c = _b.mode, mode = _c === void 0 ? "specialChars" : _c, _d = _b.numeric, numeric = _d === void 0 ? "decimal" : _d, _e = _b.level, level = _e === void 0 ? "all" : _e;
-      if (!text) {
-        return "";
-      }
-      var encodeRegExp = encodeRegExps[mode];
-      var references = allNamedReferences[level].characters;
-      var isHex = numeric === "hexadecimal";
-      encodeRegExp.lastIndex = 0;
-      var _b = encodeRegExp.exec(text);
-      var _c;
-      if (_b) {
-        _c = "";
-        var _d = 0;
-        do {
-          if (_d !== _b.index) {
-            _c += text.substring(_d, _b.index);
-          }
-          var _e = _b[0];
-          var result_1 = references[_e];
-          if (!result_1) {
-            var code_1 = _e.length > 1 ? surrogate_pairs_1.getCodePoint(_e, 0) : _e.charCodeAt(0);
-            result_1 = (isHex ? "&#x" + code_1.toString(16) : "&#" + code_1) + ";";
-          }
-          _c += result_1;
-          _d = _b.index + _e.length;
-        } while (_b = encodeRegExp.exec(text));
-        if (_d !== text.length) {
-          _c += text.substring(_d);
-        }
-      } else {
-        _c = text;
-      }
-      return _c;
-    }
-    exports2.encode = encode6;
-    var defaultDecodeOptions = {
-      scope: "body",
-      level: "all"
-    };
-    var strict = /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);/g;
-    var attribute = /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+)[;=]?/g;
-    var baseDecodeRegExps = {
-      xml: {
-        strict,
-        attribute,
-        body: named_references_1.bodyRegExps.xml
-      },
-      html4: {
-        strict,
-        attribute,
-        body: named_references_1.bodyRegExps.html4
-      },
-      html5: {
-        strict,
-        attribute,
-        body: named_references_1.bodyRegExps.html5
-      }
-    };
-    var decodeRegExps = __assign(__assign({}, baseDecodeRegExps), { all: baseDecodeRegExps.html5 });
-    var fromCharCode = String.fromCharCode;
-    var outOfBoundsChar = fromCharCode(65533);
-    var defaultDecodeEntityOptions = {
-      level: "all"
-    };
-    function decodeEntity(entity, _a) {
-      var _b = (_a === void 0 ? defaultDecodeEntityOptions : _a).level, level = _b === void 0 ? "all" : _b;
-      if (!entity) {
-        return "";
-      }
-      var _b = entity;
-      var decodeEntityLastChar_1 = entity[entity.length - 1];
-      if (false) {
-        _b = entity;
-      } else if (false) {
-        _b = entity;
-      } else {
-        var decodeResultByReference_1 = allNamedReferences[level].entities[entity];
-        if (decodeResultByReference_1) {
-          _b = decodeResultByReference_1;
-        } else if (entity[0] === "&" && entity[1] === "#") {
-          var decodeSecondChar_1 = entity[2];
-          var decodeCode_1 = decodeSecondChar_1 == "x" || decodeSecondChar_1 == "X" ? parseInt(entity.substr(3), 16) : parseInt(entity.substr(2));
-          _b = decodeCode_1 >= 1114111 ? outOfBoundsChar : decodeCode_1 > 65535 ? surrogate_pairs_1.fromCodePoint(decodeCode_1) : fromCharCode(numeric_unicode_map_1.numericUnicodeMap[decodeCode_1] || decodeCode_1);
-        }
-      }
-      return _b;
-    }
-    exports2.decodeEntity = decodeEntity;
-    function decode7(text, _a) {
-      var decodeSecondChar_1 = _a === void 0 ? defaultDecodeOptions : _a, decodeCode_1 = decodeSecondChar_1.level, level = decodeCode_1 === void 0 ? "all" : decodeCode_1, _b = decodeSecondChar_1.scope, scope = _b === void 0 ? level === "xml" ? "strict" : "body" : _b;
-      if (!text) {
-        return "";
-      }
-      var decodeRegExp = decodeRegExps[level][scope];
-      var references = allNamedReferences[level].entities;
-      var isAttribute = scope === "attribute";
-      var isStrict = scope === "strict";
-      decodeRegExp.lastIndex = 0;
-      var replaceMatch_1 = decodeRegExp.exec(text);
-      var replaceResult_1;
-      if (replaceMatch_1) {
-        replaceResult_1 = "";
-        var replaceLastIndex_1 = 0;
-        do {
-          if (replaceLastIndex_1 !== replaceMatch_1.index) {
-            replaceResult_1 += text.substring(replaceLastIndex_1, replaceMatch_1.index);
-          }
-          var replaceInput_1 = replaceMatch_1[0];
-          var decodeResult_1 = replaceInput_1;
-          var decodeEntityLastChar_2 = replaceInput_1[replaceInput_1.length - 1];
-          if (isAttribute && decodeEntityLastChar_2 === "=") {
-            decodeResult_1 = replaceInput_1;
-          } else if (isStrict && decodeEntityLastChar_2 !== ";") {
-            decodeResult_1 = replaceInput_1;
-          } else {
-            var decodeResultByReference_2 = references[replaceInput_1];
-            if (decodeResultByReference_2) {
-              decodeResult_1 = decodeResultByReference_2;
-            } else if (replaceInput_1[0] === "&" && replaceInput_1[1] === "#") {
-              var decodeSecondChar_2 = replaceInput_1[2];
-              var decodeCode_2 = decodeSecondChar_2 == "x" || decodeSecondChar_2 == "X" ? parseInt(replaceInput_1.substr(3), 16) : parseInt(replaceInput_1.substr(2));
-              decodeResult_1 = decodeCode_2 >= 1114111 ? outOfBoundsChar : decodeCode_2 > 65535 ? surrogate_pairs_1.fromCodePoint(decodeCode_2) : fromCharCode(numeric_unicode_map_1.numericUnicodeMap[decodeCode_2] || decodeCode_2);
-            }
-          }
-          replaceResult_1 += decodeResult_1;
-          replaceLastIndex_1 = replaceMatch_1.index + replaceInput_1.length;
-        } while (replaceMatch_1 = decodeRegExp.exec(text));
-        if (replaceLastIndex_1 !== text.length) {
-          replaceResult_1 += text.substring(replaceLastIndex_1);
-        }
-      } else {
-        replaceResult_1 = text;
-      }
-      return replaceResult_1;
-    }
-    exports2.decode = decode7;
-  }
-});
-
 // node_modules/.pnpm/entities@3.0.1/node_modules/entities/lib/maps/entities.json
 var require_entities = __commonJS({
   "node_modules/.pnpm/entities@3.0.1/node_modules/entities/lib/maps/entities.json"(exports2, module2) {
@@ -50595,31 +54145,31 @@ var require_encode = __commonJS({
       }
       return cache2;
     }
-    function encode6(string2, exclude, keepEscaped) {
-      var i, l2, code2, nextCode, cache2, result = "";
+    function encode7(string2, exclude, keepEscaped) {
+      var i, l2, code3, nextCode, cache2, result = "";
       if (typeof exclude !== "string") {
         keepEscaped = exclude;
-        exclude = encode6.defaultChars;
+        exclude = encode7.defaultChars;
       }
       if (typeof keepEscaped === "undefined") {
         keepEscaped = true;
       }
       cache2 = getEncodeCache(exclude);
       for (i = 0, l2 = string2.length; i < l2; i++) {
-        code2 = string2.charCodeAt(i);
-        if (keepEscaped && code2 === 37 && i + 2 < l2) {
+        code3 = string2.charCodeAt(i);
+        if (keepEscaped && code3 === 37 && i + 2 < l2) {
           if (/^[0-9a-f]{2}$/i.test(string2.slice(i + 1, i + 3))) {
             result += string2.slice(i, i + 3);
             i += 2;
             continue;
           }
         }
-        if (code2 < 128) {
-          result += cache2[code2];
+        if (code3 < 128) {
+          result += cache2[code3];
           continue;
         }
-        if (code2 >= 55296 && code2 <= 57343) {
-          if (code2 >= 55296 && code2 <= 56319 && i + 1 < l2) {
+        if (code3 >= 55296 && code3 <= 57343) {
+          if (code3 >= 55296 && code3 <= 56319 && i + 1 < l2) {
             nextCode = string2.charCodeAt(i + 1);
             if (nextCode >= 56320 && nextCode <= 57343) {
               result += encodeURIComponent(string2[i] + string2[i + 1]);
@@ -50634,9 +54184,9 @@ var require_encode = __commonJS({
       }
       return result;
     }
-    encode6.defaultChars = ";/?:@&=+$,-_.!~*'()#";
-    encode6.componentChars = "-_.!~*'()";
-    module2.exports = encode6;
+    encode7.defaultChars = ";/?:@&=+$,-_.!~*'()#";
+    encode7.componentChars = "-_.!~*'()";
+    module2.exports = encode7;
   }
 });
 
@@ -50661,10 +54211,10 @@ var require_decode = __commonJS({
       }
       return cache2;
     }
-    function decode7(string2, exclude) {
+    function decode6(string2, exclude) {
       var cache2;
       if (typeof exclude !== "string") {
-        exclude = decode7.defaultChars;
+        exclude = decode6.defaultChars;
       }
       cache2 = getDecodeCache(exclude);
       return string2.replace(/(%[a-f0-9]{2})+/gi, function(seq) {
@@ -50723,9 +54273,9 @@ var require_decode = __commonJS({
         return result;
       });
     }
-    decode7.defaultChars = ";/?:@&=+$,#";
-    decode7.componentChars = "";
-    module2.exports = decode7;
+    decode6.defaultChars = ";/?:@&=+$,#";
+    decode6.componentChars = "";
+    module2.exports = decode6;
   }
 });
 
@@ -50753,7 +54303,7 @@ var require_format = __commonJS({
 });
 
 // node_modules/.pnpm/mdurl@1.0.1/node_modules/mdurl/parse.js
-var require_parse = __commonJS({
+var require_parse2 = __commonJS({
   "node_modules/.pnpm/mdurl@1.0.1/node_modules/mdurl/parse.js"(exports2, module2) {
     "use strict";
     function Url() {
@@ -50947,7 +54497,7 @@ var require_mdurl = __commonJS({
     module2.exports.encode = require_encode();
     module2.exports.decode = require_decode();
     module2.exports.format = require_format();
-    module2.exports.parse = require_parse();
+    module2.exports.parse = require_parse2();
   }
 });
 
@@ -50992,7 +54542,7 @@ var require_uc = __commonJS({
 });
 
 // node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/common/utils.js
-var require_utils = __commonJS({
+var require_utils2 = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/common/utils.js"(exports2) {
     "use strict";
     function _class(obj) {
@@ -51064,14 +54614,14 @@ var require_utils = __commonJS({
     var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
     var entities = require_entities2();
     function replaceEntityPattern(match, name2) {
-      var code2 = 0;
+      var code3 = 0;
       if (has(entities, name2)) {
         return entities[name2];
       }
       if (name2.charCodeAt(0) === 35 && DIGITAL_ENTITY_TEST_RE.test(name2)) {
-        code2 = name2[1].toLowerCase() === "x" ? parseInt(name2.slice(2), 16) : parseInt(name2.slice(1), 10);
-        if (isValidEntityCode(code2)) {
-          return fromCodePoint(code2);
+        code3 = name2[1].toLowerCase() === "x" ? parseInt(name2.slice(2), 16) : parseInt(name2.slice(1), 10);
+        if (isValidEntityCode(code3)) {
+          return fromCodePoint(code3);
         }
       }
       return match;
@@ -51114,19 +54664,19 @@ var require_utils = __commonJS({
     function escapeRE(str2) {
       return str2.replace(REGEXP_ESCAPE_RE, "\\$&");
     }
-    function isSpace(code2) {
-      switch (code2) {
+    function isSpace(code3) {
+      switch (code3) {
         case 9:
         case 32:
           return true;
       }
       return false;
     }
-    function isWhiteSpace(code2) {
-      if (code2 >= 8192 && code2 <= 8202) {
+    function isWhiteSpace(code3) {
+      if (code3 >= 8192 && code3 <= 8202) {
         return true;
       }
-      switch (code2) {
+      switch (code3) {
         case 9:
         case 10:
         case 11:
@@ -51254,9 +54804,9 @@ var require_parse_link_label = __commonJS({
 var require_parse_link_destination = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/helpers/parse_link_destination.js"(exports2, module2) {
     "use strict";
-    var unescapeAll = require_utils().unescapeAll;
+    var unescapeAll = require_utils2().unescapeAll;
     module2.exports = function parseLinkDestination(str2, pos, max) {
-      var code2, level, lines = 0, start = pos, result = {
+      var code3, level, lines = 0, start = pos, result = {
         ok: false,
         pos: 0,
         lines: 0,
@@ -51265,20 +54815,20 @@ var require_parse_link_destination = __commonJS({
       if (str2.charCodeAt(pos) === 60) {
         pos++;
         while (pos < max) {
-          code2 = str2.charCodeAt(pos);
-          if (code2 === 10) {
+          code3 = str2.charCodeAt(pos);
+          if (code3 === 10) {
             return result;
           }
-          if (code2 === 60) {
+          if (code3 === 60) {
             return result;
           }
-          if (code2 === 62) {
+          if (code3 === 62) {
             result.pos = pos + 1;
             result.str = unescapeAll(str2.slice(start + 1, pos));
             result.ok = true;
             return result;
           }
-          if (code2 === 92 && pos + 1 < max) {
+          if (code3 === 92 && pos + 1 < max) {
             pos += 2;
             continue;
           }
@@ -51288,27 +54838,27 @@ var require_parse_link_destination = __commonJS({
       }
       level = 0;
       while (pos < max) {
-        code2 = str2.charCodeAt(pos);
-        if (code2 === 32) {
+        code3 = str2.charCodeAt(pos);
+        if (code3 === 32) {
           break;
         }
-        if (code2 < 32 || code2 === 127) {
+        if (code3 < 32 || code3 === 127) {
           break;
         }
-        if (code2 === 92 && pos + 1 < max) {
+        if (code3 === 92 && pos + 1 < max) {
           if (str2.charCodeAt(pos + 1) === 32) {
             break;
           }
           pos += 2;
           continue;
         }
-        if (code2 === 40) {
+        if (code3 === 40) {
           level++;
           if (level > 32) {
             return result;
           }
         }
-        if (code2 === 41) {
+        if (code3 === 41) {
           if (level === 0) {
             break;
           }
@@ -51335,9 +54885,9 @@ var require_parse_link_destination = __commonJS({
 var require_parse_link_title = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/helpers/parse_link_title.js"(exports2, module2) {
     "use strict";
-    var unescapeAll = require_utils().unescapeAll;
+    var unescapeAll = require_utils2().unescapeAll;
     module2.exports = function parseLinkTitle(str2, pos, max) {
-      var code2, marker, lines = 0, start = pos, result = {
+      var code3, marker, lines = 0, start = pos, result = {
         ok: false,
         pos: 0,
         lines: 0,
@@ -51355,18 +54905,18 @@ var require_parse_link_title = __commonJS({
         marker = 41;
       }
       while (pos < max) {
-        code2 = str2.charCodeAt(pos);
-        if (code2 === marker) {
+        code3 = str2.charCodeAt(pos);
+        if (code3 === marker) {
           result.pos = pos + 1;
           result.lines = lines;
           result.str = unescapeAll(str2.slice(start + 1, pos));
           result.ok = true;
           return result;
-        } else if (code2 === 40 && marker === 41) {
+        } else if (code3 === 40 && marker === 41) {
           return result;
-        } else if (code2 === 10) {
+        } else if (code3 === 10) {
           lines++;
-        } else if (code2 === 92 && pos + 1 < max) {
+        } else if (code3 === 92 && pos + 1 < max) {
           pos++;
           if (str2.charCodeAt(pos) === 10) {
             lines++;
@@ -51393,9 +54943,9 @@ var require_helpers = __commonJS({
 var require_renderer = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/renderer.js"(exports2, module2) {
     "use strict";
-    var assign = require_utils().assign;
-    var unescapeAll = require_utils().unescapeAll;
-    var escapeHtml = require_utils().escapeHtml;
+    var assign = require_utils2().assign;
+    var unescapeAll = require_utils2().unescapeAll;
+    var escapeHtml = require_utils2().escapeHtml;
     var default_rules = {};
     default_rules.code_inline = function(tokens, idx, options2, env, slf) {
       var token = tokens[idx];
@@ -51744,7 +55294,7 @@ var require_inline = __commonJS({
 var require_linkify = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_core/linkify.js"(exports2, module2) {
     "use strict";
-    var arrayReplaceAt = require_utils().arrayReplaceAt;
+    var arrayReplaceAt = require_utils2().arrayReplaceAt;
     function isLinkOpen(str2) {
       return /^<a[>\s]/i.test(str2);
     }
@@ -51914,9 +55464,9 @@ var require_replacements = __commonJS({
 var require_smartquotes = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_core/smartquotes.js"(exports2, module2) {
     "use strict";
-    var isWhiteSpace = require_utils().isWhiteSpace;
-    var isPunctChar = require_utils().isPunctChar;
-    var isMdAsciiPunct = require_utils().isMdAsciiPunct;
+    var isWhiteSpace = require_utils2().isWhiteSpace;
+    var isPunctChar = require_utils2().isPunctChar;
+    var isMdAsciiPunct = require_utils2().isMdAsciiPunct;
     var QUOTE_TEST_RE = /['"]/;
     var QUOTE_RE = /['"]/g;
     var APOSTROPHE = "\u2019";
@@ -52175,12 +55725,12 @@ var require_state_core = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_core/state_core.js"(exports2, module2) {
     "use strict";
     var Token = require_token();
-    function StateCore(src2, md, env) {
+    function StateCore(src2, md2, env) {
       this.src = src2;
       this.env = env;
       this.tokens = [];
       this.inlineMode = false;
-      this.md = md;
+      this.md = md2;
     }
     StateCore.prototype.Token = Token;
     module2.exports = StateCore;
@@ -52225,7 +55775,7 @@ var require_parser_core = __commonJS({
 var require_table = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_block/table.js"(exports2, module2) {
     "use strict";
-    var isSpace = require_utils().isSpace;
+    var isSpace = require_utils2().isSpace;
     function getLine(state, line) {
       var pos = state.bMarks[line] + state.tShift[line], max = state.eMarks[line];
       return state.src.slice(pos, max);
@@ -52412,7 +55962,7 @@ var require_table = __commonJS({
 var require_code = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_block/code.js"(exports2, module2) {
     "use strict";
-    module2.exports = function code2(state, startLine, endLine) {
+    module2.exports = function code3(state, startLine, endLine) {
       var nextLine, last, token;
       if (state.sCount[startLine] - state.blkIndent < 4) {
         return false;
@@ -52515,7 +56065,7 @@ var require_fence = __commonJS({
 var require_blockquote = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_block/blockquote.js"(exports2, module2) {
     "use strict";
-    var isSpace = require_utils().isSpace;
+    var isSpace = require_utils2().isSpace;
     module2.exports = function blockquote(state, startLine, endLine, silent) {
       var adjustTab, ch, i, initial, l2, lastLineEmpty, lines, nextLine, offset, oldBMarks, oldBSCount, oldIndent, oldParentType, oldSCount, oldTShift, spaceAfterMarker, terminate, terminatorRules, token, isOutdented, oldLineMax = state.lineMax, pos = state.bMarks[startLine] + state.tShift[startLine], max = state.eMarks[startLine];
       if (state.sCount[startLine] - state.blkIndent >= 4) {
@@ -52678,7 +56228,7 @@ var require_blockquote = __commonJS({
 var require_hr = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_block/hr.js"(exports2, module2) {
     "use strict";
-    var isSpace = require_utils().isSpace;
+    var isSpace = require_utils2().isSpace;
     module2.exports = function hr(state, startLine, endLine, silent) {
       var marker, cnt, ch, token, pos = state.bMarks[startLine] + state.tShift[startLine], max = state.eMarks[startLine];
       if (state.sCount[startLine] - state.blkIndent >= 4) {
@@ -52717,7 +56267,7 @@ var require_hr = __commonJS({
 var require_list = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_block/list.js"(exports2, module2) {
     "use strict";
-    var isSpace = require_utils().isSpace;
+    var isSpace = require_utils2().isSpace;
     function skipBulletListMarker(state, startLine) {
       var marker, pos, max, ch;
       pos = state.bMarks[startLine] + state.tShift[startLine];
@@ -52940,8 +56490,8 @@ var require_list = __commonJS({
 var require_reference = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_block/reference.js"(exports2, module2) {
     "use strict";
-    var normalizeReference = require_utils().normalizeReference;
-    var isSpace = require_utils().isSpace;
+    var normalizeReference = require_utils2().normalizeReference;
+    var isSpace = require_utils2().isSpace;
     module2.exports = function reference(state, startLine, _endLine, silent) {
       var ch, destEndPos, destEndLineNo, endLine, href, i, l2, label, labelEnd, oldParentType, res, start, str2, terminate, terminatorRules, title, lines = 0, pos = state.bMarks[startLine] + state.tShift[startLine], max = state.eMarks[startLine], nextLine = startLine + 1;
       if (state.sCount[startLine] - state.blkIndent >= 4) {
@@ -53251,7 +56801,7 @@ var require_html_block = __commonJS({
 var require_heading = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_block/heading.js"(exports2, module2) {
     "use strict";
-    var isSpace = require_utils().isSpace;
+    var isSpace = require_utils2().isSpace;
     module2.exports = function heading(state, startLine, endLine, silent) {
       var ch, level, tmp, token, pos = state.bMarks[startLine] + state.tShift[startLine], max = state.eMarks[startLine];
       if (state.sCount[startLine] - state.blkIndent >= 4) {
@@ -53403,11 +56953,11 @@ var require_state_block = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_block/state_block.js"(exports2, module2) {
     "use strict";
     var Token = require_token();
-    var isSpace = require_utils().isSpace;
-    function StateBlock(src2, md, env, tokens) {
+    var isSpace = require_utils2().isSpace;
+    function StateBlock(src2, md2, env, tokens) {
       var ch, s, start, pos, len, indent, offset, indent_found;
       this.src = src2;
-      this.md = md;
+      this.md = md2;
       this.env = env;
       this.tokens = tokens;
       this.bMarks = [];
@@ -53506,20 +57056,20 @@ var require_state_block = __commonJS({
       }
       return pos;
     };
-    StateBlock.prototype.skipChars = function skipChars(pos, code2) {
+    StateBlock.prototype.skipChars = function skipChars(pos, code3) {
       for (var max = this.src.length; pos < max; pos++) {
-        if (this.src.charCodeAt(pos) !== code2) {
+        if (this.src.charCodeAt(pos) !== code3) {
           break;
         }
       }
       return pos;
     };
-    StateBlock.prototype.skipCharsBack = function skipCharsBack(pos, code2, min) {
+    StateBlock.prototype.skipCharsBack = function skipCharsBack(pos, code3, min) {
       if (pos <= min) {
         return pos;
       }
       while (pos > min) {
-        if (code2 !== this.src.charCodeAt(--pos)) {
+        if (code3 !== this.src.charCodeAt(--pos)) {
           return pos + 1;
         }
       }
@@ -53625,12 +57175,12 @@ var require_parser_block = __commonJS({
         }
       }
     };
-    ParserBlock.prototype.parse = function(src2, md, env, outTokens) {
+    ParserBlock.prototype.parse = function(src2, md2, env, outTokens) {
       var state;
       if (!src2) {
         return;
       }
-      state = new this.State(src2, md, env, outTokens);
+      state = new this.State(src2, md2, env, outTokens);
       this.tokenize(state, state.line, state.lineMax);
     };
     ParserBlock.prototype.State = require_state_block();
@@ -53744,7 +57294,7 @@ var require_linkify2 = __commonJS({
 var require_newline = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_inline/newline.js"(exports2, module2) {
     "use strict";
-    var isSpace = require_utils().isSpace;
+    var isSpace = require_utils2().isSpace;
     module2.exports = function newline(state, silent) {
       var pmax, max, ws, pos = state.pos;
       if (state.src.charCodeAt(pos) !== 10) {
@@ -53782,7 +57332,7 @@ var require_newline = __commonJS({
 var require_escape = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_inline/escape.js"(exports2, module2) {
     "use strict";
-    var isSpace = require_utils().isSpace;
+    var isSpace = require_utils2().isSpace;
     var ESCAPED = [];
     for (i = 0; i < 256; i++) {
       ESCAPED.push(0);
@@ -54070,10 +57620,10 @@ var require_emphasis = __commonJS({
 var require_link = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_inline/link.js"(exports2, module2) {
     "use strict";
-    var normalizeReference = require_utils().normalizeReference;
-    var isSpace = require_utils().isSpace;
+    var normalizeReference = require_utils2().normalizeReference;
+    var isSpace = require_utils2().isSpace;
     module2.exports = function link(state, silent) {
-      var attrs, code2, label, labelEnd, labelStart, pos, res, ref, token, href = "", title = "", oldPos = state.pos, max = state.posMax, start = state.pos, parseReference = true;
+      var attrs, code3, label, labelEnd, labelStart, pos, res, ref, token, href = "", title = "", oldPos = state.pos, max = state.posMax, start = state.pos, parseReference = true;
       if (state.src.charCodeAt(state.pos) !== 91) {
         return false;
       }
@@ -54087,8 +57637,8 @@ var require_link = __commonJS({
         parseReference = false;
         pos++;
         for (; pos < max; pos++) {
-          code2 = state.src.charCodeAt(pos);
-          if (!isSpace(code2) && code2 !== 10) {
+          code3 = state.src.charCodeAt(pos);
+          if (!isSpace(code3) && code3 !== 10) {
             break;
           }
         }
@@ -54106,8 +57656,8 @@ var require_link = __commonJS({
           }
           start = pos;
           for (; pos < max; pos++) {
-            code2 = state.src.charCodeAt(pos);
-            if (!isSpace(code2) && code2 !== 10) {
+            code3 = state.src.charCodeAt(pos);
+            if (!isSpace(code3) && code3 !== 10) {
               break;
             }
           }
@@ -54116,8 +57666,8 @@ var require_link = __commonJS({
             title = res.str;
             pos = res.pos;
             for (; pos < max; pos++) {
-              code2 = state.src.charCodeAt(pos);
-              if (!isSpace(code2) && code2 !== 10) {
+              code3 = state.src.charCodeAt(pos);
+              if (!isSpace(code3) && code3 !== 10) {
                 break;
               }
             }
@@ -54178,10 +57728,10 @@ var require_link = __commonJS({
 var require_image = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_inline/image.js"(exports2, module2) {
     "use strict";
-    var normalizeReference = require_utils().normalizeReference;
-    var isSpace = require_utils().isSpace;
+    var normalizeReference = require_utils2().normalizeReference;
+    var isSpace = require_utils2().isSpace;
     module2.exports = function image(state, silent) {
-      var attrs, code2, content, label, labelEnd, labelStart, pos, ref, res, title, token, tokens, start, href = "", oldPos = state.pos, max = state.posMax;
+      var attrs, code3, content, label, labelEnd, labelStart, pos, ref, res, title, token, tokens, start, href = "", oldPos = state.pos, max = state.posMax;
       if (state.src.charCodeAt(state.pos) !== 33) {
         return false;
       }
@@ -54197,8 +57747,8 @@ var require_image = __commonJS({
       if (pos < max && state.src.charCodeAt(pos) === 40) {
         pos++;
         for (; pos < max; pos++) {
-          code2 = state.src.charCodeAt(pos);
-          if (!isSpace(code2) && code2 !== 10) {
+          code3 = state.src.charCodeAt(pos);
+          if (!isSpace(code3) && code3 !== 10) {
             break;
           }
         }
@@ -54217,8 +57767,8 @@ var require_image = __commonJS({
         }
         start = pos;
         for (; pos < max; pos++) {
-          code2 = state.src.charCodeAt(pos);
-          if (!isSpace(code2) && code2 !== 10) {
+          code3 = state.src.charCodeAt(pos);
+          if (!isSpace(code3) && code3 !== 10) {
             break;
           }
         }
@@ -54227,8 +57777,8 @@ var require_image = __commonJS({
           title = res.str;
           pos = res.pos;
           for (; pos < max; pos++) {
-            code2 = state.src.charCodeAt(pos);
-            if (!isSpace(code2) && code2 !== 10) {
+            code3 = state.src.charCodeAt(pos);
+            if (!isSpace(code3) && code3 !== 10) {
               break;
             }
           }
@@ -54406,13 +57956,13 @@ var require_entity = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_inline/entity.js"(exports2, module2) {
     "use strict";
     var entities = require_entities2();
-    var has = require_utils().has;
-    var isValidEntityCode = require_utils().isValidEntityCode;
-    var fromCodePoint = require_utils().fromCodePoint;
+    var has = require_utils2().has;
+    var isValidEntityCode = require_utils2().isValidEntityCode;
+    var fromCodePoint = require_utils2().fromCodePoint;
     var DIGITAL_RE = /^&#((?:x[a-f0-9]{1,6}|[0-9]{1,7}));/i;
     var NAMED_RE = /^&([a-z][a-z0-9]{1,31});/i;
     module2.exports = function entity(state, silent) {
-      var ch, code2, match, token, pos = state.pos, max = state.posMax;
+      var ch, code3, match, token, pos = state.pos, max = state.posMax;
       if (state.src.charCodeAt(pos) !== 38)
         return false;
       if (pos + 1 >= max)
@@ -54422,9 +57972,9 @@ var require_entity = __commonJS({
         match = state.src.slice(pos).match(DIGITAL_RE);
         if (match) {
           if (!silent) {
-            code2 = match[1][0].toLowerCase() === "x" ? parseInt(match[1].slice(1), 16) : parseInt(match[1], 10);
+            code3 = match[1][0].toLowerCase() === "x" ? parseInt(match[1].slice(1), 16) : parseInt(match[1], 10);
             token = state.push("text_special", "", 0);
-            token.content = isValidEntityCode(code2) ? fromCodePoint(code2) : fromCodePoint(65533);
+            token.content = isValidEntityCode(code3) ? fromCodePoint(code3) : fromCodePoint(65533);
             token.markup = match[0];
             token.info = "entity";
           }
@@ -54554,13 +58104,13 @@ var require_state_inline = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/rules_inline/state_inline.js"(exports2, module2) {
     "use strict";
     var Token = require_token();
-    var isWhiteSpace = require_utils().isWhiteSpace;
-    var isPunctChar = require_utils().isPunctChar;
-    var isMdAsciiPunct = require_utils().isMdAsciiPunct;
-    function StateInline(src2, md, env, outTokens) {
+    var isWhiteSpace = require_utils2().isWhiteSpace;
+    var isPunctChar = require_utils2().isPunctChar;
+    var isMdAsciiPunct = require_utils2().isMdAsciiPunct;
+    function StateInline(src2, md2, env, outTokens) {
       this.src = src2;
       this.env = env;
-      this.md = md;
+      this.md = md2;
       this.tokens = outTokens;
       this.tokens_meta = Array(outTokens.length);
       this.pos = 0;
@@ -54733,9 +58283,9 @@ var require_parser_inline = __commonJS({
         state.pushPending();
       }
     };
-    ParserInline.prototype.parse = function(str2, md, env, outTokens) {
+    ParserInline.prototype.parse = function(str2, md2, env, outTokens) {
       var i, rules, len;
-      var state = new this.State(str2, md, env, outTokens);
+      var state = new this.State(str2, md2, env, outTokens);
       this.tokenize(state);
       rules = this.ruler2.getRules("");
       len = rules.length;
@@ -55244,7 +58794,7 @@ var require_punycode = __commonJS({
       }
       return floor(k2 + (baseMinusTMin + 1) * delta / (delta + skew));
     };
-    var decode7 = function(input) {
+    var decode6 = function(input) {
       const output2 = [];
       const inputLength = input.length;
       let i = 0;
@@ -55295,7 +58845,7 @@ var require_punycode = __commonJS({
       }
       return String.fromCodePoint(...output2);
     };
-    var encode6 = function(input) {
+    var encode7 = function(input) {
       const output2 = [];
       input = ucs2decode(input);
       const inputLength = input.length;
@@ -55356,12 +58906,12 @@ var require_punycode = __commonJS({
     };
     var toUnicode = function(input) {
       return mapDomain(input, function(string2) {
-        return regexPunycode.test(string2) ? decode7(string2.slice(4).toLowerCase()) : string2;
+        return regexPunycode.test(string2) ? decode6(string2.slice(4).toLowerCase()) : string2;
       });
     };
     var toASCII = function(input) {
       return mapDomain(input, function(string2) {
-        return regexNonASCII.test(string2) ? "xn--" + encode6(string2) : string2;
+        return regexNonASCII.test(string2) ? "xn--" + encode7(string2) : string2;
       });
     };
     var punycode = {
@@ -55382,8 +58932,8 @@ var require_punycode = __commonJS({
         "decode": ucs2decode,
         "encode": ucs2encode
       },
-      "decode": decode7,
-      "encode": encode6,
+      "decode": decode6,
+      "encode": encode7,
       "toASCII": toASCII,
       "toUnicode": toUnicode
     };
@@ -55584,7 +59134,7 @@ var require_commonmark = __commonJS({
 var require_lib3 = __commonJS({
   "node_modules/.pnpm/markdown-it@13.0.1/node_modules/markdown-it/lib/index.js"(exports2, module2) {
     "use strict";
-    var utils = require_utils();
+    var utils = require_utils2();
     var helpers = require_helpers();
     var Renderer = require_renderer();
     var ParserCore = require_parser_core();
@@ -55759,3577 +59309,6 @@ var require_markdown_it = __commonJS({
   }
 });
 
-// (disabled):fs
-var require_fs = __commonJS({
-  "(disabled):fs"() {
-  }
-});
-
-// node_modules/.pnpm/kind-of@6.0.3/node_modules/kind-of/index.js
-var require_kind_of = __commonJS({
-  "node_modules/.pnpm/kind-of@6.0.3/node_modules/kind-of/index.js"(exports2, module2) {
-    var toString3 = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      if (val === void 0)
-        return "undefined";
-      if (val === null)
-        return "null";
-      var type = typeof val;
-      if (type === "boolean")
-        return "boolean";
-      if (type === "string")
-        return "string";
-      if (type === "number")
-        return "number";
-      if (type === "symbol")
-        return "symbol";
-      if (type === "function") {
-        return isGeneratorFn(val) ? "generatorfunction" : "function";
-      }
-      if (isArray(val))
-        return "array";
-      if (isBuffer(val))
-        return "buffer";
-      if (isArguments(val))
-        return "arguments";
-      if (isDate(val))
-        return "date";
-      if (isError(val))
-        return "error";
-      if (isRegexp(val))
-        return "regexp";
-      switch (ctorName(val)) {
-        case "Symbol":
-          return "symbol";
-        case "Promise":
-          return "promise";
-        case "WeakMap":
-          return "weakmap";
-        case "WeakSet":
-          return "weakset";
-        case "Map":
-          return "map";
-        case "Set":
-          return "set";
-        case "Int8Array":
-          return "int8array";
-        case "Uint8Array":
-          return "uint8array";
-        case "Uint8ClampedArray":
-          return "uint8clampedarray";
-        case "Int16Array":
-          return "int16array";
-        case "Uint16Array":
-          return "uint16array";
-        case "Int32Array":
-          return "int32array";
-        case "Uint32Array":
-          return "uint32array";
-        case "Float32Array":
-          return "float32array";
-        case "Float64Array":
-          return "float64array";
-      }
-      if (isGeneratorObj(val)) {
-        return "generator";
-      }
-      type = toString3.call(val);
-      switch (type) {
-        case "[object Object]":
-          return "object";
-        case "[object Map Iterator]":
-          return "mapiterator";
-        case "[object Set Iterator]":
-          return "setiterator";
-        case "[object String Iterator]":
-          return "stringiterator";
-        case "[object Array Iterator]":
-          return "arrayiterator";
-      }
-      return type.slice(8, -1).toLowerCase().replace(/\s/g, "");
-    };
-    function ctorName(val) {
-      return typeof val.constructor === "function" ? val.constructor.name : null;
-    }
-    function isArray(val) {
-      if (Array.isArray)
-        return Array.isArray(val);
-      return val instanceof Array;
-    }
-    function isError(val) {
-      return val instanceof Error || typeof val.message === "string" && val.constructor && typeof val.constructor.stackTraceLimit === "number";
-    }
-    function isDate(val) {
-      if (val instanceof Date)
-        return true;
-      return typeof val.toDateString === "function" && typeof val.getDate === "function" && typeof val.setDate === "function";
-    }
-    function isRegexp(val) {
-      if (val instanceof RegExp)
-        return true;
-      return typeof val.flags === "string" && typeof val.ignoreCase === "boolean" && typeof val.multiline === "boolean" && typeof val.global === "boolean";
-    }
-    function isGeneratorFn(name2, val) {
-      return ctorName(name2) === "GeneratorFunction";
-    }
-    function isGeneratorObj(val) {
-      return typeof val.throw === "function" && typeof val.return === "function" && typeof val.next === "function";
-    }
-    function isArguments(val) {
-      try {
-        if (typeof val.length === "number" && typeof val.callee === "function") {
-          return true;
-        }
-      } catch (err) {
-        if (err.message.indexOf("callee") !== -1) {
-          return true;
-        }
-      }
-      return false;
-    }
-    function isBuffer(val) {
-      if (val.constructor && typeof val.constructor.isBuffer === "function") {
-        return val.constructor.isBuffer(val);
-      }
-      return false;
-    }
-  }
-});
-
-// node_modules/.pnpm/is-extendable@0.1.1/node_modules/is-extendable/index.js
-var require_is_extendable = __commonJS({
-  "node_modules/.pnpm/is-extendable@0.1.1/node_modules/is-extendable/index.js"(exports2, module2) {
-    "use strict";
-    module2.exports = function isExtendable(val) {
-      return typeof val !== "undefined" && val !== null && (typeof val === "object" || typeof val === "function");
-    };
-  }
-});
-
-// node_modules/.pnpm/extend-shallow@2.0.1/node_modules/extend-shallow/index.js
-var require_extend_shallow = __commonJS({
-  "node_modules/.pnpm/extend-shallow@2.0.1/node_modules/extend-shallow/index.js"(exports2, module2) {
-    "use strict";
-    var isObject3 = require_is_extendable();
-    module2.exports = function extend(o) {
-      if (!isObject3(o)) {
-        o = {};
-      }
-      var len = arguments.length;
-      for (var i = 1; i < len; i++) {
-        var obj = arguments[i];
-        if (isObject3(obj)) {
-          assign(o, obj);
-        }
-      }
-      return o;
-    };
-    function assign(a, b2) {
-      for (var key in b2) {
-        if (hasOwn(b2, key)) {
-          a[key] = b2[key];
-        }
-      }
-    }
-    function hasOwn(obj, key) {
-      return Object.prototype.hasOwnProperty.call(obj, key);
-    }
-  }
-});
-
-// node_modules/.pnpm/section-matter@1.0.0/node_modules/section-matter/index.js
-var require_section_matter = __commonJS({
-  "node_modules/.pnpm/section-matter@1.0.0/node_modules/section-matter/index.js"(exports2, module2) {
-    "use strict";
-    var typeOf = require_kind_of();
-    var extend = require_extend_shallow();
-    module2.exports = function(input, options2) {
-      if (typeof options2 === "function") {
-        options2 = { parse: options2 };
-      }
-      var file = toObject(input);
-      var defaults = { section_delimiter: "---", parse: identity3 };
-      var opts = extend({}, defaults, options2);
-      var delim = opts.section_delimiter;
-      var lines = file.content.split(/\r?\n/);
-      var sections = null;
-      var section = createSection();
-      var content = [];
-      var stack = [];
-      function initSections(val) {
-        file.content = val;
-        sections = [];
-        content = [];
-      }
-      function closeSection(val) {
-        if (stack.length) {
-          section.key = getKey(stack[0], delim);
-          section.content = val;
-          opts.parse(section, sections);
-          sections.push(section);
-          section = createSection();
-          content = [];
-          stack = [];
-        }
-      }
-      for (var i = 0; i < lines.length; i++) {
-        var line = lines[i];
-        var len = stack.length;
-        var ln = line.trim();
-        if (isDelimiter(ln, delim)) {
-          if (ln.length === 3 && i !== 0) {
-            if (len === 0 || len === 2) {
-              content.push(line);
-              continue;
-            }
-            stack.push(ln);
-            section.data = content.join("\n");
-            content = [];
-            continue;
-          }
-          if (sections === null) {
-            initSections(content.join("\n"));
-          }
-          if (len === 2) {
-            closeSection(content.join("\n"));
-          }
-          stack.push(ln);
-          continue;
-        }
-        content.push(line);
-      }
-      if (sections === null) {
-        initSections(content.join("\n"));
-      } else {
-        closeSection(content.join("\n"));
-      }
-      file.sections = sections;
-      return file;
-    };
-    function isDelimiter(line, delim) {
-      if (line.slice(0, delim.length) !== delim) {
-        return false;
-      }
-      if (line.charAt(delim.length + 1) === delim.slice(-1)) {
-        return false;
-      }
-      return true;
-    }
-    function toObject(input) {
-      if (typeOf(input) !== "object") {
-        input = { content: input };
-      }
-      if (typeof input.content !== "string" && !isBuffer(input.content)) {
-        throw new TypeError("expected a buffer or string");
-      }
-      input.content = input.content.toString();
-      input.sections = [];
-      return input;
-    }
-    function getKey(val, delim) {
-      return val ? val.slice(delim.length).trim() : "";
-    }
-    function createSection() {
-      return { key: "", data: "", content: "" };
-    }
-    function identity3(val) {
-      return val;
-    }
-    function isBuffer(val) {
-      if (val && val.constructor && typeof val.constructor.isBuffer === "function") {
-        return val.constructor.isBuffer(val);
-      }
-      return false;
-    }
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/common.js
-var require_common = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/common.js"(exports2, module2) {
-    "use strict";
-    function isNothing(subject) {
-      return typeof subject === "undefined" || subject === null;
-    }
-    function isObject3(subject) {
-      return typeof subject === "object" && subject !== null;
-    }
-    function toArray(sequence) {
-      if (Array.isArray(sequence))
-        return sequence;
-      else if (isNothing(sequence))
-        return [];
-      return [sequence];
-    }
-    function extend(target, source) {
-      var index2, length2, key, sourceKeys;
-      if (source) {
-        sourceKeys = Object.keys(source);
-        for (index2 = 0, length2 = sourceKeys.length; index2 < length2; index2 += 1) {
-          key = sourceKeys[index2];
-          target[key] = source[key];
-        }
-      }
-      return target;
-    }
-    function repeat(string2, count) {
-      var result = "", cycle;
-      for (cycle = 0; cycle < count; cycle += 1) {
-        result += string2;
-      }
-      return result;
-    }
-    function isNegativeZero(number2) {
-      return number2 === 0 && Number.NEGATIVE_INFINITY === 1 / number2;
-    }
-    module2.exports.isNothing = isNothing;
-    module2.exports.isObject = isObject3;
-    module2.exports.toArray = toArray;
-    module2.exports.repeat = repeat;
-    module2.exports.isNegativeZero = isNegativeZero;
-    module2.exports.extend = extend;
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/exception.js
-var require_exception = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/exception.js"(exports2, module2) {
-    "use strict";
-    function YAMLException(reason, mark) {
-      Error.call(this);
-      this.name = "YAMLException";
-      this.reason = reason;
-      this.mark = mark;
-      this.message = (this.reason || "(unknown reason)") + (this.mark ? " " + this.mark.toString() : "");
-      if (Error.captureStackTrace) {
-        Error.captureStackTrace(this, this.constructor);
-      } else {
-        this.stack = new Error().stack || "";
-      }
-    }
-    YAMLException.prototype = Object.create(Error.prototype);
-    YAMLException.prototype.constructor = YAMLException;
-    YAMLException.prototype.toString = function toString3(compact) {
-      var result = this.name + ": ";
-      result += this.reason || "(unknown reason)";
-      if (!compact && this.mark) {
-        result += " " + this.mark.toString();
-      }
-      return result;
-    };
-    module2.exports = YAMLException;
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/mark.js
-var require_mark = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/mark.js"(exports2, module2) {
-    "use strict";
-    var common = require_common();
-    function Mark(name2, buffer, position, line, column) {
-      this.name = name2;
-      this.buffer = buffer;
-      this.position = position;
-      this.line = line;
-      this.column = column;
-    }
-    Mark.prototype.getSnippet = function getSnippet(indent, maxLength) {
-      var head, start, tail, end, snippet;
-      if (!this.buffer)
-        return null;
-      indent = indent || 4;
-      maxLength = maxLength || 75;
-      head = "";
-      start = this.position;
-      while (start > 0 && "\0\r\n\x85\u2028\u2029".indexOf(this.buffer.charAt(start - 1)) === -1) {
-        start -= 1;
-        if (this.position - start > maxLength / 2 - 1) {
-          head = " ... ";
-          start += 5;
-          break;
-        }
-      }
-      tail = "";
-      end = this.position;
-      while (end < this.buffer.length && "\0\r\n\x85\u2028\u2029".indexOf(this.buffer.charAt(end)) === -1) {
-        end += 1;
-        if (end - this.position > maxLength / 2 - 1) {
-          tail = " ... ";
-          end -= 5;
-          break;
-        }
-      }
-      snippet = this.buffer.slice(start, end);
-      return common.repeat(" ", indent) + head + snippet + tail + "\n" + common.repeat(" ", indent + this.position - start + head.length) + "^";
-    };
-    Mark.prototype.toString = function toString3(compact) {
-      var snippet, where = "";
-      if (this.name) {
-        where += 'in "' + this.name + '" ';
-      }
-      where += "at line " + (this.line + 1) + ", column " + (this.column + 1);
-      if (!compact) {
-        snippet = this.getSnippet();
-        if (snippet) {
-          where += ":\n" + snippet;
-        }
-      }
-      return where;
-    };
-    module2.exports = Mark;
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type.js
-var require_type = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type.js"(exports2, module2) {
-    "use strict";
-    var YAMLException = require_exception();
-    var TYPE_CONSTRUCTOR_OPTIONS = [
-      "kind",
-      "resolve",
-      "construct",
-      "instanceOf",
-      "predicate",
-      "represent",
-      "defaultStyle",
-      "styleAliases"
-    ];
-    var YAML_NODE_KINDS = [
-      "scalar",
-      "sequence",
-      "mapping"
-    ];
-    function compileStyleAliases(map) {
-      var result = {};
-      if (map !== null) {
-        Object.keys(map).forEach(function(style) {
-          map[style].forEach(function(alias) {
-            result[String(alias)] = style;
-          });
-        });
-      }
-      return result;
-    }
-    function Type(tag, options2) {
-      options2 = options2 || {};
-      Object.keys(options2).forEach(function(name2) {
-        if (TYPE_CONSTRUCTOR_OPTIONS.indexOf(name2) === -1) {
-          throw new YAMLException('Unknown option "' + name2 + '" is met in definition of "' + tag + '" YAML type.');
-        }
-      });
-      this.tag = tag;
-      this.kind = options2["kind"] || null;
-      this.resolve = options2["resolve"] || function() {
-        return true;
-      };
-      this.construct = options2["construct"] || function(data) {
-        return data;
-      };
-      this.instanceOf = options2["instanceOf"] || null;
-      this.predicate = options2["predicate"] || null;
-      this.represent = options2["represent"] || null;
-      this.defaultStyle = options2["defaultStyle"] || null;
-      this.styleAliases = compileStyleAliases(options2["styleAliases"] || null);
-      if (YAML_NODE_KINDS.indexOf(this.kind) === -1) {
-        throw new YAMLException('Unknown kind "' + this.kind + '" is specified for "' + tag + '" YAML type.');
-      }
-    }
-    module2.exports = Type;
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema.js
-var require_schema = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema.js"(exports2, module2) {
-    "use strict";
-    var common = require_common();
-    var YAMLException = require_exception();
-    var Type = require_type();
-    function compileList(schema, name2, result) {
-      var exclude = [];
-      schema.include.forEach(function(includedSchema) {
-        result = compileList(includedSchema, name2, result);
-      });
-      schema[name2].forEach(function(currentType) {
-        result.forEach(function(previousType, previousIndex) {
-          if (previousType.tag === currentType.tag && previousType.kind === currentType.kind) {
-            exclude.push(previousIndex);
-          }
-        });
-        result.push(currentType);
-      });
-      return result.filter(function(type, index2) {
-        return exclude.indexOf(index2) === -1;
-      });
-    }
-    function compileMap() {
-      var result = {
-        scalar: {},
-        sequence: {},
-        mapping: {},
-        fallback: {}
-      }, index2, length2;
-      function collectType(type) {
-        result[type.kind][type.tag] = result["fallback"][type.tag] = type;
-      }
-      for (index2 = 0, length2 = arguments.length; index2 < length2; index2 += 1) {
-        arguments[index2].forEach(collectType);
-      }
-      return result;
-    }
-    function Schema(definition) {
-      this.include = definition.include || [];
-      this.implicit = definition.implicit || [];
-      this.explicit = definition.explicit || [];
-      this.implicit.forEach(function(type) {
-        if (type.loadKind && type.loadKind !== "scalar") {
-          throw new YAMLException("There is a non-scalar type in the implicit list of a schema. Implicit resolving of such types is not supported.");
-        }
-      });
-      this.compiledImplicit = compileList(this, "implicit", []);
-      this.compiledExplicit = compileList(this, "explicit", []);
-      this.compiledTypeMap = compileMap(this.compiledImplicit, this.compiledExplicit);
-    }
-    Schema.DEFAULT = null;
-    Schema.create = function createSchema() {
-      var schemas, types;
-      switch (arguments.length) {
-        case 1:
-          schemas = Schema.DEFAULT;
-          types = arguments[0];
-          break;
-        case 2:
-          schemas = arguments[0];
-          types = arguments[1];
-          break;
-        default:
-          throw new YAMLException("Wrong number of arguments for Schema.create function");
-      }
-      schemas = common.toArray(schemas);
-      types = common.toArray(types);
-      if (!schemas.every(function(schema) {
-        return schema instanceof Schema;
-      })) {
-        throw new YAMLException("Specified list of super schemas (or a single Schema object) contains a non-Schema object.");
-      }
-      if (!types.every(function(type) {
-        return type instanceof Type;
-      })) {
-        throw new YAMLException("Specified list of YAML types (or a single Type object) contains a non-Type object.");
-      }
-      return new Schema({
-        include: schemas,
-        explicit: types
-      });
-    };
-    module2.exports = Schema;
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/str.js
-var require_str = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/str.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    module2.exports = new Type("tag:yaml.org,2002:str", {
-      kind: "scalar",
-      construct: function(data) {
-        return data !== null ? data : "";
-      }
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/seq.js
-var require_seq = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/seq.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    module2.exports = new Type("tag:yaml.org,2002:seq", {
-      kind: "sequence",
-      construct: function(data) {
-        return data !== null ? data : [];
-      }
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/map.js
-var require_map = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/map.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    module2.exports = new Type("tag:yaml.org,2002:map", {
-      kind: "mapping",
-      construct: function(data) {
-        return data !== null ? data : {};
-      }
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/failsafe.js
-var require_failsafe = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/failsafe.js"(exports2, module2) {
-    "use strict";
-    var Schema = require_schema();
-    module2.exports = new Schema({
-      explicit: [
-        require_str(),
-        require_seq(),
-        require_map()
-      ]
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/null.js
-var require_null = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/null.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    function resolveYamlNull(data) {
-      if (data === null)
-        return true;
-      var max = data.length;
-      return max === 1 && data === "~" || max === 4 && (data === "null" || data === "Null" || data === "NULL");
-    }
-    function constructYamlNull() {
-      return null;
-    }
-    function isNull(object) {
-      return object === null;
-    }
-    module2.exports = new Type("tag:yaml.org,2002:null", {
-      kind: "scalar",
-      resolve: resolveYamlNull,
-      construct: constructYamlNull,
-      predicate: isNull,
-      represent: {
-        canonical: function() {
-          return "~";
-        },
-        lowercase: function() {
-          return "null";
-        },
-        uppercase: function() {
-          return "NULL";
-        },
-        camelcase: function() {
-          return "Null";
-        }
-      },
-      defaultStyle: "lowercase"
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/bool.js
-var require_bool = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/bool.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    function resolveYamlBoolean(data) {
-      if (data === null)
-        return false;
-      var max = data.length;
-      return max === 4 && (data === "true" || data === "True" || data === "TRUE") || max === 5 && (data === "false" || data === "False" || data === "FALSE");
-    }
-    function constructYamlBoolean(data) {
-      return data === "true" || data === "True" || data === "TRUE";
-    }
-    function isBoolean(object) {
-      return Object.prototype.toString.call(object) === "[object Boolean]";
-    }
-    module2.exports = new Type("tag:yaml.org,2002:bool", {
-      kind: "scalar",
-      resolve: resolveYamlBoolean,
-      construct: constructYamlBoolean,
-      predicate: isBoolean,
-      represent: {
-        lowercase: function(object) {
-          return object ? "true" : "false";
-        },
-        uppercase: function(object) {
-          return object ? "TRUE" : "FALSE";
-        },
-        camelcase: function(object) {
-          return object ? "True" : "False";
-        }
-      },
-      defaultStyle: "lowercase"
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/int.js
-var require_int = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/int.js"(exports2, module2) {
-    "use strict";
-    var common = require_common();
-    var Type = require_type();
-    function isHexCode(c) {
-      return 48 <= c && c <= 57 || 65 <= c && c <= 70 || 97 <= c && c <= 102;
-    }
-    function isOctCode(c) {
-      return 48 <= c && c <= 55;
-    }
-    function isDecCode(c) {
-      return 48 <= c && c <= 57;
-    }
-    function resolveYamlInteger(data) {
-      if (data === null)
-        return false;
-      var max = data.length, index2 = 0, hasDigits = false, ch;
-      if (!max)
-        return false;
-      ch = data[index2];
-      if (ch === "-" || ch === "+") {
-        ch = data[++index2];
-      }
-      if (ch === "0") {
-        if (index2 + 1 === max)
-          return true;
-        ch = data[++index2];
-        if (ch === "b") {
-          index2++;
-          for (; index2 < max; index2++) {
-            ch = data[index2];
-            if (ch === "_")
-              continue;
-            if (ch !== "0" && ch !== "1")
-              return false;
-            hasDigits = true;
-          }
-          return hasDigits && ch !== "_";
-        }
-        if (ch === "x") {
-          index2++;
-          for (; index2 < max; index2++) {
-            ch = data[index2];
-            if (ch === "_")
-              continue;
-            if (!isHexCode(data.charCodeAt(index2)))
-              return false;
-            hasDigits = true;
-          }
-          return hasDigits && ch !== "_";
-        }
-        for (; index2 < max; index2++) {
-          ch = data[index2];
-          if (ch === "_")
-            continue;
-          if (!isOctCode(data.charCodeAt(index2)))
-            return false;
-          hasDigits = true;
-        }
-        return hasDigits && ch !== "_";
-      }
-      if (ch === "_")
-        return false;
-      for (; index2 < max; index2++) {
-        ch = data[index2];
-        if (ch === "_")
-          continue;
-        if (ch === ":")
-          break;
-        if (!isDecCode(data.charCodeAt(index2))) {
-          return false;
-        }
-        hasDigits = true;
-      }
-      if (!hasDigits || ch === "_")
-        return false;
-      if (ch !== ":")
-        return true;
-      return /^(:[0-5]?[0-9])+$/.test(data.slice(index2));
-    }
-    function constructYamlInteger(data) {
-      var value = data, sign = 1, ch, base3, digits = [];
-      if (value.indexOf("_") !== -1) {
-        value = value.replace(/_/g, "");
-      }
-      ch = value[0];
-      if (ch === "-" || ch === "+") {
-        if (ch === "-")
-          sign = -1;
-        value = value.slice(1);
-        ch = value[0];
-      }
-      if (value === "0")
-        return 0;
-      if (ch === "0") {
-        if (value[1] === "b")
-          return sign * parseInt(value.slice(2), 2);
-        if (value[1] === "x")
-          return sign * parseInt(value, 16);
-        return sign * parseInt(value, 8);
-      }
-      if (value.indexOf(":") !== -1) {
-        value.split(":").forEach(function(v2) {
-          digits.unshift(parseInt(v2, 10));
-        });
-        value = 0;
-        base3 = 1;
-        digits.forEach(function(d) {
-          value += d * base3;
-          base3 *= 60;
-        });
-        return sign * value;
-      }
-      return sign * parseInt(value, 10);
-    }
-    function isInteger(object) {
-      return Object.prototype.toString.call(object) === "[object Number]" && (object % 1 === 0 && !common.isNegativeZero(object));
-    }
-    module2.exports = new Type("tag:yaml.org,2002:int", {
-      kind: "scalar",
-      resolve: resolveYamlInteger,
-      construct: constructYamlInteger,
-      predicate: isInteger,
-      represent: {
-        binary: function(obj) {
-          return obj >= 0 ? "0b" + obj.toString(2) : "-0b" + obj.toString(2).slice(1);
-        },
-        octal: function(obj) {
-          return obj >= 0 ? "0" + obj.toString(8) : "-0" + obj.toString(8).slice(1);
-        },
-        decimal: function(obj) {
-          return obj.toString(10);
-        },
-        /* eslint-disable max-len */
-        hexadecimal: function(obj) {
-          return obj >= 0 ? "0x" + obj.toString(16).toUpperCase() : "-0x" + obj.toString(16).toUpperCase().slice(1);
-        }
-      },
-      defaultStyle: "decimal",
-      styleAliases: {
-        binary: [2, "bin"],
-        octal: [8, "oct"],
-        decimal: [10, "dec"],
-        hexadecimal: [16, "hex"]
-      }
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/float.js
-var require_float = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/float.js"(exports2, module2) {
-    "use strict";
-    var common = require_common();
-    var Type = require_type();
-    var YAML_FLOAT_PATTERN = new RegExp(
-      // 2.5e4, 2.5 and integers
-      "^(?:[-+]?(?:0|[1-9][0-9_]*)(?:\\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?|\\.[0-9_]+(?:[eE][-+]?[0-9]+)?|[-+]?[0-9][0-9_]*(?::[0-5]?[0-9])+\\.[0-9_]*|[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$"
-    );
-    function resolveYamlFloat(data) {
-      if (data === null)
-        return false;
-      if (!YAML_FLOAT_PATTERN.test(data) || // Quick hack to not allow integers end with `_`
-      // Probably should update regexp & check speed
-      data[data.length - 1] === "_") {
-        return false;
-      }
-      return true;
-    }
-    function constructYamlFloat(data) {
-      var value, sign, base3, digits;
-      value = data.replace(/_/g, "").toLowerCase();
-      sign = value[0] === "-" ? -1 : 1;
-      digits = [];
-      if ("+-".indexOf(value[0]) >= 0) {
-        value = value.slice(1);
-      }
-      if (value === ".inf") {
-        return sign === 1 ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
-      } else if (value === ".nan") {
-        return NaN;
-      } else if (value.indexOf(":") >= 0) {
-        value.split(":").forEach(function(v2) {
-          digits.unshift(parseFloat(v2, 10));
-        });
-        value = 0;
-        base3 = 1;
-        digits.forEach(function(d) {
-          value += d * base3;
-          base3 *= 60;
-        });
-        return sign * value;
-      }
-      return sign * parseFloat(value, 10);
-    }
-    var SCIENTIFIC_WITHOUT_DOT = /^[-+]?[0-9]+e/;
-    function representYamlFloat(object, style) {
-      var res;
-      if (isNaN(object)) {
-        switch (style) {
-          case "lowercase":
-            return ".nan";
-          case "uppercase":
-            return ".NAN";
-          case "camelcase":
-            return ".NaN";
-        }
-      } else if (Number.POSITIVE_INFINITY === object) {
-        switch (style) {
-          case "lowercase":
-            return ".inf";
-          case "uppercase":
-            return ".INF";
-          case "camelcase":
-            return ".Inf";
-        }
-      } else if (Number.NEGATIVE_INFINITY === object) {
-        switch (style) {
-          case "lowercase":
-            return "-.inf";
-          case "uppercase":
-            return "-.INF";
-          case "camelcase":
-            return "-.Inf";
-        }
-      } else if (common.isNegativeZero(object)) {
-        return "-0.0";
-      }
-      res = object.toString(10);
-      return SCIENTIFIC_WITHOUT_DOT.test(res) ? res.replace("e", ".e") : res;
-    }
-    function isFloat(object) {
-      return Object.prototype.toString.call(object) === "[object Number]" && (object % 1 !== 0 || common.isNegativeZero(object));
-    }
-    module2.exports = new Type("tag:yaml.org,2002:float", {
-      kind: "scalar",
-      resolve: resolveYamlFloat,
-      construct: constructYamlFloat,
-      predicate: isFloat,
-      represent: representYamlFloat,
-      defaultStyle: "lowercase"
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/json.js
-var require_json2 = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/json.js"(exports2, module2) {
-    "use strict";
-    var Schema = require_schema();
-    module2.exports = new Schema({
-      include: [
-        require_failsafe()
-      ],
-      implicit: [
-        require_null(),
-        require_bool(),
-        require_int(),
-        require_float()
-      ]
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/core.js
-var require_core2 = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/core.js"(exports2, module2) {
-    "use strict";
-    var Schema = require_schema();
-    module2.exports = new Schema({
-      include: [
-        require_json2()
-      ]
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/timestamp.js
-var require_timestamp = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/timestamp.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    var YAML_DATE_REGEXP = new RegExp(
-      "^([0-9][0-9][0-9][0-9])-([0-9][0-9])-([0-9][0-9])$"
-    );
-    var YAML_TIMESTAMP_REGEXP = new RegExp(
-      "^([0-9][0-9][0-9][0-9])-([0-9][0-9]?)-([0-9][0-9]?)(?:[Tt]|[ \\t]+)([0-9][0-9]?):([0-9][0-9]):([0-9][0-9])(?:\\.([0-9]*))?(?:[ \\t]*(Z|([-+])([0-9][0-9]?)(?::([0-9][0-9]))?))?$"
-    );
-    function resolveYamlTimestamp(data) {
-      if (data === null)
-        return false;
-      if (YAML_DATE_REGEXP.exec(data) !== null)
-        return true;
-      if (YAML_TIMESTAMP_REGEXP.exec(data) !== null)
-        return true;
-      return false;
-    }
-    function constructYamlTimestamp(data) {
-      var match, year, month, day, hour, minute, second, fraction = 0, delta = null, tz_hour, tz_minute, date;
-      match = YAML_DATE_REGEXP.exec(data);
-      if (match === null)
-        match = YAML_TIMESTAMP_REGEXP.exec(data);
-      if (match === null)
-        throw new Error("Date resolve error");
-      year = +match[1];
-      month = +match[2] - 1;
-      day = +match[3];
-      if (!match[4]) {
-        return new Date(Date.UTC(year, month, day));
-      }
-      hour = +match[4];
-      minute = +match[5];
-      second = +match[6];
-      if (match[7]) {
-        fraction = match[7].slice(0, 3);
-        while (fraction.length < 3) {
-          fraction += "0";
-        }
-        fraction = +fraction;
-      }
-      if (match[9]) {
-        tz_hour = +match[10];
-        tz_minute = +(match[11] || 0);
-        delta = (tz_hour * 60 + tz_minute) * 6e4;
-        if (match[9] === "-")
-          delta = -delta;
-      }
-      date = new Date(Date.UTC(year, month, day, hour, minute, second, fraction));
-      if (delta)
-        date.setTime(date.getTime() - delta);
-      return date;
-    }
-    function representYamlTimestamp(object) {
-      return object.toISOString();
-    }
-    module2.exports = new Type("tag:yaml.org,2002:timestamp", {
-      kind: "scalar",
-      resolve: resolveYamlTimestamp,
-      construct: constructYamlTimestamp,
-      instanceOf: Date,
-      represent: representYamlTimestamp
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/merge.js
-var require_merge = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/merge.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    function resolveYamlMerge(data) {
-      return data === "<<" || data === null;
-    }
-    module2.exports = new Type("tag:yaml.org,2002:merge", {
-      kind: "scalar",
-      resolve: resolveYamlMerge
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/binary.js
-var require_binary = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/binary.js"(exports2, module2) {
-    "use strict";
-    var NodeBuffer;
-    try {
-      _require = __require;
-      NodeBuffer = _require("buffer").Buffer;
-    } catch (__) {
-    }
-    var _require;
-    var Type = require_type();
-    var BASE64_MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\n\r";
-    function resolveYamlBinary(data) {
-      if (data === null)
-        return false;
-      var code2, idx, bitlen = 0, max = data.length, map = BASE64_MAP;
-      for (idx = 0; idx < max; idx++) {
-        code2 = map.indexOf(data.charAt(idx));
-        if (code2 > 64)
-          continue;
-        if (code2 < 0)
-          return false;
-        bitlen += 6;
-      }
-      return bitlen % 8 === 0;
-    }
-    function constructYamlBinary(data) {
-      var idx, tailbits, input = data.replace(/[\r\n=]/g, ""), max = input.length, map = BASE64_MAP, bits = 0, result = [];
-      for (idx = 0; idx < max; idx++) {
-        if (idx % 4 === 0 && idx) {
-          result.push(bits >> 16 & 255);
-          result.push(bits >> 8 & 255);
-          result.push(bits & 255);
-        }
-        bits = bits << 6 | map.indexOf(input.charAt(idx));
-      }
-      tailbits = max % 4 * 6;
-      if (tailbits === 0) {
-        result.push(bits >> 16 & 255);
-        result.push(bits >> 8 & 255);
-        result.push(bits & 255);
-      } else if (tailbits === 18) {
-        result.push(bits >> 10 & 255);
-        result.push(bits >> 2 & 255);
-      } else if (tailbits === 12) {
-        result.push(bits >> 4 & 255);
-      }
-      if (NodeBuffer) {
-        return NodeBuffer.from ? NodeBuffer.from(result) : new NodeBuffer(result);
-      }
-      return result;
-    }
-    function representYamlBinary(object) {
-      var result = "", bits = 0, idx, tail, max = object.length, map = BASE64_MAP;
-      for (idx = 0; idx < max; idx++) {
-        if (idx % 3 === 0 && idx) {
-          result += map[bits >> 18 & 63];
-          result += map[bits >> 12 & 63];
-          result += map[bits >> 6 & 63];
-          result += map[bits & 63];
-        }
-        bits = (bits << 8) + object[idx];
-      }
-      tail = max % 3;
-      if (tail === 0) {
-        result += map[bits >> 18 & 63];
-        result += map[bits >> 12 & 63];
-        result += map[bits >> 6 & 63];
-        result += map[bits & 63];
-      } else if (tail === 2) {
-        result += map[bits >> 10 & 63];
-        result += map[bits >> 4 & 63];
-        result += map[bits << 2 & 63];
-        result += map[64];
-      } else if (tail === 1) {
-        result += map[bits >> 2 & 63];
-        result += map[bits << 4 & 63];
-        result += map[64];
-        result += map[64];
-      }
-      return result;
-    }
-    function isBinary(object) {
-      return NodeBuffer && NodeBuffer.isBuffer(object);
-    }
-    module2.exports = new Type("tag:yaml.org,2002:binary", {
-      kind: "scalar",
-      resolve: resolveYamlBinary,
-      construct: constructYamlBinary,
-      predicate: isBinary,
-      represent: representYamlBinary
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/omap.js
-var require_omap = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/omap.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    var _hasOwnProperty = Object.prototype.hasOwnProperty;
-    var _toString = Object.prototype.toString;
-    function resolveYamlOmap(data) {
-      if (data === null)
-        return true;
-      var objectKeys = [], index2, length2, pair, pairKey, pairHasKey, object = data;
-      for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
-        pair = object[index2];
-        pairHasKey = false;
-        if (_toString.call(pair) !== "[object Object]")
-          return false;
-        for (pairKey in pair) {
-          if (_hasOwnProperty.call(pair, pairKey)) {
-            if (!pairHasKey)
-              pairHasKey = true;
-            else
-              return false;
-          }
-        }
-        if (!pairHasKey)
-          return false;
-        if (objectKeys.indexOf(pairKey) === -1)
-          objectKeys.push(pairKey);
-        else
-          return false;
-      }
-      return true;
-    }
-    function constructYamlOmap(data) {
-      return data !== null ? data : [];
-    }
-    module2.exports = new Type("tag:yaml.org,2002:omap", {
-      kind: "sequence",
-      resolve: resolveYamlOmap,
-      construct: constructYamlOmap
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/pairs.js
-var require_pairs = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/pairs.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    var _toString = Object.prototype.toString;
-    function resolveYamlPairs(data) {
-      if (data === null)
-        return true;
-      var index2, length2, pair, keys, result, object = data;
-      result = new Array(object.length);
-      for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
-        pair = object[index2];
-        if (_toString.call(pair) !== "[object Object]")
-          return false;
-        keys = Object.keys(pair);
-        if (keys.length !== 1)
-          return false;
-        result[index2] = [keys[0], pair[keys[0]]];
-      }
-      return true;
-    }
-    function constructYamlPairs(data) {
-      if (data === null)
-        return [];
-      var index2, length2, pair, keys, result, object = data;
-      result = new Array(object.length);
-      for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
-        pair = object[index2];
-        keys = Object.keys(pair);
-        result[index2] = [keys[0], pair[keys[0]]];
-      }
-      return result;
-    }
-    module2.exports = new Type("tag:yaml.org,2002:pairs", {
-      kind: "sequence",
-      resolve: resolveYamlPairs,
-      construct: constructYamlPairs
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/set.js
-var require_set = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/set.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    var _hasOwnProperty = Object.prototype.hasOwnProperty;
-    function resolveYamlSet(data) {
-      if (data === null)
-        return true;
-      var key, object = data;
-      for (key in object) {
-        if (_hasOwnProperty.call(object, key)) {
-          if (object[key] !== null)
-            return false;
-        }
-      }
-      return true;
-    }
-    function constructYamlSet(data) {
-      return data !== null ? data : {};
-    }
-    module2.exports = new Type("tag:yaml.org,2002:set", {
-      kind: "mapping",
-      resolve: resolveYamlSet,
-      construct: constructYamlSet
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/default_safe.js
-var require_default_safe = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/default_safe.js"(exports2, module2) {
-    "use strict";
-    var Schema = require_schema();
-    module2.exports = new Schema({
-      include: [
-        require_core2()
-      ],
-      implicit: [
-        require_timestamp(),
-        require_merge()
-      ],
-      explicit: [
-        require_binary(),
-        require_omap(),
-        require_pairs(),
-        require_set()
-      ]
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/undefined.js
-var require_undefined = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/undefined.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    function resolveJavascriptUndefined() {
-      return true;
-    }
-    function constructJavascriptUndefined() {
-      return void 0;
-    }
-    function representJavascriptUndefined() {
-      return "";
-    }
-    function isUndefined(object) {
-      return typeof object === "undefined";
-    }
-    module2.exports = new Type("tag:yaml.org,2002:js/undefined", {
-      kind: "scalar",
-      resolve: resolveJavascriptUndefined,
-      construct: constructJavascriptUndefined,
-      predicate: isUndefined,
-      represent: representJavascriptUndefined
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/regexp.js
-var require_regexp = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/regexp.js"(exports2, module2) {
-    "use strict";
-    var Type = require_type();
-    function resolveJavascriptRegExp(data) {
-      if (data === null)
-        return false;
-      if (data.length === 0)
-        return false;
-      var regexp = data, tail = /\/([gim]*)$/.exec(data), modifiers = "";
-      if (regexp[0] === "/") {
-        if (tail)
-          modifiers = tail[1];
-        if (modifiers.length > 3)
-          return false;
-        if (regexp[regexp.length - modifiers.length - 1] !== "/")
-          return false;
-      }
-      return true;
-    }
-    function constructJavascriptRegExp(data) {
-      var regexp = data, tail = /\/([gim]*)$/.exec(data), modifiers = "";
-      if (regexp[0] === "/") {
-        if (tail)
-          modifiers = tail[1];
-        regexp = regexp.slice(1, regexp.length - modifiers.length - 1);
-      }
-      return new RegExp(regexp, modifiers);
-    }
-    function representJavascriptRegExp(object) {
-      var result = "/" + object.source + "/";
-      if (object.global)
-        result += "g";
-      if (object.multiline)
-        result += "m";
-      if (object.ignoreCase)
-        result += "i";
-      return result;
-    }
-    function isRegExp(object) {
-      return Object.prototype.toString.call(object) === "[object RegExp]";
-    }
-    module2.exports = new Type("tag:yaml.org,2002:js/regexp", {
-      kind: "scalar",
-      resolve: resolveJavascriptRegExp,
-      construct: constructJavascriptRegExp,
-      predicate: isRegExp,
-      represent: representJavascriptRegExp
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/function.js
-var require_function = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/type/js/function.js"(exports2, module2) {
-    "use strict";
-    var esprima;
-    try {
-      _require = __require;
-      esprima = _require("esprima");
-    } catch (_2) {
-      if (typeof window !== "undefined")
-        esprima = window.esprima;
-    }
-    var _require;
-    var Type = require_type();
-    function resolveJavascriptFunction(data) {
-      if (data === null)
-        return false;
-      try {
-        var source = "(" + data + ")", ast = esprima.parse(source, { range: true });
-        if (ast.type !== "Program" || ast.body.length !== 1 || ast.body[0].type !== "ExpressionStatement" || ast.body[0].expression.type !== "ArrowFunctionExpression" && ast.body[0].expression.type !== "FunctionExpression") {
-          return false;
-        }
-        return true;
-      } catch (err) {
-        return false;
-      }
-    }
-    function constructJavascriptFunction(data) {
-      var source = "(" + data + ")", ast = esprima.parse(source, { range: true }), params = [], body;
-      if (ast.type !== "Program" || ast.body.length !== 1 || ast.body[0].type !== "ExpressionStatement" || ast.body[0].expression.type !== "ArrowFunctionExpression" && ast.body[0].expression.type !== "FunctionExpression") {
-        throw new Error("Failed to resolve function");
-      }
-      ast.body[0].expression.params.forEach(function(param) {
-        params.push(param.name);
-      });
-      body = ast.body[0].expression.body.range;
-      if (ast.body[0].expression.body.type === "BlockStatement") {
-        return new Function(params, source.slice(body[0] + 1, body[1] - 1));
-      }
-      return new Function(params, "return " + source.slice(body[0], body[1]));
-    }
-    function representJavascriptFunction(object) {
-      return object.toString();
-    }
-    function isFunction2(object) {
-      return Object.prototype.toString.call(object) === "[object Function]";
-    }
-    module2.exports = new Type("tag:yaml.org,2002:js/function", {
-      kind: "scalar",
-      resolve: resolveJavascriptFunction,
-      construct: constructJavascriptFunction,
-      predicate: isFunction2,
-      represent: representJavascriptFunction
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/default_full.js
-var require_default_full = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/schema/default_full.js"(exports2, module2) {
-    "use strict";
-    var Schema = require_schema();
-    module2.exports = Schema.DEFAULT = new Schema({
-      include: [
-        require_default_safe()
-      ],
-      explicit: [
-        require_undefined(),
-        require_regexp(),
-        require_function()
-      ]
-    });
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/loader.js
-var require_loader = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/loader.js"(exports2, module2) {
-    "use strict";
-    var common = require_common();
-    var YAMLException = require_exception();
-    var Mark = require_mark();
-    var DEFAULT_SAFE_SCHEMA = require_default_safe();
-    var DEFAULT_FULL_SCHEMA = require_default_full();
-    var _hasOwnProperty = Object.prototype.hasOwnProperty;
-    var CONTEXT_FLOW_IN = 1;
-    var CONTEXT_FLOW_OUT = 2;
-    var CONTEXT_BLOCK_IN = 3;
-    var CONTEXT_BLOCK_OUT = 4;
-    var CHOMPING_CLIP = 1;
-    var CHOMPING_STRIP = 2;
-    var CHOMPING_KEEP = 3;
-    var PATTERN_NON_PRINTABLE = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
-    var PATTERN_NON_ASCII_LINE_BREAKS = /[\x85\u2028\u2029]/;
-    var PATTERN_FLOW_INDICATORS = /[,\[\]\{\}]/;
-    var PATTERN_TAG_HANDLE = /^(?:!|!!|![a-z\-]+!)$/i;
-    var PATTERN_TAG_URI = /^(?:!|[^,\[\]\{\}])(?:%[0-9a-f]{2}|[0-9a-z\-#;\/\?:@&=\+\$,_\.!~\*'\(\)\[\]])*$/i;
-    function _class(obj) {
-      return Object.prototype.toString.call(obj);
-    }
-    function is_EOL(c) {
-      return c === 10 || c === 13;
-    }
-    function is_WHITE_SPACE(c) {
-      return c === 9 || c === 32;
-    }
-    function is_WS_OR_EOL(c) {
-      return c === 9 || c === 32 || c === 10 || c === 13;
-    }
-    function is_FLOW_INDICATOR(c) {
-      return c === 44 || c === 91 || c === 93 || c === 123 || c === 125;
-    }
-    function fromHexCode(c) {
-      var lc;
-      if (48 <= c && c <= 57) {
-        return c - 48;
-      }
-      lc = c | 32;
-      if (97 <= lc && lc <= 102) {
-        return lc - 97 + 10;
-      }
-      return -1;
-    }
-    function escapedHexLen(c) {
-      if (c === 120) {
-        return 2;
-      }
-      if (c === 117) {
-        return 4;
-      }
-      if (c === 85) {
-        return 8;
-      }
-      return 0;
-    }
-    function fromDecimalCode(c) {
-      if (48 <= c && c <= 57) {
-        return c - 48;
-      }
-      return -1;
-    }
-    function simpleEscapeSequence(c) {
-      return c === 48 ? "\0" : c === 97 ? "\x07" : c === 98 ? "\b" : c === 116 ? "	" : c === 9 ? "	" : c === 110 ? "\n" : c === 118 ? "\v" : c === 102 ? "\f" : c === 114 ? "\r" : c === 101 ? "\x1B" : c === 32 ? " " : c === 34 ? '"' : c === 47 ? "/" : c === 92 ? "\\" : c === 78 ? "\x85" : c === 95 ? "\xA0" : c === 76 ? "\u2028" : c === 80 ? "\u2029" : "";
-    }
-    function charFromCodepoint(c) {
-      if (c <= 65535) {
-        return String.fromCharCode(c);
-      }
-      return String.fromCharCode(
-        (c - 65536 >> 10) + 55296,
-        (c - 65536 & 1023) + 56320
-      );
-    }
-    var simpleEscapeCheck = new Array(256);
-    var simpleEscapeMap = new Array(256);
-    for (i = 0; i < 256; i++) {
-      simpleEscapeCheck[i] = simpleEscapeSequence(i) ? 1 : 0;
-      simpleEscapeMap[i] = simpleEscapeSequence(i);
-    }
-    var i;
-    function State(input, options2) {
-      this.input = input;
-      this.filename = options2["filename"] || null;
-      this.schema = options2["schema"] || DEFAULT_FULL_SCHEMA;
-      this.onWarning = options2["onWarning"] || null;
-      this.legacy = options2["legacy"] || false;
-      this.json = options2["json"] || false;
-      this.listener = options2["listener"] || null;
-      this.implicitTypes = this.schema.compiledImplicit;
-      this.typeMap = this.schema.compiledTypeMap;
-      this.length = input.length;
-      this.position = 0;
-      this.line = 0;
-      this.lineStart = 0;
-      this.lineIndent = 0;
-      this.documents = [];
-    }
-    function generateError(state, message) {
-      return new YAMLException(
-        message,
-        new Mark(state.filename, state.input, state.position, state.line, state.position - state.lineStart)
-      );
-    }
-    function throwError3(state, message) {
-      throw generateError(state, message);
-    }
-    function throwWarning(state, message) {
-      if (state.onWarning) {
-        state.onWarning.call(null, generateError(state, message));
-      }
-    }
-    var directiveHandlers = {
-      YAML: function handleYamlDirective(state, name2, args) {
-        var match, major, minor;
-        if (state.version !== null) {
-          throwError3(state, "duplication of %YAML directive");
-        }
-        if (args.length !== 1) {
-          throwError3(state, "YAML directive accepts exactly one argument");
-        }
-        match = /^([0-9]+)\.([0-9]+)$/.exec(args[0]);
-        if (match === null) {
-          throwError3(state, "ill-formed argument of the YAML directive");
-        }
-        major = parseInt(match[1], 10);
-        minor = parseInt(match[2], 10);
-        if (major !== 1) {
-          throwError3(state, "unacceptable YAML version of the document");
-        }
-        state.version = args[0];
-        state.checkLineBreaks = minor < 2;
-        if (minor !== 1 && minor !== 2) {
-          throwWarning(state, "unsupported YAML version of the document");
-        }
-      },
-      TAG: function handleTagDirective(state, name2, args) {
-        var handle, prefix;
-        if (args.length !== 2) {
-          throwError3(state, "TAG directive accepts exactly two arguments");
-        }
-        handle = args[0];
-        prefix = args[1];
-        if (!PATTERN_TAG_HANDLE.test(handle)) {
-          throwError3(state, "ill-formed tag handle (first argument) of the TAG directive");
-        }
-        if (_hasOwnProperty.call(state.tagMap, handle)) {
-          throwError3(state, 'there is a previously declared suffix for "' + handle + '" tag handle');
-        }
-        if (!PATTERN_TAG_URI.test(prefix)) {
-          throwError3(state, "ill-formed tag prefix (second argument) of the TAG directive");
-        }
-        state.tagMap[handle] = prefix;
-      }
-    };
-    function captureSegment(state, start, end, checkJson) {
-      var _position, _length, _character, _result;
-      if (start < end) {
-        _result = state.input.slice(start, end);
-        if (checkJson) {
-          for (_position = 0, _length = _result.length; _position < _length; _position += 1) {
-            _character = _result.charCodeAt(_position);
-            if (!(_character === 9 || 32 <= _character && _character <= 1114111)) {
-              throwError3(state, "expected valid JSON character");
-            }
-          }
-        } else if (PATTERN_NON_PRINTABLE.test(_result)) {
-          throwError3(state, "the stream contains non-printable characters");
-        }
-        state.result += _result;
-      }
-    }
-    function mergeMappings(state, destination, source, overridableKeys) {
-      var sourceKeys, key, index2, quantity;
-      if (!common.isObject(source)) {
-        throwError3(state, "cannot merge mappings; the provided source object is unacceptable");
-      }
-      sourceKeys = Object.keys(source);
-      for (index2 = 0, quantity = sourceKeys.length; index2 < quantity; index2 += 1) {
-        key = sourceKeys[index2];
-        if (!_hasOwnProperty.call(destination, key)) {
-          destination[key] = source[key];
-          overridableKeys[key] = true;
-        }
-      }
-    }
-    function storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode, startLine, startPos) {
-      var index2, quantity;
-      if (Array.isArray(keyNode)) {
-        keyNode = Array.prototype.slice.call(keyNode);
-        for (index2 = 0, quantity = keyNode.length; index2 < quantity; index2 += 1) {
-          if (Array.isArray(keyNode[index2])) {
-            throwError3(state, "nested arrays are not supported inside keys");
-          }
-          if (typeof keyNode === "object" && _class(keyNode[index2]) === "[object Object]") {
-            keyNode[index2] = "[object Object]";
-          }
-        }
-      }
-      if (typeof keyNode === "object" && _class(keyNode) === "[object Object]") {
-        keyNode = "[object Object]";
-      }
-      keyNode = String(keyNode);
-      if (_result === null) {
-        _result = {};
-      }
-      if (keyTag === "tag:yaml.org,2002:merge") {
-        if (Array.isArray(valueNode)) {
-          for (index2 = 0, quantity = valueNode.length; index2 < quantity; index2 += 1) {
-            mergeMappings(state, _result, valueNode[index2], overridableKeys);
-          }
-        } else {
-          mergeMappings(state, _result, valueNode, overridableKeys);
-        }
-      } else {
-        if (!state.json && !_hasOwnProperty.call(overridableKeys, keyNode) && _hasOwnProperty.call(_result, keyNode)) {
-          state.line = startLine || state.line;
-          state.position = startPos || state.position;
-          throwError3(state, "duplicated mapping key");
-        }
-        _result[keyNode] = valueNode;
-        delete overridableKeys[keyNode];
-      }
-      return _result;
-    }
-    function readLineBreak(state) {
-      var ch;
-      ch = state.input.charCodeAt(state.position);
-      if (ch === 10) {
-        state.position++;
-      } else if (ch === 13) {
-        state.position++;
-        if (state.input.charCodeAt(state.position) === 10) {
-          state.position++;
-        }
-      } else {
-        throwError3(state, "a line break is expected");
-      }
-      state.line += 1;
-      state.lineStart = state.position;
-    }
-    function skipSeparationSpace(state, allowComments, checkIndent) {
-      var lineBreaks = 0, ch = state.input.charCodeAt(state.position);
-      while (ch !== 0) {
-        while (is_WHITE_SPACE(ch)) {
-          ch = state.input.charCodeAt(++state.position);
-        }
-        if (allowComments && ch === 35) {
-          do {
-            ch = state.input.charCodeAt(++state.position);
-          } while (ch !== 10 && ch !== 13 && ch !== 0);
-        }
-        if (is_EOL(ch)) {
-          readLineBreak(state);
-          ch = state.input.charCodeAt(state.position);
-          lineBreaks++;
-          state.lineIndent = 0;
-          while (ch === 32) {
-            state.lineIndent++;
-            ch = state.input.charCodeAt(++state.position);
-          }
-        } else {
-          break;
-        }
-      }
-      if (checkIndent !== -1 && lineBreaks !== 0 && state.lineIndent < checkIndent) {
-        throwWarning(state, "deficient indentation");
-      }
-      return lineBreaks;
-    }
-    function testDocumentSeparator(state) {
-      var _position = state.position, ch;
-      ch = state.input.charCodeAt(_position);
-      if ((ch === 45 || ch === 46) && ch === state.input.charCodeAt(_position + 1) && ch === state.input.charCodeAt(_position + 2)) {
-        _position += 3;
-        ch = state.input.charCodeAt(_position);
-        if (ch === 0 || is_WS_OR_EOL(ch)) {
-          return true;
-        }
-      }
-      return false;
-    }
-    function writeFoldedLines(state, count) {
-      if (count === 1) {
-        state.result += " ";
-      } else if (count > 1) {
-        state.result += common.repeat("\n", count - 1);
-      }
-    }
-    function readPlainScalar(state, nodeIndent, withinFlowCollection) {
-      var preceding, following, captureStart, captureEnd, hasPendingContent, _line, _lineStart, _lineIndent, _kind = state.kind, _result = state.result, ch;
-      ch = state.input.charCodeAt(state.position);
-      if (is_WS_OR_EOL(ch) || is_FLOW_INDICATOR(ch) || ch === 35 || ch === 38 || ch === 42 || ch === 33 || ch === 124 || ch === 62 || ch === 39 || ch === 34 || ch === 37 || ch === 64 || ch === 96) {
-        return false;
-      }
-      if (ch === 63 || ch === 45) {
-        following = state.input.charCodeAt(state.position + 1);
-        if (is_WS_OR_EOL(following) || withinFlowCollection && is_FLOW_INDICATOR(following)) {
-          return false;
-        }
-      }
-      state.kind = "scalar";
-      state.result = "";
-      captureStart = captureEnd = state.position;
-      hasPendingContent = false;
-      while (ch !== 0) {
-        if (ch === 58) {
-          following = state.input.charCodeAt(state.position + 1);
-          if (is_WS_OR_EOL(following) || withinFlowCollection && is_FLOW_INDICATOR(following)) {
-            break;
-          }
-        } else if (ch === 35) {
-          preceding = state.input.charCodeAt(state.position - 1);
-          if (is_WS_OR_EOL(preceding)) {
-            break;
-          }
-        } else if (state.position === state.lineStart && testDocumentSeparator(state) || withinFlowCollection && is_FLOW_INDICATOR(ch)) {
-          break;
-        } else if (is_EOL(ch)) {
-          _line = state.line;
-          _lineStart = state.lineStart;
-          _lineIndent = state.lineIndent;
-          skipSeparationSpace(state, false, -1);
-          if (state.lineIndent >= nodeIndent) {
-            hasPendingContent = true;
-            ch = state.input.charCodeAt(state.position);
-            continue;
-          } else {
-            state.position = captureEnd;
-            state.line = _line;
-            state.lineStart = _lineStart;
-            state.lineIndent = _lineIndent;
-            break;
-          }
-        }
-        if (hasPendingContent) {
-          captureSegment(state, captureStart, captureEnd, false);
-          writeFoldedLines(state, state.line - _line);
-          captureStart = captureEnd = state.position;
-          hasPendingContent = false;
-        }
-        if (!is_WHITE_SPACE(ch)) {
-          captureEnd = state.position + 1;
-        }
-        ch = state.input.charCodeAt(++state.position);
-      }
-      captureSegment(state, captureStart, captureEnd, false);
-      if (state.result) {
-        return true;
-      }
-      state.kind = _kind;
-      state.result = _result;
-      return false;
-    }
-    function readSingleQuotedScalar(state, nodeIndent) {
-      var ch, captureStart, captureEnd;
-      ch = state.input.charCodeAt(state.position);
-      if (ch !== 39) {
-        return false;
-      }
-      state.kind = "scalar";
-      state.result = "";
-      state.position++;
-      captureStart = captureEnd = state.position;
-      while ((ch = state.input.charCodeAt(state.position)) !== 0) {
-        if (ch === 39) {
-          captureSegment(state, captureStart, state.position, true);
-          ch = state.input.charCodeAt(++state.position);
-          if (ch === 39) {
-            captureStart = state.position;
-            state.position++;
-            captureEnd = state.position;
-          } else {
-            return true;
-          }
-        } else if (is_EOL(ch)) {
-          captureSegment(state, captureStart, captureEnd, true);
-          writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
-          captureStart = captureEnd = state.position;
-        } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
-          throwError3(state, "unexpected end of the document within a single quoted scalar");
-        } else {
-          state.position++;
-          captureEnd = state.position;
-        }
-      }
-      throwError3(state, "unexpected end of the stream within a single quoted scalar");
-    }
-    function readDoubleQuotedScalar(state, nodeIndent) {
-      var captureStart, captureEnd, hexLength, hexResult, tmp, ch;
-      ch = state.input.charCodeAt(state.position);
-      if (ch !== 34) {
-        return false;
-      }
-      state.kind = "scalar";
-      state.result = "";
-      state.position++;
-      captureStart = captureEnd = state.position;
-      while ((ch = state.input.charCodeAt(state.position)) !== 0) {
-        if (ch === 34) {
-          captureSegment(state, captureStart, state.position, true);
-          state.position++;
-          return true;
-        } else if (ch === 92) {
-          captureSegment(state, captureStart, state.position, true);
-          ch = state.input.charCodeAt(++state.position);
-          if (is_EOL(ch)) {
-            skipSeparationSpace(state, false, nodeIndent);
-          } else if (ch < 256 && simpleEscapeCheck[ch]) {
-            state.result += simpleEscapeMap[ch];
-            state.position++;
-          } else if ((tmp = escapedHexLen(ch)) > 0) {
-            hexLength = tmp;
-            hexResult = 0;
-            for (; hexLength > 0; hexLength--) {
-              ch = state.input.charCodeAt(++state.position);
-              if ((tmp = fromHexCode(ch)) >= 0) {
-                hexResult = (hexResult << 4) + tmp;
-              } else {
-                throwError3(state, "expected hexadecimal character");
-              }
-            }
-            state.result += charFromCodepoint(hexResult);
-            state.position++;
-          } else {
-            throwError3(state, "unknown escape sequence");
-          }
-          captureStart = captureEnd = state.position;
-        } else if (is_EOL(ch)) {
-          captureSegment(state, captureStart, captureEnd, true);
-          writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
-          captureStart = captureEnd = state.position;
-        } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
-          throwError3(state, "unexpected end of the document within a double quoted scalar");
-        } else {
-          state.position++;
-          captureEnd = state.position;
-        }
-      }
-      throwError3(state, "unexpected end of the stream within a double quoted scalar");
-    }
-    function readFlowCollection(state, nodeIndent) {
-      var readNext = true, _line, _tag = state.tag, _result, _anchor = state.anchor, following, terminator, isPair, isExplicitPair, isMapping, overridableKeys = {}, keyNode, keyTag, valueNode, ch;
-      ch = state.input.charCodeAt(state.position);
-      if (ch === 91) {
-        terminator = 93;
-        isMapping = false;
-        _result = [];
-      } else if (ch === 123) {
-        terminator = 125;
-        isMapping = true;
-        _result = {};
-      } else {
-        return false;
-      }
-      if (state.anchor !== null) {
-        state.anchorMap[state.anchor] = _result;
-      }
-      ch = state.input.charCodeAt(++state.position);
-      while (ch !== 0) {
-        skipSeparationSpace(state, true, nodeIndent);
-        ch = state.input.charCodeAt(state.position);
-        if (ch === terminator) {
-          state.position++;
-          state.tag = _tag;
-          state.anchor = _anchor;
-          state.kind = isMapping ? "mapping" : "sequence";
-          state.result = _result;
-          return true;
-        } else if (!readNext) {
-          throwError3(state, "missed comma between flow collection entries");
-        }
-        keyTag = keyNode = valueNode = null;
-        isPair = isExplicitPair = false;
-        if (ch === 63) {
-          following = state.input.charCodeAt(state.position + 1);
-          if (is_WS_OR_EOL(following)) {
-            isPair = isExplicitPair = true;
-            state.position++;
-            skipSeparationSpace(state, true, nodeIndent);
-          }
-        }
-        _line = state.line;
-        composeNode(state, nodeIndent, CONTEXT_FLOW_IN, false, true);
-        keyTag = state.tag;
-        keyNode = state.result;
-        skipSeparationSpace(state, true, nodeIndent);
-        ch = state.input.charCodeAt(state.position);
-        if ((isExplicitPair || state.line === _line) && ch === 58) {
-          isPair = true;
-          ch = state.input.charCodeAt(++state.position);
-          skipSeparationSpace(state, true, nodeIndent);
-          composeNode(state, nodeIndent, CONTEXT_FLOW_IN, false, true);
-          valueNode = state.result;
-        }
-        if (isMapping) {
-          storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode);
-        } else if (isPair) {
-          _result.push(storeMappingPair(state, null, overridableKeys, keyTag, keyNode, valueNode));
-        } else {
-          _result.push(keyNode);
-        }
-        skipSeparationSpace(state, true, nodeIndent);
-        ch = state.input.charCodeAt(state.position);
-        if (ch === 44) {
-          readNext = true;
-          ch = state.input.charCodeAt(++state.position);
-        } else {
-          readNext = false;
-        }
-      }
-      throwError3(state, "unexpected end of the stream within a flow collection");
-    }
-    function readBlockScalar(state, nodeIndent) {
-      var captureStart, folding, chomping = CHOMPING_CLIP, didReadContent = false, detectedIndent = false, textIndent = nodeIndent, emptyLines = 0, atMoreIndented = false, tmp, ch;
-      ch = state.input.charCodeAt(state.position);
-      if (ch === 124) {
-        folding = false;
-      } else if (ch === 62) {
-        folding = true;
-      } else {
-        return false;
-      }
-      state.kind = "scalar";
-      state.result = "";
-      while (ch !== 0) {
-        ch = state.input.charCodeAt(++state.position);
-        if (ch === 43 || ch === 45) {
-          if (CHOMPING_CLIP === chomping) {
-            chomping = ch === 43 ? CHOMPING_KEEP : CHOMPING_STRIP;
-          } else {
-            throwError3(state, "repeat of a chomping mode identifier");
-          }
-        } else if ((tmp = fromDecimalCode(ch)) >= 0) {
-          if (tmp === 0) {
-            throwError3(state, "bad explicit indentation width of a block scalar; it cannot be less than one");
-          } else if (!detectedIndent) {
-            textIndent = nodeIndent + tmp - 1;
-            detectedIndent = true;
-          } else {
-            throwError3(state, "repeat of an indentation width identifier");
-          }
-        } else {
-          break;
-        }
-      }
-      if (is_WHITE_SPACE(ch)) {
-        do {
-          ch = state.input.charCodeAt(++state.position);
-        } while (is_WHITE_SPACE(ch));
-        if (ch === 35) {
-          do {
-            ch = state.input.charCodeAt(++state.position);
-          } while (!is_EOL(ch) && ch !== 0);
-        }
-      }
-      while (ch !== 0) {
-        readLineBreak(state);
-        state.lineIndent = 0;
-        ch = state.input.charCodeAt(state.position);
-        while ((!detectedIndent || state.lineIndent < textIndent) && ch === 32) {
-          state.lineIndent++;
-          ch = state.input.charCodeAt(++state.position);
-        }
-        if (!detectedIndent && state.lineIndent > textIndent) {
-          textIndent = state.lineIndent;
-        }
-        if (is_EOL(ch)) {
-          emptyLines++;
-          continue;
-        }
-        if (state.lineIndent < textIndent) {
-          if (chomping === CHOMPING_KEEP) {
-            state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
-          } else if (chomping === CHOMPING_CLIP) {
-            if (didReadContent) {
-              state.result += "\n";
-            }
-          }
-          break;
-        }
-        if (folding) {
-          if (is_WHITE_SPACE(ch)) {
-            atMoreIndented = true;
-            state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
-          } else if (atMoreIndented) {
-            atMoreIndented = false;
-            state.result += common.repeat("\n", emptyLines + 1);
-          } else if (emptyLines === 0) {
-            if (didReadContent) {
-              state.result += " ";
-            }
-          } else {
-            state.result += common.repeat("\n", emptyLines);
-          }
-        } else {
-          state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
-        }
-        didReadContent = true;
-        detectedIndent = true;
-        emptyLines = 0;
-        captureStart = state.position;
-        while (!is_EOL(ch) && ch !== 0) {
-          ch = state.input.charCodeAt(++state.position);
-        }
-        captureSegment(state, captureStart, state.position, false);
-      }
-      return true;
-    }
-    function readBlockSequence(state, nodeIndent) {
-      var _line, _tag = state.tag, _anchor = state.anchor, _result = [], following, detected = false, ch;
-      if (state.anchor !== null) {
-        state.anchorMap[state.anchor] = _result;
-      }
-      ch = state.input.charCodeAt(state.position);
-      while (ch !== 0) {
-        if (ch !== 45) {
-          break;
-        }
-        following = state.input.charCodeAt(state.position + 1);
-        if (!is_WS_OR_EOL(following)) {
-          break;
-        }
-        detected = true;
-        state.position++;
-        if (skipSeparationSpace(state, true, -1)) {
-          if (state.lineIndent <= nodeIndent) {
-            _result.push(null);
-            ch = state.input.charCodeAt(state.position);
-            continue;
-          }
-        }
-        _line = state.line;
-        composeNode(state, nodeIndent, CONTEXT_BLOCK_IN, false, true);
-        _result.push(state.result);
-        skipSeparationSpace(state, true, -1);
-        ch = state.input.charCodeAt(state.position);
-        if ((state.line === _line || state.lineIndent > nodeIndent) && ch !== 0) {
-          throwError3(state, "bad indentation of a sequence entry");
-        } else if (state.lineIndent < nodeIndent) {
-          break;
-        }
-      }
-      if (detected) {
-        state.tag = _tag;
-        state.anchor = _anchor;
-        state.kind = "sequence";
-        state.result = _result;
-        return true;
-      }
-      return false;
-    }
-    function readBlockMapping(state, nodeIndent, flowIndent) {
-      var following, allowCompact, _line, _pos, _tag = state.tag, _anchor = state.anchor, _result = {}, overridableKeys = {}, keyTag = null, keyNode = null, valueNode = null, atExplicitKey = false, detected = false, ch;
-      if (state.anchor !== null) {
-        state.anchorMap[state.anchor] = _result;
-      }
-      ch = state.input.charCodeAt(state.position);
-      while (ch !== 0) {
-        following = state.input.charCodeAt(state.position + 1);
-        _line = state.line;
-        _pos = state.position;
-        if ((ch === 63 || ch === 58) && is_WS_OR_EOL(following)) {
-          if (ch === 63) {
-            if (atExplicitKey) {
-              storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
-              keyTag = keyNode = valueNode = null;
-            }
-            detected = true;
-            atExplicitKey = true;
-            allowCompact = true;
-          } else if (atExplicitKey) {
-            atExplicitKey = false;
-            allowCompact = true;
-          } else {
-            throwError3(state, "incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line");
-          }
-          state.position += 1;
-          ch = following;
-        } else if (composeNode(state, flowIndent, CONTEXT_FLOW_OUT, false, true)) {
-          if (state.line === _line) {
-            ch = state.input.charCodeAt(state.position);
-            while (is_WHITE_SPACE(ch)) {
-              ch = state.input.charCodeAt(++state.position);
-            }
-            if (ch === 58) {
-              ch = state.input.charCodeAt(++state.position);
-              if (!is_WS_OR_EOL(ch)) {
-                throwError3(state, "a whitespace character is expected after the key-value separator within a block mapping");
-              }
-              if (atExplicitKey) {
-                storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
-                keyTag = keyNode = valueNode = null;
-              }
-              detected = true;
-              atExplicitKey = false;
-              allowCompact = false;
-              keyTag = state.tag;
-              keyNode = state.result;
-            } else if (detected) {
-              throwError3(state, "can not read an implicit mapping pair; a colon is missed");
-            } else {
-              state.tag = _tag;
-              state.anchor = _anchor;
-              return true;
-            }
-          } else if (detected) {
-            throwError3(state, "can not read a block mapping entry; a multiline key may not be an implicit key");
-          } else {
-            state.tag = _tag;
-            state.anchor = _anchor;
-            return true;
-          }
-        } else {
-          break;
-        }
-        if (state.line === _line || state.lineIndent > nodeIndent) {
-          if (composeNode(state, nodeIndent, CONTEXT_BLOCK_OUT, true, allowCompact)) {
-            if (atExplicitKey) {
-              keyNode = state.result;
-            } else {
-              valueNode = state.result;
-            }
-          }
-          if (!atExplicitKey) {
-            storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode, _line, _pos);
-            keyTag = keyNode = valueNode = null;
-          }
-          skipSeparationSpace(state, true, -1);
-          ch = state.input.charCodeAt(state.position);
-        }
-        if (state.lineIndent > nodeIndent && ch !== 0) {
-          throwError3(state, "bad indentation of a mapping entry");
-        } else if (state.lineIndent < nodeIndent) {
-          break;
-        }
-      }
-      if (atExplicitKey) {
-        storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
-      }
-      if (detected) {
-        state.tag = _tag;
-        state.anchor = _anchor;
-        state.kind = "mapping";
-        state.result = _result;
-      }
-      return detected;
-    }
-    function readTagProperty(state) {
-      var _position, isVerbatim = false, isNamed = false, tagHandle, tagName, ch;
-      ch = state.input.charCodeAt(state.position);
-      if (ch !== 33)
-        return false;
-      if (state.tag !== null) {
-        throwError3(state, "duplication of a tag property");
-      }
-      ch = state.input.charCodeAt(++state.position);
-      if (ch === 60) {
-        isVerbatim = true;
-        ch = state.input.charCodeAt(++state.position);
-      } else if (ch === 33) {
-        isNamed = true;
-        tagHandle = "!!";
-        ch = state.input.charCodeAt(++state.position);
-      } else {
-        tagHandle = "!";
-      }
-      _position = state.position;
-      if (isVerbatim) {
-        do {
-          ch = state.input.charCodeAt(++state.position);
-        } while (ch !== 0 && ch !== 62);
-        if (state.position < state.length) {
-          tagName = state.input.slice(_position, state.position);
-          ch = state.input.charCodeAt(++state.position);
-        } else {
-          throwError3(state, "unexpected end of the stream within a verbatim tag");
-        }
-      } else {
-        while (ch !== 0 && !is_WS_OR_EOL(ch)) {
-          if (ch === 33) {
-            if (!isNamed) {
-              tagHandle = state.input.slice(_position - 1, state.position + 1);
-              if (!PATTERN_TAG_HANDLE.test(tagHandle)) {
-                throwError3(state, "named tag handle cannot contain such characters");
-              }
-              isNamed = true;
-              _position = state.position + 1;
-            } else {
-              throwError3(state, "tag suffix cannot contain exclamation marks");
-            }
-          }
-          ch = state.input.charCodeAt(++state.position);
-        }
-        tagName = state.input.slice(_position, state.position);
-        if (PATTERN_FLOW_INDICATORS.test(tagName)) {
-          throwError3(state, "tag suffix cannot contain flow indicator characters");
-        }
-      }
-      if (tagName && !PATTERN_TAG_URI.test(tagName)) {
-        throwError3(state, "tag name cannot contain such characters: " + tagName);
-      }
-      if (isVerbatim) {
-        state.tag = tagName;
-      } else if (_hasOwnProperty.call(state.tagMap, tagHandle)) {
-        state.tag = state.tagMap[tagHandle] + tagName;
-      } else if (tagHandle === "!") {
-        state.tag = "!" + tagName;
-      } else if (tagHandle === "!!") {
-        state.tag = "tag:yaml.org,2002:" + tagName;
-      } else {
-        throwError3(state, 'undeclared tag handle "' + tagHandle + '"');
-      }
-      return true;
-    }
-    function readAnchorProperty(state) {
-      var _position, ch;
-      ch = state.input.charCodeAt(state.position);
-      if (ch !== 38)
-        return false;
-      if (state.anchor !== null) {
-        throwError3(state, "duplication of an anchor property");
-      }
-      ch = state.input.charCodeAt(++state.position);
-      _position = state.position;
-      while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
-        ch = state.input.charCodeAt(++state.position);
-      }
-      if (state.position === _position) {
-        throwError3(state, "name of an anchor node must contain at least one character");
-      }
-      state.anchor = state.input.slice(_position, state.position);
-      return true;
-    }
-    function readAlias(state) {
-      var _position, alias, ch;
-      ch = state.input.charCodeAt(state.position);
-      if (ch !== 42)
-        return false;
-      ch = state.input.charCodeAt(++state.position);
-      _position = state.position;
-      while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
-        ch = state.input.charCodeAt(++state.position);
-      }
-      if (state.position === _position) {
-        throwError3(state, "name of an alias node must contain at least one character");
-      }
-      alias = state.input.slice(_position, state.position);
-      if (!_hasOwnProperty.call(state.anchorMap, alias)) {
-        throwError3(state, 'unidentified alias "' + alias + '"');
-      }
-      state.result = state.anchorMap[alias];
-      skipSeparationSpace(state, true, -1);
-      return true;
-    }
-    function composeNode(state, parentIndent, nodeContext, allowToSeek, allowCompact) {
-      var allowBlockStyles, allowBlockScalars, allowBlockCollections, indentStatus = 1, atNewLine = false, hasContent = false, typeIndex, typeQuantity, type, flowIndent, blockIndent;
-      if (state.listener !== null) {
-        state.listener("open", state);
-      }
-      state.tag = null;
-      state.anchor = null;
-      state.kind = null;
-      state.result = null;
-      allowBlockStyles = allowBlockScalars = allowBlockCollections = CONTEXT_BLOCK_OUT === nodeContext || CONTEXT_BLOCK_IN === nodeContext;
-      if (allowToSeek) {
-        if (skipSeparationSpace(state, true, -1)) {
-          atNewLine = true;
-          if (state.lineIndent > parentIndent) {
-            indentStatus = 1;
-          } else if (state.lineIndent === parentIndent) {
-            indentStatus = 0;
-          } else if (state.lineIndent < parentIndent) {
-            indentStatus = -1;
-          }
-        }
-      }
-      if (indentStatus === 1) {
-        while (readTagProperty(state) || readAnchorProperty(state)) {
-          if (skipSeparationSpace(state, true, -1)) {
-            atNewLine = true;
-            allowBlockCollections = allowBlockStyles;
-            if (state.lineIndent > parentIndent) {
-              indentStatus = 1;
-            } else if (state.lineIndent === parentIndent) {
-              indentStatus = 0;
-            } else if (state.lineIndent < parentIndent) {
-              indentStatus = -1;
-            }
-          } else {
-            allowBlockCollections = false;
-          }
-        }
-      }
-      if (allowBlockCollections) {
-        allowBlockCollections = atNewLine || allowCompact;
-      }
-      if (indentStatus === 1 || CONTEXT_BLOCK_OUT === nodeContext) {
-        if (CONTEXT_FLOW_IN === nodeContext || CONTEXT_FLOW_OUT === nodeContext) {
-          flowIndent = parentIndent;
-        } else {
-          flowIndent = parentIndent + 1;
-        }
-        blockIndent = state.position - state.lineStart;
-        if (indentStatus === 1) {
-          if (allowBlockCollections && (readBlockSequence(state, blockIndent) || readBlockMapping(state, blockIndent, flowIndent)) || readFlowCollection(state, flowIndent)) {
-            hasContent = true;
-          } else {
-            if (allowBlockScalars && readBlockScalar(state, flowIndent) || readSingleQuotedScalar(state, flowIndent) || readDoubleQuotedScalar(state, flowIndent)) {
-              hasContent = true;
-            } else if (readAlias(state)) {
-              hasContent = true;
-              if (state.tag !== null || state.anchor !== null) {
-                throwError3(state, "alias node should not have any properties");
-              }
-            } else if (readPlainScalar(state, flowIndent, CONTEXT_FLOW_IN === nodeContext)) {
-              hasContent = true;
-              if (state.tag === null) {
-                state.tag = "?";
-              }
-            }
-            if (state.anchor !== null) {
-              state.anchorMap[state.anchor] = state.result;
-            }
-          }
-        } else if (indentStatus === 0) {
-          hasContent = allowBlockCollections && readBlockSequence(state, blockIndent);
-        }
-      }
-      if (state.tag !== null && state.tag !== "!") {
-        if (state.tag === "?") {
-          if (state.result !== null && state.kind !== "scalar") {
-            throwError3(state, 'unacceptable node kind for !<?> tag; it should be "scalar", not "' + state.kind + '"');
-          }
-          for (typeIndex = 0, typeQuantity = state.implicitTypes.length; typeIndex < typeQuantity; typeIndex += 1) {
-            type = state.implicitTypes[typeIndex];
-            if (type.resolve(state.result)) {
-              state.result = type.construct(state.result);
-              state.tag = type.tag;
-              if (state.anchor !== null) {
-                state.anchorMap[state.anchor] = state.result;
-              }
-              break;
-            }
-          }
-        } else if (_hasOwnProperty.call(state.typeMap[state.kind || "fallback"], state.tag)) {
-          type = state.typeMap[state.kind || "fallback"][state.tag];
-          if (state.result !== null && type.kind !== state.kind) {
-            throwError3(state, "unacceptable node kind for !<" + state.tag + '> tag; it should be "' + type.kind + '", not "' + state.kind + '"');
-          }
-          if (!type.resolve(state.result)) {
-            throwError3(state, "cannot resolve a node with !<" + state.tag + "> explicit tag");
-          } else {
-            state.result = type.construct(state.result);
-            if (state.anchor !== null) {
-              state.anchorMap[state.anchor] = state.result;
-            }
-          }
-        } else {
-          throwError3(state, "unknown tag !<" + state.tag + ">");
-        }
-      }
-      if (state.listener !== null) {
-        state.listener("close", state);
-      }
-      return state.tag !== null || state.anchor !== null || hasContent;
-    }
-    function readDocument(state) {
-      var documentStart = state.position, _position, directiveName, directiveArgs, hasDirectives = false, ch;
-      state.version = null;
-      state.checkLineBreaks = state.legacy;
-      state.tagMap = {};
-      state.anchorMap = {};
-      while ((ch = state.input.charCodeAt(state.position)) !== 0) {
-        skipSeparationSpace(state, true, -1);
-        ch = state.input.charCodeAt(state.position);
-        if (state.lineIndent > 0 || ch !== 37) {
-          break;
-        }
-        hasDirectives = true;
-        ch = state.input.charCodeAt(++state.position);
-        _position = state.position;
-        while (ch !== 0 && !is_WS_OR_EOL(ch)) {
-          ch = state.input.charCodeAt(++state.position);
-        }
-        directiveName = state.input.slice(_position, state.position);
-        directiveArgs = [];
-        if (directiveName.length < 1) {
-          throwError3(state, "directive name must not be less than one character in length");
-        }
-        while (ch !== 0) {
-          while (is_WHITE_SPACE(ch)) {
-            ch = state.input.charCodeAt(++state.position);
-          }
-          if (ch === 35) {
-            do {
-              ch = state.input.charCodeAt(++state.position);
-            } while (ch !== 0 && !is_EOL(ch));
-            break;
-          }
-          if (is_EOL(ch))
-            break;
-          _position = state.position;
-          while (ch !== 0 && !is_WS_OR_EOL(ch)) {
-            ch = state.input.charCodeAt(++state.position);
-          }
-          directiveArgs.push(state.input.slice(_position, state.position));
-        }
-        if (ch !== 0)
-          readLineBreak(state);
-        if (_hasOwnProperty.call(directiveHandlers, directiveName)) {
-          directiveHandlers[directiveName](state, directiveName, directiveArgs);
-        } else {
-          throwWarning(state, 'unknown document directive "' + directiveName + '"');
-        }
-      }
-      skipSeparationSpace(state, true, -1);
-      if (state.lineIndent === 0 && state.input.charCodeAt(state.position) === 45 && state.input.charCodeAt(state.position + 1) === 45 && state.input.charCodeAt(state.position + 2) === 45) {
-        state.position += 3;
-        skipSeparationSpace(state, true, -1);
-      } else if (hasDirectives) {
-        throwError3(state, "directives end mark is expected");
-      }
-      composeNode(state, state.lineIndent - 1, CONTEXT_BLOCK_OUT, false, true);
-      skipSeparationSpace(state, true, -1);
-      if (state.checkLineBreaks && PATTERN_NON_ASCII_LINE_BREAKS.test(state.input.slice(documentStart, state.position))) {
-        throwWarning(state, "non-ASCII line breaks are interpreted as content");
-      }
-      state.documents.push(state.result);
-      if (state.position === state.lineStart && testDocumentSeparator(state)) {
-        if (state.input.charCodeAt(state.position) === 46) {
-          state.position += 3;
-          skipSeparationSpace(state, true, -1);
-        }
-        return;
-      }
-      if (state.position < state.length - 1) {
-        throwError3(state, "end of the stream or a document separator is expected");
-      } else {
-        return;
-      }
-    }
-    function loadDocuments(input, options2) {
-      input = String(input);
-      options2 = options2 || {};
-      if (input.length !== 0) {
-        if (input.charCodeAt(input.length - 1) !== 10 && input.charCodeAt(input.length - 1) !== 13) {
-          input += "\n";
-        }
-        if (input.charCodeAt(0) === 65279) {
-          input = input.slice(1);
-        }
-      }
-      var state = new State(input, options2);
-      var nullpos = input.indexOf("\0");
-      if (nullpos !== -1) {
-        state.position = nullpos;
-        throwError3(state, "null byte is not allowed in input");
-      }
-      state.input += "\0";
-      while (state.input.charCodeAt(state.position) === 32) {
-        state.lineIndent += 1;
-        state.position += 1;
-      }
-      while (state.position < state.length - 1) {
-        readDocument(state);
-      }
-      return state.documents;
-    }
-    function loadAll(input, iterator, options2) {
-      if (iterator !== null && typeof iterator === "object" && typeof options2 === "undefined") {
-        options2 = iterator;
-        iterator = null;
-      }
-      var documents = loadDocuments(input, options2);
-      if (typeof iterator !== "function") {
-        return documents;
-      }
-      for (var index2 = 0, length2 = documents.length; index2 < length2; index2 += 1) {
-        iterator(documents[index2]);
-      }
-    }
-    function load(input, options2) {
-      var documents = loadDocuments(input, options2);
-      if (documents.length === 0) {
-        return void 0;
-      } else if (documents.length === 1) {
-        return documents[0];
-      }
-      throw new YAMLException("expected a single document in the stream, but found more");
-    }
-    function safeLoadAll(input, iterator, options2) {
-      if (typeof iterator === "object" && iterator !== null && typeof options2 === "undefined") {
-        options2 = iterator;
-        iterator = null;
-      }
-      return loadAll(input, iterator, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options2));
-    }
-    function safeLoad(input, options2) {
-      return load(input, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options2));
-    }
-    module2.exports.loadAll = loadAll;
-    module2.exports.load = load;
-    module2.exports.safeLoadAll = safeLoadAll;
-    module2.exports.safeLoad = safeLoad;
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/dumper.js
-var require_dumper = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml/dumper.js"(exports2, module2) {
-    "use strict";
-    var common = require_common();
-    var YAMLException = require_exception();
-    var DEFAULT_FULL_SCHEMA = require_default_full();
-    var DEFAULT_SAFE_SCHEMA = require_default_safe();
-    var _toString = Object.prototype.toString;
-    var _hasOwnProperty = Object.prototype.hasOwnProperty;
-    var CHAR_TAB = 9;
-    var CHAR_LINE_FEED = 10;
-    var CHAR_CARRIAGE_RETURN = 13;
-    var CHAR_SPACE = 32;
-    var CHAR_EXCLAMATION = 33;
-    var CHAR_DOUBLE_QUOTE = 34;
-    var CHAR_SHARP = 35;
-    var CHAR_PERCENT = 37;
-    var CHAR_AMPERSAND = 38;
-    var CHAR_SINGLE_QUOTE = 39;
-    var CHAR_ASTERISK = 42;
-    var CHAR_COMMA = 44;
-    var CHAR_MINUS = 45;
-    var CHAR_COLON = 58;
-    var CHAR_EQUALS = 61;
-    var CHAR_GREATER_THAN = 62;
-    var CHAR_QUESTION = 63;
-    var CHAR_COMMERCIAL_AT = 64;
-    var CHAR_LEFT_SQUARE_BRACKET = 91;
-    var CHAR_RIGHT_SQUARE_BRACKET = 93;
-    var CHAR_GRAVE_ACCENT = 96;
-    var CHAR_LEFT_CURLY_BRACKET = 123;
-    var CHAR_VERTICAL_LINE = 124;
-    var CHAR_RIGHT_CURLY_BRACKET = 125;
-    var ESCAPE_SEQUENCES = {};
-    ESCAPE_SEQUENCES[0] = "\\0";
-    ESCAPE_SEQUENCES[7] = "\\a";
-    ESCAPE_SEQUENCES[8] = "\\b";
-    ESCAPE_SEQUENCES[9] = "\\t";
-    ESCAPE_SEQUENCES[10] = "\\n";
-    ESCAPE_SEQUENCES[11] = "\\v";
-    ESCAPE_SEQUENCES[12] = "\\f";
-    ESCAPE_SEQUENCES[13] = "\\r";
-    ESCAPE_SEQUENCES[27] = "\\e";
-    ESCAPE_SEQUENCES[34] = '\\"';
-    ESCAPE_SEQUENCES[92] = "\\\\";
-    ESCAPE_SEQUENCES[133] = "\\N";
-    ESCAPE_SEQUENCES[160] = "\\_";
-    ESCAPE_SEQUENCES[8232] = "\\L";
-    ESCAPE_SEQUENCES[8233] = "\\P";
-    var DEPRECATED_BOOLEANS_SYNTAX = [
-      "y",
-      "Y",
-      "yes",
-      "Yes",
-      "YES",
-      "on",
-      "On",
-      "ON",
-      "n",
-      "N",
-      "no",
-      "No",
-      "NO",
-      "off",
-      "Off",
-      "OFF"
-    ];
-    function compileStyleMap(schema, map) {
-      var result, keys, index2, length2, tag, style, type;
-      if (map === null)
-        return {};
-      result = {};
-      keys = Object.keys(map);
-      for (index2 = 0, length2 = keys.length; index2 < length2; index2 += 1) {
-        tag = keys[index2];
-        style = String(map[tag]);
-        if (tag.slice(0, 2) === "!!") {
-          tag = "tag:yaml.org,2002:" + tag.slice(2);
-        }
-        type = schema.compiledTypeMap["fallback"][tag];
-        if (type && _hasOwnProperty.call(type.styleAliases, style)) {
-          style = type.styleAliases[style];
-        }
-        result[tag] = style;
-      }
-      return result;
-    }
-    function encodeHex(character) {
-      var string2, handle, length2;
-      string2 = character.toString(16).toUpperCase();
-      if (character <= 255) {
-        handle = "x";
-        length2 = 2;
-      } else if (character <= 65535) {
-        handle = "u";
-        length2 = 4;
-      } else if (character <= 4294967295) {
-        handle = "U";
-        length2 = 8;
-      } else {
-        throw new YAMLException("code point within a string may not be greater than 0xFFFFFFFF");
-      }
-      return "\\" + handle + common.repeat("0", length2 - string2.length) + string2;
-    }
-    function State(options2) {
-      this.schema = options2["schema"] || DEFAULT_FULL_SCHEMA;
-      this.indent = Math.max(1, options2["indent"] || 2);
-      this.noArrayIndent = options2["noArrayIndent"] || false;
-      this.skipInvalid = options2["skipInvalid"] || false;
-      this.flowLevel = common.isNothing(options2["flowLevel"]) ? -1 : options2["flowLevel"];
-      this.styleMap = compileStyleMap(this.schema, options2["styles"] || null);
-      this.sortKeys = options2["sortKeys"] || false;
-      this.lineWidth = options2["lineWidth"] || 80;
-      this.noRefs = options2["noRefs"] || false;
-      this.noCompatMode = options2["noCompatMode"] || false;
-      this.condenseFlow = options2["condenseFlow"] || false;
-      this.implicitTypes = this.schema.compiledImplicit;
-      this.explicitTypes = this.schema.compiledExplicit;
-      this.tag = null;
-      this.result = "";
-      this.duplicates = [];
-      this.usedDuplicates = null;
-    }
-    function indentString(string2, spaces) {
-      var ind = common.repeat(" ", spaces), position = 0, next = -1, result = "", line, length2 = string2.length;
-      while (position < length2) {
-        next = string2.indexOf("\n", position);
-        if (next === -1) {
-          line = string2.slice(position);
-          position = length2;
-        } else {
-          line = string2.slice(position, next + 1);
-          position = next + 1;
-        }
-        if (line.length && line !== "\n")
-          result += ind;
-        result += line;
-      }
-      return result;
-    }
-    function generateNextLine(state, level) {
-      return "\n" + common.repeat(" ", state.indent * level);
-    }
-    function testImplicitResolving(state, str2) {
-      var index2, length2, type;
-      for (index2 = 0, length2 = state.implicitTypes.length; index2 < length2; index2 += 1) {
-        type = state.implicitTypes[index2];
-        if (type.resolve(str2)) {
-          return true;
-        }
-      }
-      return false;
-    }
-    function isWhitespace(c) {
-      return c === CHAR_SPACE || c === CHAR_TAB;
-    }
-    function isPrintable(c) {
-      return 32 <= c && c <= 126 || 161 <= c && c <= 55295 && c !== 8232 && c !== 8233 || 57344 <= c && c <= 65533 && c !== 65279 || 65536 <= c && c <= 1114111;
-    }
-    function isNsChar(c) {
-      return isPrintable(c) && !isWhitespace(c) && c !== 65279 && c !== CHAR_CARRIAGE_RETURN && c !== CHAR_LINE_FEED;
-    }
-    function isPlainSafe(c, prev) {
-      return isPrintable(c) && c !== 65279 && c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET && c !== CHAR_COLON && (c !== CHAR_SHARP || prev && isNsChar(prev));
-    }
-    function isPlainSafeFirst(c) {
-      return isPrintable(c) && c !== 65279 && !isWhitespace(c) && c !== CHAR_MINUS && c !== CHAR_QUESTION && c !== CHAR_COLON && c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET && c !== CHAR_SHARP && c !== CHAR_AMPERSAND && c !== CHAR_ASTERISK && c !== CHAR_EXCLAMATION && c !== CHAR_VERTICAL_LINE && c !== CHAR_EQUALS && c !== CHAR_GREATER_THAN && c !== CHAR_SINGLE_QUOTE && c !== CHAR_DOUBLE_QUOTE && c !== CHAR_PERCENT && c !== CHAR_COMMERCIAL_AT && c !== CHAR_GRAVE_ACCENT;
-    }
-    function needIndentIndicator(string2) {
-      var leadingSpaceRe = /^\n* /;
-      return leadingSpaceRe.test(string2);
-    }
-    var STYLE_PLAIN = 1;
-    var STYLE_SINGLE = 2;
-    var STYLE_LITERAL = 3;
-    var STYLE_FOLDED = 4;
-    var STYLE_DOUBLE = 5;
-    function chooseScalarStyle(string2, singleLineOnly, indentPerLevel, lineWidth, testAmbiguousType) {
-      var i;
-      var char, prev_char;
-      var hasLineBreak = false;
-      var hasFoldableLine = false;
-      var shouldTrackWidth = lineWidth !== -1;
-      var previousLineBreak = -1;
-      var plain = isPlainSafeFirst(string2.charCodeAt(0)) && !isWhitespace(string2.charCodeAt(string2.length - 1));
-      if (singleLineOnly) {
-        for (i = 0; i < string2.length; i++) {
-          char = string2.charCodeAt(i);
-          if (!isPrintable(char)) {
-            return STYLE_DOUBLE;
-          }
-          prev_char = i > 0 ? string2.charCodeAt(i - 1) : null;
-          plain = plain && isPlainSafe(char, prev_char);
-        }
-      } else {
-        for (i = 0; i < string2.length; i++) {
-          char = string2.charCodeAt(i);
-          if (char === CHAR_LINE_FEED) {
-            hasLineBreak = true;
-            if (shouldTrackWidth) {
-              hasFoldableLine = hasFoldableLine || // Foldable line = too long, and not more-indented.
-              i - previousLineBreak - 1 > lineWidth && string2[previousLineBreak + 1] !== " ";
-              previousLineBreak = i;
-            }
-          } else if (!isPrintable(char)) {
-            return STYLE_DOUBLE;
-          }
-          prev_char = i > 0 ? string2.charCodeAt(i - 1) : null;
-          plain = plain && isPlainSafe(char, prev_char);
-        }
-        hasFoldableLine = hasFoldableLine || shouldTrackWidth && (i - previousLineBreak - 1 > lineWidth && string2[previousLineBreak + 1] !== " ");
-      }
-      if (!hasLineBreak && !hasFoldableLine) {
-        return plain && !testAmbiguousType(string2) ? STYLE_PLAIN : STYLE_SINGLE;
-      }
-      if (indentPerLevel > 9 && needIndentIndicator(string2)) {
-        return STYLE_DOUBLE;
-      }
-      return hasFoldableLine ? STYLE_FOLDED : STYLE_LITERAL;
-    }
-    function writeScalar(state, string2, level, iskey) {
-      state.dump = function() {
-        if (string2.length === 0) {
-          return "''";
-        }
-        if (!state.noCompatMode && DEPRECATED_BOOLEANS_SYNTAX.indexOf(string2) !== -1) {
-          return "'" + string2 + "'";
-        }
-        var indent = state.indent * Math.max(1, level);
-        var lineWidth = state.lineWidth === -1 ? -1 : Math.max(Math.min(state.lineWidth, 40), state.lineWidth - indent);
-        var singleLineOnly = iskey || state.flowLevel > -1 && level >= state.flowLevel;
-        function testAmbiguity(string3) {
-          return testImplicitResolving(state, string3);
-        }
-        switch (chooseScalarStyle(string2, singleLineOnly, state.indent, lineWidth, testAmbiguity)) {
-          case STYLE_PLAIN:
-            return string2;
-          case STYLE_SINGLE:
-            return "'" + string2.replace(/'/g, "''") + "'";
-          case STYLE_LITERAL:
-            return "|" + blockHeader(string2, state.indent) + dropEndingNewline(indentString(string2, indent));
-          case STYLE_FOLDED:
-            return ">" + blockHeader(string2, state.indent) + dropEndingNewline(indentString(foldString(string2, lineWidth), indent));
-          case STYLE_DOUBLE:
-            return '"' + escapeString(string2, lineWidth) + '"';
-          default:
-            throw new YAMLException("impossible error: invalid scalar style");
-        }
-      }();
-    }
-    function blockHeader(string2, indentPerLevel) {
-      var indentIndicator = needIndentIndicator(string2) ? String(indentPerLevel) : "";
-      var clip = string2[string2.length - 1] === "\n";
-      var keep = clip && (string2[string2.length - 2] === "\n" || string2 === "\n");
-      var chomp = keep ? "+" : clip ? "" : "-";
-      return indentIndicator + chomp + "\n";
-    }
-    function dropEndingNewline(string2) {
-      return string2[string2.length - 1] === "\n" ? string2.slice(0, -1) : string2;
-    }
-    function foldString(string2, width) {
-      var lineRe = /(\n+)([^\n]*)/g;
-      var result = function() {
-        var nextLF = string2.indexOf("\n");
-        nextLF = nextLF !== -1 ? nextLF : string2.length;
-        lineRe.lastIndex = nextLF;
-        return foldLine(string2.slice(0, nextLF), width);
-      }();
-      var prevMoreIndented = string2[0] === "\n" || string2[0] === " ";
-      var moreIndented;
-      var match;
-      while (match = lineRe.exec(string2)) {
-        var prefix = match[1], line = match[2];
-        moreIndented = line[0] === " ";
-        result += prefix + (!prevMoreIndented && !moreIndented && line !== "" ? "\n" : "") + foldLine(line, width);
-        prevMoreIndented = moreIndented;
-      }
-      return result;
-    }
-    function foldLine(line, width) {
-      if (line === "" || line[0] === " ")
-        return line;
-      var breakRe = / [^ ]/g;
-      var match;
-      var start = 0, end, curr = 0, next = 0;
-      var result = "";
-      while (match = breakRe.exec(line)) {
-        next = match.index;
-        if (next - start > width) {
-          end = curr > start ? curr : next;
-          result += "\n" + line.slice(start, end);
-          start = end + 1;
-        }
-        curr = next;
-      }
-      result += "\n";
-      if (line.length - start > width && curr > start) {
-        result += line.slice(start, curr) + "\n" + line.slice(curr + 1);
-      } else {
-        result += line.slice(start);
-      }
-      return result.slice(1);
-    }
-    function escapeString(string2) {
-      var result = "";
-      var char, nextChar;
-      var escapeSeq;
-      for (var i = 0; i < string2.length; i++) {
-        char = string2.charCodeAt(i);
-        if (char >= 55296 && char <= 56319) {
-          nextChar = string2.charCodeAt(i + 1);
-          if (nextChar >= 56320 && nextChar <= 57343) {
-            result += encodeHex((char - 55296) * 1024 + nextChar - 56320 + 65536);
-            i++;
-            continue;
-          }
-        }
-        escapeSeq = ESCAPE_SEQUENCES[char];
-        result += !escapeSeq && isPrintable(char) ? string2[i] : escapeSeq || encodeHex(char);
-      }
-      return result;
-    }
-    function writeFlowSequence(state, level, object) {
-      var _result = "", _tag = state.tag, index2, length2;
-      for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
-        if (writeNode(state, level, object[index2], false, false)) {
-          if (index2 !== 0)
-            _result += "," + (!state.condenseFlow ? " " : "");
-          _result += state.dump;
-        }
-      }
-      state.tag = _tag;
-      state.dump = "[" + _result + "]";
-    }
-    function writeBlockSequence(state, level, object, compact) {
-      var _result = "", _tag = state.tag, index2, length2;
-      for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
-        if (writeNode(state, level + 1, object[index2], true, true)) {
-          if (!compact || index2 !== 0) {
-            _result += generateNextLine(state, level);
-          }
-          if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
-            _result += "-";
-          } else {
-            _result += "- ";
-          }
-          _result += state.dump;
-        }
-      }
-      state.tag = _tag;
-      state.dump = _result || "[]";
-    }
-    function writeFlowMapping(state, level, object) {
-      var _result = "", _tag = state.tag, objectKeyList = Object.keys(object), index2, length2, objectKey, objectValue, pairBuffer;
-      for (index2 = 0, length2 = objectKeyList.length; index2 < length2; index2 += 1) {
-        pairBuffer = "";
-        if (index2 !== 0)
-          pairBuffer += ", ";
-        if (state.condenseFlow)
-          pairBuffer += '"';
-        objectKey = objectKeyList[index2];
-        objectValue = object[objectKey];
-        if (!writeNode(state, level, objectKey, false, false)) {
-          continue;
-        }
-        if (state.dump.length > 1024)
-          pairBuffer += "? ";
-        pairBuffer += state.dump + (state.condenseFlow ? '"' : "") + ":" + (state.condenseFlow ? "" : " ");
-        if (!writeNode(state, level, objectValue, false, false)) {
-          continue;
-        }
-        pairBuffer += state.dump;
-        _result += pairBuffer;
-      }
-      state.tag = _tag;
-      state.dump = "{" + _result + "}";
-    }
-    function writeBlockMapping(state, level, object, compact) {
-      var _result = "", _tag = state.tag, objectKeyList = Object.keys(object), index2, length2, objectKey, objectValue, explicitPair, pairBuffer;
-      if (state.sortKeys === true) {
-        objectKeyList.sort();
-      } else if (typeof state.sortKeys === "function") {
-        objectKeyList.sort(state.sortKeys);
-      } else if (state.sortKeys) {
-        throw new YAMLException("sortKeys must be a boolean or a function");
-      }
-      for (index2 = 0, length2 = objectKeyList.length; index2 < length2; index2 += 1) {
-        pairBuffer = "";
-        if (!compact || index2 !== 0) {
-          pairBuffer += generateNextLine(state, level);
-        }
-        objectKey = objectKeyList[index2];
-        objectValue = object[objectKey];
-        if (!writeNode(state, level + 1, objectKey, true, true, true)) {
-          continue;
-        }
-        explicitPair = state.tag !== null && state.tag !== "?" || state.dump && state.dump.length > 1024;
-        if (explicitPair) {
-          if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
-            pairBuffer += "?";
-          } else {
-            pairBuffer += "? ";
-          }
-        }
-        pairBuffer += state.dump;
-        if (explicitPair) {
-          pairBuffer += generateNextLine(state, level);
-        }
-        if (!writeNode(state, level + 1, objectValue, true, explicitPair)) {
-          continue;
-        }
-        if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
-          pairBuffer += ":";
-        } else {
-          pairBuffer += ": ";
-        }
-        pairBuffer += state.dump;
-        _result += pairBuffer;
-      }
-      state.tag = _tag;
-      state.dump = _result || "{}";
-    }
-    function detectType(state, object, explicit) {
-      var _result, typeList, index2, length2, type, style;
-      typeList = explicit ? state.explicitTypes : state.implicitTypes;
-      for (index2 = 0, length2 = typeList.length; index2 < length2; index2 += 1) {
-        type = typeList[index2];
-        if ((type.instanceOf || type.predicate) && (!type.instanceOf || typeof object === "object" && object instanceof type.instanceOf) && (!type.predicate || type.predicate(object))) {
-          state.tag = explicit ? type.tag : "?";
-          if (type.represent) {
-            style = state.styleMap[type.tag] || type.defaultStyle;
-            if (_toString.call(type.represent) === "[object Function]") {
-              _result = type.represent(object, style);
-            } else if (_hasOwnProperty.call(type.represent, style)) {
-              _result = type.represent[style](object, style);
-            } else {
-              throw new YAMLException("!<" + type.tag + '> tag resolver accepts not "' + style + '" style');
-            }
-            state.dump = _result;
-          }
-          return true;
-        }
-      }
-      return false;
-    }
-    function writeNode(state, level, object, block, compact, iskey) {
-      state.tag = null;
-      state.dump = object;
-      if (!detectType(state, object, false)) {
-        detectType(state, object, true);
-      }
-      var type = _toString.call(state.dump);
-      if (block) {
-        block = state.flowLevel < 0 || state.flowLevel > level;
-      }
-      var objectOrArray = type === "[object Object]" || type === "[object Array]", duplicateIndex, duplicate;
-      if (objectOrArray) {
-        duplicateIndex = state.duplicates.indexOf(object);
-        duplicate = duplicateIndex !== -1;
-      }
-      if (state.tag !== null && state.tag !== "?" || duplicate || state.indent !== 2 && level > 0) {
-        compact = false;
-      }
-      if (duplicate && state.usedDuplicates[duplicateIndex]) {
-        state.dump = "*ref_" + duplicateIndex;
-      } else {
-        if (objectOrArray && duplicate && !state.usedDuplicates[duplicateIndex]) {
-          state.usedDuplicates[duplicateIndex] = true;
-        }
-        if (type === "[object Object]") {
-          if (block && Object.keys(state.dump).length !== 0) {
-            writeBlockMapping(state, level, state.dump, compact);
-            if (duplicate) {
-              state.dump = "&ref_" + duplicateIndex + state.dump;
-            }
-          } else {
-            writeFlowMapping(state, level, state.dump);
-            if (duplicate) {
-              state.dump = "&ref_" + duplicateIndex + " " + state.dump;
-            }
-          }
-        } else if (type === "[object Array]") {
-          var arrayLevel = state.noArrayIndent && level > 0 ? level - 1 : level;
-          if (block && state.dump.length !== 0) {
-            writeBlockSequence(state, arrayLevel, state.dump, compact);
-            if (duplicate) {
-              state.dump = "&ref_" + duplicateIndex + state.dump;
-            }
-          } else {
-            writeFlowSequence(state, arrayLevel, state.dump);
-            if (duplicate) {
-              state.dump = "&ref_" + duplicateIndex + " " + state.dump;
-            }
-          }
-        } else if (type === "[object String]") {
-          if (state.tag !== "?") {
-            writeScalar(state, state.dump, level, iskey);
-          }
-        } else {
-          if (state.skipInvalid)
-            return false;
-          throw new YAMLException("unacceptable kind of an object to dump " + type);
-        }
-        if (state.tag !== null && state.tag !== "?") {
-          state.dump = "!<" + state.tag + "> " + state.dump;
-        }
-      }
-      return true;
-    }
-    function getDuplicateReferences(object, state) {
-      var objects = [], duplicatesIndexes = [], index2, length2;
-      inspectNode(object, objects, duplicatesIndexes);
-      for (index2 = 0, length2 = duplicatesIndexes.length; index2 < length2; index2 += 1) {
-        state.duplicates.push(objects[duplicatesIndexes[index2]]);
-      }
-      state.usedDuplicates = new Array(length2);
-    }
-    function inspectNode(object, objects, duplicatesIndexes) {
-      var objectKeyList, index2, length2;
-      if (object !== null && typeof object === "object") {
-        index2 = objects.indexOf(object);
-        if (index2 !== -1) {
-          if (duplicatesIndexes.indexOf(index2) === -1) {
-            duplicatesIndexes.push(index2);
-          }
-        } else {
-          objects.push(object);
-          if (Array.isArray(object)) {
-            for (index2 = 0, length2 = object.length; index2 < length2; index2 += 1) {
-              inspectNode(object[index2], objects, duplicatesIndexes);
-            }
-          } else {
-            objectKeyList = Object.keys(object);
-            for (index2 = 0, length2 = objectKeyList.length; index2 < length2; index2 += 1) {
-              inspectNode(object[objectKeyList[index2]], objects, duplicatesIndexes);
-            }
-          }
-        }
-      }
-    }
-    function dump(input, options2) {
-      options2 = options2 || {};
-      var state = new State(options2);
-      if (!state.noRefs)
-        getDuplicateReferences(input, state);
-      if (writeNode(state, 0, input, true, true))
-        return state.dump + "\n";
-      return "";
-    }
-    function safeDump(input, options2) {
-      return dump(input, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options2));
-    }
-    module2.exports.dump = dump;
-    module2.exports.safeDump = safeDump;
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml.js
-var require_js_yaml = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/lib/js-yaml.js"(exports2, module2) {
-    "use strict";
-    var loader2 = require_loader();
-    var dumper = require_dumper();
-    function deprecated(name2) {
-      return function() {
-        throw new Error("Function " + name2 + " is deprecated and cannot be used.");
-      };
-    }
-    module2.exports.Type = require_type();
-    module2.exports.Schema = require_schema();
-    module2.exports.FAILSAFE_SCHEMA = require_failsafe();
-    module2.exports.JSON_SCHEMA = require_json2();
-    module2.exports.CORE_SCHEMA = require_core2();
-    module2.exports.DEFAULT_SAFE_SCHEMA = require_default_safe();
-    module2.exports.DEFAULT_FULL_SCHEMA = require_default_full();
-    module2.exports.load = loader2.load;
-    module2.exports.loadAll = loader2.loadAll;
-    module2.exports.safeLoad = loader2.safeLoad;
-    module2.exports.safeLoadAll = loader2.safeLoadAll;
-    module2.exports.dump = dumper.dump;
-    module2.exports.safeDump = dumper.safeDump;
-    module2.exports.YAMLException = require_exception();
-    module2.exports.MINIMAL_SCHEMA = require_failsafe();
-    module2.exports.SAFE_SCHEMA = require_default_safe();
-    module2.exports.DEFAULT_SCHEMA = require_default_full();
-    module2.exports.scan = deprecated("scan");
-    module2.exports.parse = deprecated("parse");
-    module2.exports.compose = deprecated("compose");
-    module2.exports.addConstructor = deprecated("addConstructor");
-  }
-});
-
-// node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/index.js
-var require_js_yaml2 = __commonJS({
-  "node_modules/.pnpm/js-yaml@3.14.1/node_modules/js-yaml/index.js"(exports2, module2) {
-    "use strict";
-    var yaml2 = require_js_yaml();
-    module2.exports = yaml2;
-  }
-});
-
-// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/engines.js
-var require_engines = __commonJS({
-  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/engines.js"(exports, module) {
-    "use strict";
-    var yaml = require_js_yaml2();
-    var engines = exports = module.exports;
-    engines.yaml = {
-      parse: yaml.safeLoad.bind(yaml),
-      stringify: yaml.safeDump.bind(yaml)
-    };
-    engines.json = {
-      parse: JSON.parse.bind(JSON),
-      stringify: function(obj, options2) {
-        const opts = Object.assign({ replacer: null, space: 2 }, options2);
-        return JSON.stringify(obj, opts.replacer, opts.space);
-      }
-    };
-    engines.javascript = {
-      parse: function parse(str, options, wrap) {
-        try {
-          if (wrap !== false) {
-            str = "(function() {\nreturn " + str.trim() + ";\n}());";
-          }
-          return eval(str) || {};
-        } catch (err) {
-          if (wrap !== false && /(unexpected|identifier)/i.test(err.message)) {
-            return parse(str, options, false);
-          }
-          throw new SyntaxError(err);
-        }
-      },
-      stringify: function() {
-        throw new Error("stringifying JavaScript is not supported");
-      }
-    };
-  }
-});
-
-// node_modules/.pnpm/strip-bom-string@1.0.0/node_modules/strip-bom-string/index.js
-var require_strip_bom_string = __commonJS({
-  "node_modules/.pnpm/strip-bom-string@1.0.0/node_modules/strip-bom-string/index.js"(exports2, module2) {
-    "use strict";
-    module2.exports = function(str2) {
-      if (typeof str2 === "string" && str2.charAt(0) === "\uFEFF") {
-        return str2.slice(1);
-      }
-      return str2;
-    };
-  }
-});
-
-// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/utils.js
-var require_utils2 = __commonJS({
-  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/utils.js"(exports2) {
-    "use strict";
-    var stripBom = require_strip_bom_string();
-    var typeOf = require_kind_of();
-    exports2.define = function(obj, key, val) {
-      Reflect.defineProperty(obj, key, {
-        enumerable: false,
-        configurable: true,
-        writable: true,
-        value: val
-      });
-    };
-    exports2.isBuffer = function(val) {
-      return typeOf(val) === "buffer";
-    };
-    exports2.isObject = function(val) {
-      return typeOf(val) === "object";
-    };
-    exports2.toBuffer = function(input) {
-      return typeof input === "string" ? Buffer.from(input) : input;
-    };
-    exports2.toString = function(input) {
-      if (exports2.isBuffer(input))
-        return stripBom(String(input));
-      if (typeof input !== "string") {
-        throw new TypeError("expected input to be a string or buffer");
-      }
-      return stripBom(input);
-    };
-    exports2.arrayify = function(val) {
-      return val ? Array.isArray(val) ? val : [val] : [];
-    };
-    exports2.startsWith = function(str2, substr, len) {
-      if (typeof len !== "number")
-        len = substr.length;
-      return str2.slice(0, len) === substr;
-    };
-  }
-});
-
-// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/defaults.js
-var require_defaults = __commonJS({
-  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/defaults.js"(exports2, module2) {
-    "use strict";
-    var engines2 = require_engines();
-    var utils = require_utils2();
-    module2.exports = function(options2) {
-      const opts = Object.assign({}, options2);
-      opts.delimiters = utils.arrayify(opts.delims || opts.delimiters || "---");
-      if (opts.delimiters.length === 1) {
-        opts.delimiters.push(opts.delimiters[0]);
-      }
-      opts.language = (opts.language || opts.lang || "yaml").toLowerCase();
-      opts.engines = Object.assign({}, engines2, opts.parsers, opts.engines);
-      return opts;
-    };
-  }
-});
-
-// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/engine.js
-var require_engine = __commonJS({
-  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/engine.js"(exports2, module2) {
-    "use strict";
-    module2.exports = function(name2, options2) {
-      let engine = options2.engines[name2] || options2.engines[aliase(name2)];
-      if (typeof engine === "undefined") {
-        throw new Error('gray-matter engine "' + name2 + '" is not registered');
-      }
-      if (typeof engine === "function") {
-        engine = { parse: engine };
-      }
-      return engine;
-    };
-    function aliase(name2) {
-      switch (name2.toLowerCase()) {
-        case "js":
-        case "javascript":
-          return "javascript";
-        case "coffee":
-        case "coffeescript":
-        case "cson":
-          return "coffee";
-        case "yaml":
-        case "yml":
-          return "yaml";
-        default: {
-          return name2;
-        }
-      }
-    }
-  }
-});
-
-// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/stringify.js
-var require_stringify = __commonJS({
-  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/stringify.js"(exports2, module2) {
-    "use strict";
-    var typeOf = require_kind_of();
-    var getEngine = require_engine();
-    var defaults = require_defaults();
-    module2.exports = function(file, data, options2) {
-      if (data == null && options2 == null) {
-        switch (typeOf(file)) {
-          case "object":
-            data = file.data;
-            options2 = {};
-            break;
-          case "string":
-            return file;
-          default: {
-            throw new TypeError("expected file to be a string or object");
-          }
-        }
-      }
-      const str2 = file.content;
-      const opts = defaults(options2);
-      if (data == null) {
-        if (!opts.data)
-          return file;
-        data = opts.data;
-      }
-      const language = file.language || opts.language;
-      const engine = getEngine(language, opts);
-      if (typeof engine.stringify !== "function") {
-        throw new TypeError('expected "' + language + '.stringify" to be a function');
-      }
-      data = Object.assign({}, file.data, data);
-      const open = opts.delimiters[0];
-      const close = opts.delimiters[1];
-      const matter2 = engine.stringify(data, options2).trim();
-      let buf = "";
-      if (matter2 !== "{}") {
-        buf = newline(open) + newline(matter2) + newline(close);
-      }
-      if (typeof file.excerpt === "string" && file.excerpt !== "") {
-        if (str2.indexOf(file.excerpt.trim()) === -1) {
-          buf += newline(file.excerpt) + newline(close);
-        }
-      }
-      return buf + newline(str2);
-    };
-    function newline(str2) {
-      return str2.slice(-1) !== "\n" ? str2 + "\n" : str2;
-    }
-  }
-});
-
-// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/excerpt.js
-var require_excerpt = __commonJS({
-  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/excerpt.js"(exports2, module2) {
-    "use strict";
-    var defaults = require_defaults();
-    module2.exports = function(file, options2) {
-      const opts = defaults(options2);
-      if (file.data == null) {
-        file.data = {};
-      }
-      if (typeof opts.excerpt === "function") {
-        return opts.excerpt(file, opts);
-      }
-      const sep = file.data.excerpt_separator || opts.excerpt_separator;
-      if (sep == null && (opts.excerpt === false || opts.excerpt == null)) {
-        return file;
-      }
-      const delimiter = typeof opts.excerpt === "string" ? opts.excerpt : sep || opts.delimiters[0];
-      const idx = file.content.indexOf(delimiter);
-      if (idx !== -1) {
-        file.excerpt = file.content.slice(0, idx);
-      }
-      return file;
-    };
-  }
-});
-
-// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/to-file.js
-var require_to_file = __commonJS({
-  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/to-file.js"(exports2, module2) {
-    "use strict";
-    var typeOf = require_kind_of();
-    var stringify = require_stringify();
-    var utils = require_utils2();
-    module2.exports = function(file) {
-      if (typeOf(file) !== "object") {
-        file = { content: file };
-      }
-      if (typeOf(file.data) !== "object") {
-        file.data = {};
-      }
-      if (file.contents && file.content == null) {
-        file.content = file.contents;
-      }
-      utils.define(file, "orig", utils.toBuffer(file.content));
-      utils.define(file, "language", file.language || "");
-      utils.define(file, "matter", file.matter || "");
-      utils.define(file, "stringify", function(data, options2) {
-        if (options2 && options2.language) {
-          file.language = options2.language;
-        }
-        return stringify(file, data, options2);
-      });
-      file.content = utils.toString(file.content);
-      file.isEmpty = false;
-      file.excerpt = "";
-      return file;
-    };
-  }
-});
-
-// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/parse.js
-var require_parse2 = __commonJS({
-  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/lib/parse.js"(exports2, module2) {
-    "use strict";
-    var getEngine = require_engine();
-    var defaults = require_defaults();
-    module2.exports = function(language, str2, options2) {
-      const opts = defaults(options2);
-      const engine = getEngine(language, opts);
-      if (typeof engine.parse !== "function") {
-        throw new TypeError('expected "' + language + '.parse" to be a function');
-      }
-      return engine.parse(str2, opts);
-    };
-  }
-});
-
-// node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/index.js
-var require_gray_matter = __commonJS({
-  "node_modules/.pnpm/gray-matter@4.0.3/node_modules/gray-matter/index.js"(exports2, module2) {
-    "use strict";
-    var fs = require_fs();
-    var sections = require_section_matter();
-    var defaults = require_defaults();
-    var stringify = require_stringify();
-    var excerpt = require_excerpt();
-    var engines2 = require_engines();
-    var toFile = require_to_file();
-    var parse2 = require_parse2();
-    var utils = require_utils2();
-    function matter2(input, options2) {
-      if (input === "") {
-        return { data: {}, content: input, excerpt: "", orig: input };
-      }
-      let file = toFile(input);
-      const cached = matter2.cache[file.content];
-      if (!options2) {
-        if (cached) {
-          file = Object.assign({}, cached);
-          file.orig = cached.orig;
-          return file;
-        }
-        matter2.cache[file.content] = file;
-      }
-      return parseMatter(file, options2);
-    }
-    function parseMatter(file, options2) {
-      const opts = defaults(options2);
-      const open = opts.delimiters[0];
-      const close = "\n" + opts.delimiters[1];
-      let str2 = file.content;
-      if (opts.language) {
-        file.language = opts.language;
-      }
-      const openLen = open.length;
-      if (!utils.startsWith(str2, open, openLen)) {
-        excerpt(file, opts);
-        return file;
-      }
-      if (str2.charAt(openLen) === open.slice(-1)) {
-        return file;
-      }
-      str2 = str2.slice(openLen);
-      const len = str2.length;
-      const language = matter2.language(str2, opts);
-      if (language.name) {
-        file.language = language.name;
-        str2 = str2.slice(language.raw.length);
-      }
-      let closeIndex = str2.indexOf(close);
-      if (closeIndex === -1) {
-        closeIndex = len;
-      }
-      file.matter = str2.slice(0, closeIndex);
-      const block = file.matter.replace(/^\s*#[^\n]+/gm, "").trim();
-      if (block === "") {
-        file.isEmpty = true;
-        file.empty = file.content;
-        file.data = {};
-      } else {
-        file.data = parse2(file.language, file.matter, opts);
-      }
-      if (closeIndex === len) {
-        file.content = "";
-      } else {
-        file.content = str2.slice(closeIndex + close.length);
-        if (file.content[0] === "\r") {
-          file.content = file.content.slice(1);
-        }
-        if (file.content[0] === "\n") {
-          file.content = file.content.slice(1);
-        }
-      }
-      excerpt(file, opts);
-      if (opts.sections === true || typeof opts.section === "function") {
-        sections(file, opts.section);
-      }
-      return file;
-    }
-    matter2.engines = engines2;
-    matter2.stringify = function(file, data, options2) {
-      if (typeof file === "string")
-        file = matter2(file, options2);
-      return stringify(file, data, options2);
-    };
-    matter2.read = function(filepath, options2) {
-      const str2 = fs.readFileSync(filepath, "utf8");
-      const file = matter2(str2, options2);
-      file.path = filepath;
-      return file;
-    };
-    matter2.test = function(str2, options2) {
-      return utils.startsWith(str2, defaults(options2).delimiters[0]);
-    };
-    matter2.language = function(str2, options2) {
-      const opts = defaults(options2);
-      const open = opts.delimiters[0];
-      if (matter2.test(str2)) {
-        str2 = str2.slice(open.length);
-      }
-      const language = str2.slice(0, str2.search(/\r?\n/));
-      return {
-        raw: language,
-        name: language ? language.trim() : ""
-      };
-    };
-    matter2.cache = {};
-    matter2.clearCache = function() {
-      matter2.cache = {};
-    };
-    module2.exports = matter2;
-  }
-});
-
-// external-global-plugin:@veramo-community/react-components
-var require_react_components = __commonJS({
-  "external-global-plugin:@veramo-community/react-components"(exports2, module2) {
-    module2.exports = window.veramoreactcomponents;
-  }
-});
-
 // node_modules/.pnpm/canonicalize@2.0.0/node_modules/canonicalize/lib/canonicalize.js
 var require_canonicalize = __commonJS({
   "node_modules/.pnpm/canonicalize@2.0.0/node_modules/canonicalize/lib/canonicalize.js"(exports2, module2) {
@@ -59444,7 +59423,7 @@ var require_dist = __commonJS({
       } else {
         ENCODING_CONST = 734539939;
       }
-      function encode6(prefix, words, LIMIT) {
+      function encode7(prefix, words, LIMIT) {
         LIMIT = LIMIT || 90;
         if (prefix.length + 7 + words.length > LIMIT)
           throw new TypeError("Exceeds length limit");
@@ -59513,7 +59492,7 @@ var require_dist = __commonJS({
         if (typeof res === "object")
           return res;
       }
-      function decode7(str2, LIMIT) {
+      function decode6(str2, LIMIT) {
         const res = __decode(str2, LIMIT);
         if (typeof res === "object")
           return res;
@@ -59521,8 +59500,8 @@ var require_dist = __commonJS({
       }
       return {
         decodeUnsafe,
-        decode: decode7,
-        encode: encode6,
+        decode: decode6,
+        encode: encode7,
         toWords,
         fromWordsUnsafe,
         fromWords
@@ -60941,6 +60920,1782 @@ var require_xchacha20poly1305 = __commonJS({
   }
 });
 
+// node_modules/.pnpm/err-code@3.0.1/node_modules/err-code/index.js
+var require_err_code = __commonJS({
+  "node_modules/.pnpm/err-code@3.0.1/node_modules/err-code/index.js"(exports2, module2) {
+    "use strict";
+    function assign(obj, props) {
+      for (const key in props) {
+        Object.defineProperty(obj, key, {
+          value: props[key],
+          enumerable: true,
+          configurable: true
+        });
+      }
+      return obj;
+    }
+    function createError(err, code3, props) {
+      if (!err || typeof err === "string") {
+        throw new TypeError("Please pass an Error to err-code");
+      }
+      if (!props) {
+        props = {};
+      }
+      if (typeof code3 === "object") {
+        props = code3;
+        code3 = "";
+      }
+      if (code3) {
+        props.code = code3;
+      }
+      try {
+        return assign(err, props);
+      } catch (_2) {
+        props.message = err.message;
+        props.stack = err.stack;
+        const ErrClass = function() {
+        };
+        ErrClass.prototype = Object.create(Object.getPrototypeOf(err));
+        const output2 = assign(new ErrClass(), props);
+        return output2;
+      }
+    }
+    module2.exports = createError;
+  }
+});
+
+// node_modules/.pnpm/@protobufjs+aspromise@1.1.2/node_modules/@protobufjs/aspromise/index.js
+var require_aspromise = __commonJS({
+  "node_modules/.pnpm/@protobufjs+aspromise@1.1.2/node_modules/@protobufjs/aspromise/index.js"(exports2, module2) {
+    "use strict";
+    module2.exports = asPromise;
+    function asPromise(fn, ctx) {
+      var params = new Array(arguments.length - 1), offset = 0, index2 = 2, pending = true;
+      while (index2 < arguments.length)
+        params[offset++] = arguments[index2++];
+      return new Promise(function executor(resolve, reject) {
+        params[offset] = function callback(err) {
+          if (pending) {
+            pending = false;
+            if (err)
+              reject(err);
+            else {
+              var params2 = new Array(arguments.length - 1), offset2 = 0;
+              while (offset2 < params2.length)
+                params2[offset2++] = arguments[offset2];
+              resolve.apply(null, params2);
+            }
+          }
+        };
+        try {
+          fn.apply(ctx || null, params);
+        } catch (err) {
+          if (pending) {
+            pending = false;
+            reject(err);
+          }
+        }
+      });
+    }
+  }
+});
+
+// node_modules/.pnpm/@protobufjs+base64@1.1.2/node_modules/@protobufjs/base64/index.js
+var require_base64 = __commonJS({
+  "node_modules/.pnpm/@protobufjs+base64@1.1.2/node_modules/@protobufjs/base64/index.js"(exports2) {
+    "use strict";
+    var base642 = exports2;
+    base642.length = function length2(string2) {
+      var p = string2.length;
+      if (!p)
+        return 0;
+      var n = 0;
+      while (--p % 4 > 1 && string2.charAt(p) === "=")
+        ++n;
+      return Math.ceil(string2.length * 3) / 4 - n;
+    };
+    var b64 = new Array(64);
+    var s64 = new Array(123);
+    for (i = 0; i < 64; )
+      s64[b64[i] = i < 26 ? i + 65 : i < 52 ? i + 71 : i < 62 ? i - 4 : i - 59 | 43] = i++;
+    var i;
+    base642.encode = function encode7(buffer, start, end) {
+      var parts = null, chunk = [];
+      var i2 = 0, j = 0, t;
+      while (start < end) {
+        var b2 = buffer[start++];
+        switch (j) {
+          case 0:
+            chunk[i2++] = b64[b2 >> 2];
+            t = (b2 & 3) << 4;
+            j = 1;
+            break;
+          case 1:
+            chunk[i2++] = b64[t | b2 >> 4];
+            t = (b2 & 15) << 2;
+            j = 2;
+            break;
+          case 2:
+            chunk[i2++] = b64[t | b2 >> 6];
+            chunk[i2++] = b64[b2 & 63];
+            j = 0;
+            break;
+        }
+        if (i2 > 8191) {
+          (parts || (parts = [])).push(String.fromCharCode.apply(String, chunk));
+          i2 = 0;
+        }
+      }
+      if (j) {
+        chunk[i2++] = b64[t];
+        chunk[i2++] = 61;
+        if (j === 1)
+          chunk[i2++] = 61;
+      }
+      if (parts) {
+        if (i2)
+          parts.push(String.fromCharCode.apply(String, chunk.slice(0, i2)));
+        return parts.join("");
+      }
+      return String.fromCharCode.apply(String, chunk.slice(0, i2));
+    };
+    var invalidEncoding = "invalid encoding";
+    base642.decode = function decode6(string2, buffer, offset) {
+      var start = offset;
+      var j = 0, t;
+      for (var i2 = 0; i2 < string2.length; ) {
+        var c = string2.charCodeAt(i2++);
+        if (c === 61 && j > 1)
+          break;
+        if ((c = s64[c]) === void 0)
+          throw Error(invalidEncoding);
+        switch (j) {
+          case 0:
+            t = c;
+            j = 1;
+            break;
+          case 1:
+            buffer[offset++] = t << 2 | (c & 48) >> 4;
+            t = c;
+            j = 2;
+            break;
+          case 2:
+            buffer[offset++] = (t & 15) << 4 | (c & 60) >> 2;
+            t = c;
+            j = 3;
+            break;
+          case 3:
+            buffer[offset++] = (t & 3) << 6 | c;
+            j = 0;
+            break;
+        }
+      }
+      if (j === 1)
+        throw Error(invalidEncoding);
+      return offset - start;
+    };
+    base642.test = function test(string2) {
+      return /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(string2);
+    };
+  }
+});
+
+// node_modules/.pnpm/@protobufjs+eventemitter@1.1.0/node_modules/@protobufjs/eventemitter/index.js
+var require_eventemitter = __commonJS({
+  "node_modules/.pnpm/@protobufjs+eventemitter@1.1.0/node_modules/@protobufjs/eventemitter/index.js"(exports2, module2) {
+    "use strict";
+    module2.exports = EventEmitter;
+    function EventEmitter() {
+      this._listeners = {};
+    }
+    EventEmitter.prototype.on = function on(evt, fn, ctx) {
+      (this._listeners[evt] || (this._listeners[evt] = [])).push({
+        fn,
+        ctx: ctx || this
+      });
+      return this;
+    };
+    EventEmitter.prototype.off = function off(evt, fn) {
+      if (evt === void 0)
+        this._listeners = {};
+      else {
+        if (fn === void 0)
+          this._listeners[evt] = [];
+        else {
+          var listeners = this._listeners[evt];
+          for (var i = 0; i < listeners.length; )
+            if (listeners[i].fn === fn)
+              listeners.splice(i, 1);
+            else
+              ++i;
+        }
+      }
+      return this;
+    };
+    EventEmitter.prototype.emit = function emit(evt) {
+      var listeners = this._listeners[evt];
+      if (listeners) {
+        var args = [], i = 1;
+        for (; i < arguments.length; )
+          args.push(arguments[i++]);
+        for (i = 0; i < listeners.length; )
+          listeners[i].fn.apply(listeners[i++].ctx, args);
+      }
+      return this;
+    };
+  }
+});
+
+// node_modules/.pnpm/@protobufjs+float@1.0.2/node_modules/@protobufjs/float/index.js
+var require_float2 = __commonJS({
+  "node_modules/.pnpm/@protobufjs+float@1.0.2/node_modules/@protobufjs/float/index.js"(exports2, module2) {
+    "use strict";
+    module2.exports = factory(factory);
+    function factory(exports3) {
+      if (typeof Float32Array !== "undefined")
+        (function() {
+          var f32 = new Float32Array([-0]), f8b = new Uint8Array(f32.buffer), le = f8b[3] === 128;
+          function writeFloat_f32_cpy(val, buf, pos) {
+            f32[0] = val;
+            buf[pos] = f8b[0];
+            buf[pos + 1] = f8b[1];
+            buf[pos + 2] = f8b[2];
+            buf[pos + 3] = f8b[3];
+          }
+          function writeFloat_f32_rev(val, buf, pos) {
+            f32[0] = val;
+            buf[pos] = f8b[3];
+            buf[pos + 1] = f8b[2];
+            buf[pos + 2] = f8b[1];
+            buf[pos + 3] = f8b[0];
+          }
+          exports3.writeFloatLE = le ? writeFloat_f32_cpy : writeFloat_f32_rev;
+          exports3.writeFloatBE = le ? writeFloat_f32_rev : writeFloat_f32_cpy;
+          function readFloat_f32_cpy(buf, pos) {
+            f8b[0] = buf[pos];
+            f8b[1] = buf[pos + 1];
+            f8b[2] = buf[pos + 2];
+            f8b[3] = buf[pos + 3];
+            return f32[0];
+          }
+          function readFloat_f32_rev(buf, pos) {
+            f8b[3] = buf[pos];
+            f8b[2] = buf[pos + 1];
+            f8b[1] = buf[pos + 2];
+            f8b[0] = buf[pos + 3];
+            return f32[0];
+          }
+          exports3.readFloatLE = le ? readFloat_f32_cpy : readFloat_f32_rev;
+          exports3.readFloatBE = le ? readFloat_f32_rev : readFloat_f32_cpy;
+        })();
+      else
+        (function() {
+          function writeFloat_ieee754(writeUint, val, buf, pos) {
+            var sign = val < 0 ? 1 : 0;
+            if (sign)
+              val = -val;
+            if (val === 0)
+              writeUint(1 / val > 0 ? (
+                /* positive */
+                0
+              ) : (
+                /* negative 0 */
+                2147483648
+              ), buf, pos);
+            else if (isNaN(val))
+              writeUint(2143289344, buf, pos);
+            else if (val > 34028234663852886e22)
+              writeUint((sign << 31 | 2139095040) >>> 0, buf, pos);
+            else if (val < 11754943508222875e-54)
+              writeUint((sign << 31 | Math.round(val / 1401298464324817e-60)) >>> 0, buf, pos);
+            else {
+              var exponent = Math.floor(Math.log(val) / Math.LN2), mantissa = Math.round(val * Math.pow(2, -exponent) * 8388608) & 8388607;
+              writeUint((sign << 31 | exponent + 127 << 23 | mantissa) >>> 0, buf, pos);
+            }
+          }
+          exports3.writeFloatLE = writeFloat_ieee754.bind(null, writeUintLE);
+          exports3.writeFloatBE = writeFloat_ieee754.bind(null, writeUintBE);
+          function readFloat_ieee754(readUint, buf, pos) {
+            var uint = readUint(buf, pos), sign = (uint >> 31) * 2 + 1, exponent = uint >>> 23 & 255, mantissa = uint & 8388607;
+            return exponent === 255 ? mantissa ? NaN : sign * Infinity : exponent === 0 ? sign * 1401298464324817e-60 * mantissa : sign * Math.pow(2, exponent - 150) * (mantissa + 8388608);
+          }
+          exports3.readFloatLE = readFloat_ieee754.bind(null, readUintLE);
+          exports3.readFloatBE = readFloat_ieee754.bind(null, readUintBE);
+        })();
+      if (typeof Float64Array !== "undefined")
+        (function() {
+          var f64 = new Float64Array([-0]), f8b = new Uint8Array(f64.buffer), le = f8b[7] === 128;
+          function writeDouble_f64_cpy(val, buf, pos) {
+            f64[0] = val;
+            buf[pos] = f8b[0];
+            buf[pos + 1] = f8b[1];
+            buf[pos + 2] = f8b[2];
+            buf[pos + 3] = f8b[3];
+            buf[pos + 4] = f8b[4];
+            buf[pos + 5] = f8b[5];
+            buf[pos + 6] = f8b[6];
+            buf[pos + 7] = f8b[7];
+          }
+          function writeDouble_f64_rev(val, buf, pos) {
+            f64[0] = val;
+            buf[pos] = f8b[7];
+            buf[pos + 1] = f8b[6];
+            buf[pos + 2] = f8b[5];
+            buf[pos + 3] = f8b[4];
+            buf[pos + 4] = f8b[3];
+            buf[pos + 5] = f8b[2];
+            buf[pos + 6] = f8b[1];
+            buf[pos + 7] = f8b[0];
+          }
+          exports3.writeDoubleLE = le ? writeDouble_f64_cpy : writeDouble_f64_rev;
+          exports3.writeDoubleBE = le ? writeDouble_f64_rev : writeDouble_f64_cpy;
+          function readDouble_f64_cpy(buf, pos) {
+            f8b[0] = buf[pos];
+            f8b[1] = buf[pos + 1];
+            f8b[2] = buf[pos + 2];
+            f8b[3] = buf[pos + 3];
+            f8b[4] = buf[pos + 4];
+            f8b[5] = buf[pos + 5];
+            f8b[6] = buf[pos + 6];
+            f8b[7] = buf[pos + 7];
+            return f64[0];
+          }
+          function readDouble_f64_rev(buf, pos) {
+            f8b[7] = buf[pos];
+            f8b[6] = buf[pos + 1];
+            f8b[5] = buf[pos + 2];
+            f8b[4] = buf[pos + 3];
+            f8b[3] = buf[pos + 4];
+            f8b[2] = buf[pos + 5];
+            f8b[1] = buf[pos + 6];
+            f8b[0] = buf[pos + 7];
+            return f64[0];
+          }
+          exports3.readDoubleLE = le ? readDouble_f64_cpy : readDouble_f64_rev;
+          exports3.readDoubleBE = le ? readDouble_f64_rev : readDouble_f64_cpy;
+        })();
+      else
+        (function() {
+          function writeDouble_ieee754(writeUint, off0, off1, val, buf, pos) {
+            var sign = val < 0 ? 1 : 0;
+            if (sign)
+              val = -val;
+            if (val === 0) {
+              writeUint(0, buf, pos + off0);
+              writeUint(1 / val > 0 ? (
+                /* positive */
+                0
+              ) : (
+                /* negative 0 */
+                2147483648
+              ), buf, pos + off1);
+            } else if (isNaN(val)) {
+              writeUint(0, buf, pos + off0);
+              writeUint(2146959360, buf, pos + off1);
+            } else if (val > 17976931348623157e292) {
+              writeUint(0, buf, pos + off0);
+              writeUint((sign << 31 | 2146435072) >>> 0, buf, pos + off1);
+            } else {
+              var mantissa;
+              if (val < 22250738585072014e-324) {
+                mantissa = val / 5e-324;
+                writeUint(mantissa >>> 0, buf, pos + off0);
+                writeUint((sign << 31 | mantissa / 4294967296) >>> 0, buf, pos + off1);
+              } else {
+                var exponent = Math.floor(Math.log(val) / Math.LN2);
+                if (exponent === 1024)
+                  exponent = 1023;
+                mantissa = val * Math.pow(2, -exponent);
+                writeUint(mantissa * 4503599627370496 >>> 0, buf, pos + off0);
+                writeUint((sign << 31 | exponent + 1023 << 20 | mantissa * 1048576 & 1048575) >>> 0, buf, pos + off1);
+              }
+            }
+          }
+          exports3.writeDoubleLE = writeDouble_ieee754.bind(null, writeUintLE, 0, 4);
+          exports3.writeDoubleBE = writeDouble_ieee754.bind(null, writeUintBE, 4, 0);
+          function readDouble_ieee754(readUint, off0, off1, buf, pos) {
+            var lo = readUint(buf, pos + off0), hi = readUint(buf, pos + off1);
+            var sign = (hi >> 31) * 2 + 1, exponent = hi >>> 20 & 2047, mantissa = 4294967296 * (hi & 1048575) + lo;
+            return exponent === 2047 ? mantissa ? NaN : sign * Infinity : exponent === 0 ? sign * 5e-324 * mantissa : sign * Math.pow(2, exponent - 1075) * (mantissa + 4503599627370496);
+          }
+          exports3.readDoubleLE = readDouble_ieee754.bind(null, readUintLE, 0, 4);
+          exports3.readDoubleBE = readDouble_ieee754.bind(null, readUintBE, 4, 0);
+        })();
+      return exports3;
+    }
+    function writeUintLE(val, buf, pos) {
+      buf[pos] = val & 255;
+      buf[pos + 1] = val >>> 8 & 255;
+      buf[pos + 2] = val >>> 16 & 255;
+      buf[pos + 3] = val >>> 24;
+    }
+    function writeUintBE(val, buf, pos) {
+      buf[pos] = val >>> 24;
+      buf[pos + 1] = val >>> 16 & 255;
+      buf[pos + 2] = val >>> 8 & 255;
+      buf[pos + 3] = val & 255;
+    }
+    function readUintLE(buf, pos) {
+      return (buf[pos] | buf[pos + 1] << 8 | buf[pos + 2] << 16 | buf[pos + 3] << 24) >>> 0;
+    }
+    function readUintBE(buf, pos) {
+      return (buf[pos] << 24 | buf[pos + 1] << 16 | buf[pos + 2] << 8 | buf[pos + 3]) >>> 0;
+    }
+  }
+});
+
+// node_modules/.pnpm/@protobufjs+inquire@1.1.0/node_modules/@protobufjs/inquire/index.js
+var require_inquire = __commonJS({
+  "node_modules/.pnpm/@protobufjs+inquire@1.1.0/node_modules/@protobufjs/inquire/index.js"(exports, module) {
+    "use strict";
+    module.exports = inquire;
+    function inquire(moduleName) {
+      try {
+        var mod = eval("quire".replace(/^/, "re"))(moduleName);
+        if (mod && (mod.length || Object.keys(mod).length))
+          return mod;
+      } catch (e) {
+      }
+      return null;
+    }
+  }
+});
+
+// node_modules/.pnpm/@protobufjs+utf8@1.1.0/node_modules/@protobufjs/utf8/index.js
+var require_utf8 = __commonJS({
+  "node_modules/.pnpm/@protobufjs+utf8@1.1.0/node_modules/@protobufjs/utf8/index.js"(exports2) {
+    "use strict";
+    var utf8 = exports2;
+    utf8.length = function utf8_length(string2) {
+      var len = 0, c = 0;
+      for (var i = 0; i < string2.length; ++i) {
+        c = string2.charCodeAt(i);
+        if (c < 128)
+          len += 1;
+        else if (c < 2048)
+          len += 2;
+        else if ((c & 64512) === 55296 && (string2.charCodeAt(i + 1) & 64512) === 56320) {
+          ++i;
+          len += 4;
+        } else
+          len += 3;
+      }
+      return len;
+    };
+    utf8.read = function utf8_read(buffer, start, end) {
+      var len = end - start;
+      if (len < 1)
+        return "";
+      var parts = null, chunk = [], i = 0, t;
+      while (start < end) {
+        t = buffer[start++];
+        if (t < 128)
+          chunk[i++] = t;
+        else if (t > 191 && t < 224)
+          chunk[i++] = (t & 31) << 6 | buffer[start++] & 63;
+        else if (t > 239 && t < 365) {
+          t = ((t & 7) << 18 | (buffer[start++] & 63) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63) - 65536;
+          chunk[i++] = 55296 + (t >> 10);
+          chunk[i++] = 56320 + (t & 1023);
+        } else
+          chunk[i++] = (t & 15) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63;
+        if (i > 8191) {
+          (parts || (parts = [])).push(String.fromCharCode.apply(String, chunk));
+          i = 0;
+        }
+      }
+      if (parts) {
+        if (i)
+          parts.push(String.fromCharCode.apply(String, chunk.slice(0, i)));
+        return parts.join("");
+      }
+      return String.fromCharCode.apply(String, chunk.slice(0, i));
+    };
+    utf8.write = function utf8_write(string2, buffer, offset) {
+      var start = offset, c1, c2;
+      for (var i = 0; i < string2.length; ++i) {
+        c1 = string2.charCodeAt(i);
+        if (c1 < 128) {
+          buffer[offset++] = c1;
+        } else if (c1 < 2048) {
+          buffer[offset++] = c1 >> 6 | 192;
+          buffer[offset++] = c1 & 63 | 128;
+        } else if ((c1 & 64512) === 55296 && ((c2 = string2.charCodeAt(i + 1)) & 64512) === 56320) {
+          c1 = 65536 + ((c1 & 1023) << 10) + (c2 & 1023);
+          ++i;
+          buffer[offset++] = c1 >> 18 | 240;
+          buffer[offset++] = c1 >> 12 & 63 | 128;
+          buffer[offset++] = c1 >> 6 & 63 | 128;
+          buffer[offset++] = c1 & 63 | 128;
+        } else {
+          buffer[offset++] = c1 >> 12 | 224;
+          buffer[offset++] = c1 >> 6 & 63 | 128;
+          buffer[offset++] = c1 & 63 | 128;
+        }
+      }
+      return offset - start;
+    };
+  }
+});
+
+// node_modules/.pnpm/@protobufjs+pool@1.1.0/node_modules/@protobufjs/pool/index.js
+var require_pool = __commonJS({
+  "node_modules/.pnpm/@protobufjs+pool@1.1.0/node_modules/@protobufjs/pool/index.js"(exports2, module2) {
+    "use strict";
+    module2.exports = pool;
+    function pool(alloc, slice, size) {
+      var SIZE = size || 8192;
+      var MAX = SIZE >>> 1;
+      var slab = null;
+      var offset = SIZE;
+      return function pool_alloc(size2) {
+        if (size2 < 1 || size2 > MAX)
+          return alloc(size2);
+        if (offset + size2 > SIZE) {
+          slab = alloc(SIZE);
+          offset = 0;
+        }
+        var buf = slice.call(slab, offset, offset += size2);
+        if (offset & 7)
+          offset = (offset | 7) + 1;
+        return buf;
+      };
+    }
+  }
+});
+
+// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/util/longbits.js
+var require_longbits = __commonJS({
+  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/util/longbits.js"(exports2, module2) {
+    "use strict";
+    module2.exports = LongBits;
+    var util2 = require_minimal();
+    function LongBits(lo, hi) {
+      this.lo = lo >>> 0;
+      this.hi = hi >>> 0;
+    }
+    var zero = LongBits.zero = new LongBits(0, 0);
+    zero.toNumber = function() {
+      return 0;
+    };
+    zero.zzEncode = zero.zzDecode = function() {
+      return this;
+    };
+    zero.length = function() {
+      return 1;
+    };
+    var zeroHash = LongBits.zeroHash = "\0\0\0\0\0\0\0\0";
+    LongBits.fromNumber = function fromNumber(value) {
+      if (value === 0)
+        return zero;
+      var sign = value < 0;
+      if (sign)
+        value = -value;
+      var lo = value >>> 0, hi = (value - lo) / 4294967296 >>> 0;
+      if (sign) {
+        hi = ~hi >>> 0;
+        lo = ~lo >>> 0;
+        if (++lo > 4294967295) {
+          lo = 0;
+          if (++hi > 4294967295)
+            hi = 0;
+        }
+      }
+      return new LongBits(lo, hi);
+    };
+    LongBits.from = function from3(value) {
+      if (typeof value === "number")
+        return LongBits.fromNumber(value);
+      if (util2.isString(value)) {
+        if (util2.Long)
+          value = util2.Long.fromString(value);
+        else
+          return LongBits.fromNumber(parseInt(value, 10));
+      }
+      return value.low || value.high ? new LongBits(value.low >>> 0, value.high >>> 0) : zero;
+    };
+    LongBits.prototype.toNumber = function toNumber(unsigned) {
+      if (!unsigned && this.hi >>> 31) {
+        var lo = ~this.lo + 1 >>> 0, hi = ~this.hi >>> 0;
+        if (!lo)
+          hi = hi + 1 >>> 0;
+        return -(lo + hi * 4294967296);
+      }
+      return this.lo + this.hi * 4294967296;
+    };
+    LongBits.prototype.toLong = function toLong(unsigned) {
+      return util2.Long ? new util2.Long(this.lo | 0, this.hi | 0, Boolean(unsigned)) : { low: this.lo | 0, high: this.hi | 0, unsigned: Boolean(unsigned) };
+    };
+    var charCodeAt = String.prototype.charCodeAt;
+    LongBits.fromHash = function fromHash(hash2) {
+      if (hash2 === zeroHash)
+        return zero;
+      return new LongBits(
+        (charCodeAt.call(hash2, 0) | charCodeAt.call(hash2, 1) << 8 | charCodeAt.call(hash2, 2) << 16 | charCodeAt.call(hash2, 3) << 24) >>> 0,
+        (charCodeAt.call(hash2, 4) | charCodeAt.call(hash2, 5) << 8 | charCodeAt.call(hash2, 6) << 16 | charCodeAt.call(hash2, 7) << 24) >>> 0
+      );
+    };
+    LongBits.prototype.toHash = function toHash() {
+      return String.fromCharCode(
+        this.lo & 255,
+        this.lo >>> 8 & 255,
+        this.lo >>> 16 & 255,
+        this.lo >>> 24,
+        this.hi & 255,
+        this.hi >>> 8 & 255,
+        this.hi >>> 16 & 255,
+        this.hi >>> 24
+      );
+    };
+    LongBits.prototype.zzEncode = function zzEncode() {
+      var mask = this.hi >> 31;
+      this.hi = ((this.hi << 1 | this.lo >>> 31) ^ mask) >>> 0;
+      this.lo = (this.lo << 1 ^ mask) >>> 0;
+      return this;
+    };
+    LongBits.prototype.zzDecode = function zzDecode() {
+      var mask = -(this.lo & 1);
+      this.lo = ((this.lo >>> 1 | this.hi << 31) ^ mask) >>> 0;
+      this.hi = (this.hi >>> 1 ^ mask) >>> 0;
+      return this;
+    };
+    LongBits.prototype.length = function length2() {
+      var part0 = this.lo, part1 = (this.lo >>> 28 | this.hi << 4) >>> 0, part2 = this.hi >>> 24;
+      return part2 === 0 ? part1 === 0 ? part0 < 16384 ? part0 < 128 ? 1 : 2 : part0 < 2097152 ? 3 : 4 : part1 < 16384 ? part1 < 128 ? 5 : 6 : part1 < 2097152 ? 7 : 8 : part2 < 128 ? 9 : 10;
+    };
+  }
+});
+
+// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/util/minimal.js
+var require_minimal = __commonJS({
+  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/util/minimal.js"(exports2) {
+    "use strict";
+    var util2 = exports2;
+    util2.asPromise = require_aspromise();
+    util2.base64 = require_base64();
+    util2.EventEmitter = require_eventemitter();
+    util2.float = require_float2();
+    util2.inquire = require_inquire();
+    util2.utf8 = require_utf8();
+    util2.pool = require_pool();
+    util2.LongBits = require_longbits();
+    util2.isNode = Boolean(typeof global !== "undefined" && global && global.process && global.process.versions && global.process.versions.node);
+    util2.global = util2.isNode && global || typeof window !== "undefined" && window || typeof self !== "undefined" && self || exports2;
+    util2.emptyArray = Object.freeze ? Object.freeze([]) : (
+      /* istanbul ignore next */
+      []
+    );
+    util2.emptyObject = Object.freeze ? Object.freeze({}) : (
+      /* istanbul ignore next */
+      {}
+    );
+    util2.isInteger = Number.isInteger || /* istanbul ignore next */
+    function isInteger(value) {
+      return typeof value === "number" && isFinite(value) && Math.floor(value) === value;
+    };
+    util2.isString = function isString(value) {
+      return typeof value === "string" || value instanceof String;
+    };
+    util2.isObject = function isObject3(value) {
+      return value && typeof value === "object";
+    };
+    util2.isset = /**
+     * Checks if a property on a message is considered to be present.
+     * @param {Object} obj Plain object or message instance
+     * @param {string} prop Property name
+     * @returns {boolean} `true` if considered to be present, otherwise `false`
+     */
+    util2.isSet = function isSet(obj, prop) {
+      var value = obj[prop];
+      if (value != null && obj.hasOwnProperty(prop))
+        return typeof value !== "object" || (Array.isArray(value) ? value.length : Object.keys(value).length) > 0;
+      return false;
+    };
+    util2.Buffer = function() {
+      try {
+        var Buffer2 = util2.inquire("buffer").Buffer;
+        return Buffer2.prototype.utf8Write ? Buffer2 : (
+          /* istanbul ignore next */
+          null
+        );
+      } catch (e) {
+        return null;
+      }
+    }();
+    util2._Buffer_from = null;
+    util2._Buffer_allocUnsafe = null;
+    util2.newBuffer = function newBuffer(sizeOrArray) {
+      return typeof sizeOrArray === "number" ? util2.Buffer ? util2._Buffer_allocUnsafe(sizeOrArray) : new util2.Array(sizeOrArray) : util2.Buffer ? util2._Buffer_from(sizeOrArray) : typeof Uint8Array === "undefined" ? sizeOrArray : new Uint8Array(sizeOrArray);
+    };
+    util2.Array = typeof Uint8Array !== "undefined" ? Uint8Array : Array;
+    util2.Long = /* istanbul ignore next */
+    util2.global.dcodeIO && /* istanbul ignore next */
+    util2.global.dcodeIO.Long || /* istanbul ignore next */
+    util2.global.Long || util2.inquire("long");
+    util2.key2Re = /^true|false|0|1$/;
+    util2.key32Re = /^-?(?:0|[1-9][0-9]*)$/;
+    util2.key64Re = /^(?:[\\x00-\\xff]{8}|-?(?:0|[1-9][0-9]*))$/;
+    util2.longToHash = function longToHash(value) {
+      return value ? util2.LongBits.from(value).toHash() : util2.LongBits.zeroHash;
+    };
+    util2.longFromHash = function longFromHash(hash2, unsigned) {
+      var bits = util2.LongBits.fromHash(hash2);
+      if (util2.Long)
+        return util2.Long.fromBits(bits.lo, bits.hi, unsigned);
+      return bits.toNumber(Boolean(unsigned));
+    };
+    function merge2(dst, src2, ifNotSet) {
+      for (var keys = Object.keys(src2), i = 0; i < keys.length; ++i)
+        if (dst[keys[i]] === void 0 || !ifNotSet)
+          dst[keys[i]] = src2[keys[i]];
+      return dst;
+    }
+    util2.merge = merge2;
+    util2.lcFirst = function lcFirst(str2) {
+      return str2.charAt(0).toLowerCase() + str2.substring(1);
+    };
+    function newError(name2) {
+      function CustomError(message2, properties) {
+        if (!(this instanceof CustomError))
+          return new CustomError(message2, properties);
+        Object.defineProperty(this, "message", { get: function() {
+          return message2;
+        } });
+        if (Error.captureStackTrace)
+          Error.captureStackTrace(this, CustomError);
+        else
+          Object.defineProperty(this, "stack", { value: new Error().stack || "" });
+        if (properties)
+          merge2(this, properties);
+      }
+      CustomError.prototype = Object.create(Error.prototype, {
+        constructor: {
+          value: CustomError,
+          writable: true,
+          enumerable: false,
+          configurable: true
+        },
+        name: {
+          get: function get() {
+            return name2;
+          },
+          set: void 0,
+          enumerable: false,
+          // configurable: false would accurately preserve the behavior of
+          // the original, but I'm guessing that was not intentional.
+          // For an actual error subclass, this property would
+          // be configurable.
+          configurable: true
+        },
+        toString: {
+          value: function value() {
+            return this.name + ": " + this.message;
+          },
+          writable: true,
+          enumerable: false,
+          configurable: true
+        }
+      });
+      return CustomError;
+    }
+    util2.newError = newError;
+    util2.ProtocolError = newError("ProtocolError");
+    util2.oneOfGetter = function getOneOf(fieldNames) {
+      var fieldMap = {};
+      for (var i = 0; i < fieldNames.length; ++i)
+        fieldMap[fieldNames[i]] = 1;
+      return function() {
+        for (var keys = Object.keys(this), i2 = keys.length - 1; i2 > -1; --i2)
+          if (fieldMap[keys[i2]] === 1 && this[keys[i2]] !== void 0 && this[keys[i2]] !== null)
+            return keys[i2];
+      };
+    };
+    util2.oneOfSetter = function setOneOf(fieldNames) {
+      return function(name2) {
+        for (var i = 0; i < fieldNames.length; ++i)
+          if (fieldNames[i] !== name2)
+            delete this[fieldNames[i]];
+      };
+    };
+    util2.toJSONOptions = {
+      longs: String,
+      enums: String,
+      bytes: String,
+      json: true
+    };
+    util2._configure = function() {
+      var Buffer2 = util2.Buffer;
+      if (!Buffer2) {
+        util2._Buffer_from = util2._Buffer_allocUnsafe = null;
+        return;
+      }
+      util2._Buffer_from = Buffer2.from !== Uint8Array.from && Buffer2.from || /* istanbul ignore next */
+      function Buffer_from(value, encoding) {
+        return new Buffer2(value, encoding);
+      };
+      util2._Buffer_allocUnsafe = Buffer2.allocUnsafe || /* istanbul ignore next */
+      function Buffer_allocUnsafe(size) {
+        return new Buffer2(size);
+      };
+    };
+  }
+});
+
+// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/reader.js
+var require_reader = __commonJS({
+  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/reader.js"(exports2, module2) {
+    "use strict";
+    module2.exports = Reader;
+    var util2 = require_minimal();
+    var BufferReader;
+    var LongBits = util2.LongBits;
+    var utf8 = util2.utf8;
+    function indexOutOfRange(reader2, writeLength) {
+      return RangeError("index out of range: " + reader2.pos + " + " + (writeLength || 1) + " > " + reader2.len);
+    }
+    function Reader(buffer) {
+      this.buf = buffer;
+      this.pos = 0;
+      this.len = buffer.length;
+    }
+    var create_array = typeof Uint8Array !== "undefined" ? function create_typed_array(buffer) {
+      if (buffer instanceof Uint8Array || Array.isArray(buffer))
+        return new Reader(buffer);
+      throw Error("illegal buffer");
+    } : function create_array2(buffer) {
+      if (Array.isArray(buffer))
+        return new Reader(buffer);
+      throw Error("illegal buffer");
+    };
+    var create3 = function create4() {
+      return util2.Buffer ? function create_buffer_setup(buffer) {
+        return (Reader.create = function create_buffer(buffer2) {
+          return util2.Buffer.isBuffer(buffer2) ? new BufferReader(buffer2) : create_array(buffer2);
+        })(buffer);
+      } : create_array;
+    };
+    Reader.create = create3();
+    Reader.prototype._slice = util2.Array.prototype.subarray || /* istanbul ignore next */
+    util2.Array.prototype.slice;
+    Reader.prototype.uint32 = function read_uint32_setup() {
+      var value = 4294967295;
+      return function read_uint32() {
+        value = (this.buf[this.pos] & 127) >>> 0;
+        if (this.buf[this.pos++] < 128)
+          return value;
+        value = (value | (this.buf[this.pos] & 127) << 7) >>> 0;
+        if (this.buf[this.pos++] < 128)
+          return value;
+        value = (value | (this.buf[this.pos] & 127) << 14) >>> 0;
+        if (this.buf[this.pos++] < 128)
+          return value;
+        value = (value | (this.buf[this.pos] & 127) << 21) >>> 0;
+        if (this.buf[this.pos++] < 128)
+          return value;
+        value = (value | (this.buf[this.pos] & 15) << 28) >>> 0;
+        if (this.buf[this.pos++] < 128)
+          return value;
+        if ((this.pos += 5) > this.len) {
+          this.pos = this.len;
+          throw indexOutOfRange(this, 10);
+        }
+        return value;
+      };
+    }();
+    Reader.prototype.int32 = function read_int32() {
+      return this.uint32() | 0;
+    };
+    Reader.prototype.sint32 = function read_sint32() {
+      var value = this.uint32();
+      return value >>> 1 ^ -(value & 1) | 0;
+    };
+    function readLongVarint() {
+      var bits = new LongBits(0, 0);
+      var i = 0;
+      if (this.len - this.pos > 4) {
+        for (; i < 4; ++i) {
+          bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i * 7) >>> 0;
+          if (this.buf[this.pos++] < 128)
+            return bits;
+        }
+        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << 28) >>> 0;
+        bits.hi = (bits.hi | (this.buf[this.pos] & 127) >> 4) >>> 0;
+        if (this.buf[this.pos++] < 128)
+          return bits;
+        i = 0;
+      } else {
+        for (; i < 3; ++i) {
+          if (this.pos >= this.len)
+            throw indexOutOfRange(this);
+          bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i * 7) >>> 0;
+          if (this.buf[this.pos++] < 128)
+            return bits;
+        }
+        bits.lo = (bits.lo | (this.buf[this.pos++] & 127) << i * 7) >>> 0;
+        return bits;
+      }
+      if (this.len - this.pos > 4) {
+        for (; i < 5; ++i) {
+          bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i * 7 + 3) >>> 0;
+          if (this.buf[this.pos++] < 128)
+            return bits;
+        }
+      } else {
+        for (; i < 5; ++i) {
+          if (this.pos >= this.len)
+            throw indexOutOfRange(this);
+          bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i * 7 + 3) >>> 0;
+          if (this.buf[this.pos++] < 128)
+            return bits;
+        }
+      }
+      throw Error("invalid varint encoding");
+    }
+    Reader.prototype.bool = function read_bool() {
+      return this.uint32() !== 0;
+    };
+    function readFixed32_end(buf, end) {
+      return (buf[end - 4] | buf[end - 3] << 8 | buf[end - 2] << 16 | buf[end - 1] << 24) >>> 0;
+    }
+    Reader.prototype.fixed32 = function read_fixed32() {
+      if (this.pos + 4 > this.len)
+        throw indexOutOfRange(this, 4);
+      return readFixed32_end(this.buf, this.pos += 4);
+    };
+    Reader.prototype.sfixed32 = function read_sfixed32() {
+      if (this.pos + 4 > this.len)
+        throw indexOutOfRange(this, 4);
+      return readFixed32_end(this.buf, this.pos += 4) | 0;
+    };
+    function readFixed64() {
+      if (this.pos + 8 > this.len)
+        throw indexOutOfRange(this, 8);
+      return new LongBits(readFixed32_end(this.buf, this.pos += 4), readFixed32_end(this.buf, this.pos += 4));
+    }
+    Reader.prototype.float = function read_float() {
+      if (this.pos + 4 > this.len)
+        throw indexOutOfRange(this, 4);
+      var value = util2.float.readFloatLE(this.buf, this.pos);
+      this.pos += 4;
+      return value;
+    };
+    Reader.prototype.double = function read_double() {
+      if (this.pos + 8 > this.len)
+        throw indexOutOfRange(this, 4);
+      var value = util2.float.readDoubleLE(this.buf, this.pos);
+      this.pos += 8;
+      return value;
+    };
+    Reader.prototype.bytes = function read_bytes() {
+      var length2 = this.uint32(), start = this.pos, end = this.pos + length2;
+      if (end > this.len)
+        throw indexOutOfRange(this, length2);
+      this.pos += length2;
+      if (Array.isArray(this.buf))
+        return this.buf.slice(start, end);
+      if (start === end) {
+        var nativeBuffer = util2.Buffer;
+        return nativeBuffer ? nativeBuffer.alloc(0) : new this.buf.constructor(0);
+      }
+      return this._slice.call(this.buf, start, end);
+    };
+    Reader.prototype.string = function read_string() {
+      var bytes2 = this.bytes();
+      return utf8.read(bytes2, 0, bytes2.length);
+    };
+    Reader.prototype.skip = function skip(length2) {
+      if (typeof length2 === "number") {
+        if (this.pos + length2 > this.len)
+          throw indexOutOfRange(this, length2);
+        this.pos += length2;
+      } else {
+        do {
+          if (this.pos >= this.len)
+            throw indexOutOfRange(this);
+        } while (this.buf[this.pos++] & 128);
+      }
+      return this;
+    };
+    Reader.prototype.skipType = function(wireType) {
+      switch (wireType) {
+        case 0:
+          this.skip();
+          break;
+        case 1:
+          this.skip(8);
+          break;
+        case 2:
+          this.skip(this.uint32());
+          break;
+        case 3:
+          while ((wireType = this.uint32() & 7) !== 4) {
+            this.skipType(wireType);
+          }
+          break;
+        case 5:
+          this.skip(4);
+          break;
+        default:
+          throw Error("invalid wire type " + wireType + " at offset " + this.pos);
+      }
+      return this;
+    };
+    Reader._configure = function(BufferReader_) {
+      BufferReader = BufferReader_;
+      Reader.create = create3();
+      BufferReader._configure();
+      var fn = util2.Long ? "toLong" : (
+        /* istanbul ignore next */
+        "toNumber"
+      );
+      util2.merge(Reader.prototype, {
+        int64: function read_int64() {
+          return readLongVarint.call(this)[fn](false);
+        },
+        uint64: function read_uint64() {
+          return readLongVarint.call(this)[fn](true);
+        },
+        sint64: function read_sint64() {
+          return readLongVarint.call(this).zzDecode()[fn](false);
+        },
+        fixed64: function read_fixed64() {
+          return readFixed64.call(this)[fn](true);
+        },
+        sfixed64: function read_sfixed64() {
+          return readFixed64.call(this)[fn](false);
+        }
+      });
+    };
+  }
+});
+
+// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/reader_buffer.js
+var require_reader_buffer = __commonJS({
+  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/reader_buffer.js"(exports2, module2) {
+    "use strict";
+    module2.exports = BufferReader;
+    var Reader = require_reader();
+    (BufferReader.prototype = Object.create(Reader.prototype)).constructor = BufferReader;
+    var util2 = require_minimal();
+    function BufferReader(buffer) {
+      Reader.call(this, buffer);
+    }
+    BufferReader._configure = function() {
+      if (util2.Buffer)
+        BufferReader.prototype._slice = util2.Buffer.prototype.slice;
+    };
+    BufferReader.prototype.string = function read_string_buffer() {
+      var len = this.uint32();
+      return this.buf.utf8Slice ? this.buf.utf8Slice(this.pos, this.pos = Math.min(this.pos + len, this.len)) : this.buf.toString("utf-8", this.pos, this.pos = Math.min(this.pos + len, this.len));
+    };
+    BufferReader._configure();
+  }
+});
+
+// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/writer.js
+var require_writer = __commonJS({
+  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/writer.js"(exports2, module2) {
+    "use strict";
+    module2.exports = Writer;
+    var util2 = require_minimal();
+    var BufferWriter;
+    var LongBits = util2.LongBits;
+    var base642 = util2.base64;
+    var utf8 = util2.utf8;
+    function Op(fn, len, val) {
+      this.fn = fn;
+      this.len = len;
+      this.next = void 0;
+      this.val = val;
+    }
+    function noop() {
+    }
+    function State(writer2) {
+      this.head = writer2.head;
+      this.tail = writer2.tail;
+      this.len = writer2.len;
+      this.next = writer2.states;
+    }
+    function Writer() {
+      this.len = 0;
+      this.head = new Op(noop, 0, 0);
+      this.tail = this.head;
+      this.states = null;
+    }
+    var create3 = function create4() {
+      return util2.Buffer ? function create_buffer_setup() {
+        return (Writer.create = function create_buffer() {
+          return new BufferWriter();
+        })();
+      } : function create_array() {
+        return new Writer();
+      };
+    };
+    Writer.create = create3();
+    Writer.alloc = function alloc(size) {
+      return new util2.Array(size);
+    };
+    if (util2.Array !== Array)
+      Writer.alloc = util2.pool(Writer.alloc, util2.Array.prototype.subarray);
+    Writer.prototype._push = function push(fn, len, val) {
+      this.tail = this.tail.next = new Op(fn, len, val);
+      this.len += len;
+      return this;
+    };
+    function writeByte(val, buf, pos) {
+      buf[pos] = val & 255;
+    }
+    function writeVarint32(val, buf, pos) {
+      while (val > 127) {
+        buf[pos++] = val & 127 | 128;
+        val >>>= 7;
+      }
+      buf[pos] = val;
+    }
+    function VarintOp(len, val) {
+      this.len = len;
+      this.next = void 0;
+      this.val = val;
+    }
+    VarintOp.prototype = Object.create(Op.prototype);
+    VarintOp.prototype.fn = writeVarint32;
+    Writer.prototype.uint32 = function write_uint32(value) {
+      this.len += (this.tail = this.tail.next = new VarintOp(
+        (value = value >>> 0) < 128 ? 1 : value < 16384 ? 2 : value < 2097152 ? 3 : value < 268435456 ? 4 : 5,
+        value
+      )).len;
+      return this;
+    };
+    Writer.prototype.int32 = function write_int32(value) {
+      return value < 0 ? this._push(writeVarint64, 10, LongBits.fromNumber(value)) : this.uint32(value);
+    };
+    Writer.prototype.sint32 = function write_sint32(value) {
+      return this.uint32((value << 1 ^ value >> 31) >>> 0);
+    };
+    function writeVarint64(val, buf, pos) {
+      while (val.hi) {
+        buf[pos++] = val.lo & 127 | 128;
+        val.lo = (val.lo >>> 7 | val.hi << 25) >>> 0;
+        val.hi >>>= 7;
+      }
+      while (val.lo > 127) {
+        buf[pos++] = val.lo & 127 | 128;
+        val.lo = val.lo >>> 7;
+      }
+      buf[pos++] = val.lo;
+    }
+    Writer.prototype.uint64 = function write_uint64(value) {
+      var bits = LongBits.from(value);
+      return this._push(writeVarint64, bits.length(), bits);
+    };
+    Writer.prototype.int64 = Writer.prototype.uint64;
+    Writer.prototype.sint64 = function write_sint64(value) {
+      var bits = LongBits.from(value).zzEncode();
+      return this._push(writeVarint64, bits.length(), bits);
+    };
+    Writer.prototype.bool = function write_bool(value) {
+      return this._push(writeByte, 1, value ? 1 : 0);
+    };
+    function writeFixed32(val, buf, pos) {
+      buf[pos] = val & 255;
+      buf[pos + 1] = val >>> 8 & 255;
+      buf[pos + 2] = val >>> 16 & 255;
+      buf[pos + 3] = val >>> 24;
+    }
+    Writer.prototype.fixed32 = function write_fixed32(value) {
+      return this._push(writeFixed32, 4, value >>> 0);
+    };
+    Writer.prototype.sfixed32 = Writer.prototype.fixed32;
+    Writer.prototype.fixed64 = function write_fixed64(value) {
+      var bits = LongBits.from(value);
+      return this._push(writeFixed32, 4, bits.lo)._push(writeFixed32, 4, bits.hi);
+    };
+    Writer.prototype.sfixed64 = Writer.prototype.fixed64;
+    Writer.prototype.float = function write_float(value) {
+      return this._push(util2.float.writeFloatLE, 4, value);
+    };
+    Writer.prototype.double = function write_double(value) {
+      return this._push(util2.float.writeDoubleLE, 8, value);
+    };
+    var writeBytes = util2.Array.prototype.set ? function writeBytes_set(val, buf, pos) {
+      buf.set(val, pos);
+    } : function writeBytes_for(val, buf, pos) {
+      for (var i = 0; i < val.length; ++i)
+        buf[pos + i] = val[i];
+    };
+    Writer.prototype.bytes = function write_bytes(value) {
+      var len = value.length >>> 0;
+      if (!len)
+        return this._push(writeByte, 1, 0);
+      if (util2.isString(value)) {
+        var buf = Writer.alloc(len = base642.length(value));
+        base642.decode(value, buf, 0);
+        value = buf;
+      }
+      return this.uint32(len)._push(writeBytes, len, value);
+    };
+    Writer.prototype.string = function write_string(value) {
+      var len = utf8.length(value);
+      return len ? this.uint32(len)._push(utf8.write, len, value) : this._push(writeByte, 1, 0);
+    };
+    Writer.prototype.fork = function fork() {
+      this.states = new State(this);
+      this.head = this.tail = new Op(noop, 0, 0);
+      this.len = 0;
+      return this;
+    };
+    Writer.prototype.reset = function reset() {
+      if (this.states) {
+        this.head = this.states.head;
+        this.tail = this.states.tail;
+        this.len = this.states.len;
+        this.states = this.states.next;
+      } else {
+        this.head = this.tail = new Op(noop, 0, 0);
+        this.len = 0;
+      }
+      return this;
+    };
+    Writer.prototype.ldelim = function ldelim() {
+      var head = this.head, tail = this.tail, len = this.len;
+      this.reset().uint32(len);
+      if (len) {
+        this.tail.next = head.next;
+        this.tail = tail;
+        this.len += len;
+      }
+      return this;
+    };
+    Writer.prototype.finish = function finish() {
+      var head = this.head.next, buf = this.constructor.alloc(this.len), pos = 0;
+      while (head) {
+        head.fn(head.val, buf, pos);
+        pos += head.len;
+        head = head.next;
+      }
+      return buf;
+    };
+    Writer._configure = function(BufferWriter_) {
+      BufferWriter = BufferWriter_;
+      Writer.create = create3();
+      BufferWriter._configure();
+    };
+  }
+});
+
+// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/writer_buffer.js
+var require_writer_buffer = __commonJS({
+  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/writer_buffer.js"(exports2, module2) {
+    "use strict";
+    module2.exports = BufferWriter;
+    var Writer = require_writer();
+    (BufferWriter.prototype = Object.create(Writer.prototype)).constructor = BufferWriter;
+    var util2 = require_minimal();
+    function BufferWriter() {
+      Writer.call(this);
+    }
+    BufferWriter._configure = function() {
+      BufferWriter.alloc = util2._Buffer_allocUnsafe;
+      BufferWriter.writeBytesBuffer = util2.Buffer && util2.Buffer.prototype instanceof Uint8Array && util2.Buffer.prototype.set.name === "set" ? function writeBytesBuffer_set(val, buf, pos) {
+        buf.set(val, pos);
+      } : function writeBytesBuffer_copy(val, buf, pos) {
+        if (val.copy)
+          val.copy(buf, pos, 0, val.length);
+        else
+          for (var i = 0; i < val.length; )
+            buf[pos++] = val[i++];
+      };
+    };
+    BufferWriter.prototype.bytes = function write_bytes_buffer(value) {
+      if (util2.isString(value))
+        value = util2._Buffer_from(value, "base64");
+      var len = value.length >>> 0;
+      this.uint32(len);
+      if (len)
+        this._push(BufferWriter.writeBytesBuffer, len, value);
+      return this;
+    };
+    function writeStringBuffer(val, buf, pos) {
+      if (val.length < 40)
+        util2.utf8.write(val, buf, pos);
+      else if (buf.utf8Write)
+        buf.utf8Write(val, pos);
+      else
+        buf.write(val, pos);
+    }
+    BufferWriter.prototype.string = function write_string_buffer(value) {
+      var len = util2.Buffer.byteLength(value);
+      this.uint32(len);
+      if (len)
+        this._push(writeStringBuffer, len, value);
+      return this;
+    };
+    BufferWriter._configure();
+  }
+});
+
+// node_modules/.pnpm/ms@2.1.2/node_modules/ms/index.js
+var require_ms = __commonJS({
+  "node_modules/.pnpm/ms@2.1.2/node_modules/ms/index.js"(exports2, module2) {
+    var s = 1e3;
+    var m = s * 60;
+    var h2 = m * 60;
+    var d = h2 * 24;
+    var w = d * 7;
+    var y = d * 365.25;
+    module2.exports = function(val, options2) {
+      options2 = options2 || {};
+      var type = typeof val;
+      if (type === "string" && val.length > 0) {
+        return parse2(val);
+      } else if (type === "number" && isFinite(val)) {
+        return options2.long ? fmtLong(val) : fmtShort(val);
+      }
+      throw new Error(
+        "val is not a non-empty string or a valid number. val=" + JSON.stringify(val)
+      );
+    };
+    function parse2(str2) {
+      str2 = String(str2);
+      if (str2.length > 100) {
+        return;
+      }
+      var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+        str2
+      );
+      if (!match) {
+        return;
+      }
+      var n = parseFloat(match[1]);
+      var type = (match[2] || "ms").toLowerCase();
+      switch (type) {
+        case "years":
+        case "year":
+        case "yrs":
+        case "yr":
+        case "y":
+          return n * y;
+        case "weeks":
+        case "week":
+        case "w":
+          return n * w;
+        case "days":
+        case "day":
+        case "d":
+          return n * d;
+        case "hours":
+        case "hour":
+        case "hrs":
+        case "hr":
+        case "h":
+          return n * h2;
+        case "minutes":
+        case "minute":
+        case "mins":
+        case "min":
+        case "m":
+          return n * m;
+        case "seconds":
+        case "second":
+        case "secs":
+        case "sec":
+        case "s":
+          return n * s;
+        case "milliseconds":
+        case "millisecond":
+        case "msecs":
+        case "msec":
+        case "ms":
+          return n;
+        default:
+          return void 0;
+      }
+    }
+    function fmtShort(ms) {
+      var msAbs = Math.abs(ms);
+      if (msAbs >= d) {
+        return Math.round(ms / d) + "d";
+      }
+      if (msAbs >= h2) {
+        return Math.round(ms / h2) + "h";
+      }
+      if (msAbs >= m) {
+        return Math.round(ms / m) + "m";
+      }
+      if (msAbs >= s) {
+        return Math.round(ms / s) + "s";
+      }
+      return ms + "ms";
+    }
+    function fmtLong(ms) {
+      var msAbs = Math.abs(ms);
+      if (msAbs >= d) {
+        return plural(ms, msAbs, d, "day");
+      }
+      if (msAbs >= h2) {
+        return plural(ms, msAbs, h2, "hour");
+      }
+      if (msAbs >= m) {
+        return plural(ms, msAbs, m, "minute");
+      }
+      if (msAbs >= s) {
+        return plural(ms, msAbs, s, "second");
+      }
+      return ms + " ms";
+    }
+    function plural(ms, msAbs, n, name2) {
+      var isPlural = msAbs >= n * 1.5;
+      return Math.round(ms / n) + " " + name2 + (isPlural ? "s" : "");
+    }
+  }
+});
+
+// node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/common.js
+var require_common2 = __commonJS({
+  "node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/common.js"(exports2, module2) {
+    function setup(env) {
+      createDebug.debug = createDebug;
+      createDebug.default = createDebug;
+      createDebug.coerce = coerce2;
+      createDebug.disable = disable;
+      createDebug.enable = enable;
+      createDebug.enabled = enabled;
+      createDebug.humanize = require_ms();
+      createDebug.destroy = destroy;
+      Object.keys(env).forEach((key) => {
+        createDebug[key] = env[key];
+      });
+      createDebug.names = [];
+      createDebug.skips = [];
+      createDebug.formatters = {};
+      function selectColor(namespace) {
+        let hash2 = 0;
+        for (let i = 0; i < namespace.length; i++) {
+          hash2 = (hash2 << 5) - hash2 + namespace.charCodeAt(i);
+          hash2 |= 0;
+        }
+        return createDebug.colors[Math.abs(hash2) % createDebug.colors.length];
+      }
+      createDebug.selectColor = selectColor;
+      function createDebug(namespace) {
+        let prevTime;
+        let enableOverride = null;
+        let namespacesCache;
+        let enabledCache;
+        function debug2(...args) {
+          if (!debug2.enabled) {
+            return;
+          }
+          const self2 = debug2;
+          const curr = Number(/* @__PURE__ */ new Date());
+          const ms = curr - (prevTime || curr);
+          self2.diff = ms;
+          self2.prev = prevTime;
+          self2.curr = curr;
+          prevTime = curr;
+          args[0] = createDebug.coerce(args[0]);
+          if (typeof args[0] !== "string") {
+            args.unshift("%O");
+          }
+          let index2 = 0;
+          args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format2) => {
+            if (match === "%%") {
+              return "%";
+            }
+            index2++;
+            const formatter = createDebug.formatters[format2];
+            if (typeof formatter === "function") {
+              const val = args[index2];
+              match = formatter.call(self2, val);
+              args.splice(index2, 1);
+              index2--;
+            }
+            return match;
+          });
+          createDebug.formatArgs.call(self2, args);
+          const logFn = self2.log || createDebug.log;
+          logFn.apply(self2, args);
+        }
+        debug2.namespace = namespace;
+        debug2.useColors = createDebug.useColors();
+        debug2.color = createDebug.selectColor(namespace);
+        debug2.extend = extend;
+        debug2.destroy = createDebug.destroy;
+        Object.defineProperty(debug2, "enabled", {
+          enumerable: true,
+          configurable: false,
+          get: () => {
+            if (enableOverride !== null) {
+              return enableOverride;
+            }
+            if (namespacesCache !== createDebug.namespaces) {
+              namespacesCache = createDebug.namespaces;
+              enabledCache = createDebug.enabled(namespace);
+            }
+            return enabledCache;
+          },
+          set: (v2) => {
+            enableOverride = v2;
+          }
+        });
+        if (typeof createDebug.init === "function") {
+          createDebug.init(debug2);
+        }
+        return debug2;
+      }
+      function extend(namespace, delimiter) {
+        const newDebug = createDebug(this.namespace + (typeof delimiter === "undefined" ? ":" : delimiter) + namespace);
+        newDebug.log = this.log;
+        return newDebug;
+      }
+      function enable(namespaces) {
+        createDebug.save(namespaces);
+        createDebug.namespaces = namespaces;
+        createDebug.names = [];
+        createDebug.skips = [];
+        let i;
+        const split2 = (typeof namespaces === "string" ? namespaces : "").split(/[\s,]+/);
+        const len = split2.length;
+        for (i = 0; i < len; i++) {
+          if (!split2[i]) {
+            continue;
+          }
+          namespaces = split2[i].replace(/\*/g, ".*?");
+          if (namespaces[0] === "-") {
+            createDebug.skips.push(new RegExp("^" + namespaces.slice(1) + "$"));
+          } else {
+            createDebug.names.push(new RegExp("^" + namespaces + "$"));
+          }
+        }
+      }
+      function disable() {
+        const namespaces = [
+          ...createDebug.names.map(toNamespace),
+          ...createDebug.skips.map(toNamespace).map((namespace) => "-" + namespace)
+        ].join(",");
+        createDebug.enable("");
+        return namespaces;
+      }
+      function enabled(name2) {
+        if (name2[name2.length - 1] === "*") {
+          return true;
+        }
+        let i;
+        let len;
+        for (i = 0, len = createDebug.skips.length; i < len; i++) {
+          if (createDebug.skips[i].test(name2)) {
+            return false;
+          }
+        }
+        for (i = 0, len = createDebug.names.length; i < len; i++) {
+          if (createDebug.names[i].test(name2)) {
+            return true;
+          }
+        }
+        return false;
+      }
+      function toNamespace(regexp) {
+        return regexp.toString().substring(2, regexp.toString().length - 2).replace(/\.\*\?$/, "*");
+      }
+      function coerce2(val) {
+        if (val instanceof Error) {
+          return val.stack || val.message;
+        }
+        return val;
+      }
+      function destroy() {
+        console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.");
+      }
+      createDebug.enable(createDebug.load());
+      return createDebug;
+    }
+    module2.exports = setup;
+  }
+});
+
+// node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/browser.js
+var require_browser = __commonJS({
+  "node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/browser.js"(exports2, module2) {
+    exports2.formatArgs = formatArgs;
+    exports2.save = save;
+    exports2.load = load;
+    exports2.useColors = useColors;
+    exports2.storage = localstorage();
+    exports2.destroy = (() => {
+      let warned2 = false;
+      return () => {
+        if (!warned2) {
+          warned2 = true;
+          console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.");
+        }
+      };
+    })();
+    exports2.colors = [
+      "#0000CC",
+      "#0000FF",
+      "#0033CC",
+      "#0033FF",
+      "#0066CC",
+      "#0066FF",
+      "#0099CC",
+      "#0099FF",
+      "#00CC00",
+      "#00CC33",
+      "#00CC66",
+      "#00CC99",
+      "#00CCCC",
+      "#00CCFF",
+      "#3300CC",
+      "#3300FF",
+      "#3333CC",
+      "#3333FF",
+      "#3366CC",
+      "#3366FF",
+      "#3399CC",
+      "#3399FF",
+      "#33CC00",
+      "#33CC33",
+      "#33CC66",
+      "#33CC99",
+      "#33CCCC",
+      "#33CCFF",
+      "#6600CC",
+      "#6600FF",
+      "#6633CC",
+      "#6633FF",
+      "#66CC00",
+      "#66CC33",
+      "#9900CC",
+      "#9900FF",
+      "#9933CC",
+      "#9933FF",
+      "#99CC00",
+      "#99CC33",
+      "#CC0000",
+      "#CC0033",
+      "#CC0066",
+      "#CC0099",
+      "#CC00CC",
+      "#CC00FF",
+      "#CC3300",
+      "#CC3333",
+      "#CC3366",
+      "#CC3399",
+      "#CC33CC",
+      "#CC33FF",
+      "#CC6600",
+      "#CC6633",
+      "#CC9900",
+      "#CC9933",
+      "#CCCC00",
+      "#CCCC33",
+      "#FF0000",
+      "#FF0033",
+      "#FF0066",
+      "#FF0099",
+      "#FF00CC",
+      "#FF00FF",
+      "#FF3300",
+      "#FF3333",
+      "#FF3366",
+      "#FF3399",
+      "#FF33CC",
+      "#FF33FF",
+      "#FF6600",
+      "#FF6633",
+      "#FF9900",
+      "#FF9933",
+      "#FFCC00",
+      "#FFCC33"
+    ];
+    function useColors() {
+      if (typeof window !== "undefined" && window.process && (window.process.type === "renderer" || window.process.__nwjs)) {
+        return true;
+      }
+      if (typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+        return false;
+      }
+      return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || // Is firebug? http://stackoverflow.com/a/398120/376773
+      typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || // Is firefox >= v31?
+      // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+      typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || // Double check webkit in userAgent just in case we are in a worker
+      typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+    }
+    function formatArgs(args) {
+      args[0] = (this.useColors ? "%c" : "") + this.namespace + (this.useColors ? " %c" : " ") + args[0] + (this.useColors ? "%c " : " ") + "+" + module2.exports.humanize(this.diff);
+      if (!this.useColors) {
+        return;
+      }
+      const c = "color: " + this.color;
+      args.splice(1, 0, c, "color: inherit");
+      let index2 = 0;
+      let lastC = 0;
+      args[0].replace(/%[a-zA-Z%]/g, (match) => {
+        if (match === "%%") {
+          return;
+        }
+        index2++;
+        if (match === "%c") {
+          lastC = index2;
+        }
+      });
+      args.splice(lastC, 0, c);
+    }
+    exports2.log = console.debug || console.log || (() => {
+    });
+    function save(namespaces) {
+      try {
+        if (namespaces) {
+          exports2.storage.setItem("debug", namespaces);
+        } else {
+          exports2.storage.removeItem("debug");
+        }
+      } catch (error) {
+      }
+    }
+    function load() {
+      let r;
+      try {
+        r = exports2.storage.getItem("debug");
+      } catch (error) {
+      }
+      if (!r && typeof process !== "undefined" && "env" in process) {
+        r = process.env.DEBUG;
+      }
+      return r;
+    }
+    function localstorage() {
+      try {
+        return localStorage;
+      } catch (error) {
+      }
+    }
+    module2.exports = require_common2()(exports2);
+    var { formatters } = module2.exports;
+    formatters.j = function(v2) {
+      try {
+        return JSON.stringify(v2);
+      } catch (error) {
+        return "[UnexpectedJSONParseError]: " + error.message;
+      }
+    };
+  }
+});
+
+// external-global-plugin:react/jsx-runtime
+var require_jsx_runtime = __commonJS({
+  "external-global-plugin:react/jsx-runtime"(exports2, module2) {
+    module2.exports = window.reactjsxruntime;
+  }
+});
+
+// external-global-plugin:date-fns
+var require_date_fns = __commonJS({
+  "external-global-plugin:date-fns"(exports2, module2) {
+    module2.exports = window.datefns;
+  }
+});
+
 // external-global-plugin:uuid
 var require_uuid = __commonJS({
   "external-global-plugin:uuid"(exports2, module2) {
@@ -61251,10 +63006,10 @@ function hsvToRgb(h2, s, v2) {
   var p = v2 * (1 - s);
   var q = v2 * (1 - f2 * s);
   var t = v2 * (1 - (1 - f2) * s);
-  var mod2 = i % 6;
-  var r = [v2, q, p, p, t, v2][mod2];
-  var g = [t, v2, v2, q, p, p][mod2];
-  var b2 = [p, p, t, v2, v2, q][mod2];
+  var mod3 = i % 6;
+  var r = [v2, q, p, p, t, v2][mod3];
+  var g = [t, v2, v2, q, p, p][mod3];
+  var b2 = [p, p, t, v2, v2, q][mod3];
   return { r: r * 255, g: g * 255, b: b2 * 255 };
 }
 function rgbToHex(r, g, b2, allow3Char) {
@@ -61930,21 +63685,21 @@ var preWarningFns = [];
 var preMessage = function preMessage2(fn) {
   preWarningFns.push(fn);
 };
-function warning(valid, message) {
+function warning(valid, message2) {
   if (!valid && console !== void 0) {
     var finalMessage = preWarningFns.reduce(function(msg, preMessageFn) {
       return preMessageFn(msg !== null && msg !== void 0 ? msg : "", "warning");
-    }, message);
+    }, message2);
     if (finalMessage) {
       console.error("Warning: ".concat(finalMessage));
     }
   }
 }
-function note(valid, message) {
+function note(valid, message2) {
   if (!valid && console !== void 0) {
     var finalMessage = preWarningFns.reduce(function(msg, preMessageFn) {
       return preMessageFn(msg !== null && msg !== void 0 ? msg : "", "note");
-    }, message);
+    }, message2);
     if (finalMessage) {
       console.warn("Note: ".concat(finalMessage));
     }
@@ -61953,17 +63708,17 @@ function note(valid, message) {
 function resetWarned() {
   warned = {};
 }
-function call(method, valid, message) {
-  if (!valid && !warned[message]) {
-    method(false, message);
-    warned[message] = true;
+function call(method, valid, message2) {
+  if (!valid && !warned[message2]) {
+    method(false, message2);
+    warned[message2] = true;
   }
 }
-function warningOnce(valid, message) {
-  call(warning, valid, message);
+function warningOnce(valid, message2) {
+  call(warning, valid, message2);
 }
-function noteOnce(valid, message) {
-  call(note, valid, message);
+function noteOnce(valid, message2) {
+  call(note, valid, message2);
 }
 warningOnce.preMessage = preMessage;
 warningOnce.resetWarned = resetWarned;
@@ -61972,8 +63727,8 @@ var warning_default = warningOnce;
 
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/utils.js
 var import_react2 = __toESM(require_react());
-function warning2(valid, message) {
-  warning_default(valid, "[@ant-design/icons] ".concat(message));
+function warning2(valid, message2) {
+  warning_default(valid, "[@ant-design/icons] ".concat(message2));
 }
 function isIconDefinition(target) {
   return _typeof(target) === "object" && typeof target.name === "string" && typeof target.theme === "string" && (_typeof(target.icon) === "object" || typeof target.icon === "function");
@@ -62143,24 +63898,24 @@ Icon.getTwoToneColor = getTwoToneColor;
 Icon.setTwoToneColor = setTwoToneColor;
 var AntdIcon_default = Icon;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EditOutlined.js
 var React4 = __toESM(require_react());
 
-// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/DownloadOutlined.js
-var DownloadOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z" } }] }, "name": "download", "theme": "outlined" };
-var DownloadOutlined_default = DownloadOutlined;
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/EditOutlined.js
+var EditOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z" } }] }, "name": "edit", "theme": "outlined" };
+var EditOutlined_default = EditOutlined;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/DownloadOutlined.js
-var DownloadOutlined2 = function DownloadOutlined3(props, ref) {
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EditOutlined.js
+var EditOutlined2 = function EditOutlined3(props, ref) {
   return /* @__PURE__ */ React4.createElement(AntdIcon_default, _extends({}, props, {
     ref,
-    icon: DownloadOutlined_default
+    icon: EditOutlined_default
   }));
 };
 if (true) {
-  DownloadOutlined2.displayName = "DownloadOutlined";
+  EditOutlined2.displayName = "EditOutlined";
 }
-var DownloadOutlined_default2 = /* @__PURE__ */ React4.forwardRef(DownloadOutlined2);
+var EditOutlined_default2 = /* @__PURE__ */ React4.forwardRef(EditOutlined2);
 
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
 var React5 = __toESM(require_react());
@@ -62181,8 +63936,27 @@ if (true) {
 }
 var EllipsisOutlined_default2 = /* @__PURE__ */ React5.forwardRef(EllipsisOutlined2);
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileTextOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileSearchOutlined.js
 var React6 = __toESM(require_react());
+
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/FileSearchOutlined.js
+var FileSearchOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M688 312v-48c0-4.4-3.6-8-8-8H296c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8zm-392 88c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H296zm144 452H208V148h560v344c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V108c0-17.7-14.3-32-32-32H168c-17.7 0-32 14.3-32 32v784c0 17.7 14.3 32 32 32h272c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm445.7 51.5l-93.3-93.3C814.7 780.7 828 743.9 828 704c0-97.2-78.8-176-176-176s-176 78.8-176 176 78.8 176 176 176c35.8 0 69-10.7 96.8-29l94.7 94.7c1.6 1.6 3.6 2.3 5.6 2.3s4.1-.8 5.6-2.3l31-31a7.9 7.9 0 000-11.2zM652 816c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z" } }] }, "name": "file-search", "theme": "outlined" };
+var FileSearchOutlined_default = FileSearchOutlined;
+
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileSearchOutlined.js
+var FileSearchOutlined2 = function FileSearchOutlined3(props, ref) {
+  return /* @__PURE__ */ React6.createElement(AntdIcon_default, _extends({}, props, {
+    ref,
+    icon: FileSearchOutlined_default
+  }));
+};
+if (true) {
+  FileSearchOutlined2.displayName = "FileSearchOutlined";
+}
+var FileSearchOutlined_default2 = /* @__PURE__ */ React6.forwardRef(FileSearchOutlined2);
+
+// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileTextOutlined.js
+var React7 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/FileTextOutlined.js
 var FileTextOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z" } }] }, "name": "file-text", "theme": "outlined" };
@@ -62190,7 +63964,7 @@ var FileTextOutlined_default = FileTextOutlined;
 
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileTextOutlined.js
 var FileTextOutlined2 = function FileTextOutlined3(props, ref) {
-  return /* @__PURE__ */ React6.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React7.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: FileTextOutlined_default
   }));
@@ -62198,26 +63972,7 @@ var FileTextOutlined2 = function FileTextOutlined3(props, ref) {
 if (true) {
   FileTextOutlined2.displayName = "FileTextOutlined";
 }
-var FileTextOutlined_default2 = /* @__PURE__ */ React6.forwardRef(FileTextOutlined2);
-
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
-var React7 = __toESM(require_react());
-
-// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/InfoCircleOutlined.js
-var InfoCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }, { "tag": "path", "attrs": { "d": "M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z" } }] }, "name": "info-circle", "theme": "outlined" };
-var InfoCircleOutlined_default = InfoCircleOutlined;
-
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js
-var InfoCircleOutlined2 = function InfoCircleOutlined3(props, ref) {
-  return /* @__PURE__ */ React7.createElement(AntdIcon_default, _extends({}, props, {
-    ref,
-    icon: InfoCircleOutlined_default
-  }));
-};
-if (true) {
-  InfoCircleOutlined2.displayName = "InfoCircleOutlined";
-}
-var InfoCircleOutlined_default2 = /* @__PURE__ */ React7.forwardRef(InfoCircleOutlined2);
+var FileTextOutlined_default2 = /* @__PURE__ */ React7.forwardRef(FileTextOutlined2);
 
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/PlusOutlined.js
 var React8 = __toESM(require_react());
@@ -62239,228 +63994,36 @@ if (true) {
 var PlusOutlined_default2 = /* @__PURE__ */ React8.forwardRef(PlusOutlined2);
 
 // src/Feed.tsx
-var import_react18 = __toESM(require_react(), 1);
-var import_date_fns2 = __toESM(require_date_fns(), 1);
-var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
-var import_react_query4 = __toESM(require_react_query(), 1);
-var import_veramo_react5 = __toESM(require_veramo_react(), 1);
-var import_pro_components = __toESM(require_pro_components(), 1);
-
-// src/components/IdentifierProfile.tsx
-var import_antd = __toESM(require_antd(), 1);
-var import_veramo_react = __toESM(require_veramo_react(), 1);
-var import_react_query = __toESM(require_react_query(), 1);
-
-// src/utils/did.ts
-function shortId(id) {
-  if (!id)
-    return "";
-  function shortDotSeparatedString(str2) {
-    const parts2 = str2.split(".");
-    if (parts2.length === 1) {
-      return str2;
-    }
-    return parts2.map((part) => {
-      if (part.length > 10) {
-        return part.substring(0, 1) + "." + part.substring(part.length - 1);
-      } else {
-        return part;
-      }
-    }).join(".");
-  }
-  const parts = id.split(":");
-  return parts.map((part) => {
-    if (part.length > 41) {
-      const str2 = shortDotSeparatedString(part);
-      if (part !== str2)
-        return str2;
-      return str2.substring(0, 7) + "..." + str2.substring(str2.length - 5);
-    } else {
-      return part;
-    }
-  }).join(":");
-}
-function getIssuerDID(credential) {
-  if (typeof credential.issuer === "string") {
-    return credential.issuer;
-  } else {
-    return credential.issuer.id;
-  }
-}
-
-// src/components/IdentifierProfile.tsx
-var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-var IdentifierProfile = ({
-  did,
-  showShortId = true
-}) => {
-  const { agent } = (0, import_veramo_react.useVeramo)();
-  const { token } = import_antd.theme.useToken();
-  const { data, isLoading } = (0, import_react_query.useQuery)(
-    ["identifierProfile", did, agent?.context.id],
-    () => did ? agent?.getIdentifierProfile({ did }) : void 0
-  );
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Row, { align: "middle", wrap: false, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Col, { style: { marginRight: token.padding }, children: [
-      !isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Avatar, { src: data?.picture }),
-      isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Skeleton.Avatar, { active: true })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Col, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { justifyItems: "flex-start", display: "flex" }, children: [
-        !isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Typography.Text, { ellipsis: true, children: data?.name }),
-        isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Skeleton.Input, { style: { width: 100 }, active: true })
-      ] }),
-      showShortId && data?.name && data?.name !== shortId(did) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        import_antd.Typography.Text,
-        {
-          ellipsis: true,
-          style: { color: token.colorTextSecondary },
-          children: shortId(did)
-        }
-      ) })
-    ] })
-  ] });
-};
-var IdentifierProfile_default = IdentifierProfile;
-
-// src/components/CredentialActionsDropdown.tsx
-var import_antd2 = __toESM(require_antd(), 1);
-var import_react3 = __toESM(require_react(), 1);
-var import_veramo_react2 = __toESM(require_veramo_react(), 1);
+var import_react16 = __toESM(require_react(), 1);
 var import_react_router_dom = __toESM(require_react_router_dom(), 1);
 var import_react_query2 = __toESM(require_react_query(), 1);
-var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
-var CredentialActionsDropdown = ({ children, credential, onCreateRevision }) => {
-  const { agent, agents, getAgent } = (0, import_veramo_react2.useVeramo)();
-  const navigate = (0, import_react_router_dom.useNavigate)();
-  const { notification } = import_antd2.App.useApp();
-  const [selectedDid, setSelectedDid] = (0, import_react3.useState)("");
-  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react3.useState)([]);
-  (0, import_react_query2.useQuery)(
-    ["identifiers", { id: agent?.context.id }],
-    () => agent?.didManagerFind(),
-    {
-      onSuccess: (data) => {
-        if (data) {
-          setManagedIdentifiers(data);
-          data.forEach((managedDID) => {
-            if (credential.issuer.id === managedDID.did) {
-              console.log("set selected yep.");
-              setSelectedDid(managedDID.did);
-            }
-          });
-        }
-      }
-    }
-  );
-  const agentsToCopyTo = agents.filter(
-    (agent2) => agent2.availableMethods().includes("dataStoreSaveVerifiableCredential")
-  );
-  const handleCopyTo = async (agentId) => {
-    const agent2 = getAgent(agentId);
-    try {
-      await agent2.dataStoreSaveVerifiableCredential({
-        verifiableCredential: credential
-      });
-      notification.success({
-        message: "Credential copied to: " + agent2.context.name
-      });
-    } catch (e) {
-      notification.error({
-        message: "Error copying credential to: " + agent2.context.name,
-        description: e.message
-      });
-    }
-  };
-  const handleDownload = () => {
-    const element = document.createElement("a");
-    const file = new Blob([JSON.stringify(credential, null, 2)], {
-      type: "text/plain"
-    });
-    element.href = URL.createObjectURL(file);
-    element.download = "verifiable-credential.json";
-    document.body.appendChild(element);
-    element.click();
-  };
-  const actionItems = [
-    {
-      key: "issuer",
-      label: "Issuer",
-      icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(InfoCircleOutlined_default2, {}),
-      onClick: () => navigate("/contacts/" + getIssuerDID(credential))
-    },
-    {
-      key: "subject",
-      label: "Subject",
-      icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(InfoCircleOutlined_default2, {}),
-      onClick: () => navigate(
-        "/contacts/" + encodeURIComponent(credential.credentialSubject.id)
-      )
-    },
-    {
-      key: "download",
-      label: "Download",
-      icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DownloadOutlined_default2, {}),
-      onClick: handleDownload
-    },
-    {
-      key: "copy",
-      label: "Copy to",
-      type: "group",
-      children: agentsToCopyTo.map((_agent, index2) => {
-        return {
-          key: index2,
-          onClick: () => handleCopyTo(_agent.context?.id),
-          label: _agent.context?.name
-        };
-      })
-    }
-  ];
-  if (selectedDid && onCreateRevision) {
-    actionItems.push({
-      key: "create-revision",
-      label: "Create New Revision",
-      icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DownloadOutlined_default2, {}),
-      onClick: onCreateRevision
-    });
-  }
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-    import_antd2.Dropdown,
-    {
-      menu: {
-        items: actionItems
-      },
-      children
-    }
-  );
-};
-var CredentialActionsDropdown_default = CredentialActionsDropdown;
-
-// src/Feed.tsx
-var import_antd4 = __toESM(require_antd(), 1);
+var import_veramo_react2 = __toESM(require_veramo_react(), 1);
+var import_pro_components = __toESM(require_pro_components(), 1);
+var import_agent_explorer_plugin3 = __toESM(require_agent_explorer_plugin(), 1);
+var import_antd2 = __toESM(require_antd(), 1);
 
 // src/PostForm.tsx
-var import_antd3 = __toESM(require_antd(), 1);
-var import_react16 = __toESM(require_react(), 1);
-var import_veramo_react4 = __toESM(require_veramo_react(), 1);
-var import_react_query3 = __toESM(require_react_query(), 1);
+var import_antd = __toESM(require_antd(), 1);
+var import_react14 = __toESM(require_react(), 1);
+var import_veramo_react = __toESM(require_veramo_react(), 1);
+var import_react_query = __toESM(require_react_query(), 1);
+var import_agent_explorer_plugin2 = __toESM(require_agent_explorer_plugin(), 1);
 
 // src/MarkDown.tsx
-var ReactDOMServer = __toESM(require_server(), 1);
-
-// node_modules/.pnpm/highlight.js@11.8.0/node_modules/highlight.js/es/index.js
-var import_lib = __toESM(require_lib(), 1);
-var es_default = import_lib.default;
-
-// src/MarkDown.tsx
-var import_html_entities2 = __toESM(require_lib2(), 1);
-var import_markdown_it = __toESM(require_markdown_it(), 1);
+var import_agent_explorer_plugin = __toESM(require_agent_explorer_plugin(), 1);
 
 // src/plugins/markdown.ts
-var import_html_entities = __toESM(require_lib2(), 1);
+var import_html_entities = __toESM(require_lib(), 1);
 var import_gray_matter = __toESM(require_gray_matter(), 1);
-function markdownPlugin(md) {
-  var defaultRender = md.renderer.rules.fence;
+
+// node_modules/.pnpm/highlight.js@11.8.0/node_modules/highlight.js/es/index.js
+var import_lib = __toESM(require_lib2(), 1);
+var es_default = import_lib.default;
+
+// src/plugins/markdown.ts
+var import_markdown_it = __toESM(require_markdown_it(), 1);
+function markdownPlugin(md2) {
+  var defaultRender = md2.renderer.rules.fence;
   function fence(tokens, idx, options2, env, self2) {
     const token = tokens[idx];
     if (token.info === "vc+jwt" || token.info === "vc+json" || token.info === "vc+multihash") {
@@ -62516,16 +64079,25 @@ function markdownPlugin(md) {
   function metaRender(tokens, idx) {
     return `<div class="veramo-meta" data-source="${(0, import_html_entities.encode)(tokens[idx].content)}"><div class="spinner"></div></div>`;
   }
-  md.block.ruler.before("code", "meta", metaParse);
-  md.renderer.rules.meta = metaRender;
-  md.renderer.rules.fence = fence;
+  md2.block.ruler.before("code", "meta", metaParse);
+  md2.renderer.rules.meta = metaRender;
+  md2.renderer.rules.fence = fence;
   return true;
 }
-
-// src/MarkDown.tsx
-var import_react4 = __toESM(require_react(), 1);
-var import_react_components2 = __toESM(require_react_components(), 1);
-var import_veramo_react3 = __toESM(require_veramo_react(), 1);
+var md = new import_markdown_it.default({
+  html: true,
+  highlight: function(str2, lang) {
+    if (lang && es_default.getLanguage(lang)) {
+      try {
+        return es_default.highlight(str2, { language: lang }).value;
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    return "";
+  }
+});
+markdownPlugin(md);
 
 // node_modules/.pnpm/uint8arrays@4.0.6/node_modules/uint8arrays/dist/src/util/as-uint8array.js
 function asUint8Array(buf) {
@@ -62584,7 +64156,7 @@ function base(ALPHABET, name2) {
   var LEADER = ALPHABET.charAt(0);
   var FACTOR = Math.log(BASE) / Math.log(256);
   var iFACTOR = Math.log(256) / Math.log(BASE);
-  function encode6(source) {
+  function encode7(source) {
     if (source instanceof Uint8Array)
       ;
     else if (ArrayBuffer.isView(source)) {
@@ -62682,7 +64254,7 @@ function base(ALPHABET, name2) {
     }
     return vch;
   }
-  function decode7(string2) {
+  function decode6(string2) {
     var buffer = decodeUnsafe(string2);
     if (buffer) {
       return buffer;
@@ -62690,9 +64262,9 @@ function base(ALPHABET, name2) {
     throw new Error(`Non-${name2} character`);
   }
   return {
-    encode: encode6,
+    encode: encode7,
     decodeUnsafe,
-    decode: decode7
+    decode: decode6
   };
 }
 var src = base;
@@ -62862,17 +64434,17 @@ var Codec = class {
     return this.decoder.decode(input);
   }
 };
-var from = ({ name: name2, prefix, encode: encode6, decode: decode7 }) => new Codec(name2, prefix, encode6, decode7);
+var from = ({ name: name2, prefix, encode: encode7, decode: decode6 }) => new Codec(name2, prefix, encode7, decode6);
 var baseX = ({ prefix, name: name2, alphabet: alphabet2 }) => {
-  const { encode: encode6, decode: decode7 } = base_x_default(alphabet2, name2);
+  const { encode: encode7, decode: decode6 } = base_x_default(alphabet2, name2);
   return from({
     prefix,
     name: name2,
-    encode: encode6,
+    encode: encode7,
     /**
      * @param {string} text
      */
-    decode: (text) => coerce(decode7(text))
+    decode: (text) => coerce(decode6(text))
   });
 };
 var decode = (string2, alphabet2, bitsPerChar, name2) => {
@@ -63268,8 +64840,8 @@ var varint_default = _brrp_varint;
 
 // node_modules/.pnpm/multiformats@12.1.1/node_modules/multiformats/src/varint.js
 var decode4 = (data, offset = 0) => {
-  const code2 = varint_default.decode(data, offset);
-  return [code2, varint_default.decode.bytes];
+  const code3 = varint_default.decode(data, offset);
+  return [code3, varint_default.decode.bytes];
 };
 var encodeTo = (int, target, offset = 0) => {
   varint_default.encode(int, target, offset);
@@ -63280,25 +64852,25 @@ var encodingLength = (int) => {
 };
 
 // node_modules/.pnpm/multiformats@12.1.1/node_modules/multiformats/src/hashes/digest.js
-var create = (code2, digest2) => {
+var create = (code3, digest2) => {
   const size = digest2.byteLength;
-  const sizeOffset = encodingLength(code2);
+  const sizeOffset = encodingLength(code3);
   const digestOffset = sizeOffset + encodingLength(size);
   const bytes2 = new Uint8Array(digestOffset + size);
-  encodeTo(code2, bytes2, 0);
+  encodeTo(code3, bytes2, 0);
   encodeTo(size, bytes2, sizeOffset);
   bytes2.set(digest2, digestOffset);
-  return new Digest(code2, size, digest2, bytes2);
+  return new Digest(code3, size, digest2, bytes2);
 };
 var decode5 = (multihash) => {
   const bytes2 = coerce(multihash);
-  const [code2, sizeOffset] = decode4(bytes2);
+  const [code3, sizeOffset] = decode4(bytes2);
   const [size, digestOffset] = decode4(bytes2.subarray(sizeOffset));
   const digest2 = bytes2.subarray(sizeOffset + digestOffset);
   if (digest2.byteLength !== size) {
     throw new Error("Incorrect length");
   }
-  return new Digest(code2, size, digest2, bytes2);
+  return new Digest(code3, size, digest2, bytes2);
 };
 var equals2 = (a, b2) => {
   if (a === b2) {
@@ -63320,8 +64892,8 @@ var Digest = class {
    * @param {Uint8Array} digest
    * @param {Uint8Array} bytes
    */
-  constructor(code2, size, digest2, bytes2) {
-    this.code = code2;
+  constructor(code3, size, digest2, bytes2) {
+    this.code = code3;
     this.size = size;
     this.digest = digest2;
     this.bytes = bytes2;
@@ -63343,7 +64915,7 @@ __export(sha2_browser_exports, {
 });
 
 // node_modules/.pnpm/multiformats@12.1.1/node_modules/multiformats/src/hashes/hasher.js
-var from2 = ({ name: name2, code: code2, encode: encode6 }) => new Hasher(name2, code2, encode6);
+var from2 = ({ name: name2, code: code3, encode: encode7 }) => new Hasher(name2, code3, encode7);
 var Hasher = class {
   /**
    *
@@ -63351,10 +64923,10 @@ var Hasher = class {
    * @param {Code} code
    * @param {(input: Uint8Array) => Await<Uint8Array>} encode
    */
-  constructor(name2, code2, encode6) {
+  constructor(name2, code3, encode7) {
     this.name = name2;
-    this.code = code2;
-    this.encode = encode6;
+    this.code = code3;
+    this.encode = encode7;
   }
   /**
    * @param {Uint8Array} input
@@ -63425,8 +64997,8 @@ var CID = class _CID {
    * @param {API.MultihashDigest<Alg>} multihash - (Multi)hash of the of the content.
    * @param {Uint8Array} bytes
    */
-  constructor(version, code2, multihash, bytes2) {
-    this.code = code2;
+  constructor(version, code3, multihash, bytes2) {
+    this.code = code3;
     this.version = version;
     this.multihash = multihash;
     this.bytes = bytes2;
@@ -63461,8 +65033,8 @@ var CID = class _CID {
         );
       }
       case 1: {
-        const { code: code2, multihash } = this;
-        if (code2 !== DAG_PB_CODE) {
+        const { code: code3, multihash } = this;
+        if (code3 !== DAG_PB_CODE) {
           throw new Error("Cannot convert a non dag-pb CID to CIDv0");
         }
         if (multihash.code !== SHA_256_CODE) {
@@ -63489,8 +65061,8 @@ var CID = class _CID {
   toV1() {
     switch (this.version) {
       case 0: {
-        const { code: code2, digest: digest2 } = this.multihash;
-        const multihash = create(code2, digest2);
+        const { code: code3, digest: digest2 } = this.multihash;
+        const multihash = create(code3, digest2);
         return (
           /** @type {CID<Data, Format, Alg, 1>} */
           _CID.createV1(this.code, multihash)
@@ -63584,21 +65156,21 @@ var CID = class _CID {
     if (value instanceof _CID) {
       return value;
     } else if (value["/"] != null && value["/"] === value.bytes || value.asCID === value) {
-      const { version, code: code2, multihash, bytes: bytes2 } = value;
+      const { version, code: code3, multihash, bytes: bytes2 } = value;
       return new _CID(
         version,
-        code2,
+        code3,
         /** @type {API.MultihashDigest<Alg>} */
         multihash,
-        bytes2 || encodeCID(version, code2, multihash.bytes)
+        bytes2 || encodeCID(version, code3, multihash.bytes)
       );
     } else if (value[cidSymbol] === true) {
-      const { version, multihash, code: code2 } = value;
+      const { version, multihash, code: code3 } = value;
       const digest2 = (
         /** @type {API.MultihashDigest<Alg>} */
         decode5(multihash)
       );
-      return _CID.create(version, code2, digest2);
+      return _CID.create(version, code3, digest2);
     } else {
       return null;
     }
@@ -63614,8 +65186,8 @@ var CID = class _CID {
    * @param {API.MultihashDigest<Alg>} digest - (Multi)hash of the of the content.
    * @returns {CID<Data, Format, Alg, Version>}
    */
-  static create(version, code2, digest2) {
-    if (typeof code2 !== "number") {
+  static create(version, code3, digest2) {
+    if (typeof code3 !== "number") {
       throw new Error("String codecs are no longer supported");
     }
     if (!(digest2.bytes instanceof Uint8Array)) {
@@ -63623,17 +65195,17 @@ var CID = class _CID {
     }
     switch (version) {
       case 0: {
-        if (code2 !== DAG_PB_CODE) {
+        if (code3 !== DAG_PB_CODE) {
           throw new Error(
             `Version 0 CID must use dag-pb (code: ${DAG_PB_CODE}) block encoding`
           );
         } else {
-          return new _CID(version, code2, digest2, digest2.bytes);
+          return new _CID(version, code3, digest2, digest2.bytes);
         }
       }
       case 1: {
-        const bytes2 = encodeCID(version, code2, digest2.bytes);
-        return new _CID(version, code2, digest2, bytes2);
+        const bytes2 = encodeCID(version, code3, digest2.bytes);
+        return new _CID(version, code3, digest2, bytes2);
       }
       default: {
         throw new Error("Invalid version");
@@ -63660,8 +65232,8 @@ var CID = class _CID {
    * @param {API.MultihashDigest<Alg>} digest - Miltihash of the content.
    * @returns {CID<Data, Code, Alg, 1>}
    */
-  static createV1(code2, digest2) {
-    return _CID.create(1, code2, digest2);
+  static createV1(code3, digest2) {
+    return _CID.create(1, code3, digest2);
   }
   /**
    * Decoded a CID from its binary representation. The byte array must contain
@@ -63875,12 +65447,12 @@ var toStringV1 = (bytes2, cache2, base3) => {
 };
 var DAG_PB_CODE = 112;
 var SHA_256_CODE = 18;
-var encodeCID = (version, code2, multihash) => {
+var encodeCID = (version, code3, multihash) => {
   const codeOffset = encodingLength(version);
-  const hashOffset = codeOffset + encodingLength(code2);
+  const hashOffset = codeOffset + encodingLength(code3);
   const bytes2 = new Uint8Array(hashOffset + multihash.byteLength);
   encodeTo(version, bytes2, 0);
-  encodeTo(code2, bytes2, codeOffset);
+  encodeTo(code3, bytes2, codeOffset);
   bytes2.set(multihash, hashOffset);
   return bytes2;
 };
@@ -63891,17 +65463,17 @@ var bases = { ...identity_exports, ...base2_exports, ...base8_exports, ...base10
 var hashes = { ...sha2_browser_exports, ...identity_exports2 };
 
 // node_modules/.pnpm/uint8arrays@4.0.6/node_modules/uint8arrays/dist/src/util/bases.js
-function createCodec(name2, prefix, encode6, decode7) {
+function createCodec(name2, prefix, encode7, decode6) {
   return {
     name: name2,
     prefix,
     encoder: {
       name: name2,
       prefix,
-      encode: encode6
+      encode: encode7
     },
     decoder: {
-      decode: decode7
+      decode: decode6
     }
   };
 }
@@ -64646,7 +66218,7 @@ var _5n = BigInt(5);
 var _8n = BigInt(8);
 var _9n = BigInt(9);
 var _16n = BigInt(16);
-function mod(a, b2) {
+function mod2(a, b2) {
   const result = a % b2;
   return result >= _0n2 ? result : b2 + result;
 }
@@ -64676,7 +66248,7 @@ function invert(number2, modulo) {
   if (number2 === _0n2 || modulo <= _0n2) {
     throw new Error(`invert: expected positive integers, got n=${number2} mod=${modulo}`);
   }
-  let a = mod(number2, modulo);
+  let a = mod2(number2, modulo);
   let b2 = modulo;
   let x = _0n2, y = _1n2, u = _1n2, v2 = _0n2;
   while (a !== _0n2) {
@@ -64689,7 +66261,7 @@ function invert(number2, modulo) {
   const gcd = b2;
   if (gcd !== _1n2)
     throw new Error("invert: does not exist");
-  return mod(x, modulo);
+  return mod2(x, modulo);
 }
 function tonelliShanks(P) {
   const legendreC = (P - _1n2) / _2n2;
@@ -64760,7 +66332,7 @@ function FpSqrt(P) {
   }
   return tonelliShanks(P);
 }
-var isNegativeLE = (num, modulo) => (mod(num, modulo) & _1n2) === _1n2;
+var isNegativeLE = (num, modulo) => (mod2(num, modulo) & _1n2) === _1n2;
 var FIELD_FIELDS = [
   "create",
   "isValid",
@@ -64846,7 +66418,7 @@ function Field(ORDER, bitLen2, isLE2 = false, redef = {}) {
     MASK: bitMask(BITS),
     ZERO: _0n2,
     ONE: _1n2,
-    create: (num) => mod(num, ORDER),
+    create: (num) => mod2(num, ORDER),
     isValid: (num) => {
       if (typeof num !== "bigint")
         throw new Error(`Invalid field element: expected bigint, got ${typeof num}`);
@@ -64854,14 +66426,14 @@ function Field(ORDER, bitLen2, isLE2 = false, redef = {}) {
     },
     is0: (num) => num === _0n2,
     isOdd: (num) => (num & _1n2) === _1n2,
-    neg: (num) => mod(-num, ORDER),
+    neg: (num) => mod2(-num, ORDER),
     eql: (lhs, rhs) => lhs === rhs,
-    sqr: (num) => mod(num * num, ORDER),
-    add: (lhs, rhs) => mod(lhs + rhs, ORDER),
-    sub: (lhs, rhs) => mod(lhs - rhs, ORDER),
-    mul: (lhs, rhs) => mod(lhs * rhs, ORDER),
+    sqr: (num) => mod2(num * num, ORDER),
+    add: (lhs, rhs) => mod2(lhs + rhs, ORDER),
+    sub: (lhs, rhs) => mod2(lhs - rhs, ORDER),
+    mul: (lhs, rhs) => mod2(lhs * rhs, ORDER),
     pow: (num, power) => FpPow(f2, num, power),
-    div: (lhs, rhs) => mod(lhs * invert(rhs, ORDER), ORDER),
+    div: (lhs, rhs) => mod2(lhs * invert(rhs, ORDER), ORDER),
     // Same as above, but doesn't normalize
     sqrN: (num) => num * num,
     addN: (lhs, rhs) => lhs + rhs,
@@ -64905,7 +66477,7 @@ function mapHashToField(key, fieldOrder, isLE2 = false) {
   if (len < 16 || len < minLen || len > 1024)
     throw new Error(`expected ${minLen}-1024 bytes of input, got ${len}`);
   const num = isLE2 ? bytesToNumberBE(key) : bytesToNumberLE(key);
-  const reduced = mod(num, fieldOrder - _1n2) + _1n2;
+  const reduced = mod2(num, fieldOrder - _1n2) + _1n2;
   return isLE2 ? numberToBytesLE(reduced, fieldLen) : numberToBytesBE(reduced, fieldLen);
 }
 
@@ -65326,7 +66898,7 @@ function twistedEdwards(curveDef) {
   const { BASE: G, ZERO: I } = Point2;
   const wnaf = wNAF(Point2, nByteLength * 8);
   function modN(a) {
-    return mod(a, CURVE_ORDER);
+    return mod2(a, CURVE_ORDER);
   }
   function modN_LE(hash2) {
     return modN(bytesToNumberLE(hash2));
@@ -65447,22 +67019,22 @@ function adjustScalarBytes(bytes2) {
 }
 function uvRatio(u, v2) {
   const P = ED25519_P;
-  const v3 = mod(v2 * v2 * v2, P);
-  const v7 = mod(v3 * v3 * v2, P);
+  const v3 = mod2(v2 * v2 * v2, P);
+  const v7 = mod2(v3 * v3 * v2, P);
   const pow3 = ed25519_pow_2_252_3(u * v7).pow_p_5_8;
-  let x = mod(u * v3 * pow3, P);
-  const vx2 = mod(v2 * x * x, P);
+  let x = mod2(u * v3 * pow3, P);
+  const vx2 = mod2(v2 * x * x, P);
   const root1 = x;
-  const root2 = mod(x * ED25519_SQRT_M1, P);
+  const root2 = mod2(x * ED25519_SQRT_M1, P);
   const useRoot1 = vx2 === u;
-  const useRoot2 = vx2 === mod(-u, P);
-  const noRoot = vx2 === mod(-u * ED25519_SQRT_M1, P);
+  const useRoot2 = vx2 === mod2(-u, P);
+  const noRoot = vx2 === mod2(-u * ED25519_SQRT_M1, P);
   if (useRoot1)
     x = root1;
   if (useRoot2 || noRoot)
     x = root2;
   if (isNegativeLE(x, P))
-    x = mod(-x, P);
+    x = mod2(-x, P);
   return { isValid: useRoot1 || useRoot2, value: x };
 }
 var Fp = Field(ED25519_P, void 0, true);
@@ -66074,7 +67646,7 @@ function weierstrassPoints(opts) {
       throw new Error(`private key must be ${nByteLength} bytes, hex or bigint, not ${typeof key}`);
     }
     if (wrapPrivateKey)
-      num = mod(num, n);
+      num = mod2(num, n);
     assertGE(num);
     return num;
   }
@@ -66441,7 +68013,7 @@ function weierstrass(curveDef) {
     return _0n7 < num && num < Fp4.ORDER;
   }
   function modN(a) {
-    return mod(a, CURVE_ORDER);
+    return mod2(a, CURVE_ORDER);
   }
   function invN(a) {
     return invert(a, CURVE_ORDER);
@@ -66800,7 +68372,7 @@ var HMAC = class extends Hash {
     this.iHash.destroy();
   }
 };
-var hmac = (hash2, key, message) => new HMAC(hash2, key).update(message).digest();
+var hmac = (hash2, key, message2) => new HMAC(hash2, key).update(message2).digest();
 hmac.create = (hash2, key) => new HMAC(hash2, key);
 
 // node_modules/.pnpm/@noble+curves@1.2.0/node_modules/@noble/curves/esm/_shortw_utils.js
@@ -66872,8 +68444,8 @@ var secp256k1 = createCurve({
       const POW_2_128 = BigInt("0x100000000000000000000000000000000");
       const c1 = divNearest(b2 * k2, n);
       const c2 = divNearest(-b1 * k2, n);
-      let k1 = mod(k2 - c1 * a1 - c2 * a2, n);
-      let k22 = mod(-c1 * b1 - c2 * b2, n);
+      let k1 = mod2(k2 - c1 * a1 - c2 * a2, n);
+      let k22 = mod2(-c1 * b1 - c2 * b2, n);
       const k1neg = k1 > POW_2_128;
       const k2neg = k22 > POW_2_128;
       if (k1neg)
@@ -67402,8 +68974,8 @@ function normalizeJwtCredentialPayload(input, removeOriginalFields = true) {
       delete result.jti;
     }
   }
-  const types = [...asArray(result.type), ...asArray(result.vc?.type)].filter(notEmpty);
-  result.type = [...new Set(types)];
+  const types2 = [...asArray(result.type), ...asArray(result.vc?.type)].filter(notEmpty);
+  result.type = [...new Set(types2)];
   if (removeOriginalFields) {
     delete result.vc?.type;
   }
@@ -67506,119 +69078,1080 @@ var VC_JWT_ERROR = {
   ...JWT_ERROR
 };
 
-// src/components/CredentialVerificationView.tsx
-var import_react_components = __toESM(require_react_components(), 1);
-var import_date_fns = __toESM(require_date_fns(), 1);
-var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
-var CredentialVerificationView = ({ verifyResult, credential }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
-    verifyResult.error && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { children: [
-      "Error: ",
-      verifyResult.error.message
-    ] }),
-    !verifyResult.error && verifyResult.verified && credential && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_components.VerifiableCredential, { credential }),
-    verifyResult.verified && credential && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "veramo__verification_result_footer", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-        "svg",
-        {
-          className: "veramo__verified_icon",
-          xmlns: "http://www.w3.org/2000/svg",
-          width: "12",
-          height: "12",
-          viewBox: "0 0 1200 1200",
-          children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("path", { d: "M600,1200a604.428,604.428,0,0,1-120.921-12.19,596.709,596.709,0,0,1-214.545-90.281A601.752,601.752,0,0,1,47.151,833.547,596.971,596.971,0,0,1,12.19,720.921a605.85,605.85,0,0,1,0-241.842A596.709,596.709,0,0,1,102.47,264.534,601.751,601.751,0,0,1,366.453,47.151,596.971,596.971,0,0,1,479.079,12.19a605.85,605.85,0,0,1,241.842,0A596.709,596.709,0,0,1,935.466,102.47a601.751,601.751,0,0,1,217.383,263.982,596.976,596.976,0,0,1,34.961,112.626,605.849,605.849,0,0,1,0,241.842,596.709,596.709,0,0,1-90.281,214.545,601.751,601.751,0,0,1-263.982,217.383,596.976,596.976,0,0,1-112.626,34.961A604.428,604.428,0,0,1,600,1200ZM233.818,499.972l340.917,545.086L967.272,283.377,574.734,684.509Z", fill: "#73c394" })
+// node_modules/.pnpm/@ipld+dag-pb@4.0.5/node_modules/@ipld/dag-pb/src/pb-decode.js
+var textDecoder2 = new TextDecoder();
+
+// node_modules/.pnpm/@ipld+dag-pb@4.0.5/node_modules/@ipld/dag-pb/src/pb-encode.js
+var textEncoder2 = new TextEncoder();
+var maxInt32 = 2 ** 32;
+var maxUInt32 = 2 ** 31;
+function encodeLink(link, bytes2) {
+  let i = bytes2.length;
+  if (typeof link.Tsize === "number") {
+    if (link.Tsize < 0) {
+      throw new Error("Tsize cannot be negative");
+    }
+    if (!Number.isSafeInteger(link.Tsize)) {
+      throw new Error("Tsize too large for encoding");
+    }
+    i = encodeVarint(bytes2, i, link.Tsize) - 1;
+    bytes2[i] = 24;
+  }
+  if (typeof link.Name === "string") {
+    const nameBytes = textEncoder2.encode(link.Name);
+    i -= nameBytes.length;
+    bytes2.set(nameBytes, i);
+    i = encodeVarint(bytes2, i, nameBytes.length) - 1;
+    bytes2[i] = 18;
+  }
+  if (link.Hash) {
+    i -= link.Hash.length;
+    bytes2.set(link.Hash, i);
+    i = encodeVarint(bytes2, i, link.Hash.length) - 1;
+    bytes2[i] = 10;
+  }
+  return bytes2.length - i;
+}
+function encodeNode(node) {
+  const size = sizeNode(node);
+  const bytes2 = new Uint8Array(size);
+  let i = size;
+  if (node.Data) {
+    i -= node.Data.length;
+    bytes2.set(node.Data, i);
+    i = encodeVarint(bytes2, i, node.Data.length) - 1;
+    bytes2[i] = 10;
+  }
+  if (node.Links) {
+    for (let index2 = node.Links.length - 1; index2 >= 0; index2--) {
+      const size2 = encodeLink(node.Links[index2], bytes2.subarray(0, i));
+      i -= size2;
+      i = encodeVarint(bytes2, i, size2) - 1;
+      bytes2[i] = 18;
+    }
+  }
+  return bytes2;
+}
+function sizeLink(link) {
+  let n = 0;
+  if (link.Hash) {
+    const l2 = link.Hash.length;
+    n += 1 + l2 + sov(l2);
+  }
+  if (typeof link.Name === "string") {
+    const l2 = textEncoder2.encode(link.Name).length;
+    n += 1 + l2 + sov(l2);
+  }
+  if (typeof link.Tsize === "number") {
+    n += 1 + sov(link.Tsize);
+  }
+  return n;
+}
+function sizeNode(node) {
+  let n = 0;
+  if (node.Data) {
+    const l2 = node.Data.length;
+    n += 1 + l2 + sov(l2);
+  }
+  if (node.Links) {
+    for (const link of node.Links) {
+      const l2 = sizeLink(link);
+      n += 1 + l2 + sov(l2);
+    }
+  }
+  return n;
+}
+function encodeVarint(bytes2, offset, v2) {
+  offset -= sov(v2);
+  const base3 = offset;
+  while (v2 >= maxUInt32) {
+    bytes2[offset++] = v2 & 127 | 128;
+    v2 /= 128;
+  }
+  while (v2 >= 128) {
+    bytes2[offset++] = v2 & 127 | 128;
+    v2 >>>= 7;
+  }
+  bytes2[offset] = v2;
+  return base3;
+}
+function sov(x) {
+  if (x % 2 === 0) {
+    x++;
+  }
+  return Math.floor((len64(x) + 6) / 7);
+}
+function len64(x) {
+  let n = 0;
+  if (x >= maxInt32) {
+    x = Math.floor(x / maxInt32);
+    n = 32;
+  }
+  if (x >= 1 << 16) {
+    x >>>= 16;
+    n += 16;
+  }
+  if (x >= 1 << 8) {
+    x >>>= 8;
+    n += 8;
+  }
+  return n + len8tab[x];
+}
+var len8tab = [
+  0,
+  1,
+  2,
+  2,
+  3,
+  3,
+  3,
+  3,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  4,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  5,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  7,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8,
+  8
+];
+
+// node_modules/.pnpm/@ipld+dag-pb@4.0.5/node_modules/@ipld/dag-pb/src/util.js
+var pbNodeProperties = ["Data", "Links"];
+var pbLinkProperties = ["Hash", "Name", "Tsize"];
+var textEncoder3 = new TextEncoder();
+function linkComparator(a, b2) {
+  if (a === b2) {
+    return 0;
+  }
+  const abuf = a.Name ? textEncoder3.encode(a.Name) : [];
+  const bbuf = b2.Name ? textEncoder3.encode(b2.Name) : [];
+  let x = abuf.length;
+  let y = bbuf.length;
+  for (let i = 0, len = Math.min(x, y); i < len; ++i) {
+    if (abuf[i] !== bbuf[i]) {
+      x = abuf[i];
+      y = bbuf[i];
+      break;
+    }
+  }
+  return x < y ? -1 : y < x ? 1 : 0;
+}
+function hasOnlyProperties(node, properties) {
+  return !Object.keys(node).some((p) => !properties.includes(p));
+}
+function asLink(link) {
+  if (typeof link.asCID === "object") {
+    const Hash2 = CID.asCID(link);
+    if (!Hash2) {
+      throw new TypeError("Invalid DAG-PB form");
+    }
+    return { Hash: Hash2 };
+  }
+  if (typeof link !== "object" || Array.isArray(link)) {
+    throw new TypeError("Invalid DAG-PB form");
+  }
+  const pbl = {};
+  if (link.Hash) {
+    let cid = CID.asCID(link.Hash);
+    try {
+      if (!cid) {
+        if (typeof link.Hash === "string") {
+          cid = CID.parse(link.Hash);
+        } else if (link.Hash instanceof Uint8Array) {
+          cid = CID.decode(link.Hash);
         }
-      ),
-      shortId(getIssuerDID(credential)),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: "\u30FB" }),
-      (0, import_date_fns.formatRelative)(
-        new Date(credential.issuanceDate),
-        /* @__PURE__ */ new Date()
-      )
-    ] })
-  ] });
+      }
+    } catch (e) {
+      throw new TypeError(`Invalid DAG-PB form: ${e.message}`);
+    }
+    if (cid) {
+      pbl.Hash = cid;
+    }
+  }
+  if (!pbl.Hash) {
+    throw new TypeError("Invalid DAG-PB form");
+  }
+  if (typeof link.Name === "string") {
+    pbl.Name = link.Name;
+  }
+  if (typeof link.Tsize === "number") {
+    pbl.Tsize = link.Tsize;
+  }
+  return pbl;
+}
+function prepare(node) {
+  if (node instanceof Uint8Array || typeof node === "string") {
+    node = { Data: node };
+  }
+  if (typeof node !== "object" || Array.isArray(node)) {
+    throw new TypeError("Invalid DAG-PB form");
+  }
+  const pbn = {};
+  if (node.Data !== void 0) {
+    if (typeof node.Data === "string") {
+      pbn.Data = textEncoder3.encode(node.Data);
+    } else if (node.Data instanceof Uint8Array) {
+      pbn.Data = node.Data;
+    } else {
+      throw new TypeError("Invalid DAG-PB form");
+    }
+  }
+  if (node.Links !== void 0) {
+    if (Array.isArray(node.Links)) {
+      pbn.Links = node.Links.map(asLink);
+      pbn.Links.sort(linkComparator);
+    } else {
+      throw new TypeError("Invalid DAG-PB form");
+    }
+  } else {
+    pbn.Links = [];
+  }
+  return pbn;
+}
+function validate(node) {
+  if (!node || typeof node !== "object" || Array.isArray(node) || node instanceof Uint8Array || node["/"] && node["/"] === node.bytes) {
+    throw new TypeError("Invalid DAG-PB form");
+  }
+  if (!hasOnlyProperties(node, pbNodeProperties)) {
+    throw new TypeError("Invalid DAG-PB form (extraneous properties)");
+  }
+  if (node.Data !== void 0 && !(node.Data instanceof Uint8Array)) {
+    throw new TypeError("Invalid DAG-PB form (Data must be bytes)");
+  }
+  if (!Array.isArray(node.Links)) {
+    throw new TypeError("Invalid DAG-PB form (Links must be a list)");
+  }
+  for (let i = 0; i < node.Links.length; i++) {
+    const link = node.Links[i];
+    if (!link || typeof link !== "object" || Array.isArray(link) || link instanceof Uint8Array || link["/"] && link["/"] === link.bytes) {
+      throw new TypeError("Invalid DAG-PB form (bad link)");
+    }
+    if (!hasOnlyProperties(link, pbLinkProperties)) {
+      throw new TypeError("Invalid DAG-PB form (extraneous properties on link)");
+    }
+    if (link.Hash === void 0) {
+      throw new TypeError("Invalid DAG-PB form (link must have a Hash)");
+    }
+    if (link.Hash == null || !link.Hash["/"] || link.Hash["/"] !== link.Hash.bytes) {
+      throw new TypeError("Invalid DAG-PB form (link Hash must be a CID)");
+    }
+    if (link.Name !== void 0 && typeof link.Name !== "string") {
+      throw new TypeError("Invalid DAG-PB form (link Name must be a string)");
+    }
+    if (link.Tsize !== void 0) {
+      if (typeof link.Tsize !== "number" || link.Tsize % 1 !== 0) {
+        throw new TypeError("Invalid DAG-PB form (link Tsize must be an integer)");
+      }
+      if (link.Tsize < 0) {
+        throw new TypeError("Invalid DAG-PB form (link Tsize cannot be negative)");
+      }
+    }
+    if (i > 0 && linkComparator(link, node.Links[i - 1]) === -1) {
+      throw new TypeError("Invalid DAG-PB form (links must be sorted by Name bytes)");
+    }
+  }
+}
+
+// node_modules/.pnpm/@ipld+dag-pb@4.0.5/node_modules/@ipld/dag-pb/src/index.js
+var code2 = 112;
+function encode6(node) {
+  validate(node);
+  const pbn = {};
+  if (node.Links) {
+    pbn.Links = node.Links.map((l2) => {
+      const link = {};
+      if (l2.Hash) {
+        link.Hash = l2.Hash.bytes;
+      }
+      if (l2.Name !== void 0) {
+        link.Name = l2.Name;
+      }
+      if (l2.Tsize !== void 0) {
+        link.Tsize = l2.Tsize;
+      }
+      return link;
+    });
+  }
+  if (node.Data) {
+    pbn.Data = node.Data;
+  }
+  return encodeNode(pbn);
+}
+
+// node_modules/.pnpm/ipfs-unixfs@11.1.0/node_modules/ipfs-unixfs/dist/src/index.js
+var import_err_code = __toESM(require_err_code(), 1);
+
+// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/utils.js
+var import_reader = __toESM(require_reader(), 1);
+var import_reader_buffer = __toESM(require_reader_buffer(), 1);
+var import_minimal = __toESM(require_minimal(), 1);
+var import_writer = __toESM(require_writer(), 1);
+var import_writer_buffer = __toESM(require_writer_buffer(), 1);
+function configure() {
+  import_minimal.default._configure();
+  import_reader.default._configure(import_reader_buffer.default);
+  import_writer.default._configure(import_writer_buffer.default);
+}
+configure();
+var methods = [
+  "uint64",
+  "int64",
+  "sint64",
+  "fixed64",
+  "sfixed64"
+];
+function patchReader(obj) {
+  for (const method of methods) {
+    if (obj[method] == null) {
+      continue;
+    }
+    const original = obj[method];
+    obj[method] = function() {
+      return BigInt(original.call(this).toString());
+    };
+  }
+  return obj;
+}
+function reader(buf) {
+  return patchReader(new import_reader.default(buf));
+}
+function patchWriter(obj) {
+  for (const method of methods) {
+    if (obj[method] == null) {
+      continue;
+    }
+    const original = obj[method];
+    obj[method] = function(val) {
+      return original.call(this, val.toString());
+    };
+  }
+  return obj;
+}
+function writer() {
+  return patchWriter(import_writer.default.create());
+}
+
+// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/decode.js
+function decodeMessage(buf, codec) {
+  const r = reader(buf instanceof Uint8Array ? buf : buf.subarray());
+  return codec.decode(r);
+}
+
+// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/encode.js
+function encodeMessage(message2, codec) {
+  const w = writer();
+  codec.encode(message2, w, {
+    lengthDelimited: false
+  });
+  return w.finish();
+}
+
+// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/codec.js
+var CODEC_TYPES;
+(function(CODEC_TYPES2) {
+  CODEC_TYPES2[CODEC_TYPES2["VARINT"] = 0] = "VARINT";
+  CODEC_TYPES2[CODEC_TYPES2["BIT64"] = 1] = "BIT64";
+  CODEC_TYPES2[CODEC_TYPES2["LENGTH_DELIMITED"] = 2] = "LENGTH_DELIMITED";
+  CODEC_TYPES2[CODEC_TYPES2["START_GROUP"] = 3] = "START_GROUP";
+  CODEC_TYPES2[CODEC_TYPES2["END_GROUP"] = 4] = "END_GROUP";
+  CODEC_TYPES2[CODEC_TYPES2["BIT32"] = 5] = "BIT32";
+})(CODEC_TYPES || (CODEC_TYPES = {}));
+function createCodec2(name2, type, encode7, decode6) {
+  return {
+    name: name2,
+    type,
+    encode: encode7,
+    decode: decode6
+  };
+}
+
+// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/codecs/enum.js
+function enumeration(v2) {
+  function findValue(val) {
+    if (v2[val.toString()] == null) {
+      throw new Error("Invalid enum value");
+    }
+    return v2[val];
+  }
+  const encode7 = function enumEncode(val, writer2) {
+    const enumValue = findValue(val);
+    writer2.int32(enumValue);
+  };
+  const decode6 = function enumDecode(reader2) {
+    const val = reader2.int32();
+    return findValue(val);
+  };
+  return createCodec2("enum", CODEC_TYPES.VARINT, encode7, decode6);
+}
+
+// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/codecs/message.js
+function message(encode7, decode6) {
+  return createCodec2("message", CODEC_TYPES.LENGTH_DELIMITED, encode7, decode6);
+}
+
+// node_modules/.pnpm/ipfs-unixfs@11.1.0/node_modules/ipfs-unixfs/dist/src/unixfs.js
+var Data;
+(function(Data2) {
+  let DataType;
+  (function(DataType2) {
+    DataType2["Raw"] = "Raw";
+    DataType2["Directory"] = "Directory";
+    DataType2["File"] = "File";
+    DataType2["Metadata"] = "Metadata";
+    DataType2["Symlink"] = "Symlink";
+    DataType2["HAMTShard"] = "HAMTShard";
+  })(DataType = Data2.DataType || (Data2.DataType = {}));
+  let __DataTypeValues;
+  (function(__DataTypeValues2) {
+    __DataTypeValues2[__DataTypeValues2["Raw"] = 0] = "Raw";
+    __DataTypeValues2[__DataTypeValues2["Directory"] = 1] = "Directory";
+    __DataTypeValues2[__DataTypeValues2["File"] = 2] = "File";
+    __DataTypeValues2[__DataTypeValues2["Metadata"] = 3] = "Metadata";
+    __DataTypeValues2[__DataTypeValues2["Symlink"] = 4] = "Symlink";
+    __DataTypeValues2[__DataTypeValues2["HAMTShard"] = 5] = "HAMTShard";
+  })(__DataTypeValues || (__DataTypeValues = {}));
+  (function(DataType2) {
+    DataType2.codec = () => {
+      return enumeration(__DataTypeValues);
+    };
+  })(DataType = Data2.DataType || (Data2.DataType = {}));
+  let _codec;
+  Data2.codec = () => {
+    if (_codec == null) {
+      _codec = message((obj, w, opts = {}) => {
+        if (opts.lengthDelimited !== false) {
+          w.fork();
+        }
+        if (obj.Type != null) {
+          w.uint32(8);
+          Data2.DataType.codec().encode(obj.Type, w);
+        }
+        if (obj.Data != null) {
+          w.uint32(18);
+          w.bytes(obj.Data);
+        }
+        if (obj.filesize != null) {
+          w.uint32(24);
+          w.uint64(obj.filesize);
+        }
+        if (obj.blocksizes != null) {
+          for (const value of obj.blocksizes) {
+            w.uint32(32);
+            w.uint64(value);
+          }
+        }
+        if (obj.hashType != null) {
+          w.uint32(40);
+          w.uint64(obj.hashType);
+        }
+        if (obj.fanout != null) {
+          w.uint32(48);
+          w.uint64(obj.fanout);
+        }
+        if (obj.mode != null) {
+          w.uint32(56);
+          w.uint32(obj.mode);
+        }
+        if (obj.mtime != null) {
+          w.uint32(66);
+          UnixTime.codec().encode(obj.mtime, w);
+        }
+        if (opts.lengthDelimited !== false) {
+          w.ldelim();
+        }
+      }, (reader2, length2) => {
+        const obj = {
+          blocksizes: []
+        };
+        const end = length2 == null ? reader2.len : reader2.pos + length2;
+        while (reader2.pos < end) {
+          const tag = reader2.uint32();
+          switch (tag >>> 3) {
+            case 1:
+              obj.Type = Data2.DataType.codec().decode(reader2);
+              break;
+            case 2:
+              obj.Data = reader2.bytes();
+              break;
+            case 3:
+              obj.filesize = reader2.uint64();
+              break;
+            case 4:
+              obj.blocksizes.push(reader2.uint64());
+              break;
+            case 5:
+              obj.hashType = reader2.uint64();
+              break;
+            case 6:
+              obj.fanout = reader2.uint64();
+              break;
+            case 7:
+              obj.mode = reader2.uint32();
+              break;
+            case 8:
+              obj.mtime = UnixTime.codec().decode(reader2, reader2.uint32());
+              break;
+            default:
+              reader2.skipType(tag & 7);
+              break;
+          }
+        }
+        return obj;
+      });
+    }
+    return _codec;
+  };
+  Data2.encode = (obj) => {
+    return encodeMessage(obj, Data2.codec());
+  };
+  Data2.decode = (buf) => {
+    return decodeMessage(buf, Data2.codec());
+  };
+})(Data || (Data = {}));
+var UnixTime;
+(function(UnixTime2) {
+  let _codec;
+  UnixTime2.codec = () => {
+    if (_codec == null) {
+      _codec = message((obj, w, opts = {}) => {
+        if (opts.lengthDelimited !== false) {
+          w.fork();
+        }
+        if (obj.Seconds != null) {
+          w.uint32(8);
+          w.int64(obj.Seconds);
+        }
+        if (obj.FractionalNanoseconds != null) {
+          w.uint32(21);
+          w.fixed32(obj.FractionalNanoseconds);
+        }
+        if (opts.lengthDelimited !== false) {
+          w.ldelim();
+        }
+      }, (reader2, length2) => {
+        const obj = {};
+        const end = length2 == null ? reader2.len : reader2.pos + length2;
+        while (reader2.pos < end) {
+          const tag = reader2.uint32();
+          switch (tag >>> 3) {
+            case 1:
+              obj.Seconds = reader2.int64();
+              break;
+            case 2:
+              obj.FractionalNanoseconds = reader2.fixed32();
+              break;
+            default:
+              reader2.skipType(tag & 7);
+              break;
+          }
+        }
+        return obj;
+      });
+    }
+    return _codec;
+  };
+  UnixTime2.encode = (obj) => {
+    return encodeMessage(obj, UnixTime2.codec());
+  };
+  UnixTime2.decode = (buf) => {
+    return decodeMessage(buf, UnixTime2.codec());
+  };
+})(UnixTime || (UnixTime = {}));
+var Metadata;
+(function(Metadata2) {
+  let _codec;
+  Metadata2.codec = () => {
+    if (_codec == null) {
+      _codec = message((obj, w, opts = {}) => {
+        if (opts.lengthDelimited !== false) {
+          w.fork();
+        }
+        if (obj.MimeType != null) {
+          w.uint32(10);
+          w.string(obj.MimeType);
+        }
+        if (opts.lengthDelimited !== false) {
+          w.ldelim();
+        }
+      }, (reader2, length2) => {
+        const obj = {};
+        const end = length2 == null ? reader2.len : reader2.pos + length2;
+        while (reader2.pos < end) {
+          const tag = reader2.uint32();
+          switch (tag >>> 3) {
+            case 1:
+              obj.MimeType = reader2.string();
+              break;
+            default:
+              reader2.skipType(tag & 7);
+              break;
+          }
+        }
+        return obj;
+      });
+    }
+    return _codec;
+  };
+  Metadata2.encode = (obj) => {
+    return encodeMessage(obj, Metadata2.codec());
+  };
+  Metadata2.decode = (buf) => {
+    return decodeMessage(buf, Metadata2.codec());
+  };
+})(Metadata || (Metadata = {}));
+
+// node_modules/.pnpm/ipfs-unixfs@11.1.0/node_modules/ipfs-unixfs/dist/src/index.js
+var types = {
+  Raw: "raw",
+  Directory: "directory",
+  File: "file",
+  Metadata: "metadata",
+  Symlink: "symlink",
+  HAMTShard: "hamt-sharded-directory"
+};
+var dirTypes = [
+  "directory",
+  "hamt-sharded-directory"
+];
+var DEFAULT_FILE_MODE = parseInt("0644", 8);
+var DEFAULT_DIRECTORY_MODE = parseInt("0755", 8);
+var UnixFS = class _UnixFS {
+  /**
+   * Decode from protobuf https://github.com/ipfs/specs/blob/master/UNIXFS.md
+   */
+  static unmarshal(marshaled) {
+    const message2 = Data.decode(marshaled);
+    const data = new _UnixFS({
+      type: types[message2.Type != null ? message2.Type.toString() : "File"],
+      data: message2.Data,
+      blockSizes: message2.blocksizes,
+      mode: message2.mode,
+      mtime: message2.mtime != null ? {
+        secs: message2.mtime.Seconds ?? 0n,
+        nsecs: message2.mtime.FractionalNanoseconds
+      } : void 0,
+      fanout: message2.fanout
+    });
+    data._originalMode = message2.mode ?? 0;
+    return data;
+  }
+  type;
+  data;
+  blockSizes;
+  hashType;
+  fanout;
+  mtime;
+  _mode;
+  _originalMode;
+  constructor(options2 = {
+    type: "file"
+  }) {
+    const { type, data, blockSizes, hashType, fanout, mtime, mode } = options2;
+    if (type != null && !Object.values(types).includes(type)) {
+      throw (0, import_err_code.default)(new Error("Type: " + type + " is not valid"), "ERR_INVALID_TYPE");
+    }
+    this.type = type ?? "file";
+    this.data = data;
+    this.hashType = hashType;
+    this.fanout = fanout;
+    this.blockSizes = blockSizes ?? [];
+    this._originalMode = 0;
+    this.mode = mode;
+    this.mtime = mtime;
+  }
+  set mode(mode) {
+    if (mode == null) {
+      this._mode = this.isDirectory() ? DEFAULT_DIRECTORY_MODE : DEFAULT_FILE_MODE;
+    } else {
+      this._mode = mode & 4095;
+    }
+  }
+  get mode() {
+    return this._mode;
+  }
+  isDirectory() {
+    return dirTypes.includes(this.type);
+  }
+  addBlockSize(size) {
+    this.blockSizes.push(size);
+  }
+  removeBlockSize(index2) {
+    this.blockSizes.splice(index2, 1);
+  }
+  /**
+   * Returns `0n` for directories or `data.length + sum(blockSizes)` for everything else
+   */
+  fileSize() {
+    if (this.isDirectory()) {
+      return 0n;
+    }
+    let sum = 0n;
+    this.blockSizes.forEach((size) => {
+      sum += size;
+    });
+    if (this.data != null) {
+      sum += BigInt(this.data.length);
+    }
+    return sum;
+  }
+  /**
+   * encode to protobuf Uint8Array
+   */
+  marshal() {
+    let type;
+    switch (this.type) {
+      case "raw":
+        type = Data.DataType.Raw;
+        break;
+      case "directory":
+        type = Data.DataType.Directory;
+        break;
+      case "file":
+        type = Data.DataType.File;
+        break;
+      case "metadata":
+        type = Data.DataType.Metadata;
+        break;
+      case "symlink":
+        type = Data.DataType.Symlink;
+        break;
+      case "hamt-sharded-directory":
+        type = Data.DataType.HAMTShard;
+        break;
+      default:
+        throw (0, import_err_code.default)(new Error(`Type: ${type} is not valid`), "ERR_INVALID_TYPE");
+    }
+    let data = this.data;
+    if (this.data == null || this.data.length === 0) {
+      data = void 0;
+    }
+    let mode;
+    if (this.mode != null) {
+      mode = this._originalMode & 4294963200 | (this.mode ?? 0);
+      if (mode === DEFAULT_FILE_MODE && !this.isDirectory()) {
+        mode = void 0;
+      }
+      if (mode === DEFAULT_DIRECTORY_MODE && this.isDirectory()) {
+        mode = void 0;
+      }
+    }
+    let mtime;
+    if (this.mtime != null) {
+      mtime = {
+        Seconds: this.mtime.secs,
+        FractionalNanoseconds: this.mtime.nsecs
+      };
+    }
+    return Data.encode({
+      Type: type,
+      Data: data,
+      filesize: this.isDirectory() ? void 0 : this.fileSize(),
+      blocksizes: this.blockSizes,
+      hashType: this.hashType,
+      fanout: this.fanout,
+      mode,
+      mtime
+    });
+  }
 };
 
-// src/MarkDown.tsx
-var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
-var MarkDown = ({ content }) => {
-  const [html, setHtml] = (0, import_react4.useState)("");
-  const { agent } = (0, import_veramo_react3.useVeramo)();
-  const md = new import_markdown_it.default({
-    html: true,
-    highlight: function(str2, lang) {
-      if (lang && es_default.getLanguage(lang)) {
-        try {
-          return es_default.highlight(str2, { language: lang }).value;
-        } catch (e) {
-          console.error(e);
-        }
-      }
-      return "";
+// node_modules/.pnpm/@veramo+utils@5.5.2-next.8/node_modules/@veramo/utils/build/credential-utils.js
+function computeEntryHash(input) {
+  let hashable;
+  if (typeof input === "string") {
+    try {
+      const cred = JSON.parse(input);
+      hashable = cred?.proof?.jwt || input;
+    } catch (e) {
+      hashable = input;
     }
+  } else if (input?.proof?.jwt) {
+    hashable = input.proof.jwt;
+  } else {
+    hashable = JSON.stringify(input);
+  }
+  const unixfs = new UnixFS({
+    type: "file",
+    data: new TextEncoder().encode(hashable)
   });
-  markdownPlugin(md);
-  (0, import_react4.useEffect)(() => {
-    const htmlStr = md.render(content);
-    setHtml(htmlStr);
-    async function getVerifiedHtml(lang, source) {
-      let credential = void 0;
-      let result = "";
-      const decoded = (0, import_html_entities2.decode)(source);
-      const parsed = JSON.parse(decoded);
-      try {
-        if (lang === "vc+json") {
-          credential = JSON.parse(parsed);
-        } else if (lang === "vc+jwt") {
-          credential = normalizeCredential(parsed.replace(/\s/g, ""));
-        } else if (lang === "vc+multihash") {
-          const items = parsed.replace(/\s/g, "").split("/");
-          let hash2 = "";
-          let did = "";
-          if (items.length === 2) {
-            did = items[0];
-            hash2 = items[1];
-          } else {
-            hash2 = items[0];
-          }
-          credential = await agent?.dataStoreGetVerifiableCredential({
-            hash: hash2
-          });
-          if (!credential) {
-          }
-        }
-        if (credential) {
-          const verifyResult = await agent?.verifyCredential({ credential, fetchRemoteContexts: true });
-          if (verifyResult) {
-            result = ReactDOMServer.renderToStaticMarkup(
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CredentialVerificationView, { verifyResult, credential })
-            );
-          }
-        }
-      } catch (e) {
-        result = `Error: ${e.message}`;
-      }
-      return result;
+  const bytes2 = encode6(prepare({ Data: unixfs.marshal() }));
+  const digest2 = create(18, sha2562(bytes2));
+  return CID.create(0, code2, digest2).toString();
+}
+
+// node_modules/.pnpm/@veramo+utils@5.5.2-next.8/node_modules/@veramo/utils/build/did-utils.js
+var import_debug = __toESM(require_browser(), 1);
+var debug = (0, import_debug.default)("veramo:utils");
+
+// src/MarkDown.tsx
+var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+var MarkDown = ({ content }) => {
+  const parsed = md.parse(content, {});
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: parsed.map((token, index2) => {
+    if (token.type === "fence" && token.info === "vc+jwt") {
+      const verifiableCredential = normalizeCredential(token.content.replace(/\s/g, ""));
+      const hash2 = computeEntryHash(verifiableCredential);
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_agent_explorer_plugin.VerifiableCredentialComponent, { credential: { hash: hash2, verifiableCredential } });
     }
-    async function replaceDivs(input) {
-      const regex = /<div class="veramo" data-lang="([^"]+)" data-source="([^"]+)">.*?<\/div>/g;
-      const replacements = [];
-      let match;
-      while ((match = regex.exec(input)) !== null) {
-        const [fullMatch, lang, source] = match;
-        replacements.push({ fullMatch, lang, source });
+    if (token.type === "fence" && token.info === "vc+json") {
+      const verifiableCredential = JSON.parse(token.content);
+      const hash2 = computeEntryHash(verifiableCredential);
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_agent_explorer_plugin.VerifiableCredentialComponent, { credential: { hash: hash2, verifiableCredential } });
+    } else if (token.type === "fence" && token.info === "vc+multihash") {
+      const items = token.content.replace(/\s/g, "").split("/");
+      let hash2 = "";
+      let did = "";
+      if (items.length === 2) {
+        did = items[0];
+        hash2 = items[1];
+      } else {
+        hash2 = items[0];
       }
-      const replacedStrings = await Promise.all(
-        replacements.map(async ({ lang, source }) => getVerifiedHtml(lang, source))
-      );
-      for (let i = 0; i < replacements.length; i++) {
-        input = input.replace(replacements[i].fullMatch, replacedStrings[i]);
-      }
-      return input;
+      return null;
     }
-    replaceDivs(htmlStr).then(setHtml);
-  }, [content]);
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { dangerouslySetInnerHTML: { __html: html } });
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { dangerouslySetInnerHTML: { __html: md.renderer.render([token], {}, {}) } });
+  }) });
 };
 
 // node_modules/.pnpm/@monaco-editor+loader@1.3.3_monaco-editor@0.43.0/node_modules/@monaco-editor/loader/lib/es/_virtual/_rollupPluginBabelHelpers.js
@@ -67892,7 +70425,7 @@ function create2(initial) {
   };
   var didUpdate = curry(didStateUpdate)(state, handler);
   var update = curry(updateState)(state);
-  var validate = curry(validators.changes)(initial);
+  var validate2 = curry(validators.changes)(initial);
   var getChanges = curry(extractChanges)(state);
   function getState2() {
     var selector = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : function(state2) {
@@ -67902,7 +70435,7 @@ function create2(initial) {
     return selector(state.current);
   }
   function setState2(causedChanges) {
-    compose(didUpdate, update, validate, getChanges)(causedChanges);
+    compose(didUpdate, update, validate2, getChanges)(causedChanges);
   }
   return [getState2, setState2];
 }
@@ -68148,6 +70681,8 @@ var loader = {
 var loader_default = loader;
 
 // node_modules/.pnpm/@monaco-editor+react@4.5.2_monaco-editor@0.43.0_react-dom@18.2.0_react@18.2.0/node_modules/@monaco-editor/react/dist/index.mjs
+var import_react3 = __toESM(require_react(), 1);
+var import_react4 = __toESM(require_react(), 1);
 var import_react5 = __toESM(require_react(), 1);
 var import_react6 = __toESM(require_react(), 1);
 var import_react7 = __toESM(require_react(), 1);
@@ -68157,29 +70692,27 @@ var import_react10 = __toESM(require_react(), 1);
 var import_react11 = __toESM(require_react(), 1);
 var import_react12 = __toESM(require_react(), 1);
 var import_react13 = __toESM(require_react(), 1);
-var import_react14 = __toESM(require_react(), 1);
-var import_react15 = __toESM(require_react(), 1);
 var lt = { wrapper: { display: "flex", position: "relative", textAlign: "initial" }, fullWidth: { width: "100%" }, hide: { display: "none" } };
 var v = lt;
 var at = { container: { display: "flex", height: "100%", width: "100%", justifyContent: "center", alignItems: "center" } };
 var Y = at;
 function Mt({ children: t }) {
-  return import_react9.default.createElement("div", { style: Y.container }, t);
+  return import_react7.default.createElement("div", { style: Y.container }, t);
 }
 var Z = Mt;
 var $ = Z;
 function Et({ width: t, height: r, isEditorReady: n, loading: e, _ref: a, className: m, wrapperProps: E }) {
-  return import_react8.default.createElement("section", { style: { ...v.wrapper, width: t, height: r }, ...E }, !n && import_react8.default.createElement($, null, e), import_react8.default.createElement("div", { ref: a, style: { ...v.fullWidth, ...!n && v.hide }, className: m }));
+  return import_react6.default.createElement("section", { style: { ...v.wrapper, width: t, height: r }, ...E }, !n && import_react6.default.createElement($, null, e), import_react6.default.createElement("div", { ref: a, style: { ...v.fullWidth, ...!n && v.hide }, className: m }));
 }
 var tt = Et;
-var H = (0, import_react7.memo)(tt);
+var H = (0, import_react5.memo)(tt);
 function Ct(t) {
-  (0, import_react10.useEffect)(t, []);
+  (0, import_react8.useEffect)(t, []);
 }
 var b = Ct;
 function ht(t, r, n = true) {
-  let e = (0, import_react11.useRef)(true);
-  (0, import_react11.useEffect)(e.current || !n ? () => {
+  let e = (0, import_react9.useRef)(true);
+  (0, import_react9.useEffect)(e.current || !n ? () => {
     e.current = false;
   } : t, r);
 }
@@ -68199,7 +70732,7 @@ function et(t, r) {
   return t.Uri.parse(r);
 }
 function Ot({ original: t, modified: r, language: n, originalLanguage: e, modifiedLanguage: a, originalModelPath: m, modifiedModelPath: E, keepCurrentOriginalModel: S = false, keepCurrentModifiedModel: N = false, theme: x = "light", loading: P = "Loading...", options: y = {}, height: V = "100%", width: z = "100%", className: F, wrapperProps: j = {}, beforeMount: A = h, onMount: q = h }) {
-  let [M, O] = (0, import_react6.useState)(false), [T, s] = (0, import_react6.useState)(true), u = (0, import_react6.useRef)(null), c = (0, import_react6.useRef)(null), w = (0, import_react6.useRef)(null), d = (0, import_react6.useRef)(q), o = (0, import_react6.useRef)(A), D = (0, import_react6.useRef)(false);
+  let [M, O] = (0, import_react4.useState)(false), [T, s] = (0, import_react4.useState)(true), u = (0, import_react4.useRef)(null), c = (0, import_react4.useRef)(null), w = (0, import_react4.useRef)(null), d = (0, import_react4.useRef)(q), o = (0, import_react4.useRef)(A), D = (0, import_react4.useRef)(false);
   b(() => {
     let i = loader_default.init();
     return i.then((f2) => (c.current = f2) && s(false)).catch((f2) => f2?.type !== "cancelation" && console.error("Monaco initialization: error:", f2)), () => u.current ? I() : i.cancel();
@@ -68226,38 +70759,38 @@ function Ot({ original: t, modified: r, language: n, originalLanguage: e, modifi
   }, [x], M), l(() => {
     u.current?.updateOptions(y);
   }, [y], M);
-  let U = (0, import_react6.useCallback)(() => {
+  let U = (0, import_react4.useCallback)(() => {
     if (!c.current)
       return;
     o.current(c.current);
     let i = R(c.current, t || "", e || n || "text", m || ""), f2 = R(c.current, r || "", a || n || "text", E || "");
     u.current?.setModel({ original: i, modified: f2 });
-  }, [n, r, a, t, e, m, E]), L = (0, import_react6.useCallback)(() => {
+  }, [n, r, a, t, e, m, E]), L = (0, import_react4.useCallback)(() => {
     !D.current && w.current && (u.current = c.current.editor.createDiffEditor(w.current, { automaticLayout: true, ...y }), U(), c.current?.editor.setTheme(x), O(true), D.current = true);
   }, [y, x, U]);
-  (0, import_react6.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     M && d.current(u.current, c.current);
-  }, [M]), (0, import_react6.useEffect)(() => {
+  }, [M]), (0, import_react4.useEffect)(() => {
     !T && !M && L();
   }, [T, M, L]);
   function I() {
     let i = u.current?.getModel();
     S || i?.original?.dispose(), N || i?.modified?.dispose(), u.current?.dispose();
   }
-  return import_react6.default.createElement(H, { width: z, height: V, isEditorReady: M, loading: P, _ref: w, className: F, wrapperProps: j });
+  return import_react4.default.createElement(H, { width: z, height: V, isEditorReady: M, loading: P, _ref: w, className: F, wrapperProps: j });
 }
 var it = Ot;
-var wt = (0, import_react5.memo)(it);
+var wt = (0, import_react3.memo)(it);
 function Ht(t) {
-  let r = (0, import_react15.useRef)();
-  return (0, import_react15.useEffect)(() => {
+  let r = (0, import_react13.useRef)();
+  return (0, import_react13.useEffect)(() => {
     r.current = t;
   }, [t]), r.current;
 }
 var st = Ht;
 var _ = /* @__PURE__ */ new Map();
 function Vt({ defaultValue: t, defaultLanguage: r, defaultPath: n, value: e, language: a, path: m, theme: E = "light", line: S, loading: N = "Loading...", options: x = {}, overrideServices: P = {}, saveViewState: y = true, keepCurrentModel: V = false, width: z = "100%", height: F = "100%", className: j, wrapperProps: A = {}, beforeMount: q = h, onMount: M = h, onChange: O, onValidate: T = h }) {
-  let [s, u] = (0, import_react14.useState)(false), [c, w] = (0, import_react14.useState)(true), d = (0, import_react14.useRef)(null), o = (0, import_react14.useRef)(null), D = (0, import_react14.useRef)(null), U = (0, import_react14.useRef)(M), L = (0, import_react14.useRef)(q), I = (0, import_react14.useRef)(), i = (0, import_react14.useRef)(e), f2 = st(m), Q = (0, import_react14.useRef)(false), B = (0, import_react14.useRef)(false);
+  let [s, u] = (0, import_react12.useState)(false), [c, w] = (0, import_react12.useState)(true), d = (0, import_react12.useRef)(null), o = (0, import_react12.useRef)(null), D = (0, import_react12.useRef)(null), U = (0, import_react12.useRef)(M), L = (0, import_react12.useRef)(q), I = (0, import_react12.useRef)(), i = (0, import_react12.useRef)(e), f2 = st(m), Q = (0, import_react12.useRef)(false), B = (0, import_react12.useRef)(false);
   b(() => {
     let p = loader_default.init();
     return p.then((g) => (d.current = g) && w(false)).catch((g) => g?.type !== "cancelation" && console.error("Monaco initialization: error:", g)), () => o.current ? pt() : p.cancel();
@@ -68276,22 +70809,22 @@ function Vt({ defaultValue: t, defaultLanguage: r, defaultPath: n, value: e, lan
   }, [S], s), l(() => {
     d.current?.editor.setTheme(E);
   }, [E], s);
-  let X = (0, import_react14.useCallback)(() => {
+  let X = (0, import_react12.useCallback)(() => {
     if (!(!D.current || !d.current) && !Q.current) {
       L.current(d.current);
       let p = m || n, g = R(d.current, e || t || "", r || a || "", p || "");
       o.current = d.current?.editor.create(D.current, { model: g, automaticLayout: true, ...x }, P), y && o.current.restoreViewState(_.get(p)), d.current.editor.setTheme(E), u(true), Q.current = true;
     }
   }, [t, r, n, e, a, m, x, P, y, E]);
-  (0, import_react14.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     s && U.current(o.current, d.current);
-  }, [s]), (0, import_react14.useEffect)(() => {
+  }, [s]), (0, import_react12.useEffect)(() => {
     !c && !s && X();
-  }, [c, s, X]), i.current = e, (0, import_react14.useEffect)(() => {
+  }, [c, s, X]), i.current = e, (0, import_react12.useEffect)(() => {
     s && O && (I.current?.dispose(), I.current = o.current?.onDidChangeModelContent((p) => {
       B.current || O(o.current.getValue(), p);
     }));
-  }, [s, O]), (0, import_react14.useEffect)(() => {
+  }, [s, O]), (0, import_react12.useEffect)(() => {
     if (s) {
       let p = d.current.editor.onDidChangeMarkers((g) => {
         let G = o.current.getModel()?.uri;
@@ -68310,31 +70843,31 @@ function Vt({ defaultValue: t, defaultLanguage: r, defaultPath: n, value: e, lan
   function pt() {
     I.current?.dispose(), V ? y && _.set(m, o.current.saveViewState()) : o.current.getModel()?.dispose(), o.current.dispose();
   }
-  return import_react14.default.createElement(H, { width: z, height: F, isEditorReady: s, loading: N, _ref: D, className: j, wrapperProps: A });
+  return import_react12.default.createElement(H, { width: z, height: F, isEditorReady: s, loading: N, _ref: D, className: j, wrapperProps: A });
 }
 var ft = Vt;
-var dt = (0, import_react13.memo)(ft);
+var dt = (0, import_react11.memo)(ft);
 var Fe = dt;
 
 // src/PostForm.tsx
 var import_markdown_it2 = __toESM(require_markdown_it(), 1);
-var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
-var { TextArea } = import_antd3.Input;
+var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+var { TextArea } = import_antd.Input;
 var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed }) => {
-  const token = import_antd3.theme.useToken();
+  const token = import_antd.theme.useToken();
   console.log("initialIndexed: ", initialIndexed);
-  const [title, setTitle] = (0, import_react16.useState)(initialTitle || "");
-  const [shouldBeIndexed, setShouldBeIndexed] = (0, import_react16.useState)(initialIndexed || false);
-  const [post, setPost] = (0, import_react16.useState)(initialText || "");
-  const { agent } = (0, import_veramo_react4.useVeramo)();
-  const [selectedDid, setSelectedDid] = (0, import_react16.useState)(initialIssuer || "");
-  const [issuerProfile, setIssuerProfile] = (0, import_react16.useState)();
-  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react16.useState)([]);
+  const [title, setTitle] = (0, import_react14.useState)(initialTitle || "");
+  const [shouldBeIndexed, setShouldBeIndexed] = (0, import_react14.useState)(initialIndexed || false);
+  const [post, setPost] = (0, import_react14.useState)(initialText || "");
+  const { agent } = (0, import_veramo_react.useVeramo)();
+  const [selectedDid, setSelectedDid] = (0, import_react14.useState)(initialIssuer || "");
+  const [issuerProfile, setIssuerProfile] = (0, import_react14.useState)();
+  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react14.useState)([]);
   const [
     managedIdentifiersWithProfiles,
     setManagedIdentifiersWithProfiles
-  ] = (0, import_react16.useState)([]);
-  (0, import_react_query3.useQuery)(
+  ] = (0, import_react14.useState)([]);
+  (0, import_react_query.useQuery)(
     ["identifiers", { id: agent?.context.id }],
     () => agent?.didManagerFind(),
     {
@@ -68348,7 +70881,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
       }
     }
   );
-  (0, import_react16.useEffect)(() => {
+  (0, import_react14.useEffect)(() => {
     if (agent) {
       Promise.all(
         managedIdentifiers.map((identifier) => {
@@ -68362,7 +70895,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
   }, [managedIdentifiers, agent]);
   const handleCreatePost = async () => {
     try {
-      const md = new import_markdown_it2.default({
+      const md2 = new import_markdown_it2.default({
         html: true,
         highlight: function(str2, lang) {
           if (lang && es_default.getLanguage(lang)) {
@@ -68375,7 +70908,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
           return "";
         }
       });
-      const tokens = md.parse(post, {});
+      const tokens = md2.parse(post, {});
       const references = tokens.filter((token2) => {
         return token2.type === "fence" && token2.tag === "code" && token2.info === "vc+multihash";
       }).map((token2) => {
@@ -68443,19 +70976,19 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
       console.error(e);
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_antd3.Space, { direction: "vertical", style: { width: "100%" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-      import_antd3.Tabs,
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_antd.Space, { direction: "vertical", style: { width: "100%" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      import_antd.Tabs,
       {
         items: [
           {
             key: "1",
             label: "Write",
-            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd3.Input, { value: title, onChange: (e) => setTitle(e.target.value), placeholder: "Title (optional)" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd3.Checkbox, { defaultChecked: shouldBeIndexed, onChange: (e) => setShouldBeIndexed(e.target.checked), children: "Index" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("br", {}),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd.Input, { value: title, onChange: (e) => setTitle(e.target.value), placeholder: "Title (optional)" }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd.Checkbox, { defaultChecked: shouldBeIndexed, onChange: (e) => setShouldBeIndexed(e.target.checked), children: "Index" }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
                 Fe,
                 {
                   theme: token.theme.id === 4 ? "vs-dark" : "light",
@@ -68478,21 +71011,21 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
           {
             key: "2",
             label: "Preview",
-            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { children: title }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(MarkDown, { content: post })
+            children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", { children: title }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(MarkDown, { content: post })
             ] })
           }
         ]
       }
     ),
-    managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-      import_antd3.Dropdown.Button,
+    managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      import_antd.Dropdown.Button,
       {
         type: "primary",
         onClick: handleCreatePost,
         disabled: post === "",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd3.Avatar, { size: "small", src: issuerProfile?.picture }),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd.Avatar, { size: "small", src: issuerProfile?.picture }),
         menu: {
           items: [
             ...managedIdentifiersWithProfiles.map((profile) => {
@@ -68502,7 +71035,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
                   setIssuerProfile(profile);
                   setSelectedDid(profile.did);
                 },
-                label: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(IdentifierProfile_default, { did: profile.did })
+                label: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_agent_explorer_plugin2.IdentifierProfile, { did: profile.did })
               };
             })
           ],
@@ -68516,13 +71049,21 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
 };
 
 // src/Feed.tsx
-var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
 var Feed = () => {
-  const { notification } = import_antd4.App.useApp();
-  const [drawerOpen, setDrawerOpen] = (0, import_react18.useState)(false);
-  const navigate = (0, import_react_router_dom2.useNavigate)();
-  const { agent } = (0, import_veramo_react5.useVeramo)();
-  const { data: credentials, isLoading, refetch } = (0, import_react_query4.useQuery)(
+  const { notification } = import_antd2.App.useApp();
+  const [drawerOpen, setDrawerOpen] = (0, import_react16.useState)(false);
+  const [pageSize, setPageSize] = import_react16.default.useState(10);
+  const [page, setPage] = import_react16.default.useState(1);
+  const navigate = (0, import_react_router_dom.useNavigate)();
+  const { agent } = (0, import_veramo_react2.useVeramo)();
+  const { data: credentialsCount } = (0, import_react_query2.useQuery)(
+    ["credentialsCount", { agentId: agent?.context.name }],
+    () => agent?.dataStoreORMGetVerifiableCredentialsCount({
+      where: [{ column: "type", value: ["VerifiableCredential,BrainSharePost"] }]
+    })
+  );
+  const { data: credentials, isLoading, refetch } = (0, import_react_query2.useQuery)(
     ["brainshare-posts", { agentId: agent?.context.name }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
       where: [{ column: "type", value: ["VerifiableCredential,BrainSharePost"] }],
@@ -68537,14 +71078,14 @@ var Feed = () => {
     await refetch();
     navigate("/brainshare/" + hash2);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
     import_pro_components.PageContainer,
     {
       extra: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          import_antd4.Button,
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_antd2.Button,
           {
-            icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(PlusOutlined_default2, {}),
+            icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(PlusOutlined_default2, {}),
             type: "primary",
             title: "Compose new post",
             onClick: () => setDrawerOpen(true),
@@ -68554,56 +71095,28 @@ var Feed = () => {
         )
       ],
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          import_pro_components.ProList,
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_antd2.List,
           {
-            ghost: true,
-            loading: isLoading,
+            itemLayout: "vertical",
+            size: "large",
             pagination: {
-              defaultPageSize: 5,
-              showSizeChanger: true
-            },
-            grid: { column: 1, lg: 1, xxl: 1, xl: 1 },
-            onItem: (record) => {
-              return {
-                onClick: () => {
-                  navigate("/brainshare/" + record.hash);
-                }
-              };
-            },
-            metas: {
-              title: {},
-              content: {},
-              actions: {
-                cardActionProps: "extra"
+              position: "both",
+              pageSize,
+              current: page,
+              total: credentialsCount,
+              showSizeChanger: true,
+              onChange(page2, pageSize2) {
+                setPage(page2);
+                setPageSize(pageSize2);
               }
             },
-            dataSource: credentials?.map((item) => {
-              return {
-                title: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-                  IdentifierProfile_default,
-                  {
-                    did: getIssuerDID(item.verifiableCredential)
-                  }
-                ),
-                actions: [
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { children: (0, import_date_fns2.formatRelative)(
-                    new Date(item.verifiableCredential.issuanceDate),
-                    /* @__PURE__ */ new Date()
-                  ) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CredentialActionsDropdown_default, { credential: item.verifiableCredential, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(EllipsisOutlined_default2, {}) })
-                ],
-                content: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
-                  item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { children: item.verifiableCredential.credentialSubject.title }),
-                  !item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(MarkDown, { content: item.verifiableCredential.credentialSubject.post })
-                ] }),
-                hash: item.hash
-              };
-            })
+            dataSource: credentials,
+            renderItem: (item) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { marginTop: "20px" }, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_agent_explorer_plugin3.VerifiableCredentialComponent, { credential: item }) })
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          import_antd4.Drawer,
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_antd2.Drawer,
           {
             title: "Compose new post",
             placement: "right",
@@ -68611,39 +71124,40 @@ var Feed = () => {
             open: drawerOpen,
             width: 800,
             destroyOnClose: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(PostForm, { onOk: handleNewPost })
+            children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(PostForm, { onOk: handleNewPost })
           }
-        ) })
+        )
       ]
     }
   );
 };
 
 // src/Post.tsx
-var import_react20 = __toESM(require_react(), 1);
-var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
-var import_react_query6 = __toESM(require_react_query(), 1);
-var import_veramo_react7 = __toESM(require_veramo_react(), 1);
+var import_react18 = __toESM(require_react(), 1);
+var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
+var import_react_query4 = __toESM(require_react_query(), 1);
+var import_veramo_react4 = __toESM(require_veramo_react(), 1);
 var import_pro_components3 = __toESM(require_pro_components(), 1);
-var import_antd6 = __toESM(require_antd(), 1);
-var import_date_fns4 = __toESM(require_date_fns(), 1);
+var import_antd4 = __toESM(require_antd(), 1);
+var import_agent_explorer_plugin5 = __toESM(require_agent_explorer_plugin(), 1);
 
 // src/ReferencesFeed.tsx
-var import_react19 = __toESM(require_react(), 1);
-var import_date_fns3 = __toESM(require_date_fns(), 1);
-var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
-var import_react_query5 = __toESM(require_react_query(), 1);
-var import_veramo_react6 = __toESM(require_veramo_react(), 1);
+var import_react17 = __toESM(require_react(), 1);
+var import_date_fns = __toESM(require_date_fns(), 1);
+var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
+var import_react_query3 = __toESM(require_react_query(), 1);
+var import_veramo_react3 = __toESM(require_veramo_react(), 1);
 var import_pro_components2 = __toESM(require_pro_components(), 1);
-var import_antd5 = __toESM(require_antd(), 1);
-var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+var import_agent_explorer_plugin4 = __toESM(require_agent_explorer_plugin(), 1);
+var import_antd3 = __toESM(require_antd(), 1);
+var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
 var ReferencesFeed = ({ referenceHashes }) => {
-  const { notification } = import_antd5.App.useApp();
-  const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
-  const navigate = (0, import_react_router_dom3.useNavigate)();
-  const { agent } = (0, import_veramo_react6.useVeramo)();
+  const { notification } = import_antd3.App.useApp();
+  const [drawerOpen, setDrawerOpen] = (0, import_react17.useState)(false);
+  const navigate = (0, import_react_router_dom2.useNavigate)();
+  const { agent } = (0, import_veramo_react3.useVeramo)();
   console.log("referenceHashes: ", referenceHashes);
-  const { data: credentials, isLoading, refetch } = (0, import_react_query5.useQuery)(
+  const { data: credentials, isLoading, refetch } = (0, import_react_query3.useQuery)(
     ["brainshare-posts", { agentId: agent?.context.name }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
       where: [
@@ -68654,7 +71168,7 @@ var ReferencesFeed = ({ referenceHashes }) => {
     })
   );
   console.log("credentials: ", credentials);
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
     import_pro_components2.ProList,
     {
       ghost: true,
@@ -68680,22 +71194,22 @@ var ReferencesFeed = ({ referenceHashes }) => {
       },
       dataSource: credentials?.map((item) => {
         return {
-          title: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-            IdentifierProfile_default,
+          title: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            import_agent_explorer_plugin4.IdentifierProfile,
             {
-              did: getIssuerDID(item.verifiableCredential)
+              did: (0, import_agent_explorer_plugin4.getIssuerDID)(item.verifiableCredential)
             }
           ),
           actions: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { children: (0, import_date_fns3.formatRelative)(
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: (0, import_date_fns.formatRelative)(
               new Date(item.verifiableCredential.issuanceDate),
               /* @__PURE__ */ new Date()
             ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(CredentialActionsDropdown_default, { credential: item.verifiableCredential, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(EllipsisOutlined_default2, {}) })
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_agent_explorer_plugin4.CredentialActionsDropdown, { uniqueCredential: item, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(EllipsisOutlined_default2, {}) })
           ],
-          content: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-            item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h2", { children: item.verifiableCredential.credentialSubject.title }),
-            !item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(MarkDown, { content: item.verifiableCredential.credentialSubject.post })
+          content: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+            item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { children: item.verifiableCredential.credentialSubject.title }),
+            !item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(MarkDown, { content: item.verifiableCredential.credentialSubject.post })
           ] }),
           hash: item.hash
         };
@@ -68705,22 +71219,22 @@ var ReferencesFeed = ({ referenceHashes }) => {
 };
 
 // src/Post.tsx
-var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
-var { Title } = import_antd6.Typography;
+var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+var { Title } = import_antd4.Typography;
 var Post = () => {
-  const { notification } = import_antd6.App.useApp();
-  const { id } = (0, import_react_router_dom4.useParams)();
-  const { agent } = (0, import_veramo_react7.useVeramo)();
-  const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
-  const [refDrawerOpen, setRefDrawerOpen] = (0, import_react20.useState)(false);
-  const navigate = (0, import_react_router_dom4.useNavigate)();
+  const { notification } = import_antd4.App.useApp();
+  const { id } = (0, import_react_router_dom3.useParams)();
+  const { agent } = (0, import_veramo_react4.useVeramo)();
+  const [drawerOpen, setDrawerOpen] = (0, import_react18.useState)(false);
+  const [refDrawerOpen, setRefDrawerOpen] = (0, import_react18.useState)(false);
+  const navigate = (0, import_react_router_dom3.useNavigate)();
   if (!id)
     return null;
-  const { data: credential, isLoading: credentialLoading } = (0, import_react_query6.useQuery)(
+  const { data: credential, isLoading: credentialLoading } = (0, import_react_query4.useQuery)(
     ["credential", { id }],
     () => agent?.dataStoreGetVerifiableCredential({ hash: id })
   );
-  const { data: references, isLoading: referencesLoading } = (0, import_react_query6.useQuery)(
+  const { data: references, isLoading: referencesLoading } = (0, import_react_query4.useQuery)(
     ["references", { id }],
     () => {
       return agent?.dataStoreORMGetVerifiableCredentialsByClaims({
@@ -68738,89 +71252,54 @@ var Post = () => {
       });
     }
   );
-  const handleNewPost = async (hash2) => {
-    notification.success({
-      message: "Post created"
-    });
-    navigate("/brainshare/" + hash2);
-  };
   if (!credential)
     return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
     import_pro_components3.PageContainer,
     {
       loading: credentialLoading,
-      title: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-        IdentifierProfile_default,
-        {
-          did: getIssuerDID(credential)
-        }
-      ),
-      extra: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd6.Typography.Text, { children: credential && (0, import_date_fns4.formatRelative)(
-          new Date(credential.issuanceDate),
-          /* @__PURE__ */ new Date()
-        ) }, "1"),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(CredentialActionsDropdown_default, { credential, onCreateRevision: () => setDrawerOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(EllipsisOutlined_default2, {}) }, "2")
-      ],
+      style: { paddingTop: 10 },
       children: [
-        credential && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
-          references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_jsx_runtime8.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Title, { level: 5, onClick: () => setRefDrawerOpen(true), children: [
-            "Referenced by ",
-            references.length,
-            " other posts"
-          ] }) }),
-          credential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { children: credential.credentialSubject.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(MarkDown, { content: credential.credentialSubject.post })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            import_antd6.Drawer,
-            {
-              title: "Compose new post",
-              placement: "right",
-              onClose: () => setDrawerOpen(false),
-              open: drawerOpen,
-              width: 800,
-              destroyOnClose: true,
-              children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PostForm, { onOk: handleNewPost, initialIssuer: credential.issuer.id, initialTitle: credential.credentialSubject.title, initialText: credential.credentialSubject.post, initialIndexed: credential.credentialSubject.shouldBeIndexed })
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            import_antd6.Drawer,
-            {
-              title: "Posts that reference this one",
-              placement: "right",
-              onClose: () => setRefDrawerOpen(false),
-              open: refDrawerOpen,
-              width: 800,
-              destroyOnClose: true,
-              children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(ReferencesFeed, { referenceHashes: references?.map((cred) => cred.hash) })
-            }
-          )
-        ] })
+        credential && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_agent_explorer_plugin5.VerifiableCredentialComponent, { credential: { hash: id, verifiableCredential: credential } }),
+        references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Title, { level: 5, onClick: () => setRefDrawerOpen(true), children: [
+          "Referenced by ",
+          references.length,
+          " other posts"
+        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          import_antd4.Drawer,
+          {
+            title: "Posts that reference this one",
+            placement: "right",
+            onClose: () => setRefDrawerOpen(false),
+            open: refDrawerOpen,
+            width: 800,
+            destroyOnClose: true,
+            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(ReferencesFeed, { referenceHashes: references?.map((cred) => cred.hash) })
+          }
+        )
       ]
     }
   );
 };
 
 // src/FindIndex.tsx
-var import_react21 = __toESM(require_react(), 1);
-var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
-var import_react_query7 = __toESM(require_react_query(), 1);
-var import_veramo_react8 = __toESM(require_veramo_react(), 1);
+var import_react19 = __toESM(require_react(), 1);
+var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
+var import_react_query5 = __toESM(require_react_query(), 1);
+var import_veramo_react5 = __toESM(require_veramo_react(), 1);
 var import_pro_components4 = __toESM(require_pro_components(), 1);
-var import_antd7 = __toESM(require_antd(), 1);
+var import_antd5 = __toESM(require_antd(), 1);
 var import_uuid = __toESM(require_uuid(), 1);
-var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
 var FindIndex = () => {
-  const { notification } = import_antd7.App.useApp();
-  const [drawerOpen, setDrawerOpen] = (0, import_react21.useState)(false);
-  const [did, setDID] = (0, import_react21.useState)("");
-  const [selectedDid, setSelectedDid] = (0, import_react21.useState)("");
-  const navigate = (0, import_react_router_dom5.useNavigate)();
-  const { agent } = (0, import_veramo_react8.useVeramo)();
-  (0, import_react_query7.useQuery)(
+  const { notification } = import_antd5.App.useApp();
+  const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
+  const [did, setDID] = (0, import_react19.useState)("");
+  const [selectedDid, setSelectedDid] = (0, import_react19.useState)("");
+  const navigate = (0, import_react_router_dom4.useNavigate)();
+  const { agent } = (0, import_veramo_react5.useVeramo)();
+  (0, import_react_query5.useQuery)(
     ["identifiers", { id: agent?.context.id }],
     () => agent?.didManagerFind(),
     {
@@ -68839,7 +71318,7 @@ var FindIndex = () => {
     navigate("/brainshare/" + hash2);
   };
   const getIndex = async () => {
-    const message = {
+    const message2 = {
       type: "https://veramo.io/didcomm/brainshare/1.0/request-index",
       from: selectedDid,
       to: did,
@@ -68848,24 +71327,24 @@ var FindIndex = () => {
     };
     const packedMessage = await agent?.packDIDCommMessage({
       packing: "authcrypt",
-      message
+      message: message2
     });
     const res = await agent?.sendDIDCommMessage({
-      messageId: message.id,
+      messageId: message2.id,
       packedMessage,
       recipientDidUrl: did
     });
     console.log("res: ", res);
     navigate(`/brainshare/home/${did}`);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
     import_pro_components4.PageContainer,
     {
       extra: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-          import_antd7.Button,
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          import_antd5.Button,
           {
-            icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PlusOutlined_default2, {}),
+            icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(PlusOutlined_default2, {}),
             type: "primary",
             title: "Compose new post",
             onClick: () => setDrawerOpen(true),
@@ -68875,12 +71354,12 @@ var FindIndex = () => {
         )
       ],
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_antd7.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_antd7.Button, { onClick: () => getIndex(), children: "Find Index" })
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd5.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd5.Button, { onClick: () => getIndex(), children: "Find Index" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_jsx_runtime9.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-          import_antd7.Drawer,
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          import_antd5.Drawer,
           {
             title: "Compose new post",
             placement: "right",
@@ -68888,7 +71367,7 @@ var FindIndex = () => {
             open: drawerOpen,
             width: 800,
             destroyOnClose: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PostForm, { onOk: handleNewPost })
+            children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(PostForm, { onOk: handleNewPost })
           }
         ) })
       ]
@@ -68897,23 +71376,24 @@ var FindIndex = () => {
 };
 
 // src/Home.tsx
-var import_react22 = __toESM(require_react(), 1);
-var import_react_router_dom6 = __toESM(require_react_router_dom(), 1);
-var import_react_query8 = __toESM(require_react_query(), 1);
-var import_veramo_react9 = __toESM(require_veramo_react(), 1);
+var import_react20 = __toESM(require_react(), 1);
+var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
+var import_react_query6 = __toESM(require_react_query(), 1);
+var import_veramo_react6 = __toESM(require_veramo_react(), 1);
 var import_pro_components5 = __toESM(require_pro_components(), 1);
-var import_antd8 = __toESM(require_antd(), 1);
-var import_date_fns5 = __toESM(require_date_fns(), 1);
-var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+var import_antd6 = __toESM(require_antd(), 1);
+var import_date_fns2 = __toESM(require_date_fns(), 1);
+var import_agent_explorer_plugin6 = __toESM(require_agent_explorer_plugin(), 1);
+var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
 var Home = () => {
-  const { notification } = import_antd8.App.useApp();
-  const { did } = (0, import_react_router_dom6.useParams)();
-  const { agent } = (0, import_veramo_react9.useVeramo)();
-  const [drawerOpen, setDrawerOpen] = (0, import_react22.useState)(false);
-  const navigate = (0, import_react_router_dom6.useNavigate)();
+  const { notification } = import_antd6.App.useApp();
+  const { did } = (0, import_react_router_dom5.useParams)();
+  const { agent } = (0, import_veramo_react6.useVeramo)();
+  const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
+  const navigate = (0, import_react_router_dom5.useNavigate)();
   if (!did)
     return null;
-  const { data: credentials, isLoading: credentialLoading } = (0, import_react_query8.useQuery)(
+  const { data: credentials, isLoading: credentialLoading } = (0, import_react_query6.useQuery)(
     ["credentials", { did }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
       where: [{ column: "type", value: ["VerifiableCredential,BrainShareIndex"] }, { column: "issuer", value: [did] }]
@@ -68929,26 +71409,26 @@ var Home = () => {
   };
   if (!credential)
     return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
     import_pro_components5.PageContainer,
     {
       loading: credentialLoading,
-      title: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-        IdentifierProfile_default,
+      title: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        import_agent_explorer_plugin6.IdentifierProfile,
         {
-          did: getIssuerDID(credential)
+          did: (0, import_agent_explorer_plugin6.getIssuerDID)(credential)
         }
       ),
       extra: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_antd8.Typography.Text, { children: credential && (0, import_date_fns5.formatRelative)(
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Typography.Text, { children: credential && (0, import_date_fns2.formatRelative)(
           new Date(credential.issuanceDate),
           /* @__PURE__ */ new Date()
         ) }, "1")
       ],
       children: [
-        credential && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: JSON.stringify(credential) }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-          import_antd8.Drawer,
+        credential && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: JSON.stringify(credential) }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          import_antd6.Drawer,
           {
             title: "Compose new post",
             placement: "right",
@@ -68956,7 +71436,7 @@ var Home = () => {
             open: drawerOpen,
             width: 800,
             destroyOnClose: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(PostForm, { onOk: handleNewPost, initialIssuer: credential.issuer.id, initialTitle: credential.credentialSubject.title, initialText: credential.credentialSubject.post, initialIndexed: credential.credentialSubject.shouldBeIndexed })
+            children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(PostForm, { onOk: handleNewPost, initialIssuer: credential.issuer.id, initialTitle: credential.credentialSubject.title, initialText: credential.credentialSubject.post, initialIndexed: credential.credentialSubject.shouldBeIndexed })
           }
         ) })
       ]
@@ -68965,29 +71445,30 @@ var Home = () => {
 };
 
 // src/LinkDomain.tsx
-var import_react23 = __toESM(require_react(), 1);
-var import_react_router_dom7 = __toESM(require_react_router_dom(), 1);
-var import_react_query9 = __toESM(require_react_query(), 1);
-var import_veramo_react10 = __toESM(require_veramo_react(), 1);
+var import_react21 = __toESM(require_react(), 1);
+var import_react_router_dom6 = __toESM(require_react_router_dom(), 1);
+var import_react_query7 = __toESM(require_react_query(), 1);
+var import_veramo_react7 = __toESM(require_veramo_react(), 1);
 var import_pro_components6 = __toESM(require_pro_components(), 1);
-var import_antd9 = __toESM(require_antd(), 1);
+var import_agent_explorer_plugin7 = __toESM(require_agent_explorer_plugin(), 1);
+var import_antd7 = __toESM(require_antd(), 1);
 var import_uuid2 = __toESM(require_uuid(), 1);
-var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
 var LinkDomain = () => {
-  const { notification } = import_antd9.App.useApp();
-  const [drawerOpen, setDrawerOpen] = (0, import_react23.useState)(false);
-  const [did, setDID] = (0, import_react23.useState)("");
-  const [domain, setDomain] = (0, import_react23.useState)("");
-  const [selectedDid, setSelectedDid] = (0, import_react23.useState)("");
-  const navigate = (0, import_react_router_dom7.useNavigate)();
-  const { agent } = (0, import_veramo_react10.useVeramo)();
-  const [issuerProfile, setIssuerProfile] = (0, import_react23.useState)();
-  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react23.useState)([]);
+  const { notification } = import_antd7.App.useApp();
+  const [drawerOpen, setDrawerOpen] = (0, import_react21.useState)(false);
+  const [did, setDID] = (0, import_react21.useState)("");
+  const [domain, setDomain] = (0, import_react21.useState)("");
+  const [selectedDid, setSelectedDid] = (0, import_react21.useState)("");
+  const navigate = (0, import_react_router_dom6.useNavigate)();
+  const { agent } = (0, import_veramo_react7.useVeramo)();
+  const [issuerProfile, setIssuerProfile] = (0, import_react21.useState)();
+  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react21.useState)([]);
   const [
     managedIdentifiersWithProfiles,
     setManagedIdentifiersWithProfiles
-  ] = (0, import_react23.useState)([]);
-  (0, import_react_query9.useQuery)(
+  ] = (0, import_react21.useState)([]);
+  (0, import_react_query7.useQuery)(
     ["identifiers", { id: agent?.context.id }],
     () => agent?.didManagerFind(),
     {
@@ -69001,7 +71482,7 @@ var LinkDomain = () => {
       }
     }
   );
-  (0, import_react23.useEffect)(() => {
+  (0, import_react21.useEffect)(() => {
     if (agent) {
       Promise.all(
         managedIdentifiers.map((identifier) => {
@@ -69014,7 +71495,7 @@ var LinkDomain = () => {
     }
   }, [managedIdentifiers, agent]);
   const checkLinkage = async () => {
-    const message = {
+    const message2 = {
       type: "https://veramo.io/didcomm/brainshare/1.0/check-domain-linkage",
       from: selectedDid,
       to: did,
@@ -69025,25 +71506,25 @@ var LinkDomain = () => {
     };
     const packedMessage = await agent?.packDIDCommMessage({
       packing: "authcrypt",
-      message
+      message: message2
     });
     const res = await agent?.sendDIDCommMessage({
-      messageId: message.id,
+      messageId: message2.id,
       packedMessage,
       recipientDidUrl: did
     });
     console.log("res: ", res);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_pro_components6.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_antd9.Input, { value: domain, onChange: (e) => setDomain(e.target.value), placeholder: "www.google.com" }),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_antd9.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
-    managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-      import_antd9.Dropdown.Button,
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_pro_components6.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd7.Input, { value: domain, onChange: (e) => setDomain(e.target.value), placeholder: "www.google.com" }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd7.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
+    managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      import_antd7.Dropdown.Button,
       {
         type: "primary",
         onClick: checkLinkage,
         disabled: domain === "",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_antd9.Avatar, { size: "small", src: issuerProfile?.picture }),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd7.Avatar, { size: "small", src: issuerProfile?.picture }),
         menu: {
           items: [
             ...managedIdentifiersWithProfiles.map((profile) => {
@@ -69053,7 +71534,7 @@ var LinkDomain = () => {
                   setIssuerProfile(profile);
                   setSelectedDid(profile.did);
                 },
-                label: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(IdentifierProfile_default, { did: profile.did })
+                label: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_agent_explorer_plugin7.IdentifierProfile, { did: profile.did })
               };
             })
           ],
@@ -69066,13 +71547,105 @@ var LinkDomain = () => {
   ] }) });
 };
 
+// src/BrainSharePost.tsx
+var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+var BrainSharePost = ({ credential: { verifiableCredential } }) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+    verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { children: verifiableCredential.credentialSubject.title }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(MarkDown, { content: verifiableCredential.credentialSubject.post })
+  ] });
+};
+
+// src/menu.tsx
+var import_react_router_dom7 = __toESM(require_react_router_dom(), 1);
+var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+var getCredentialContextMenuItems = (credential) => {
+  const navigate = (0, import_react_router_dom7.useNavigate)();
+  if (credential.verifiableCredential.type?.includes("BrainSharePost")) {
+    return [
+      {
+        key: "open",
+        label: "Open post",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(FileSearchOutlined_default2, {}),
+        onClick: () => navigate("/brainshare/" + credential.hash)
+      },
+      {
+        key: "edit",
+        label: "New revision",
+        icon: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(EditOutlined_default2, {}),
+        onClick: () => navigate("/brainshare/edit/" + credential.hash)
+      }
+    ];
+  }
+  return void 0;
+};
+
+// src/Edit.tsx
+var import_react22 = __toESM(require_react(), 1);
+var import_react_router_dom8 = __toESM(require_react_router_dom(), 1);
+var import_react_query8 = __toESM(require_react_query(), 1);
+var import_veramo_react8 = __toESM(require_veramo_react(), 1);
+var import_pro_components7 = __toESM(require_pro_components(), 1);
+var import_antd8 = __toESM(require_antd(), 1);
+var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+var Edit = () => {
+  const { notification } = import_antd8.App.useApp();
+  const { id } = (0, import_react_router_dom8.useParams)();
+  const { agent } = (0, import_veramo_react8.useVeramo)();
+  const [drawerOpen, setDrawerOpen] = (0, import_react22.useState)(false);
+  const navigate = (0, import_react_router_dom8.useNavigate)();
+  if (!id)
+    return null;
+  const { data: credential, isLoading: credentialLoading } = (0, import_react_query8.useQuery)(
+    ["credential", { id }],
+    () => agent?.dataStoreGetVerifiableCredential({ hash: id })
+  );
+  const { data: references, isLoading: referencesLoading } = (0, import_react_query8.useQuery)(
+    ["references", { id }],
+    () => {
+      return agent?.dataStoreORMGetVerifiableCredentialsByClaims({
+        where: [
+          {
+            column: "type",
+            value: ["references"]
+          },
+          {
+            column: "value",
+            value: [`%${id}%`],
+            op: "Like"
+          }
+        ]
+      });
+    }
+  );
+  console.log("references: ", references);
+  const handleNewPost = async (hash2) => {
+    notification.success({
+      message: "Post created"
+    });
+    navigate("/brainshare/" + hash2);
+  };
+  if (!credential)
+    return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    import_pro_components7.PageContainer,
+    {
+      loading: credentialLoading,
+      style: { paddingTop: 10 },
+      children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(PostForm, { onOk: handleNewPost, initialIssuer: credential.issuer.id, initialTitle: credential.credentialSubject.title, initialText: credential.credentialSubject.post, initialIndexed: credential.credentialSubject.shouldBeIndexed })
+    }
+  );
+};
+
 // src/index.tsx
 var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
 var Plugin = {
+  //@ts-ignore
   init: () => {
     return {
       name: "BrainShare",
       description: "Decentralized wiki",
+      requiredMethods: [],
       routes: [
         {
           path: "/brainshare/feed",
@@ -69093,6 +71666,10 @@ var Plugin = {
         {
           path: "/brainshare/link-domain",
           element: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LinkDomain, {})
+        },
+        {
+          path: "/brainshare/edit/:id",
+          element: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Edit, {})
         }
       ],
       menuItems: [
@@ -69102,11 +71679,11 @@ var Plugin = {
           path: "/brainshare",
           routes: [
             {
-              name: "BrainShare",
+              name: "Feed",
               path: "/brainshare/feed"
             },
             {
-              name: "BS Index",
+              name: "Index",
               path: "/brainshare/find-index"
             },
             {
@@ -69116,7 +71693,14 @@ var Plugin = {
           ]
         }
       ],
-      hasCss: true
+      hasCss: true,
+      getCredentialComponent: (credential) => {
+        if (credential.verifiableCredential.type?.includes("BrainSharePost")) {
+          return BrainSharePost;
+        }
+        return void 0;
+      },
+      getCredentialContextMenuItems
     };
   }
 };

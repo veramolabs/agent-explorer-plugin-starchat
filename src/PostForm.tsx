@@ -1,11 +1,10 @@
-import { Input, Checkbox, Button, App, Dropdown, Avatar, Space, Tabs, theme } from 'antd'
+import { Input, Checkbox, Dropdown, Avatar, Space, Tabs, theme } from 'antd'
 import React, { useState, useEffect } from 'react'
 const { TextArea } = Input
 import { useVeramo } from '@veramo-community/veramo-react'
 import { ICredentialIssuer, IDIDManager, IDataStore, IDataStoreORM, IIdentifier } from '@veramo/core'
 import { useQuery } from 'react-query'
-import IdentifierProfile from './components/IdentifierProfile.js'
-import { IIdentifierProfile } from './types.js'
+import { IdentifierProfile, IIdentifierProfile } from '@veramo-community/agent-explorer-plugin'
 import { MarkDown } from './MarkDown.js'
 import Editor from '@monaco-editor/react';
 import MarkdownIt from 'markdown-it'

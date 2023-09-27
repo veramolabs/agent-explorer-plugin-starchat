@@ -11,16 +11,12 @@ import { EllipsisOutlined } from '@ant-design/icons'
 import { getIssuerDID, IdentifierProfile, CredentialActionsDropdown, VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
 
 import { PostForm } from './PostForm.js'
-import { ReferencesFeed } from './ReferencesFeed.js'
 
-const { Title } = Typography
-
-export const Post = () => {
+export const Edit = () => {
   const { notification } = App.useApp()
   const { id } = useParams<{ id: string }>()
   const { agent } = useVeramo<IDataStore & IDataStoreORM>()
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [refDrawerOpen, setRefDrawerOpen] = useState(false);
   const navigate = useNavigate()
 
   if (!id) return null
@@ -45,9 +41,15 @@ export const Post = () => {
   }
   )
 
-  // console.log("references: ", references)
+  console.log("references: ", references)
   
-
+  const handleNewPost = async (hash: string) => {
+    notification.success({
+      message: 'Post created'
+    })
+    // await refetch()
+    navigate('/brainshare/' + hash)
+  }
 
   if (!credential) return null
   return (
@@ -55,24 +57,8 @@ export const Post = () => {
       loading={credentialLoading}
       style={{paddingTop: 10}}
       >
-        {credential && <VerifiableCredentialComponent credential={{hash: id, verifiableCredential: credential}} />}
+        <PostForm onOk={handleNewPost} initialIssuer={(credential.issuer as any).id} initialTitle={credential.credentialSubject.title} initialText={credential.credentialSubject.post} initialIndexed={credential.credentialSubject.shouldBeIndexed}/>
 
-        {references && references.length > 0 && <>
-          <Title level={5} onClick={() => setRefDrawerOpen(true)}>
-            Referenced by {references.length} other posts
-          </Title>
-        </>}
-
-        <Drawer 
-        title="Posts that reference this one"
-        placement="right"
-        onClose={() => setRefDrawerOpen(false)}
-        open={refDrawerOpen} 
-        width={800}
-        destroyOnClose={true}
-      >
-        <ReferencesFeed referenceHashes={references?.map((cred) => cred.hash)}/>
-      </Drawer>
     </PageContainer>
   )
 }
