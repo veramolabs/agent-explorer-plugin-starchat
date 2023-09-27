@@ -9,6 +9,7 @@ import { Feed } from './Feed'
 import { Post } from './Post'
 import { FindIndex } from './FindIndex.js';
 import { Home } from './Home.js';
+import { LinkDomain } from './LinkDomain.js';
 
 const Plugin: IPlugin = {
     init: () => {
@@ -32,6 +33,10 @@ const Plugin: IPlugin = {
               path: '/brainshare/:id',
               element: <Post />,
             },
+            {
+              path: '/brainshare/link-domain',
+              element: <LinkDomain />,
+            },
           ],
           menuItems: [
             {
@@ -46,6 +51,10 @@ const Plugin: IPlugin = {
                 {
                   name: 'BS Index',
                   path: '/brainshare/find-index',
+                },
+                {
+                  name: 'Link Domain',
+                  path: '/brainshare/link-domain'
                 }
               ]
             }
