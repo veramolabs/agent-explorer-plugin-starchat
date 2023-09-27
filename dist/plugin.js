@@ -70130,16 +70130,25 @@ var MarkDown = ({ content }) => {
   const parsed = md.parse(content, {});
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: parsed.map((token, index2) => {
     if (token.type === "fence" && token.info === "vc+jwt") {
-      console.log("found vc jwt", token.content);
       const verifiableCredential = normalizeCredential(token.content.replace(/\s/g, ""));
       const hash2 = computeEntryHash(verifiableCredential);
       return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_agent_explorer_plugin.VerifiableCredentialComponent, { credential: { hash: hash2, verifiableCredential } });
     }
     if (token.type === "fence" && token.info === "vc+json") {
-      console.log("ahahahah");
       const verifiableCredential = JSON.parse(token.content);
       const hash2 = computeEntryHash(verifiableCredential);
       return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_agent_explorer_plugin.VerifiableCredentialComponent, { credential: { hash: hash2, verifiableCredential } });
+    } else if (token.type === "fence" && token.info === "vc+multihash") {
+      const items = token.content.replace(/\s/g, "").split("/");
+      let hash2 = "";
+      let did = "";
+      if (items.length === 2) {
+        did = items[0];
+        hash2 = items[1];
+      } else {
+        hash2 = items[0];
+      }
+      return null;
     }
     return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { dangerouslySetInnerHTML: { __html: md.renderer.render([token], {}, {}) } });
   }) });
