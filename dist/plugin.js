@@ -71205,7 +71205,7 @@ var ReferencesFeed = ({ referenceHashes }) => {
               new Date(item.verifiableCredential.issuanceDate),
               /* @__PURE__ */ new Date()
             ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_agent_explorer_plugin4.CredentialActionsDropdown, { credential: item.verifiableCredential, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(EllipsisOutlined_default2, {}) })
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_agent_explorer_plugin4.CredentialActionsDropdown, { uniqueCredential: item, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(EllipsisOutlined_default2, {}) })
           ],
           content: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
             item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { children: item.verifiableCredential.credentialSubject.title }),

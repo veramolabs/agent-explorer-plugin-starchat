@@ -1,27 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { formatRelative } from 'date-fns'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useVeramo } from '@veramo-community/veramo-react'
-import { PageContainer, ProList } from '@ant-design/pro-components'
+import { ProList } from '@ant-design/pro-components'
 import { IDataStoreORM, UniqueVerifiableCredential } from '@veramo/core'
-import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons'
-import { IdentifierProfile, getIssuerDID, CredentialActionsDropdown } from '@veramo-community/agent-explorer-plugin'
-import { App, Button, Drawer } from 'antd'
-import { PostForm } from './PostForm.js'
-import { MarkDown } from './MarkDown'
+import { EllipsisOutlined } from '@ant-design/icons'
+import { IdentifierProfile, getIssuerDID, CredentialActionsDropdown, VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
 
 interface ReferencesFeedProps {
   referenceHashes?: string[]
 }
 
 export const ReferencesFeed: React.FC<ReferencesFeedProps> = ({ referenceHashes }) => {
-  const { notification } = App.useApp()
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate()
   const { agent } = useVeramo<IDataStoreORM>()
-
-  console.log("referenceHashes: ", referenceHashes)
 
   const { data: credentials, isLoading, refetch } = useQuery(
     ['brainshare-posts', { agentId: agent?.context.name }],
@@ -74,15 +67,12 @@ export const ReferencesFeed: React.FC<ReferencesFeedProps> = ({ referenceHashes 
                 new Date(),
               )}
             </div>,
-            <CredentialActionsDropdown credential={item.verifiableCredential}>
+            <CredentialActionsDropdown uniqueCredential={item}>
               <EllipsisOutlined />
             </CredentialActionsDropdown>,
           ],
           content: (
-            <>
-              {item.verifiableCredential.credentialSubject.title && <h2>{item.verifiableCredential.credentialSubject.title}</h2>}
-              {!item.verifiableCredential.credentialSubject.title && <MarkDown content={item.verifiableCredential.credentialSubject.post}/>}
-            </>
+            <VerifiableCredentialComponent credential={item} />
           ),
           hash: item.hash,
         }
