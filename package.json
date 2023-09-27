@@ -16,7 +16,6 @@
 		"@types/react-router-dom": "^5.3.3",
 		"@types/uuid": "^9.0.4",
 		"@veramo-community/agent-explorer-plugin": "link:../agent-explorer/packages/plugin",
-		"@veramo-community/react-components": "^1.5.0",
 		"@veramo-community/veramo-react": "^1.0.82",
 		"@veramo/core": "5.5.2-next.8",
 		"@veramo/core-types": "5.5.2-next.8",

@@ -37,9 +37,6 @@ devDependencies:
   '@veramo-community/agent-explorer-plugin':
     specifier: link:../agent-explorer/packages/plugin
     version: link:../agent-explorer/packages/plugin
-  '@veramo-community/react-components':
-    specifier: ^1.5.0
-    version: 1.5.0(react@18.2.0)
   '@veramo-community/veramo-react':
     specifier: ^1.0.82
     version: 1.0.82(@veramo/core@5.5.2-next.8)(@veramo/remote-client@5.1.5-next.13)(react@18.2.0)
@@ -1204,14 +1201,6 @@ packages:
     resolution: {integrity: sha512-QlN0RJSBVQBwLRNxbxjQ5qzqYIGn+K7USppMoIOVlf7fxXHsnQZ2bEsa6Pm74bt6DVQxpUE8HqvdStn6Y9FV1w==}
     peerDependencies:
       react: '*'
-    dependencies:
-      react: 18.2.0
-    dev: true
-
-  /@veramo-community/react-components@1.5.0(react@18.2.0):
-    resolution: {integrity: sha512-+8q078C3FP8KwlZAxSkZMk7Eb0joyQ8yrcBWnZhabF95AHvSRLpu+qVl1mm0NqawTOpdbeOrJLAi1oKhWaXsBQ==}
-    peerDependencies:
-      react: ^18.2.0
     dependencies:
       react: 18.2.0
     dev: true
