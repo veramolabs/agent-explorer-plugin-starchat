@@ -1,14 +1,17 @@
-import { Input, Checkbox, Dropdown, Avatar, Space, Tabs, theme } from 'antd'
+import { Input, Checkbox, Dropdown, Avatar, Space, Tabs, theme, Select } from 'antd'
 import React, { useState, useEffect } from 'react'
 const { TextArea } = Input
 import { useVeramo } from '@veramo-community/veramo-react'
-import { ICredentialIssuer, IDIDManager, IDataStore, IDataStoreORM, IIdentifier } from '@veramo/core'
+import { ICredentialIssuer, IDIDManager, IDataStore, IDataStoreORM, IIdentifier, ProofFormat } from '@veramo/core'
 import { useQuery } from 'react-query'
 import { IdentifierProfile, IIdentifierProfile } from '@veramo-community/agent-explorer-plugin'
 import { MarkDown } from './MarkDown.js'
 import Editor from '@monaco-editor/react';
 import MarkdownIt from 'markdown-it'
 import hljs from 'highlight.js'
+
+
+const { Option } = Select
 
 interface CreatePostProps {
   onOk: (hash: string) => void
@@ -36,6 +39,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
     managedIdentifiersWithProfiles,
     setManagedIdentifiersWithProfiles,
   ] = useState<IIdentifierProfile[]>([])
+  const [proofFormat, setProofFormat] = useState('jwt')
 
 
   useQuery(
@@ -96,20 +100,28 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         return token.content.trimEnd()
       })
 
+      const credentialSubject = (references && references.length > 0) ? 
+      {
+        title,
+        shouldBeIndexed,
+        post,
+        references
+      }
+      : {
+        title,
+        shouldBeIndexed,
+        post
+      }
+
       const credential = await agent?.createVerifiableCredential({
         save: true,
-        proofFormat: 'jwt',
+        proofFormat: (proofFormat as ProofFormat),
         credential: {
           '@context': ['https://www.w3.org/2018/credentials/v1'],
           type: ['VerifiableCredential', 'BrainSharePost'],
           issuer: { id: selectedDid },
           issuanceDate: new Date().toISOString(),
-          credentialSubject: {
-            title,
-            shouldBeIndexed,
-            post,
-            references
-          },
+          credentialSubject,
         },
       })
       
@@ -210,7 +222,25 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         },
         ]}
     />
-
+      <Select
+        style={{ width: '60%' }}
+        onChange={(e) => setProofFormat(e as string)}
+        placeholder="Proof type"
+        defaultActiveFirstOption={true}
+      >
+        <Option key="jwt" value="jwt">
+          jwt
+        </Option>
+        <Option key="lds" value="lds">
+          lds
+        </Option>
+        <Option
+          key="EthereumEip712Signature2021lds"
+          value="EthereumEip712Signature2021"
+        >
+          EthereumEip712Signature2021
+        </Option>
+      </Select>
       {managedIdentifiersWithProfiles.length > 0 && (
         <Dropdown.Button
           // overlayStyle={{ height: '50px' }}

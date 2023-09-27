@@ -70853,6 +70853,7 @@ var Fe = dt;
 var import_markdown_it2 = __toESM(require_markdown_it(), 1);
 var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
 var { TextArea } = import_antd.Input;
+var { Option } = import_antd.Select;
 var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed }) => {
   const token = import_antd.theme.useToken();
   console.log("initialIndexed: ", initialIndexed);
@@ -70867,6 +70868,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
     managedIdentifiersWithProfiles,
     setManagedIdentifiersWithProfiles
   ] = (0, import_react14.useState)([]);
+  const [proofFormat, setProofFormat] = (0, import_react14.useState)("jwt");
   (0, import_react_query.useQuery)(
     ["identifiers", { id: agent?.context.id }],
     () => agent?.didManagerFind(),
@@ -70914,20 +70916,25 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
       }).map((token2) => {
         return token2.content.trimEnd();
       });
+      const credentialSubject = references && references.length > 0 ? {
+        title,
+        shouldBeIndexed,
+        post,
+        references
+      } : {
+        title,
+        shouldBeIndexed,
+        post
+      };
       const credential = await agent?.createVerifiableCredential({
         save: true,
-        proofFormat: "jwt",
+        proofFormat,
         credential: {
           "@context": ["https://www.w3.org/2018/credentials/v1"],
           type: ["VerifiableCredential", "BrainSharePost"],
           issuer: { id: selectedDid },
           issuanceDate: (/* @__PURE__ */ new Date()).toISOString(),
-          credentialSubject: {
-            title,
-            shouldBeIndexed,
-            post,
-            references
-          }
+          credentialSubject
         }
       });
       if (credential) {
@@ -71016,6 +71023,27 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
               /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(MarkDown, { content: post })
             ] })
           }
+        ]
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+      import_antd.Select,
+      {
+        style: { width: "60%" },
+        onChange: (e) => setProofFormat(e),
+        placeholder: "Proof type",
+        defaultActiveFirstOption: true,
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Option, { value: "jwt", children: "jwt" }, "jwt"),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Option, { value: "lds", children: "lds" }, "lds"),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            Option,
+            {
+              value: "EthereumEip712Signature2021",
+              children: "EthereumEip712Signature2021"
+            },
+            "EthereumEip712Signature2021lds"
+          )
         ]
       }
     ),
@@ -71133,30 +71161,25 @@ var Feed = () => {
 };
 
 // src/Post.tsx
-var import_react18 = __toESM(require_react(), 1);
+var import_react17 = __toESM(require_react(), 1);
 var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
 var import_react_query4 = __toESM(require_react_query(), 1);
 var import_veramo_react4 = __toESM(require_veramo_react(), 1);
 var import_pro_components3 = __toESM(require_pro_components(), 1);
-var import_antd4 = __toESM(require_antd(), 1);
+var import_antd3 = __toESM(require_antd(), 1);
 var import_agent_explorer_plugin5 = __toESM(require_agent_explorer_plugin(), 1);
 
 // src/ReferencesFeed.tsx
-var import_react17 = __toESM(require_react(), 1);
 var import_date_fns = __toESM(require_date_fns(), 1);
 var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
 var import_react_query3 = __toESM(require_react_query(), 1);
 var import_veramo_react3 = __toESM(require_veramo_react(), 1);
 var import_pro_components2 = __toESM(require_pro_components(), 1);
 var import_agent_explorer_plugin4 = __toESM(require_agent_explorer_plugin(), 1);
-var import_antd3 = __toESM(require_antd(), 1);
 var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
 var ReferencesFeed = ({ referenceHashes }) => {
-  const { notification } = import_antd3.App.useApp();
-  const [drawerOpen, setDrawerOpen] = (0, import_react17.useState)(false);
   const navigate = (0, import_react_router_dom2.useNavigate)();
   const { agent } = (0, import_veramo_react3.useVeramo)();
-  console.log("referenceHashes: ", referenceHashes);
   const { data: credentials, isLoading, refetch } = (0, import_react_query3.useQuery)(
     ["brainshare-posts", { agentId: agent?.context.name }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
@@ -71207,10 +71230,7 @@ var ReferencesFeed = ({ referenceHashes }) => {
             ) }),
             /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_agent_explorer_plugin4.CredentialActionsDropdown, { uniqueCredential: item, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(EllipsisOutlined_default2, {}) })
           ],
-          content: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
-            item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { children: item.verifiableCredential.credentialSubject.title }),
-            !item.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(MarkDown, { content: item.verifiableCredential.credentialSubject.post })
-          ] }),
+          content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_agent_explorer_plugin4.VerifiableCredentialComponent, { credential: item }),
           hash: item.hash
         };
       })
@@ -71220,13 +71240,13 @@ var ReferencesFeed = ({ referenceHashes }) => {
 
 // src/Post.tsx
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
-var { Title } = import_antd4.Typography;
+var { Title } = import_antd3.Typography;
 var Post = () => {
-  const { notification } = import_antd4.App.useApp();
+  const { notification } = import_antd3.App.useApp();
   const { id } = (0, import_react_router_dom3.useParams)();
   const { agent } = (0, import_veramo_react4.useVeramo)();
-  const [drawerOpen, setDrawerOpen] = (0, import_react18.useState)(false);
-  const [refDrawerOpen, setRefDrawerOpen] = (0, import_react18.useState)(false);
+  const [drawerOpen, setDrawerOpen] = (0, import_react17.useState)(false);
+  const [refDrawerOpen, setRefDrawerOpen] = (0, import_react17.useState)(false);
   const navigate = (0, import_react_router_dom3.useNavigate)();
   if (!id)
     return null;
@@ -71267,7 +71287,7 @@ var Post = () => {
           " other posts"
         ] }) }),
         /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-          import_antd4.Drawer,
+          import_antd3.Drawer,
           {
             title: "Posts that reference this one",
             placement: "right",
@@ -71284,19 +71304,19 @@ var Post = () => {
 };
 
 // src/FindIndex.tsx
-var import_react19 = __toESM(require_react(), 1);
+var import_react18 = __toESM(require_react(), 1);
 var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
 var import_react_query5 = __toESM(require_react_query(), 1);
 var import_veramo_react5 = __toESM(require_veramo_react(), 1);
 var import_pro_components4 = __toESM(require_pro_components(), 1);
-var import_antd5 = __toESM(require_antd(), 1);
+var import_antd4 = __toESM(require_antd(), 1);
 var import_uuid = __toESM(require_uuid(), 1);
 var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
 var FindIndex = () => {
-  const { notification } = import_antd5.App.useApp();
-  const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
-  const [did, setDID] = (0, import_react19.useState)("");
-  const [selectedDid, setSelectedDid] = (0, import_react19.useState)("");
+  const { notification } = import_antd4.App.useApp();
+  const [drawerOpen, setDrawerOpen] = (0, import_react18.useState)(false);
+  const [did, setDID] = (0, import_react18.useState)("");
+  const [selectedDid, setSelectedDid] = (0, import_react18.useState)("");
   const navigate = (0, import_react_router_dom4.useNavigate)();
   const { agent } = (0, import_veramo_react5.useVeramo)();
   (0, import_react_query5.useQuery)(
@@ -71342,7 +71362,7 @@ var FindIndex = () => {
     {
       extra: [
         /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          import_antd5.Button,
+          import_antd4.Button,
           {
             icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(PlusOutlined_default2, {}),
             type: "primary",
@@ -71355,11 +71375,11 @@ var FindIndex = () => {
       ],
       children: [
         /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd5.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd5.Button, { onClick: () => getIndex(), children: "Find Index" })
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd4.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd4.Button, { onClick: () => getIndex(), children: "Find Index" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          import_antd5.Drawer,
+          import_antd4.Drawer,
           {
             title: "Compose new post",
             placement: "right",
@@ -71376,20 +71396,20 @@ var FindIndex = () => {
 };
 
 // src/Home.tsx
-var import_react20 = __toESM(require_react(), 1);
+var import_react19 = __toESM(require_react(), 1);
 var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
 var import_react_query6 = __toESM(require_react_query(), 1);
 var import_veramo_react6 = __toESM(require_veramo_react(), 1);
 var import_pro_components5 = __toESM(require_pro_components(), 1);
-var import_antd6 = __toESM(require_antd(), 1);
+var import_antd5 = __toESM(require_antd(), 1);
 var import_date_fns2 = __toESM(require_date_fns(), 1);
 var import_agent_explorer_plugin6 = __toESM(require_agent_explorer_plugin(), 1);
 var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
 var Home = () => {
-  const { notification } = import_antd6.App.useApp();
+  const { notification } = import_antd5.App.useApp();
   const { did } = (0, import_react_router_dom5.useParams)();
   const { agent } = (0, import_veramo_react6.useVeramo)();
-  const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
+  const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
   const navigate = (0, import_react_router_dom5.useNavigate)();
   if (!did)
     return null;
@@ -71420,7 +71440,7 @@ var Home = () => {
         }
       ),
       extra: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Typography.Text, { children: credential && (0, import_date_fns2.formatRelative)(
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd5.Typography.Text, { children: credential && (0, import_date_fns2.formatRelative)(
           new Date(credential.issuanceDate),
           /* @__PURE__ */ new Date()
         ) }, "1")
@@ -71428,7 +71448,7 @@ var Home = () => {
       children: [
         credential && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: JSON.stringify(credential) }),
         /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_jsx_runtime7.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-          import_antd6.Drawer,
+          import_antd5.Drawer,
           {
             title: "Compose new post",
             placement: "right",
@@ -71445,29 +71465,29 @@ var Home = () => {
 };
 
 // src/LinkDomain.tsx
-var import_react21 = __toESM(require_react(), 1);
+var import_react20 = __toESM(require_react(), 1);
 var import_react_router_dom6 = __toESM(require_react_router_dom(), 1);
 var import_react_query7 = __toESM(require_react_query(), 1);
 var import_veramo_react7 = __toESM(require_veramo_react(), 1);
 var import_pro_components6 = __toESM(require_pro_components(), 1);
 var import_agent_explorer_plugin7 = __toESM(require_agent_explorer_plugin(), 1);
-var import_antd7 = __toESM(require_antd(), 1);
+var import_antd6 = __toESM(require_antd(), 1);
 var import_uuid2 = __toESM(require_uuid(), 1);
 var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
 var LinkDomain = () => {
-  const { notification } = import_antd7.App.useApp();
-  const [drawerOpen, setDrawerOpen] = (0, import_react21.useState)(false);
-  const [did, setDID] = (0, import_react21.useState)("");
-  const [domain, setDomain] = (0, import_react21.useState)("");
-  const [selectedDid, setSelectedDid] = (0, import_react21.useState)("");
+  const { notification } = import_antd6.App.useApp();
+  const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
+  const [did, setDID] = (0, import_react20.useState)("");
+  const [domain, setDomain] = (0, import_react20.useState)("");
+  const [selectedDid, setSelectedDid] = (0, import_react20.useState)("");
   const navigate = (0, import_react_router_dom6.useNavigate)();
   const { agent } = (0, import_veramo_react7.useVeramo)();
-  const [issuerProfile, setIssuerProfile] = (0, import_react21.useState)();
-  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react21.useState)([]);
+  const [issuerProfile, setIssuerProfile] = (0, import_react20.useState)();
+  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react20.useState)([]);
   const [
     managedIdentifiersWithProfiles,
     setManagedIdentifiersWithProfiles
-  ] = (0, import_react21.useState)([]);
+  ] = (0, import_react20.useState)([]);
   (0, import_react_query7.useQuery)(
     ["identifiers", { id: agent?.context.id }],
     () => agent?.didManagerFind(),
@@ -71482,7 +71502,7 @@ var LinkDomain = () => {
       }
     }
   );
-  (0, import_react21.useEffect)(() => {
+  (0, import_react20.useEffect)(() => {
     if (agent) {
       Promise.all(
         managedIdentifiers.map((identifier) => {
@@ -71516,15 +71536,15 @@ var LinkDomain = () => {
     console.log("res: ", res);
   };
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_pro_components6.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd7.Input, { value: domain, onChange: (e) => setDomain(e.target.value), placeholder: "www.google.com" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd7.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd6.Input, { value: domain, onChange: (e) => setDomain(e.target.value), placeholder: "www.google.com" }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd6.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
     managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-      import_antd7.Dropdown.Button,
+      import_antd6.Dropdown.Button,
       {
         type: "primary",
         onClick: checkLinkage,
         disabled: domain === "",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd7.Avatar, { size: "small", src: issuerProfile?.picture }),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd6.Avatar, { size: "small", src: issuerProfile?.picture }),
         menu: {
           items: [
             ...managedIdentifiersWithProfiles.map((profile) => {
@@ -71581,18 +71601,18 @@ var getCredentialContextMenuItems = (credential) => {
 };
 
 // src/Edit.tsx
-var import_react22 = __toESM(require_react(), 1);
+var import_react21 = __toESM(require_react(), 1);
 var import_react_router_dom8 = __toESM(require_react_router_dom(), 1);
 var import_react_query8 = __toESM(require_react_query(), 1);
 var import_veramo_react8 = __toESM(require_veramo_react(), 1);
 var import_pro_components7 = __toESM(require_pro_components(), 1);
-var import_antd8 = __toESM(require_antd(), 1);
+var import_antd7 = __toESM(require_antd(), 1);
 var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
 var Edit = () => {
-  const { notification } = import_antd8.App.useApp();
+  const { notification } = import_antd7.App.useApp();
   const { id } = (0, import_react_router_dom8.useParams)();
   const { agent } = (0, import_veramo_react8.useVeramo)();
-  const [drawerOpen, setDrawerOpen] = (0, import_react22.useState)(false);
+  const [drawerOpen, setDrawerOpen] = (0, import_react21.useState)(false);
   const navigate = (0, import_react_router_dom8.useNavigate)();
   if (!id)
     return null;
