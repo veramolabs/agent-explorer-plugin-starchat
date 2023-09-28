@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
-import { formatRelative } from 'date-fns'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useVeramo } from '@veramo-community/veramo-react'
-import { PageContainer, ProList } from '@ant-design/pro-components'
-import { IDataStoreORM, UniqueVerifiableCredential } from '@veramo/core'
-import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons'
-import { IdentifierProfile, getIssuerDID, CredentialActionsDropdown, VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
+import { PageContainer } from '@ant-design/pro-components'
+import { IDataStoreORM } from '@veramo/core'
+import { PlusOutlined } from '@ant-design/icons'
+import { VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
 import { App, Button, Drawer, List } from 'antd'
 import { PostForm } from './PostForm.js'
-import { MarkDown } from './MarkDown'
 
 export const Feed = () => {
   const { notification } = App.useApp()
