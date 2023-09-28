@@ -3,21 +3,18 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useVeramo } from '@veramo-community/veramo-react'
 import { PageContainer } from '@ant-design/pro-components'
-import { MarkDown } from './MarkDown'
-import { App, Button, Drawer, Space, Spin, Typography } from 'antd'
+import { App, Button, Drawer, Space } from 'antd'
 import { IDataStore, IDataStoreORM } from '@veramo/core'
-import { formatRelative } from 'date-fns'
-import { EllipsisOutlined } from '@ant-design/icons'
-import { getIssuerDID, IdentifierProfile, CredentialActionsDropdown, VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
 
 import { PostForm } from './PostForm.js'
+import { ReferencesFeed } from './ReferencesFeed.js'
 
 export const Edit = () => {
   const { notification } = App.useApp()
   const { id } = useParams<{ id: string }>()
   const { agent } = useVeramo<IDataStore & IDataStoreORM>()
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const navigate = useNavigate()
+  const [refDrawerOpen, setRefDrawerOpen] = useState(false);
 
   if (!id) return null
 
@@ -40,8 +37,6 @@ export const Edit = () => {
     })
   }
   )
-
-  console.log("references: ", references)
   
   const handleNewPost = async (hash: string) => {
     notification.success({
@@ -57,8 +52,32 @@ export const Edit = () => {
       loading={credentialLoading}
       style={{paddingTop: 10}}
       >
-        <PostForm onOk={handleNewPost} initialIssuer={(credential.issuer as any).id} initialTitle={credential.credentialSubject.title} initialText={credential.credentialSubject.post} initialIndexed={credential.credentialSubject.shouldBeIndexed}/>
+      <Space direction='vertical' style={{width: '100%'}}>
+        <PostForm 
+          onOk={handleNewPost} 
+          initialIssuer={(credential.issuer as any).id} 
+          initialTitle={credential.credentialSubject.title} 
+          initialText={credential.credentialSubject.post} 
+          initialIndexed={credential.credentialSubject.shouldBeIndexed}
+        />
+        
+        {references && references.length > 0 && <>
+          <Button type='text' onClick={() => setRefDrawerOpen(true)}>
+            Referenced by {references.length} other posts
+          </Button>
+        </>}
+      </Space>
 
+        <Drawer 
+          title="Posts that reference this one"
+          placement="right"
+          onClose={() => setRefDrawerOpen(false)}
+          open={refDrawerOpen} 
+          width={800}
+          destroyOnClose={true}
+        >
+        <ReferencesFeed referenceHashes={references?.map((cred) => cred.hash)}/>
+      </Drawer>
     </PageContainer>
   )
 }
