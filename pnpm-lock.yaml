@@ -35,8 +35,8 @@ devDependencies:
     specifier: ^9.0.4
     version: 9.0.4
   '@veramo-community/agent-explorer-plugin':
-    specifier: ^1.40.10
-    version: 1.40.10(rc-field-form@1.38.0)
+    specifier: ^1.41.0
+    version: 1.41.0(rc-field-form@1.38.0)
   '@veramo-community/veramo-react':
     specifier: ^1.0.82
     version: 1.0.82(@veramo/core@5.5.2-next.8)(react@18.2.0)
@@ -1083,6 +1083,10 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
+  /@noble/ciphers@0.3.0:
+    resolution: {integrity: sha512-ldbrnOjmNRwFdXcTM6uXDcxpMIFrbzAWNnpBPp4oTJTFF0XByGD6vf45WrehZGXRQTRVV+Zm8YP+EgEf+e4cWA==}
+    dev: true
+
   /@noble/curves@1.2.0:
     resolution: {integrity: sha512-oYclrNgRaM9SsBUBVbb8M6DTV7ZHRTKugureoYEncY5c65HOmRzvSiTE3y5CYaPYJA/GVkrhXEoF0M3Ya9PMnw==}
     dependencies:
@@ -1235,6 +1239,10 @@ packages:
   /@remix-run/router@1.8.0:
     resolution: {integrity: sha512-mrfKqIHnSZRyIzBcanNJmVQELTnX+qagEDlcKO90RgRBVOZGSGvZKeDihTRfWcqoDn5N/NkUcwWTccnpN18Tfg==}
     engines: {node: '>=14.0.0'}
+    dev: true
+
+  /@scure/base@1.1.3:
+    resolution: {integrity: sha512-/+SgoRjLq7Xlf0CWuLHq2LUZeL/w65kfzAPG5NH9pcmBhs+nunQTn4gvdwgMTIXnt9b2C/1SeL2XiysZEyIC9Q==}
     dev: true
 
   /@sinclair/typebox@0.27.8:
@@ -1479,19 +1487,23 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@veramo-community/agent-explorer-plugin@1.40.10(rc-field-form@1.38.0):
-    resolution: {integrity: sha512-fv5FNMqPhGGmagsanxa875QOGiDgu2hZOjDLPD6G8JYxGj+yF6/kZfLo3KWKY+s99WpUXCtVjKm9tN8W5TjDJw==}
+  /@veramo-community/agent-explorer-plugin@1.41.0(rc-field-form@1.38.0):
+    resolution: {integrity: sha512-GGj3GD9WZxlrmq6UNn3lvfuYKtS5NRKQXhkZnlYFA3ZGof1QvWuRfcn66W5ZpLR7q0ZdsZPpvvnJ/YFmTMrZxw==}
     dependencies:
       '@ant-design/icons': 5.2.5(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-components': 2.6.28(antd@5.8.6)(rc-field-form@1.38.0)(react-dom@18.2.0)(react@18.2.0)
       '@types/md5': 2.3.3
       '@types/url-parse': 1.4.9
-      '@veramo-community/veramo-react': 1.2.0(@veramo/core@5.5.2-next.4)(react@18.2.0)
-      '@veramo/core': 5.5.2-next.4
-      '@veramo/core-types': 5.5.2-next.4
-      '@veramo/data-store': 5.5.2-next.4
+      '@veramo-community/veramo-react': 1.2.0(@veramo/core@5.5.2-next.9)(react@18.2.0)
+      '@veramo/core': 5.5.2-next.9
+      '@veramo/core-types': 5.5.2-next.9
+      '@veramo/data-store': 5.5.2-next.9
+      '@veramo/utils': 5.5.2-next.9
       antd: 5.8.6(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
       date-fns: 2.30.0
+      did-jwt-vc: 3.2.10
+      highlight.js: 11.8.0
+      markdown-it: 13.0.2
       md5: 2.3.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -1540,26 +1552,15 @@ packages:
       uuid: 9.0.1
     dev: true
 
-  /@veramo-community/veramo-react@1.2.0(@veramo/core@5.5.2-next.4)(react@18.2.0):
+  /@veramo-community/veramo-react@1.2.0(@veramo/core@5.5.2-next.9)(react@18.2.0):
     resolution: {integrity: sha512-MxoB8QjuVJ1PXrYeWsY8oyH5HHjMyOpOFbKrd17r90H64A5HXlneXgGTndSwKUcy0ftChT/dkXbE40c1e1IpYQ==}
     peerDependencies:
       '@veramo/core': ^5.5.2-next.3
       '@veramo/remote-client': ^5.5.2-next.3
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@veramo/core': 5.5.2-next.4
+      '@veramo/core': 5.5.2-next.9
       react: 18.2.0
-    dev: true
-
-  /@veramo/core-types@5.5.2-next.4:
-    resolution: {integrity: sha512-ySEfLjKnVU6PeUtKqHbt9Jd51UwSPwr6nDE0Lf4N99jkL0Uxrg2EmGiivDr4jLlEulcrP3WWu3wAKHFsKpd1JA==}
-    dependencies:
-      credential-status: 2.0.6
-      debug: 4.3.4
-      did-jwt-vc: 3.2.7
-      did-resolver: 4.1.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@veramo/core-types@5.5.2-next.8:
@@ -1573,13 +1574,13 @@ packages:
       - supports-color
     dev: true
 
-  /@veramo/core@5.5.2-next.4:
-    resolution: {integrity: sha512-1upwjQqj0zwiwxcmRHmGqqLXifiX8jfEm68iPWKBW7hIolhVR2t6+DBHZQpLbv8BO3TK/7RxWc8ED+ZZuAB9pQ==}
+  /@veramo/core-types@5.5.2-next.9:
+    resolution: {integrity: sha512-MFdq4BuCWy6ygbNVv1T9eYgWFcGpj52e+saffoPNOgdpctLB53ZWTTmHvIKayjOxRl0TcISKyELDtkjwGoJ97A==}
     dependencies:
-      '@veramo/core-types': 5.5.2-next.8
+      credential-status: 2.0.6
       debug: 4.3.4
-      events: 3.3.0
-      z-schema: 6.0.1
+      did-jwt-vc: 3.2.10
+      did-resolver: 4.1.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1595,16 +1596,27 @@ packages:
       - supports-color
     dev: true
 
-  /@veramo/data-store@5.5.2-next.4:
-    resolution: {integrity: sha512-bSM0Jf1gBotx6rObu7N85ZmSDmxIVKZOw75T5qIgodmgcfQNyJaNfYGAzH97VthNobk9UazK24riiICwvP2reQ==}
+  /@veramo/core@5.5.2-next.9:
+    resolution: {integrity: sha512-vMiTzkysw925ZcdGLShkOOIfaonVwUtzbnNid8WEUk+w+jceqVdaswbRqqpQRwQPT1rVQ+PUD8llUppNNAIfvA==}
     dependencies:
-      '@veramo/core-types': 5.5.2-next.8
-      '@veramo/did-discovery': 5.5.2-next.8
-      '@veramo/did-manager': 5.5.2-next.8
-      '@veramo/key-manager': 5.5.2-next.8
-      '@veramo/utils': 5.5.2-next.8
+      '@veramo/core-types': 5.5.2-next.9
       debug: 4.3.4
-      did-jwt-vc: 3.2.7
+      events: 3.3.0
+      z-schema: 6.0.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@veramo/data-store@5.5.2-next.9:
+    resolution: {integrity: sha512-xxp2AwNJjKG8Le0k5Di5OxOAC97e34r0RCaeaGuqbuDNvzVyf075rF9xVubT9pTc3RDIEeOMDG0Fn9sCHLLjMQ==}
+    dependencies:
+      '@veramo/core-types': 5.5.2-next.9
+      '@veramo/did-discovery': 5.5.2-next.9
+      '@veramo/did-manager': 5.5.2-next.9
+      '@veramo/key-manager': 5.5.2-next.9
+      '@veramo/utils': 5.5.2-next.9
+      debug: 4.3.4
+      did-jwt-vc: 3.2.10
       typeorm: 0.3.17
       uuid: 9.0.1
     transitivePeerDependencies:
@@ -1629,35 +1641,35 @@ packages:
       - typeorm-aurora-data-api-driver
     dev: true
 
-  /@veramo/did-discovery@5.5.2-next.8:
-    resolution: {integrity: sha512-nWxkP8gJr2qXm3EXXTpW6UOmuVk68yIggNFBVEB+JBsQ+0n54549UcYJx/NYAr9WHrS/G8TYLmn83ZVs4tk7Ww==}
+  /@veramo/did-discovery@5.5.2-next.9:
+    resolution: {integrity: sha512-/Ka7DcHU63GUuIaBboKhdLd1LOpHk/YdRkneqak4cJCeWYztKc5WxxnzPl20Qid+HFez5CNrXkKm0fIRG8u1Fw==}
     dependencies:
-      '@veramo/core-types': 5.5.2-next.8
+      '@veramo/core-types': 5.5.2-next.9
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@veramo/did-manager@5.5.2-next.8:
-    resolution: {integrity: sha512-gMH86+1+piHacJI+XGAZwnNAnIuvdUGkIt+ibAVjbvKl97aVMSaACk3UILkq4/hnd1NkJ+1icoPN5HQWXrM1IQ==}
+  /@veramo/did-manager@5.5.2-next.9:
+    resolution: {integrity: sha512-aCmVbjAwC2jcnEJz5JXR2uWsmoK1JycaCPoua6W/mD6aFnZv34fQUBCnqN/DHZDoohcZZRq/WLZWPJrwNMsCDA==}
     dependencies:
-      '@veramo/core-types': 5.5.2-next.8
-      '@veramo/did-discovery': 5.5.2-next.8
+      '@veramo/core-types': 5.5.2-next.9
+      '@veramo/did-discovery': 5.5.2-next.9
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@veramo/key-manager@5.5.2-next.8:
-    resolution: {integrity: sha512-0pZ3mg+9S+02a98b8abjt4giwLlw++xCqC+3sfvXgMYKdlBzHGkoYfuRAYi5WVZ68C4Orad6Oijr08yvXTy5CQ==}
+  /@veramo/key-manager@5.5.2-next.9:
+    resolution: {integrity: sha512-IGVEGKoeTL0RTbFm6U4SAP7hgTaHCMiP7V4oV75U6HrhMP3fdZNSYhESuQdezp/VRcg95jBSP6pVa/Rt6bot2g==}
     dependencies:
       '@ethersproject/bytes': 5.7.0
       '@ethersproject/strings': 5.7.0
       '@ethersproject/transactions': 5.7.0
       '@noble/curves': 1.2.0
-      '@veramo/core-types': 5.5.2-next.8
-      '@veramo/utils': 5.5.2-next.8
+      '@veramo/core-types': 5.5.2-next.9
+      '@veramo/utils': 5.5.2-next.9
       debug: 4.3.4
-      did-jwt: 7.2.7
+      did-jwt: 7.4.1
       uint8arrays: 4.0.6
       uuid: 9.0.1
     transitivePeerDependencies:
@@ -1678,6 +1690,28 @@ packages:
       debug: 4.3.4
       did-jwt: 7.2.7
       did-jwt-vc: 3.2.7
+      did-resolver: 4.1.0
+      ipfs-unixfs: 11.1.0
+      multiformats: 12.1.1
+      uint8arrays: 4.0.6
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
+    dev: true
+
+  /@veramo/utils@5.5.2-next.9:
+    resolution: {integrity: sha512-qKORJOmlsna8NGyNqEjQJ55UkQlIxGcdTBvsd+gDfT+avynitBSLwi3IO3Ia/vAnR3lAJ2Q2axNhfbg3qDR2Aw==}
+    dependencies:
+      '@ethersproject/signing-key': 5.7.0
+      '@ethersproject/transactions': 5.7.0
+      '@ipld/dag-pb': 4.0.5
+      '@noble/curves': 1.2.0
+      '@veramo/core-types': 5.5.2-next.9
+      credential-status: 2.0.6
+      cross-fetch: 4.0.0
+      debug: 4.3.4
+      did-jwt: 7.4.1
+      did-jwt-vc: 3.2.10
       did-resolver: 4.1.0
       ipfs-unixfs: 11.1.0
       multiformats: 12.1.1
@@ -2090,6 +2124,14 @@ packages:
     resolution: {integrity: sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==}
     dev: true
 
+  /did-jwt-vc@3.2.10:
+    resolution: {integrity: sha512-fX4WBcsjwQ3OWj98t6p5iR4bqSS8wgCt1rVJXeL/ZRy4ij4Y+SJOUpwBoMF/t2ziQMwd47XLCCHYfvKerALZjQ==}
+    engines: {node: '>=18'}
+    dependencies:
+      did-jwt: 7.4.1
+      did-resolver: 4.1.0
+    dev: true
+
   /did-jwt-vc@3.2.7:
     resolution: {integrity: sha512-1DsMN4KaCRJiy7TvP8IsPS3D7o3AZlXKzpXGHKGAmPTK55l66QrPBYlD+omhHO1t/BLADRubob9leS9O2Jlu0g==}
     engines: {node: '>=18'}
@@ -2122,6 +2164,19 @@ packages:
       '@noble/hashes': 1.3.2
       '@stablelib/xchacha20poly1305': 1.0.1
       bech32: 2.0.0
+      canonicalize: 2.0.0
+      did-resolver: 4.1.0
+      multiformats: 12.1.1
+      uint8arrays: 4.0.6
+    dev: true
+
+  /did-jwt@7.4.1:
+    resolution: {integrity: sha512-gYDbY6KKuKxmcmJvI1u4zS7QDQGz4B4Ak/T/biMMOHNYZZDGDMKXdZYhiCsphqrBvd7j0OZTFK7iAvMgSpB2aw==}
+    dependencies:
+      '@noble/ciphers': 0.3.0
+      '@noble/curves': 1.2.0
+      '@noble/hashes': 1.3.2
+      '@scure/base': 1.1.3
       canonicalize: 2.0.0
       did-resolver: 4.1.0
       multiformats: 12.1.1
@@ -2551,6 +2606,17 @@ packages:
 
   /markdown-it@13.0.1:
     resolution: {integrity: sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q==}
+    hasBin: true
+    dependencies:
+      argparse: 2.0.1
+      entities: 3.0.1
+      linkify-it: 4.0.1
+      mdurl: 1.0.1
+      uc.micro: 1.0.6
+    dev: true
+
+  /markdown-it@13.0.2:
+    resolution: {integrity: sha512-FtwnEuuK+2yVU7goGn/MJ0WBZMM9ZPgU9spqlFs7/A/pDIUNSOQZhUgOqYCficIuR2QaFnrt8LHqBWsbTAoI5w==}
     hasBin: true
     dependencies:
       argparse: 2.0.1
