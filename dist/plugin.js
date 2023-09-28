@@ -55535,17 +55535,17 @@ var require_jsx_runtime = __commonJS({
   }
 });
 
-// external-global-plugin:date-fns
-var require_date_fns = __commonJS({
-  "external-global-plugin:date-fns"(exports2, module2) {
-    module2.exports = window.datefns;
-  }
-});
-
 // external-global-plugin:uuid
 var require_uuid = __commonJS({
   "external-global-plugin:uuid"(exports2, module2) {
     module2.exports = window.uuid;
+  }
+});
+
+// external-global-plugin:date-fns
+var require_date_fns = __commonJS({
+  "external-global-plugin:date-fns"(exports2, module2) {
+    module2.exports = window.datefns;
   }
 });
 
@@ -60136,27 +60136,8 @@ if (true) {
 }
 var EditOutlined_default2 = /* @__PURE__ */ React4.forwardRef(EditOutlined2);
 
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
-var React5 = __toESM(require_react());
-
-// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/EllipsisOutlined.js
-var EllipsisOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z" } }] }, "name": "ellipsis", "theme": "outlined" };
-var EllipsisOutlined_default = EllipsisOutlined;
-
-// node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js
-var EllipsisOutlined2 = function EllipsisOutlined3(props, ref) {
-  return /* @__PURE__ */ React5.createElement(AntdIcon_default, _extends({}, props, {
-    ref,
-    icon: EllipsisOutlined_default
-  }));
-};
-if (true) {
-  EllipsisOutlined2.displayName = "EllipsisOutlined";
-}
-var EllipsisOutlined_default2 = /* @__PURE__ */ React5.forwardRef(EllipsisOutlined2);
-
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileSearchOutlined.js
-var React6 = __toESM(require_react());
+var React5 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/FileSearchOutlined.js
 var FileSearchOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M688 312v-48c0-4.4-3.6-8-8-8H296c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8zm-392 88c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H296zm144 452H208V148h560v344c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V108c0-17.7-14.3-32-32-32H168c-17.7 0-32 14.3-32 32v784c0 17.7 14.3 32 32 32h272c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm445.7 51.5l-93.3-93.3C814.7 780.7 828 743.9 828 704c0-97.2-78.8-176-176-176s-176 78.8-176 176 78.8 176 176 176c35.8 0 69-10.7 96.8-29l94.7 94.7c1.6 1.6 3.6 2.3 5.6 2.3s4.1-.8 5.6-2.3l31-31a7.9 7.9 0 000-11.2zM652 816c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z" } }] }, "name": "file-search", "theme": "outlined" };
@@ -60164,7 +60145,7 @@ var FileSearchOutlined_default = FileSearchOutlined;
 
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileSearchOutlined.js
 var FileSearchOutlined2 = function FileSearchOutlined3(props, ref) {
-  return /* @__PURE__ */ React6.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React5.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: FileSearchOutlined_default
   }));
@@ -60172,10 +60153,10 @@ var FileSearchOutlined2 = function FileSearchOutlined3(props, ref) {
 if (true) {
   FileSearchOutlined2.displayName = "FileSearchOutlined";
 }
-var FileSearchOutlined_default2 = /* @__PURE__ */ React6.forwardRef(FileSearchOutlined2);
+var FileSearchOutlined_default2 = /* @__PURE__ */ React5.forwardRef(FileSearchOutlined2);
 
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileTextOutlined.js
-var React7 = __toESM(require_react());
+var React6 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/FileTextOutlined.js
 var FileTextOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z" } }] }, "name": "file-text", "theme": "outlined" };
@@ -60183,7 +60164,7 @@ var FileTextOutlined_default = FileTextOutlined;
 
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileTextOutlined.js
 var FileTextOutlined2 = function FileTextOutlined3(props, ref) {
-  return /* @__PURE__ */ React7.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React6.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: FileTextOutlined_default
   }));
@@ -60191,10 +60172,10 @@ var FileTextOutlined2 = function FileTextOutlined3(props, ref) {
 if (true) {
   FileTextOutlined2.displayName = "FileTextOutlined";
 }
-var FileTextOutlined_default2 = /* @__PURE__ */ React7.forwardRef(FileTextOutlined2);
+var FileTextOutlined_default2 = /* @__PURE__ */ React6.forwardRef(FileTextOutlined2);
 
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/PlusOutlined.js
-var React8 = __toESM(require_react());
+var React7 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/PlusOutlined.js
 var PlusOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z" } }, { "tag": "path", "attrs": { "d": "M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z" } }] }, "name": "plus", "theme": "outlined" };
@@ -60202,7 +60183,7 @@ var PlusOutlined_default = PlusOutlined;
 
 // node_modules/.pnpm/@ant-design+icons@5.2.5_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/PlusOutlined.js
 var PlusOutlined2 = function PlusOutlined3(props, ref) {
-  return /* @__PURE__ */ React8.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React7.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: PlusOutlined_default
   }));
@@ -60210,7 +60191,7 @@ var PlusOutlined2 = function PlusOutlined3(props, ref) {
 if (true) {
   PlusOutlined2.displayName = "PlusOutlined";
 }
-var PlusOutlined_default2 = /* @__PURE__ */ React8.forwardRef(PlusOutlined2);
+var PlusOutlined_default2 = /* @__PURE__ */ React7.forwardRef(PlusOutlined2);
 
 // src/Feed.tsx
 var import_react16 = __toESM(require_react(), 1);
@@ -61242,25 +61223,22 @@ var Feed = () => {
 
 // src/Post.tsx
 var import_react17 = __toESM(require_react(), 1);
-var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
+var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
 var import_react_query4 = __toESM(require_react_query(), 1);
 var import_veramo_react4 = __toESM(require_veramo_react(), 1);
-var import_pro_components3 = __toESM(require_pro_components(), 1);
-var import_antd3 = __toESM(require_antd(), 1);
+var import_pro_components2 = __toESM(require_pro_components(), 1);
+var import_antd4 = __toESM(require_antd(), 1);
 var import_agent_explorer_plugin4 = __toESM(require_agent_explorer_plugin(), 1);
 
 // src/ReferencesFeed.tsx
-var import_date_fns = __toESM(require_date_fns(), 1);
-var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
 var import_react_query3 = __toESM(require_react_query(), 1);
 var import_veramo_react3 = __toESM(require_veramo_react(), 1);
-var import_pro_components2 = __toESM(require_pro_components(), 1);
 var import_agent_explorer_plugin3 = __toESM(require_agent_explorer_plugin(), 1);
+var import_antd3 = __toESM(require_antd(), 1);
 var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
 var ReferencesFeed = ({ referenceHashes }) => {
-  const navigate = (0, import_react_router_dom2.useNavigate)();
   const { agent } = (0, import_veramo_react3.useVeramo)();
-  const { data: credentials, isLoading, refetch } = (0, import_react_query3.useQuery)(
+  const { data: credentials, isLoading } = (0, import_react_query3.useQuery)(
     ["brainshare-posts", { agentId: agent?.context.name }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
       where: [
@@ -61270,64 +61248,27 @@ var ReferencesFeed = ({ referenceHashes }) => {
       order: [{ column: "issuanceDate", direction: "DESC" }]
     })
   );
-  console.log("credentials: ", credentials);
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-    import_pro_components2.ProList,
+    import_antd3.List,
     {
-      ghost: true,
       loading: isLoading,
-      pagination: {
-        defaultPageSize: 5,
-        showSizeChanger: true
-      },
-      grid: { column: 1, lg: 1, xxl: 1, xl: 1 },
-      onItem: (record) => {
-        return {
-          onClick: () => {
-            navigate("/brainshare/" + record.hash);
-          }
-        };
-      },
-      metas: {
-        title: {},
-        content: {},
-        actions: {
-          cardActionProps: "extra"
-        }
-      },
-      dataSource: credentials?.map((item) => {
-        return {
-          title: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-            import_agent_explorer_plugin3.IdentifierProfile,
-            {
-              did: (0, import_agent_explorer_plugin3.getIssuerDID)(item.verifiableCredential)
-            }
-          ),
-          actions: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { children: (0, import_date_fns.formatRelative)(
-              new Date(item.verifiableCredential.issuanceDate),
-              /* @__PURE__ */ new Date()
-            ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_agent_explorer_plugin3.CredentialActionsDropdown, { uniqueCredential: item, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(EllipsisOutlined_default2, {}) })
-          ],
-          content: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_agent_explorer_plugin3.VerifiableCredentialComponent, { credential: item }),
-          hash: item.hash
-        };
-      })
+      itemLayout: "vertical",
+      size: "large",
+      dataSource: credentials,
+      renderItem: (item) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { marginTop: "20px" }, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_agent_explorer_plugin3.VerifiableCredentialComponent, { credential: item }) })
     }
   );
 };
 
 // src/Post.tsx
 var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
-var { Title } = import_antd3.Typography;
 var Post = () => {
-  const { notification } = import_antd3.App.useApp();
-  const { id } = (0, import_react_router_dom3.useParams)();
+  const { notification } = import_antd4.App.useApp();
+  const { id } = (0, import_react_router_dom2.useParams)();
   const { agent } = (0, import_veramo_react4.useVeramo)();
   const [drawerOpen, setDrawerOpen] = (0, import_react17.useState)(false);
   const [refDrawerOpen, setRefDrawerOpen] = (0, import_react17.useState)(false);
-  const navigate = (0, import_react_router_dom3.useNavigate)();
+  const navigate = (0, import_react_router_dom2.useNavigate)();
   if (!id)
     return null;
   const { data: credential, isLoading: credentialLoading } = (0, import_react_query4.useQuery)(
@@ -61355,19 +61296,21 @@ var Post = () => {
   if (!credential)
     return null;
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
-    import_pro_components3.PageContainer,
+    import_pro_components2.PageContainer,
     {
       loading: credentialLoading,
       style: { paddingTop: 10 },
       children: [
-        credential && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_agent_explorer_plugin4.VerifiableCredentialComponent, { credential: { hash: id, verifiableCredential: credential } }),
-        references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(Title, { level: 5, onClick: () => setRefDrawerOpen(true), children: [
-          "Referenced by ",
-          references.length,
-          " other posts"
-        ] }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_antd4.Space, { direction: "vertical", children: [
+          credential && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_agent_explorer_plugin4.VerifiableCredentialComponent, { credential: { hash: id, verifiableCredential: credential } }),
+          references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_antd4.Button, { type: "text", onClick: () => setRefDrawerOpen(true), children: [
+            "Referenced by ",
+            references.length,
+            " other posts"
+          ] }) })
+        ] }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          import_antd3.Drawer,
+          import_antd4.Drawer,
           {
             title: "Posts that reference this one",
             placement: "right",
@@ -61385,19 +61328,19 @@ var Post = () => {
 
 // src/FindIndex.tsx
 var import_react18 = __toESM(require_react(), 1);
-var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
+var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
 var import_react_query5 = __toESM(require_react_query(), 1);
 var import_veramo_react5 = __toESM(require_veramo_react(), 1);
-var import_pro_components4 = __toESM(require_pro_components(), 1);
-var import_antd4 = __toESM(require_antd(), 1);
+var import_pro_components3 = __toESM(require_pro_components(), 1);
+var import_antd5 = __toESM(require_antd(), 1);
 var import_uuid = __toESM(require_uuid(), 1);
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var FindIndex = () => {
-  const { notification } = import_antd4.App.useApp();
+  const { notification } = import_antd5.App.useApp();
   const [drawerOpen, setDrawerOpen] = (0, import_react18.useState)(false);
   const [did, setDID] = (0, import_react18.useState)("");
   const [selectedDid, setSelectedDid] = (0, import_react18.useState)("");
-  const navigate = (0, import_react_router_dom4.useNavigate)();
+  const navigate = (0, import_react_router_dom3.useNavigate)();
   const { agent } = (0, import_veramo_react5.useVeramo)();
   (0, import_react_query5.useQuery)(
     ["identifiers", { id: agent?.context.id }],
@@ -61438,11 +61381,11 @@ var FindIndex = () => {
     navigate(`/brainshare/home/${did}`);
   };
   return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
-    import_pro_components4.PageContainer,
+    import_pro_components3.PageContainer,
     {
       extra: [
         /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-          import_antd4.Button,
+          import_antd5.Button,
           {
             icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(PlusOutlined_default2, {}),
             type: "primary",
@@ -61455,11 +61398,11 @@ var FindIndex = () => {
       ],
       children: [
         /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd4.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd4.Button, { onClick: () => getIndex(), children: "Find Index" })
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Button, { onClick: () => getIndex(), children: "Find Index" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-          import_antd4.Drawer,
+          import_antd5.Drawer,
           {
             title: "Compose new post",
             placement: "right",
@@ -61477,20 +61420,20 @@ var FindIndex = () => {
 
 // src/Home.tsx
 var import_react19 = __toESM(require_react(), 1);
-var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
+var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
 var import_react_query6 = __toESM(require_react_query(), 1);
 var import_veramo_react6 = __toESM(require_veramo_react(), 1);
-var import_pro_components5 = __toESM(require_pro_components(), 1);
-var import_antd5 = __toESM(require_antd(), 1);
-var import_date_fns2 = __toESM(require_date_fns(), 1);
+var import_pro_components4 = __toESM(require_pro_components(), 1);
+var import_antd6 = __toESM(require_antd(), 1);
+var import_date_fns = __toESM(require_date_fns(), 1);
 var import_agent_explorer_plugin5 = __toESM(require_agent_explorer_plugin(), 1);
 var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
 var Home = () => {
-  const { notification } = import_antd5.App.useApp();
-  const { did } = (0, import_react_router_dom5.useParams)();
+  const { notification } = import_antd6.App.useApp();
+  const { did } = (0, import_react_router_dom4.useParams)();
   const { agent } = (0, import_veramo_react6.useVeramo)();
   const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
-  const navigate = (0, import_react_router_dom5.useNavigate)();
+  const navigate = (0, import_react_router_dom4.useNavigate)();
   if (!did)
     return null;
   const { data: credentials, isLoading: credentialLoading } = (0, import_react_query6.useQuery)(
@@ -61510,7 +61453,7 @@ var Home = () => {
   if (!credential)
     return null;
   return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
-    import_pro_components5.PageContainer,
+    import_pro_components4.PageContainer,
     {
       loading: credentialLoading,
       title: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
@@ -61520,7 +61463,7 @@ var Home = () => {
         }
       ),
       extra: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd5.Typography.Text, { children: credential && (0, import_date_fns2.formatRelative)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.Typography.Text, { children: credential && (0, import_date_fns.formatRelative)(
           new Date(credential.issuanceDate),
           /* @__PURE__ */ new Date()
         ) }, "1")
@@ -61528,7 +61471,7 @@ var Home = () => {
       children: [
         credential && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: JSON.stringify(credential) }),
         /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          import_antd5.Drawer,
+          import_antd6.Drawer,
           {
             title: "Compose new post",
             placement: "right",
@@ -61546,21 +61489,20 @@ var Home = () => {
 
 // src/LinkDomain.tsx
 var import_react20 = __toESM(require_react(), 1);
-var import_react_router_dom6 = __toESM(require_react_router_dom(), 1);
+var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
 var import_react_query7 = __toESM(require_react_query(), 1);
 var import_veramo_react7 = __toESM(require_veramo_react(), 1);
-var import_pro_components6 = __toESM(require_pro_components(), 1);
+var import_pro_components5 = __toESM(require_pro_components(), 1);
 var import_agent_explorer_plugin6 = __toESM(require_agent_explorer_plugin(), 1);
-var import_antd6 = __toESM(require_antd(), 1);
+var import_antd7 = __toESM(require_antd(), 1);
 var import_uuid2 = __toESM(require_uuid(), 1);
 var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
 var LinkDomain = () => {
-  const { notification } = import_antd6.App.useApp();
   const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
   const [did, setDID] = (0, import_react20.useState)("");
   const [domain, setDomain] = (0, import_react20.useState)("");
   const [selectedDid, setSelectedDid] = (0, import_react20.useState)("");
-  const navigate = (0, import_react_router_dom6.useNavigate)();
+  const navigate = (0, import_react_router_dom5.useNavigate)();
   const { agent } = (0, import_veramo_react7.useVeramo)();
   const [issuerProfile, setIssuerProfile] = (0, import_react20.useState)();
   const [managedIdentifiers, setManagedIdentifiers] = (0, import_react20.useState)([]);
@@ -61615,16 +61557,16 @@ var LinkDomain = () => {
     });
     console.log("res: ", res);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_pro_components6.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Input, { value: domain, onChange: (e) => setDomain(e.target.value), placeholder: "www.google.com" }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_pro_components5.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Input, { value: domain, onChange: (e) => setDomain(e.target.value), placeholder: "www.google.com" }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Input, { value: did, onChange: (e) => setDID(e.target.value), placeholder: "did:web:staging.community.veramo.io" }),
     managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-      import_antd6.Dropdown.Button,
+      import_antd7.Dropdown.Button,
       {
         type: "primary",
         onClick: checkLinkage,
         disabled: domain === "",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Avatar, { size: "small", src: issuerProfile?.picture }),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Avatar, { size: "small", src: issuerProfile?.picture }),
         menu: {
           items: [
             ...managedIdentifiersWithProfiles.map((profile) => {
@@ -61658,10 +61600,10 @@ var BrainSharePost = ({ credential: { verifiableCredential } }) => {
 };
 
 // src/menu.tsx
-var import_react_router_dom7 = __toESM(require_react_router_dom(), 1);
+var import_react_router_dom6 = __toESM(require_react_router_dom(), 1);
 var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
 var getCredentialContextMenuItems = (credential) => {
-  const navigate = (0, import_react_router_dom7.useNavigate)();
+  const navigate = (0, import_react_router_dom6.useNavigate)();
   if (credential.verifiableCredential.type?.includes("BrainSharePost")) {
     return [
       {
@@ -61683,18 +61625,18 @@ var getCredentialContextMenuItems = (credential) => {
 
 // src/Edit.tsx
 var import_react21 = __toESM(require_react(), 1);
-var import_react_router_dom8 = __toESM(require_react_router_dom(), 1);
+var import_react_router_dom7 = __toESM(require_react_router_dom(), 1);
 var import_react_query8 = __toESM(require_react_query(), 1);
 var import_veramo_react8 = __toESM(require_veramo_react(), 1);
-var import_pro_components7 = __toESM(require_pro_components(), 1);
-var import_antd7 = __toESM(require_antd(), 1);
+var import_pro_components6 = __toESM(require_pro_components(), 1);
+var import_antd8 = __toESM(require_antd(), 1);
 var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
 var Edit = () => {
-  const { notification } = import_antd7.App.useApp();
-  const { id } = (0, import_react_router_dom8.useParams)();
+  const { notification } = import_antd8.App.useApp();
+  const { id } = (0, import_react_router_dom7.useParams)();
   const { agent } = (0, import_veramo_react8.useVeramo)();
   const [drawerOpen, setDrawerOpen] = (0, import_react21.useState)(false);
-  const navigate = (0, import_react_router_dom8.useNavigate)();
+  const navigate = (0, import_react_router_dom7.useNavigate)();
   if (!id)
     return null;
   const { data: credential, isLoading: credentialLoading } = (0, import_react_query8.useQuery)(
@@ -61729,7 +61671,7 @@ var Edit = () => {
   if (!credential)
     return null;
   return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-    import_pro_components7.PageContainer,
+    import_pro_components6.PageContainer,
     {
       loading: credentialLoading,
       style: { paddingTop: 10 },
@@ -68800,7 +68742,7 @@ var Plugin = {
           ]
         }
       ],
-      hasCss: true,
+      hasCss: false,
       getCredentialComponent: (credential) => {
         if (credential.verifiableCredential.type?.includes("BrainSharePost")) {
           return BrainSharePost;
