@@ -60917,7 +60917,6 @@ var { TextArea } = import_antd.Input;
 var { Option } = import_antd.Select;
 var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed }) => {
   const token = import_antd.theme.useToken();
-  console.log("initialIndexed: ", initialIndexed);
   const [title, setTitle] = (0, import_react14.useState)(initialTitle || "");
   const [shouldBeIndexed, setShouldBeIndexed] = (0, import_react14.useState)(initialIndexed || false);
   const [post, setPost] = (0, import_react14.useState)(initialText || "");
@@ -61052,10 +61051,8 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
           {
             key: "1",
             label: "Write",
-            children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+            children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Space, { direction: "vertical", style: { width: "100%" }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Input, { value: title, onChange: (e) => setTitle(e.target.value), placeholder: "Title (optional)" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Checkbox, { defaultChecked: shouldBeIndexed, onChange: (e) => setShouldBeIndexed(e.target.checked), children: "Index" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 Fe,
                 {
@@ -61063,6 +61060,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
                   height: "50vh",
                   options: {
                     lineNumbers: "off",
+                    wordWrap: "on",
                     fontSize: 14,
                     minimap: { enabled: false }
                   },
@@ -61087,53 +61085,55 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
         ]
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-      import_antd.Select,
-      {
-        style: { width: "60%" },
-        onChange: (e) => setProofFormat(e),
-        placeholder: "Proof type",
-        defaultActiveFirstOption: true,
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: "jwt", children: "jwt" }, "jwt"),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: "lds", children: "lds" }, "lds"),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            Option,
-            {
-              value: "EthereumEip712Signature2021",
-              children: "EthereumEip712Signature2021"
-            },
-            "EthereumEip712Signature2021lds"
-          )
-        ]
-      }
-    ),
-    managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-      import_antd.Dropdown.Button,
-      {
-        type: "primary",
-        onClick: handleCreatePost,
-        disabled: post === "",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Avatar, { size: "small", src: issuerProfile?.picture }),
-        menu: {
-          items: [
-            ...managedIdentifiersWithProfiles.map((profile) => {
-              return {
-                key: profile.did,
-                onClick: () => {
-                  setIssuerProfile(profile);
-                  setSelectedDid(profile.did);
-                },
-                label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_agent_explorer_plugin.IdentifierProfile, { did: profile.did })
-              };
-            })
-          ],
-          selectable: true,
-          defaultSelectedKeys: [selectedDid]
-        },
-        children: "Create Post as"
-      }
-    )
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Space, { direction: "horizontal", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Checkbox, { defaultChecked: shouldBeIndexed, onChange: (e) => setShouldBeIndexed(e.target.checked), children: "Index" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+        import_antd.Select,
+        {
+          onChange: (e) => setProofFormat(e),
+          placeholder: "Proof type",
+          defaultActiveFirstOption: true,
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: "jwt", children: "jwt" }, "jwt"),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: "lds", children: "lds" }, "lds"),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              Option,
+              {
+                value: "EthereumEip712Signature2021",
+                children: "EthereumEip712Signature2021"
+              },
+              "EthereumEip712Signature2021lds"
+            )
+          ]
+        }
+      ),
+      managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        import_antd.Dropdown.Button,
+        {
+          type: "primary",
+          onClick: handleCreatePost,
+          disabled: post === "",
+          icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Avatar, { size: "small", src: issuerProfile?.picture }),
+          menu: {
+            items: [
+              ...managedIdentifiersWithProfiles.map((profile) => {
+                return {
+                  key: profile.did,
+                  onClick: () => {
+                    setIssuerProfile(profile);
+                    setSelectedDid(profile.did);
+                  },
+                  label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_agent_explorer_plugin.IdentifierProfile, { did: profile.did })
+                };
+              })
+            ],
+            selectable: true,
+            defaultSelectedKeys: [selectedDid]
+          },
+          children: "Create Post as"
+        }
+      )
+    ] })
   ] });
 };
 
@@ -61635,8 +61635,8 @@ var Edit = () => {
   const { notification } = import_antd8.App.useApp();
   const { id } = (0, import_react_router_dom7.useParams)();
   const { agent } = (0, import_veramo_react8.useVeramo)();
-  const [drawerOpen, setDrawerOpen] = (0, import_react21.useState)(false);
   const navigate = (0, import_react_router_dom7.useNavigate)();
+  const [refDrawerOpen, setRefDrawerOpen] = (0, import_react21.useState)(false);
   if (!id)
     return null;
   const { data: credential, isLoading: credentialLoading } = (0, import_react_query8.useQuery)(
@@ -61661,7 +61661,6 @@ var Edit = () => {
       });
     }
   );
-  console.log("references: ", references);
   const handleNewPost = async (hash3) => {
     notification.success({
       message: "Post created"
@@ -61670,12 +61669,42 @@ var Edit = () => {
   };
   if (!credential)
     return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
     import_pro_components6.PageContainer,
     {
       loading: credentialLoading,
       style: { paddingTop: 10 },
-      children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(PostForm, { onOk: handleNewPost, initialIssuer: credential.issuer.id, initialTitle: credential.credentialSubject.title, initialText: credential.credentialSubject.post, initialIndexed: credential.credentialSubject.shouldBeIndexed })
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_antd8.Space, { direction: "vertical", style: { width: "100%" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+            PostForm,
+            {
+              onOk: handleNewPost,
+              initialIssuer: credential.issuer.id,
+              initialTitle: credential.credentialSubject.title,
+              initialText: credential.credentialSubject.post,
+              initialIndexed: credential.credentialSubject.shouldBeIndexed
+            }
+          ),
+          references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_antd8.Button, { type: "text", onClick: () => setRefDrawerOpen(true), children: [
+            "Referenced by ",
+            references.length,
+            " other posts"
+          ] }) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+          import_antd8.Drawer,
+          {
+            title: "Posts that reference this one",
+            placement: "right",
+            onClose: () => setRefDrawerOpen(false),
+            open: refDrawerOpen,
+            width: 800,
+            destroyOnClose: true,
+            children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(ReferencesFeed, { referenceHashes: references?.map((cred) => cred.hash) })
+          }
+        )
+      ]
     }
   );
 };

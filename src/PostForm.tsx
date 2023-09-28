@@ -1,4 +1,4 @@
-import { Input, Checkbox, Dropdown, Avatar, Space, Tabs, theme, Select } from 'antd'
+import { Input, Checkbox, Dropdown, Avatar, Space, Tabs, theme, Select, Row } from 'antd'
 import React, { useState, useEffect } from 'react'
 const { TextArea } = Input
 import { useVeramo } from '@veramo-community/veramo-react'
@@ -22,8 +22,6 @@ interface CreatePostProps {
 
 export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed }) => {
   const token = theme.useToken()
-  
-  console.log("initialIndexed: ", initialIndexed)
 
   const [title, setTitle] = useState<string>(initialTitle || '')
   const [shouldBeIndexed, setShouldBeIndexed] = useState<boolean>(initialIndexed || false)
@@ -188,15 +186,15 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
           key: '1',
           label: 'Write',
           children: (
-            <>
+            <Space direction='vertical' style={{width: '100%'}}>
               <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title (optional)'/>
-              <Checkbox defaultChecked={shouldBeIndexed} onChange={(e) => setShouldBeIndexed(e.target.checked)}>Index</Checkbox>
-              <br />
+
               <Editor
                 theme={token.theme.id === 4 ? 'vs-dark' : 'light'}
                 height="50vh"
                 options={{
                   lineNumbers: 'off',
+                  wordWrap: 'on',
                   fontSize: 14,
                   minimap: { enabled: false },
                 }}
@@ -207,7 +205,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
                   setPost(e || '')
                 }}
               />
-            </>
+            </Space>
           )
         },
         {
@@ -221,8 +219,10 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         },
         ]}
     />
+    <Space direction='horizontal'>
+      <Checkbox defaultChecked={shouldBeIndexed} onChange={(e) => setShouldBeIndexed(e.target.checked)}>Index</Checkbox>
+
       <Select
-        style={{ width: '60%' }}
         onChange={(e) => setProofFormat(e as string)}
         placeholder="Proof type"
         defaultActiveFirstOption={true}
@@ -267,6 +267,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
           Create Post as
         </Dropdown.Button>
       )}
+    </Space>
       </Space>
   )
 }
