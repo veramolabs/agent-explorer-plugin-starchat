@@ -35,20 +35,20 @@ devDependencies:
     specifier: ^9.0.4
     version: 9.0.4
   '@veramo-community/agent-explorer-plugin':
-    specifier: ^1.41.0
-    version: 1.41.0(rc-field-form@1.38.0)
+    specifier: ^1.41.3
+    version: 1.41.3(rc-field-form@1.38.0)
   '@veramo-community/veramo-react':
     specifier: ^1.0.82
-    version: 1.0.82(@veramo/core@5.5.2-next.8)(react@18.2.0)
+    version: 1.0.82(@veramo/core@5.5.2-next.9)(react@18.2.0)
   '@veramo/core':
-    specifier: 5.5.2-next.8
-    version: 5.5.2-next.8
+    specifier: 5.5.2-next.9
+    version: 5.5.2-next.9
   '@veramo/core-types':
-    specifier: 5.5.2-next.8
-    version: 5.5.2-next.8
+    specifier: 5.5.2-next.9
+    version: 5.5.2-next.9
   '@veramo/utils':
-    specifier: 5.5.2-next.8
-    version: 5.5.2-next.8
+    specifier: 5.5.2-next.9
+    version: 5.5.2-next.9
   antd:
     specifier: ^5.8.3
     version: 5.8.3(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
@@ -1487,8 +1487,8 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@veramo-community/agent-explorer-plugin@1.41.0(rc-field-form@1.38.0):
-    resolution: {integrity: sha512-GGj3GD9WZxlrmq6UNn3lvfuYKtS5NRKQXhkZnlYFA3ZGof1QvWuRfcn66W5ZpLR7q0ZdsZPpvvnJ/YFmTMrZxw==}
+  /@veramo-community/agent-explorer-plugin@1.41.3(rc-field-form@1.38.0):
+    resolution: {integrity: sha512-B90P/twLuCxLaPCWyh1xDNULRQLcVYuFJ78KZ2bsk89IHH4vQED9EUZHryJZoiR6RBgwmH8n1F92QP88ugvhtw==}
     dependencies:
       '@ant-design/icons': 5.2.5(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-components': 2.6.28(antd@5.8.6)(rc-field-form@1.38.0)(react-dom@18.2.0)(react@18.2.0)
@@ -1539,14 +1539,14 @@ packages:
       - typeorm-aurora-data-api-driver
     dev: true
 
-  /@veramo-community/veramo-react@1.0.82(@veramo/core@5.5.2-next.8)(react@18.2.0):
+  /@veramo-community/veramo-react@1.0.82(@veramo/core@5.5.2-next.9)(react@18.2.0):
     resolution: {integrity: sha512-K/TOWUZw4wiJrb+JUdQZ6uW7FVOBSABK0UiT+qDaSdrLRiztNxLdd05tGdoPFKsxt+DIOeHM35uFxBXtts/IPw==}
     peerDependencies:
       '@veramo/core': 5.1.5-next.13
       '@veramo/remote-client': 5.1.5-next.13
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@veramo/core': 5.5.2-next.8
+      '@veramo/core': 5.5.2-next.9
       react: 18.2.0
       ts-jest-resolver: 2.0.1
       uuid: 9.0.1
@@ -1563,17 +1563,6 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@veramo/core-types@5.5.2-next.8:
-    resolution: {integrity: sha512-4VpETf13dN3Yi1dzv6bV8LTvP9moN7h7rkrg27pAU81XhtNzz68V1iHTMUBgyMQcrIxS0ND7iqDT8WYMeQnQ9w==}
-    dependencies:
-      credential-status: 2.0.6
-      debug: 4.3.4
-      did-jwt-vc: 3.2.7
-      did-resolver: 4.1.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@veramo/core-types@5.5.2-next.9:
     resolution: {integrity: sha512-MFdq4BuCWy6ygbNVv1T9eYgWFcGpj52e+saffoPNOgdpctLB53ZWTTmHvIKayjOxRl0TcISKyELDtkjwGoJ97A==}
     dependencies:
@@ -1581,17 +1570,6 @@ packages:
       debug: 4.3.4
       did-jwt-vc: 3.2.10
       did-resolver: 4.1.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@veramo/core@5.5.2-next.8:
-    resolution: {integrity: sha512-K3iOvxb4Fgzr4s6B4OOV5QjZ7JyS1RdraR32jTs7LyAgU9cfNf7xt1Wc3nNr/RSQVEqlQqnOsLuNYHq6713FMA==}
-    dependencies:
-      '@veramo/core-types': 5.5.2-next.8
-      debug: 4.3.4
-      events: 3.3.0
-      z-schema: 6.0.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1672,28 +1650,6 @@ packages:
       did-jwt: 7.4.1
       uint8arrays: 4.0.6
       uuid: 9.0.1
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-    dev: true
-
-  /@veramo/utils@5.5.2-next.8:
-    resolution: {integrity: sha512-+VOdidPVdyBNjgeoJuXbj+iapqrcygAJlvR5/Oxr4OafsQ+fv3J5eIxo+GsbkiH8DCRz2ZCx3wRJwiWeYDK9sw==}
-    dependencies:
-      '@ethersproject/signing-key': 5.7.0
-      '@ethersproject/transactions': 5.7.0
-      '@ipld/dag-pb': 4.0.5
-      '@noble/curves': 1.2.0
-      '@veramo/core-types': 5.5.2-next.8
-      credential-status: 2.0.6
-      cross-fetch: 4.0.0
-      debug: 4.3.4
-      did-jwt: 7.2.7
-      did-jwt-vc: 3.2.7
-      did-resolver: 4.1.0
-      ipfs-unixfs: 11.1.0
-      multiformats: 12.1.1
-      uint8arrays: 4.0.6
     transitivePeerDependencies:
       - encoding
       - supports-color
