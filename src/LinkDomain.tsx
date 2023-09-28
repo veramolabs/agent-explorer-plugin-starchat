@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { formatRelative } from 'date-fns'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useVeramo } from '@veramo-community/veramo-react'
-import { PageContainer, ProList } from '@ant-design/pro-components'
-import { IDataStoreORM, IIdentifier, UniqueVerifiableCredential } from '@veramo/core'
-// import { IDIDComm } from '@veramo/core-types'
-import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons'
-import { CredentialActionsDropdown, IdentifierProfile, IIdentifierProfile } from '@veramo-community/agent-explorer-plugin'
-import { App, Avatar, Button, Drawer, Dropdown, Input } from 'antd'
-import { PostForm } from './PostForm.js'
-import { MarkDown } from './MarkDown'
+import { PageContainer } from '@ant-design/pro-components'
+import { IIdentifier } from '@veramo/core'
+import { IdentifierProfile, IIdentifierProfile } from '@veramo-community/agent-explorer-plugin'
+import { Avatar, Dropdown, Input } from 'antd'
 import { v4 } from 'uuid'
 
-
 export const LinkDomain = () => {
-  const { notification } = App.useApp()
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [did, setDID] = useState('')
   const [domain, setDomain] = useState('')

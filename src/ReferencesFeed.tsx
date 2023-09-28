@@ -1,22 +1,18 @@
 import React from 'react'
-import { formatRelative } from 'date-fns'
-import { useNavigate } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useVeramo } from '@veramo-community/veramo-react'
-import { ProList } from '@ant-design/pro-components'
-import { IDataStoreORM, UniqueVerifiableCredential } from '@veramo/core'
-import { EllipsisOutlined } from '@ant-design/icons'
-import { IdentifierProfile, getIssuerDID, CredentialActionsDropdown, VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
+import { IDataStoreORM } from '@veramo/core'
+import { VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
+import { List } from 'antd'
 
 interface ReferencesFeedProps {
   referenceHashes?: string[]
 }
 
 export const ReferencesFeed: React.FC<ReferencesFeedProps> = ({ referenceHashes }) => {
-  const navigate = useNavigate()
   const { agent } = useVeramo<IDataStoreORM>()
 
-  const { data: credentials, isLoading, refetch } = useQuery(
+  const { data: credentials, isLoading } = useQuery(
     ['brainshare-posts', { agentId: agent?.context.name }],
     () =>
       agent?.dataStoreORMGetVerifiableCredentials({
@@ -28,55 +24,17 @@ export const ReferencesFeed: React.FC<ReferencesFeedProps> = ({ referenceHashes 
       }),
   )
 
-  console.log("credentials: ", credentials)
-
   return (
-    <ProList
-      ghost
+    <List
       loading={isLoading}
-      pagination={{
-        defaultPageSize: 5,
-        showSizeChanger: true,
-      }}
-      grid={{ column: 1, lg: 1, xxl: 1, xl: 1 }}
-      onItem={(record: any) => {
-        return {
-          onClick: () => {
-            navigate('/brainshare/' + record.hash)
-          },
-        }
-      }}
-      metas={{
-        title: {},
-        content: {},
-        actions: {
-          cardActionProps: 'extra',
-        },
-      }}
-      dataSource={credentials?.map((item: UniqueVerifiableCredential) => {
-        return {
-          title: (
-            <IdentifierProfile
-              did={getIssuerDID(item.verifiableCredential)}
-            />
-          ),
-          actions: [
-            <div>
-              {formatRelative(
-                new Date(item.verifiableCredential.issuanceDate),
-                new Date(),
-              )}
-            </div>,
-            <CredentialActionsDropdown uniqueCredential={item}>
-              <EllipsisOutlined />
-            </CredentialActionsDropdown>,
-          ],
-          content: (
-            <VerifiableCredentialComponent credential={item} />
-          ),
-          hash: item.hash,
-        }
-      })}
+      itemLayout="vertical"
+      size="large"
+      dataSource={credentials}
+      renderItem={(item) => (
+        <div style={{marginTop: '20px'}}>
+        <VerifiableCredentialComponent credential={item} />
+        </div>
+      )}
     />
   )
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import {
   FileTextOutlined,
 } from '@ant-design/icons'
-import './style.css'
 
 import { IPlugin } from '@veramo-community/agent-explorer-plugin';
 import { Feed } from './Feed'
@@ -70,7 +69,7 @@ const Plugin: IPlugin = {
               ]
             }
           ],
-          hasCss: true,
+          hasCss: false,
           getCredentialComponent: (credential: UniqueVerifiableCredential) => {
             if (credential.verifiableCredential.type?.includes('BrainSharePost')) {
               return BrainSharePost
