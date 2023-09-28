@@ -4,8 +4,7 @@ const { TextArea } = Input
 import { useVeramo } from '@veramo-community/veramo-react'
 import { ICredentialIssuer, IDIDManager, IDataStore, IDataStoreORM, IIdentifier, ProofFormat } from '@veramo/core'
 import { useQuery } from 'react-query'
-import { IdentifierProfile, IIdentifierProfile } from '@veramo-community/agent-explorer-plugin'
-import { MarkDown } from './MarkDown.js'
+import { IdentifierProfile, IIdentifierProfile, MarkDown } from '@veramo-community/agent-explorer-plugin'
 import Editor from '@monaco-editor/react';
 import MarkdownIt from 'markdown-it'
 import hljs from 'highlight.js'

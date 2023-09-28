@@ -1,6 +1,6 @@
 import * as React from "react";
 import { UniqueVerifiableCredential } from "@veramo/core";
-import { MarkDown } from "./MarkDown";
+import { MarkDown } from "@veramo-community/agent-explorer-plugin";
 
 export const BrainSharePost = ({ credential: { verifiableCredential } } : {credential: UniqueVerifiableCredential}) => {
 

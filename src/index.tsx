@@ -14,6 +14,7 @@ import { UniqueVerifiableCredential } from '@veramo/core';
 import { BrainSharePost } from './BrainSharePost';
 import { getCredentialContextMenuItems } from './menu';
 import { Edit } from './Edit';
+import { getMarkdownComponent } from './markdown';
 
 const Plugin: IPlugin = {
   //@ts-ignore
@@ -76,7 +77,8 @@ const Plugin: IPlugin = {
             }
             return undefined
           },
-          getCredentialContextMenuItems
+          getCredentialContextMenuItems,
+          getMarkdownComponent
         }
     }
 };
