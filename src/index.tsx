@@ -14,6 +14,7 @@ import { BrainSharePost } from './BrainSharePost';
 import { getCredentialContextMenuItems } from './menu';
 import { Edit } from './Edit';
 import { getMarkdownComponent } from './markdown';
+import { IdentifierHoverComponent } from './IdentifierHoverComponent.js';
 
 const Plugin: IPlugin = {
   //@ts-ignore
@@ -70,6 +71,7 @@ const Plugin: IPlugin = {
             }
           ],
           hasCss: false,
+          getIdentifierHoverComponent: () => IdentifierHoverComponent,
           getCredentialComponent: (credential: UniqueVerifiableCredential) => {
             if (credential.verifiableCredential.type?.includes('BrainSharePost')) {
               return BrainSharePost

@@ -68715,8 +68715,31 @@ var getMarkdownComponent = (token) => {
   }
 };
 
-// src/index.tsx
+// src/IdentifierHoverComponent.tsx
+var import_veramo_react9 = __toESM(require_veramo_react(), 1);
+var import_react_query9 = __toESM(require_react_query(), 1);
+var import_antd9 = __toESM(require_antd(), 1);
 var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
+var IdentifierHoverComponent = ({ did }) => {
+  const { agent } = (0, import_veramo_react9.useVeramo)();
+  console.log("did: ", did);
+  const { data: credentials, isLoading, refetch } = (0, import_react_query9.useQuery)(
+    ["domain-linkage", { agentId: agent?.context.name }],
+    () => agent?.dataStoreORMGetVerifiableCredentials({
+      where: [{ column: "type", value: ["VerifiableCredential,BrainShareDomainLinkage"] }, { column: "subject", value: [did] }],
+      order: [{ column: "issuanceDate", direction: "DESC" }]
+    })
+  );
+  console.log("credentials: ", credentials);
+  if (isLoading || !credentials || credentials.length === 0) {
+    return null;
+  }
+  const domain = credentials[0].verifiableCredential.credentialSubject.domain;
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_antd9.Typography.Text, { children: domain });
+};
+
+// src/index.tsx
+var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
 var Plugin = {
   //@ts-ignore
   init: () => {
@@ -68727,33 +68750,33 @@ var Plugin = {
       routes: [
         {
           path: "/brainshare/feed",
-          element: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Feed, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Feed, {})
         },
         {
           path: "/brainshare/find-index",
-          element: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(FindIndex, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(FindIndex, {})
         },
         {
           path: "/brainshare/home/:did",
-          element: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Home, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Home, {})
         },
         {
           path: "/brainshare/:id",
-          element: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Post, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Post, {})
         },
         {
           path: "/brainshare/link-domain",
-          element: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LinkDomain, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkDomain, {})
         },
         {
           path: "/brainshare/edit/:id",
-          element: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Edit, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Edit, {})
         }
       ],
       menuItems: [
         {
           name: "BrainShare",
-          icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(FileTextOutlined_default2, {}),
+          icon: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(FileTextOutlined_default2, {}),
           path: "/brainshare",
           routes: [
             {
@@ -68772,6 +68795,7 @@ var Plugin = {
         }
       ],
       hasCss: false,
+      getIdentifierHoverComponent: () => IdentifierHoverComponent,
       getCredentialComponent: (credential) => {
         if (credential.verifiableCredential.type?.includes("BrainSharePost")) {
           return BrainSharePost;
