@@ -6,7 +6,7 @@ import { PageContainer } from '@ant-design/pro-components'
 import { App, Drawer, Typography } from 'antd'
 import { IDataStore, IDataStoreORM } from '@veramo/core'
 import { formatRelative } from 'date-fns'
-import { getIssuerDID, IdentifierProfile } from '@veramo-community/agent-explorer-plugin'
+import { getIssuerDID, IdentifierProfile, VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
 import { PostForm } from './PostForm.js'
 
 export const Home = () => {
@@ -21,11 +21,16 @@ export const Home = () => {
   const { data: credentials, isLoading: credentialLoading } = useQuery(
     ['credentials', { did }],
     () => agent?.dataStoreORMGetVerifiableCredentials({ 
-      where: [{ column: 'type', value: ['VerifiableCredential,BrainShareIndex']}, { column: 'issuer', value: [did]}]
+      where: [
+        { column: 'type', value: ['VerifiableCredential,BrainShareIndex']},
+        { column: 'issuer', value: [did] }
+      ],
+      order: [{ column: 'issuanceDate', direction: 'DESC' }],
+      take: 1,
      }),
   )
 
-  const credential = credentials && credentials.length > 0 && credentials[0].verifiableCredential
+  const credential = credentials && credentials.length > 0 && credentials[0]
   console.log("credential: ", credential)
   
   const handleNewPost = async (hash: string) => {
@@ -41,21 +46,18 @@ export const Home = () => {
     <PageContainer 
       loading={credentialLoading}
       title={<IdentifierProfile
-        did={getIssuerDID(credential)}
+        did={getIssuerDID(credential.verifiableCredential)}
       />}
       extra={[
         <Typography.Text key={'1'}>
           {credential && formatRelative(
-            new Date(credential.issuanceDate),
+            new Date(credential.verifiableCredential.issuanceDate),
             new Date(),
           )}
         </Typography.Text>,
       ]}
     >
-      {credential && <>
-        {JSON.stringify(credential)}
-        </>
-      }
+      {credential && <VerifiableCredentialComponent credential={credential} />}
       <>
       <Drawer 
         title="Compose new post"
@@ -65,7 +67,13 @@ export const Home = () => {
         width={800}
         destroyOnClose={true}
       >
-        <PostForm onOk={handleNewPost} initialIssuer={(credential.issuer as any).id} initialTitle={credential.credentialSubject.title} initialText={credential.credentialSubject.post} initialIndexed={credential.credentialSubject.shouldBeIndexed}/>
+        <PostForm 
+          onOk={handleNewPost}
+          initialIssuer={(credential.verifiableCredential.issuer as any).id}
+          initialTitle={credential.verifiableCredential.credentialSubject.title}
+          initialText={credential.verifiableCredential.credentialSubject.post}
+          initialIndexed={credential.verifiableCredential.credentialSubject.shouldBeIndexed}
+          />
       </Drawer>
     </>
     </PageContainer>

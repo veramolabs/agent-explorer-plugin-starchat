@@ -25,7 +25,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
 
   const [title, setTitle] = useState<string>(initialTitle || '')
   const [shouldBeIndexed, setShouldBeIndexed] = useState<boolean>(initialIndexed || false)
-  const [post, setPost] = useState<string>(initialText || '')
+  const [post, setPost] = useState<string>(initialText || window.localStorage.getItem('bs-post') || '')
   const { agent } = useVeramo<ICredentialIssuer & IDataStore & IDataStoreORM & IDIDManager>()
   const [selectedDid, setSelectedDid] = useState(initialIssuer || '')
   const [issuerProfile, setIssuerProfile] = useState<IIdentifierProfile>()
@@ -53,6 +53,10 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
       },
     },
   )
+
+  useEffect(() => {
+    window.localStorage.setItem('bs-post', post)
+  }, [post])
 
   useEffect(() => {
     if (agent) {
@@ -109,6 +113,9 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         shouldBeIndexed,
         post
       }
+
+      const identifier = await agent?.didManagerGet({ did: selectedDid })
+      console.log(identifier)
 
       const credential = await agent?.createVerifiableCredential({
         save: true,
@@ -169,6 +176,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
             }
           }
           // callback
+          window.localStorage.removeItem('bs-post')
           onOk(hash)
         }
 

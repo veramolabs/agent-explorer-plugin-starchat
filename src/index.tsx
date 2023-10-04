@@ -15,6 +15,8 @@ import { getCredentialContextMenuItems } from './menu';
 import { Edit } from './Edit';
 import { getMarkdownComponent } from './markdown';
 import { IdentifierHoverComponent } from './IdentifierHoverComponent.js';
+import { BrainShareIndex } from './BrainShareIndex';
+import { wikilinks } from './wikilinks';
 
 const Plugin: IPlugin = {
   //@ts-ignore
@@ -38,6 +40,10 @@ const Plugin: IPlugin = {
             },
             {
               path: '/brainshare/:id',
+              element: <Post />,
+            },
+            {
+              path: '/brainshare/:did/:id',
               element: <Post />,
             },
             {
@@ -76,10 +82,15 @@ const Plugin: IPlugin = {
             if (credential.verifiableCredential.type?.includes('BrainSharePost')) {
               return BrainSharePost
             }
+            if (credential.verifiableCredential.type?.includes('BrainShareIndex')) {
+              return BrainShareIndex
+            }
             return undefined
           },
           getCredentialContextMenuItems,
-          getMarkdownComponent
+          getMarkdownComponent,
+          
+          getMarkdownPlugins: () => [wikilinks]
         }
     }
 };
