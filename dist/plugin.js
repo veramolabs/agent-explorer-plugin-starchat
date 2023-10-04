@@ -61167,20 +61167,53 @@ var ReferencesFeed = ({ referenceHashes }) => {
 };
 
 // src/Post.tsx
+var import_react18 = __toESM(require_react(), 1);
+var import_uuid = __toESM(require_uuid(), 1);
 var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
 var Post = () => {
   const { notification } = import_antd4.App.useApp();
-  const { id } = (0, import_react_router_dom2.useParams)();
+  const { id, did } = (0, import_react_router_dom2.useParams)();
   const { agent } = (0, import_veramo_react4.useVeramo)();
   const [drawerOpen, setDrawerOpen] = (0, import_react17.useState)(false);
   const [refDrawerOpen, setRefDrawerOpen] = (0, import_react17.useState)(false);
   const navigate = (0, import_react_router_dom2.useNavigate)();
+  const [credential, setCredential] = (0, import_react17.useState)(null);
+  const [credentialLoading, setCredentialLoading] = (0, import_react17.useState)(true);
+  console.log("did: ", did);
   if (!id)
     return null;
-  const { data: credential, isLoading: credentialLoading } = (0, import_react_query4.useQuery)(
-    ["credential", { id }],
-    () => agent?.dataStoreGetVerifiableCredential({ hash: id })
-  );
+  (0, import_react18.useEffect)(() => {
+    const getCredential = async () => {
+      try {
+        const localCred = await agent?.dataStoreGetVerifiableCredential({ hash: id });
+        setCredential(localCred);
+        setCredentialLoading(false);
+      } catch (ex) {
+        console.log("credential not found locally");
+      }
+      if (!credential && did) {
+        const senders = await agent?.didManagerFind({ provider: "did:peer" });
+        if (senders && senders.length > 0) {
+          const requestCredMessage = {
+            type: "https://veramo.io/didcomm/brainshare/1.0/request-credential",
+            from: senders[0].did,
+            to: did,
+            id: (0, import_uuid.v4)(),
+            body: {
+              hash: id
+            },
+            return_route: "all"
+          };
+          const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
+          await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
+          const localCred = await agent?.dataStoreGetVerifiableCredential({ hash: id });
+          setCredential(localCred);
+          setCredentialLoading(false);
+        }
+      }
+    };
+    getCredential();
+  }, [did, id]);
   const { data: references, isLoading: referencesLoading } = (0, import_react_query4.useQuery)(
     ["references", { id }],
     () => {
@@ -61233,19 +61266,19 @@ var Post = () => {
 };
 
 // src/FindIndex.tsx
-var import_react18 = __toESM(require_react(), 1);
+var import_react19 = __toESM(require_react(), 1);
 var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
 var import_react_query5 = __toESM(require_react_query(), 1);
 var import_veramo_react5 = __toESM(require_veramo_react(), 1);
 var import_pro_components3 = __toESM(require_pro_components(), 1);
 var import_antd5 = __toESM(require_antd(), 1);
-var import_uuid = __toESM(require_uuid(), 1);
+var import_uuid2 = __toESM(require_uuid(), 1);
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var FindIndex = () => {
   const { notification } = import_antd5.App.useApp();
-  const [drawerOpen, setDrawerOpen] = (0, import_react18.useState)(false);
-  const [did, setDID] = (0, import_react18.useState)("");
-  const [selectedDid, setSelectedDid] = (0, import_react18.useState)("");
+  const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
+  const [did, setDID] = (0, import_react19.useState)("");
+  const [selectedDid, setSelectedDid] = (0, import_react19.useState)("");
   const navigate = (0, import_react_router_dom3.useNavigate)();
   const { agent } = (0, import_veramo_react5.useVeramo)();
   (0, import_react_query5.useQuery)(
@@ -61271,7 +61304,7 @@ var FindIndex = () => {
       type: "https://veramo.io/didcomm/brainshare/1.0/request-index",
       from: selectedDid,
       to: did,
-      id: (0, import_uuid.v4)(),
+      id: (0, import_uuid2.v4)(),
       body: {}
     };
     const packedMessage = await agent?.packDIDCommMessage({
@@ -61325,7 +61358,7 @@ var FindIndex = () => {
 };
 
 // src/Home.tsx
-var import_react19 = __toESM(require_react(), 1);
+var import_react20 = __toESM(require_react(), 1);
 var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
 var import_react_query6 = __toESM(require_react_query(), 1);
 var import_veramo_react6 = __toESM(require_veramo_react(), 1);
@@ -61338,7 +61371,7 @@ var Home = () => {
   const { notification } = import_antd6.App.useApp();
   const { did } = (0, import_react_router_dom4.useParams)();
   const { agent } = (0, import_veramo_react6.useVeramo)();
-  const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
+  const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
   const navigate = (0, import_react_router_dom4.useNavigate)();
   if (!did)
     return null;
@@ -61408,28 +61441,28 @@ var Home = () => {
 };
 
 // src/LinkDomain.tsx
-var import_react20 = __toESM(require_react(), 1);
+var import_react21 = __toESM(require_react(), 1);
 var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
 var import_react_query7 = __toESM(require_react_query(), 1);
 var import_veramo_react7 = __toESM(require_veramo_react(), 1);
 var import_pro_components5 = __toESM(require_pro_components(), 1);
 var import_agent_explorer_plugin6 = __toESM(require_agent_explorer_plugin(), 1);
 var import_antd7 = __toESM(require_antd(), 1);
-var import_uuid2 = __toESM(require_uuid(), 1);
+var import_uuid3 = __toESM(require_uuid(), 1);
 var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
 var LinkDomain = () => {
-  const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
-  const [did, setDID] = (0, import_react20.useState)("");
-  const [domain, setDomain] = (0, import_react20.useState)("");
-  const [selectedDid, setSelectedDid] = (0, import_react20.useState)("");
+  const [drawerOpen, setDrawerOpen] = (0, import_react21.useState)(false);
+  const [did, setDID] = (0, import_react21.useState)("");
+  const [domain, setDomain] = (0, import_react21.useState)("");
+  const [selectedDid, setSelectedDid] = (0, import_react21.useState)("");
   const navigate = (0, import_react_router_dom5.useNavigate)();
   const { agent } = (0, import_veramo_react7.useVeramo)();
-  const [issuerProfile, setIssuerProfile] = (0, import_react20.useState)();
-  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react20.useState)([]);
+  const [issuerProfile, setIssuerProfile] = (0, import_react21.useState)();
+  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react21.useState)([]);
   const [
     managedIdentifiersWithProfiles,
     setManagedIdentifiersWithProfiles
-  ] = (0, import_react20.useState)([]);
+  ] = (0, import_react21.useState)([]);
   (0, import_react_query7.useQuery)(
     ["identifiers", { id: agent?.context.id }],
     () => agent?.didManagerFind(),
@@ -61444,7 +61477,7 @@ var LinkDomain = () => {
       }
     }
   );
-  (0, import_react20.useEffect)(() => {
+  (0, import_react21.useEffect)(() => {
     if (agent) {
       Promise.all(
         managedIdentifiers.map((identifier) => {
@@ -61461,7 +61494,7 @@ var LinkDomain = () => {
       type: "https://veramo.io/didcomm/brainshare/1.0/check-domain-linkage",
       from: selectedDid,
       to: did,
-      id: (0, import_uuid2.v4)(),
+      id: (0, import_uuid3.v4)(),
       body: {
         domain
       }
@@ -61560,7 +61593,7 @@ var getCredentialContextMenuItems = (credential) => {
 };
 
 // src/Edit.tsx
-var import_react21 = __toESM(require_react(), 1);
+var import_react22 = __toESM(require_react(), 1);
 var import_react_router_dom7 = __toESM(require_react_router_dom(), 1);
 var import_react_query8 = __toESM(require_react_query(), 1);
 var import_veramo_react8 = __toESM(require_veramo_react(), 1);
@@ -61572,7 +61605,7 @@ var Edit = () => {
   const { id } = (0, import_react_router_dom7.useParams)();
   const { agent } = (0, import_veramo_react8.useVeramo)();
   const navigate = (0, import_react_router_dom7.useNavigate)();
-  const [refDrawerOpen, setRefDrawerOpen] = (0, import_react21.useState)(false);
+  const [refDrawerOpen, setRefDrawerOpen] = (0, import_react22.useState)(false);
   if (!id)
     return null;
   const { data: credential, isLoading: credentialLoading } = (0, import_react_query8.useQuery)(
@@ -68257,7 +68290,7 @@ var getMarkdownComponent = (token) => {
 };
 
 // src/IdentifierHoverComponent.tsx
-var import_react22 = __toESM(require_react(), 1);
+var import_react23 = __toESM(require_react(), 1);
 var import_veramo_react9 = __toESM(require_veramo_react(), 1);
 var import_react_query9 = __toESM(require_react_query(), 1);
 var import_antd10 = __toESM(require_antd(), 1);
@@ -68274,7 +68307,7 @@ var IdentifierHoverComponent = ({ did }) => {
       order: [{ column: "issuanceDate", direction: "DESC" }]
     })
   );
-  const domain = import_react22.default.useMemo(() => {
+  const domain = import_react23.default.useMemo(() => {
     return credentials?.[0]?.verifiableCredential?.credentialSubject?.domain;
   }, [credentials, did]);
   if (isLoading) {

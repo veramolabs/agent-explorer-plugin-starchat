@@ -4,24 +4,59 @@ import { useQuery } from 'react-query'
 import { useVeramo } from '@veramo-community/veramo-react'
 import { PageContainer } from '@ant-design/pro-components'
 import { App, Button, Drawer, Space, Spin, Typography } from 'antd'
-import { IDataStore, IDataStoreORM } from '@veramo/core'
+import { IDIDManager, IDataStore, IDataStoreORM, VerifiableCredential } from '@veramo/core'
+import { IDIDComm } from '@veramo/did-comm'
 import { VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
 import { ReferencesFeed } from './ReferencesFeed.js'
+import { useEffect } from 'react'
+import { v4 } from 'uuid'
+// import { createBrainShareRequestCredentialMessage } from "did-comm-brainshare"
 
 export const Post = () => {
   const { notification } = App.useApp()
-  const { id } = useParams<{ id: string }>()
-  const { agent } = useVeramo<IDataStore & IDataStoreORM>()
+  const { id, did } = useParams<{ id: string, did: string }>()
+  const { agent } = useVeramo<IDataStore & IDataStoreORM & IDIDManager & IDIDComm>()
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [refDrawerOpen, setRefDrawerOpen] = useState(false);
   const navigate = useNavigate()
+  const [credential, setCredential] = useState<VerifiableCredential | null>(null)
+  const [credentialLoading, setCredentialLoading] = useState(true)
 
+  console.log("did: ", did)
   if (!id) return null
 
-  const { data: credential, isLoading: credentialLoading } = useQuery(
-    ['credential', { id }],
-    () => agent?.dataStoreGetVerifiableCredential({ hash: id }),
-  )
+  useEffect(() => {
+    const getCredential = async () => {
+      try {
+        const localCred = await agent?.dataStoreGetVerifiableCredential({ hash: id })
+        setCredential(localCred!)
+        setCredentialLoading(false)
+      } catch (ex) {
+        console.log("credential not found locally")
+      }
+      if (!credential && did) {
+        const senders = await agent?.didManagerFind({ provider: "did:peer"})
+        if (senders && senders.length > 0) {
+          const requestCredMessage = {
+            type: 'https://veramo.io/didcomm/brainshare/1.0/request-credential',
+            from: senders[0].did,
+            to: did,
+            id: v4(),
+            body: {
+              hash: id
+            },
+            return_route: 'all'
+          }
+          const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: 'authcrypt' })
+          await agent?.sendDIDCommMessage({ packedMessage: packedMessage!, messageId: requestCredMessage.id, recipientDidUrl: did! })
+          const localCred = await agent?.dataStoreGetVerifiableCredential({ hash: id })
+          setCredential(localCred!)
+          setCredentialLoading(false)
+        }
+      }
+    }
+    getCredential()
+  }, [did, id])
 
   const { data: references, isLoading: referencesLoading } = useQuery(
     ['references', { id }],

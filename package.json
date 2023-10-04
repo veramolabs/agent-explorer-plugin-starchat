@@ -20,6 +20,7 @@
 		"@veramo-community/veramo-react": "^1.2.0",
 		"@veramo/core": "5.5.2-next.9",
 		"@veramo/core-types": "5.5.2-next.9",
+		"@veramo/did-comm": "5.5.2-next.9",
 		"@veramo/utils": "5.5.2-next.9",
 		"antd": "^5.9.4",
 		"date-fns": "^2.30.0",
