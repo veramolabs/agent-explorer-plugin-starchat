@@ -59979,8 +59979,27 @@ Icon.getTwoToneColor = getTwoToneColor;
 Icon.setTwoToneColor = setTwoToneColor;
 var AntdIcon_default = Icon;
 
-// node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EditOutlined.js
+// node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js
 var React4 = __toESM(require_react());
+
+// node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/CheckCircleOutlined.js
+var CheckCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z" } }, { "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }] }, "name": "check-circle", "theme": "outlined" };
+var CheckCircleOutlined_default = CheckCircleOutlined;
+
+// node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js
+var CheckCircleOutlined2 = function CheckCircleOutlined3(props, ref) {
+  return /* @__PURE__ */ React4.createElement(AntdIcon_default, _extends({}, props, {
+    ref,
+    icon: CheckCircleOutlined_default
+  }));
+};
+if (true) {
+  CheckCircleOutlined2.displayName = "CheckCircleOutlined";
+}
+var CheckCircleOutlined_default2 = /* @__PURE__ */ React4.forwardRef(CheckCircleOutlined2);
+
+// node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EditOutlined.js
+var React5 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/EditOutlined.js
 var EditOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z" } }] }, "name": "edit", "theme": "outlined" };
@@ -59988,7 +60007,7 @@ var EditOutlined_default = EditOutlined;
 
 // node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/EditOutlined.js
 var EditOutlined2 = function EditOutlined3(props, ref) {
-  return /* @__PURE__ */ React4.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React5.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: EditOutlined_default
   }));
@@ -59996,10 +60015,10 @@ var EditOutlined2 = function EditOutlined3(props, ref) {
 if (true) {
   EditOutlined2.displayName = "EditOutlined";
 }
-var EditOutlined_default2 = /* @__PURE__ */ React4.forwardRef(EditOutlined2);
+var EditOutlined_default2 = /* @__PURE__ */ React5.forwardRef(EditOutlined2);
 
 // node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileSearchOutlined.js
-var React5 = __toESM(require_react());
+var React6 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/FileSearchOutlined.js
 var FileSearchOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M688 312v-48c0-4.4-3.6-8-8-8H296c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8zm-392 88c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H296zm144 452H208V148h560v344c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V108c0-17.7-14.3-32-32-32H168c-17.7 0-32 14.3-32 32v784c0 17.7 14.3 32 32 32h272c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm445.7 51.5l-93.3-93.3C814.7 780.7 828 743.9 828 704c0-97.2-78.8-176-176-176s-176 78.8-176 176 78.8 176 176 176c35.8 0 69-10.7 96.8-29l94.7 94.7c1.6 1.6 3.6 2.3 5.6 2.3s4.1-.8 5.6-2.3l31-31a7.9 7.9 0 000-11.2zM652 816c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z" } }] }, "name": "file-search", "theme": "outlined" };
@@ -60007,7 +60026,7 @@ var FileSearchOutlined_default = FileSearchOutlined;
 
 // node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileSearchOutlined.js
 var FileSearchOutlined2 = function FileSearchOutlined3(props, ref) {
-  return /* @__PURE__ */ React5.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React6.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: FileSearchOutlined_default
   }));
@@ -60015,10 +60034,10 @@ var FileSearchOutlined2 = function FileSearchOutlined3(props, ref) {
 if (true) {
   FileSearchOutlined2.displayName = "FileSearchOutlined";
 }
-var FileSearchOutlined_default2 = /* @__PURE__ */ React5.forwardRef(FileSearchOutlined2);
+var FileSearchOutlined_default2 = /* @__PURE__ */ React6.forwardRef(FileSearchOutlined2);
 
 // node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileTextOutlined.js
-var React6 = __toESM(require_react());
+var React7 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/FileTextOutlined.js
 var FileTextOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z" } }] }, "name": "file-text", "theme": "outlined" };
@@ -60026,7 +60045,7 @@ var FileTextOutlined_default = FileTextOutlined;
 
 // node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/FileTextOutlined.js
 var FileTextOutlined2 = function FileTextOutlined3(props, ref) {
-  return /* @__PURE__ */ React6.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React7.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: FileTextOutlined_default
   }));
@@ -60034,10 +60053,10 @@ var FileTextOutlined2 = function FileTextOutlined3(props, ref) {
 if (true) {
   FileTextOutlined2.displayName = "FileTextOutlined";
 }
-var FileTextOutlined_default2 = /* @__PURE__ */ React6.forwardRef(FileTextOutlined2);
+var FileTextOutlined_default2 = /* @__PURE__ */ React7.forwardRef(FileTextOutlined2);
 
 // node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/LinkOutlined.js
-var React7 = __toESM(require_react());
+var React8 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/LinkOutlined.js
 var LinkOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M574 665.4a8.03 8.03 0 00-11.3 0L446.5 781.6c-53.8 53.8-144.6 59.5-204 0-59.5-59.5-53.8-150.2 0-204l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3l-39.8-39.8a8.03 8.03 0 00-11.3 0L191.4 526.5c-84.6 84.6-84.6 221.5 0 306s221.5 84.6 306 0l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3L574 665.4zm258.6-474c-84.6-84.6-221.5-84.6-306 0L410.3 307.6a8.03 8.03 0 000 11.3l39.7 39.7c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c53.8-53.8 144.6-59.5 204 0 59.5 59.5 53.8 150.2 0 204L665.3 562.6a8.03 8.03 0 000 11.3l39.8 39.8c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c84.5-84.6 84.5-221.5 0-306.1zM610.1 372.3a8.03 8.03 0 00-11.3 0L372.3 598.7a8.03 8.03 0 000 11.3l39.6 39.6c3.1 3.1 8.2 3.1 11.3 0l226.4-226.4c3.1-3.1 3.1-8.2 0-11.3l-39.5-39.6z" } }] }, "name": "link", "theme": "outlined" };
@@ -60045,7 +60064,7 @@ var LinkOutlined_default = LinkOutlined;
 
 // node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/LinkOutlined.js
 var LinkOutlined2 = function LinkOutlined3(props, ref) {
-  return /* @__PURE__ */ React7.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React8.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: LinkOutlined_default
   }));
@@ -60053,10 +60072,10 @@ var LinkOutlined2 = function LinkOutlined3(props, ref) {
 if (true) {
   LinkOutlined2.displayName = "LinkOutlined";
 }
-var LinkOutlined_default2 = /* @__PURE__ */ React7.forwardRef(LinkOutlined2);
+var LinkOutlined_default2 = /* @__PURE__ */ React8.forwardRef(LinkOutlined2);
 
 // node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/PlusOutlined.js
-var React8 = __toESM(require_react());
+var React9 = __toESM(require_react());
 
 // node_modules/.pnpm/@ant-design+icons-svg@4.3.1/node_modules/@ant-design/icons-svg/es/asn/PlusOutlined.js
 var PlusOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z" } }, { "tag": "path", "attrs": { "d": "M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z" } }] }, "name": "plus", "theme": "outlined" };
@@ -60064,7 +60083,7 @@ var PlusOutlined_default = PlusOutlined;
 
 // node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/icons/PlusOutlined.js
 var PlusOutlined2 = function PlusOutlined3(props, ref) {
-  return /* @__PURE__ */ React8.createElement(AntdIcon_default, _extends({}, props, {
+  return /* @__PURE__ */ React9.createElement(AntdIcon_default, _extends({}, props, {
     ref,
     icon: PlusOutlined_default
   }));
@@ -60072,7 +60091,7 @@ var PlusOutlined2 = function PlusOutlined3(props, ref) {
 if (true) {
   PlusOutlined2.displayName = "PlusOutlined";
 }
-var PlusOutlined_default2 = /* @__PURE__ */ React8.forwardRef(PlusOutlined2);
+var PlusOutlined_default2 = /* @__PURE__ */ React9.forwardRef(PlusOutlined2);
 
 // src/Feed.tsx
 var import_react16 = __toESM(require_react(), 1);
@@ -68238,26 +68257,37 @@ var getMarkdownComponent = (token) => {
 };
 
 // src/IdentifierHoverComponent.tsx
+var import_react22 = __toESM(require_react(), 1);
 var import_veramo_react9 = __toESM(require_veramo_react(), 1);
 var import_react_query9 = __toESM(require_react_query(), 1);
 var import_antd10 = __toESM(require_antd(), 1);
 var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
 var IdentifierHoverComponent = ({ did }) => {
   const { agent } = (0, import_veramo_react9.useVeramo)();
-  console.log("did: ", did);
-  const { data: credentials, isLoading, refetch } = (0, import_react_query9.useQuery)(
-    ["domain-linkage", { agentId: agent?.context.name }],
+  const { data: credentials, isLoading } = (0, import_react_query9.useQuery)(
+    ["domain-linkage", { agentId: agent?.context.name, did }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
-      where: [{ column: "type", value: ["VerifiableCredential,BrainShareDomainLinkage"] }, { column: "subject", value: [did] }],
+      where: [
+        { column: "type", value: ["VerifiableCredential,BrainShareDomainLinkage"] },
+        { column: "subject", value: [did] }
+      ],
       order: [{ column: "issuanceDate", direction: "DESC" }]
     })
   );
-  console.log("credentials: ", credentials);
-  if (isLoading || !credentials || credentials.length === 0) {
+  const domain = import_react22.default.useMemo(() => {
+    return credentials?.[0]?.verifiableCredential?.credentialSubject?.domain;
+  }, [credentials, did]);
+  if (isLoading) {
+    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_antd10.Spin, {});
+  }
+  if (!domain) {
     return null;
   }
-  const domain = credentials[0].verifiableCredential.credentialSubject.domain;
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_antd10.Typography.Text, { children: domain });
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_antd10.Typography.Text, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CheckCircleOutlined_default2, {}),
+    " ",
+    domain
+  ] });
 };
 
 // src/BrainShareIndex.tsx
