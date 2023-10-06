@@ -94,11 +94,27 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
       })
       // markdownPlugin(md)
       const tokens = md.parse(post, {})
-
       const references = tokens.filter((token) => {
         return token.type === 'fence' && token.tag === 'code' && token.info === 'vc+multihash'
       }).map((token) => {
         return token.content.trimEnd()
+      })
+
+      // example
+      // const token = {..., type: 'inline', content: 'Creating [[did:web:staging.community.veramo.io/QmPBpbQdPdmTW9H8yNeRdTh1FVb8iSAwSaieio72ov8Uf3|Identifiers]]'};
+
+      tokens.filter((token) => token.type === 'inline').forEach((token) => {      
+        // should improve this regex
+        const regex = /\[\[.*\]\]/g;
+        const found = token.content.match(regex);
+        if (found && found.length > 0) {
+          found.forEach((match) => {
+            const didHash = match.split('|')[0].substring(2)
+            if (!references.includes(didHash)) {
+              references.push(didHash)
+            }
+          })
+        }
       })
 
       const credentialSubject = (references && references.length > 0) ? 
