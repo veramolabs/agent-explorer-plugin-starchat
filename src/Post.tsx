@@ -22,9 +22,8 @@ export const Post = () => {
   const [credential, setCredential] = useState<VerifiableCredential | null>(null)
   const [credentialLoading, setCredentialLoading] = useState(true)
 
-  console.log("did: ", did)
   if (!id) return null
-
+  
   useEffect(() => {
     const getCredential = async () => {
       try {

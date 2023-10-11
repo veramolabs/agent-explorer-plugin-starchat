@@ -6,9 +6,9 @@ import { ICredentialIssuer, IDIDManager, IDataStore, IDataStoreORM, IIdentifier,
 import { useQuery } from 'react-query'
 import { IdentifierProfile, IIdentifierProfile, MarkDown } from '@veramo-community/agent-explorer-plugin'
 import Editor from '@monaco-editor/react';
-import MarkdownIt from 'markdown-it'
-import hljs from 'highlight.js'
-
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import wikiLinkPlugin from 'remark-wiki-link';
 
 const { Option } = Select
 
@@ -76,46 +76,31 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
   const handleCreatePost = async () => {
     try {
 
-        // find all credentials referenced by this one
-        const md = new MarkdownIt({
-          html: true,
-          highlight: function (str, lang) {
-              if (lang && hljs.getLanguage(lang)) {
-                  try {
-                      return hljs.highlight(str, { language: lang }).value;
-                  } catch (e) {
-                      console.error(e);
-                      /* empty */
-                  }
-              }
+      // find all credentials referenced by this one
+      const parser = unified().use(remarkParse).use(wikiLinkPlugin, {aliasDivider: '|'})
+      const root = parser.parse(post);
 
-              return ''; // use external default escaping
-          },
-      })
-      // markdownPlugin(md)
-      const tokens = md.parse(post, {})
-      const references = tokens.filter((token) => {
-        return token.type === 'fence' && token.tag === 'code' && token.info === 'vc+multihash'
+      const references = root.children.filter((token) => {
+        return token.type === 'code' && token.lang === 'vc+multihash'
       }).map((token) => {
-        return token.content.trimEnd()
+        return (token as any).value as string
       })
 
-      // example
-      // const token = {..., type: 'inline', content: 'Creating [[did:web:staging.community.veramo.io/QmPBpbQdPdmTW9H8yNeRdTh1FVb8iSAwSaieio72ov8Uf3|Identifiers]]'};
-
-      tokens.filter((token) => token.type === 'inline').forEach((token) => {      
-        // should improve this regex
-        const regex = /\[\[.*\]\]/g;
-        const found = token.content.match(regex);
-        if (found && found.length > 0) {
-          found.forEach((match) => {
-            const didHash = match.split('|')[0].substring(2)
+      function visitWikiLinks(node: any) {
+        if (node.type === 'wikiLink') {
+          const didHash = node.value.split('|')[0]
             if (!references.includes(didHash)) {
               references.push(didHash)
             }
-          })
         }
-      })
+        if (node.children) {
+          for (const child of node.children) {
+            visitWikiLinks(child);
+          }
+        }
+      }
+
+      visitWikiLinks(root);
 
       const credentialSubject = (references && references.length > 0) ? 
       {

@@ -13,10 +13,11 @@ import { UniqueVerifiableCredential } from '@veramo/core';
 import { BrainSharePost } from './BrainSharePost';
 import { getCredentialContextMenuItems } from './menu';
 import { Edit } from './Edit';
-import { getMarkdownComponent } from './markdown';
+import { getMarkdownComponents } from './markdown';
 import { IdentifierHoverComponent } from './IdentifierHoverComponent.js';
 import { BrainShareIndex } from './BrainShareIndex';
 import { wikilinks } from './wikilinks';
+import wikilink from 'remark-wiki-link'
 
 const Plugin: IPlugin = {
   //@ts-ignore
@@ -88,9 +89,13 @@ const Plugin: IPlugin = {
             return undefined
           },
           getCredentialContextMenuItems,
-          getMarkdownComponent,
-          
-          getMarkdownPlugins: () => [wikilinks]
+          getMarkdownComponents,
+          getRemarkPlugins: () => [[wikilink, {
+            aliasDivider: '|',
+            hrefTemplate: (permalink: string) => `${permalink}`,
+            pageResolver: (name: string) => [`/brainshare/${name}`] 
+          }]],
+          // getMarkdownPlugins: () => [wikilinks]
         }
     }
 };
