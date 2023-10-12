@@ -233,13 +233,6 @@ var require_uuid = __commonJS({
   }
 });
 
-// external-global-plugin:date-fns
-var require_date_fns = __commonJS({
-  "external-global-plugin:date-fns"(exports2, module2) {
-    module2.exports = window.datefns;
-  }
-});
-
 // node_modules/.pnpm/canonicalize@2.0.0/node_modules/canonicalize/lib/canonicalize.js
 var require_canonicalize = __commonJS({
   "node_modules/.pnpm/canonicalize@2.0.0/node_modules/canonicalize/lib/canonicalize.js"(exports2, module2) {
@@ -11238,205 +11231,156 @@ var Post = () => {
   );
 };
 
-// src/FindIndex.tsx
+// src/Home.tsx
 var import_react19 = __toESM(require_react(), 1);
 var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
-var import_react_query5 = __toESM(require_react_query(), 1);
 var import_veramo_react5 = __toESM(require_veramo_react(), 1);
-var import_pro_components3 = __toESM(require_pro_components(), 1);
 var import_antd5 = __toESM(require_antd(), 1);
+
+// src/didcommUtils.ts
 var import_uuid2 = __toESM(require_uuid(), 1);
+async function getPost(agent, did, hash3) {
+  const senders = await agent?.didManagerFind({ provider: "did:peer" });
+  if (!senders || senders.length === 0) {
+    throw new Error("no DIDComm senders found on local agent");
+  }
+  const requestCredMessage = {
+    type: "https://veramo.io/didcomm/brainshare/1.0/request-credential",
+    from: senders[0].did,
+    to: did,
+    id: (0, import_uuid2.v4)(),
+    body: {
+      hash: hash3
+    },
+    return_route: "all"
+  };
+  const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
+  await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
+  const localCred = await agent?.dataStoreGetVerifiableCredential({ hash: hash3 });
+  console.log("localCred: ", localCred);
+  return localCred;
+}
+async function getIndex(agent, did) {
+  console.log("get index for DID: ", did);
+  const senders = await agent?.didManagerFind({ provider: "did:peer" });
+  if (!senders || senders.length === 0) {
+    throw new Error("no DIDComm senders found on local agent");
+  }
+  const requestCredMessage = {
+    type: "https://veramo.io/didcomm/brainshare/1.0/request-index",
+    from: senders[0].did,
+    to: did,
+    id: (0, import_uuid2.v4)(),
+    body: {},
+    return_route: "all"
+  };
+  console.log("getIndex 2");
+  const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
+  await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
+  console.log("getIndex 3");
+  const localCreds = await agent?.dataStoreORMGetVerifiableCredentials({
+    where: [
+      { column: "type", value: ["VerifiableCredential,BrainShareIndex"] },
+      { column: "issuer", value: [did] }
+    ]
+  });
+  console.log("indexes??", localCreds);
+  return localCreds[localCreds.length - 1].verifiableCredential;
+}
+
+// src/BrainSharePost.tsx
+var import_agent_explorer_plugin5 = __toESM(require_agent_explorer_plugin(), 1);
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
-var FindIndex = () => {
-  const { notification } = import_antd5.App.useApp();
-  const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
-  const [did, setDID] = (0, import_react19.useState)("");
-  const [selectedDid, setSelectedDid] = (0, import_react19.useState)("");
-  const navigate = (0, import_react_router_dom3.useNavigate)();
-  const { agent } = (0, import_veramo_react5.useVeramo)();
-  (0, import_react_query5.useQuery)(
-    ["identifiers", { id: agent?.context.id }],
-    () => agent?.didManagerFind(),
-    {
-      onSuccess: (data) => {
-        if (data) {
-          setSelectedDid(data[0].did);
-        }
-      }
-    }
-  );
-  const handleNewPost = async (hash3) => {
-    notification.success({
-      message: "Post created"
-    });
-    setDrawerOpen(false);
-    navigate("/brainshare/" + hash3);
-  };
-  const getIndex = async () => {
-    const message2 = {
-      type: "https://veramo.io/didcomm/brainshare/1.0/request-index",
-      from: selectedDid,
-      to: did,
-      id: (0, import_uuid2.v4)(),
-      body: {}
-    };
-    const packedMessage = await agent?.packDIDCommMessage({
-      packing: "authcrypt",
-      message: message2
-    });
-    const res = await agent?.sendDIDCommMessage({
-      messageId: message2.id,
-      packedMessage,
-      recipientDidUrl: did
-    });
-    console.log("res: ", res);
-    navigate(`/brainshare/home/${did}`);
-  };
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
-    import_pro_components3.PageContainer,
-    {
-      extra: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-          import_antd5.Button,
-          {
-            icon: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(PlusOutlined_default2, {}),
-            type: "primary",
-            title: "Compose new post",
-            onClick: () => setDrawerOpen(true),
-            children: "Compose"
-          },
-          "add"
-        )
-      ],
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Input, { value: did, onChange: (e2) => setDID(e2.target.value), placeholder: "did:web:staging.community.veramo.io" }),
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Button, { onClick: () => getIndex(), children: "Find Index" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
-          import_antd5.Drawer,
-          {
-            title: "Compose new post",
-            placement: "right",
-            onClose: () => setDrawerOpen(false),
-            open: drawerOpen,
-            width: 800,
-            destroyOnClose: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(PostForm, { onOk: handleNewPost })
-          }
-        ) })
-      ]
-    }
-  );
+var BrainSharePost = ({ credential, context }) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
+    credential.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { children: credential.verifiableCredential.credentialSubject.title }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_agent_explorer_plugin5.MarkDown, { content: credential.verifiableCredential.credentialSubject.post, credential, context })
+  ] });
 };
 
 // src/Home.tsx
-var import_react20 = __toESM(require_react(), 1);
-var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
-var import_react_query6 = __toESM(require_react_query(), 1);
-var import_veramo_react6 = __toESM(require_veramo_react(), 1);
-var import_pro_components4 = __toESM(require_pro_components(), 1);
-var import_antd6 = __toESM(require_antd(), 1);
-var import_date_fns = __toESM(require_date_fns(), 1);
-var import_agent_explorer_plugin5 = __toESM(require_agent_explorer_plugin(), 1);
 var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
 var Home = () => {
-  const { notification } = import_antd6.App.useApp();
-  const { did } = (0, import_react_router_dom4.useParams)();
-  const { agent } = (0, import_veramo_react6.useVeramo)();
-  const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
-  const navigate = (0, import_react_router_dom4.useNavigate)();
+  const { notification } = import_antd5.App.useApp();
+  const { did, hash: hash3 } = (0, import_react_router_dom3.useParams)();
+  const { agent } = (0, import_veramo_react5.useVeramo)();
+  const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
+  const navigate = (0, import_react_router_dom3.useNavigate)();
+  const [index3, setIndex] = (0, import_react19.useState)(null);
+  const [sidebar, setSidebar] = (0, import_react19.useState)(null);
+  const [post, setPost] = (0, import_react19.useState)(null);
   if (!did)
     return null;
-  const { data: credentials, isLoading: credentialLoading } = (0, import_react_query6.useQuery)(
-    ["credentials", { did }],
-    () => agent?.dataStoreORMGetVerifiableCredentials({
-      where: [
-        { column: "type", value: ["VerifiableCredential,BrainShareIndex"] },
-        { column: "issuer", value: [did] }
-      ],
-      order: [{ column: "issuanceDate", direction: "DESC" }],
-      take: 1
-    })
-  );
-  const credential = credentials && credentials.length > 0 && credentials[0];
-  console.log("credential: ", credential);
-  const handleNewPost = async (hash3) => {
+  if (!agent)
+    return null;
+  (0, import_react19.useEffect)(() => {
+    const loadIndex = async () => {
+      const index4 = await getIndex(agent, did);
+      setIndex(index4);
+      console.log("index: ", index4);
+      const indexMap = index4.credentialSubject.index;
+      const sidebarHash = indexMap["bs-sidebar"][0];
+      console.log("sidebarHash: ", sidebarHash);
+      const sidebar2 = await getPost(agent, did, sidebarHash);
+      console.log("sidebar: ", sidebar2);
+      setSidebar({ hash: sidebarHash, verifiableCredential: sidebar2 });
+    };
+    loadIndex();
+  }, [did]);
+  (0, import_react19.useEffect)(() => {
+    if (index3) {
+      const loadPost = async () => {
+        if (!hash3) {
+          const homeHash = index3.credentialSubject.index["bs-home"][0];
+          setPost({ hash: homeHash, verifiableCredential: await getPost(agent, did, homeHash) });
+        } else {
+          setPost({ hash: hash3, verifiableCredential: await getPost(agent, did, hash3) });
+        }
+      };
+      loadPost();
+    }
+  }, [did, hash3, index3]);
+  const handleNewPost = async (hash4) => {
     notification.success({
       message: "Post created"
     });
-    navigate("/brainshare/" + hash3);
+    navigate("/brainshare/" + hash4);
   };
-  if (!credential)
+  if (!sidebar)
     return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
-    import_pro_components4.PageContainer,
-    {
-      loading: credentialLoading,
-      title: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-        import_agent_explorer_plugin5.IdentifierProfile,
-        {
-          did: (0, import_agent_explorer_plugin5.getIssuerDID)(credential.verifiableCredential)
-        }
-      ),
-      extra: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.Typography.Text, { children: credential && (0, import_date_fns.formatRelative)(
-          new Date(credential.verifiableCredential.issuanceDate),
-          /* @__PURE__ */ new Date()
-        ) }, "1")
-      ],
-      children: [
-        credential && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_agent_explorer_plugin5.VerifiableCredentialComponent, { credential }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_jsx_runtime6.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-          import_antd6.Drawer,
-          {
-            title: "Compose new post",
-            placement: "right",
-            onClose: () => setDrawerOpen(false),
-            open: drawerOpen,
-            width: 800,
-            destroyOnClose: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
-              PostForm,
-              {
-                onOk: handleNewPost,
-                initialIssuer: credential.verifiableCredential.issuer.id,
-                initialTitle: credential.verifiableCredential.credentialSubject.title,
-                initialText: credential.verifiableCredential.credentialSubject.post,
-                initialIndexed: credential.verifiableCredential.credentialSubject.shouldBeIndexed
-              }
-            )
-          }
-        ) })
-      ]
-    }
-  );
+  if (!post)
+    return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BrainSharePost, { credential: sidebar }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("br", {}),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BrainSharePost, { credential: post })
+  ] });
 };
 
 // src/LinkDomain.tsx
-var import_react21 = __toESM(require_react(), 1);
-var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
-var import_react_query7 = __toESM(require_react_query(), 1);
-var import_veramo_react7 = __toESM(require_veramo_react(), 1);
-var import_pro_components5 = __toESM(require_pro_components(), 1);
+var import_react20 = __toESM(require_react(), 1);
+var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
+var import_react_query5 = __toESM(require_react_query(), 1);
+var import_veramo_react6 = __toESM(require_veramo_react(), 1);
+var import_pro_components3 = __toESM(require_pro_components(), 1);
 var import_agent_explorer_plugin6 = __toESM(require_agent_explorer_plugin(), 1);
-var import_antd7 = __toESM(require_antd(), 1);
+var import_antd6 = __toESM(require_antd(), 1);
 var import_uuid3 = __toESM(require_uuid(), 1);
 var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
 var LinkDomain = () => {
-  const [drawerOpen, setDrawerOpen] = (0, import_react21.useState)(false);
-  const [did, setDID] = (0, import_react21.useState)("");
-  const [domain, setDomain] = (0, import_react21.useState)("");
-  const [selectedDid, setSelectedDid] = (0, import_react21.useState)("");
-  const navigate = (0, import_react_router_dom5.useNavigate)();
-  const { agent } = (0, import_veramo_react7.useVeramo)();
-  const [issuerProfile, setIssuerProfile] = (0, import_react21.useState)();
-  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react21.useState)([]);
+  const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
+  const [did, setDID] = (0, import_react20.useState)("");
+  const [domain, setDomain] = (0, import_react20.useState)("");
+  const [selectedDid, setSelectedDid] = (0, import_react20.useState)("");
+  const navigate = (0, import_react_router_dom4.useNavigate)();
+  const { agent } = (0, import_veramo_react6.useVeramo)();
+  const [issuerProfile, setIssuerProfile] = (0, import_react20.useState)();
+  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react20.useState)([]);
   const [
     managedIdentifiersWithProfiles,
     setManagedIdentifiersWithProfiles
-  ] = (0, import_react21.useState)([]);
-  (0, import_react_query7.useQuery)(
+  ] = (0, import_react20.useState)([]);
+  (0, import_react_query5.useQuery)(
     ["identifiers", { id: agent?.context.id }],
     () => agent?.didManagerFind(),
     {
@@ -11450,7 +11394,7 @@ var LinkDomain = () => {
       }
     }
   );
-  (0, import_react21.useEffect)(() => {
+  (0, import_react20.useEffect)(() => {
     if (agent) {
       Promise.all(
         managedIdentifiers.map((identifier) => {
@@ -11483,16 +11427,16 @@ var LinkDomain = () => {
     });
     console.log("res: ", res);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_pro_components5.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Input, { value: domain, onChange: (e2) => setDomain(e2.target.value), placeholder: "www.google.com" }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Input, { value: did, onChange: (e2) => setDID(e2.target.value), placeholder: "did:web:staging.community.veramo.io" }),
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_pro_components3.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Input, { value: domain, onChange: (e2) => setDomain(e2.target.value), placeholder: "www.google.com" }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Input, { value: did, onChange: (e2) => setDID(e2.target.value), placeholder: "did:web:staging.community.veramo.io" }),
     managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-      import_antd7.Dropdown.Button,
+      import_antd6.Dropdown.Button,
       {
         type: "primary",
         onClick: checkLinkage,
         disabled: domain === "",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Avatar, { size: "small", src: issuerProfile?.picture }),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Avatar, { size: "small", src: issuerProfile?.picture }),
         menu: {
           items: [
             ...managedIdentifiersWithProfiles.map((profile) => {
@@ -11515,24 +11459,14 @@ var LinkDomain = () => {
   ] }) });
 };
 
-// src/BrainSharePost.tsx
-var import_agent_explorer_plugin7 = __toESM(require_agent_explorer_plugin(), 1);
-var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
-var BrainSharePost = ({ credential, context }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
-    credential.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { children: credential.verifiableCredential.credentialSubject.title }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_agent_explorer_plugin7.MarkDown, { content: credential.verifiableCredential.credentialSubject.post, credential, context })
-  ] });
-};
-
 // src/menu.tsx
-var import_agent_explorer_plugin8 = __toESM(require_agent_explorer_plugin(), 1);
-var import_antd8 = __toESM(require_antd(), 1);
-var import_react_router_dom6 = __toESM(require_react_router_dom(), 1);
-var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+var import_agent_explorer_plugin7 = __toESM(require_agent_explorer_plugin(), 1);
+var import_antd7 = __toESM(require_antd(), 1);
+var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
+var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
 var getCredentialContextMenuItems = (credential) => {
-  const navigate = (0, import_react_router_dom6.useNavigate)();
-  const { notification } = import_antd8.App.useApp();
+  const navigate = (0, import_react_router_dom5.useNavigate)();
+  const { notification } = import_antd7.App.useApp();
   const handleCopyEmbed = () => {
     let embed = "";
     if (credential.verifiableCredential.proof?.jwt) {
@@ -11551,7 +11485,7 @@ ${JSON.stringify(credential.verifiableCredential, null, 2)}
   };
   const handleCopyReference = () => {
     const reference = `\`\`\`vc+multihash
-${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredential)}/${credential.hash}
+${(0, import_agent_explorer_plugin7.getIssuerDID)(credential.verifiableCredential)}/${credential.hash}
 \`\`\``;
     navigator.clipboard.writeText(reference);
     notification.success({
@@ -11559,7 +11493,7 @@ ${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredentia
     });
   };
   const handleCopyWikilink = () => {
-    const wikilink = credential.verifiableCredential.credentialSubject.title ? `[[${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredential)}/${credential.hash}|${credential.verifiableCredential.credentialSubject.title}]]` : `[[${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredential)}/${credential.hash}]]`;
+    const wikilink = credential.verifiableCredential.credentialSubject.title ? `[[${(0, import_agent_explorer_plugin7.getIssuerDID)(credential.verifiableCredential)}/${credential.hash}|${credential.verifiableCredential.credentialSubject.title}]]` : `[[${(0, import_agent_explorer_plugin7.getIssuerDID)(credential.verifiableCredential)}/${credential.hash}]]`;
     navigator.clipboard.writeText(wikilink);
     notification.success({
       message: "Credential wikilink copied to clipboard"
@@ -11570,31 +11504,31 @@ ${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredentia
       {
         key: "open",
         label: "Open post",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(FileSearchOutlined_default2, {}),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(FileSearchOutlined_default2, {}),
         onClick: () => navigate("/brainshare/" + credential.hash)
       },
       {
         key: "edit",
         label: "New revision",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(EditOutlined_default2, {}),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(EditOutlined_default2, {}),
         onClick: () => navigate("/brainshare/edit/" + credential.hash)
       },
       {
         key: "copy-wiki",
         label: "Copy wiki link",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(LinkOutlined_default2, {}),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LinkOutlined_default2, {}),
         onClick: handleCopyWikilink
       },
       {
         key: "embed",
         label: "Copy embed",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PicLeftOutlined_default2, {}),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PicLeftOutlined_default2, {}),
         onClick: handleCopyEmbed
       },
       {
         key: "reference",
         label: "Copy reference",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PicLeftOutlined_default2, {}),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PicLeftOutlined_default2, {}),
         onClick: handleCopyReference
       }
     ];
@@ -11603,26 +11537,26 @@ ${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredentia
 };
 
 // src/Edit.tsx
-var import_react22 = __toESM(require_react(), 1);
-var import_react_router_dom7 = __toESM(require_react_router_dom(), 1);
-var import_react_query8 = __toESM(require_react_query(), 1);
-var import_veramo_react8 = __toESM(require_veramo_react(), 1);
-var import_pro_components6 = __toESM(require_pro_components(), 1);
-var import_antd9 = __toESM(require_antd(), 1);
-var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+var import_react21 = __toESM(require_react(), 1);
+var import_react_router_dom6 = __toESM(require_react_router_dom(), 1);
+var import_react_query6 = __toESM(require_react_query(), 1);
+var import_veramo_react7 = __toESM(require_veramo_react(), 1);
+var import_pro_components4 = __toESM(require_pro_components(), 1);
+var import_antd8 = __toESM(require_antd(), 1);
+var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
 var Edit = () => {
-  const { notification } = import_antd9.App.useApp();
-  const { id } = (0, import_react_router_dom7.useParams)();
-  const { agent } = (0, import_veramo_react8.useVeramo)();
-  const navigate = (0, import_react_router_dom7.useNavigate)();
-  const [refDrawerOpen, setRefDrawerOpen] = (0, import_react22.useState)(false);
+  const { notification } = import_antd8.App.useApp();
+  const { id } = (0, import_react_router_dom6.useParams)();
+  const { agent } = (0, import_veramo_react7.useVeramo)();
+  const navigate = (0, import_react_router_dom6.useNavigate)();
+  const [refDrawerOpen, setRefDrawerOpen] = (0, import_react21.useState)(false);
   if (!id)
     return null;
-  const { data: credential, isLoading: credentialLoading } = (0, import_react_query8.useQuery)(
+  const { data: credential, isLoading: credentialLoading } = (0, import_react_query6.useQuery)(
     ["credential", { id }],
     () => agent?.dataStoreGetVerifiableCredential({ hash: id })
   );
-  const { data: references, isLoading: referencesLoading } = (0, import_react_query8.useQuery)(
+  const { data: references, isLoading: referencesLoading } = (0, import_react_query6.useQuery)(
     ["references", { id }],
     () => {
       return agent?.dataStoreORMGetVerifiableCredentialsByClaims({
@@ -11648,14 +11582,14 @@ var Edit = () => {
   };
   if (!credential)
     return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
-    import_pro_components6.PageContainer,
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+    import_pro_components4.PageContainer,
     {
       loading: credentialLoading,
       style: { paddingTop: 10 },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_antd9.Space, { direction: "vertical", style: { width: "100%" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_antd8.Space, { direction: "vertical", style: { width: "100%" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
             PostForm,
             {
               onOk: handleNewPost,
@@ -11665,14 +11599,14 @@ var Edit = () => {
               initialIndexed: credential.credentialSubject.shouldBeIndexed
             }
           ),
-          references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_antd9.Button, { type: "text", onClick: () => setRefDrawerOpen(true), children: [
+          references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_jsx_runtime9.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_antd8.Button, { type: "text", onClick: () => setRefDrawerOpen(true), children: [
             "Referenced by ",
             references.length,
             " other posts"
           ] }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-          import_antd9.Drawer,
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+          import_antd8.Drawer,
           {
             title: "Posts that reference this one",
             placement: "right",
@@ -11680,7 +11614,7 @@ var Edit = () => {
             open: refDrawerOpen,
             width: 800,
             destroyOnClose: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(ReferencesFeed, { referenceHashes: references?.map((cred) => cred.hash) })
+            children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ReferencesFeed, { referenceHashes: references?.map((cred) => cred.hash) })
           }
         )
       ]
@@ -11689,7 +11623,7 @@ var Edit = () => {
 };
 
 // src/markdown.tsx
-var import_react23 = __toESM(require_react(), 1);
+var import_react22 = __toESM(require_react(), 1);
 
 // node_modules/.pnpm/uint8arrays@4.0.6/node_modules/uint8arrays/dist/src/util/as-uint8array.js
 function asUint8Array(buf) {
@@ -18276,18 +18210,18 @@ var import_debug = __toESM(require_browser(), 1);
 var debug = (0, import_debug.default)("veramo:utils");
 
 // src/markdown.tsx
-var import_agent_explorer_plugin9 = __toESM(require_agent_explorer_plugin(), 1);
+var import_agent_explorer_plugin8 = __toESM(require_agent_explorer_plugin(), 1);
 var import_use_text_selection = __toESM(require_dist(), 1);
-var import_antd10 = __toESM(require_antd(), 1);
-var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+var import_antd9 = __toESM(require_antd(), 1);
+var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
 var getMarkdownComponents = () => {
   return {
     p(props) {
-      const { notification } = import_antd10.App.useApp();
-      const ref = import_react23.default.useRef(null);
+      const { notification } = import_antd9.App.useApp();
+      const ref = import_react22.default.useRef(null);
       const { clientRect, isCollapsed, textContent } = (0, import_use_text_selection.useTextSelection)(ref.current === null ? void 0 : ref.current);
       const credential = props.node?.credential;
-      const { enabled, start, end } = import_react23.default.useMemo(() => {
+      const { enabled, start, end } = import_react22.default.useMemo(() => {
         let enabled2 = false;
         let start2 = -1;
         let end2 = -1;
@@ -18304,15 +18238,15 @@ var getMarkdownComponents = () => {
       }, [textContent, props.children]);
       const handleCopyReference = () => {
         const reference = `\`\`\`vc+multihash
-${(0, import_agent_explorer_plugin9.getIssuerDID)(credential.verifiableCredential)}/${credential.hash}#${start}-${end}
+${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredential)}/${credential.hash}#${start}-${end}
 \`\`\``;
         navigator.clipboard.writeText(reference);
         notification.success({
           message: "Credential reference copied to clipboard"
         });
       };
-      return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { position: "relative" }, children: [
-        clientRect && !isCollapsed && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { position: "relative" }, children: [
+        clientRect && !isCollapsed && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "div",
           {
             style: {
@@ -18321,23 +18255,23 @@ ${(0, import_agent_explorer_plugin9.getIssuerDID)(credential.verifiableCredentia
               position: "absolute",
               backgroundColor: "black"
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-              import_antd10.Button,
+            children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+              import_antd9.Button,
               {
                 type: "primary",
                 disabled: !enabled,
                 onClick: handleCopyReference,
-                icon: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(PicLeftOutlined_default2, {}),
+                icon: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(PicLeftOutlined_default2, {}),
                 children: "Copy reference"
               }
             )
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { ref, children: props.children })
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { ref, children: props.children })
       ] });
     },
     pre(props) {
-      return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_jsx_runtime11.Fragment, { children: props.children });
+      return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: props.children });
     },
     code(props) {
       const { children, className, node: node2, ...rest } = props;
@@ -18345,11 +18279,11 @@ ${(0, import_agent_explorer_plugin9.getIssuerDID)(credential.verifiableCredentia
         case "language-vc+jwt":
           const verifiableCredential = normalizeCredential(String(children).replace(/\s/g, ""));
           const hash3 = computeEntryHash(verifiableCredential);
-          return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_agent_explorer_plugin9.VerifiableCredentialComponent, { credential: { hash: hash3, verifiableCredential } });
+          return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_agent_explorer_plugin8.VerifiableCredentialComponent, { credential: { hash: hash3, verifiableCredential } });
         case "language-vc+json":
           const verifiableCredential2 = JSON.parse(String(children));
           const hash22 = computeEntryHash(verifiableCredential2);
-          return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_agent_explorer_plugin9.VerifiableCredentialComponent, { credential: { hash: hash22, verifiableCredential: verifiableCredential2 } });
+          return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_agent_explorer_plugin8.VerifiableCredentialComponent, { credential: { hash: hash22, verifiableCredential: verifiableCredential2 } });
         case "language-vc+multihash":
           const items = String(children).replace(/\s/g, "").split("/");
           let hash32 = "";
@@ -18367,23 +18301,23 @@ ${(0, import_agent_explorer_plugin9.getIssuerDID)(credential.verifiableCredentia
             hash32 = a2[0];
             context = { textRange: a2[1] };
           }
-          return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_agent_explorer_plugin9.CredentialLoader, { hash: hash32, did, context });
+          return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_agent_explorer_plugin8.CredentialLoader, { hash: hash32, did, context });
         default:
-          return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("code", { ...rest, className, children });
+          return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { ...rest, className, children });
       }
     }
   };
 };
 
 // src/IdentifierHoverComponent.tsx
-var import_react24 = __toESM(require_react(), 1);
-var import_veramo_react9 = __toESM(require_veramo_react(), 1);
-var import_react_query9 = __toESM(require_react_query(), 1);
-var import_antd11 = __toESM(require_antd(), 1);
-var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
+var import_react23 = __toESM(require_react(), 1);
+var import_veramo_react8 = __toESM(require_veramo_react(), 1);
+var import_react_query7 = __toESM(require_react_query(), 1);
+var import_antd10 = __toESM(require_antd(), 1);
+var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
 var IdentifierHoverComponent = ({ did }) => {
-  const { agent } = (0, import_veramo_react9.useVeramo)();
-  const { data: credentials, isLoading } = (0, import_react_query9.useQuery)(
+  const { agent } = (0, import_veramo_react8.useVeramo)();
+  const { data: credentials, isLoading } = (0, import_react_query7.useQuery)(
     ["domain-linkage", { agentId: agent?.context.name, did }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
       where: [
@@ -18393,32 +18327,32 @@ var IdentifierHoverComponent = ({ did }) => {
       order: [{ column: "issuanceDate", direction: "DESC" }]
     })
   );
-  const domain = import_react24.default.useMemo(() => {
+  const domain = import_react23.default.useMemo(() => {
     return credentials?.[0]?.verifiableCredential?.credentialSubject?.domain;
   }, [credentials, did]);
   if (isLoading) {
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_antd11.Spin, {});
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_antd10.Spin, {});
   }
   if (!domain) {
     return null;
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_antd11.Typography.Text, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CheckCircleOutlined_default2, {}),
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_antd10.Typography.Text, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(CheckCircleOutlined_default2, {}),
     " ",
     domain
   ] });
 };
 
 // src/BrainShareIndex.tsx
-var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
 var BrainShareIndex = ({ credential: { verifiableCredential } }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_jsx_runtime13.Fragment, { children: verifiableCredential.credentialSubject.index && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { children: Object.keys(verifiableCredential.credentialSubject.index).map((item, key) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: `/brainshare/${verifiableCredential.credentialSubject.index[item]}`, children: item }) }, key);
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_jsx_runtime12.Fragment, { children: verifiableCredential.credentialSubject.index && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ul", { children: Object.keys(verifiableCredential.credentialSubject.index).map((item, key) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { href: `/brainshare/${verifiableCredential.credentialSubject.index[item]}`, children: item }) }, key);
   }) }) });
 };
 
 // src/index.tsx
-var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
 var Plugin = {
   //@ts-ignore
   init: () => {
@@ -18429,46 +18363,42 @@ var Plugin = {
       routes: [
         {
           path: "/brainshare/feed",
-          element: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Feed, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Feed, {})
         },
         {
-          path: "/brainshare/find-index",
-          element: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(FindIndex, {})
+          path: "/brainshare/wiki/:did",
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Home, {})
         },
         {
-          path: "/brainshare/home/:did",
-          element: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Home, {})
+          path: "/brainshare/wiki/:did/:hash",
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Home, {})
         },
         {
           path: "/brainshare/:id",
-          element: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Post, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Post, {})
         },
         {
           path: "/brainshare/:did/:id",
-          element: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Post, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Post, {})
         },
         {
           path: "/brainshare/link-domain",
-          element: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(LinkDomain, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkDomain, {})
         },
         {
           path: "/brainshare/edit/:id",
-          element: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Edit, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Edit, {})
         }
       ],
       menuItems: [
         {
           name: "BrainShare",
-          icon: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(FileTextOutlined_default2, {}),
+          icon: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(FileTextOutlined_default2, {}),
           path: "/brainshare",
           routes: [
             {
               name: "Feed",
               path: "/brainshare/feed"
-            },
-            {
-              name: "Index",
-              path: "/brainshare/find-index"
             },
             {
               name: "Link Domain",

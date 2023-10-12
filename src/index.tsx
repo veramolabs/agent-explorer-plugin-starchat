@@ -6,7 +6,6 @@ import {
 import { IPlugin } from '@veramo-community/agent-explorer-plugin';
 import { Feed } from './Feed'
 import { Post } from './Post'
-import { FindIndex } from './FindIndex.js';
 import { Home } from './Home.js';
 import { LinkDomain } from './LinkDomain.js';
 import { UniqueVerifiableCredential } from '@veramo/core';
@@ -32,11 +31,11 @@ const Plugin: IPlugin = {
               element: <Feed />,
             },
             {
-              path: '/brainshare/find-index',
-              element: <FindIndex />,
+              path: '/brainshare/wiki/:did',
+              element: <Home />,
             },
             {
-              path: '/brainshare/home/:did',
+              path: '/brainshare/wiki/:did/:hash',
               element: <Home />,
             },
             {
@@ -65,10 +64,6 @@ const Plugin: IPlugin = {
                 {
                   name: 'Feed',
                   path: '/brainshare/feed',
-                },
-                {
-                  name: 'Index',
-                  path: '/brainshare/find-index',
                 },
                 {
                   name: 'Link Domain',
