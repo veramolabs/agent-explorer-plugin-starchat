@@ -1,0 +1,1 @@
+export const systemTitles = ['bs-home', 'bs-sidebar']

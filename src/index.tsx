@@ -17,6 +17,8 @@ import { IdentifierHoverComponent } from './IdentifierHoverComponent.js';
 import { BrainShareIndex } from './BrainShareIndex';
 import { wikilinks } from './wikilinks';
 import wikilink from 'remark-wiki-link'
+import { Landing } from './Landing';
+import { Compose } from './Compose';
 
 const Plugin: IPlugin = {
   //@ts-ignore
@@ -54,6 +56,14 @@ const Plugin: IPlugin = {
               path: '/brainshare/edit/:id',
               element: <Edit />,
             },
+            {
+              path: '/brainshare/compose/:title',
+              element: <Compose />,
+            },
+            {
+              path: '/brainshare/compose',
+              element: <Compose />,
+            },
           ],
           menuItems: [
             {
@@ -61,6 +71,10 @@ const Plugin: IPlugin = {
               icon: <FileTextOutlined />,
               path: '/brainshare',
               routes:[
+                {
+                  name: 'Compose',
+                  path: '/brainshare/compose',
+                },
                 {
                   name: 'Feed',
                   path: '/brainshare/feed',
@@ -90,7 +104,15 @@ const Plugin: IPlugin = {
             hrefTemplate: (permalink: string) => `${permalink}`,
             pageResolver: (name: string) => [`/brainshare/${name}`] 
           }]],
-          // getMarkdownPlugins: () => [wikilinks]
+          getIdentifierTabsComponents: () => {
+            return [
+              {
+                label: 'BrainShare',
+                component: Landing,
+              },
+            ]
+          },
+
         }
     }
 };

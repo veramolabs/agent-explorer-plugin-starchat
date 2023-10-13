@@ -1,4 +1,4 @@
-import { Input, Checkbox, Dropdown, Avatar, Space, Tabs, theme, Select, Row } from 'antd'
+import { Input, Checkbox, Dropdown, Avatar, Space, Tabs, theme, Select, Tag } from 'antd'
 import React, { useState, useEffect } from 'react'
 const { TextArea } = Input
 import { useVeramo } from '@veramo-community/veramo-react'
@@ -9,6 +9,7 @@ import Editor from '@monaco-editor/react';
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import wikiLinkPlugin from 'remark-wiki-link';
+import { systemTitles } from './api'
 
 const { Option } = Select
 
@@ -196,7 +197,8 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
           label: 'Write',
           children: (
             <Space direction='vertical' style={{width: '100%'}}>
-              <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title (optional)'/>
+              {systemTitles.includes(title) && <div><Input value={title} type='hidden'/><Tag>{title === 'bs-sidebar' && 'Sidebar'}{title === 'bs-home' && 'Home'}</Tag></div>}
+              {!systemTitles.includes(title) && <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title (optional)'/>}
 
               <Editor
                 theme={token.theme.id === 4 ? 'vs-dark' : 'light'}
@@ -229,7 +231,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         ]}
     />
     <Space direction='horizontal'>
-      <Checkbox defaultChecked={shouldBeIndexed} onChange={(e) => setShouldBeIndexed(e.target.checked)}>Index</Checkbox>
+      {!systemTitles.includes(title) && <Checkbox defaultChecked={shouldBeIndexed} onChange={(e) => setShouldBeIndexed(e.target.checked)}>Index</Checkbox>}
 
       <Select
         onChange={(e) => setProofFormat(e as string)}
