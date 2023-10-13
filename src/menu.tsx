@@ -41,6 +41,27 @@ export const getCredentialContextMenuItems = (credential: UniqueVerifiableCreden
     })
   }
   
+  const defaultItems = [
+    {
+      key: 'copy-wiki',
+      label: 'Copy wiki link',
+      icon: <LinkOutlined />,
+      onClick: handleCopyWikilink,
+    },
+    {
+      key: 'embed',
+      label: 'Copy embed',
+      icon: <PicLeftOutlined />,
+      onClick: handleCopyEmbed,
+    },
+    {
+      key: 'reference',
+      label: 'Copy reference',
+      icon: <PicLeftOutlined />,
+      onClick: handleCopyReference,
+    },
+  ]
+
   if (credential.verifiableCredential.type?.includes('BrainSharePost')){
     return [
       {
@@ -55,26 +76,9 @@ export const getCredentialContextMenuItems = (credential: UniqueVerifiableCreden
         icon: <EditOutlined />,
         onClick: () => navigate('/brainshare/edit/' + credential.hash),
       },
-      {
-        key: 'copy-wiki',
-        label: 'Copy wiki link',
-        icon: <LinkOutlined />,
-        onClick: handleCopyWikilink,
-      },
-      {
-        key: 'embed',
-        label: 'Copy embed',
-        icon: <PicLeftOutlined />,
-        onClick: handleCopyEmbed,
-      },
-      {
-        key: 'reference',
-        label: 'Copy reference',
-        icon: <PicLeftOutlined />,
-        onClick: handleCopyReference,
-      },
+      ...defaultItems
     ]
-  }
+  } 
 
-  return undefined
+  return defaultItems
 }

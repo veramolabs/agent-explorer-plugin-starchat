@@ -4,8 +4,8 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJS = (cb, mod3) => function __require() {
-  return mod3 || (0, cb[__getOwnPropNames(cb)[0]])((mod3 = { exports: {} }).exports, mod3), mod3.exports;
+var __commonJS = (cb, mod2) => function __require() {
+  return mod2 || (0, cb[__getOwnPropNames(cb)[0]])((mod2 = { exports: {} }).exports, mod2), mod2.exports;
 };
 var __export = (target, all2) => {
   for (var name2 in all2)
@@ -19,25 +19,25 @@ var __copyProps = (to, from3, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod3, isNodeMode, target) => (target = mod3 != null ? __create(__getProtoOf(mod3)) : {}, __copyProps(
+var __toESM = (mod2, isNodeMode, target) => (target = mod2 != null ? __create(__getProtoOf(mod2)) : {}, __copyProps(
   // If the importer is in node compatibility mode or this is not an ESM
   // file that has been converted to a CommonJS file using a Babel-
   // compatible transform (i.e. "__esModule" has not been set), then set
   // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod3 || !mod3.__esModule ? __defProp(target, "default", { value: mod3, enumerable: true }) : target,
-  mod3
+  isNodeMode || !mod2 || !mod2.__esModule ? __defProp(target, "default", { value: mod2, enumerable: true }) : target,
+  mod2
 ));
 
 // external-global-plugin:react
 var require_react = __commonJS({
-  "external-global-plugin:react"(exports2, module2) {
-    module2.exports = window.React;
+  "external-global-plugin:react"(exports, module) {
+    module.exports = window.React;
   }
 });
 
 // node_modules/.pnpm/classnames@2.3.2/node_modules/classnames/index.js
 var require_classnames = __commonJS({
-  "node_modules/.pnpm/classnames@2.3.2/node_modules/classnames/index.js"(exports2, module2) {
+  "node_modules/.pnpm/classnames@2.3.2/node_modules/classnames/index.js"(exports, module) {
     (function() {
       "use strict";
       var hasOwn = {}.hasOwnProperty;
@@ -72,9 +72,9 @@ var require_classnames = __commonJS({
         }
         return classes.join(" ");
       }
-      if (typeof module2 !== "undefined" && module2.exports) {
+      if (typeof module !== "undefined" && module.exports) {
         classNames2.default = classNames2;
-        module2.exports = classNames2;
+        module.exports = classNames2;
       } else if (typeof define === "function" && typeof define.amd === "object" && define.amd) {
         define("classnames", [], function() {
           return classNames2;
@@ -88,49 +88,49 @@ var require_classnames = __commonJS({
 
 // external-global-plugin:react-router-dom
 var require_react_router_dom = __commonJS({
-  "external-global-plugin:react-router-dom"(exports2, module2) {
-    module2.exports = window.reactrouterdom;
+  "external-global-plugin:react-router-dom"(exports, module) {
+    module.exports = window.reactrouterdom;
   }
 });
 
 // external-global-plugin:react-query
 var require_react_query = __commonJS({
-  "external-global-plugin:react-query"(exports2, module2) {
-    module2.exports = window.reactquery;
+  "external-global-plugin:react-query"(exports, module) {
+    module.exports = window.reactquery;
   }
 });
 
 // external-global-plugin:@veramo-community/veramo-react
 var require_veramo_react = __commonJS({
-  "external-global-plugin:@veramo-community/veramo-react"(exports2, module2) {
-    module2.exports = window.veramoreact;
+  "external-global-plugin:@veramo-community/veramo-react"(exports, module) {
+    module.exports = window.veramoreact;
   }
 });
 
 // external-global-plugin:@ant-design/pro-components
 var require_pro_components = __commonJS({
-  "external-global-plugin:@ant-design/pro-components"(exports2, module2) {
-    module2.exports = window.antdPro;
+  "external-global-plugin:@ant-design/pro-components"(exports, module) {
+    module.exports = window.antdPro;
   }
 });
 
 // external-global-plugin:@veramo-community/agent-explorer-plugin
 var require_agent_explorer_plugin = __commonJS({
-  "external-global-plugin:@veramo-community/agent-explorer-plugin"(exports2, module2) {
-    module2.exports = window.agentexplorerplugin;
+  "external-global-plugin:@veramo-community/agent-explorer-plugin"(exports, module) {
+    module.exports = window.agentexplorerplugin;
   }
 });
 
 // external-global-plugin:antd
 var require_antd = __commonJS({
-  "external-global-plugin:antd"(exports2, module2) {
-    module2.exports = window.antd;
+  "external-global-plugin:antd"(exports, module) {
+    module.exports = window.antd;
   }
 });
 
 // node_modules/.pnpm/extend@3.0.2/node_modules/extend/index.js
 var require_extend = __commonJS({
-  "node_modules/.pnpm/extend@3.0.2/node_modules/extend/index.js"(exports2, module2) {
+  "node_modules/.pnpm/extend@3.0.2/node_modules/extend/index.js"(exports, module) {
     "use strict";
     var hasOwn = Object.prototype.hasOwnProperty;
     var toStr2 = Object.prototype.toString;
@@ -178,11 +178,11 @@ var require_extend = __commonJS({
       }
       return obj[name2];
     };
-    module2.exports = function extend2() {
+    module.exports = function extend2() {
       var options, name2, src2, copy, copyIsArray, clone;
       var target = arguments[0];
       var i2 = 1;
-      var length2 = arguments.length;
+      var length3 = arguments.length;
       var deep = false;
       if (typeof target === "boolean") {
         deep = target;
@@ -192,7 +192,7 @@ var require_extend = __commonJS({
       if (target == null || typeof target !== "object" && typeof target !== "function") {
         target = {};
       }
-      for (; i2 < length2; ++i2) {
+      for (; i2 < length3; ++i2) {
         options = arguments[i2];
         if (options != null) {
           for (name2 in options) {
@@ -221,23 +221,23 @@ var require_extend = __commonJS({
 
 // external-global-plugin:react/jsx-runtime
 var require_jsx_runtime = __commonJS({
-  "external-global-plugin:react/jsx-runtime"(exports2, module2) {
-    module2.exports = window.reactjsxruntime;
+  "external-global-plugin:react/jsx-runtime"(exports, module) {
+    module.exports = window.reactjsxruntime;
   }
 });
 
 // external-global-plugin:uuid
 var require_uuid = __commonJS({
-  "external-global-plugin:uuid"(exports2, module2) {
-    module2.exports = window.uuid;
+  "external-global-plugin:uuid"(exports, module) {
+    module.exports = window.uuid;
   }
 });
 
 // node_modules/.pnpm/canonicalize@2.0.0/node_modules/canonicalize/lib/canonicalize.js
 var require_canonicalize = __commonJS({
-  "node_modules/.pnpm/canonicalize@2.0.0/node_modules/canonicalize/lib/canonicalize.js"(exports2, module2) {
+  "node_modules/.pnpm/canonicalize@2.0.0/node_modules/canonicalize/lib/canonicalize.js"(exports, module) {
     "use strict";
-    module2.exports = function serialize(object) {
+    module.exports = function serialize(object) {
       if (typeof object === "number" && isNaN(object)) {
         throw new Error("NaN is not allowed");
       }
@@ -272,7 +272,7 @@ var require_canonicalize = __commonJS({
 
 // node_modules/.pnpm/err-code@3.0.1/node_modules/err-code/index.js
 var require_err_code = __commonJS({
-  "node_modules/.pnpm/err-code@3.0.1/node_modules/err-code/index.js"(exports2, module2) {
+  "node_modules/.pnpm/err-code@3.0.1/node_modules/err-code/index.js"(exports, module) {
     "use strict";
     function assign(obj, props) {
       for (const key in props) {
@@ -310,1290 +310,20 @@ var require_err_code = __commonJS({
         return output3;
       }
     }
-    module2.exports = createError;
-  }
-});
-
-// node_modules/.pnpm/@protobufjs+aspromise@1.1.2/node_modules/@protobufjs/aspromise/index.js
-var require_aspromise = __commonJS({
-  "node_modules/.pnpm/@protobufjs+aspromise@1.1.2/node_modules/@protobufjs/aspromise/index.js"(exports2, module2) {
-    "use strict";
-    module2.exports = asPromise;
-    function asPromise(fn, ctx) {
-      var params = new Array(arguments.length - 1), offset = 0, index3 = 2, pending = true;
-      while (index3 < arguments.length)
-        params[offset++] = arguments[index3++];
-      return new Promise(function executor(resolve, reject) {
-        params[offset] = function callback(err) {
-          if (pending) {
-            pending = false;
-            if (err)
-              reject(err);
-            else {
-              var params2 = new Array(arguments.length - 1), offset2 = 0;
-              while (offset2 < params2.length)
-                params2[offset2++] = arguments[offset2];
-              resolve.apply(null, params2);
-            }
-          }
-        };
-        try {
-          fn.apply(ctx || null, params);
-        } catch (err) {
-          if (pending) {
-            pending = false;
-            reject(err);
-          }
-        }
-      });
-    }
-  }
-});
-
-// node_modules/.pnpm/@protobufjs+base64@1.1.2/node_modules/@protobufjs/base64/index.js
-var require_base64 = __commonJS({
-  "node_modules/.pnpm/@protobufjs+base64@1.1.2/node_modules/@protobufjs/base64/index.js"(exports2) {
-    "use strict";
-    var base642 = exports2;
-    base642.length = function length2(string4) {
-      var p2 = string4.length;
-      if (!p2)
-        return 0;
-      var n2 = 0;
-      while (--p2 % 4 > 1 && string4.charAt(p2) === "=")
-        ++n2;
-      return Math.ceil(string4.length * 3) / 4 - n2;
-    };
-    var b64 = new Array(64);
-    var s64 = new Array(123);
-    for (i2 = 0; i2 < 64; )
-      s64[b64[i2] = i2 < 26 ? i2 + 65 : i2 < 52 ? i2 + 71 : i2 < 62 ? i2 - 4 : i2 - 59 | 43] = i2++;
-    var i2;
-    base642.encode = function encode6(buffer, start, end) {
-      var parts = null, chunk = [];
-      var i3 = 0, j = 0, t2;
-      while (start < end) {
-        var b2 = buffer[start++];
-        switch (j) {
-          case 0:
-            chunk[i3++] = b64[b2 >> 2];
-            t2 = (b2 & 3) << 4;
-            j = 1;
-            break;
-          case 1:
-            chunk[i3++] = b64[t2 | b2 >> 4];
-            t2 = (b2 & 15) << 2;
-            j = 2;
-            break;
-          case 2:
-            chunk[i3++] = b64[t2 | b2 >> 6];
-            chunk[i3++] = b64[b2 & 63];
-            j = 0;
-            break;
-        }
-        if (i3 > 8191) {
-          (parts || (parts = [])).push(String.fromCharCode.apply(String, chunk));
-          i3 = 0;
-        }
-      }
-      if (j) {
-        chunk[i3++] = b64[t2];
-        chunk[i3++] = 61;
-        if (j === 1)
-          chunk[i3++] = 61;
-      }
-      if (parts) {
-        if (i3)
-          parts.push(String.fromCharCode.apply(String, chunk.slice(0, i3)));
-        return parts.join("");
-      }
-      return String.fromCharCode.apply(String, chunk.slice(0, i3));
-    };
-    var invalidEncoding = "invalid encoding";
-    base642.decode = function decode7(string4, buffer, offset) {
-      var start = offset;
-      var j = 0, t2;
-      for (var i3 = 0; i3 < string4.length; ) {
-        var c2 = string4.charCodeAt(i3++);
-        if (c2 === 61 && j > 1)
-          break;
-        if ((c2 = s64[c2]) === void 0)
-          throw Error(invalidEncoding);
-        switch (j) {
-          case 0:
-            t2 = c2;
-            j = 1;
-            break;
-          case 1:
-            buffer[offset++] = t2 << 2 | (c2 & 48) >> 4;
-            t2 = c2;
-            j = 2;
-            break;
-          case 2:
-            buffer[offset++] = (t2 & 15) << 4 | (c2 & 60) >> 2;
-            t2 = c2;
-            j = 3;
-            break;
-          case 3:
-            buffer[offset++] = (t2 & 3) << 6 | c2;
-            j = 0;
-            break;
-        }
-      }
-      if (j === 1)
-        throw Error(invalidEncoding);
-      return offset - start;
-    };
-    base642.test = function test(string4) {
-      return /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(string4);
-    };
-  }
-});
-
-// node_modules/.pnpm/@protobufjs+eventemitter@1.1.0/node_modules/@protobufjs/eventemitter/index.js
-var require_eventemitter = __commonJS({
-  "node_modules/.pnpm/@protobufjs+eventemitter@1.1.0/node_modules/@protobufjs/eventemitter/index.js"(exports2, module2) {
-    "use strict";
-    module2.exports = EventEmitter;
-    function EventEmitter() {
-      this._listeners = {};
-    }
-    EventEmitter.prototype.on = function on(evt, fn, ctx) {
-      (this._listeners[evt] || (this._listeners[evt] = [])).push({
-        fn,
-        ctx: ctx || this
-      });
-      return this;
-    };
-    EventEmitter.prototype.off = function off(evt, fn) {
-      if (evt === void 0)
-        this._listeners = {};
-      else {
-        if (fn === void 0)
-          this._listeners[evt] = [];
-        else {
-          var listeners = this._listeners[evt];
-          for (var i2 = 0; i2 < listeners.length; )
-            if (listeners[i2].fn === fn)
-              listeners.splice(i2, 1);
-            else
-              ++i2;
-        }
-      }
-      return this;
-    };
-    EventEmitter.prototype.emit = function emit(evt) {
-      var listeners = this._listeners[evt];
-      if (listeners) {
-        var args = [], i2 = 1;
-        for (; i2 < arguments.length; )
-          args.push(arguments[i2++]);
-        for (i2 = 0; i2 < listeners.length; )
-          listeners[i2].fn.apply(listeners[i2++].ctx, args);
-      }
-      return this;
-    };
-  }
-});
-
-// node_modules/.pnpm/@protobufjs+float@1.0.2/node_modules/@protobufjs/float/index.js
-var require_float = __commonJS({
-  "node_modules/.pnpm/@protobufjs+float@1.0.2/node_modules/@protobufjs/float/index.js"(exports2, module2) {
-    "use strict";
-    module2.exports = factory(factory);
-    function factory(exports3) {
-      if (typeof Float32Array !== "undefined")
-        (function() {
-          var f32 = new Float32Array([-0]), f8b = new Uint8Array(f32.buffer), le = f8b[3] === 128;
-          function writeFloat_f32_cpy(val, buf, pos) {
-            f32[0] = val;
-            buf[pos] = f8b[0];
-            buf[pos + 1] = f8b[1];
-            buf[pos + 2] = f8b[2];
-            buf[pos + 3] = f8b[3];
-          }
-          function writeFloat_f32_rev(val, buf, pos) {
-            f32[0] = val;
-            buf[pos] = f8b[3];
-            buf[pos + 1] = f8b[2];
-            buf[pos + 2] = f8b[1];
-            buf[pos + 3] = f8b[0];
-          }
-          exports3.writeFloatLE = le ? writeFloat_f32_cpy : writeFloat_f32_rev;
-          exports3.writeFloatBE = le ? writeFloat_f32_rev : writeFloat_f32_cpy;
-          function readFloat_f32_cpy(buf, pos) {
-            f8b[0] = buf[pos];
-            f8b[1] = buf[pos + 1];
-            f8b[2] = buf[pos + 2];
-            f8b[3] = buf[pos + 3];
-            return f32[0];
-          }
-          function readFloat_f32_rev(buf, pos) {
-            f8b[3] = buf[pos];
-            f8b[2] = buf[pos + 1];
-            f8b[1] = buf[pos + 2];
-            f8b[0] = buf[pos + 3];
-            return f32[0];
-          }
-          exports3.readFloatLE = le ? readFloat_f32_cpy : readFloat_f32_rev;
-          exports3.readFloatBE = le ? readFloat_f32_rev : readFloat_f32_cpy;
-        })();
-      else
-        (function() {
-          function writeFloat_ieee754(writeUint, val, buf, pos) {
-            var sign = val < 0 ? 1 : 0;
-            if (sign)
-              val = -val;
-            if (val === 0)
-              writeUint(1 / val > 0 ? (
-                /* positive */
-                0
-              ) : (
-                /* negative 0 */
-                2147483648
-              ), buf, pos);
-            else if (isNaN(val))
-              writeUint(2143289344, buf, pos);
-            else if (val > 34028234663852886e22)
-              writeUint((sign << 31 | 2139095040) >>> 0, buf, pos);
-            else if (val < 11754943508222875e-54)
-              writeUint((sign << 31 | Math.round(val / 1401298464324817e-60)) >>> 0, buf, pos);
-            else {
-              var exponent = Math.floor(Math.log(val) / Math.LN2), mantissa = Math.round(val * Math.pow(2, -exponent) * 8388608) & 8388607;
-              writeUint((sign << 31 | exponent + 127 << 23 | mantissa) >>> 0, buf, pos);
-            }
-          }
-          exports3.writeFloatLE = writeFloat_ieee754.bind(null, writeUintLE);
-          exports3.writeFloatBE = writeFloat_ieee754.bind(null, writeUintBE);
-          function readFloat_ieee754(readUint, buf, pos) {
-            var uint = readUint(buf, pos), sign = (uint >> 31) * 2 + 1, exponent = uint >>> 23 & 255, mantissa = uint & 8388607;
-            return exponent === 255 ? mantissa ? NaN : sign * Infinity : exponent === 0 ? sign * 1401298464324817e-60 * mantissa : sign * Math.pow(2, exponent - 150) * (mantissa + 8388608);
-          }
-          exports3.readFloatLE = readFloat_ieee754.bind(null, readUintLE);
-          exports3.readFloatBE = readFloat_ieee754.bind(null, readUintBE);
-        })();
-      if (typeof Float64Array !== "undefined")
-        (function() {
-          var f64 = new Float64Array([-0]), f8b = new Uint8Array(f64.buffer), le = f8b[7] === 128;
-          function writeDouble_f64_cpy(val, buf, pos) {
-            f64[0] = val;
-            buf[pos] = f8b[0];
-            buf[pos + 1] = f8b[1];
-            buf[pos + 2] = f8b[2];
-            buf[pos + 3] = f8b[3];
-            buf[pos + 4] = f8b[4];
-            buf[pos + 5] = f8b[5];
-            buf[pos + 6] = f8b[6];
-            buf[pos + 7] = f8b[7];
-          }
-          function writeDouble_f64_rev(val, buf, pos) {
-            f64[0] = val;
-            buf[pos] = f8b[7];
-            buf[pos + 1] = f8b[6];
-            buf[pos + 2] = f8b[5];
-            buf[pos + 3] = f8b[4];
-            buf[pos + 4] = f8b[3];
-            buf[pos + 5] = f8b[2];
-            buf[pos + 6] = f8b[1];
-            buf[pos + 7] = f8b[0];
-          }
-          exports3.writeDoubleLE = le ? writeDouble_f64_cpy : writeDouble_f64_rev;
-          exports3.writeDoubleBE = le ? writeDouble_f64_rev : writeDouble_f64_cpy;
-          function readDouble_f64_cpy(buf, pos) {
-            f8b[0] = buf[pos];
-            f8b[1] = buf[pos + 1];
-            f8b[2] = buf[pos + 2];
-            f8b[3] = buf[pos + 3];
-            f8b[4] = buf[pos + 4];
-            f8b[5] = buf[pos + 5];
-            f8b[6] = buf[pos + 6];
-            f8b[7] = buf[pos + 7];
-            return f64[0];
-          }
-          function readDouble_f64_rev(buf, pos) {
-            f8b[7] = buf[pos];
-            f8b[6] = buf[pos + 1];
-            f8b[5] = buf[pos + 2];
-            f8b[4] = buf[pos + 3];
-            f8b[3] = buf[pos + 4];
-            f8b[2] = buf[pos + 5];
-            f8b[1] = buf[pos + 6];
-            f8b[0] = buf[pos + 7];
-            return f64[0];
-          }
-          exports3.readDoubleLE = le ? readDouble_f64_cpy : readDouble_f64_rev;
-          exports3.readDoubleBE = le ? readDouble_f64_rev : readDouble_f64_cpy;
-        })();
-      else
-        (function() {
-          function writeDouble_ieee754(writeUint, off0, off1, val, buf, pos) {
-            var sign = val < 0 ? 1 : 0;
-            if (sign)
-              val = -val;
-            if (val === 0) {
-              writeUint(0, buf, pos + off0);
-              writeUint(1 / val > 0 ? (
-                /* positive */
-                0
-              ) : (
-                /* negative 0 */
-                2147483648
-              ), buf, pos + off1);
-            } else if (isNaN(val)) {
-              writeUint(0, buf, pos + off0);
-              writeUint(2146959360, buf, pos + off1);
-            } else if (val > 17976931348623157e292) {
-              writeUint(0, buf, pos + off0);
-              writeUint((sign << 31 | 2146435072) >>> 0, buf, pos + off1);
-            } else {
-              var mantissa;
-              if (val < 22250738585072014e-324) {
-                mantissa = val / 5e-324;
-                writeUint(mantissa >>> 0, buf, pos + off0);
-                writeUint((sign << 31 | mantissa / 4294967296) >>> 0, buf, pos + off1);
-              } else {
-                var exponent = Math.floor(Math.log(val) / Math.LN2);
-                if (exponent === 1024)
-                  exponent = 1023;
-                mantissa = val * Math.pow(2, -exponent);
-                writeUint(mantissa * 4503599627370496 >>> 0, buf, pos + off0);
-                writeUint((sign << 31 | exponent + 1023 << 20 | mantissa * 1048576 & 1048575) >>> 0, buf, pos + off1);
-              }
-            }
-          }
-          exports3.writeDoubleLE = writeDouble_ieee754.bind(null, writeUintLE, 0, 4);
-          exports3.writeDoubleBE = writeDouble_ieee754.bind(null, writeUintBE, 4, 0);
-          function readDouble_ieee754(readUint, off0, off1, buf, pos) {
-            var lo = readUint(buf, pos + off0), hi = readUint(buf, pos + off1);
-            var sign = (hi >> 31) * 2 + 1, exponent = hi >>> 20 & 2047, mantissa = 4294967296 * (hi & 1048575) + lo;
-            return exponent === 2047 ? mantissa ? NaN : sign * Infinity : exponent === 0 ? sign * 5e-324 * mantissa : sign * Math.pow(2, exponent - 1075) * (mantissa + 4503599627370496);
-          }
-          exports3.readDoubleLE = readDouble_ieee754.bind(null, readUintLE, 0, 4);
-          exports3.readDoubleBE = readDouble_ieee754.bind(null, readUintBE, 4, 0);
-        })();
-      return exports3;
-    }
-    function writeUintLE(val, buf, pos) {
-      buf[pos] = val & 255;
-      buf[pos + 1] = val >>> 8 & 255;
-      buf[pos + 2] = val >>> 16 & 255;
-      buf[pos + 3] = val >>> 24;
-    }
-    function writeUintBE(val, buf, pos) {
-      buf[pos] = val >>> 24;
-      buf[pos + 1] = val >>> 16 & 255;
-      buf[pos + 2] = val >>> 8 & 255;
-      buf[pos + 3] = val & 255;
-    }
-    function readUintLE(buf, pos) {
-      return (buf[pos] | buf[pos + 1] << 8 | buf[pos + 2] << 16 | buf[pos + 3] << 24) >>> 0;
-    }
-    function readUintBE(buf, pos) {
-      return (buf[pos] << 24 | buf[pos + 1] << 16 | buf[pos + 2] << 8 | buf[pos + 3]) >>> 0;
-    }
-  }
-});
-
-// node_modules/.pnpm/@protobufjs+inquire@1.1.0/node_modules/@protobufjs/inquire/index.js
-var require_inquire = __commonJS({
-  "node_modules/.pnpm/@protobufjs+inquire@1.1.0/node_modules/@protobufjs/inquire/index.js"(exports, module) {
-    "use strict";
-    module.exports = inquire;
-    function inquire(moduleName) {
-      try {
-        var mod = eval("quire".replace(/^/, "re"))(moduleName);
-        if (mod && (mod.length || Object.keys(mod).length))
-          return mod;
-      } catch (e2) {
-      }
-      return null;
-    }
-  }
-});
-
-// node_modules/.pnpm/@protobufjs+utf8@1.1.0/node_modules/@protobufjs/utf8/index.js
-var require_utf8 = __commonJS({
-  "node_modules/.pnpm/@protobufjs+utf8@1.1.0/node_modules/@protobufjs/utf8/index.js"(exports2) {
-    "use strict";
-    var utf8 = exports2;
-    utf8.length = function utf8_length(string4) {
-      var len = 0, c2 = 0;
-      for (var i2 = 0; i2 < string4.length; ++i2) {
-        c2 = string4.charCodeAt(i2);
-        if (c2 < 128)
-          len += 1;
-        else if (c2 < 2048)
-          len += 2;
-        else if ((c2 & 64512) === 55296 && (string4.charCodeAt(i2 + 1) & 64512) === 56320) {
-          ++i2;
-          len += 4;
-        } else
-          len += 3;
-      }
-      return len;
-    };
-    utf8.read = function utf8_read(buffer, start, end) {
-      var len = end - start;
-      if (len < 1)
-        return "";
-      var parts = null, chunk = [], i2 = 0, t2;
-      while (start < end) {
-        t2 = buffer[start++];
-        if (t2 < 128)
-          chunk[i2++] = t2;
-        else if (t2 > 191 && t2 < 224)
-          chunk[i2++] = (t2 & 31) << 6 | buffer[start++] & 63;
-        else if (t2 > 239 && t2 < 365) {
-          t2 = ((t2 & 7) << 18 | (buffer[start++] & 63) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63) - 65536;
-          chunk[i2++] = 55296 + (t2 >> 10);
-          chunk[i2++] = 56320 + (t2 & 1023);
-        } else
-          chunk[i2++] = (t2 & 15) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63;
-        if (i2 > 8191) {
-          (parts || (parts = [])).push(String.fromCharCode.apply(String, chunk));
-          i2 = 0;
-        }
-      }
-      if (parts) {
-        if (i2)
-          parts.push(String.fromCharCode.apply(String, chunk.slice(0, i2)));
-        return parts.join("");
-      }
-      return String.fromCharCode.apply(String, chunk.slice(0, i2));
-    };
-    utf8.write = function utf8_write(string4, buffer, offset) {
-      var start = offset, c1, c2;
-      for (var i2 = 0; i2 < string4.length; ++i2) {
-        c1 = string4.charCodeAt(i2);
-        if (c1 < 128) {
-          buffer[offset++] = c1;
-        } else if (c1 < 2048) {
-          buffer[offset++] = c1 >> 6 | 192;
-          buffer[offset++] = c1 & 63 | 128;
-        } else if ((c1 & 64512) === 55296 && ((c2 = string4.charCodeAt(i2 + 1)) & 64512) === 56320) {
-          c1 = 65536 + ((c1 & 1023) << 10) + (c2 & 1023);
-          ++i2;
-          buffer[offset++] = c1 >> 18 | 240;
-          buffer[offset++] = c1 >> 12 & 63 | 128;
-          buffer[offset++] = c1 >> 6 & 63 | 128;
-          buffer[offset++] = c1 & 63 | 128;
-        } else {
-          buffer[offset++] = c1 >> 12 | 224;
-          buffer[offset++] = c1 >> 6 & 63 | 128;
-          buffer[offset++] = c1 & 63 | 128;
-        }
-      }
-      return offset - start;
-    };
-  }
-});
-
-// node_modules/.pnpm/@protobufjs+pool@1.1.0/node_modules/@protobufjs/pool/index.js
-var require_pool = __commonJS({
-  "node_modules/.pnpm/@protobufjs+pool@1.1.0/node_modules/@protobufjs/pool/index.js"(exports2, module2) {
-    "use strict";
-    module2.exports = pool;
-    function pool(alloc, slice, size) {
-      var SIZE = size || 8192;
-      var MAX = SIZE >>> 1;
-      var slab = null;
-      var offset = SIZE;
-      return function pool_alloc(size2) {
-        if (size2 < 1 || size2 > MAX)
-          return alloc(size2);
-        if (offset + size2 > SIZE) {
-          slab = alloc(SIZE);
-          offset = 0;
-        }
-        var buf = slice.call(slab, offset, offset += size2);
-        if (offset & 7)
-          offset = (offset | 7) + 1;
-        return buf;
-      };
-    }
-  }
-});
-
-// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/util/longbits.js
-var require_longbits = __commonJS({
-  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/util/longbits.js"(exports2, module2) {
-    "use strict";
-    module2.exports = LongBits;
-    var util2 = require_minimal();
-    function LongBits(lo, hi) {
-      this.lo = lo >>> 0;
-      this.hi = hi >>> 0;
-    }
-    var zero = LongBits.zero = new LongBits(0, 0);
-    zero.toNumber = function() {
-      return 0;
-    };
-    zero.zzEncode = zero.zzDecode = function() {
-      return this;
-    };
-    zero.length = function() {
-      return 1;
-    };
-    var zeroHash = LongBits.zeroHash = "\0\0\0\0\0\0\0\0";
-    LongBits.fromNumber = function fromNumber(value) {
-      if (value === 0)
-        return zero;
-      var sign = value < 0;
-      if (sign)
-        value = -value;
-      var lo = value >>> 0, hi = (value - lo) / 4294967296 >>> 0;
-      if (sign) {
-        hi = ~hi >>> 0;
-        lo = ~lo >>> 0;
-        if (++lo > 4294967295) {
-          lo = 0;
-          if (++hi > 4294967295)
-            hi = 0;
-        }
-      }
-      return new LongBits(lo, hi);
-    };
-    LongBits.from = function from3(value) {
-      if (typeof value === "number")
-        return LongBits.fromNumber(value);
-      if (util2.isString(value)) {
-        if (util2.Long)
-          value = util2.Long.fromString(value);
-        else
-          return LongBits.fromNumber(parseInt(value, 10));
-      }
-      return value.low || value.high ? new LongBits(value.low >>> 0, value.high >>> 0) : zero;
-    };
-    LongBits.prototype.toNumber = function toNumber(unsigned) {
-      if (!unsigned && this.hi >>> 31) {
-        var lo = ~this.lo + 1 >>> 0, hi = ~this.hi >>> 0;
-        if (!lo)
-          hi = hi + 1 >>> 0;
-        return -(lo + hi * 4294967296);
-      }
-      return this.lo + this.hi * 4294967296;
-    };
-    LongBits.prototype.toLong = function toLong(unsigned) {
-      return util2.Long ? new util2.Long(this.lo | 0, this.hi | 0, Boolean(unsigned)) : { low: this.lo | 0, high: this.hi | 0, unsigned: Boolean(unsigned) };
-    };
-    var charCodeAt = String.prototype.charCodeAt;
-    LongBits.fromHash = function fromHash(hash3) {
-      if (hash3 === zeroHash)
-        return zero;
-      return new LongBits(
-        (charCodeAt.call(hash3, 0) | charCodeAt.call(hash3, 1) << 8 | charCodeAt.call(hash3, 2) << 16 | charCodeAt.call(hash3, 3) << 24) >>> 0,
-        (charCodeAt.call(hash3, 4) | charCodeAt.call(hash3, 5) << 8 | charCodeAt.call(hash3, 6) << 16 | charCodeAt.call(hash3, 7) << 24) >>> 0
-      );
-    };
-    LongBits.prototype.toHash = function toHash() {
-      return String.fromCharCode(
-        this.lo & 255,
-        this.lo >>> 8 & 255,
-        this.lo >>> 16 & 255,
-        this.lo >>> 24,
-        this.hi & 255,
-        this.hi >>> 8 & 255,
-        this.hi >>> 16 & 255,
-        this.hi >>> 24
-      );
-    };
-    LongBits.prototype.zzEncode = function zzEncode() {
-      var mask = this.hi >> 31;
-      this.hi = ((this.hi << 1 | this.lo >>> 31) ^ mask) >>> 0;
-      this.lo = (this.lo << 1 ^ mask) >>> 0;
-      return this;
-    };
-    LongBits.prototype.zzDecode = function zzDecode() {
-      var mask = -(this.lo & 1);
-      this.lo = ((this.lo >>> 1 | this.hi << 31) ^ mask) >>> 0;
-      this.hi = (this.hi >>> 1 ^ mask) >>> 0;
-      return this;
-    };
-    LongBits.prototype.length = function length2() {
-      var part0 = this.lo, part1 = (this.lo >>> 28 | this.hi << 4) >>> 0, part2 = this.hi >>> 24;
-      return part2 === 0 ? part1 === 0 ? part0 < 16384 ? part0 < 128 ? 1 : 2 : part0 < 2097152 ? 3 : 4 : part1 < 16384 ? part1 < 128 ? 5 : 6 : part1 < 2097152 ? 7 : 8 : part2 < 128 ? 9 : 10;
-    };
-  }
-});
-
-// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/util/minimal.js
-var require_minimal = __commonJS({
-  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/util/minimal.js"(exports2) {
-    "use strict";
-    var util2 = exports2;
-    util2.asPromise = require_aspromise();
-    util2.base64 = require_base64();
-    util2.EventEmitter = require_eventemitter();
-    util2.float = require_float();
-    util2.inquire = require_inquire();
-    util2.utf8 = require_utf8();
-    util2.pool = require_pool();
-    util2.LongBits = require_longbits();
-    util2.isNode = Boolean(typeof global !== "undefined" && global && global.process && global.process.versions && global.process.versions.node);
-    util2.global = util2.isNode && global || typeof window !== "undefined" && window || typeof self !== "undefined" && self || exports2;
-    util2.emptyArray = Object.freeze ? Object.freeze([]) : (
-      /* istanbul ignore next */
-      []
-    );
-    util2.emptyObject = Object.freeze ? Object.freeze({}) : (
-      /* istanbul ignore next */
-      {}
-    );
-    util2.isInteger = Number.isInteger || /* istanbul ignore next */
-    function isInteger(value) {
-      return typeof value === "number" && isFinite(value) && Math.floor(value) === value;
-    };
-    util2.isString = function isString(value) {
-      return typeof value === "string" || value instanceof String;
-    };
-    util2.isObject = function isObject3(value) {
-      return value && typeof value === "object";
-    };
-    util2.isset = /**
-     * Checks if a property on a message is considered to be present.
-     * @param {Object} obj Plain object or message instance
-     * @param {string} prop Property name
-     * @returns {boolean} `true` if considered to be present, otherwise `false`
-     */
-    util2.isSet = function isSet(obj, prop) {
-      var value = obj[prop];
-      if (value != null && obj.hasOwnProperty(prop))
-        return typeof value !== "object" || (Array.isArray(value) ? value.length : Object.keys(value).length) > 0;
-      return false;
-    };
-    util2.Buffer = function() {
-      try {
-        var Buffer2 = util2.inquire("buffer").Buffer;
-        return Buffer2.prototype.utf8Write ? Buffer2 : (
-          /* istanbul ignore next */
-          null
-        );
-      } catch (e2) {
-        return null;
-      }
-    }();
-    util2._Buffer_from = null;
-    util2._Buffer_allocUnsafe = null;
-    util2.newBuffer = function newBuffer(sizeOrArray) {
-      return typeof sizeOrArray === "number" ? util2.Buffer ? util2._Buffer_allocUnsafe(sizeOrArray) : new util2.Array(sizeOrArray) : util2.Buffer ? util2._Buffer_from(sizeOrArray) : typeof Uint8Array === "undefined" ? sizeOrArray : new Uint8Array(sizeOrArray);
-    };
-    util2.Array = typeof Uint8Array !== "undefined" ? Uint8Array : Array;
-    util2.Long = /* istanbul ignore next */
-    util2.global.dcodeIO && /* istanbul ignore next */
-    util2.global.dcodeIO.Long || /* istanbul ignore next */
-    util2.global.Long || util2.inquire("long");
-    util2.key2Re = /^true|false|0|1$/;
-    util2.key32Re = /^-?(?:0|[1-9][0-9]*)$/;
-    util2.key64Re = /^(?:[\\x00-\\xff]{8}|-?(?:0|[1-9][0-9]*))$/;
-    util2.longToHash = function longToHash(value) {
-      return value ? util2.LongBits.from(value).toHash() : util2.LongBits.zeroHash;
-    };
-    util2.longFromHash = function longFromHash(hash3, unsigned) {
-      var bits = util2.LongBits.fromHash(hash3);
-      if (util2.Long)
-        return util2.Long.fromBits(bits.lo, bits.hi, unsigned);
-      return bits.toNumber(Boolean(unsigned));
-    };
-    function merge2(dst, src2, ifNotSet) {
-      for (var keys = Object.keys(src2), i2 = 0; i2 < keys.length; ++i2)
-        if (dst[keys[i2]] === void 0 || !ifNotSet)
-          dst[keys[i2]] = src2[keys[i2]];
-      return dst;
-    }
-    util2.merge = merge2;
-    util2.lcFirst = function lcFirst(str) {
-      return str.charAt(0).toLowerCase() + str.substring(1);
-    };
-    function newError(name2) {
-      function CustomError(message2, properties) {
-        if (!(this instanceof CustomError))
-          return new CustomError(message2, properties);
-        Object.defineProperty(this, "message", { get: function() {
-          return message2;
-        } });
-        if (Error.captureStackTrace)
-          Error.captureStackTrace(this, CustomError);
-        else
-          Object.defineProperty(this, "stack", { value: new Error().stack || "" });
-        if (properties)
-          merge2(this, properties);
-      }
-      CustomError.prototype = Object.create(Error.prototype, {
-        constructor: {
-          value: CustomError,
-          writable: true,
-          enumerable: false,
-          configurable: true
-        },
-        name: {
-          get: function get() {
-            return name2;
-          },
-          set: void 0,
-          enumerable: false,
-          // configurable: false would accurately preserve the behavior of
-          // the original, but I'm guessing that was not intentional.
-          // For an actual error subclass, this property would
-          // be configurable.
-          configurable: true
-        },
-        toString: {
-          value: function value() {
-            return this.name + ": " + this.message;
-          },
-          writable: true,
-          enumerable: false,
-          configurable: true
-        }
-      });
-      return CustomError;
-    }
-    util2.newError = newError;
-    util2.ProtocolError = newError("ProtocolError");
-    util2.oneOfGetter = function getOneOf(fieldNames) {
-      var fieldMap = {};
-      for (var i2 = 0; i2 < fieldNames.length; ++i2)
-        fieldMap[fieldNames[i2]] = 1;
-      return function() {
-        for (var keys = Object.keys(this), i3 = keys.length - 1; i3 > -1; --i3)
-          if (fieldMap[keys[i3]] === 1 && this[keys[i3]] !== void 0 && this[keys[i3]] !== null)
-            return keys[i3];
-      };
-    };
-    util2.oneOfSetter = function setOneOf(fieldNames) {
-      return function(name2) {
-        for (var i2 = 0; i2 < fieldNames.length; ++i2)
-          if (fieldNames[i2] !== name2)
-            delete this[fieldNames[i2]];
-      };
-    };
-    util2.toJSONOptions = {
-      longs: String,
-      enums: String,
-      bytes: String,
-      json: true
-    };
-    util2._configure = function() {
-      var Buffer2 = util2.Buffer;
-      if (!Buffer2) {
-        util2._Buffer_from = util2._Buffer_allocUnsafe = null;
-        return;
-      }
-      util2._Buffer_from = Buffer2.from !== Uint8Array.from && Buffer2.from || /* istanbul ignore next */
-      function Buffer_from(value, encoding) {
-        return new Buffer2(value, encoding);
-      };
-      util2._Buffer_allocUnsafe = Buffer2.allocUnsafe || /* istanbul ignore next */
-      function Buffer_allocUnsafe(size) {
-        return new Buffer2(size);
-      };
-    };
-  }
-});
-
-// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/reader.js
-var require_reader = __commonJS({
-  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/reader.js"(exports2, module2) {
-    "use strict";
-    module2.exports = Reader;
-    var util2 = require_minimal();
-    var BufferReader;
-    var LongBits = util2.LongBits;
-    var utf8 = util2.utf8;
-    function indexOutOfRange(reader2, writeLength) {
-      return RangeError("index out of range: " + reader2.pos + " + " + (writeLength || 1) + " > " + reader2.len);
-    }
-    function Reader(buffer) {
-      this.buf = buffer;
-      this.pos = 0;
-      this.len = buffer.length;
-    }
-    var create_array = typeof Uint8Array !== "undefined" ? function create_typed_array(buffer) {
-      if (buffer instanceof Uint8Array || Array.isArray(buffer))
-        return new Reader(buffer);
-      throw Error("illegal buffer");
-    } : function create_array2(buffer) {
-      if (Array.isArray(buffer))
-        return new Reader(buffer);
-      throw Error("illegal buffer");
-    };
-    var create3 = function create4() {
-      return util2.Buffer ? function create_buffer_setup(buffer) {
-        return (Reader.create = function create_buffer(buffer2) {
-          return util2.Buffer.isBuffer(buffer2) ? new BufferReader(buffer2) : create_array(buffer2);
-        })(buffer);
-      } : create_array;
-    };
-    Reader.create = create3();
-    Reader.prototype._slice = util2.Array.prototype.subarray || /* istanbul ignore next */
-    util2.Array.prototype.slice;
-    Reader.prototype.uint32 = function read_uint32_setup() {
-      var value = 4294967295;
-      return function read_uint32() {
-        value = (this.buf[this.pos] & 127) >>> 0;
-        if (this.buf[this.pos++] < 128)
-          return value;
-        value = (value | (this.buf[this.pos] & 127) << 7) >>> 0;
-        if (this.buf[this.pos++] < 128)
-          return value;
-        value = (value | (this.buf[this.pos] & 127) << 14) >>> 0;
-        if (this.buf[this.pos++] < 128)
-          return value;
-        value = (value | (this.buf[this.pos] & 127) << 21) >>> 0;
-        if (this.buf[this.pos++] < 128)
-          return value;
-        value = (value | (this.buf[this.pos] & 15) << 28) >>> 0;
-        if (this.buf[this.pos++] < 128)
-          return value;
-        if ((this.pos += 5) > this.len) {
-          this.pos = this.len;
-          throw indexOutOfRange(this, 10);
-        }
-        return value;
-      };
-    }();
-    Reader.prototype.int32 = function read_int32() {
-      return this.uint32() | 0;
-    };
-    Reader.prototype.sint32 = function read_sint32() {
-      var value = this.uint32();
-      return value >>> 1 ^ -(value & 1) | 0;
-    };
-    function readLongVarint() {
-      var bits = new LongBits(0, 0);
-      var i2 = 0;
-      if (this.len - this.pos > 4) {
-        for (; i2 < 4; ++i2) {
-          bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i2 * 7) >>> 0;
-          if (this.buf[this.pos++] < 128)
-            return bits;
-        }
-        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << 28) >>> 0;
-        bits.hi = (bits.hi | (this.buf[this.pos] & 127) >> 4) >>> 0;
-        if (this.buf[this.pos++] < 128)
-          return bits;
-        i2 = 0;
-      } else {
-        for (; i2 < 3; ++i2) {
-          if (this.pos >= this.len)
-            throw indexOutOfRange(this);
-          bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i2 * 7) >>> 0;
-          if (this.buf[this.pos++] < 128)
-            return bits;
-        }
-        bits.lo = (bits.lo | (this.buf[this.pos++] & 127) << i2 * 7) >>> 0;
-        return bits;
-      }
-      if (this.len - this.pos > 4) {
-        for (; i2 < 5; ++i2) {
-          bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i2 * 7 + 3) >>> 0;
-          if (this.buf[this.pos++] < 128)
-            return bits;
-        }
-      } else {
-        for (; i2 < 5; ++i2) {
-          if (this.pos >= this.len)
-            throw indexOutOfRange(this);
-          bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i2 * 7 + 3) >>> 0;
-          if (this.buf[this.pos++] < 128)
-            return bits;
-        }
-      }
-      throw Error("invalid varint encoding");
-    }
-    Reader.prototype.bool = function read_bool() {
-      return this.uint32() !== 0;
-    };
-    function readFixed32_end(buf, end) {
-      return (buf[end - 4] | buf[end - 3] << 8 | buf[end - 2] << 16 | buf[end - 1] << 24) >>> 0;
-    }
-    Reader.prototype.fixed32 = function read_fixed32() {
-      if (this.pos + 4 > this.len)
-        throw indexOutOfRange(this, 4);
-      return readFixed32_end(this.buf, this.pos += 4);
-    };
-    Reader.prototype.sfixed32 = function read_sfixed32() {
-      if (this.pos + 4 > this.len)
-        throw indexOutOfRange(this, 4);
-      return readFixed32_end(this.buf, this.pos += 4) | 0;
-    };
-    function readFixed64() {
-      if (this.pos + 8 > this.len)
-        throw indexOutOfRange(this, 8);
-      return new LongBits(readFixed32_end(this.buf, this.pos += 4), readFixed32_end(this.buf, this.pos += 4));
-    }
-    Reader.prototype.float = function read_float() {
-      if (this.pos + 4 > this.len)
-        throw indexOutOfRange(this, 4);
-      var value = util2.float.readFloatLE(this.buf, this.pos);
-      this.pos += 4;
-      return value;
-    };
-    Reader.prototype.double = function read_double() {
-      if (this.pos + 8 > this.len)
-        throw indexOutOfRange(this, 4);
-      var value = util2.float.readDoubleLE(this.buf, this.pos);
-      this.pos += 8;
-      return value;
-    };
-    Reader.prototype.bytes = function read_bytes() {
-      var length2 = this.uint32(), start = this.pos, end = this.pos + length2;
-      if (end > this.len)
-        throw indexOutOfRange(this, length2);
-      this.pos += length2;
-      if (Array.isArray(this.buf))
-        return this.buf.slice(start, end);
-      if (start === end) {
-        var nativeBuffer = util2.Buffer;
-        return nativeBuffer ? nativeBuffer.alloc(0) : new this.buf.constructor(0);
-      }
-      return this._slice.call(this.buf, start, end);
-    };
-    Reader.prototype.string = function read_string() {
-      var bytes3 = this.bytes();
-      return utf8.read(bytes3, 0, bytes3.length);
-    };
-    Reader.prototype.skip = function skip(length2) {
-      if (typeof length2 === "number") {
-        if (this.pos + length2 > this.len)
-          throw indexOutOfRange(this, length2);
-        this.pos += length2;
-      } else {
-        do {
-          if (this.pos >= this.len)
-            throw indexOutOfRange(this);
-        } while (this.buf[this.pos++] & 128);
-      }
-      return this;
-    };
-    Reader.prototype.skipType = function(wireType) {
-      switch (wireType) {
-        case 0:
-          this.skip();
-          break;
-        case 1:
-          this.skip(8);
-          break;
-        case 2:
-          this.skip(this.uint32());
-          break;
-        case 3:
-          while ((wireType = this.uint32() & 7) !== 4) {
-            this.skipType(wireType);
-          }
-          break;
-        case 5:
-          this.skip(4);
-          break;
-        default:
-          throw Error("invalid wire type " + wireType + " at offset " + this.pos);
-      }
-      return this;
-    };
-    Reader._configure = function(BufferReader_) {
-      BufferReader = BufferReader_;
-      Reader.create = create3();
-      BufferReader._configure();
-      var fn = util2.Long ? "toLong" : (
-        /* istanbul ignore next */
-        "toNumber"
-      );
-      util2.merge(Reader.prototype, {
-        int64: function read_int64() {
-          return readLongVarint.call(this)[fn](false);
-        },
-        uint64: function read_uint64() {
-          return readLongVarint.call(this)[fn](true);
-        },
-        sint64: function read_sint64() {
-          return readLongVarint.call(this).zzDecode()[fn](false);
-        },
-        fixed64: function read_fixed64() {
-          return readFixed64.call(this)[fn](true);
-        },
-        sfixed64: function read_sfixed64() {
-          return readFixed64.call(this)[fn](false);
-        }
-      });
-    };
-  }
-});
-
-// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/reader_buffer.js
-var require_reader_buffer = __commonJS({
-  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/reader_buffer.js"(exports2, module2) {
-    "use strict";
-    module2.exports = BufferReader;
-    var Reader = require_reader();
-    (BufferReader.prototype = Object.create(Reader.prototype)).constructor = BufferReader;
-    var util2 = require_minimal();
-    function BufferReader(buffer) {
-      Reader.call(this, buffer);
-    }
-    BufferReader._configure = function() {
-      if (util2.Buffer)
-        BufferReader.prototype._slice = util2.Buffer.prototype.slice;
-    };
-    BufferReader.prototype.string = function read_string_buffer() {
-      var len = this.uint32();
-      return this.buf.utf8Slice ? this.buf.utf8Slice(this.pos, this.pos = Math.min(this.pos + len, this.len)) : this.buf.toString("utf-8", this.pos, this.pos = Math.min(this.pos + len, this.len));
-    };
-    BufferReader._configure();
-  }
-});
-
-// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/writer.js
-var require_writer = __commonJS({
-  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/writer.js"(exports2, module2) {
-    "use strict";
-    module2.exports = Writer;
-    var util2 = require_minimal();
-    var BufferWriter;
-    var LongBits = util2.LongBits;
-    var base642 = util2.base64;
-    var utf8 = util2.utf8;
-    function Op(fn, len, val) {
-      this.fn = fn;
-      this.len = len;
-      this.next = void 0;
-      this.val = val;
-    }
-    function noop() {
-    }
-    function State(writer2) {
-      this.head = writer2.head;
-      this.tail = writer2.tail;
-      this.len = writer2.len;
-      this.next = writer2.states;
-    }
-    function Writer() {
-      this.len = 0;
-      this.head = new Op(noop, 0, 0);
-      this.tail = this.head;
-      this.states = null;
-    }
-    var create3 = function create4() {
-      return util2.Buffer ? function create_buffer_setup() {
-        return (Writer.create = function create_buffer() {
-          return new BufferWriter();
-        })();
-      } : function create_array() {
-        return new Writer();
-      };
-    };
-    Writer.create = create3();
-    Writer.alloc = function alloc(size) {
-      return new util2.Array(size);
-    };
-    if (util2.Array !== Array)
-      Writer.alloc = util2.pool(Writer.alloc, util2.Array.prototype.subarray);
-    Writer.prototype._push = function push2(fn, len, val) {
-      this.tail = this.tail.next = new Op(fn, len, val);
-      this.len += len;
-      return this;
-    };
-    function writeByte(val, buf, pos) {
-      buf[pos] = val & 255;
-    }
-    function writeVarint32(val, buf, pos) {
-      while (val > 127) {
-        buf[pos++] = val & 127 | 128;
-        val >>>= 7;
-      }
-      buf[pos] = val;
-    }
-    function VarintOp(len, val) {
-      this.len = len;
-      this.next = void 0;
-      this.val = val;
-    }
-    VarintOp.prototype = Object.create(Op.prototype);
-    VarintOp.prototype.fn = writeVarint32;
-    Writer.prototype.uint32 = function write_uint32(value) {
-      this.len += (this.tail = this.tail.next = new VarintOp(
-        (value = value >>> 0) < 128 ? 1 : value < 16384 ? 2 : value < 2097152 ? 3 : value < 268435456 ? 4 : 5,
-        value
-      )).len;
-      return this;
-    };
-    Writer.prototype.int32 = function write_int32(value) {
-      return value < 0 ? this._push(writeVarint64, 10, LongBits.fromNumber(value)) : this.uint32(value);
-    };
-    Writer.prototype.sint32 = function write_sint32(value) {
-      return this.uint32((value << 1 ^ value >> 31) >>> 0);
-    };
-    function writeVarint64(val, buf, pos) {
-      while (val.hi) {
-        buf[pos++] = val.lo & 127 | 128;
-        val.lo = (val.lo >>> 7 | val.hi << 25) >>> 0;
-        val.hi >>>= 7;
-      }
-      while (val.lo > 127) {
-        buf[pos++] = val.lo & 127 | 128;
-        val.lo = val.lo >>> 7;
-      }
-      buf[pos++] = val.lo;
-    }
-    Writer.prototype.uint64 = function write_uint64(value) {
-      var bits = LongBits.from(value);
-      return this._push(writeVarint64, bits.length(), bits);
-    };
-    Writer.prototype.int64 = Writer.prototype.uint64;
-    Writer.prototype.sint64 = function write_sint64(value) {
-      var bits = LongBits.from(value).zzEncode();
-      return this._push(writeVarint64, bits.length(), bits);
-    };
-    Writer.prototype.bool = function write_bool(value) {
-      return this._push(writeByte, 1, value ? 1 : 0);
-    };
-    function writeFixed32(val, buf, pos) {
-      buf[pos] = val & 255;
-      buf[pos + 1] = val >>> 8 & 255;
-      buf[pos + 2] = val >>> 16 & 255;
-      buf[pos + 3] = val >>> 24;
-    }
-    Writer.prototype.fixed32 = function write_fixed32(value) {
-      return this._push(writeFixed32, 4, value >>> 0);
-    };
-    Writer.prototype.sfixed32 = Writer.prototype.fixed32;
-    Writer.prototype.fixed64 = function write_fixed64(value) {
-      var bits = LongBits.from(value);
-      return this._push(writeFixed32, 4, bits.lo)._push(writeFixed32, 4, bits.hi);
-    };
-    Writer.prototype.sfixed64 = Writer.prototype.fixed64;
-    Writer.prototype.float = function write_float(value) {
-      return this._push(util2.float.writeFloatLE, 4, value);
-    };
-    Writer.prototype.double = function write_double(value) {
-      return this._push(util2.float.writeDoubleLE, 8, value);
-    };
-    var writeBytes = util2.Array.prototype.set ? function writeBytes_set(val, buf, pos) {
-      buf.set(val, pos);
-    } : function writeBytes_for(val, buf, pos) {
-      for (var i2 = 0; i2 < val.length; ++i2)
-        buf[pos + i2] = val[i2];
-    };
-    Writer.prototype.bytes = function write_bytes(value) {
-      var len = value.length >>> 0;
-      if (!len)
-        return this._push(writeByte, 1, 0);
-      if (util2.isString(value)) {
-        var buf = Writer.alloc(len = base642.length(value));
-        base642.decode(value, buf, 0);
-        value = buf;
-      }
-      return this.uint32(len)._push(writeBytes, len, value);
-    };
-    Writer.prototype.string = function write_string(value) {
-      var len = utf8.length(value);
-      return len ? this.uint32(len)._push(utf8.write, len, value) : this._push(writeByte, 1, 0);
-    };
-    Writer.prototype.fork = function fork() {
-      this.states = new State(this);
-      this.head = this.tail = new Op(noop, 0, 0);
-      this.len = 0;
-      return this;
-    };
-    Writer.prototype.reset = function reset() {
-      if (this.states) {
-        this.head = this.states.head;
-        this.tail = this.states.tail;
-        this.len = this.states.len;
-        this.states = this.states.next;
-      } else {
-        this.head = this.tail = new Op(noop, 0, 0);
-        this.len = 0;
-      }
-      return this;
-    };
-    Writer.prototype.ldelim = function ldelim() {
-      var head = this.head, tail = this.tail, len = this.len;
-      this.reset().uint32(len);
-      if (len) {
-        this.tail.next = head.next;
-        this.tail = tail;
-        this.len += len;
-      }
-      return this;
-    };
-    Writer.prototype.finish = function finish() {
-      var head = this.head.next, buf = this.constructor.alloc(this.len), pos = 0;
-      while (head) {
-        head.fn(head.val, buf, pos);
-        pos += head.len;
-        head = head.next;
-      }
-      return buf;
-    };
-    Writer._configure = function(BufferWriter_) {
-      BufferWriter = BufferWriter_;
-      Writer.create = create3();
-      BufferWriter._configure();
-    };
-  }
-});
-
-// node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/writer_buffer.js
-var require_writer_buffer = __commonJS({
-  "node_modules/.pnpm/protobufjs@7.2.5/node_modules/protobufjs/src/writer_buffer.js"(exports2, module2) {
-    "use strict";
-    module2.exports = BufferWriter;
-    var Writer = require_writer();
-    (BufferWriter.prototype = Object.create(Writer.prototype)).constructor = BufferWriter;
-    var util2 = require_minimal();
-    function BufferWriter() {
-      Writer.call(this);
-    }
-    BufferWriter._configure = function() {
-      BufferWriter.alloc = util2._Buffer_allocUnsafe;
-      BufferWriter.writeBytesBuffer = util2.Buffer && util2.Buffer.prototype instanceof Uint8Array && util2.Buffer.prototype.set.name === "set" ? function writeBytesBuffer_set(val, buf, pos) {
-        buf.set(val, pos);
-      } : function writeBytesBuffer_copy(val, buf, pos) {
-        if (val.copy)
-          val.copy(buf, pos, 0, val.length);
-        else
-          for (var i2 = 0; i2 < val.length; )
-            buf[pos++] = val[i2++];
-      };
-    };
-    BufferWriter.prototype.bytes = function write_bytes_buffer(value) {
-      if (util2.isString(value))
-        value = util2._Buffer_from(value, "base64");
-      var len = value.length >>> 0;
-      this.uint32(len);
-      if (len)
-        this._push(BufferWriter.writeBytesBuffer, len, value);
-      return this;
-    };
-    function writeStringBuffer(val, buf, pos) {
-      if (val.length < 40)
-        util2.utf8.write(val, buf, pos);
-      else if (buf.utf8Write)
-        buf.utf8Write(val, pos);
-      else
-        buf.write(val, pos);
-    }
-    BufferWriter.prototype.string = function write_string_buffer(value) {
-      var len = util2.Buffer.byteLength(value);
-      this.uint32(len);
-      if (len)
-        this._push(writeStringBuffer, len, value);
-      return this;
-    };
-    BufferWriter._configure();
+    module.exports = createError;
   }
 });
 
 // node_modules/.pnpm/ms@2.1.2/node_modules/ms/index.js
 var require_ms = __commonJS({
-  "node_modules/.pnpm/ms@2.1.2/node_modules/ms/index.js"(exports2, module2) {
+  "node_modules/.pnpm/ms@2.1.2/node_modules/ms/index.js"(exports, module) {
     var s2 = 1e3;
     var m = s2 * 60;
     var h3 = m * 60;
     var d2 = h3 * 24;
     var w = d2 * 7;
     var y = d2 * 365.25;
-    module2.exports = function(val, options) {
+    module.exports = function(val, options) {
       options = options || {};
       var type = typeof val;
       if (type === "string" && val.length > 0) {
@@ -1702,7 +432,7 @@ var require_ms = __commonJS({
 
 // node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/common.js
 var require_common = __commonJS({
-  "node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/common.js"(exports2, module2) {
+  "node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/common.js"(exports, module) {
     function setup(env) {
       createDebug.debug = createDebug;
       createDebug.default = createDebug;
@@ -1736,12 +466,12 @@ var require_common = __commonJS({
           if (!debug2.enabled) {
             return;
           }
-          const self2 = debug2;
+          const self = debug2;
           const curr = Number(/* @__PURE__ */ new Date());
           const ms = curr - (prevTime || curr);
-          self2.diff = ms;
-          self2.prev = prevTime;
-          self2.curr = curr;
+          self.diff = ms;
+          self.prev = prevTime;
+          self.curr = curr;
           prevTime = curr;
           args[0] = createDebug.coerce(args[0]);
           if (typeof args[0] !== "string") {
@@ -1756,15 +486,15 @@ var require_common = __commonJS({
             const formatter = createDebug.formatters[format2];
             if (typeof formatter === "function") {
               const val = args[index3];
-              match = formatter.call(self2, val);
+              match = formatter.call(self, val);
               args.splice(index3, 1);
               index3--;
             }
             return match;
           });
-          createDebug.formatArgs.call(self2, args);
-          const logFn = self2.log || createDebug.log;
-          logFn.apply(self2, args);
+          createDebug.formatArgs.call(self, args);
+          const logFn = self.log || createDebug.log;
+          logFn.apply(self, args);
         }
         debug2.namespace = namespace;
         debug2.useColors = createDebug.useColors();
@@ -1859,19 +589,19 @@ var require_common = __commonJS({
       createDebug.enable(createDebug.load());
       return createDebug;
     }
-    module2.exports = setup;
+    module.exports = setup;
   }
 });
 
 // node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/browser.js
 var require_browser = __commonJS({
-  "node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/browser.js"(exports2, module2) {
-    exports2.formatArgs = formatArgs;
-    exports2.save = save;
-    exports2.load = load;
-    exports2.useColors = useColors;
-    exports2.storage = localstorage();
-    exports2.destroy = (() => {
+  "node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/browser.js"(exports, module) {
+    exports.formatArgs = formatArgs;
+    exports.save = save;
+    exports.load = load;
+    exports.useColors = useColors;
+    exports.storage = localstorage();
+    exports.destroy = (() => {
       let warned2 = false;
       return () => {
         if (!warned2) {
@@ -1880,7 +610,7 @@ var require_browser = __commonJS({
         }
       };
     })();
-    exports2.colors = [
+    exports.colors = [
       "#0000CC",
       "#0000FF",
       "#0033CC",
@@ -1972,7 +702,7 @@ var require_browser = __commonJS({
       typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
     }
     function formatArgs(args) {
-      args[0] = (this.useColors ? "%c" : "") + this.namespace + (this.useColors ? " %c" : " ") + args[0] + (this.useColors ? "%c " : " ") + "+" + module2.exports.humanize(this.diff);
+      args[0] = (this.useColors ? "%c" : "") + this.namespace + (this.useColors ? " %c" : " ") + args[0] + (this.useColors ? "%c " : " ") + "+" + module.exports.humanize(this.diff);
       if (!this.useColors) {
         return;
       }
@@ -1991,14 +721,14 @@ var require_browser = __commonJS({
       });
       args.splice(lastC, 0, c2);
     }
-    exports2.log = console.debug || console.log || (() => {
+    exports.log = console.debug || console.log || (() => {
     });
     function save(namespaces) {
       try {
         if (namespaces) {
-          exports2.storage.setItem("debug", namespaces);
+          exports.storage.setItem("debug", namespaces);
         } else {
-          exports2.storage.removeItem("debug");
+          exports.storage.removeItem("debug");
         }
       } catch (error) {
       }
@@ -2006,7 +736,7 @@ var require_browser = __commonJS({
     function load() {
       let r2;
       try {
-        r2 = exports2.storage.getItem("debug");
+        r2 = exports.storage.getItem("debug");
       } catch (error) {
       }
       if (!r2 && typeof process !== "undefined" && "env" in process) {
@@ -2020,8 +750,8 @@ var require_browser = __commonJS({
       } catch (error) {
       }
     }
-    module2.exports = require_common()(exports2);
-    var { formatters } = module2.exports;
+    module.exports = require_common()(exports);
+    var { formatters } = module.exports;
     formatters.j = function(v2) {
       try {
         return JSON.stringify(v2);
@@ -2034,9 +764,9 @@ var require_browser = __commonJS({
 
 // node_modules/.pnpm/use-text-selection@1.1.5_react@18.2.0_typescript@5.2.2/node_modules/use-text-selection/dist/index.js
 var require_dist = __commonJS({
-  "node_modules/.pnpm/use-text-selection@1.1.5_react@18.2.0_typescript@5.2.2/node_modules/use-text-selection/dist/index.js"(exports2) {
+  "node_modules/.pnpm/use-text-selection@1.1.5_react@18.2.0_typescript@5.2.2/node_modules/use-text-selection/dist/index.js"(exports) {
     "use strict";
-    var __assign = exports2 && exports2.__assign || function() {
+    var __assign = exports && exports.__assign || function() {
       __assign = Object.assign || function(t2) {
         for (var s2, i2 = 1, n2 = arguments.length; i2 < n2; i2++) {
           s2 = arguments[i2];
@@ -2048,8 +778,8 @@ var require_dist = __commonJS({
       };
       return __assign.apply(this, arguments);
     };
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.useTextSelection = void 0;
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.useTextSelection = void 0;
     var react_1 = require_react();
     function roundValues(_rect) {
       var rect = __assign({}, _rect);
@@ -2132,7 +862,7 @@ var require_dist = __commonJS({
         textContent
       };
     }
-    exports2.useTextSelection = useTextSelection2;
+    exports.useTextSelection = useTextSelection2;
   }
 });
 
@@ -2141,7 +871,7 @@ var import_react = __toESM(require_react());
 var IconContext = /* @__PURE__ */ (0, import_react.createContext)({});
 var Context_default = IconContext;
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/extends.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function(target) {
     for (var i2 = 1; i2 < arguments.length; i2++) {
@@ -2157,13 +887,13 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr))
     return arr;
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js
 function _iterableToArrayLimit(r2, l3) {
   var t2 = null == r2 ? null : "undefined" != typeof Symbol && r2[Symbol.iterator] || r2["@@iterator"];
   if (null != t2) {
@@ -2191,7 +921,7 @@ function _iterableToArrayLimit(r2, l3) {
   }
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length)
     len = arr.length;
@@ -2200,7 +930,7 @@ function _arrayLikeToArray(arr, len) {
   return arr2;
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
 function _unsupportedIterableToArray(o2, minLen) {
   if (!o2)
     return;
@@ -2215,17 +945,17 @@ function _unsupportedIterableToArray(o2, minLen) {
     return _arrayLikeToArray(o2, minLen);
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/slicedToArray.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/slicedToArray.js
 function _slicedToArray(arr, i2) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i2) || _unsupportedIterableToArray(arr, i2) || _nonIterableRest();
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/typeof.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/typeof.js
 function _typeof(o2) {
   "@babel/helpers - typeof";
   return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o3) {
@@ -2235,7 +965,7 @@ function _typeof(o2) {
   }, _typeof(o2);
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/toPrimitive.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/toPrimitive.js
 function _toPrimitive(input, hint) {
   if (_typeof(input) !== "object" || input === null)
     return input;
@@ -2249,13 +979,13 @@ function _toPrimitive(input, hint) {
   return (hint === "string" ? String : Number)(input);
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
 function _toPropertyKey(arg) {
   var key = _toPrimitive(arg, "string");
   return _typeof(key) === "symbol" ? key : String(key);
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/defineProperty.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/defineProperty.js
 function _defineProperty(obj, key, value) {
   key = _toPropertyKey(key);
   if (key in obj) {
@@ -2271,7 +1001,7 @@ function _defineProperty(obj, key, value) {
   return obj;
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null)
     return {};
@@ -2287,7 +1017,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
 function _objectWithoutProperties(source, excluded) {
   if (source == null)
     return {};
@@ -2355,11 +1085,11 @@ function pad2(c2) {
 }
 
 // node_modules/.pnpm/@ctrl+tinycolor@3.6.1/node_modules/@ctrl/tinycolor/dist/module/conversion.js
-function rgbToRgb(r2, g, b2) {
+function rgbToRgb(r2, g, b) {
   return {
     r: bound01(r2, 255) * 255,
     g: bound01(g, 255) * 255,
-    b: bound01(b2, 255) * 255
+    b: bound01(b, 255) * 255
   };
 }
 function hue2rgb(p2, q, t2) {
@@ -2383,29 +1113,29 @@ function hue2rgb(p2, q, t2) {
 function hslToRgb(h3, s2, l3) {
   var r2;
   var g;
-  var b2;
+  var b;
   h3 = bound01(h3, 360);
   s2 = bound01(s2, 100);
   l3 = bound01(l3, 100);
   if (s2 === 0) {
     g = l3;
-    b2 = l3;
+    b = l3;
     r2 = l3;
   } else {
     var q = l3 < 0.5 ? l3 * (1 + s2) : l3 + s2 - l3 * s2;
     var p2 = 2 * l3 - q;
     r2 = hue2rgb(p2, q, h3 + 1 / 3);
     g = hue2rgb(p2, q, h3);
-    b2 = hue2rgb(p2, q, h3 - 1 / 3);
+    b = hue2rgb(p2, q, h3 - 1 / 3);
   }
-  return { r: r2 * 255, g: g * 255, b: b2 * 255 };
+  return { r: r2 * 255, g: g * 255, b: b * 255 };
 }
-function rgbToHsv(r2, g, b2) {
+function rgbToHsv(r2, g, b) {
   r2 = bound01(r2, 255);
   g = bound01(g, 255);
-  b2 = bound01(b2, 255);
-  var max = Math.max(r2, g, b2);
-  var min = Math.min(r2, g, b2);
+  b = bound01(b, 255);
+  var max = Math.max(r2, g, b);
+  var min = Math.min(r2, g, b);
   var h3 = 0;
   var v2 = max;
   var d2 = max - min;
@@ -2415,12 +1145,12 @@ function rgbToHsv(r2, g, b2) {
   } else {
     switch (max) {
       case r2:
-        h3 = (g - b2) / d2 + (g < b2 ? 6 : 0);
+        h3 = (g - b) / d2 + (g < b ? 6 : 0);
         break;
       case g:
-        h3 = (b2 - r2) / d2 + 2;
+        h3 = (b - r2) / d2 + 2;
         break;
-      case b2:
+      case b:
         h3 = (r2 - g) / d2 + 4;
         break;
       default:
@@ -2439,17 +1169,17 @@ function hsvToRgb(h3, s2, v2) {
   var p2 = v2 * (1 - s2);
   var q = v2 * (1 - f3 * s2);
   var t2 = v2 * (1 - (1 - f3) * s2);
-  var mod3 = i2 % 6;
-  var r2 = [v2, q, p2, p2, t2, v2][mod3];
-  var g = [t2, v2, v2, q, p2, p2][mod3];
-  var b2 = [p2, p2, t2, v2, v2, q][mod3];
-  return { r: r2 * 255, g: g * 255, b: b2 * 255 };
+  var mod2 = i2 % 6;
+  var r2 = [v2, q, p2, p2, t2, v2][mod2];
+  var g = [t2, v2, v2, q, p2, p2][mod2];
+  var b = [p2, p2, t2, v2, v2, q][mod2];
+  return { r: r2 * 255, g: g * 255, b: b * 255 };
 }
-function rgbToHex(r2, g, b2, allow3Char) {
+function rgbToHex(r2, g, b, allow3Char) {
   var hex = [
     pad2(Math.round(r2).toString(16)),
     pad2(Math.round(g).toString(16)),
-    pad2(Math.round(b2).toString(16))
+    pad2(Math.round(b).toString(16))
   ];
   if (allow3Char && hex[0].startsWith(hex[0].charAt(1)) && hex[1].startsWith(hex[1].charAt(1)) && hex[2].startsWith(hex[2].charAt(1))) {
     return hex[0].charAt(0) + hex[1].charAt(0) + hex[2].charAt(0);
@@ -2797,8 +1527,8 @@ var darkColorMap = [{
   opacity: 0.98
 }];
 function toHsv(_ref) {
-  var r2 = _ref.r, g = _ref.g, b2 = _ref.b;
-  var hsv = rgbToHsv(r2, g, b2);
+  var r2 = _ref.r, g = _ref.g, b = _ref.b;
+  var hsv = rgbToHsv(r2, g, b);
   return {
     h: hsv.h * 360,
     s: hsv.s,
@@ -2806,8 +1536,8 @@ function toHsv(_ref) {
   };
 }
 function toHex(_ref2) {
-  var r2 = _ref2.r, g = _ref2.g, b2 = _ref2.b;
-  return "#".concat(rgbToHex(r2, g, b2, false));
+  var r2 = _ref2.r, g = _ref2.g, b = _ref2.b;
+  return "#".concat(rgbToHex(r2, g, b, false));
 }
 function mix(rgb1, rgb2, amount) {
   var p2 = amount / 100;
@@ -2942,7 +1672,7 @@ var magenta = presetPalettes.magenta;
 var grey = presetPalettes.grey;
 var gray = presetPalettes.grey;
 
-// node_modules/.pnpm/@babel+runtime@7.23.1/node_modules/@babel/runtime/helpers/esm/objectSpread2.js
+// node_modules/.pnpm/@babel+runtime@7.23.2/node_modules/@babel/runtime/helpers/esm/objectSpread2.js
 function ownKeys(e2, r2) {
   var t2 = Object.keys(e2);
   if (Object.getOwnPropertySymbols) {
@@ -2968,12 +1698,12 @@ function _objectSpread2(e2) {
 // node_modules/.pnpm/@ant-design+icons@5.2.6_react-dom@18.2.0_react@18.2.0/node_modules/@ant-design/icons/es/components/IconBase.js
 var React2 = __toESM(require_react());
 
-// node_modules/.pnpm/rc-util@5.37.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/canUseDom.js
+// node_modules/.pnpm/rc-util@5.38.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/canUseDom.js
 function canUseDom() {
   return !!(typeof window !== "undefined" && window.document && window.document.createElement);
 }
 
-// node_modules/.pnpm/rc-util@5.37.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/contains.js
+// node_modules/.pnpm/rc-util@5.38.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/contains.js
 function contains(root, n2) {
   if (!root) {
     return false;
@@ -2991,7 +1721,7 @@ function contains(root, n2) {
   return false;
 }
 
-// node_modules/.pnpm/rc-util@5.37.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/dynamicCSS.js
+// node_modules/.pnpm/rc-util@5.38.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/dynamicCSS.js
 var APPEND_ORDER = "data-rc-order";
 var APPEND_PRIORITY = "data-rc-priority";
 var MARK_KEY = "rc-util-key";
@@ -3097,7 +1827,7 @@ function updateCSS(css, key) {
   return newNode;
 }
 
-// node_modules/.pnpm/rc-util@5.37.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/shadow.js
+// node_modules/.pnpm/rc-util@5.38.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/Dom/shadow.js
 function getRoot(ele) {
   var _ele$getRootNode;
   return ele === null || ele === void 0 ? void 0 : (_ele$getRootNode = ele.getRootNode) === null || _ele$getRootNode === void 0 ? void 0 : _ele$getRootNode.call(ele);
@@ -3109,7 +1839,7 @@ function getShadowRoot(ele) {
   return inShadow(ele) ? getRoot(ele) : null;
 }
 
-// node_modules/.pnpm/rc-util@5.37.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/warning.js
+// node_modules/.pnpm/rc-util@5.38.0_react-dom@18.2.0_react@18.2.0/node_modules/rc-util/es/warning.js
 var warned = {};
 var preWarningFns = [];
 var preMessage = function preMessage2(fn) {
@@ -3482,7 +2212,7 @@ var import_veramo_react = __toESM(require_veramo_react(), 1);
 var import_react_query = __toESM(require_react_query(), 1);
 var import_agent_explorer_plugin = __toESM(require_agent_explorer_plugin(), 1);
 
-// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.43.0/node_modules/@monaco-editor/loader/lib/es/_virtual/_rollupPluginBabelHelpers.js
+// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.44.0/node_modules/@monaco-editor/loader/lib/es/_virtual/_rollupPluginBabelHelpers.js
 function _defineProperty2(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -3570,7 +2300,7 @@ function _iterableToArrayLimit2(arr, i2) {
   var _arr = [];
   var _n = true;
   var _d = false;
-  var _e = void 0;
+  var _e2 = void 0;
   try {
     for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
       _arr.push(_s.value);
@@ -3579,14 +2309,14 @@ function _iterableToArrayLimit2(arr, i2) {
     }
   } catch (err) {
     _d = true;
-    _e = err;
+    _e2 = err;
   } finally {
     try {
       if (!_n && _i["return"] != null)
         _i["return"]();
     } finally {
       if (_d)
-        throw _e;
+        throw _e2;
     }
   }
   return _arr;
@@ -3786,7 +2516,7 @@ var index = {
 };
 var state_local_default = index;
 
-// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.43.0/node_modules/@monaco-editor/loader/lib/es/config/index.js
+// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.44.0/node_modules/@monaco-editor/loader/lib/es/config/index.js
 var config = {
   paths: {
     vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs"
@@ -3794,7 +2524,7 @@ var config = {
 };
 var config_default = config;
 
-// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.43.0/node_modules/@monaco-editor/loader/lib/es/utils/curry.js
+// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.44.0/node_modules/@monaco-editor/loader/lib/es/utils/curry.js
 function curry2(fn) {
   return function curried() {
     var _this = this;
@@ -3811,13 +2541,13 @@ function curry2(fn) {
 }
 var curry_default = curry2;
 
-// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.43.0/node_modules/@monaco-editor/loader/lib/es/utils/isObject.js
+// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.44.0/node_modules/@monaco-editor/loader/lib/es/utils/isObject.js
 function isObject2(value) {
   return {}.toString.call(value).includes("Object");
 }
 var isObject_default = isObject2;
 
-// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.43.0/node_modules/@monaco-editor/loader/lib/es/validators/index.js
+// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.44.0/node_modules/@monaco-editor/loader/lib/es/validators/index.js
 function validateConfig(config3) {
   if (!config3)
     errorHandler2("configIsRequired");
@@ -3851,7 +2581,7 @@ var validators2 = {
 };
 var validators_default = validators2;
 
-// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.43.0/node_modules/@monaco-editor/loader/lib/es/utils/compose.js
+// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.44.0/node_modules/@monaco-editor/loader/lib/es/utils/compose.js
 var compose2 = function compose3() {
   for (var _len = arguments.length, fns = new Array(_len), _key = 0; _key < _len; _key++) {
     fns[_key] = arguments[_key];
@@ -3864,7 +2594,7 @@ var compose2 = function compose3() {
 };
 var compose_default = compose2;
 
-// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.43.0/node_modules/@monaco-editor/loader/lib/es/utils/deepMerge.js
+// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.44.0/node_modules/@monaco-editor/loader/lib/es/utils/deepMerge.js
 function merge(target, source) {
   Object.keys(source).forEach(function(key) {
     if (source[key] instanceof Object) {
@@ -3877,7 +2607,7 @@ function merge(target, source) {
 }
 var deepMerge_default = merge;
 
-// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.43.0/node_modules/@monaco-editor/loader/lib/es/utils/makeCancelable.js
+// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.44.0/node_modules/@monaco-editor/loader/lib/es/utils/makeCancelable.js
 var CANCELATION_MESSAGE = {
   type: "cancelation",
   msg: "operation is manually canceled"
@@ -3896,7 +2626,7 @@ function makeCancelable(promise) {
 }
 var makeCancelable_default = makeCancelable;
 
-// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.43.0/node_modules/@monaco-editor/loader/lib/es/loader/index.js
+// node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.44.0/node_modules/@monaco-editor/loader/lib/es/loader/index.js
 var _state$create = state_local_default.create({
   config: config_default,
   isInitialized: false,
@@ -4008,7 +2738,7 @@ var loader = {
 };
 var loader_default = loader;
 
-// node_modules/.pnpm/@monaco-editor+react@4.5.2_monaco-editor@0.43.0_react-dom@18.2.0_react@18.2.0/node_modules/@monaco-editor/react/dist/index.mjs
+// node_modules/.pnpm/@monaco-editor+react@4.6.0_monaco-editor@0.44.0_react-dom@18.2.0_react@18.2.0/node_modules/@monaco-editor/react/dist/index.mjs
 var import_react3 = __toESM(require_react(), 1);
 var import_react4 = __toESM(require_react(), 1);
 var import_react5 = __toESM(require_react(), 1);
@@ -4020,143 +2750,143 @@ var import_react10 = __toESM(require_react(), 1);
 var import_react11 = __toESM(require_react(), 1);
 var import_react12 = __toESM(require_react(), 1);
 var import_react13 = __toESM(require_react(), 1);
-var lt = { wrapper: { display: "flex", position: "relative", textAlign: "initial" }, fullWidth: { width: "100%" }, hide: { display: "none" } };
-var v = lt;
-var at = { container: { display: "flex", height: "100%", width: "100%", justifyContent: "center", alignItems: "center" } };
-var Y = at;
-function Mt({ children: t2 }) {
-  return import_react7.default.createElement("div", { style: Y.container }, t2);
+var le = { wrapper: { display: "flex", position: "relative", textAlign: "initial" }, fullWidth: { width: "100%" }, hide: { display: "none" } };
+var v = le;
+var ae = { container: { display: "flex", height: "100%", width: "100%", justifyContent: "center", alignItems: "center" } };
+var Y = ae;
+function Me({ children: e2 }) {
+  return import_react7.default.createElement("div", { style: Y.container }, e2);
 }
-var Z = Mt;
+var Z = Me;
 var $ = Z;
-function Et({ width: t2, height: r2, isEditorReady: n2, loading: e2, _ref: a2, className: m, wrapperProps: E }) {
-  return import_react6.default.createElement("section", { style: { ...v.wrapper, width: t2, height: r2 }, ...E }, !n2 && import_react6.default.createElement($, null, e2), import_react6.default.createElement("div", { ref: a2, style: { ...v.fullWidth, ...!n2 && v.hide }, className: m }));
+function Ee({ width: e2, height: r2, isEditorReady: n2, loading: t2, _ref: a2, className: m, wrapperProps: E }) {
+  return import_react6.default.createElement("section", { style: { ...v.wrapper, width: e2, height: r2 }, ...E }, !n2 && import_react6.default.createElement($, null, t2), import_react6.default.createElement("div", { ref: a2, style: { ...v.fullWidth, ...!n2 && v.hide }, className: m }));
 }
-var tt = Et;
-var H = (0, import_react5.memo)(tt);
-function Ct(t2) {
-  (0, import_react8.useEffect)(t2, []);
+var ee = Ee;
+var H = (0, import_react5.memo)(ee);
+function Ce(e2) {
+  (0, import_react8.useEffect)(e2, []);
 }
-var b = Ct;
-function ht(t2, r2, n2 = true) {
-  let e2 = (0, import_react9.useRef)(true);
-  (0, import_react9.useEffect)(e2.current || !n2 ? () => {
-    e2.current = false;
-  } : t2, r2);
+var k = Ce;
+function he(e2, r2, n2 = true) {
+  let t2 = (0, import_react9.useRef)(true);
+  (0, import_react9.useEffect)(t2.current || !n2 ? () => {
+    t2.current = false;
+  } : e2, r2);
 }
-var l = ht;
-function h() {
+var l = he;
+function D() {
 }
-function R(t2, r2, n2, e2) {
-  return Dt(t2, e2) || bt(t2, r2, n2, e2);
+function h(e2, r2, n2, t2) {
+  return De(e2, t2) || be(e2, r2, n2, t2);
 }
-function Dt(t2, r2) {
-  return t2.editor.getModel(et(t2, r2));
+function De(e2, r2) {
+  return e2.editor.getModel(te(e2, r2));
 }
-function bt(t2, r2, n2, e2) {
-  return t2.editor.createModel(r2, n2, e2 ? et(t2, e2) : void 0);
+function be(e2, r2, n2, t2) {
+  return e2.editor.createModel(r2, n2, t2 ? te(e2, t2) : void 0);
 }
-function et(t2, r2) {
-  return t2.Uri.parse(r2);
+function te(e2, r2) {
+  return e2.Uri.parse(r2);
 }
-function Ot({ original: t2, modified: r2, language: n2, originalLanguage: e2, modifiedLanguage: a2, originalModelPath: m, modifiedModelPath: E, keepCurrentOriginalModel: S = false, keepCurrentModifiedModel: N = false, theme: x = "light", loading: P = "Loading...", options: y = {}, height: V = "100%", width: z = "100%", className: F, wrapperProps: j = {}, beforeMount: A = h, onMount: q = h }) {
-  let [M, O] = (0, import_react4.useState)(false), [T, s2] = (0, import_react4.useState)(true), u2 = (0, import_react4.useRef)(null), c2 = (0, import_react4.useRef)(null), w = (0, import_react4.useRef)(null), d2 = (0, import_react4.useRef)(q), o2 = (0, import_react4.useRef)(A), D = (0, import_react4.useRef)(false);
-  b(() => {
+function Oe({ original: e2, modified: r2, language: n2, originalLanguage: t2, modifiedLanguage: a2, originalModelPath: m, modifiedModelPath: E, keepCurrentOriginalModel: g = false, keepCurrentModifiedModel: N = false, theme: x = "light", loading: P = "Loading...", options: y = {}, height: V = "100%", width: z = "100%", className: F, wrapperProps: j = {}, beforeMount: A = D, onMount: q = D }) {
+  let [M, O] = (0, import_react4.useState)(false), [T, s2] = (0, import_react4.useState)(true), u2 = (0, import_react4.useRef)(null), c2 = (0, import_react4.useRef)(null), w = (0, import_react4.useRef)(null), d2 = (0, import_react4.useRef)(q), o2 = (0, import_react4.useRef)(A), b = (0, import_react4.useRef)(false);
+  k(() => {
     let i2 = loader_default.init();
     return i2.then((f3) => (c2.current = f3) && s2(false)).catch((f3) => f3?.type !== "cancelation" && console.error("Monaco initialization: error:", f3)), () => u2.current ? I() : i2.cancel();
   }), l(() => {
     if (u2.current && c2.current) {
-      let i2 = u2.current.getOriginalEditor(), f3 = R(c2.current, t2 || "", e2 || n2 || "text", m || "");
+      let i2 = u2.current.getOriginalEditor(), f3 = h(c2.current, e2 || "", t2 || n2 || "text", m || "");
       f3 !== i2.getModel() && i2.setModel(f3);
     }
   }, [m], M), l(() => {
     if (u2.current && c2.current) {
-      let i2 = u2.current.getModifiedEditor(), f3 = R(c2.current, r2 || "", a2 || n2 || "text", E || "");
+      let i2 = u2.current.getModifiedEditor(), f3 = h(c2.current, r2 || "", a2 || n2 || "text", E || "");
       f3 !== i2.getModel() && i2.setModel(f3);
     }
   }, [E], M), l(() => {
     let i2 = u2.current.getModifiedEditor();
     i2.getOption(c2.current.editor.EditorOption.readOnly) ? i2.setValue(r2 || "") : r2 !== i2.getValue() && (i2.executeEdits("", [{ range: i2.getModel().getFullModelRange(), text: r2 || "", forceMoveMarkers: true }]), i2.pushUndoStop());
   }, [r2], M), l(() => {
-    u2.current?.getModel()?.original.setValue(t2 || "");
-  }, [t2], M), l(() => {
+    u2.current?.getModel()?.original.setValue(e2 || "");
+  }, [e2], M), l(() => {
     let { original: i2, modified: f3 } = u2.current.getModel();
-    c2.current.editor.setModelLanguage(i2, e2 || n2 || "text"), c2.current.editor.setModelLanguage(f3, a2 || n2 || "text");
-  }, [n2, e2, a2], M), l(() => {
+    c2.current.editor.setModelLanguage(i2, t2 || n2 || "text"), c2.current.editor.setModelLanguage(f3, a2 || n2 || "text");
+  }, [n2, t2, a2], M), l(() => {
     c2.current?.editor.setTheme(x);
   }, [x], M), l(() => {
     u2.current?.updateOptions(y);
   }, [y], M);
-  let U = (0, import_react4.useCallback)(() => {
+  let L = (0, import_react4.useCallback)(() => {
     if (!c2.current)
       return;
     o2.current(c2.current);
-    let i2 = R(c2.current, t2 || "", e2 || n2 || "text", m || ""), f3 = R(c2.current, r2 || "", a2 || n2 || "text", E || "");
+    let i2 = h(c2.current, e2 || "", t2 || n2 || "text", m || ""), f3 = h(c2.current, r2 || "", a2 || n2 || "text", E || "");
     u2.current?.setModel({ original: i2, modified: f3 });
-  }, [n2, r2, a2, t2, e2, m, E]), L = (0, import_react4.useCallback)(() => {
-    !D.current && w.current && (u2.current = c2.current.editor.createDiffEditor(w.current, { automaticLayout: true, ...y }), U(), c2.current?.editor.setTheme(x), O(true), D.current = true);
-  }, [y, x, U]);
+  }, [n2, r2, a2, e2, t2, m, E]), U = (0, import_react4.useCallback)(() => {
+    !b.current && w.current && (u2.current = c2.current.editor.createDiffEditor(w.current, { automaticLayout: true, ...y }), L(), c2.current?.editor.setTheme(x), O(true), b.current = true);
+  }, [y, x, L]);
   (0, import_react4.useEffect)(() => {
     M && d2.current(u2.current, c2.current);
   }, [M]), (0, import_react4.useEffect)(() => {
-    !T && !M && L();
-  }, [T, M, L]);
+    !T && !M && U();
+  }, [T, M, U]);
   function I() {
     let i2 = u2.current?.getModel();
-    S || i2?.original?.dispose(), N || i2?.modified?.dispose(), u2.current?.dispose();
+    g || i2?.original?.dispose(), N || i2?.modified?.dispose(), u2.current?.dispose();
   }
   return import_react4.default.createElement(H, { width: z, height: V, isEditorReady: M, loading: P, _ref: w, className: F, wrapperProps: j });
 }
-var it = Ot;
-var wt = (0, import_react3.memo)(it);
-function Ht(t2) {
+var ie = Oe;
+var we = (0, import_react3.memo)(ie);
+function He(e2) {
   let r2 = (0, import_react13.useRef)();
   return (0, import_react13.useEffect)(() => {
-    r2.current = t2;
-  }, [t2]), r2.current;
+    r2.current = e2;
+  }, [e2]), r2.current;
 }
-var st = Ht;
+var se = He;
 var _ = /* @__PURE__ */ new Map();
-function Vt({ defaultValue: t2, defaultLanguage: r2, defaultPath: n2, value: e2, language: a2, path: m, theme: E = "light", line: S, loading: N = "Loading...", options: x = {}, overrideServices: P = {}, saveViewState: y = true, keepCurrentModel: V = false, width: z = "100%", height: F = "100%", className: j, wrapperProps: A = {}, beforeMount: q = h, onMount: M = h, onChange: O, onValidate: T = h }) {
-  let [s2, u2] = (0, import_react12.useState)(false), [c2, w] = (0, import_react12.useState)(true), d2 = (0, import_react12.useRef)(null), o2 = (0, import_react12.useRef)(null), D = (0, import_react12.useRef)(null), U = (0, import_react12.useRef)(M), L = (0, import_react12.useRef)(q), I = (0, import_react12.useRef)(), i2 = (0, import_react12.useRef)(e2), f3 = st(m), Q = (0, import_react12.useRef)(false), B = (0, import_react12.useRef)(false);
-  b(() => {
+function Ve({ defaultValue: e2, defaultLanguage: r2, defaultPath: n2, value: t2, language: a2, path: m, theme: E = "light", line: g, loading: N = "Loading...", options: x = {}, overrideServices: P = {}, saveViewState: y = true, keepCurrentModel: V = false, width: z = "100%", height: F = "100%", className: j, wrapperProps: A = {}, beforeMount: q = D, onMount: M = D, onChange: O, onValidate: T = D }) {
+  let [s2, u2] = (0, import_react12.useState)(false), [c2, w] = (0, import_react12.useState)(true), d2 = (0, import_react12.useRef)(null), o2 = (0, import_react12.useRef)(null), b = (0, import_react12.useRef)(null), L = (0, import_react12.useRef)(M), U = (0, import_react12.useRef)(q), I = (0, import_react12.useRef)(), i2 = (0, import_react12.useRef)(t2), f3 = se(m), Q = (0, import_react12.useRef)(false), B = (0, import_react12.useRef)(false);
+  k(() => {
     let p2 = loader_default.init();
-    return p2.then((g) => (d2.current = g) && w(false)).catch((g) => g?.type !== "cancelation" && console.error("Monaco initialization: error:", g)), () => o2.current ? pt() : p2.cancel();
+    return p2.then((R) => (d2.current = R) && w(false)).catch((R) => R?.type !== "cancelation" && console.error("Monaco initialization: error:", R)), () => o2.current ? pe() : p2.cancel();
   }), l(() => {
-    let p2 = R(d2.current, t2 || e2 || "", r2 || a2 || "", m || n2 || "");
+    let p2 = h(d2.current, e2 || t2 || "", r2 || a2 || "", m || n2 || "");
     p2 !== o2.current?.getModel() && (y && _.set(f3, o2.current?.saveViewState()), o2.current?.setModel(p2), y && o2.current?.restoreViewState(_.get(m)));
   }, [m], s2), l(() => {
     o2.current?.updateOptions(x);
   }, [x], s2), l(() => {
-    !o2.current || e2 === void 0 || (o2.current.getOption(d2.current.editor.EditorOption.readOnly) ? o2.current.setValue(e2) : e2 !== o2.current.getValue() && (B.current = true, o2.current.executeEdits("", [{ range: o2.current.getModel().getFullModelRange(), text: e2, forceMoveMarkers: true }]), o2.current.pushUndoStop(), B.current = false));
-  }, [e2], s2), l(() => {
+    !o2.current || t2 === void 0 || (o2.current.getOption(d2.current.editor.EditorOption.readOnly) ? o2.current.setValue(t2) : t2 !== o2.current.getValue() && (B.current = true, o2.current.executeEdits("", [{ range: o2.current.getModel().getFullModelRange(), text: t2, forceMoveMarkers: true }]), o2.current.pushUndoStop(), B.current = false));
+  }, [t2], s2), l(() => {
     let p2 = o2.current?.getModel();
     p2 && a2 && d2.current?.editor.setModelLanguage(p2, a2);
   }, [a2], s2), l(() => {
-    S !== void 0 && o2.current?.revealLine(S);
-  }, [S], s2), l(() => {
+    g !== void 0 && o2.current?.revealLine(g);
+  }, [g], s2), l(() => {
     d2.current?.editor.setTheme(E);
   }, [E], s2);
   let X = (0, import_react12.useCallback)(() => {
-    if (!(!D.current || !d2.current) && !Q.current) {
-      L.current(d2.current);
-      let p2 = m || n2, g = R(d2.current, e2 || t2 || "", r2 || a2 || "", p2 || "");
-      o2.current = d2.current?.editor.create(D.current, { model: g, automaticLayout: true, ...x }, P), y && o2.current.restoreViewState(_.get(p2)), d2.current.editor.setTheme(E), u2(true), Q.current = true;
+    if (!(!b.current || !d2.current) && !Q.current) {
+      U.current(d2.current);
+      let p2 = m || n2, R = h(d2.current, t2 || e2 || "", r2 || a2 || "", p2 || "");
+      o2.current = d2.current?.editor.create(b.current, { model: R, automaticLayout: true, ...x }, P), y && o2.current.restoreViewState(_.get(p2)), d2.current.editor.setTheme(E), g !== void 0 && o2.current.revealLine(g), u2(true), Q.current = true;
     }
-  }, [t2, r2, n2, e2, a2, m, x, P, y, E]);
+  }, [e2, r2, n2, t2, a2, m, x, P, y, E, g]);
   (0, import_react12.useEffect)(() => {
-    s2 && U.current(o2.current, d2.current);
+    s2 && L.current(o2.current, d2.current);
   }, [s2]), (0, import_react12.useEffect)(() => {
     !c2 && !s2 && X();
-  }, [c2, s2, X]), i2.current = e2, (0, import_react12.useEffect)(() => {
+  }, [c2, s2, X]), i2.current = t2, (0, import_react12.useEffect)(() => {
     s2 && O && (I.current?.dispose(), I.current = o2.current?.onDidChangeModelContent((p2) => {
       B.current || O(o2.current.getValue(), p2);
     }));
   }, [s2, O]), (0, import_react12.useEffect)(() => {
     if (s2) {
-      let p2 = d2.current.editor.onDidChangeMarkers((g) => {
+      let p2 = d2.current.editor.onDidChangeMarkers((R) => {
         let G = o2.current.getModel()?.uri;
-        if (G && g.find((J) => J.path === G.path)) {
+        if (G && R.find((J) => J.path === G.path)) {
           let J = d2.current.editor.getModelMarkers({ resource: G });
           T?.(J);
         }
@@ -4168,14 +2898,14 @@ function Vt({ defaultValue: t2, defaultLanguage: r2, defaultPath: n2, value: e2,
     return () => {
     };
   }, [s2, T]);
-  function pt() {
+  function pe() {
     I.current?.dispose(), V ? y && _.set(m, o2.current.saveViewState()) : o2.current.getModel()?.dispose(), o2.current.dispose();
   }
-  return import_react12.default.createElement(H, { width: z, height: F, isEditorReady: s2, loading: N, _ref: D, className: j, wrapperProps: A });
+  return import_react12.default.createElement(H, { width: z, height: F, isEditorReady: s2, loading: N, _ref: b, className: j, wrapperProps: A });
 }
-var ft = Vt;
-var dt = (0, import_react11.memo)(ft);
-var Fe = dt;
+var fe = Ve;
+var de = (0, import_react11.memo)(fe);
+var Ft = de;
 
 // node_modules/.pnpm/bail@2.0.2/node_modules/bail/index.js
 function bail(error) {
@@ -5184,8 +3914,8 @@ var CallableInstance = (
    * @returns {(...parameters: Array<unknown>) => unknown}
    */
   function(property) {
-    const self2 = this;
-    const constr = self2.constructor;
+    const self = this;
+    const constr = self.constructor;
     const proto = (
       /** @type {Record<string | symbol, Function>} */
       // Prototypes do exist.
@@ -5345,7 +4075,7 @@ var Processor = class _Processor extends CallableInstance {
     if (this.frozen) {
       return this;
     }
-    const self2 = (
+    const self = (
       /** @type {Processor} */
       /** @type {unknown} */
       this
@@ -5358,7 +4088,7 @@ var Processor = class _Processor extends CallableInstance {
       if (options[0] === true) {
         options[0] = void 0;
       }
-      const transformer = attacher.call(self2, ...options);
+      const transformer = attacher.call(self, ...options);
       if (typeof transformer === "function") {
         this.transformers.use(transformer);
       }
@@ -5431,7 +4161,7 @@ var Processor = class _Processor extends CallableInstance {
    *   [rehype-react]: https://github.com/rehypejs/rehype-react
    */
   process(file, done) {
-    const self2 = this;
+    const self = this;
     this.freeze();
     assertParser("process", this.parser || this.Parser);
     assertCompiler("process", this.compiler || this.Compiler);
@@ -5441,9 +4171,9 @@ var Processor = class _Processor extends CallableInstance {
       const parseTree = (
         /** @type {HeadTree extends undefined ? Node : HeadTree} */
         /** @type {unknown} */
-        self2.parse(realFile)
+        self.parse(realFile)
       );
-      self2.run(parseTree, realFile, function(error, tree, file2) {
+      self.run(parseTree, realFile, function(error, tree, file2) {
         if (error || !tree || !file2) {
           return realDone(error);
         }
@@ -5452,7 +4182,7 @@ var Processor = class _Processor extends CallableInstance {
           /** @type {unknown} */
           tree
         );
-        const compileResult = self2.stringify(compileTree, file2);
+        const compileResult = self.stringify(compileTree, file2);
         if (looksLikeAValue(compileResult)) {
           file2.value = compileResult;
         } else {
@@ -6108,7 +4838,7 @@ var containerConstruct = {
   tokenize: tokenizeContainer
 };
 function initializeDocument(effects) {
-  const self2 = this;
+  const self = this;
   const stack = [];
   let continued = 0;
   let childFlow;
@@ -6118,7 +4848,7 @@ function initializeDocument(effects) {
   function start(code3) {
     if (continued < stack.length) {
       const item = stack[continued];
-      self2.containerState = item[1];
+      self.containerState = item[1];
       return effects.attempt(
         item[0].continuation,
         documentContinue,
@@ -6129,33 +4859,33 @@ function initializeDocument(effects) {
   }
   function documentContinue(code3) {
     continued++;
-    if (self2.containerState._closeFlow) {
-      self2.containerState._closeFlow = void 0;
+    if (self.containerState._closeFlow) {
+      self.containerState._closeFlow = void 0;
       if (childFlow) {
         closeFlow();
       }
-      const indexBeforeExits = self2.events.length;
+      const indexBeforeExits = self.events.length;
       let indexBeforeFlow = indexBeforeExits;
       let point3;
       while (indexBeforeFlow--) {
-        if (self2.events[indexBeforeFlow][0] === "exit" && self2.events[indexBeforeFlow][1].type === "chunkFlow") {
-          point3 = self2.events[indexBeforeFlow][1].end;
+        if (self.events[indexBeforeFlow][0] === "exit" && self.events[indexBeforeFlow][1].type === "chunkFlow") {
+          point3 = self.events[indexBeforeFlow][1].end;
           break;
         }
       }
       exitContainers(continued);
       let index3 = indexBeforeExits;
-      while (index3 < self2.events.length) {
-        self2.events[index3][1].end = Object.assign({}, point3);
+      while (index3 < self.events.length) {
+        self.events[index3][1].end = Object.assign({}, point3);
         index3++;
       }
       splice(
-        self2.events,
+        self.events,
         indexBeforeFlow + 1,
         0,
-        self2.events.slice(indexBeforeExits)
+        self.events.slice(indexBeforeExits)
       );
-      self2.events.length = index3;
+      self.events.length = index3;
       return checkNewContainers(code3);
     }
     return start(code3);
@@ -6168,11 +4898,11 @@ function initializeDocument(effects) {
       if (childFlow.currentConstruct && childFlow.currentConstruct.concrete) {
         return flowStart(code3);
       }
-      self2.interrupt = Boolean(
+      self.interrupt = Boolean(
         childFlow.currentConstruct && !childFlow._gfmTableDynamicInterruptHack
       );
     }
-    self2.containerState = {};
+    self.containerState = {};
     return effects.check(
       containerConstruct,
       thereIsANewContainer,
@@ -6186,12 +4916,12 @@ function initializeDocument(effects) {
     return documentContinued(code3);
   }
   function thereIsNoNewContainer(code3) {
-    self2.parser.lazy[self2.now().line] = continued !== stack.length;
-    lineStartOffset = self2.now().offset;
+    self.parser.lazy[self.now().line] = continued !== stack.length;
+    lineStartOffset = self.now().offset;
     return flowStart(code3);
   }
   function documentContinued(code3) {
-    self2.containerState = {};
+    self.containerState = {};
     return effects.attempt(
       containerConstruct,
       containerContinue,
@@ -6200,7 +4930,7 @@ function initializeDocument(effects) {
   }
   function containerContinue(code3) {
     continued++;
-    stack.push([self2.currentConstruct, self2.containerState]);
+    stack.push([self.currentConstruct, self.containerState]);
     return documentContinued(code3);
   }
   function flowStart(code3) {
@@ -6211,7 +4941,7 @@ function initializeDocument(effects) {
       effects.consume(code3);
       return;
     }
-    childFlow = childFlow || self2.parser.flow(self2.now());
+    childFlow = childFlow || self.parser.flow(self.now());
     effects.enter("chunkFlow", {
       contentType: "flow",
       previous: childToken,
@@ -6230,14 +4960,14 @@ function initializeDocument(effects) {
       effects.consume(code3);
       writeToChild(effects.exit("chunkFlow"));
       continued = 0;
-      self2.interrupt = void 0;
+      self.interrupt = void 0;
       return start;
     }
     effects.consume(code3);
     return flowContinue;
   }
   function writeToChild(token, eof) {
-    const stream = self2.sliceStream(token);
+    const stream = self.sliceStream(token);
     if (eof)
       stream.push(null);
     token.previous = childToken;
@@ -6246,7 +4976,7 @@ function initializeDocument(effects) {
     childToken = token;
     childFlow.defineSkip(token.start);
     childFlow.write(stream);
-    if (self2.parser.lazy[token.start.line]) {
+    if (self.parser.lazy[token.start.line]) {
       let index3 = childFlow.events.length;
       while (index3--) {
         if (
@@ -6258,14 +4988,14 @@ function initializeDocument(effects) {
           return;
         }
       }
-      const indexBeforeExits = self2.events.length;
+      const indexBeforeExits = self.events.length;
       let indexBeforeFlow = indexBeforeExits;
       let seen;
       let point3;
       while (indexBeforeFlow--) {
-        if (self2.events[indexBeforeFlow][0] === "exit" && self2.events[indexBeforeFlow][1].type === "chunkFlow") {
+        if (self.events[indexBeforeFlow][0] === "exit" && self.events[indexBeforeFlow][1].type === "chunkFlow") {
           if (seen) {
-            point3 = self2.events[indexBeforeFlow][1].end;
+            point3 = self.events[indexBeforeFlow][1].end;
             break;
           }
           seen = true;
@@ -6273,25 +5003,25 @@ function initializeDocument(effects) {
       }
       exitContainers(continued);
       index3 = indexBeforeExits;
-      while (index3 < self2.events.length) {
-        self2.events[index3][1].end = Object.assign({}, point3);
+      while (index3 < self.events.length) {
+        self.events[index3][1].end = Object.assign({}, point3);
         index3++;
       }
       splice(
-        self2.events,
+        self.events,
         indexBeforeFlow + 1,
         0,
-        self2.events.slice(indexBeforeExits)
+        self.events.slice(indexBeforeExits)
       );
-      self2.events.length = index3;
+      self.events.length = index3;
     }
   }
   function exitContainers(size) {
     let index3 = stack.length;
     while (index3-- > size) {
       const entry = stack[index3];
-      self2.containerState = entry[1];
-      entry[0].exit.call(self2, effects);
+      self.containerState = entry[1];
+      entry[0].exit.call(self, effects);
     }
     stack.length = size;
   }
@@ -6299,7 +5029,7 @@ function initializeDocument(effects) {
     childFlow.write([null]);
     childToken = void 0;
     childFlow = void 0;
-    self2.containerState._closeFlow = void 0;
+    self.containerState._closeFlow = void 0;
   }
 }
 function tokenizeContainer(effects, ok2, nok) {
@@ -6592,11 +5322,11 @@ var blockQuote = {
   exit
 };
 function tokenizeBlockQuoteStart(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return start;
   function start(code3) {
     if (code3 === 62) {
-      const state = self2.containerState;
+      const state = self.containerState;
       if (!state.open) {
         effects.enter("blockQuote", {
           _container: true
@@ -6624,7 +5354,7 @@ function tokenizeBlockQuoteStart(effects, ok2, nok) {
   }
 }
 function tokenizeBlockQuoteContinuation(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return contStart;
   function contStart(code3) {
     if (markdownSpace(code3)) {
@@ -6632,7 +5362,7 @@ function tokenizeBlockQuoteContinuation(effects, ok2, nok) {
         effects,
         contBefore,
         "linePrefix",
-        self2.parser.constructs.disable.null.includes("codeIndented") ? void 0 : 4
+        self.parser.constructs.disable.null.includes("codeIndented") ? void 0 : 4
       )(code3);
     }
     return contBefore(code3);
@@ -6677,7 +5407,7 @@ var characterReference = {
   tokenize: tokenizeCharacterReference
 };
 function tokenizeCharacterReference(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   let size = 0;
   let max;
   let test;
@@ -6719,7 +5449,7 @@ function tokenizeCharacterReference(effects, ok2, nok) {
   function value(code3) {
     if (code3 === 59 && size) {
       const token = effects.exit("characterReferenceValue");
-      if (test === asciiAlphanumeric && !decodeNamedCharacterReference(self2.sliceSerialize(token))) {
+      if (test === asciiAlphanumeric && !decodeNamedCharacterReference(self.sliceSerialize(token))) {
         return nok(code3);
       }
       effects.enter("characterReferenceMarker");
@@ -6747,7 +5477,7 @@ var codeFenced = {
   concrete: true
 };
 function tokenizeCodeFenced(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   const closeStart = {
     tokenize: tokenizeCloseStart,
     partial: true
@@ -6760,7 +5490,7 @@ function tokenizeCodeFenced(effects, ok2, nok) {
     return beforeSequenceOpen(code3);
   }
   function beforeSequenceOpen(code3) {
-    const tail = self2.events[self2.events.length - 1];
+    const tail = self.events[self.events.length - 1];
     initialPrefix = tail && tail[1].type === "linePrefix" ? tail[2].sliceSerialize(tail[1], true).length : 0;
     marker = code3;
     effects.enter("codeFenced");
@@ -6783,7 +5513,7 @@ function tokenizeCodeFenced(effects, ok2, nok) {
   function infoBefore(code3) {
     if (code3 === null || markdownLineEnding(code3)) {
       effects.exit("codeFencedFence");
-      return self2.interrupt ? ok2(code3) : effects.check(nonLazyContinuation, atNonLazyBreak, after)(code3);
+      return self.interrupt ? ok2(code3) : effects.check(nonLazyContinuation, atNonLazyBreak, after)(code3);
     }
     effects.enter("codeFencedFenceInfo");
     effects.enter("chunkString", {
@@ -6881,7 +5611,7 @@ function tokenizeCodeFenced(effects, ok2, nok) {
         effects2,
         beforeSequenceClose,
         "linePrefix",
-        self2.parser.constructs.disable.null.includes("codeIndented") ? void 0 : 4
+        self.parser.constructs.disable.null.includes("codeIndented") ? void 0 : 4
       )(code3) : beforeSequenceClose(code3);
     }
     function beforeSequenceClose(code3) {
@@ -6913,7 +5643,7 @@ function tokenizeCodeFenced(effects, ok2, nok) {
   }
 }
 function tokenizeNonLazyContinuation(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return start;
   function start(code3) {
     if (code3 === null) {
@@ -6925,7 +5655,7 @@ function tokenizeNonLazyContinuation(effects, ok2, nok) {
     return lineStart;
   }
   function lineStart(code3) {
-    return self2.parser.lazy[self2.now().line] ? nok(code3) : ok2(code3);
+    return self.parser.lazy[self.now().line] ? nok(code3) : ok2(code3);
   }
 }
 
@@ -6939,14 +5669,14 @@ var furtherStart = {
   partial: true
 };
 function tokenizeCodeIndented(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return start;
   function start(code3) {
     effects.enter("codeIndented");
     return factorySpace(effects, afterPrefix, "linePrefix", 4 + 1)(code3);
   }
   function afterPrefix(code3) {
-    const tail = self2.events[self2.events.length - 1];
+    const tail = self.events[self.events.length - 1];
     return tail && tail[1].type === "linePrefix" && tail[2].sliceSerialize(tail[1], true).length >= 4 ? atBreak(code3) : nok(code3);
   }
   function atBreak(code3) {
@@ -6973,10 +5703,10 @@ function tokenizeCodeIndented(effects, ok2, nok) {
   }
 }
 function tokenizeFurtherStart(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return furtherStart2;
   function furtherStart2(code3) {
-    if (self2.parser.lazy[self2.now().line]) {
+    if (self.parser.lazy[self.now().line]) {
       return nok(code3);
     }
     if (markdownLineEnding(code3)) {
@@ -6988,7 +5718,7 @@ function tokenizeFurtherStart(effects, ok2, nok) {
     return factorySpace(effects, afterPrefix, "linePrefix", 4 + 1)(code3);
   }
   function afterPrefix(code3) {
-    const tail = self2.events[self2.events.length - 1];
+    const tail = self.events[self.events.length - 1];
     return tail && tail[1].type === "linePrefix" && tail[2].sliceSerialize(tail[1], true).length >= 4 ? ok2(code3) : markdownLineEnding(code3) ? furtherStart2(code3) : nok(code3);
   }
 }
@@ -7041,7 +5771,7 @@ function previous(code3) {
   return code3 !== 96 || this.events[this.events.length - 1][1].type === "characterEscape";
 }
 function tokenizeCodeText(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   let sizeOpen = 0;
   let size;
   let token;
@@ -7303,7 +6033,7 @@ function tokenizeContent(effects, ok2) {
   }
 }
 function tokenizeContinuation(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return startLookahead;
   function startLookahead(code3) {
     effects.exit("chunkContent");
@@ -7316,11 +6046,11 @@ function tokenizeContinuation(effects, ok2, nok) {
     if (code3 === null || markdownLineEnding(code3)) {
       return nok(code3);
     }
-    const tail = self2.events[self2.events.length - 1];
-    if (!self2.parser.constructs.disable.null.includes("codeIndented") && tail && tail[1].type === "linePrefix" && tail[2].sliceSerialize(tail[1], true).length >= 4) {
+    const tail = self.events[self.events.length - 1];
+    if (!self.parser.constructs.disable.null.includes("codeIndented") && tail && tail[1].type === "linePrefix" && tail[2].sliceSerialize(tail[1], true).length >= 4) {
       return ok2(code3);
     }
-    return effects.interrupt(self2.parser.constructs.flow, nok, ok2)(code3);
+    return effects.interrupt(self.parser.constructs.flow, nok, ok2)(code3);
   }
 }
 
@@ -7418,7 +6148,7 @@ function factoryDestination(effects, ok2, nok, type, literalType, literalMarkerT
 
 // node_modules/.pnpm/micromark-factory-label@2.0.0/node_modules/micromark-factory-label/index.js
 function factoryLabel(effects, ok2, nok, type, markerType, stringType) {
-  const self2 = this;
+  const self = this;
   let size = 0;
   let seen;
   return start;
@@ -7436,7 +6166,7 @@ function factoryLabel(effects, ok2, nok, type, markerType, stringType) {
     // which doesn’t need this.
     // Hidden footnotes hook.
     /* c8 ignore next 3 */
-    code3 === 94 && !size && "_hiddenFootnoteSupport" in self2.parser.constructs) {
+    code3 === 94 && !size && "_hiddenFootnoteSupport" in self.parser.constructs) {
       return nok(code3);
     }
     if (code3 === 93) {
@@ -7573,7 +6303,7 @@ var titleBefore = {
   partial: true
 };
 function tokenizeDefinition(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   let identifier;
   return start;
   function start(code3) {
@@ -7582,7 +6312,7 @@ function tokenizeDefinition(effects, ok2, nok) {
   }
   function before(code3) {
     return factoryLabel.call(
-      self2,
+      self,
       effects,
       labelAfter,
       // Note: we don’t need to reset the way `markdown-rs` does.
@@ -7594,7 +6324,7 @@ function tokenizeDefinition(effects, ok2, nok) {
   }
   function labelAfter(code3) {
     identifier = normalizeIdentifier(
-      self2.sliceSerialize(self2.events[self2.events.length - 1][1]).slice(1, -1)
+      self.sliceSerialize(self.events[self.events.length - 1][1]).slice(1, -1)
     );
     if (code3 === 58) {
       effects.enter("definitionMarker");
@@ -7629,7 +6359,7 @@ function tokenizeDefinition(effects, ok2, nok) {
   function afterWhitespace(code3) {
     if (code3 === null || markdownLineEnding(code3)) {
       effects.exit("definition");
-      self2.parser.defined.push(identifier);
+      self.parser.defined.push(identifier);
       return ok2(code3);
     }
     return nok(code3);
@@ -7872,7 +6602,7 @@ function resolveToHtmlFlow(events) {
   return events;
 }
 function tokenizeHtmlFlow(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   let marker;
   let closingTag;
   let buffer;
@@ -7901,7 +6631,7 @@ function tokenizeHtmlFlow(effects, ok2, nok) {
     if (code3 === 63) {
       effects.consume(code3);
       marker = 3;
-      return self2.interrupt ? ok2 : continuationDeclarationInside;
+      return self.interrupt ? ok2 : continuationDeclarationInside;
     }
     if (asciiAlpha(code3)) {
       effects.consume(code3);
@@ -7925,14 +6655,14 @@ function tokenizeHtmlFlow(effects, ok2, nok) {
     if (asciiAlpha(code3)) {
       effects.consume(code3);
       marker = 4;
-      return self2.interrupt ? ok2 : continuationDeclarationInside;
+      return self.interrupt ? ok2 : continuationDeclarationInside;
     }
     return nok(code3);
   }
   function commentOpenInside(code3) {
     if (code3 === 45) {
       effects.consume(code3);
-      return self2.interrupt ? ok2 : continuationDeclarationInside;
+      return self.interrupt ? ok2 : continuationDeclarationInside;
     }
     return nok(code3);
   }
@@ -7941,7 +6671,7 @@ function tokenizeHtmlFlow(effects, ok2, nok) {
     if (code3 === value.charCodeAt(index3++)) {
       effects.consume(code3);
       if (index3 === value.length) {
-        return self2.interrupt ? ok2 : continuation;
+        return self.interrupt ? ok2 : continuation;
       }
       return cdataOpenInside;
     }
@@ -7961,7 +6691,7 @@ function tokenizeHtmlFlow(effects, ok2, nok) {
       const name2 = buffer.toLowerCase();
       if (!slash && !closingTag && htmlRawNames.includes(name2)) {
         marker = 1;
-        return self2.interrupt ? ok2(code3) : continuation(code3);
+        return self.interrupt ? ok2(code3) : continuation(code3);
       }
       if (htmlBlockNames.includes(buffer.toLowerCase())) {
         marker = 6;
@@ -7969,10 +6699,10 @@ function tokenizeHtmlFlow(effects, ok2, nok) {
           effects.consume(code3);
           return basicSelfClosing;
         }
-        return self2.interrupt ? ok2(code3) : continuation(code3);
+        return self.interrupt ? ok2(code3) : continuation(code3);
       }
       marker = 7;
-      return self2.interrupt && !self2.parser.lazy[self2.now().line] ? nok(code3) : closingTag ? completeClosingTagAfter(code3) : completeAttributeNameBefore(code3);
+      return self.interrupt && !self.parser.lazy[self.now().line] ? nok(code3) : closingTag ? completeClosingTagAfter(code3) : completeAttributeNameBefore(code3);
     }
     if (code3 === 45 || asciiAlphanumeric(code3)) {
       effects.consume(code3);
@@ -7984,7 +6714,7 @@ function tokenizeHtmlFlow(effects, ok2, nok) {
   function basicSelfClosing(code3) {
     if (code3 === 62) {
       effects.consume(code3);
-      return self2.interrupt ? ok2 : continuation;
+      return self.interrupt ? ok2 : continuation;
     }
     return nok(code3);
   }
@@ -8204,7 +6934,7 @@ function tokenizeHtmlFlow(effects, ok2, nok) {
   }
 }
 function tokenizeNonLazyContinuationStart(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return start;
   function start(code3) {
     if (markdownLineEnding(code3)) {
@@ -8216,7 +6946,7 @@ function tokenizeNonLazyContinuationStart(effects, ok2, nok) {
     return nok(code3);
   }
   function after(code3) {
-    return self2.parser.lazy[self2.now().line] ? nok(code3) : ok2(code3);
+    return self.parser.lazy[self.now().line] ? nok(code3) : ok2(code3);
   }
 }
 function tokenizeBlankLineBefore(effects, ok2, nok) {
@@ -8235,7 +6965,7 @@ var htmlText = {
   tokenize: tokenizeHtmlText
 };
 function tokenizeHtmlText(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   let marker;
   let index3;
   let returnState;
@@ -8531,7 +7261,7 @@ function tokenizeHtmlText(effects, ok2, nok) {
       effects,
       lineEndingAfterPrefix,
       "linePrefix",
-      self2.parser.constructs.disable.null.includes("codeIndented") ? void 0 : 4
+      self.parser.constructs.disable.null.includes("codeIndented") ? void 0 : 4
     )(code3) : lineEndingAfterPrefix(code3);
   }
   function lineEndingAfterPrefix(code3) {
@@ -8637,13 +7367,13 @@ function resolveToLabelEnd(events, context) {
   return events;
 }
 function tokenizeLabelEnd(effects, ok2, nok) {
-  const self2 = this;
-  let index3 = self2.events.length;
+  const self = this;
+  let index3 = self.events.length;
   let labelStart;
   let defined;
   while (index3--) {
-    if ((self2.events[index3][1].type === "labelImage" || self2.events[index3][1].type === "labelLink") && !self2.events[index3][1]._balanced) {
-      labelStart = self2.events[index3][1];
+    if ((self.events[index3][1].type === "labelImage" || self.events[index3][1].type === "labelLink") && !self.events[index3][1]._balanced) {
+      labelStart = self.events[index3][1];
       break;
     }
   }
@@ -8655,11 +7385,11 @@ function tokenizeLabelEnd(effects, ok2, nok) {
     if (labelStart._inactive) {
       return labelEndNok(code3);
     }
-    defined = self2.parser.defined.includes(
+    defined = self.parser.defined.includes(
       normalizeIdentifier(
-        self2.sliceSerialize({
+        self.sliceSerialize({
           start: labelStart.end,
-          end: self2.now()
+          end: self.now()
         })
       )
     );
@@ -8764,11 +7494,11 @@ function tokenizeResource(effects, ok2, nok) {
   }
 }
 function tokenizeReferenceFull(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return referenceFull;
   function referenceFull(code3) {
     return factoryLabel.call(
-      self2,
+      self,
       effects,
       referenceFullAfter,
       referenceFullMissing,
@@ -8778,9 +7508,9 @@ function tokenizeReferenceFull(effects, ok2, nok) {
     )(code3);
   }
   function referenceFullAfter(code3) {
-    return self2.parser.defined.includes(
+    return self.parser.defined.includes(
       normalizeIdentifier(
-        self2.sliceSerialize(self2.events[self2.events.length - 1][1]).slice(1, -1)
+        self.sliceSerialize(self.events[self.events.length - 1][1]).slice(1, -1)
       )
     ) ? ok2(code3) : nok(code3);
   }
@@ -8816,7 +7546,7 @@ var labelStartImage = {
   resolveAll: labelEnd.resolveAll
 };
 function tokenizeLabelStartImage(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return start;
   function start(code3) {
     effects.enter("labelImage");
@@ -8836,7 +7566,7 @@ function tokenizeLabelStartImage(effects, ok2, nok) {
     return nok(code3);
   }
   function after(code3) {
-    return code3 === 94 && "_hiddenFootnoteSupport" in self2.parser.constructs ? nok(code3) : ok2(code3);
+    return code3 === 94 && "_hiddenFootnoteSupport" in self.parser.constructs ? nok(code3) : ok2(code3);
   }
 }
 
@@ -8847,7 +7577,7 @@ var labelStartLink = {
   resolveAll: labelEnd.resolveAll
 };
 function tokenizeLabelStartLink(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return start;
   function start(code3) {
     effects.enter("labelLink");
@@ -8858,7 +7588,7 @@ function tokenizeLabelStartLink(effects, ok2, nok) {
     return after;
   }
   function after(code3) {
-    return code3 === 94 && "_hiddenFootnoteSupport" in self2.parser.constructs ? nok(code3) : ok2(code3);
+    return code3 === 94 && "_hiddenFootnoteSupport" in self.parser.constructs ? nok(code3) : ok2(code3);
   }
 }
 
@@ -8934,16 +7664,16 @@ var indentConstruct = {
   partial: true
 };
 function tokenizeListStart(effects, ok2, nok) {
-  const self2 = this;
-  const tail = self2.events[self2.events.length - 1];
+  const self = this;
+  const tail = self.events[self.events.length - 1];
   let initialSize = tail && tail[1].type === "linePrefix" ? tail[2].sliceSerialize(tail[1], true).length : 0;
   let size = 0;
   return start;
   function start(code3) {
-    const kind = self2.containerState.type || (code3 === 42 || code3 === 43 || code3 === 45 ? "listUnordered" : "listOrdered");
-    if (kind === "listUnordered" ? !self2.containerState.marker || code3 === self2.containerState.marker : asciiDigit(code3)) {
-      if (!self2.containerState.type) {
-        self2.containerState.type = kind;
+    const kind = self.containerState.type || (code3 === 42 || code3 === 43 || code3 === 45 ? "listUnordered" : "listOrdered");
+    if (kind === "listUnordered" ? !self.containerState.marker || code3 === self.containerState.marker : asciiDigit(code3)) {
+      if (!self.containerState.type) {
+        self.containerState.type = kind;
         effects.enter(kind, {
           _container: true
         });
@@ -8952,7 +7682,7 @@ function tokenizeListStart(effects, ok2, nok) {
         effects.enter("listItemPrefix");
         return code3 === 42 || code3 === 45 ? effects.check(thematicBreak, nok, atMarker)(code3) : atMarker(code3);
       }
-      if (!self2.interrupt || code3 === 49) {
+      if (!self.interrupt || code3 === 49) {
         effects.enter("listItemPrefix");
         effects.enter("listItemValue");
         return inside(code3);
@@ -8965,7 +7695,7 @@ function tokenizeListStart(effects, ok2, nok) {
       effects.consume(code3);
       return inside;
     }
-    if ((!self2.interrupt || size < 2) && (self2.containerState.marker ? code3 === self2.containerState.marker : code3 === 41 || code3 === 46)) {
+    if ((!self.interrupt || size < 2) && (self.containerState.marker ? code3 === self.containerState.marker : code3 === 41 || code3 === 46)) {
       effects.exit("listItemValue");
       return atMarker(code3);
     }
@@ -8975,11 +7705,11 @@ function tokenizeListStart(effects, ok2, nok) {
     effects.enter("listItemMarker");
     effects.consume(code3);
     effects.exit("listItemMarker");
-    self2.containerState.marker = self2.containerState.marker || code3;
+    self.containerState.marker = self.containerState.marker || code3;
     return effects.check(
       blankLine,
       // Can’t be empty when interrupting.
-      self2.interrupt ? nok : onBlank,
+      self.interrupt ? nok : onBlank,
       effects.attempt(
         listItemPrefixWhitespaceConstruct,
         endOfPrefix,
@@ -8988,7 +7718,7 @@ function tokenizeListStart(effects, ok2, nok) {
     );
   }
   function onBlank(code3) {
-    self2.containerState.initialBlankLine = true;
+    self.containerState.initialBlankLine = true;
     initialSize++;
     return endOfPrefix(code3);
   }
@@ -9002,70 +7732,70 @@ function tokenizeListStart(effects, ok2, nok) {
     return nok(code3);
   }
   function endOfPrefix(code3) {
-    self2.containerState.size = initialSize + self2.sliceSerialize(effects.exit("listItemPrefix"), true).length;
+    self.containerState.size = initialSize + self.sliceSerialize(effects.exit("listItemPrefix"), true).length;
     return ok2(code3);
   }
 }
 function tokenizeListContinuation(effects, ok2, nok) {
-  const self2 = this;
-  self2.containerState._closeFlow = void 0;
+  const self = this;
+  self.containerState._closeFlow = void 0;
   return effects.check(blankLine, onBlank, notBlank);
   function onBlank(code3) {
-    self2.containerState.furtherBlankLines = self2.containerState.furtherBlankLines || self2.containerState.initialBlankLine;
+    self.containerState.furtherBlankLines = self.containerState.furtherBlankLines || self.containerState.initialBlankLine;
     return factorySpace(
       effects,
       ok2,
       "listItemIndent",
-      self2.containerState.size + 1
+      self.containerState.size + 1
     )(code3);
   }
   function notBlank(code3) {
-    if (self2.containerState.furtherBlankLines || !markdownSpace(code3)) {
-      self2.containerState.furtherBlankLines = void 0;
-      self2.containerState.initialBlankLine = void 0;
+    if (self.containerState.furtherBlankLines || !markdownSpace(code3)) {
+      self.containerState.furtherBlankLines = void 0;
+      self.containerState.initialBlankLine = void 0;
       return notInCurrentItem(code3);
     }
-    self2.containerState.furtherBlankLines = void 0;
-    self2.containerState.initialBlankLine = void 0;
+    self.containerState.furtherBlankLines = void 0;
+    self.containerState.initialBlankLine = void 0;
     return effects.attempt(indentConstruct, ok2, notInCurrentItem)(code3);
   }
   function notInCurrentItem(code3) {
-    self2.containerState._closeFlow = true;
-    self2.interrupt = void 0;
+    self.containerState._closeFlow = true;
+    self.interrupt = void 0;
     return factorySpace(
       effects,
       effects.attempt(list, ok2, nok),
       "linePrefix",
-      self2.parser.constructs.disable.null.includes("codeIndented") ? void 0 : 4
+      self.parser.constructs.disable.null.includes("codeIndented") ? void 0 : 4
     )(code3);
   }
 }
 function tokenizeIndent(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return factorySpace(
     effects,
     afterPrefix,
     "listItemIndent",
-    self2.containerState.size + 1
+    self.containerState.size + 1
   );
   function afterPrefix(code3) {
-    const tail = self2.events[self2.events.length - 1];
-    return tail && tail[1].type === "listItemIndent" && tail[2].sliceSerialize(tail[1], true).length === self2.containerState.size ? ok2(code3) : nok(code3);
+    const tail = self.events[self.events.length - 1];
+    return tail && tail[1].type === "listItemIndent" && tail[2].sliceSerialize(tail[1], true).length === self.containerState.size ? ok2(code3) : nok(code3);
   }
 }
 function tokenizeListEnd(effects) {
   effects.exit(this.containerState.type);
 }
 function tokenizeListItemPrefixWhitespace(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   return factorySpace(
     effects,
     afterPrefix,
     "listItemPrefixWhitespace",
-    self2.parser.constructs.disable.null.includes("codeIndented") ? void 0 : 4 + 1
+    self.parser.constructs.disable.null.includes("codeIndented") ? void 0 : 4 + 1
   );
   function afterPrefix(code3) {
-    const tail = self2.events[self2.events.length - 1];
+    const tail = self.events[self.events.length - 1];
     return !markdownSpace(code3) && tail && tail[1].type === "listItemPrefixWhitespace" ? ok2(code3) : nok(code3);
   }
 }
@@ -9116,19 +7846,19 @@ function resolveToSetextUnderline(events, context) {
   return events;
 }
 function tokenizeSetextUnderline(effects, ok2, nok) {
-  const self2 = this;
+  const self = this;
   let marker;
   return start;
   function start(code3) {
-    let index3 = self2.events.length;
+    let index3 = self.events.length;
     let paragraph;
     while (index3--) {
-      if (self2.events[index3][1].type !== "lineEnding" && self2.events[index3][1].type !== "linePrefix" && self2.events[index3][1].type !== "content") {
-        paragraph = self2.events[index3][1].type === "paragraph";
+      if (self.events[index3][1].type !== "lineEnding" && self.events[index3][1].type !== "linePrefix" && self.events[index3][1].type !== "content") {
+        paragraph = self.events[index3][1].type === "paragraph";
         break;
       }
     }
-    if (!self2.parser.lazy[self2.now().line] && (self2.interrupt || paragraph)) {
+    if (!self.parser.lazy[self.now().line] && (self.interrupt || paragraph)) {
       effects.enter("setextHeadingLine");
       marker = code3;
       return before(code3);
@@ -9161,7 +7891,7 @@ var flow = {
   tokenize: initializeFlow
 };
 function initializeFlow(effects) {
-  const self2 = this;
+  const self = this;
   const initial = effects.attempt(
     // Try to parse a blank line.
     blankLine,
@@ -9190,7 +7920,7 @@ function initializeFlow(effects) {
     effects.enter("lineEndingBlank");
     effects.consume(code3);
     effects.exit("lineEndingBlank");
-    self2.currentConstruct = void 0;
+    self.currentConstruct = void 0;
     return initial;
   }
   function afterConstruct(code3) {
@@ -9201,7 +7931,7 @@ function initializeFlow(effects) {
     effects.enter("lineEnding");
     effects.consume(code3);
     effects.exit("lineEnding");
-    self2.currentConstruct = void 0;
+    self.currentConstruct = void 0;
     return initial;
   }
 }
@@ -9220,7 +7950,7 @@ function initializeFactory(field) {
     )
   };
   function initializeText(effects) {
-    const self2 = this;
+    const self = this;
     const constructs2 = this.parser.constructs[field];
     const text3 = effects.attempt(constructs2, start, notText);
     return start;
@@ -9253,7 +7983,7 @@ function initializeFactory(field) {
       if (list2) {
         while (++index3 < list2.length) {
           const item = list2[index3];
-          if (!item.previous || item.previous.call(self2, self2.previous)) {
+          if (!item.previous || item.previous.call(self, self.previous)) {
             return true;
           }
         }
@@ -9384,7 +8114,7 @@ function createTokenizer(parser, initialize, from3) {
     sliceSerialize,
     now,
     defineSkip,
-    write
+    write: write2
   };
   let state = initialize.tokenize.call(context, effects);
   let expectedCode;
@@ -9392,7 +8122,7 @@ function createTokenizer(parser, initialize, from3) {
     resolveAllConstructs.push(initialize);
   }
   return context;
-  function write(slice) {
+  function write2(slice) {
     chunks = push(chunks, slice);
     main();
     if (chunks[chunks.length - 1] !== null) {
@@ -10056,7 +8786,7 @@ function compiler(options) {
     }
     return tree;
   }
-  function prepareList(events, start, length2) {
+  function prepareList(events, start, length3) {
     let index3 = start - 1;
     let containerBalance = -1;
     let listSpread = false;
@@ -10064,7 +8794,7 @@ function compiler(options) {
     let lineIndex;
     let firstBlankLineIndex;
     let atMarker;
-    while (++index3 <= length2) {
+    while (++index3 <= length3) {
       const event = events[index3];
       switch (event[1].type) {
         case "listUnordered":
@@ -10127,7 +8857,7 @@ function compiler(options) {
           );
           events.splice(lineIndex || index3, 0, ["exit", listItem2, event[2]]);
           index3++;
-          length2++;
+          length3++;
         }
         if (event[1].type === "listItemPrefix") {
           const item = {
@@ -10140,14 +8870,14 @@ function compiler(options) {
           listItem2 = item;
           events.splice(index3, 0, ["enter", item, event[2]]);
           index3++;
-          length2++;
+          length3++;
           firstBlankLineIndex = void 0;
           atMarker = true;
         }
       }
     }
     events[start][1]._spread = listSpread;
-    return length2;
+    return length3;
   }
   function opener(create3, and) {
     return open;
@@ -10614,17 +9344,17 @@ function defaultOnError(left, right) {
 
 // node_modules/.pnpm/remark-parse@11.0.0/node_modules/remark-parse/lib/index.js
 function remarkParse(options) {
-  const self2 = this;
-  self2.parser = parser;
+  const self = this;
+  self.parser = parser;
   function parser(doc) {
     return fromMarkdown(doc, {
-      ...self2.data("settings"),
+      ...self.data("settings"),
       ...options,
       // Note: these options are not in the readme.
       // The goal is for them to be set by plugins on `data` instead of being
       // passed by users.
-      extensions: self2.data("micromarkExtensions") || [],
-      mdastExtensions: self2.data("fromMarkdownExtensions") || []
+      extensions: self.data("micromarkExtensions") || [],
+      mdastExtensions: self.data("fromMarkdownExtensions") || []
     });
   }
 }
@@ -10927,7 +9657,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
             children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Space, { direction: "vertical", style: { width: "100%" }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Input, { value: title, onChange: (e2) => setTitle(e2.target.value), placeholder: "Title (optional)" }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                Fe,
+                Ft,
                 {
                   theme: token.theme.id === 4 ? "vs-dark" : "light",
                   height: "50vh",
@@ -11499,6 +10229,26 @@ ${(0, import_agent_explorer_plugin7.getIssuerDID)(credential.verifiableCredentia
       message: "Credential wikilink copied to clipboard"
     });
   };
+  const defaultItems = [
+    {
+      key: "copy-wiki",
+      label: "Copy wiki link",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LinkOutlined_default2, {}),
+      onClick: handleCopyWikilink
+    },
+    {
+      key: "embed",
+      label: "Copy embed",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PicLeftOutlined_default2, {}),
+      onClick: handleCopyEmbed
+    },
+    {
+      key: "reference",
+      label: "Copy reference",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PicLeftOutlined_default2, {}),
+      onClick: handleCopyReference
+    }
+  ];
   if (credential.verifiableCredential.type?.includes("BrainSharePost")) {
     return [
       {
@@ -11513,27 +10263,10 @@ ${(0, import_agent_explorer_plugin7.getIssuerDID)(credential.verifiableCredentia
         icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(EditOutlined_default2, {}),
         onClick: () => navigate("/brainshare/edit/" + credential.hash)
       },
-      {
-        key: "copy-wiki",
-        label: "Copy wiki link",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LinkOutlined_default2, {}),
-        onClick: handleCopyWikilink
-      },
-      {
-        key: "embed",
-        label: "Copy embed",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PicLeftOutlined_default2, {}),
-        onClick: handleCopyEmbed
-      },
-      {
-        key: "reference",
-        label: "Copy reference",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PicLeftOutlined_default2, {}),
-        onClick: handleCopyReference
-      }
+      ...defaultItems
     ];
   }
-  return void 0;
+  return defaultItems;
 };
 
 // src/Edit.tsx
@@ -11642,11 +10375,11 @@ function allocUnsafe(size = 0) {
 }
 
 // node_modules/.pnpm/uint8arrays@4.0.6/node_modules/uint8arrays/dist/src/concat.js
-function concat(arrays, length2) {
-  if (length2 == null) {
-    length2 = arrays.reduce((acc, curr) => acc + curr.length, 0);
+function concat(arrays, length3) {
+  if (length3 == null) {
+    length3 = arrays.reduce((acc, curr) => acc + curr.length, 0);
   }
-  const output3 = allocUnsafe(length2);
+  const output3 = allocUnsafe(length3);
   let offset = 0;
   for (const arr of arrays) {
     output3.set(arr, offset);
@@ -11697,7 +10430,7 @@ function base(ALPHABET, name2) {
       return "";
     }
     var zeroes = 0;
-    var length2 = 0;
+    var length3 = 0;
     var pbegin = 0;
     var pend = source.length;
     while (pbegin !== pend && source[pbegin] === 0) {
@@ -11709,7 +10442,7 @@ function base(ALPHABET, name2) {
     while (pbegin !== pend) {
       var carry = source[pbegin];
       var i3 = 0;
-      for (var it1 = size - 1; (carry !== 0 || i3 < length2) && it1 !== -1; it1--, i3++) {
+      for (var it1 = size - 1; (carry !== 0 || i3 < length3) && it1 !== -1; it1--, i3++) {
         carry += 256 * b58[it1] >>> 0;
         b58[it1] = carry % BASE >>> 0;
         carry = carry / BASE >>> 0;
@@ -11717,10 +10450,10 @@ function base(ALPHABET, name2) {
       if (carry !== 0) {
         throw new Error("Non-zero carry");
       }
-      length2 = i3;
+      length3 = i3;
       pbegin++;
     }
-    var it2 = size - length2;
+    var it2 = size - length3;
     while (it2 !== size && b58[it2] === 0) {
       it2++;
     }
@@ -11742,7 +10475,7 @@ function base(ALPHABET, name2) {
       return;
     }
     var zeroes = 0;
-    var length2 = 0;
+    var length3 = 0;
     while (source[psz] === LEADER) {
       zeroes++;
       psz++;
@@ -11755,7 +10488,7 @@ function base(ALPHABET, name2) {
         return;
       }
       var i3 = 0;
-      for (var it3 = size - 1; (carry !== 0 || i3 < length2) && it3 !== -1; it3--, i3++) {
+      for (var it3 = size - 1; (carry !== 0 || i3 < length3) && it3 !== -1; it3--, i3++) {
         carry += BASE * b256[it3] >>> 0;
         b256[it3] = carry % 256 >>> 0;
         carry = carry / 256 >>> 0;
@@ -11763,13 +10496,13 @@ function base(ALPHABET, name2) {
       if (carry !== 0) {
         throw new Error("Non-zero carry");
       }
-      length2 = i3;
+      length3 = i3;
       psz++;
     }
     if (source[psz] === " ") {
       return;
     }
-    var it4 = size - length2;
+    var it4 = size - length3;
     while (it4 !== size && b256[it4] === 0) {
       it4++;
     }
@@ -11823,7 +10556,7 @@ var coerce = (o2) => {
   throw new Error("Unknown type, must be binary type");
 };
 var fromString = (str) => new TextEncoder().encode(str);
-var toString2 = (b2) => new TextDecoder().decode(b2);
+var toString2 = (b) => new TextDecoder().decode(b);
 
 // node_modules/.pnpm/multiformats@12.1.2/node_modules/multiformats/src/bases/base.js
 var Encoder = class {
@@ -12339,16 +11072,16 @@ var decode4 = read;
 var MSB$1 = 128;
 var REST$1 = 127;
 function read(buf, offset) {
-  var res = 0, offset = offset || 0, shift = 0, counter = offset, b2, l3 = buf.length;
+  var res = 0, offset = offset || 0, shift = 0, counter = offset, b, l3 = buf.length;
   do {
     if (counter >= l3) {
       read.bytes = 0;
       throw new RangeError("Could not decode varint");
     }
-    b2 = buf[counter++];
-    res += shift < 28 ? (b2 & REST$1) << shift : (b2 & REST$1) * Math.pow(2, shift);
+    b = buf[counter++];
+    res += shift < 28 ? (b & REST$1) << shift : (b & REST$1) * Math.pow(2, shift);
     shift += 7;
-  } while (b2 >= MSB$1);
+  } while (b >= MSB$1);
   read.bytes = counter - offset;
   return res;
 }
@@ -12406,13 +11139,13 @@ var decode6 = (multihash) => {
   }
   return new Digest(code3, size, digest2, bytes3);
 };
-var equals2 = (a2, b2) => {
-  if (a2 === b2) {
+var equals2 = (a2, b) => {
+  if (a2 === b) {
     return true;
   } else {
     const data = (
       /** @type {{code?:unknown, size?:unknown, bytes?:unknown}} */
-      b2
+      b
     );
     return a2.code === data.code && a2.size === data.size && data.bytes instanceof Uint8Array && equals(a2.bytes, data.bytes);
   }
@@ -12631,12 +11364,12 @@ var CID = class _CID {
    * @param {unknown} other
    * @returns {other is CID}
    */
-  static equals(self2, other) {
+  static equals(self, other) {
     const unknown = (
       /** @type {{code?:unknown, version?:unknown, multihash?:unknown}} */
       other
     );
-    return unknown && self2.code === unknown.code && self2.version === unknown.version && equals2(self2.multihash, unknown.multihash);
+    return unknown && self.code === unknown.code && self.version === unknown.version && equals2(self.multihash, unknown.multihash);
   }
   /**
    * @param {API.MultibaseEncoder<string>} [base]
@@ -12853,8 +11586,8 @@ var CID = class _CID {
   static inspectBytes(initialBytes) {
     let offset = 0;
     const next = () => {
-      const [i2, length2] = decode5(initialBytes.subarray(offset));
-      offset += length2;
+      const [i2, length3] = decode5(initialBytes.subarray(offset));
+      offset += length3;
       return i2;
     };
     let version = (
@@ -13072,11 +11805,11 @@ function number(n2) {
   if (!Number.isSafeInteger(n2) || n2 < 0)
     throw new Error(`Wrong positive integer: ${n2}`);
 }
-function bytes(b2, ...lengths) {
-  if (!(b2 instanceof Uint8Array))
+function bytes(b, ...lengths) {
+  if (!(b instanceof Uint8Array))
     throw new Error("Expected Uint8Array");
-  if (lengths.length > 0 && !lengths.includes(b2.length))
-    throw new Error(`Expected Uint8Array of length ${lengths}, not of length=${b2.length}`);
+  if (lengths.length > 0 && !lengths.includes(b.length))
+    throw new Error(`Expected Uint8Array of length ${lengths}, not of length=${b.length}`);
 }
 function hash(hash3) {
   if (typeof hash3 !== "function" || typeof hash3.create !== "function")
@@ -13251,12 +11984,12 @@ var SHA2 = class extends Hash {
   _cloneInto(to) {
     to || (to = new this.constructor());
     to.set(...this.get());
-    const { blockLen, buffer, length: length2, finished, destroyed, pos } = this;
-    to.length = length2;
+    const { blockLen, buffer, length: length3, finished, destroyed, pos } = this;
+    to.length = length3;
     to.pos = pos;
     to.finished = finished;
     to.destroyed = destroyed;
-    if (length2 % blockLen)
+    if (length3 % blockLen)
       to.buffer.set(buffer);
     return to;
   }
@@ -13265,16 +11998,16 @@ var SHA2 = class extends Hash {
 // node_modules/.pnpm/@noble+hashes@1.3.2/node_modules/@noble/hashes/esm/_u64.js
 var U32_MASK64 = /* @__PURE__ */ BigInt(2 ** 32 - 1);
 var _32n = /* @__PURE__ */ BigInt(32);
-function fromBig(n2, le = false) {
-  if (le)
+function fromBig(n2, le2 = false) {
+  if (le2)
     return { h: Number(n2 & U32_MASK64), l: Number(n2 >> _32n & U32_MASK64) };
   return { h: Number(n2 >> _32n & U32_MASK64) | 0, l: Number(n2 & U32_MASK64) | 0 };
 }
-function split(lst, le = false) {
+function split(lst, le2 = false) {
   let Ah = new Uint32Array(lst.length);
   let Al = new Uint32Array(lst.length);
   for (let i2 = 0; i2 < lst.length; i2++) {
-    const { h: h3, l: l3 } = fromBig(lst[i2], le);
+    const { h: h3, l: l3 } = fromBig(lst[i2], le2);
     [Ah[i2], Al[i2]] = [h3, l3];
   }
   return [Ah, Al];
@@ -13679,7 +12412,7 @@ function createHmacDrbg(hashLen, qByteLen, hmacFn) {
     k3.fill(0);
     i2 = 0;
   };
-  const h3 = (...b2) => hmacFn(k3, v2, ...b2);
+  const h3 = (...b) => hmacFn(k3, v2, ...b);
   const reseed = (seed = u8n()) => {
     k3 = h3(u8fr([0]), seed);
     v2 = h3();
@@ -13752,9 +12485,9 @@ var _5n = BigInt(5);
 var _8n = BigInt(8);
 var _9n = BigInt(9);
 var _16n = BigInt(16);
-function mod2(a2, b2) {
-  const result = a2 % b2;
-  return result >= _0n2 ? result : b2 + result;
+function mod(a2, b) {
+  const result = a2 % b;
+  return result >= _0n2 ? result : b + result;
 }
 function pow(num, power, modulo) {
   if (modulo <= _0n2 || power < _0n2)
@@ -13782,29 +12515,29 @@ function invert(number3, modulo) {
   if (number3 === _0n2 || modulo <= _0n2) {
     throw new Error(`invert: expected positive integers, got n=${number3} mod=${modulo}`);
   }
-  let a2 = mod2(number3, modulo);
-  let b2 = modulo;
+  let a2 = mod(number3, modulo);
+  let b = modulo;
   let x = _0n2, y = _1n2, u2 = _1n2, v2 = _0n2;
   while (a2 !== _0n2) {
-    const q = b2 / a2;
-    const r2 = b2 % a2;
+    const q = b / a2;
+    const r2 = b % a2;
     const m = x - u2 * q;
     const n2 = y - v2 * q;
-    b2 = a2, a2 = r2, x = u2, y = v2, u2 = m, v2 = n2;
+    b = a2, a2 = r2, x = u2, y = v2, u2 = m, v2 = n2;
   }
-  const gcd2 = b2;
+  const gcd2 = b;
   if (gcd2 !== _1n2)
     throw new Error("invert: does not exist");
-  return mod2(x, modulo);
+  return mod(x, modulo);
 }
 function tonelliShanks(P) {
   const legendreC = (P - _1n2) / _2n2;
-  let Q, S, Z2;
-  for (Q = P - _1n2, S = 0; Q % _2n2 === _0n2; Q /= _2n2, S++)
+  let Q, S2, Z2;
+  for (Q = P - _1n2, S2 = 0; Q % _2n2 === _0n2; Q /= _2n2, S2++)
     ;
   for (Z2 = _2n2; Z2 < P && pow(Z2, legendreC, P) !== P - _1n2; Z2++)
     ;
-  if (S === 1) {
+  if (S2 === 1) {
     const p1div4 = (P + _1n2) / _4n;
     return function tonelliFast(Fp4, n2) {
       const root = Fp4.pow(n2, p1div4);
@@ -13817,23 +12550,23 @@ function tonelliShanks(P) {
   return function tonelliSlow(Fp4, n2) {
     if (Fp4.pow(n2, legendreC) === Fp4.neg(Fp4.ONE))
       throw new Error("Cannot find square root");
-    let r2 = S;
+    let r2 = S2;
     let g = Fp4.pow(Fp4.mul(Fp4.ONE, Z2), Q);
     let x = Fp4.pow(n2, Q1div2);
-    let b2 = Fp4.pow(n2, Q);
-    while (!Fp4.eql(b2, Fp4.ONE)) {
-      if (Fp4.eql(b2, Fp4.ZERO))
+    let b = Fp4.pow(n2, Q);
+    while (!Fp4.eql(b, Fp4.ONE)) {
+      if (Fp4.eql(b, Fp4.ZERO))
         return Fp4.ZERO;
       let m = 1;
-      for (let t2 = Fp4.sqr(b2); m < r2; m++) {
+      for (let t2 = Fp4.sqr(b); m < r2; m++) {
         if (Fp4.eql(t2, Fp4.ONE))
           break;
         t2 = Fp4.sqr(t2);
       }
-      const ge = Fp4.pow(g, _1n2 << BigInt(r2 - m - 1));
-      g = Fp4.sqr(ge);
-      x = Fp4.mul(x, ge);
-      b2 = Fp4.mul(b2, g);
+      const ge2 = Fp4.pow(g, _1n2 << BigInt(r2 - m - 1));
+      g = Fp4.sqr(ge2);
+      x = Fp4.mul(x, ge2);
+      b = Fp4.mul(b, g);
       r2 = m;
     }
     return x;
@@ -13866,7 +12599,7 @@ function FpSqrt(P) {
   }
   return tonelliShanks(P);
 }
-var isNegativeLE = (num, modulo) => (mod2(num, modulo) & _1n2) === _1n2;
+var isNegativeLE = (num, modulo) => (mod(num, modulo) & _1n2) === _1n2;
 var FIELD_FIELDS = [
   "create",
   "isValid",
@@ -13952,7 +12685,7 @@ function Field(ORDER, bitLen2, isLE3 = false, redef = {}) {
     MASK: bitMask(BITS),
     ZERO: _0n2,
     ONE: _1n2,
-    create: (num) => mod2(num, ORDER),
+    create: (num) => mod(num, ORDER),
     isValid: (num) => {
       if (typeof num !== "bigint")
         throw new Error(`Invalid field element: expected bigint, got ${typeof num}`);
@@ -13960,14 +12693,14 @@ function Field(ORDER, bitLen2, isLE3 = false, redef = {}) {
     },
     is0: (num) => num === _0n2,
     isOdd: (num) => (num & _1n2) === _1n2,
-    neg: (num) => mod2(-num, ORDER),
+    neg: (num) => mod(-num, ORDER),
     eql: (lhs, rhs) => lhs === rhs,
-    sqr: (num) => mod2(num * num, ORDER),
-    add: (lhs, rhs) => mod2(lhs + rhs, ORDER),
-    sub: (lhs, rhs) => mod2(lhs - rhs, ORDER),
-    mul: (lhs, rhs) => mod2(lhs * rhs, ORDER),
+    sqr: (num) => mod(num * num, ORDER),
+    add: (lhs, rhs) => mod(lhs + rhs, ORDER),
+    sub: (lhs, rhs) => mod(lhs - rhs, ORDER),
+    mul: (lhs, rhs) => mod(lhs * rhs, ORDER),
     pow: (num, power) => FpPow(f3, num, power),
-    div: (lhs, rhs) => mod2(lhs * invert(rhs, ORDER), ORDER),
+    div: (lhs, rhs) => mod(lhs * invert(rhs, ORDER), ORDER),
     // Same as above, but doesn't normalize
     sqrN: (num) => num * num,
     addN: (lhs, rhs) => lhs + rhs,
@@ -13978,7 +12711,7 @@ function Field(ORDER, bitLen2, isLE3 = false, redef = {}) {
     invertBatch: (lst) => FpInvertBatch(f3, lst),
     // TODO: do we really need constant cmov?
     // We don't have const-time bigints anyway, so probably will be not very useful
-    cmov: (a2, b2, c2) => c2 ? b2 : a2,
+    cmov: (a2, b, c2) => c2 ? b : a2,
     toBytes: (num) => isLE3 ? numberToBytesLE(num, BYTES) : numberToBytesBE(num, BYTES),
     fromBytes: (bytes3) => {
       if (bytes3.length !== BYTES)
@@ -14001,8 +12734,8 @@ function getFieldBytesLength(fieldOrder) {
   return Math.ceil(bitLength / 8);
 }
 function getMinHashLength(fieldOrder) {
-  const length2 = getFieldBytesLength(fieldOrder);
-  return length2 + Math.ceil(length2 / 2);
+  const length3 = getFieldBytesLength(fieldOrder);
+  return length3 + Math.ceil(length3 / 2);
 }
 function mapHashToField(key, fieldOrder, isLE3 = false) {
   const len = key.length;
@@ -14011,7 +12744,7 @@ function mapHashToField(key, fieldOrder, isLE3 = false) {
   if (len < 16 || len < minLen || len > 1024)
     throw new Error(`expected ${minLen}-1024 bytes of input, got ${len}`);
   const num = isLE3 ? bytesToNumberBE(key) : bytesToNumberLE(key);
-  const reduced = mod2(num, fieldOrder - _1n2) + _1n2;
+  const reduced = mod(num, fieldOrder - _1n2) + _1n2;
   return isLE3 ? numberToBytesLE(reduced, fieldLen) : numberToBytesBE(reduced, fieldLen);
 }
 
@@ -14189,18 +12922,18 @@ function twistedEdwards(curveDef) {
       throw new Error("ExtendedPoint expected");
   }
   class Point2 {
-    constructor(ex, ey, ez, et2) {
+    constructor(ex, ey, ez, et) {
       this.ex = ex;
       this.ey = ey;
       this.ez = ez;
-      this.et = et2;
+      this.et = et;
       if (!in0MaskRange(ex))
         throw new Error("x required");
       if (!in0MaskRange(ey))
         throw new Error("y required");
       if (!in0MaskRange(ez))
         throw new Error("z required");
-      if (!in0MaskRange(et2))
+      if (!in0MaskRange(et))
         throw new Error("t required");
     }
     get x() {
@@ -14273,12 +13006,12 @@ function twistedEdwards(curveDef) {
       const A = modP(X1 * X1);
       const B = modP(Y1 * Y1);
       const C2 = modP(_2n3 * modP(Z1 * Z1));
-      const D = modP(a2 * A);
+      const D2 = modP(a2 * A);
       const x1y1 = X1 + Y1;
       const E = modP(modP(x1y1 * x1y1) - A - B);
-      const G2 = D + B;
+      const G2 = D2 + B;
       const F = G2 - C2;
-      const H2 = D - B;
+      const H2 = D2 - B;
       const X3 = modP(E * F);
       const Y3 = modP(G2 * H2);
       const T3 = modP(E * H2);
@@ -14300,10 +13033,10 @@ function twistedEdwards(curveDef) {
         if (F2 === _0n4)
           return this.double();
         const C3 = modP(Z1 * _2n3 * T2);
-        const D2 = modP(T1 * _2n3 * Z2);
-        const E2 = D2 + C3;
+        const D3 = modP(T1 * _2n3 * Z2);
+        const E2 = D3 + C3;
         const G3 = B2 + A2;
-        const H3 = D2 - C3;
+        const H3 = D3 - C3;
         const X32 = modP(E2 * F2);
         const Y32 = modP(G3 * H3);
         const T32 = modP(E2 * H3);
@@ -14313,10 +13046,10 @@ function twistedEdwards(curveDef) {
       const A = modP(X1 * X2);
       const B = modP(Y1 * Y2);
       const C2 = modP(T1 * d2 * T2);
-      const D = modP(Z1 * Z2);
+      const D2 = modP(Z1 * Z2);
       const E = modP((X1 + Y1) * (X2 + Y2) - A - B);
-      const F = D - C2;
-      const G2 = D + C2;
+      const F = D2 - C2;
+      const G2 = D2 + C2;
       const H2 = modP(B - a2 * A);
       const X3 = modP(E * F);
       const Y3 = modP(G2 * H2);
@@ -14432,7 +13165,7 @@ function twistedEdwards(curveDef) {
   const { BASE: G, ZERO: I } = Point2;
   const wnaf = wNAF(Point2, nByteLength * 8);
   function modN(a2) {
-    return mod2(a2, CURVE_ORDER);
+    return mod(a2, CURVE_ORDER);
   }
   function modN_LE(hash3) {
     return modN(bytesToNumberLE(hash3));
@@ -14461,11 +13194,11 @@ function twistedEdwards(curveDef) {
       msg = prehash(msg);
     const { prefix, scalar, pointBytes } = getExtendedPublicKey(privKey);
     const r2 = hashDomainToScalar(options.context, prefix, msg);
-    const R2 = G.multiply(r2).toRawBytes();
-    const k3 = hashDomainToScalar(options.context, R2, pointBytes, msg);
+    const R = G.multiply(r2).toRawBytes();
+    const k3 = hashDomainToScalar(options.context, R, pointBytes, msg);
     const s2 = modN(r2 + k3 * scalar);
     assertGE0(s2);
-    const res = concatBytes2(R2, numberToBytesLE(s2, Fp4.BYTES));
+    const res = concatBytes2(R, numberToBytesLE(s2, Fp4.BYTES));
     return ensureBytes("result", res, nByteLength * 2);
   }
   const verifyOpts = VERIFY_DEFAULT;
@@ -14477,18 +13210,18 @@ function twistedEdwards(curveDef) {
     if (prehash)
       msg = prehash(msg);
     const s2 = bytesToNumberLE(sig.slice(len, 2 * len));
-    let A, R2, SB;
+    let A, R, SB;
     try {
       A = Point2.fromHex(publicKey, zip215);
-      R2 = Point2.fromHex(sig.slice(0, len), zip215);
+      R = Point2.fromHex(sig.slice(0, len), zip215);
       SB = G.multiplyUnsafe(s2);
     } catch (error) {
       return false;
     }
     if (!zip215 && A.isSmallOrder())
       return false;
-    const k3 = hashDomainToScalar(context, R2.toRawBytes(), A.toRawBytes(), msg);
-    const RkA = R2.add(A.multiplyUnsafe(k3));
+    const k3 = hashDomainToScalar(context, R.toRawBytes(), A.toRawBytes(), msg);
+    const RkA = R.add(A.multiplyUnsafe(k3));
     return RkA.subtract(SB).clearCofactor().equals(Point2.ZERO);
   }
   G._setWindowSize(8);
@@ -14553,22 +13286,22 @@ function adjustScalarBytes(bytes3) {
 }
 function uvRatio(u2, v2) {
   const P = ED25519_P;
-  const v3 = mod2(v2 * v2 * v2, P);
-  const v7 = mod2(v3 * v3 * v2, P);
+  const v3 = mod(v2 * v2 * v2, P);
+  const v7 = mod(v3 * v3 * v2, P);
   const pow3 = ed25519_pow_2_252_3(u2 * v7).pow_p_5_8;
-  let x = mod2(u2 * v3 * pow3, P);
-  const vx2 = mod2(v2 * x * x, P);
+  let x = mod(u2 * v3 * pow3, P);
+  const vx2 = mod(v2 * x * x, P);
   const root1 = x;
-  const root2 = mod2(x * ED25519_SQRT_M1, P);
+  const root2 = mod(x * ED25519_SQRT_M1, P);
   const useRoot1 = vx2 === u2;
-  const useRoot2 = vx2 === mod2(-u2, P);
-  const noRoot = vx2 === mod2(-u2 * ED25519_SQRT_M1, P);
+  const useRoot2 = vx2 === mod(-u2, P);
+  const noRoot = vx2 === mod(-u2 * ED25519_SQRT_M1, P);
   if (useRoot1)
     x = root1;
   if (useRoot2 || noRoot)
     x = root2;
   if (isNegativeLE(x, P))
-    x = mod2(-x, P);
+    x = mod(-x, P);
   return { isValid: useRoot1 || useRoot2, value: x };
 }
 var Fp = Field(ED25519_P, void 0, true);
@@ -14624,8 +13357,8 @@ var D_MINUS_ONE_SQ = BigInt("404408343463085368581010424693231908262483991462387
 var MAX_255B = BigInt("0x7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
 // node_modules/.pnpm/@noble+hashes@1.3.2/node_modules/@noble/hashes/esm/sha256.js
-var Chi = (a2, b2, c2) => a2 & b2 ^ ~a2 & c2;
-var Maj = (a2, b2, c2) => a2 & b2 ^ a2 & c2 ^ b2 & c2;
+var Chi = (a2, b, c2) => a2 & b ^ ~a2 & c2;
+var Maj = (a2, b, c2) => a2 & b ^ a2 & c2 ^ b & c2;
 var SHA256_K = /* @__PURE__ */ new Uint32Array([
   1116352408,
   1899447441,
@@ -14716,15 +13449,15 @@ var SHA256 = class extends SHA2 {
     this.H = IV[7] | 0;
   }
   get() {
-    const { A, B, C: C2, D, E, F, G, H: H2 } = this;
-    return [A, B, C2, D, E, F, G, H2];
+    const { A, B, C: C2, D: D2, E, F, G, H: H2 } = this;
+    return [A, B, C2, D2, E, F, G, H2];
   }
   // prettier-ignore
-  set(A, B, C2, D, E, F, G, H2) {
+  set(A, B, C2, D2, E, F, G, H2) {
     this.A = A | 0;
     this.B = B | 0;
     this.C = C2 | 0;
-    this.D = D | 0;
+    this.D = D2 | 0;
     this.E = E | 0;
     this.F = F | 0;
     this.G = G | 0;
@@ -14740,7 +13473,7 @@ var SHA256 = class extends SHA2 {
       const s1 = rotr(W2, 17) ^ rotr(W2, 19) ^ W2 >>> 10;
       SHA256_W[i2] = s1 + SHA256_W[i2 - 7] + s0 + SHA256_W[i2 - 16] | 0;
     }
-    let { A, B, C: C2, D, E, F, G, H: H2 } = this;
+    let { A, B, C: C2, D: D2, E, F, G, H: H2 } = this;
     for (let i2 = 0; i2 < 64; i2++) {
       const sigma1 = rotr(E, 6) ^ rotr(E, 11) ^ rotr(E, 25);
       const T1 = H2 + sigma1 + Chi(E, F, G) + SHA256_K[i2] + SHA256_W[i2] | 0;
@@ -14749,8 +13482,8 @@ var SHA256 = class extends SHA2 {
       H2 = G;
       G = F;
       F = E;
-      E = D + T1 | 0;
-      D = C2;
+      E = D2 + T1 | 0;
+      D2 = C2;
       C2 = B;
       B = A;
       A = T1 + T2 | 0;
@@ -14758,12 +13491,12 @@ var SHA256 = class extends SHA2 {
     A = A + this.A | 0;
     B = B + this.B | 0;
     C2 = C2 + this.C | 0;
-    D = D + this.D | 0;
+    D2 = D2 + this.D | 0;
     E = E + this.E | 0;
     F = F + this.F | 0;
     G = G + this.G | 0;
     H2 = H2 + this.H | 0;
-    this.set(A, B, C2, D, E, F, G, H2);
+    this.set(A, B, C2, D2, E, F, G, H2);
   }
   roundClean() {
     SHA256_W.fill(0);
@@ -14880,14 +13613,14 @@ var _2n5 = /* @__PURE__ */ BigInt(2);
 var _7n = /* @__PURE__ */ BigInt(7);
 var _256n = /* @__PURE__ */ BigInt(256);
 var _0x71n = /* @__PURE__ */ BigInt(113);
-for (let round = 0, R2 = _1n6, x = 1, y = 0; round < 24; round++) {
+for (let round = 0, R = _1n6, x = 1, y = 0; round < 24; round++) {
   [x, y] = [y, (2 * x + 3 * y) % 5];
   SHA3_PI.push(2 * (5 * y + x));
   SHA3_ROTL.push((round + 1) * (round + 2) / 2 % 64);
   let t2 = _0n6;
   for (let j = 0; j < 7; j++) {
-    R2 = (R2 << _1n6 ^ (R2 >> _7n) * _0x71n) % _256n;
-    if (R2 & _2n5)
+    R = (R << _1n6 ^ (R >> _7n) * _0x71n) % _256n;
+    if (R & _2n5)
       t2 ^= _1n6 << (_1n6 << /* @__PURE__ */ BigInt(j)) - _1n6;
   }
   _SHA3_IOTA.push(t2);
@@ -15150,10 +13883,10 @@ function weierstrassPoints(opts) {
     return { x, y };
   });
   function weierstrassEquation(x) {
-    const { a: a2, b: b2 } = CURVE;
+    const { a: a2, b } = CURVE;
     const x2 = Fp4.sqr(x);
     const x3 = Fp4.mul(x2, x);
-    return Fp4.add(Fp4.add(x3, Fp4.mul(x, a2)), b2);
+    return Fp4.add(Fp4.add(x3, Fp4.mul(x, a2)), b);
   }
   if (!Fp4.eql(Fp4.sqr(CURVE.Gy), weierstrassEquation(CURVE.Gx)))
     throw new Error("bad generator point: equation left != right");
@@ -15180,7 +13913,7 @@ function weierstrassPoints(opts) {
       throw new Error(`private key must be ${nByteLength} bytes, hex or bigint, not ${typeof key}`);
     }
     if (wrapPrivateKey)
-      num = mod2(num, n2);
+      num = mod(num, n2);
     assertGE(num);
     return num;
   }
@@ -15293,8 +14026,8 @@ function weierstrassPoints(opts) {
     // https://eprint.iacr.org/2015/1060, algorithm 3
     // Cost: 8M + 3S + 3*a + 2*b3 + 15add.
     double() {
-      const { a: a2, b: b2 } = CURVE;
-      const b3 = Fp4.mul(b2, _3n2);
+      const { a: a2, b } = CURVE;
+      const b3 = Fp4.mul(b, _3n2);
       const { px: X1, py: Y1, pz: Z1 } = this;
       let X3 = Fp4.ZERO, Y3 = Fp4.ZERO, Z3 = Fp4.ZERO;
       let t0 = Fp4.mul(X1, X1);
@@ -15466,10 +14199,10 @@ function weierstrassPoints(opts) {
      * The trick could be useful if both P and Q are not G (not in our case).
      * @returns non-zero affine point
      */
-    multiplyAndAddUnsafe(Q, a2, b2) {
+    multiplyAndAddUnsafe(Q, a2, b) {
       const G = Point2.BASE;
       const mul = (P, a3) => a3 === _0n7 || a3 === _1n7 || !P.equals(G) ? P.multiplyUnsafe(a3) : P.multiply(a3);
-      const sum = mul(this, a2).add(mul(Q, b2));
+      const sum = mul(this, a2).add(mul(Q, b));
       return sum.is0() ? void 0 : sum;
     }
     // Converts Projective point to affine (x, y) coordinates.
@@ -15547,7 +14280,7 @@ function weierstrass(curveDef) {
     return _0n7 < num && num < Fp4.ORDER;
   }
   function modN(a2) {
-    return mod2(a2, CURVE_ORDER);
+    return mod(a2, CURVE_ORDER);
   }
   function invN(a2) {
     return invert(a2, CURVE_ORDER);
@@ -15596,7 +14329,7 @@ function weierstrass(curveDef) {
   function normalizeS(s2) {
     return isBiggerThanHalfOrder(s2) ? modN(-s2) : s2;
   }
-  const slcNum = (b2, from3, to) => bytesToNumberBE(b2.slice(from3, to));
+  const slcNum = (b, from3, to) => bytesToNumberBE(b.slice(from3, to));
   class Signature {
     constructor(r2, s2, recovery) {
       this.r = r2;
@@ -15634,11 +14367,11 @@ function weierstrass(curveDef) {
       if (radj >= Fp4.ORDER)
         throw new Error("recovery id 2 or 3 invalid");
       const prefix = (rec & 1) === 0 ? "02" : "03";
-      const R2 = Point2.fromHex(prefix + numToNByteStr(radj));
+      const R = Point2.fromHex(prefix + numToNByteStr(radj));
       const ir = invN(radj);
       const u1 = modN(-h3 * ir);
       const u2 = modN(s2 * ir);
-      const Q = Point2.BASE.multiplyAndAddUnsafe(R2, u1, u2);
+      const Q = Point2.BASE.multiplyAndAddUnsafe(R, u1, u2);
       if (!Q)
         throw new Error("point at infinify");
       Q.assertValidity();
@@ -15681,8 +14414,8 @@ function weierstrass(curveDef) {
      * (groupLen + ceil(groupLen / 2)) with modulo bias being negligible.
      */
     randomPrivateKey: () => {
-      const length2 = getMinHashLength(CURVE.n);
-      return mapHashToField(CURVE.randomBytes(length2), CURVE.n);
+      const length3 = getMinHashLength(CURVE.n);
+      return mapHashToField(CURVE.randomBytes(length3), CURVE.n);
     },
     /**
      * Creates precompute table for an arbitrary EC point. Makes point "cached".
@@ -15718,8 +14451,8 @@ function weierstrass(curveDef) {
       throw new Error("first arg must be private key");
     if (!isProbPub(publicB))
       throw new Error("second arg must be public key");
-    const b2 = Point2.fromHex(publicB);
-    return b2.multiply(normPrivateKeyToScalar(privateA)).toRawBytes(isCompressed);
+    const b = Point2.fromHex(publicB);
+    return b.multiply(normPrivateKeyToScalar(privateA)).toRawBytes(isCompressed);
   }
   const bits2int = CURVE.bits2int || function(bytes3) {
     const num = bytesToNumberBE(bytes3);
@@ -15826,10 +14559,10 @@ function weierstrass(curveDef) {
     const is = invN(s2);
     const u1 = modN(h3 * is);
     const u2 = modN(r2 * is);
-    const R2 = Point2.BASE.multiplyAndAddUnsafe(P, u1, u2)?.toAffine();
-    if (!R2)
+    const R = Point2.BASE.multiplyAndAddUnsafe(P, u1, u2)?.toAffine();
+    if (!R)
       return false;
-    const v2 = modN(R2.x);
+    const v2 = modN(R.x);
     return v2 === r2;
   }
   return {
@@ -15927,7 +14660,7 @@ var secp256k1P = BigInt("0xfffffffffffffffffffffffffffffffffffffffffffffffffffff
 var secp256k1N = BigInt("0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141");
 var _1n8 = BigInt(1);
 var _2n7 = BigInt(2);
-var divNearest = (a2, b2) => (a2 + b2 / _2n7) / b2;
+var divNearest = (a2, b) => (a2 + b / _2n7) / b;
 function sqrtMod(y) {
   const P = secp256k1P;
   const _3n3 = BigInt(3), _6n = BigInt(6), _11n = BigInt(11), _22n = BigInt(22);
@@ -15978,8 +14711,8 @@ var secp256k1 = createCurve({
       const POW_2_128 = BigInt("0x100000000000000000000000000000000");
       const c1 = divNearest(b2 * k3, n2);
       const c2 = divNearest(-b1 * k3, n2);
-      let k1 = mod2(k3 - c1 * a1 - c2 * a2, n2);
-      let k22 = mod2(-c1 * b1 - c2 * b2, n2);
+      let k1 = mod(k3 - c1 * a1 - c2 * a2, n2);
+      let k22 = mod(-c1 * b1 - c2 * b2, n2);
       const k1neg = k1 > POW_2_128;
       const k2neg = k22 > POW_2_128;
       if (k1neg)
@@ -16024,7 +14757,7 @@ function assertNumber(n2) {
 }
 // @__NO_SIDE_EFFECTS__
 function chain(...args) {
-  const wrap2 = (a2, b2) => (c2) => a2(b2(c2));
+  const wrap2 = (a2, b) => (c2) => a2(b(c2));
   const encode6 = Array.from(args).reverse().reduce((acc, i2) => acc ? wrap2(acc, i2.encode) : i2.encode, void 0);
   const decode7 = args.reduce((acc, i2) => acc ? wrap2(acc, i2.decode) : i2.decode, void 0);
   return { encode: encode6, decode: decode7 };
@@ -16076,7 +14809,7 @@ function join2(separator = "") {
     }
   };
 }
-var gcd = /* @__NO_SIDE_EFFECTS__ */ (a2, b2) => !b2 ? a2 : /* @__PURE__ */ gcd(b2, a2 % b2);
+var gcd = /* @__NO_SIDE_EFFECTS__ */ (a2, b) => !b ? a2 : /* @__PURE__ */ gcd(b, a2 % b);
 var radix2carry = /* @__NO_SIDE_EFFECTS__ */ (from3, to) => from3 + (to - /* @__PURE__ */ gcd(from3, to));
 // @__NO_SIDE_EFFECTS__
 function convertRadix2(data, from3, to, padding) {
@@ -16149,10 +14882,10 @@ var BECH_ALPHABET = /* @__PURE__ */ chain(/* @__PURE__ */ alphabet2("qpzry9x8gf2
 var POLYMOD_GENERATORS = [996825010, 642813549, 513874426, 1027748829, 705979059];
 // @__NO_SIDE_EFFECTS__
 function bech32Polymod(pre) {
-  const b2 = pre >> 25;
+  const b = pre >> 25;
   let chk = (pre & 33554431) << 5;
   for (let i2 = 0; i2 < POLYMOD_GENERATORS.length; i2++) {
-    if ((b2 >> i2 & 1) === 1)
+    if ((b >> i2 & 1) === 1)
       chk ^= POLYMOD_GENERATORS[i2];
   }
   return chk;
@@ -16245,11 +14978,11 @@ function toBytes2(data) {
     throw new Error(`expected Uint8Array, got ${typeof data}`);
   return data;
 }
-function ensureBytes2(b2, len) {
-  if (!(b2 instanceof Uint8Array))
+function ensureBytes2(b, len) {
+  if (!(b instanceof Uint8Array))
     throw new Error("Uint8Array expected");
   if (typeof len === "number") {
-    if (b2.length !== len)
+    if (b.length !== len)
       throw new Error(`Uint8Array length ${len} expected`);
   }
 }
@@ -16259,15 +14992,15 @@ function number2(n2) {
   if (!Number.isSafeInteger(n2) || n2 < 0)
     throw new Error(`Wrong positive integer: ${n2}`);
 }
-function bool(b2) {
-  if (typeof b2 !== "boolean")
-    throw new Error(`Expected boolean, not ${b2}`);
+function bool(b) {
+  if (typeof b !== "boolean")
+    throw new Error(`Expected boolean, not ${b}`);
 }
-function bytes2(b2, ...lengths) {
-  if (!(b2 instanceof Uint8Array))
+function bytes2(b, ...lengths) {
+  if (!(b instanceof Uint8Array))
     throw new Error("Expected Uint8Array");
-  if (lengths.length > 0 && !lengths.includes(b2.length))
-    throw new Error(`Expected Uint8Array of length ${lengths}, not of length=${b2.length}`);
+  if (lengths.length > 0 && !lengths.includes(b.length))
+    throw new Error(`Expected Uint8Array of length ${lengths}, not of length=${b.length}`);
 }
 function hash2(hash3) {
   if (typeof hash3 !== "function" || typeof hash3.create !== "function")
@@ -16559,8 +15292,8 @@ var u8a4 = {
   fromString: fromString2,
   concat
 };
-function bytesToBase64url(b2) {
-  return u8a4.toString(b2, "base64url");
+function bytesToBase64url(b) {
+  return u8a4.toString(b, "base64url");
 }
 function base64ToBytes(s2) {
   const inputBase64Url = s2.replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
@@ -16569,8 +15302,8 @@ function base64ToBytes(s2) {
 function base58ToBytes(s2) {
   return u8a4.fromString(s2, "base58btc");
 }
-function bytesToBase58(b2) {
-  return u8a4.toString(b2, "base58btc");
+function bytesToBase58(b) {
+  return u8a4.toString(b, "base58btc");
 }
 function multibaseToBytes(s2) {
   const {
@@ -16587,8 +15320,8 @@ function multibaseToBytes(s2) {
     return bytes3;
   }
   try {
-    const [codec, length2] = varint_exports.decode(bytes3);
-    return bytes3.slice(length2);
+    const [codec, length3] = varint_exports.decode(bytes3);
+    return bytes3.slice(length3);
   } catch (e2) {
     return bytes3;
   }
@@ -16607,11 +15340,11 @@ function hexToBytes2(s2, minLength) {
 function decodeBase64url(s2) {
   return u8a4.toString(base64ToBytes(s2));
 }
-function bytesToHex2(b2) {
-  return u8a4.toString(b2, "base16");
+function bytesToHex2(b) {
+  return u8a4.toString(b, "base16");
 }
-function bytesToBigInt(b2) {
-  return BigInt(`0x` + u8a4.toString(b2, "base16"));
+function bytesToBigInt(b) {
+  return BigInt(`0x` + u8a4.toString(b, "base16"));
 }
 function stringToBytes(s2) {
   return u8a4.fromString(s2);
@@ -17545,12 +16278,12 @@ var len8tab = [
 var pbNodeProperties = ["Data", "Links"];
 var pbLinkProperties = ["Hash", "Name", "Tsize"];
 var textEncoder3 = new TextEncoder();
-function linkComparator(a2, b2) {
-  if (a2 === b2) {
+function linkComparator(a2, b) {
+  if (a2 === b) {
     return 0;
   }
   const abuf = a2.Name ? textEncoder3.encode(a2.Name) : [];
-  const bbuf = b2.Name ? textEncoder3.encode(b2.Name) : [];
+  const bbuf = b.Name ? textEncoder3.encode(b.Name) : [];
   let x = abuf.length;
   let y = bbuf.length;
   for (let i2 = 0, len = Math.min(x, y); i2 < len; ++i2) {
@@ -17707,72 +16440,878 @@ function encode5(node2) {
 // node_modules/.pnpm/ipfs-unixfs@11.1.0/node_modules/ipfs-unixfs/dist/src/index.js
 var import_err_code = __toESM(require_err_code(), 1);
 
-// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/utils.js
-var import_reader = __toESM(require_reader(), 1);
-var import_reader_buffer = __toESM(require_reader_buffer(), 1);
-var import_minimal = __toESM(require_minimal(), 1);
-var import_writer = __toESM(require_writer(), 1);
-var import_writer_buffer = __toESM(require_writer_buffer(), 1);
-function configure2() {
-  import_minimal.default._configure();
-  import_reader.default._configure(import_reader_buffer.default);
-  import_writer.default._configure(import_writer_buffer.default);
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/float.js
+var f32 = new Float32Array([-0]);
+var f8b = new Uint8Array(f32.buffer);
+function writeFloatLE(val, buf, pos) {
+  f32[0] = val;
+  buf[pos] = f8b[0];
+  buf[pos + 1] = f8b[1];
+  buf[pos + 2] = f8b[2];
+  buf[pos + 3] = f8b[3];
 }
-configure2();
-var methods = [
-  "uint64",
-  "int64",
-  "sint64",
-  "fixed64",
-  "sfixed64"
-];
-function patchReader(obj) {
-  for (const method of methods) {
-    if (obj[method] == null) {
-      continue;
-    }
-    const original = obj[method];
-    obj[method] = function() {
-      return BigInt(original.call(this).toString());
-    };
-  }
-  return obj;
+function readFloatLE(buf, pos) {
+  f8b[0] = buf[pos];
+  f8b[1] = buf[pos + 1];
+  f8b[2] = buf[pos + 2];
+  f8b[3] = buf[pos + 3];
+  return f32[0];
 }
-function reader(buf) {
-  return patchReader(new import_reader.default(buf));
+var f64 = new Float64Array([-0]);
+var d8b = new Uint8Array(f64.buffer);
+function writeDoubleLE(val, buf, pos) {
+  f64[0] = val;
+  buf[pos] = d8b[0];
+  buf[pos + 1] = d8b[1];
+  buf[pos + 2] = d8b[2];
+  buf[pos + 3] = d8b[3];
+  buf[pos + 4] = d8b[4];
+  buf[pos + 5] = d8b[5];
+  buf[pos + 6] = d8b[6];
+  buf[pos + 7] = d8b[7];
 }
-function patchWriter(obj) {
-  for (const method of methods) {
-    if (obj[method] == null) {
-      continue;
-    }
-    const original = obj[method];
-    obj[method] = function(val) {
-      return original.call(this, val.toString());
-    };
-  }
-  return obj;
-}
-function writer() {
-  return patchWriter(import_writer.default.create());
+function readDoubleLE(buf, pos) {
+  d8b[0] = buf[pos];
+  d8b[1] = buf[pos + 1];
+  d8b[2] = buf[pos + 2];
+  d8b[3] = buf[pos + 3];
+  d8b[4] = buf[pos + 4];
+  d8b[5] = buf[pos + 5];
+  d8b[6] = buf[pos + 6];
+  d8b[7] = buf[pos + 7];
+  return f64[0];
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/decode.js
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/longbits.js
+var LongBits = class _LongBits {
+  lo;
+  hi;
+  constructor(lo, hi) {
+    this.lo = lo | 0;
+    this.hi = hi | 0;
+  }
+  /**
+   * Converts this long bits to a possibly unsafe JavaScript number
+   */
+  toBigInt(unsigned = false) {
+    if (unsigned) {
+      const result = BigInt(this.lo >>> 0) + (BigInt(this.hi >>> 0) << 32n);
+      return result;
+    }
+    if (this.hi >>> 31 !== 0) {
+      const lo = ~this.lo + 1 >>> 0;
+      let hi = ~this.hi >>> 0;
+      if (lo === 0) {
+        hi = hi + 1 >>> 0;
+      }
+      return -(BigInt(lo) + (BigInt(hi) << 32n));
+    }
+    return BigInt(this.lo >>> 0) + (BigInt(this.hi >>> 0) << 32n);
+  }
+  /**
+   * Zig-zag encodes this long bits
+   */
+  zzEncode() {
+    const mask = this.hi >> 31;
+    this.hi = ((this.hi << 1 | this.lo >>> 31) ^ mask) >>> 0;
+    this.lo = (this.lo << 1 ^ mask) >>> 0;
+    return this;
+  }
+  /**
+   * Zig-zag decodes this long bits
+   */
+  zzDecode() {
+    const mask = -(this.lo & 1);
+    this.lo = ((this.lo >>> 1 | this.hi << 31) ^ mask) >>> 0;
+    this.hi = (this.hi >>> 1 ^ mask) >>> 0;
+    return this;
+  }
+  /**
+   * Calculates the length of this longbits when encoded as a varint.
+   */
+  length() {
+    const part0 = this.lo;
+    const part1 = (this.lo >>> 28 | this.hi << 4) >>> 0;
+    const part2 = this.hi >>> 24;
+    return part2 === 0 ? part1 === 0 ? part0 < 16384 ? part0 < 128 ? 1 : 2 : part0 < 2097152 ? 3 : 4 : part1 < 16384 ? part1 < 128 ? 5 : 6 : part1 < 2097152 ? 7 : 8 : part2 < 128 ? 9 : 10;
+  }
+  /**
+   * Constructs new long bits from the specified number
+   */
+  static fromBigInt(value) {
+    if (value === 0n) {
+      return zero;
+    }
+    const negative = value < 0;
+    if (negative) {
+      value = -value;
+    }
+    let hi = Number(value >> 32n);
+    let lo = Number(value - (BigInt(hi) << 32n));
+    if (negative) {
+      hi = ~hi >>> 0;
+      lo = ~lo >>> 0;
+      if (++lo > TWO_32) {
+        lo = 0;
+        if (++hi > TWO_32) {
+          hi = 0;
+        }
+      }
+    }
+    return new _LongBits(lo, hi);
+  }
+  /**
+   * Constructs new long bits from the specified number
+   */
+  static fromNumber(value) {
+    if (value === 0) {
+      return zero;
+    }
+    const sign = value < 0;
+    if (sign) {
+      value = -value;
+    }
+    let lo = value >>> 0;
+    let hi = (value - lo) / 4294967296 >>> 0;
+    if (sign) {
+      hi = ~hi >>> 0;
+      lo = ~lo >>> 0;
+      if (++lo > 4294967295) {
+        lo = 0;
+        if (++hi > 4294967295) {
+          hi = 0;
+        }
+      }
+    }
+    return new _LongBits(lo, hi);
+  }
+  /**
+   * Constructs new long bits from a number, long or string
+   */
+  static from(value) {
+    if (typeof value === "number") {
+      return _LongBits.fromNumber(value);
+    }
+    if (typeof value === "bigint") {
+      return _LongBits.fromBigInt(value);
+    }
+    if (typeof value === "string") {
+      return _LongBits.fromBigInt(BigInt(value));
+    }
+    return value.low != null || value.high != null ? new _LongBits(value.low >>> 0, value.high >>> 0) : zero;
+  }
+};
+var zero = new LongBits(0, 0);
+zero.toBigInt = function() {
+  return 0n;
+};
+zero.zzEncode = zero.zzDecode = function() {
+  return this;
+};
+zero.length = function() {
+  return 1;
+};
+var TWO_32 = 4294967296n;
+
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/utf8.js
+function length2(string4) {
+  let len = 0;
+  let c2 = 0;
+  for (let i2 = 0; i2 < string4.length; ++i2) {
+    c2 = string4.charCodeAt(i2);
+    if (c2 < 128) {
+      len += 1;
+    } else if (c2 < 2048) {
+      len += 2;
+    } else if ((c2 & 64512) === 55296 && (string4.charCodeAt(i2 + 1) & 64512) === 56320) {
+      ++i2;
+      len += 4;
+    } else {
+      len += 3;
+    }
+  }
+  return len;
+}
+function read2(buffer, start, end) {
+  const len = end - start;
+  if (len < 1) {
+    return "";
+  }
+  let parts;
+  const chunk = [];
+  let i2 = 0;
+  let t2;
+  while (start < end) {
+    t2 = buffer[start++];
+    if (t2 < 128) {
+      chunk[i2++] = t2;
+    } else if (t2 > 191 && t2 < 224) {
+      chunk[i2++] = (t2 & 31) << 6 | buffer[start++] & 63;
+    } else if (t2 > 239 && t2 < 365) {
+      t2 = ((t2 & 7) << 18 | (buffer[start++] & 63) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63) - 65536;
+      chunk[i2++] = 55296 + (t2 >> 10);
+      chunk[i2++] = 56320 + (t2 & 1023);
+    } else {
+      chunk[i2++] = (t2 & 15) << 12 | (buffer[start++] & 63) << 6 | buffer[start++] & 63;
+    }
+    if (i2 > 8191) {
+      (parts ?? (parts = [])).push(String.fromCharCode.apply(String, chunk));
+      i2 = 0;
+    }
+  }
+  if (parts != null) {
+    if (i2 > 0) {
+      parts.push(String.fromCharCode.apply(String, chunk.slice(0, i2)));
+    }
+    return parts.join("");
+  }
+  return String.fromCharCode.apply(String, chunk.slice(0, i2));
+}
+function write(string4, buffer, offset) {
+  const start = offset;
+  let c1;
+  let c2;
+  for (let i2 = 0; i2 < string4.length; ++i2) {
+    c1 = string4.charCodeAt(i2);
+    if (c1 < 128) {
+      buffer[offset++] = c1;
+    } else if (c1 < 2048) {
+      buffer[offset++] = c1 >> 6 | 192;
+      buffer[offset++] = c1 & 63 | 128;
+    } else if ((c1 & 64512) === 55296 && ((c2 = string4.charCodeAt(i2 + 1)) & 64512) === 56320) {
+      c1 = 65536 + ((c1 & 1023) << 10) + (c2 & 1023);
+      ++i2;
+      buffer[offset++] = c1 >> 18 | 240;
+      buffer[offset++] = c1 >> 12 & 63 | 128;
+      buffer[offset++] = c1 >> 6 & 63 | 128;
+      buffer[offset++] = c1 & 63 | 128;
+    } else {
+      buffer[offset++] = c1 >> 12 | 224;
+      buffer[offset++] = c1 >> 6 & 63 | 128;
+      buffer[offset++] = c1 & 63 | 128;
+    }
+  }
+  return offset - start;
+}
+
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/reader.js
+function indexOutOfRange(reader, writeLength) {
+  return RangeError(`index out of range: ${reader.pos} + ${writeLength ?? 1} > ${reader.len}`);
+}
+function readFixed32End(buf, end) {
+  return (buf[end - 4] | buf[end - 3] << 8 | buf[end - 2] << 16 | buf[end - 1] << 24) >>> 0;
+}
+var Uint8ArrayReader = class {
+  buf;
+  pos;
+  len;
+  _slice = Uint8Array.prototype.subarray;
+  constructor(buffer) {
+    this.buf = buffer;
+    this.pos = 0;
+    this.len = buffer.length;
+  }
+  /**
+   * Reads a varint as an unsigned 32 bit value
+   */
+  uint32() {
+    let value = 4294967295;
+    value = (this.buf[this.pos] & 127) >>> 0;
+    if (this.buf[this.pos++] < 128)
+      return value;
+    value = (value | (this.buf[this.pos] & 127) << 7) >>> 0;
+    if (this.buf[this.pos++] < 128)
+      return value;
+    value = (value | (this.buf[this.pos] & 127) << 14) >>> 0;
+    if (this.buf[this.pos++] < 128)
+      return value;
+    value = (value | (this.buf[this.pos] & 127) << 21) >>> 0;
+    if (this.buf[this.pos++] < 128)
+      return value;
+    value = (value | (this.buf[this.pos] & 15) << 28) >>> 0;
+    if (this.buf[this.pos++] < 128)
+      return value;
+    if ((this.pos += 5) > this.len) {
+      this.pos = this.len;
+      throw indexOutOfRange(this, 10);
+    }
+    return value;
+  }
+  /**
+   * Reads a varint as a signed 32 bit value
+   */
+  int32() {
+    return this.uint32() | 0;
+  }
+  /**
+   * Reads a zig-zag encoded varint as a signed 32 bit value
+   */
+  sint32() {
+    const value = this.uint32();
+    return value >>> 1 ^ -(value & 1) | 0;
+  }
+  /**
+   * Reads a varint as a boolean
+   */
+  bool() {
+    return this.uint32() !== 0;
+  }
+  /**
+   * Reads fixed 32 bits as an unsigned 32 bit integer
+   */
+  fixed32() {
+    if (this.pos + 4 > this.len) {
+      throw indexOutOfRange(this, 4);
+    }
+    const res = readFixed32End(this.buf, this.pos += 4);
+    return res;
+  }
+  /**
+   * Reads fixed 32 bits as a signed 32 bit integer
+   */
+  sfixed32() {
+    if (this.pos + 4 > this.len) {
+      throw indexOutOfRange(this, 4);
+    }
+    const res = readFixed32End(this.buf, this.pos += 4) | 0;
+    return res;
+  }
+  /**
+   * Reads a float (32 bit) as a number
+   */
+  float() {
+    if (this.pos + 4 > this.len) {
+      throw indexOutOfRange(this, 4);
+    }
+    const value = readFloatLE(this.buf, this.pos);
+    this.pos += 4;
+    return value;
+  }
+  /**
+   * Reads a double (64 bit float) as a number
+   */
+  double() {
+    if (this.pos + 8 > this.len) {
+      throw indexOutOfRange(this, 4);
+    }
+    const value = readDoubleLE(this.buf, this.pos);
+    this.pos += 8;
+    return value;
+  }
+  /**
+   * Reads a sequence of bytes preceded by its length as a varint
+   */
+  bytes() {
+    const length3 = this.uint32();
+    const start = this.pos;
+    const end = this.pos + length3;
+    if (end > this.len) {
+      throw indexOutOfRange(this, length3);
+    }
+    this.pos += length3;
+    return start === end ? new Uint8Array(0) : this.buf.subarray(start, end);
+  }
+  /**
+   * Reads a string preceded by its byte length as a varint
+   */
+  string() {
+    const bytes3 = this.bytes();
+    return read2(bytes3, 0, bytes3.length);
+  }
+  /**
+   * Skips the specified number of bytes if specified, otherwise skips a varint
+   */
+  skip(length3) {
+    if (typeof length3 === "number") {
+      if (this.pos + length3 > this.len) {
+        throw indexOutOfRange(this, length3);
+      }
+      this.pos += length3;
+    } else {
+      do {
+        if (this.pos >= this.len) {
+          throw indexOutOfRange(this);
+        }
+      } while ((this.buf[this.pos++] & 128) !== 0);
+    }
+    return this;
+  }
+  /**
+   * Skips the next element of the specified wire type
+   */
+  skipType(wireType) {
+    switch (wireType) {
+      case 0:
+        this.skip();
+        break;
+      case 1:
+        this.skip(8);
+        break;
+      case 2:
+        this.skip(this.uint32());
+        break;
+      case 3:
+        while ((wireType = this.uint32() & 7) !== 4) {
+          this.skipType(wireType);
+        }
+        break;
+      case 5:
+        this.skip(4);
+        break;
+      default:
+        throw Error(`invalid wire type ${wireType} at offset ${this.pos}`);
+    }
+    return this;
+  }
+  readLongVarint() {
+    const bits = new LongBits(0, 0);
+    let i2 = 0;
+    if (this.len - this.pos > 4) {
+      for (; i2 < 4; ++i2) {
+        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i2 * 7) >>> 0;
+        if (this.buf[this.pos++] < 128) {
+          return bits;
+        }
+      }
+      bits.lo = (bits.lo | (this.buf[this.pos] & 127) << 28) >>> 0;
+      bits.hi = (bits.hi | (this.buf[this.pos] & 127) >> 4) >>> 0;
+      if (this.buf[this.pos++] < 128) {
+        return bits;
+      }
+      i2 = 0;
+    } else {
+      for (; i2 < 3; ++i2) {
+        if (this.pos >= this.len) {
+          throw indexOutOfRange(this);
+        }
+        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i2 * 7) >>> 0;
+        if (this.buf[this.pos++] < 128) {
+          return bits;
+        }
+      }
+      bits.lo = (bits.lo | (this.buf[this.pos++] & 127) << i2 * 7) >>> 0;
+      return bits;
+    }
+    if (this.len - this.pos > 4) {
+      for (; i2 < 5; ++i2) {
+        bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i2 * 7 + 3) >>> 0;
+        if (this.buf[this.pos++] < 128) {
+          return bits;
+        }
+      }
+    } else {
+      for (; i2 < 5; ++i2) {
+        if (this.pos >= this.len) {
+          throw indexOutOfRange(this);
+        }
+        bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i2 * 7 + 3) >>> 0;
+        if (this.buf[this.pos++] < 128) {
+          return bits;
+        }
+      }
+    }
+    throw Error("invalid varint encoding");
+  }
+  readFixed64() {
+    if (this.pos + 8 > this.len) {
+      throw indexOutOfRange(this, 8);
+    }
+    const lo = readFixed32End(this.buf, this.pos += 4);
+    const hi = readFixed32End(this.buf, this.pos += 4);
+    return new LongBits(lo, hi);
+  }
+  /**
+   * Reads a varint as a signed 64 bit value
+   */
+  int64() {
+    return this.readLongVarint().toBigInt();
+  }
+  /**
+   * Reads a varint as an unsigned 64 bit value
+   */
+  uint64() {
+    return this.readLongVarint().toBigInt(true);
+  }
+  /**
+   * Reads a zig-zag encoded varint as a signed 64 bit value
+   */
+  sint64() {
+    return this.readLongVarint().zzDecode().toBigInt();
+  }
+  /**
+   * Reads fixed 64 bits
+   */
+  fixed64() {
+    return this.readFixed64().toBigInt();
+  }
+  /**
+   * Reads zig-zag encoded fixed 64 bits
+   */
+  sfixed64() {
+    return this.readFixed64().toBigInt();
+  }
+};
+function createReader(buf) {
+  return new Uint8ArrayReader(buf instanceof Uint8Array ? buf : buf.subarray());
+}
+
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/decode.js
 function decodeMessage(buf, codec) {
-  const r2 = reader(buf instanceof Uint8Array ? buf : buf.subarray());
-  return codec.decode(r2);
+  const reader = createReader(buf);
+  return codec.decode(reader);
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/encode.js
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/pool.js
+function pool(size) {
+  const SIZE = size ?? 8192;
+  const MAX = SIZE >>> 1;
+  let slab;
+  let offset = SIZE;
+  return function poolAlloc(size2) {
+    if (size2 < 1 || size2 > MAX) {
+      return allocUnsafe(size2);
+    }
+    if (offset + size2 > SIZE) {
+      slab = allocUnsafe(SIZE);
+      offset = 0;
+    }
+    const buf = slab.subarray(offset, offset += size2);
+    if ((offset & 7) !== 0) {
+      offset = (offset | 7) + 1;
+    }
+    return buf;
+  };
+}
+
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/writer.js
+var Op = class {
+  /**
+   * Function to call
+   */
+  fn;
+  /**
+   * Value byte length
+   */
+  len;
+  /**
+   * Next operation
+   */
+  next;
+  /**
+   * Value to write
+   */
+  val;
+  constructor(fn, len, val) {
+    this.fn = fn;
+    this.len = len;
+    this.next = void 0;
+    this.val = val;
+  }
+};
+function noop() {
+}
+var State = class {
+  /**
+   * Current head
+   */
+  head;
+  /**
+   * Current tail
+   */
+  tail;
+  /**
+   * Current buffer length
+   */
+  len;
+  /**
+   * Next state
+   */
+  next;
+  constructor(writer) {
+    this.head = writer.head;
+    this.tail = writer.tail;
+    this.len = writer.len;
+    this.next = writer.states;
+  }
+};
+var bufferPool = pool();
+function alloc(size) {
+  if (globalThis.Buffer != null) {
+    return allocUnsafe(size);
+  }
+  return bufferPool(size);
+}
+var Uint8ArrayWriter = class {
+  /**
+   * Current length
+   */
+  len;
+  /**
+   * Operations head
+   */
+  head;
+  /**
+   * Operations tail
+   */
+  tail;
+  /**
+   * Linked forked states
+   */
+  states;
+  constructor() {
+    this.len = 0;
+    this.head = new Op(noop, 0, 0);
+    this.tail = this.head;
+    this.states = null;
+  }
+  /**
+   * Pushes a new operation to the queue
+   */
+  _push(fn, len, val) {
+    this.tail = this.tail.next = new Op(fn, len, val);
+    this.len += len;
+    return this;
+  }
+  /**
+   * Writes an unsigned 32 bit value as a varint
+   */
+  uint32(value) {
+    this.len += (this.tail = this.tail.next = new VarintOp((value = value >>> 0) < 128 ? 1 : value < 16384 ? 2 : value < 2097152 ? 3 : value < 268435456 ? 4 : 5, value)).len;
+    return this;
+  }
+  /**
+   * Writes a signed 32 bit value as a varint`
+   */
+  int32(value) {
+    return value < 0 ? this._push(writeVarint64, 10, LongBits.fromNumber(value)) : this.uint32(value);
+  }
+  /**
+   * Writes a 32 bit value as a varint, zig-zag encoded
+   */
+  sint32(value) {
+    return this.uint32((value << 1 ^ value >> 31) >>> 0);
+  }
+  /**
+   * Writes an unsigned 64 bit value as a varint
+   */
+  uint64(value) {
+    const bits = LongBits.fromBigInt(value);
+    return this._push(writeVarint64, bits.length(), bits);
+  }
+  /**
+   * Writes a signed 64 bit value as a varint
+   */
+  int64(value) {
+    return this.uint64(value);
+  }
+  /**
+   * Writes a signed 64 bit value as a varint, zig-zag encoded
+   */
+  sint64(value) {
+    const bits = LongBits.fromBigInt(value).zzEncode();
+    return this._push(writeVarint64, bits.length(), bits);
+  }
+  /**
+   * Writes a boolish value as a varint
+   */
+  bool(value) {
+    return this._push(writeByte, 1, value ? 1 : 0);
+  }
+  /**
+   * Writes an unsigned 32 bit value as fixed 32 bits
+   */
+  fixed32(value) {
+    return this._push(writeFixed32, 4, value >>> 0);
+  }
+  /**
+   * Writes a signed 32 bit value as fixed 32 bits
+   */
+  sfixed32(value) {
+    return this.fixed32(value);
+  }
+  /**
+   * Writes an unsigned 64 bit value as fixed 64 bits
+   */
+  fixed64(value) {
+    const bits = LongBits.fromBigInt(value);
+    return this._push(writeFixed32, 4, bits.lo)._push(writeFixed32, 4, bits.hi);
+  }
+  /**
+   * Writes a signed 64 bit value as fixed 64 bits
+   */
+  sfixed64(value) {
+    return this.fixed64(value);
+  }
+  /**
+   * Writes a float (32 bit)
+   */
+  float(value) {
+    return this._push(writeFloatLE, 4, value);
+  }
+  /**
+   * Writes a double (64 bit float).
+   *
+   * @function
+   * @param {number} value - Value to write
+   * @returns {Writer} `this`
+   */
+  double(value) {
+    return this._push(writeDoubleLE, 8, value);
+  }
+  /**
+   * Writes a sequence of bytes
+   */
+  bytes(value) {
+    const len = value.length >>> 0;
+    if (len === 0) {
+      return this._push(writeByte, 1, 0);
+    }
+    return this.uint32(len)._push(writeBytes, len, value);
+  }
+  /**
+   * Writes a string
+   */
+  string(value) {
+    const len = length2(value);
+    return len !== 0 ? this.uint32(len)._push(write, len, value) : this._push(writeByte, 1, 0);
+  }
+  /**
+   * Forks this writer's state by pushing it to a stack.
+   * Calling {@link Writer#reset|reset} or {@link Writer#ldelim|ldelim} resets the writer to the previous state.
+   */
+  fork() {
+    this.states = new State(this);
+    this.head = this.tail = new Op(noop, 0, 0);
+    this.len = 0;
+    return this;
+  }
+  /**
+   * Resets this instance to the last state
+   */
+  reset() {
+    if (this.states != null) {
+      this.head = this.states.head;
+      this.tail = this.states.tail;
+      this.len = this.states.len;
+      this.states = this.states.next;
+    } else {
+      this.head = this.tail = new Op(noop, 0, 0);
+      this.len = 0;
+    }
+    return this;
+  }
+  /**
+   * Resets to the last state and appends the fork state's current write length as a varint followed by its operations.
+   */
+  ldelim() {
+    const head = this.head;
+    const tail = this.tail;
+    const len = this.len;
+    this.reset().uint32(len);
+    if (len !== 0) {
+      this.tail.next = head.next;
+      this.tail = tail;
+      this.len += len;
+    }
+    return this;
+  }
+  /**
+   * Finishes the write operation
+   */
+  finish() {
+    let head = this.head.next;
+    const buf = alloc(this.len);
+    let pos = 0;
+    while (head != null) {
+      head.fn(head.val, buf, pos);
+      pos += head.len;
+      head = head.next;
+    }
+    return buf;
+  }
+};
+function writeByte(val, buf, pos) {
+  buf[pos] = val & 255;
+}
+function writeVarint32(val, buf, pos) {
+  while (val > 127) {
+    buf[pos++] = val & 127 | 128;
+    val >>>= 7;
+  }
+  buf[pos] = val;
+}
+var VarintOp = class extends Op {
+  next;
+  constructor(len, val) {
+    super(writeVarint32, len, val);
+    this.next = void 0;
+  }
+};
+function writeVarint64(val, buf, pos) {
+  while (val.hi !== 0) {
+    buf[pos++] = val.lo & 127 | 128;
+    val.lo = (val.lo >>> 7 | val.hi << 25) >>> 0;
+    val.hi >>>= 7;
+  }
+  while (val.lo > 127) {
+    buf[pos++] = val.lo & 127 | 128;
+    val.lo = val.lo >>> 7;
+  }
+  buf[pos++] = val.lo;
+}
+function writeFixed32(val, buf, pos) {
+  buf[pos] = val & 255;
+  buf[pos + 1] = val >>> 8 & 255;
+  buf[pos + 2] = val >>> 16 & 255;
+  buf[pos + 3] = val >>> 24;
+}
+function writeBytes(val, buf, pos) {
+  buf.set(val, pos);
+}
+if (globalThis.Buffer != null) {
+  Uint8ArrayWriter.prototype.bytes = function(value) {
+    const len = value.length >>> 0;
+    this.uint32(len);
+    if (len > 0) {
+      this._push(writeBytesBuffer, len, value);
+    }
+    return this;
+  };
+  Uint8ArrayWriter.prototype.string = function(value) {
+    const len = globalThis.Buffer.byteLength(value);
+    this.uint32(len);
+    if (len > 0) {
+      this._push(writeStringBuffer, len, value);
+    }
+    return this;
+  };
+}
+function writeBytesBuffer(val, buf, pos) {
+  buf.set(val, pos);
+}
+function writeStringBuffer(val, buf, pos) {
+  if (val.length < 40) {
+    write(val, buf, pos);
+  } else if (buf.utf8Write != null) {
+    buf.utf8Write(val, pos);
+  } else {
+    buf.write(val, pos);
+  }
+}
+function createWriter() {
+  return new Uint8ArrayWriter();
+}
+
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/encode.js
 function encodeMessage(message2, codec) {
-  const w = writer();
+  const w = createWriter();
   codec.encode(message2, w, {
     lengthDelimited: false
   });
   return w.finish();
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/codec.js
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/codec.js
 var CODEC_TYPES;
 (function(CODEC_TYPES2) {
   CODEC_TYPES2[CODEC_TYPES2["VARINT"] = 0] = "VARINT";
@@ -17791,7 +17330,7 @@ function createCodec2(name2, type, encode6, decode7) {
   };
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/codecs/enum.js
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/codecs/enum.js
 function enumeration(v2) {
   function findValue(val) {
     if (v2[val.toString()] == null) {
@@ -17799,18 +17338,18 @@ function enumeration(v2) {
     }
     return v2[val];
   }
-  const encode6 = function enumEncode(val, writer2) {
+  const encode6 = function enumEncode(val, writer) {
     const enumValue = findValue(val);
-    writer2.int32(enumValue);
+    writer.int32(enumValue);
   };
-  const decode7 = function enumDecode(reader2) {
-    const val = reader2.int32();
+  const decode7 = function enumDecode(reader) {
+    const val = reader.int32();
     return findValue(val);
   };
   return createCodec2("enum", CODEC_TYPES.VARINT, encode6, decode7);
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.2_uint8arraylist@2.4.3/node_modules/protons-runtime/dist/src/codecs/message.js
+// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/codecs/message.js
 function message(encode6, decode7) {
   return createCodec2("message", CODEC_TYPES.LENGTH_DELIMITED, encode6, decode7);
 }
@@ -17885,40 +17424,40 @@ var Data;
         if (opts.lengthDelimited !== false) {
           w.ldelim();
         }
-      }, (reader2, length2) => {
+      }, (reader, length3) => {
         const obj = {
           blocksizes: []
         };
-        const end = length2 == null ? reader2.len : reader2.pos + length2;
-        while (reader2.pos < end) {
-          const tag = reader2.uint32();
+        const end = length3 == null ? reader.len : reader.pos + length3;
+        while (reader.pos < end) {
+          const tag = reader.uint32();
           switch (tag >>> 3) {
             case 1:
-              obj.Type = Data2.DataType.codec().decode(reader2);
+              obj.Type = Data2.DataType.codec().decode(reader);
               break;
             case 2:
-              obj.Data = reader2.bytes();
+              obj.Data = reader.bytes();
               break;
             case 3:
-              obj.filesize = reader2.uint64();
+              obj.filesize = reader.uint64();
               break;
             case 4:
-              obj.blocksizes.push(reader2.uint64());
+              obj.blocksizes.push(reader.uint64());
               break;
             case 5:
-              obj.hashType = reader2.uint64();
+              obj.hashType = reader.uint64();
               break;
             case 6:
-              obj.fanout = reader2.uint64();
+              obj.fanout = reader.uint64();
               break;
             case 7:
-              obj.mode = reader2.uint32();
+              obj.mode = reader.uint32();
               break;
             case 8:
-              obj.mtime = UnixTime.codec().decode(reader2, reader2.uint32());
+              obj.mtime = UnixTime.codec().decode(reader, reader.uint32());
               break;
             default:
-              reader2.skipType(tag & 7);
+              reader.skipType(tag & 7);
               break;
           }
         }
@@ -17954,20 +17493,20 @@ var UnixTime;
         if (opts.lengthDelimited !== false) {
           w.ldelim();
         }
-      }, (reader2, length2) => {
+      }, (reader, length3) => {
         const obj = {};
-        const end = length2 == null ? reader2.len : reader2.pos + length2;
-        while (reader2.pos < end) {
-          const tag = reader2.uint32();
+        const end = length3 == null ? reader.len : reader.pos + length3;
+        while (reader.pos < end) {
+          const tag = reader.uint32();
           switch (tag >>> 3) {
             case 1:
-              obj.Seconds = reader2.int64();
+              obj.Seconds = reader.int64();
               break;
             case 2:
-              obj.FractionalNanoseconds = reader2.fixed32();
+              obj.FractionalNanoseconds = reader.fixed32();
               break;
             default:
-              reader2.skipType(tag & 7);
+              reader.skipType(tag & 7);
               break;
           }
         }
@@ -17999,17 +17538,17 @@ var Metadata;
         if (opts.lengthDelimited !== false) {
           w.ldelim();
         }
-      }, (reader2, length2) => {
+      }, (reader, length3) => {
         const obj = {};
-        const end = length2 == null ? reader2.len : reader2.pos + length2;
-        while (reader2.pos < end) {
-          const tag = reader2.uint32();
+        const end = length3 == null ? reader.len : reader.pos + length3;
+        while (reader.pos < end) {
+          const tag = reader.uint32();
           switch (tag >>> 3) {
             case 1:
-              obj.MimeType = reader2.string();
+              obj.MimeType = reader.string();
               break;
             default:
-              reader2.skipType(tag & 7);
+              reader.skipType(tag & 7);
               break;
           }
         }
@@ -18181,7 +17720,7 @@ var UnixFS = class _UnixFS {
   }
 };
 
-// node_modules/.pnpm/@veramo+utils@5.5.2-next.9/node_modules/@veramo/utils/build/credential-utils.js
+// node_modules/.pnpm/@veramo+utils@5.5.4-next.18/node_modules/@veramo/utils/build/credential-utils.js
 function computeEntryHash(input) {
   let hashable;
   if (typeof input === "string") {
@@ -18205,7 +17744,7 @@ function computeEntryHash(input) {
   return CID.create(0, code2, digest2).toString();
 }
 
-// node_modules/.pnpm/@veramo+utils@5.5.2-next.9/node_modules/@veramo/utils/build/did-utils.js
+// node_modules/.pnpm/@veramo+utils@5.5.4-next.18/node_modules/@veramo/utils/build/did-utils.js
 var import_debug = __toESM(require_browser(), 1);
 var debug = (0, import_debug.default)("veramo:utils");
 
