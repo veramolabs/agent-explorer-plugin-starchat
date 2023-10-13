@@ -9505,6 +9505,9 @@ var h2 = k2;
 var p = t.Z;
 var d = t.$;
 
+// src/api.ts
+var systemTitles = ["bs-home", "bs-sidebar"];
+
 // src/PostForm.tsx
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
 var { TextArea } = import_antd.Input;
@@ -9655,7 +9658,14 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
             key: "1",
             label: "Write",
             children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Space, { direction: "vertical", style: { width: "100%" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Input, { value: title, onChange: (e2) => setTitle(e2.target.value), placeholder: "Title (optional)" }),
+              systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Input, { value: title, type: "hidden" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Tag, { children: [
+                  title === "bs-sidebar" && "Sidebar",
+                  title === "bs-home" && "Home"
+                ] })
+              ] }),
+              !systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Input, { value: title, onChange: (e2) => setTitle(e2.target.value), placeholder: "Title (optional)" }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 Ft,
                 {
@@ -9689,7 +9699,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
       }
     ),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Space, { direction: "horizontal", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Checkbox, { defaultChecked: shouldBeIndexed, onChange: (e2) => setShouldBeIndexed(e2.target.checked), children: "Index" }),
+      !systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Checkbox, { defaultChecked: shouldBeIndexed, onChange: (e2) => setShouldBeIndexed(e2.target.checked), children: "Index" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
         import_antd.Select,
         {
@@ -9965,27 +9975,26 @@ var Post = () => {
 var import_react19 = __toESM(require_react(), 1);
 var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
 var import_veramo_react5 = __toESM(require_veramo_react(), 1);
-var import_antd5 = __toESM(require_antd(), 1);
+var import_antd6 = __toESM(require_antd(), 1);
 
 // src/didcommUtils.ts
 var import_uuid2 = __toESM(require_uuid(), 1);
 async function getPost(agent, did, hash3) {
   const senders = await agent?.didManagerFind({ provider: "did:peer" });
-  if (!senders || senders.length === 0) {
-    throw new Error("no DIDComm senders found on local agent");
+  if (senders && senders.length > 0) {
+    const requestCredMessage = {
+      type: "https://veramo.io/didcomm/brainshare/1.0/request-credential",
+      from: senders[0].did,
+      to: did,
+      id: (0, import_uuid2.v4)(),
+      body: {
+        hash: hash3
+      },
+      return_route: "all"
+    };
+    const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
+    await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
   }
-  const requestCredMessage = {
-    type: "https://veramo.io/didcomm/brainshare/1.0/request-credential",
-    from: senders[0].did,
-    to: did,
-    id: (0, import_uuid2.v4)(),
-    body: {
-      hash: hash3
-    },
-    return_route: "all"
-  };
-  const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
-  await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
   const localCred = await agent?.dataStoreGetVerifiableCredential({ hash: hash3 });
   console.log("localCred: ", localCred);
   return localCred;
@@ -9993,20 +10002,19 @@ async function getPost(agent, did, hash3) {
 async function getIndex(agent, did) {
   console.log("get index for DID: ", did);
   const senders = await agent?.didManagerFind({ provider: "did:peer" });
-  if (!senders || senders.length === 0) {
-    throw new Error("no DIDComm senders found on local agent");
+  if (senders && senders.length > 0) {
+    const requestCredMessage = {
+      type: "https://veramo.io/didcomm/brainshare/1.0/request-index",
+      from: senders[0].did,
+      to: did,
+      id: (0, import_uuid2.v4)(),
+      body: {},
+      return_route: "all"
+    };
+    console.log("getIndex 2");
+    const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
+    await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
   }
-  const requestCredMessage = {
-    type: "https://veramo.io/didcomm/brainshare/1.0/request-index",
-    from: senders[0].did,
-    to: did,
-    id: (0, import_uuid2.v4)(),
-    body: {},
-    return_route: "all"
-  };
-  console.log("getIndex 2");
-  const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
-  await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
   console.log("getIndex 3");
   const localCreds = await agent?.dataStoreORMGetVerifiableCredentials({
     where: [
@@ -10015,23 +10023,27 @@ async function getIndex(agent, did) {
     ]
   });
   console.log("indexes??", localCreds);
-  return localCreds[localCreds.length - 1].verifiableCredential;
+  return localCreds[localCreds.length - 1]?.verifiableCredential;
 }
 
 // src/BrainSharePost.tsx
 var import_agent_explorer_plugin5 = __toESM(require_agent_explorer_plugin(), 1);
+var import_antd5 = __toESM(require_antd(), 1);
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var BrainSharePost = ({ credential, context }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-    credential.verifiableCredential.credentialSubject.title && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { children: credential.verifiableCredential.credentialSubject.title }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_agent_explorer_plugin5.MarkDown, { content: credential.verifiableCredential.credentialSubject.post, credential, context })
+  const { token } = import_antd5.theme.useToken();
+  const { title, post } = credential.verifiableCredential.credentialSubject;
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { marginTop: token.margin }, children: [
+    context?.hideTitle !== true && title && !systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { children: title }),
+    context?.hideTitle !== true && title && systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Tag, { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_agent_explorer_plugin5.MarkDown, { content: post, credential, context })
   ] });
 };
 
 // src/Home.tsx
 var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
 var Home = () => {
-  const { notification } = import_antd5.App.useApp();
+  const { notification } = import_antd6.App.useApp();
   const { did, hash: hash3 } = (0, import_react_router_dom3.useParams)();
   const { agent } = (0, import_veramo_react5.useVeramo)();
   const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
@@ -10094,7 +10106,7 @@ var import_react_query5 = __toESM(require_react_query(), 1);
 var import_veramo_react6 = __toESM(require_veramo_react(), 1);
 var import_pro_components3 = __toESM(require_pro_components(), 1);
 var import_agent_explorer_plugin6 = __toESM(require_agent_explorer_plugin(), 1);
-var import_antd6 = __toESM(require_antd(), 1);
+var import_antd7 = __toESM(require_antd(), 1);
 var import_uuid3 = __toESM(require_uuid(), 1);
 var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
 var LinkDomain = () => {
@@ -10158,15 +10170,15 @@ var LinkDomain = () => {
     console.log("res: ", res);
   };
   return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_pro_components3.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Input, { value: domain, onChange: (e2) => setDomain(e2.target.value), placeholder: "www.google.com" }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Input, { value: did, onChange: (e2) => setDID(e2.target.value), placeholder: "did:web:staging.community.veramo.io" }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Input, { value: domain, onChange: (e2) => setDomain(e2.target.value), placeholder: "www.google.com" }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Input, { value: did, onChange: (e2) => setDID(e2.target.value), placeholder: "did:web:staging.community.veramo.io" }),
     managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-      import_antd6.Dropdown.Button,
+      import_antd7.Dropdown.Button,
       {
         type: "primary",
         onClick: checkLinkage,
         disabled: domain === "",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd6.Avatar, { size: "small", src: issuerProfile?.picture }),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Avatar, { size: "small", src: issuerProfile?.picture }),
         menu: {
           items: [
             ...managedIdentifiersWithProfiles.map((profile) => {
@@ -10191,12 +10203,12 @@ var LinkDomain = () => {
 
 // src/menu.tsx
 var import_agent_explorer_plugin7 = __toESM(require_agent_explorer_plugin(), 1);
-var import_antd7 = __toESM(require_antd(), 1);
+var import_antd8 = __toESM(require_antd(), 1);
 var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
 var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
 var getCredentialContextMenuItems = (credential) => {
   const navigate = (0, import_react_router_dom5.useNavigate)();
-  const { notification } = import_antd7.App.useApp();
+  const { notification } = import_antd8.App.useApp();
   const handleCopyEmbed = () => {
     let embed = "";
     if (credential.verifiableCredential.proof?.jwt) {
@@ -10275,10 +10287,10 @@ var import_react_router_dom6 = __toESM(require_react_router_dom(), 1);
 var import_react_query6 = __toESM(require_react_query(), 1);
 var import_veramo_react7 = __toESM(require_veramo_react(), 1);
 var import_pro_components4 = __toESM(require_pro_components(), 1);
-var import_antd8 = __toESM(require_antd(), 1);
+var import_antd9 = __toESM(require_antd(), 1);
 var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
 var Edit = () => {
-  const { notification } = import_antd8.App.useApp();
+  const { notification } = import_antd9.App.useApp();
   const { id } = (0, import_react_router_dom6.useParams)();
   const { agent } = (0, import_veramo_react7.useVeramo)();
   const navigate = (0, import_react_router_dom6.useNavigate)();
@@ -10321,7 +10333,7 @@ var Edit = () => {
       loading: credentialLoading,
       style: { paddingTop: 10 },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_antd8.Space, { direction: "vertical", style: { width: "100%" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_antd9.Space, { direction: "vertical", style: { width: "100%" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
             PostForm,
             {
@@ -10332,14 +10344,14 @@ var Edit = () => {
               initialIndexed: credential.credentialSubject.shouldBeIndexed
             }
           ),
-          references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_jsx_runtime9.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_antd8.Button, { type: "text", onClick: () => setRefDrawerOpen(true), children: [
+          references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_jsx_runtime9.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_antd9.Button, { type: "text", onClick: () => setRefDrawerOpen(true), children: [
             "Referenced by ",
             references.length,
             " other posts"
           ] }) })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-          import_antd8.Drawer,
+          import_antd9.Drawer,
           {
             title: "Posts that reference this one",
             placement: "right",
@@ -17751,12 +17763,12 @@ var debug = (0, import_debug.default)("veramo:utils");
 // src/markdown.tsx
 var import_agent_explorer_plugin8 = __toESM(require_agent_explorer_plugin(), 1);
 var import_use_text_selection = __toESM(require_dist(), 1);
-var import_antd9 = __toESM(require_antd(), 1);
+var import_antd10 = __toESM(require_antd(), 1);
 var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
 var getMarkdownComponents = () => {
   return {
     p(props) {
-      const { notification } = import_antd9.App.useApp();
+      const { notification } = import_antd10.App.useApp();
       const ref = import_react22.default.useRef(null);
       const { clientRect, isCollapsed, textContent } = (0, import_use_text_selection.useTextSelection)(ref.current === null ? void 0 : ref.current);
       const credential = props.node?.credential;
@@ -17795,7 +17807,7 @@ ${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredentia
               backgroundColor: "black"
             },
             children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-              import_antd9.Button,
+              import_antd10.Button,
               {
                 type: "primary",
                 disabled: !enabled,
@@ -17852,7 +17864,7 @@ ${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredentia
 var import_react23 = __toESM(require_react(), 1);
 var import_veramo_react8 = __toESM(require_veramo_react(), 1);
 var import_react_query7 = __toESM(require_react_query(), 1);
-var import_antd10 = __toESM(require_antd(), 1);
+var import_antd11 = __toESM(require_antd(), 1);
 var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
 var IdentifierHoverComponent = ({ did }) => {
   const { agent } = (0, import_veramo_react8.useVeramo)();
@@ -17870,12 +17882,12 @@ var IdentifierHoverComponent = ({ did }) => {
     return credentials?.[0]?.verifiableCredential?.credentialSubject?.domain;
   }, [credentials, did]);
   if (isLoading) {
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_antd10.Spin, {});
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_antd11.Spin, {});
   }
   if (!domain) {
     return null;
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_antd10.Typography.Text, { children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_antd11.Typography.Text, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(CheckCircleOutlined_default2, {}),
     " ",
     domain
@@ -17883,15 +17895,119 @@ var IdentifierHoverComponent = ({ did }) => {
 };
 
 // src/BrainShareIndex.tsx
+var import_antd12 = __toESM(require_antd(), 1);
 var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
 var BrainShareIndex = ({ credential: { verifiableCredential } }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_jsx_runtime12.Fragment, { children: verifiableCredential.credentialSubject.index && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ul", { children: Object.keys(verifiableCredential.credentialSubject.index).map((item, key) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { href: `/brainshare/${verifiableCredential.credentialSubject.index[item]}`, children: item }) }, key);
-  }) }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_antd12.Typography.Title, { level: 5, children: "BrainShare Index" }),
+    verifiableCredential.credentialSubject.index && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ul", { children: Object.keys(verifiableCredential.credentialSubject.index).map((item, key) => {
+      return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { href: `/brainshare/${verifiableCredential.credentialSubject.index[item]}`, children: item }) }, key);
+    }) })
+  ] });
+};
+
+// src/Landing.tsx
+var import_react24 = __toESM(require_react(), 1);
+var import_veramo_react9 = __toESM(require_veramo_react(), 1);
+var import_antd13 = __toESM(require_antd(), 1);
+var import_react_router_dom7 = __toESM(require_react_router_dom(), 1);
+var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+var Landing = ({
+  did
+}) => {
+  const { token } = import_antd13.theme.useToken();
+  const navigate = (0, import_react_router_dom7.useNavigate)();
+  const { agent } = (0, import_veramo_react9.useVeramo)();
+  const [index3, setIndex] = (0, import_react24.useState)(null);
+  const [sidebar, setSidebar] = (0, import_react24.useState)(null);
+  const [post, setPost] = (0, import_react24.useState)(null);
+  const [loading, setLoading] = (0, import_react24.useState)(true);
+  if (!did)
+    return null;
+  if (!agent)
+    return null;
+  (0, import_react24.useEffect)(() => {
+    const loadIndex = async () => {
+      const index4 = await getIndex(agent, did);
+      if (index4) {
+        setIndex(index4);
+        console.log("index: ", index4);
+        const indexMap = index4.credentialSubject.index;
+        if (indexMap["bs-sidebar"]) {
+          const sidebarHash = indexMap["bs-sidebar"][0];
+          console.log("sidebarHash: ", sidebarHash);
+          const sidebar2 = await getPost(agent, did, sidebarHash);
+          console.log("sidebar: ", sidebar2);
+          setSidebar({ hash: sidebarHash, verifiableCredential: sidebar2 });
+        }
+        if (indexMap["bs-home"]) {
+          const homeHash = indexMap["bs-home"][0];
+          setPost({ hash: homeHash, verifiableCredential: await getPost(agent, did, homeHash) });
+        }
+      }
+      setLoading(false);
+    };
+    loadIndex();
+  }, [did]);
+  if (loading)
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_antd13.Spin, {});
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_antd13.Row, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_antd13.Col, { xs: 24, sm: 16, children: [
+      post && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(BrainSharePost, { credential: post, context: { hideTitle: true } }),
+      !post && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_antd13.Button, { type: "primary", onClick: () => navigate("/brainshare/compose/bs-home"), children: "Compose" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_antd13.Col, { xs: 24, sm: 8, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+      import_antd13.Collapse,
+      {
+        accordion: true,
+        size: "small",
+        defaultActiveKey: ["0"],
+        items: [
+          {
+            key: "0",
+            label: `Sidebar`,
+            children: sidebar ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(BrainSharePost, { credential: sidebar, context: { hideTitle: true } }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_antd13.Button, { type: "primary", onClick: () => navigate("/brainshare/compose/bs-sidebar"), children: "Compose" })
+          },
+          {
+            key: "1",
+            label: index3 ? `Index (${Object.keys(index3.credentialSubject.index).length})` : "Index",
+            children: index3 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { children: Object.keys(index3.credentialSubject.index).map((item, key) => {
+              return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: `/brainshare/${index3.credentialSubject.index[item]}`, children: item }) }, key);
+            }) })
+          }
+        ]
+      }
+    ) })
+  ] });
+};
+
+// src/Compose.tsx
+var import_react_router_dom8 = __toESM(require_react_router_dom(), 1);
+var import_pro_components5 = __toESM(require_pro_components(), 1);
+var import_antd14 = __toESM(require_antd(), 1);
+var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
+var Compose = () => {
+  const { notification } = import_antd14.App.useApp();
+  const { title } = (0, import_react_router_dom8.useParams)();
+  const navigate = (0, import_react_router_dom8.useNavigate)();
+  const handleNewPost = async (hash3) => {
+    notification.success({
+      message: "Post created"
+    });
+    navigate("/brainshare/" + hash3);
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    import_pro_components5.PageContainer,
+    {
+      title: false,
+      style: { paddingTop: 10 },
+      children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(PostForm, { onOk: handleNewPost, initialTitle: title, initialIndexed: true })
+    }
+  );
 };
 
 // src/index.tsx
-var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
 var Plugin = {
   //@ts-ignore
   init: () => {
@@ -17902,39 +18018,51 @@ var Plugin = {
       routes: [
         {
           path: "/brainshare/feed",
-          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Feed, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Feed, {})
         },
         {
           path: "/brainshare/wiki/:did",
-          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Home, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Home, {})
         },
         {
           path: "/brainshare/wiki/:did/:hash",
-          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Home, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Home, {})
         },
         {
           path: "/brainshare/:id",
-          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Post, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Post, {})
         },
         {
           path: "/brainshare/:did/:id",
-          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Post, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Post, {})
         },
         {
           path: "/brainshare/link-domain",
-          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkDomain, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LinkDomain, {})
         },
         {
           path: "/brainshare/edit/:id",
-          element: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Edit, {})
+          element: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Edit, {})
+        },
+        {
+          path: "/brainshare/compose/:title",
+          element: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Compose, {})
+        },
+        {
+          path: "/brainshare/compose",
+          element: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Compose, {})
         }
       ],
       menuItems: [
         {
           name: "BrainShare",
-          icon: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(FileTextOutlined_default2, {}),
+          icon: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(FileTextOutlined_default2, {}),
           path: "/brainshare",
           routes: [
+            {
+              name: "Compose",
+              path: "/brainshare/compose"
+            },
             {
               name: "Feed",
               path: "/brainshare/feed"
@@ -17963,8 +18091,15 @@ var Plugin = {
         aliasDivider: "|",
         hrefTemplate: (permalink) => `${permalink}`,
         pageResolver: (name2) => [`/brainshare/${name2}`]
-      }]]
-      // getMarkdownPlugins: () => [wikilinks]
+      }]],
+      getIdentifierTabsComponents: () => {
+        return [
+          {
+            label: "BrainShare",
+            component: Landing
+          }
+        ];
+      }
     };
   }
 };
