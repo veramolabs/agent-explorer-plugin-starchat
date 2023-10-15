@@ -15,7 +15,6 @@ import { Edit } from './Edit';
 import { getMarkdownComponents } from './markdown';
 import { IdentifierHoverComponent } from './IdentifierHoverComponent.js';
 import { BrainShareIndex } from './BrainShareIndex';
-import { wikilinks } from './wikilinks';
 import wikilink from 'remark-wiki-link'
 import { Landing } from './Landing';
 import { Compose } from './Compose';

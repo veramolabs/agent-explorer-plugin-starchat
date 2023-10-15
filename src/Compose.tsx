@@ -11,11 +11,11 @@ export const Compose = () => {
 
   const navigate = useNavigate()
 
-  const handleNewPost = async (hash: string) => {
+  const handleNewPost = async (did:string, hash: string) => {
     notification.success({
       message: 'Post created'
     })
-    navigate('/brainshare/' + hash)
+    navigate(`/brainshare/${did}/${hash}}`)
   }
 
   return (

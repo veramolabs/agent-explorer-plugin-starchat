@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useVeramo } from '@veramo-community/veramo-react'
 import { Button, Col, Collapse, Row, Spin, theme } from 'antd'
-import { IDIDManager, IDataStore, IDataStoreORM, UniqueVerifiableCredential, VerifiableCredential } from '@veramo/core'
+import { IDIDManager, IDataStore, IDataStoreORM, IResolver, UniqueVerifiableCredential, VerifiableCredential } from '@veramo/core'
 import { getIndex, getPost } from './didcommUtils.js'
 import { IDIDComm } from '@veramo/did-comm'
 import { BrainSharePost } from './BrainSharePost.js'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const Landing: React.FC<{ did: string }> = ({
   did,
 }) => {
   const { token } = theme.useToken()
   const navigate = useNavigate()
-  const { agent } = useVeramo<IDataStore & IDataStoreORM & IDIDComm & IDIDManager>()
+  const { agent } = useVeramo<IDataStore & IDataStoreORM & IDIDComm & IDIDManager & IResolver>()
   const [index, setIndex] = useState<VerifiableCredential | null>(null)
   const [sidebar, setSidebar] = useState<UniqueVerifiableCredential | null>(null)
   const [post, setPost] = useState<UniqueVerifiableCredential | null>(null)
@@ -54,7 +54,7 @@ export const Landing: React.FC<{ did: string }> = ({
   if (loading) return (<Spin />)
 
   return (<Row>
-    <Col xs={24} sm={16}>
+    <Col xs={24} sm={16} style={{overflow: 'hidden'}}>
       {post && <BrainSharePost credential={post} context={{hideTitle: true} }/>}
       {!post && <Button type='primary' onClick={() => navigate('/brainshare/compose/bs-home')}>Compose</Button>}
     </Col>
@@ -76,7 +76,7 @@ export const Landing: React.FC<{ did: string }> = ({
             children: index && <ul>
             {Object.keys(index.credentialSubject.index).map((item, key: number) => {
               return <li key={key}>
-                <a href={`/brainshare/${index.credentialSubject.index[item]}`}>{item}</a>
+                <a href={`/brainshare/${did}/${index.credentialSubject.index[item][0]}`}>{item}</a>
               </li>
             })}
             </ul>,
