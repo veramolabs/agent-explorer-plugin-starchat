@@ -15,7 +15,7 @@ export const Compose = () => {
     notification.success({
       message: 'Post created'
     })
-    navigate(`/brainshare/${did}/${hash}}`)
+    navigate(`/brainshare/${did}/${hash}`)
   }
 
   return (

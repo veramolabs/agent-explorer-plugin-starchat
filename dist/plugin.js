@@ -17968,7 +17968,7 @@ var Compose = () => {
     notification.success({
       message: "Post created"
     });
-    navigate(`/brainshare/${did}/${hash3}}`);
+    navigate(`/brainshare/${did}/${hash3}`);
   };
   return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
     import_pro_components5.PageContainer,
