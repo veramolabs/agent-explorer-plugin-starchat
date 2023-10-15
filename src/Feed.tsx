@@ -35,13 +35,13 @@ export const Feed = () => {
       }),
   )
 
-  const handleNewPost = async (hash: string) => {
+  const handleNewPost = async (did: string, hash: string) => {
     notification.success({
       message: 'Post created'
     })
     setDrawerOpen(false)
     await refetch()
-    navigate('/brainshare/' + hash)
+    navigate(`/brainshare/${did}/${hash}`)
   }
 
 

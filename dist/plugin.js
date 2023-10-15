@@ -2199,7 +2199,7 @@ var PlusOutlined_default2 = /* @__PURE__ */ React10.forwardRef(PlusOutlined2);
 // src/Feed.tsx
 var import_react16 = __toESM(require_react(), 1);
 var import_react_router_dom = __toESM(require_react_router_dom(), 1);
-var import_react_query2 = __toESM(require_react_query(), 1);
+var import_react_query = __toESM(require_react_query(), 1);
 var import_veramo_react2 = __toESM(require_veramo_react(), 1);
 var import_pro_components = __toESM(require_pro_components(), 1);
 var import_agent_explorer_plugin2 = __toESM(require_agent_explorer_plugin(), 1);
@@ -2209,7 +2209,6 @@ var import_antd2 = __toESM(require_antd(), 1);
 var import_antd = __toESM(require_antd(), 1);
 var import_react14 = __toESM(require_react(), 1);
 var import_veramo_react = __toESM(require_veramo_react(), 1);
-var import_react_query = __toESM(require_react_query(), 1);
 var import_agent_explorer_plugin = __toESM(require_agent_explorer_plugin(), 1);
 
 // node_modules/.pnpm/@monaco-editor+loader@1.4.0_monaco-editor@0.44.0/node_modules/@monaco-editor/loader/lib/es/_virtual/_rollupPluginBabelHelpers.js
@@ -9518,44 +9517,11 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
   const [shouldBeIndexed, setShouldBeIndexed] = (0, import_react14.useState)(initialIndexed || false);
   const [post, setPost] = (0, import_react14.useState)(initialText || window.localStorage.getItem("bs-post") || "");
   const { agent } = (0, import_veramo_react.useVeramo)();
-  const [selectedDid, setSelectedDid] = (0, import_react14.useState)(initialIssuer || "");
-  const [issuerProfile, setIssuerProfile] = (0, import_react14.useState)();
-  const [managedIdentifiers, setManagedIdentifiers] = (0, import_react14.useState)([]);
-  const [
-    managedIdentifiersWithProfiles,
-    setManagedIdentifiersWithProfiles
-  ] = (0, import_react14.useState)([]);
   const [proofFormat, setProofFormat] = (0, import_react14.useState)("jwt");
-  (0, import_react_query.useQuery)(
-    ["identifiers", { id: agent?.context.id }],
-    () => agent?.didManagerFind(),
-    {
-      onSuccess: (data) => {
-        if (data) {
-          setManagedIdentifiers(data);
-          if (!initialIssuer) {
-            setSelectedDid(data[0].did);
-          }
-        }
-      }
-    }
-  );
   (0, import_react14.useEffect)(() => {
     window.localStorage.setItem("bs-post", post);
   }, [post]);
-  (0, import_react14.useEffect)(() => {
-    if (agent) {
-      Promise.all(
-        managedIdentifiers.map((identifier) => {
-          return agent.getIdentifierProfile({ did: identifier.did });
-        })
-      ).then((profiles) => {
-        setIssuerProfile(profiles[0]);
-        setManagedIdentifiersWithProfiles(profiles);
-      }).catch(console.log);
-    }
-  }, [managedIdentifiers, agent]);
-  const handleCreatePost = async () => {
+  const handleCreatePost = async (did, issuerAgent) => {
     try {
       let visitWikiLinks2 = function(node2) {
         if (node2.type === "wikiLink") {
@@ -9589,15 +9555,13 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
         shouldBeIndexed,
         post
       };
-      const identifier = await agent?.didManagerGet({ did: selectedDid });
-      console.log(identifier);
-      const credential = await agent?.createVerifiableCredential({
+      const credential = await issuerAgent.createVerifiableCredential({
         save: true,
         proofFormat,
         credential: {
           "@context": ["https://www.w3.org/2018/credentials/v1"],
           type: ["VerifiableCredential", "BrainSharePost"],
-          issuer: { id: selectedDid },
+          issuer: { id: did },
           issuanceDate: (/* @__PURE__ */ new Date()).toISOString(),
           credentialSubject
         }
@@ -9609,7 +9573,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
             const credentials = await agent?.dataStoreORMGetVerifiableCredentials({
               where: [
                 { column: "type", value: ["VerifiableCredential,BrainSharePost"] },
-                { column: "issuer", value: [selectedDid] }
+                { column: "issuer", value: [did] }
               ]
             });
             const indexableCreds = credentials?.filter((cred) => cred.verifiableCredential.credentialSubject.shouldBeIndexed);
@@ -9623,13 +9587,13 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
                 revisions = [...revisions, cred.hash];
                 index3.set(cred.verifiableCredential.credentialSubject.title, revisions);
               });
-              const indexCred = await agent?.createVerifiableCredential({
+              const indexCred = await issuerAgent.createVerifiableCredential({
                 save: true,
                 proofFormat: "jwt",
                 credential: {
                   "@context": ["https://www.w3.org/2018/credentials/v1"],
                   type: ["VerifiableCredential", "BrainShareIndex"],
-                  issuer: { id: selectedDid },
+                  issuer: { id: did },
                   issuanceDate: (/* @__PURE__ */ new Date()).toISOString(),
                   credentialSubject: {
                     index: Object.fromEntries(index3.entries())
@@ -9642,7 +9606,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
             }
           }
           window.localStorage.removeItem("bs-post");
-          onOk(hash3);
+          onOk(did, hash3);
         }
       }
     } catch (e2) {
@@ -9720,30 +9684,12 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
           ]
         }
       ),
-      managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        import_antd.Dropdown.Button,
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        import_agent_explorer_plugin.ActionButton,
         {
-          type: "primary",
-          onClick: handleCreatePost,
+          title: "Save to:",
           disabled: post === "",
-          icon: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Avatar, { size: "small", src: issuerProfile?.picture }),
-          menu: {
-            items: [
-              ...managedIdentifiersWithProfiles.map((profile) => {
-                return {
-                  key: profile.did,
-                  onClick: () => {
-                    setIssuerProfile(profile);
-                    setSelectedDid(profile.did);
-                  },
-                  label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_agent_explorer_plugin.IdentifierProfile, { did: profile.did })
-                };
-              })
-            ],
-            selectable: true,
-            defaultSelectedKeys: [selectedDid]
-          },
-          children: "Create Post as"
+          onAction: handleCreatePost
         }
       )
     ] })
@@ -9759,26 +9705,26 @@ var Feed = () => {
   const [page, setPage] = import_react16.default.useState(1);
   const navigate = (0, import_react_router_dom.useNavigate)();
   const { agent } = (0, import_veramo_react2.useVeramo)();
-  const { data: credentialsCount } = (0, import_react_query2.useQuery)(
+  const { data: credentialsCount } = (0, import_react_query.useQuery)(
     ["credentialsCount", { agentId: agent?.context.name }],
     () => agent?.dataStoreORMGetVerifiableCredentialsCount({
       where: [{ column: "type", value: ["VerifiableCredential,BrainSharePost"] }]
     })
   );
-  const { data: credentials, isLoading, refetch } = (0, import_react_query2.useQuery)(
+  const { data: credentials, isLoading, refetch } = (0, import_react_query.useQuery)(
     ["brainshare-posts", { agentId: agent?.context.name }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
       where: [{ column: "type", value: ["VerifiableCredential,BrainSharePost"] }],
       order: [{ column: "issuanceDate", direction: "DESC" }]
     })
   );
-  const handleNewPost = async (hash3) => {
+  const handleNewPost = async (did, hash3) => {
     notification.success({
       message: "Post created"
     });
     setDrawerOpen(false);
     await refetch();
-    navigate("/brainshare/" + hash3);
+    navigate(`/brainshare/${did}/${hash3}`);
   };
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
     import_pro_components.PageContainer,
@@ -9837,21 +9783,21 @@ var Feed = () => {
 // src/Post.tsx
 var import_react17 = __toESM(require_react(), 1);
 var import_react_router_dom2 = __toESM(require_react_router_dom(), 1);
-var import_react_query4 = __toESM(require_react_query(), 1);
+var import_react_query3 = __toESM(require_react_query(), 1);
 var import_veramo_react4 = __toESM(require_veramo_react(), 1);
 var import_pro_components2 = __toESM(require_pro_components(), 1);
-var import_antd4 = __toESM(require_antd(), 1);
-var import_agent_explorer_plugin4 = __toESM(require_agent_explorer_plugin(), 1);
+var import_antd5 = __toESM(require_antd(), 1);
+var import_agent_explorer_plugin5 = __toESM(require_agent_explorer_plugin(), 1);
 
 // src/ReferencesFeed.tsx
-var import_react_query3 = __toESM(require_react_query(), 1);
+var import_react_query2 = __toESM(require_react_query(), 1);
 var import_veramo_react3 = __toESM(require_veramo_react(), 1);
 var import_agent_explorer_plugin3 = __toESM(require_agent_explorer_plugin(), 1);
 var import_antd3 = __toESM(require_antd(), 1);
 var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
 var ReferencesFeed = ({ referenceHashes }) => {
   const { agent } = (0, import_veramo_react3.useVeramo)();
-  const { data: credentials, isLoading } = (0, import_react_query3.useQuery)(
+  const { data: credentials, isLoading } = (0, import_react_query2.useQuery)(
     ["brainshare-posts", { agentId: agent?.context.name }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
       where: [
@@ -9875,19 +9821,127 @@ var ReferencesFeed = ({ referenceHashes }) => {
 
 // src/Post.tsx
 var import_react18 = __toESM(require_react(), 1);
+var import_uuid2 = __toESM(require_uuid(), 1);
+
+// src/didcommUtils.ts
 var import_uuid = __toESM(require_uuid(), 1);
+async function getPost(agent, did, hash3) {
+  let identifier = void 0;
+  try {
+    identifier = await agent.didManagerGet({ did });
+  } catch (e2) {
+  }
+  if (!identifier) {
+    const { didDocument } = await agent.resolveDid({ didUrl: did });
+    if (didDocument?.service?.find((service) => service.type === "DIDCommMessaging")) {
+      const temporarySender = await agent.didManagerCreate({ provider: "did:key" });
+      if (temporarySender) {
+        const requestCredMessage = {
+          type: "https://veramo.io/didcomm/brainshare/1.0/request-credential",
+          from: temporarySender.did,
+          to: did,
+          id: (0, import_uuid.v4)(),
+          body: {
+            hash: hash3
+          },
+          return_route: "all"
+        };
+        const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
+        await agent.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
+        await agent.didManagerDelete({ did: temporarySender.did });
+      }
+    }
+  }
+  const localCred = await agent.dataStoreGetVerifiableCredential({ hash: hash3 });
+  console.log("localCred: ", localCred);
+  return localCred;
+}
+async function getIndex(agent, did) {
+  console.log("get index for DID: ", did);
+  let identifier = void 0;
+  try {
+    identifier = await agent.didManagerGet({ did });
+  } catch (e2) {
+  }
+  if (!identifier) {
+    const { didDocument } = await agent.resolveDid({ didUrl: did });
+    if (didDocument?.service?.find((service) => service.type === "DIDCommMessaging")) {
+      const temporarySender = await agent.didManagerCreate({ provider: "did:key" });
+      if (temporarySender) {
+        const requestCredMessage = {
+          type: "https://veramo.io/didcomm/brainshare/1.0/request-index",
+          from: temporarySender.did,
+          to: did,
+          id: (0, import_uuid.v4)(),
+          body: {},
+          return_route: "all"
+        };
+        console.log("getIndex 2");
+        const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
+        await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
+        await agent.didManagerDelete({ did: temporarySender.did });
+      }
+    }
+  }
+  console.log("getIndex 3");
+  const localCreds = await agent?.dataStoreORMGetVerifiableCredentials({
+    where: [
+      { column: "type", value: ["VerifiableCredential,BrainShareIndex"] },
+      { column: "issuer", value: [did] }
+    ]
+  });
+  console.log("indexes??", localCreds);
+  return localCreds[localCreds.length - 1]?.verifiableCredential;
+}
+
+// src/BrainSharePost.tsx
+var import_agent_explorer_plugin4 = __toESM(require_agent_explorer_plugin(), 1);
+var import_antd4 = __toESM(require_antd(), 1);
 var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+var BrainSharePost = ({ credential, context }) => {
+  const { token } = import_antd4.theme.useToken();
+  const { title, post } = credential.verifiableCredential.credentialSubject;
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { marginTop: token.margin }, children: [
+    context?.hideTitle !== true && title && !systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { children: title }),
+    context?.hideTitle !== true && title && systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.Tag, { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_agent_explorer_plugin4.MarkDown, { content: post, credential, context })
+  ] });
+};
+
+// src/Post.tsx
+var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var Post = () => {
-  const { notification } = import_antd4.App.useApp();
   const { id, did } = (0, import_react_router_dom2.useParams)();
   const { agent } = (0, import_veramo_react4.useVeramo)();
-  const [drawerOpen, setDrawerOpen] = (0, import_react17.useState)(false);
   const [refDrawerOpen, setRefDrawerOpen] = (0, import_react17.useState)(false);
-  const navigate = (0, import_react_router_dom2.useNavigate)();
   const [credential, setCredential] = (0, import_react17.useState)(null);
   const [credentialLoading, setCredentialLoading] = (0, import_react17.useState)(true);
+  const [index3, setIndex] = (0, import_react17.useState)(null);
+  const [sidebar, setSidebar] = (0, import_react17.useState)(null);
+  const [loading, setLoading] = (0, import_react17.useState)(true);
   if (!id)
     return null;
+  (0, import_react18.useEffect)(() => {
+    const loadIndex = async () => {
+      if (!agent || !did)
+        return;
+      const index4 = await getIndex(agent, did);
+      if (index4) {
+        setIndex(index4);
+        console.log("index: ", index4);
+        const indexMap = index4.credentialSubject.index;
+        if (indexMap["bs-sidebar"]) {
+          const sidebarHash = indexMap["bs-sidebar"][0];
+          console.log("sidebarHash: ", sidebarHash);
+          const sidebar2 = await getPost(agent, did, sidebarHash);
+          console.log("sidebar: ", sidebar2);
+          setSidebar({ hash: sidebarHash, verifiableCredential: sidebar2 });
+        }
+      }
+      setLoading(false);
+    };
+    loadIndex();
+  }, [did, id]);
   (0, import_react18.useEffect)(() => {
     const getCredential = async () => {
       try {
@@ -9898,29 +9952,40 @@ var Post = () => {
         console.log("credential not found locally");
       }
       if (!credential && did) {
-        const senders = await agent?.didManagerFind({ provider: "did:peer" });
-        if (senders && senders.length > 0) {
-          const requestCredMessage = {
-            type: "https://veramo.io/didcomm/brainshare/1.0/request-credential",
-            from: senders[0].did,
-            to: did,
-            id: (0, import_uuid.v4)(),
-            body: {
-              hash: id
-            },
-            return_route: "all"
-          };
-          const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
-          await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
-          const localCred = await agent?.dataStoreGetVerifiableCredential({ hash: id });
-          setCredential(localCred);
-          setCredentialLoading(false);
+        let identifier = void 0;
+        try {
+          identifier = await agent?.didManagerGet({ did });
+        } catch (e2) {
         }
+        if (!identifier) {
+          const result = await agent?.resolveDid({ didUrl: did });
+          if (result?.didDocument?.service?.find((service) => service.type === "DIDCommMessaging")) {
+            const temporarySender = await agent?.didManagerCreate({ provider: "did:key" });
+            if (temporarySender) {
+              const requestCredMessage = {
+                type: "https://veramo.io/didcomm/brainshare/1.0/request-credential",
+                from: temporarySender.did,
+                to: did,
+                id: (0, import_uuid2.v4)(),
+                body: {
+                  hash: id
+                },
+                return_route: "all"
+              };
+              const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
+              await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
+              await agent?.didManagerDelete({ did: temporarySender.did });
+            }
+          }
+        }
+        const localCred = await agent?.dataStoreGetVerifiableCredential({ hash: id });
+        setCredential(localCred);
+        setCredentialLoading(false);
       }
     };
     getCredential();
   }, [did, id]);
-  const { data: references, isLoading: referencesLoading } = (0, import_react_query4.useQuery)(
+  const { data: references, isLoading: referencesLoading } = (0, import_react_query3.useQuery)(
     ["references", { id }],
     () => {
       return agent?.dataStoreORMGetVerifiableCredentialsByClaims({
@@ -9938,24 +10003,48 @@ var Post = () => {
       });
     }
   );
+  if (credentialLoading)
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Spin, {});
   if (!credential)
     return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
     import_pro_components2.PageContainer,
     {
       loading: credentialLoading,
       style: { paddingTop: 10 },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_antd4.Space, { direction: "vertical", children: [
-          credential && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_agent_explorer_plugin4.VerifiableCredentialComponent, { credential: { hash: id, verifiableCredential: credential } }),
-          references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_jsx_runtime4.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_antd4.Button, { type: "text", onClick: () => setRefDrawerOpen(true), children: [
-            "Referenced by ",
-            references.length,
-            " other posts"
-          ] }) })
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_antd5.Row, { gutter: 16, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Col, { xs: 24, sm: 16, style: { overflow: "hidden" }, children: credential && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_agent_explorer_plugin5.VerifiableCredentialComponent, { credential: { hash: id, verifiableCredential: credential } }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Col, { xs: 24, sm: 8, children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+            import_antd5.Collapse,
+            {
+              accordion: true,
+              size: "small",
+              defaultActiveKey: ["0"],
+              items: [
+                {
+                  key: "0",
+                  label: `Sidebar`,
+                  children: sidebar && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(BrainSharePost, { credential: sidebar, context: { hideTitle: true } })
+                },
+                {
+                  key: "1",
+                  label: index3 ? `Index (${Object.keys(index3.credentialSubject.index).length})` : "Index",
+                  children: index3 && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("ul", { children: Object.keys(index3.credentialSubject.index).map((item, key) => {
+                    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("a", { href: `/brainshare/${did}/${index3.credentialSubject.index[item][0]}`, children: item }) }, key);
+                  }) })
+                }
+              ]
+            }
+          ) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          import_antd4.Drawer,
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Row, { children: references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_antd5.Button, { type: "text", onClick: () => setRefDrawerOpen(true), children: [
+          "Referenced by ",
+          references.length,
+          " other posts"
+        ] }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          import_antd5.Drawer,
           {
             title: "Posts that reference this one",
             placement: "right",
@@ -9963,7 +10052,7 @@ var Post = () => {
             open: refDrawerOpen,
             width: 800,
             destroyOnClose: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ReferencesFeed, { referenceHashes: references?.map((cred) => cred.hash) })
+            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(ReferencesFeed, { referenceHashes: references?.map((cred) => cred.hash) })
           }
         )
       ]
@@ -9972,85 +10061,24 @@ var Post = () => {
 };
 
 // src/Home.tsx
+var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
+
+// src/Landing.tsx
 var import_react19 = __toESM(require_react(), 1);
-var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
 var import_veramo_react5 = __toESM(require_veramo_react(), 1);
 var import_antd6 = __toESM(require_antd(), 1);
-
-// src/didcommUtils.ts
-var import_uuid2 = __toESM(require_uuid(), 1);
-async function getPost(agent, did, hash3) {
-  const senders = await agent?.didManagerFind({ provider: "did:peer" });
-  if (senders && senders.length > 0) {
-    const requestCredMessage = {
-      type: "https://veramo.io/didcomm/brainshare/1.0/request-credential",
-      from: senders[0].did,
-      to: did,
-      id: (0, import_uuid2.v4)(),
-      body: {
-        hash: hash3
-      },
-      return_route: "all"
-    };
-    const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
-    await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
-  }
-  const localCred = await agent?.dataStoreGetVerifiableCredential({ hash: hash3 });
-  console.log("localCred: ", localCred);
-  return localCred;
-}
-async function getIndex(agent, did) {
-  console.log("get index for DID: ", did);
-  const senders = await agent?.didManagerFind({ provider: "did:peer" });
-  if (senders && senders.length > 0) {
-    const requestCredMessage = {
-      type: "https://veramo.io/didcomm/brainshare/1.0/request-index",
-      from: senders[0].did,
-      to: did,
-      id: (0, import_uuid2.v4)(),
-      body: {},
-      return_route: "all"
-    };
-    console.log("getIndex 2");
-    const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: "authcrypt" });
-    await agent?.sendDIDCommMessage({ packedMessage, messageId: requestCredMessage.id, recipientDidUrl: did });
-  }
-  console.log("getIndex 3");
-  const localCreds = await agent?.dataStoreORMGetVerifiableCredentials({
-    where: [
-      { column: "type", value: ["VerifiableCredential,BrainShareIndex"] },
-      { column: "issuer", value: [did] }
-    ]
-  });
-  console.log("indexes??", localCreds);
-  return localCreds[localCreds.length - 1]?.verifiableCredential;
-}
-
-// src/BrainSharePost.tsx
-var import_agent_explorer_plugin5 = __toESM(require_agent_explorer_plugin(), 1);
-var import_antd5 = __toESM(require_antd(), 1);
-var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
-var BrainSharePost = ({ credential, context }) => {
-  const { token } = import_antd5.theme.useToken();
-  const { title, post } = credential.verifiableCredential.credentialSubject;
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { marginTop: token.margin }, children: [
-    context?.hideTitle !== true && title && !systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { children: title }),
-    context?.hideTitle !== true && title && systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Tag, { children: title }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_agent_explorer_plugin5.MarkDown, { content: post, credential, context })
-  ] });
-};
-
-// src/Home.tsx
+var import_react_router_dom3 = __toESM(require_react_router_dom(), 1);
 var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
-var Home = () => {
-  const { notification } = import_antd6.App.useApp();
-  const { did, hash: hash3 } = (0, import_react_router_dom3.useParams)();
-  const { agent } = (0, import_veramo_react5.useVeramo)();
-  const [drawerOpen, setDrawerOpen] = (0, import_react19.useState)(false);
+var Landing = ({
+  did
+}) => {
+  const { token } = import_antd6.theme.useToken();
   const navigate = (0, import_react_router_dom3.useNavigate)();
+  const { agent } = (0, import_veramo_react5.useVeramo)();
   const [index3, setIndex] = (0, import_react19.useState)(null);
   const [sidebar, setSidebar] = (0, import_react19.useState)(null);
   const [post, setPost] = (0, import_react19.useState)(null);
+  const [loading, setLoading] = (0, import_react19.useState)(true);
   if (!did)
     return null;
   if (!agent)
@@ -10058,63 +10086,83 @@ var Home = () => {
   (0, import_react19.useEffect)(() => {
     const loadIndex = async () => {
       const index4 = await getIndex(agent, did);
-      setIndex(index4);
-      console.log("index: ", index4);
-      const indexMap = index4.credentialSubject.index;
-      const sidebarHash = indexMap["bs-sidebar"][0];
-      console.log("sidebarHash: ", sidebarHash);
-      const sidebar2 = await getPost(agent, did, sidebarHash);
-      console.log("sidebar: ", sidebar2);
-      setSidebar({ hash: sidebarHash, verifiableCredential: sidebar2 });
+      if (index4) {
+        setIndex(index4);
+        console.log("index: ", index4);
+        const indexMap = index4.credentialSubject.index;
+        if (indexMap["bs-sidebar"]) {
+          const sidebarHash = indexMap["bs-sidebar"][0];
+          console.log("sidebarHash: ", sidebarHash);
+          const sidebar2 = await getPost(agent, did, sidebarHash);
+          console.log("sidebar: ", sidebar2);
+          setSidebar({ hash: sidebarHash, verifiableCredential: sidebar2 });
+        }
+        if (indexMap["bs-home"]) {
+          const homeHash = indexMap["bs-home"][0];
+          setPost({ hash: homeHash, verifiableCredential: await getPost(agent, did, homeHash) });
+        }
+      }
+      setLoading(false);
     };
     loadIndex();
   }, [did]);
-  (0, import_react19.useEffect)(() => {
-    if (index3) {
-      const loadPost = async () => {
-        if (!hash3) {
-          const homeHash = index3.credentialSubject.index["bs-home"][0];
-          setPost({ hash: homeHash, verifiableCredential: await getPost(agent, did, homeHash) });
-        } else {
-          setPost({ hash: hash3, verifiableCredential: await getPost(agent, did, hash3) });
-        }
-      };
-      loadPost();
-    }
-  }, [did, hash3, index3]);
-  const handleNewPost = async (hash4) => {
-    notification.success({
-      message: "Post created"
-    });
-    navigate("/brainshare/" + hash4);
-  };
-  if (!sidebar)
-    return null;
-  if (!post)
-    return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BrainSharePost, { credential: sidebar }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("br", {}),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BrainSharePost, { credential: post })
+  if (loading)
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.Spin, {});
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_antd6.Row, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_antd6.Col, { xs: 24, sm: 16, style: { overflow: "hidden" }, children: [
+      post && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BrainSharePost, { credential: post, context: { hideTitle: true } }),
+      !post && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.Button, { type: "primary", onClick: () => navigate("/brainshare/compose/bs-home"), children: "Compose" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.Col, { xs: 24, sm: 8, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+      import_antd6.Collapse,
+      {
+        accordion: true,
+        size: "small",
+        defaultActiveKey: ["0"],
+        items: [
+          {
+            key: "0",
+            label: `Sidebar`,
+            children: sidebar ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BrainSharePost, { credential: sidebar, context: { hideTitle: true } }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.Button, { type: "primary", onClick: () => navigate("/brainshare/compose/bs-sidebar"), children: "Compose" })
+          },
+          {
+            key: "1",
+            label: index3 ? `Index (${Object.keys(index3.credentialSubject.index).length})` : "Index",
+            children: index3 && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("ul", { children: Object.keys(index3.credentialSubject.index).map((item, key) => {
+              return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("a", { href: `/brainshare/${did}/${index3.credentialSubject.index[item][0]}`, children: item }) }, key);
+            }) })
+          }
+        ]
+      }
+    ) })
   ] });
+};
+
+// src/Home.tsx
+var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+var Home = () => {
+  const { did } = (0, import_react_router_dom4.useParams)();
+  if (!did)
+    return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Landing, { did });
 };
 
 // src/LinkDomain.tsx
 var import_react20 = __toESM(require_react(), 1);
-var import_react_router_dom4 = __toESM(require_react_router_dom(), 1);
-var import_react_query5 = __toESM(require_react_query(), 1);
+var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
+var import_react_query4 = __toESM(require_react_query(), 1);
 var import_veramo_react6 = __toESM(require_veramo_react(), 1);
 var import_pro_components3 = __toESM(require_pro_components(), 1);
 var import_agent_explorer_plugin6 = __toESM(require_agent_explorer_plugin(), 1);
 var import_antd7 = __toESM(require_antd(), 1);
 var import_uuid3 = __toESM(require_uuid(), 1);
-var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
 var LinkDomain = () => {
   const [drawerOpen, setDrawerOpen] = (0, import_react20.useState)(false);
   const [did, setDID] = (0, import_react20.useState)("");
   const [domain, setDomain] = (0, import_react20.useState)("");
   const [selectedDid, setSelectedDid] = (0, import_react20.useState)("");
-  const navigate = (0, import_react_router_dom4.useNavigate)();
+  const navigate = (0, import_react_router_dom5.useNavigate)();
   const { agent } = (0, import_veramo_react6.useVeramo)();
   const [issuerProfile, setIssuerProfile] = (0, import_react20.useState)();
   const [managedIdentifiers, setManagedIdentifiers] = (0, import_react20.useState)([]);
@@ -10122,7 +10170,7 @@ var LinkDomain = () => {
     managedIdentifiersWithProfiles,
     setManagedIdentifiersWithProfiles
   ] = (0, import_react20.useState)([]);
-  (0, import_react_query5.useQuery)(
+  (0, import_react_query4.useQuery)(
     ["identifiers", { id: agent?.context.id }],
     () => agent?.didManagerFind(),
     {
@@ -10169,16 +10217,16 @@ var LinkDomain = () => {
     });
     console.log("res: ", res);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_pro_components3.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Input, { value: domain, onChange: (e2) => setDomain(e2.target.value), placeholder: "www.google.com" }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Input, { value: did, onChange: (e2) => setDID(e2.target.value), placeholder: "did:web:staging.community.veramo.io" }),
-    managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_pro_components3.PageContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd7.Input, { value: domain, onChange: (e2) => setDomain(e2.target.value), placeholder: "www.google.com" }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd7.Input, { value: did, onChange: (e2) => setDID(e2.target.value), placeholder: "did:web:staging.community.veramo.io" }),
+    managedIdentifiersWithProfiles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
       import_antd7.Dropdown.Button,
       {
         type: "primary",
         onClick: checkLinkage,
         disabled: domain === "",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.Avatar, { size: "small", src: issuerProfile?.picture }),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_antd7.Avatar, { size: "small", src: issuerProfile?.picture }),
         menu: {
           items: [
             ...managedIdentifiersWithProfiles.map((profile) => {
@@ -10188,7 +10236,7 @@ var LinkDomain = () => {
                   setIssuerProfile(profile);
                   setSelectedDid(profile.did);
                 },
-                label: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_agent_explorer_plugin6.IdentifierProfile, { did: profile.did })
+                label: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_agent_explorer_plugin6.IdentifierProfile, { did: profile.did })
               };
             })
           ],
@@ -10204,10 +10252,10 @@ var LinkDomain = () => {
 // src/menu.tsx
 var import_agent_explorer_plugin7 = __toESM(require_agent_explorer_plugin(), 1);
 var import_antd8 = __toESM(require_antd(), 1);
-var import_react_router_dom5 = __toESM(require_react_router_dom(), 1);
-var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+var import_react_router_dom6 = __toESM(require_react_router_dom(), 1);
+var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
 var getCredentialContextMenuItems = (credential) => {
-  const navigate = (0, import_react_router_dom5.useNavigate)();
+  const navigate = (0, import_react_router_dom6.useNavigate)();
   const { notification } = import_antd8.App.useApp();
   const handleCopyEmbed = () => {
     let embed = "";
@@ -10245,19 +10293,19 @@ ${(0, import_agent_explorer_plugin7.getIssuerDID)(credential.verifiableCredentia
     {
       key: "copy-wiki",
       label: "Copy wiki link",
-      icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LinkOutlined_default2, {}),
+      icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(LinkOutlined_default2, {}),
       onClick: handleCopyWikilink
     },
     {
       key: "embed",
       label: "Copy embed",
-      icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PicLeftOutlined_default2, {}),
+      icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PicLeftOutlined_default2, {}),
       onClick: handleCopyEmbed
     },
     {
       key: "reference",
       label: "Copy reference",
-      icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PicLeftOutlined_default2, {}),
+      icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PicLeftOutlined_default2, {}),
       onClick: handleCopyReference
     }
   ];
@@ -10266,13 +10314,13 @@ ${(0, import_agent_explorer_plugin7.getIssuerDID)(credential.verifiableCredentia
       {
         key: "open",
         label: "Open post",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(FileSearchOutlined_default2, {}),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(FileSearchOutlined_default2, {}),
         onClick: () => navigate("/brainshare/" + credential.hash)
       },
       {
         key: "edit",
         label: "New revision",
-        icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(EditOutlined_default2, {}),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(EditOutlined_default2, {}),
         onClick: () => navigate("/brainshare/edit/" + credential.hash)
       },
       ...defaultItems
@@ -10283,25 +10331,25 @@ ${(0, import_agent_explorer_plugin7.getIssuerDID)(credential.verifiableCredentia
 
 // src/Edit.tsx
 var import_react21 = __toESM(require_react(), 1);
-var import_react_router_dom6 = __toESM(require_react_router_dom(), 1);
-var import_react_query6 = __toESM(require_react_query(), 1);
+var import_react_router_dom7 = __toESM(require_react_router_dom(), 1);
+var import_react_query5 = __toESM(require_react_query(), 1);
 var import_veramo_react7 = __toESM(require_veramo_react(), 1);
 var import_pro_components4 = __toESM(require_pro_components(), 1);
 var import_antd9 = __toESM(require_antd(), 1);
-var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
 var Edit = () => {
   const { notification } = import_antd9.App.useApp();
-  const { id } = (0, import_react_router_dom6.useParams)();
+  const { id } = (0, import_react_router_dom7.useParams)();
   const { agent } = (0, import_veramo_react7.useVeramo)();
-  const navigate = (0, import_react_router_dom6.useNavigate)();
+  const navigate = (0, import_react_router_dom7.useNavigate)();
   const [refDrawerOpen, setRefDrawerOpen] = (0, import_react21.useState)(false);
   if (!id)
     return null;
-  const { data: credential, isLoading: credentialLoading } = (0, import_react_query6.useQuery)(
+  const { data: credential, isLoading: credentialLoading } = (0, import_react_query5.useQuery)(
     ["credential", { id }],
     () => agent?.dataStoreGetVerifiableCredential({ hash: id })
   );
-  const { data: references, isLoading: referencesLoading } = (0, import_react_query6.useQuery)(
+  const { data: references, isLoading: referencesLoading } = (0, import_react_query5.useQuery)(
     ["references", { id }],
     () => {
       return agent?.dataStoreORMGetVerifiableCredentialsByClaims({
@@ -10319,22 +10367,22 @@ var Edit = () => {
       });
     }
   );
-  const handleNewPost = async (hash3) => {
+  const handleNewPost = async (did, hash3) => {
     notification.success({
       message: "Post created"
     });
-    navigate("/brainshare/" + hash3);
+    navigate(`/brainshare/${did}/${hash3}`);
   };
   if (!credential)
     return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
     import_pro_components4.PageContainer,
     {
       loading: credentialLoading,
       style: { paddingTop: 10 },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_antd9.Space, { direction: "vertical", style: { width: "100%" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_antd9.Space, { direction: "vertical", style: { width: "100%" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             PostForm,
             {
               onOk: handleNewPost,
@@ -10344,13 +10392,13 @@ var Edit = () => {
               initialIndexed: credential.credentialSubject.shouldBeIndexed
             }
           ),
-          references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_jsx_runtime9.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_antd9.Button, { type: "text", onClick: () => setRefDrawerOpen(true), children: [
+          references && references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_antd9.Button, { type: "text", onClick: () => setRefDrawerOpen(true), children: [
             "Referenced by ",
             references.length,
             " other posts"
           ] }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           import_antd9.Drawer,
           {
             title: "Posts that reference this one",
@@ -10359,7 +10407,7 @@ var Edit = () => {
             open: refDrawerOpen,
             width: 800,
             destroyOnClose: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ReferencesFeed, { referenceHashes: references?.map((cred) => cred.hash) })
+            children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(ReferencesFeed, { referenceHashes: references?.map((cred) => cred.hash) })
           }
         )
       ]
@@ -16452,7 +16500,7 @@ function encode5(node2) {
 // node_modules/.pnpm/ipfs-unixfs@11.1.0/node_modules/ipfs-unixfs/dist/src/index.js
 var import_err_code = __toESM(require_err_code(), 1);
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/float.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/utils/float.js
 var f32 = new Float32Array([-0]);
 var f8b = new Uint8Array(f32.buffer);
 function writeFloatLE(val, buf, pos) {
@@ -16494,7 +16542,7 @@ function readDoubleLE(buf, pos) {
   return f64[0];
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/longbits.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/utils/longbits.js
 var LongBits = class _LongBits {
   lo;
   hi;
@@ -16625,7 +16673,7 @@ zero.length = function() {
 };
 var TWO_32 = 4294967296n;
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/utf8.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/utils/utf8.js
 function length2(string4) {
   let len = 0;
   let c2 = 0;
@@ -16706,7 +16754,7 @@ function write(string4, buffer, offset) {
   return offset - start;
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/reader.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/utils/reader.js
 function indexOutOfRange(reader, writeLength) {
   return RangeError(`index out of range: ${reader.pos} + ${writeLength ?? 1} > ${reader.len}`);
 }
@@ -16967,13 +17015,13 @@ function createReader(buf) {
   return new Uint8ArrayReader(buf instanceof Uint8Array ? buf : buf.subarray());
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/decode.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/decode.js
 function decodeMessage(buf, codec) {
   const reader = createReader(buf);
   return codec.decode(reader);
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/pool.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/utils/pool.js
 function pool(size) {
   const SIZE = size ?? 8192;
   const MAX = SIZE >>> 1;
@@ -16995,7 +17043,7 @@ function pool(size) {
   };
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/utils/writer.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/utils/writer.js
 var Op = class {
   /**
    * Function to call
@@ -17307,14 +17355,14 @@ function writeStringBuffer(val, buf, pos) {
   } else if (buf.utf8Write != null) {
     buf.utf8Write(val, pos);
   } else {
-    buf.write(val, pos);
+    buf.set(fromString2(val), pos);
   }
 }
 function createWriter() {
   return new Uint8ArrayWriter();
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/encode.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/encode.js
 function encodeMessage(message2, codec) {
   const w = createWriter();
   codec.encode(message2, w, {
@@ -17323,7 +17371,7 @@ function encodeMessage(message2, codec) {
   return w.finish();
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/codec.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/codec.js
 var CODEC_TYPES;
 (function(CODEC_TYPES2) {
   CODEC_TYPES2[CODEC_TYPES2["VARINT"] = 0] = "VARINT";
@@ -17342,7 +17390,7 @@ function createCodec2(name2, type, encode6, decode7) {
   };
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/codecs/enum.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/codecs/enum.js
 function enumeration(v2) {
   function findValue(val) {
     if (v2[val.toString()] == null) {
@@ -17361,7 +17409,7 @@ function enumeration(v2) {
   return createCodec2("enum", CODEC_TYPES.VARINT, encode6, decode7);
 }
 
-// node_modules/.pnpm/protons-runtime@5.0.4/node_modules/protons-runtime/dist/src/codecs/message.js
+// node_modules/.pnpm/protons-runtime@5.0.5/node_modules/protons-runtime/dist/src/codecs/message.js
 function message(encode6, decode7) {
   return createCodec2("message", CODEC_TYPES.LENGTH_DELIMITED, encode6, decode7);
 }
@@ -17764,7 +17812,7 @@ var debug = (0, import_debug.default)("veramo:utils");
 var import_agent_explorer_plugin8 = __toESM(require_agent_explorer_plugin(), 1);
 var import_use_text_selection = __toESM(require_dist(), 1);
 var import_antd10 = __toESM(require_antd(), 1);
-var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
 var getMarkdownComponents = () => {
   return {
     p(props) {
@@ -17796,8 +17844,8 @@ ${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredentia
           message: "Credential reference copied to clipboard"
         });
       };
-      return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { position: "relative" }, children: [
-        clientRect && !isCollapsed && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { position: "relative" }, children: [
+        clientRect && !isCollapsed && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
           "div",
           {
             style: {
@@ -17806,23 +17854,23 @@ ${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredentia
               position: "absolute",
               backgroundColor: "black"
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
               import_antd10.Button,
               {
                 type: "primary",
                 disabled: !enabled,
                 onClick: handleCopyReference,
-                icon: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(PicLeftOutlined_default2, {}),
+                icon: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(PicLeftOutlined_default2, {}),
                 children: "Copy reference"
               }
             )
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { ref, children: props.children })
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { ref, children: props.children })
       ] });
     },
     pre(props) {
-      return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_jsx_runtime10.Fragment, { children: props.children });
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_jsx_runtime11.Fragment, { children: props.children });
     },
     code(props) {
       const { children, className, node: node2, ...rest } = props;
@@ -17830,11 +17878,11 @@ ${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredentia
         case "language-vc+jwt":
           const verifiableCredential = normalizeCredential(String(children).replace(/\s/g, ""));
           const hash3 = computeEntryHash(verifiableCredential);
-          return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_agent_explorer_plugin8.VerifiableCredentialComponent, { credential: { hash: hash3, verifiableCredential } });
+          return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_agent_explorer_plugin8.VerifiableCredentialComponent, { credential: { hash: hash3, verifiableCredential } });
         case "language-vc+json":
           const verifiableCredential2 = JSON.parse(String(children));
           const hash22 = computeEntryHash(verifiableCredential2);
-          return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_agent_explorer_plugin8.VerifiableCredentialComponent, { credential: { hash: hash22, verifiableCredential: verifiableCredential2 } });
+          return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_agent_explorer_plugin8.VerifiableCredentialComponent, { credential: { hash: hash22, verifiableCredential: verifiableCredential2 } });
         case "language-vc+multihash":
           const items = String(children).replace(/\s/g, "").split("/");
           let hash32 = "";
@@ -17852,9 +17900,9 @@ ${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredentia
             hash32 = a2[0];
             context = { textRange: a2[1] };
           }
-          return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_agent_explorer_plugin8.CredentialLoader, { hash: hash32, did, context });
+          return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_agent_explorer_plugin8.CredentialLoader, { hash: hash32, did, context });
         default:
-          return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { ...rest, className, children });
+          return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("code", { ...rest, className, children });
       }
     }
   };
@@ -17863,12 +17911,12 @@ ${(0, import_agent_explorer_plugin8.getIssuerDID)(credential.verifiableCredentia
 // src/IdentifierHoverComponent.tsx
 var import_react23 = __toESM(require_react(), 1);
 var import_veramo_react8 = __toESM(require_veramo_react(), 1);
-var import_react_query7 = __toESM(require_react_query(), 1);
+var import_react_query6 = __toESM(require_react_query(), 1);
 var import_antd11 = __toESM(require_antd(), 1);
-var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
 var IdentifierHoverComponent = ({ did }) => {
   const { agent } = (0, import_veramo_react8.useVeramo)();
-  const { data: credentials, isLoading } = (0, import_react_query7.useQuery)(
+  const { data: credentials, isLoading } = (0, import_react_query6.useQuery)(
     ["domain-linkage", { agentId: agent?.context.name, did }],
     () => agent?.dataStoreORMGetVerifiableCredentials({
       where: [
@@ -17882,13 +17930,13 @@ var IdentifierHoverComponent = ({ did }) => {
     return credentials?.[0]?.verifiableCredential?.credentialSubject?.domain;
   }, [credentials, did]);
   if (isLoading) {
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_antd11.Spin, {});
+    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_antd11.Spin, {});
   }
   if (!domain) {
     return null;
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_antd11.Typography.Text, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(CheckCircleOutlined_default2, {}),
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_antd11.Typography.Text, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CheckCircleOutlined_default2, {}),
     " ",
     domain
   ] });
@@ -17896,105 +17944,31 @@ var IdentifierHoverComponent = ({ did }) => {
 
 // src/BrainShareIndex.tsx
 var import_antd12 = __toESM(require_antd(), 1);
-var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
-var BrainShareIndex = ({ credential: { verifiableCredential } }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_antd12.Typography.Title, { level: 5, children: "BrainShare Index" }),
-    verifiableCredential.credentialSubject.index && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ul", { children: Object.keys(verifiableCredential.credentialSubject.index).map((item, key) => {
-      return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { href: `/brainshare/${verifiableCredential.credentialSubject.index[item]}`, children: item }) }, key);
-    }) })
-  ] });
-};
-
-// src/Landing.tsx
-var import_react24 = __toESM(require_react(), 1);
-var import_veramo_react9 = __toESM(require_veramo_react(), 1);
-var import_antd13 = __toESM(require_antd(), 1);
-var import_react_router_dom7 = __toESM(require_react_router_dom(), 1);
+var import_agent_explorer_plugin9 = __toESM(require_agent_explorer_plugin(), 1);
 var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
-var Landing = ({
-  did
-}) => {
-  const { token } = import_antd13.theme.useToken();
-  const navigate = (0, import_react_router_dom7.useNavigate)();
-  const { agent } = (0, import_veramo_react9.useVeramo)();
-  const [index3, setIndex] = (0, import_react24.useState)(null);
-  const [sidebar, setSidebar] = (0, import_react24.useState)(null);
-  const [post, setPost] = (0, import_react24.useState)(null);
-  const [loading, setLoading] = (0, import_react24.useState)(true);
-  if (!did)
-    return null;
-  if (!agent)
-    return null;
-  (0, import_react24.useEffect)(() => {
-    const loadIndex = async () => {
-      const index4 = await getIndex(agent, did);
-      if (index4) {
-        setIndex(index4);
-        console.log("index: ", index4);
-        const indexMap = index4.credentialSubject.index;
-        if (indexMap["bs-sidebar"]) {
-          const sidebarHash = indexMap["bs-sidebar"][0];
-          console.log("sidebarHash: ", sidebarHash);
-          const sidebar2 = await getPost(agent, did, sidebarHash);
-          console.log("sidebar: ", sidebar2);
-          setSidebar({ hash: sidebarHash, verifiableCredential: sidebar2 });
-        }
-        if (indexMap["bs-home"]) {
-          const homeHash = indexMap["bs-home"][0];
-          setPost({ hash: homeHash, verifiableCredential: await getPost(agent, did, homeHash) });
-        }
-      }
-      setLoading(false);
-    };
-    loadIndex();
-  }, [did]);
-  if (loading)
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_antd13.Spin, {});
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_antd13.Row, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_antd13.Col, { xs: 24, sm: 16, children: [
-      post && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(BrainSharePost, { credential: post, context: { hideTitle: true } }),
-      !post && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_antd13.Button, { type: "primary", onClick: () => navigate("/brainshare/compose/bs-home"), children: "Compose" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_antd13.Col, { xs: 24, sm: 8, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-      import_antd13.Collapse,
-      {
-        accordion: true,
-        size: "small",
-        defaultActiveKey: ["0"],
-        items: [
-          {
-            key: "0",
-            label: `Sidebar`,
-            children: sidebar ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(BrainSharePost, { credential: sidebar, context: { hideTitle: true } }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_antd13.Button, { type: "primary", onClick: () => navigate("/brainshare/compose/bs-sidebar"), children: "Compose" })
-          },
-          {
-            key: "1",
-            label: index3 ? `Index (${Object.keys(index3.credentialSubject.index).length})` : "Index",
-            children: index3 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { children: Object.keys(index3.credentialSubject.index).map((item, key) => {
-              return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: `/brainshare/${index3.credentialSubject.index[item]}`, children: item }) }, key);
-            }) })
-          }
-        ]
-      }
-    ) })
+var BrainShareIndex = ({ credential: { verifiableCredential } }) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_antd12.Typography.Title, { level: 5, children: "BrainShare Index" }),
+    verifiableCredential.credentialSubject.index && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { children: Object.keys(verifiableCredential.credentialSubject.index).map((item, key) => {
+      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: `/brainshare/${(0, import_agent_explorer_plugin9.getIssuerDID)(verifiableCredential)}/${verifiableCredential.credentialSubject.index[item]}`, children: item }) }, key);
+    }) })
   ] });
 };
 
 // src/Compose.tsx
 var import_react_router_dom8 = __toESM(require_react_router_dom(), 1);
 var import_pro_components5 = __toESM(require_pro_components(), 1);
-var import_antd14 = __toESM(require_antd(), 1);
+var import_antd13 = __toESM(require_antd(), 1);
 var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
 var Compose = () => {
-  const { notification } = import_antd14.App.useApp();
+  const { notification } = import_antd13.App.useApp();
   const { title } = (0, import_react_router_dom8.useParams)();
   const navigate = (0, import_react_router_dom8.useNavigate)();
-  const handleNewPost = async (hash3) => {
+  const handleNewPost = async (did, hash3) => {
     notification.success({
       message: "Post created"
     });
-    navigate("/brainshare/" + hash3);
+    navigate(`/brainshare/${did}/${hash3}}`);
   };
   return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
     import_pro_components5.PageContainer,

@@ -2,9 +2,9 @@ import { Input, Checkbox, Dropdown, Avatar, Space, Tabs, theme, Select, Tag } fr
 import React, { useState, useEffect } from 'react'
 const { TextArea } = Input
 import { useVeramo } from '@veramo-community/veramo-react'
-import { ICredentialIssuer, IDIDManager, IDataStore, IDataStoreORM, IIdentifier, ProofFormat } from '@veramo/core'
+import { ICredentialIssuer, IDIDManager, IDataStore, IDataStoreORM, IIdentifier, ProofFormat, TAgent } from '@veramo/core'
 import { useQuery } from 'react-query'
-import { IdentifierProfile, IIdentifierProfile, MarkDown } from '@veramo-community/agent-explorer-plugin'
+import { IdentifierProfile, IIdentifierProfile, MarkDown, ActionButton } from '@veramo-community/agent-explorer-plugin'
 import Editor from '@monaco-editor/react';
 import { unified } from "unified";
 import remarkParse from "remark-parse";
@@ -14,7 +14,7 @@ import { systemTitles } from './api'
 const { Option } = Select
 
 interface CreatePostProps {
-  onOk: (hash: string) => void
+  onOk: (did:string, hash: string) => void
   initialIssuer?: string
   initialTitle?: string
   initialText?: string
@@ -28,53 +28,15 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
   const [shouldBeIndexed, setShouldBeIndexed] = useState<boolean>(initialIndexed || false)
   const [post, setPost] = useState<string>(initialText || window.localStorage.getItem('bs-post') || '')
   const { agent } = useVeramo<ICredentialIssuer & IDataStore & IDataStoreORM & IDIDManager>()
-  const [selectedDid, setSelectedDid] = useState(initialIssuer || '')
-  const [issuerProfile, setIssuerProfile] = useState<IIdentifierProfile>()
-  const [managedIdentifiers, setManagedIdentifiers] = useState<
-    IIdentifier[]
-  >([])
-  const [
-    managedIdentifiersWithProfiles,
-    setManagedIdentifiersWithProfiles,
-  ] = useState<IIdentifierProfile[]>([])
   const [proofFormat, setProofFormat] = useState('jwt')
 
-
-  useQuery(
-    ['identifiers', { id: agent?.context.id }],
-    () => agent?.didManagerFind(),
-    {
-      onSuccess: (data: IIdentifier[]) => {
-        if (data) {
-          setManagedIdentifiers(data)
-          if (!initialIssuer) {
-            setSelectedDid(data[0].did);
-          }
-        }
-      },
-    },
-  )
 
   useEffect(() => {
     window.localStorage.setItem('bs-post', post)
   }, [post])
 
-  useEffect(() => {
-    if (agent) {
-      Promise.all(
-        managedIdentifiers.map((identifier) => {
-          return agent.getIdentifierProfile({ did: identifier.did })
-        }),
-      )
-        .then((profiles) => {
-          setIssuerProfile(profiles[0])
-          setManagedIdentifiersWithProfiles(profiles)
-        })
-        .catch(console.log)
-    }
-  }, [managedIdentifiers, agent])
 
-  const handleCreatePost = async () => {
+  const handleCreatePost = async (did: string, issuerAgent: TAgent<ICredentialIssuer>) => {
     try {
 
       // find all credentials referenced by this one
@@ -116,16 +78,14 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         post
       }
 
-      const identifier = await agent?.didManagerGet({ did: selectedDid })
-      console.log(identifier)
 
-      const credential = await agent?.createVerifiableCredential({
+      const credential = await issuerAgent.createVerifiableCredential({
         save: true,
         proofFormat: (proofFormat as ProofFormat),
         credential: {
           '@context': ['https://www.w3.org/2018/credentials/v1'],
           type: ['VerifiableCredential', 'BrainSharePost'],
-          issuer: { id: selectedDid },
+          issuer: { id: did },
           issuanceDate: new Date().toISOString(),
           credentialSubject,
         },
@@ -143,7 +103,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
             const credentials = await agent?.dataStoreORMGetVerifiableCredentials({
               where: [
                 { column: 'type', value: ['VerifiableCredential,BrainSharePost'] },
-                { column: 'issuer', value: [selectedDid] },
+                { column: 'issuer', value: [did] },
               ],
             })
 
@@ -159,13 +119,13 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
                 revisions = [...revisions, cred.hash]
                 index.set(cred.verifiableCredential.credentialSubject.title, revisions)
               }) 
-              const indexCred = await agent?.createVerifiableCredential({
+              const indexCred = await issuerAgent.createVerifiableCredential({
                 save: true,
                 proofFormat: 'jwt',
                 credential: {
                   '@context': ['https://www.w3.org/2018/credentials/v1'],
                   type: ['VerifiableCredential', 'BrainShareIndex'],
-                  issuer: { id: selectedDid },
+                  issuer: { id: did },
                   issuanceDate: new Date().toISOString(),
                   credentialSubject: {
                     index: Object.fromEntries(index.entries())
@@ -179,7 +139,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
           }
           // callback
           window.localStorage.removeItem('bs-post')
-          onOk(hash)
+          onOk(did, hash)
         }
 
       }
@@ -251,33 +211,11 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
           EthereumEip712Signature2021
         </Option>
       </Select>
-      {managedIdentifiersWithProfiles.length > 0 && (
-        <Dropdown.Button
-          // overlayStyle={{ height: '50px' }}
-          type='primary'
-          onClick={handleCreatePost}
-          disabled={post===''}
-          icon={<Avatar size={'small'} src={issuerProfile?.picture} />}
-          menu={{
-            items: [
-              ...managedIdentifiersWithProfiles.map((profile) => {
-                return {
-                  key: profile.did,
-                  onClick: () => {
-                    setIssuerProfile(profile)
-                    setSelectedDid(profile.did)
-                  },
-                  label: <IdentifierProfile did={profile.did} />,
-                }
-              }),
-            ],
-            selectable: true,
-            defaultSelectedKeys: [selectedDid],
-          }}
-        >
-          Create Post as
-        </Dropdown.Button>
-      )}
+      <ActionButton 
+        title='Save to:' 
+        disabled={post===''} 
+        onAction={handleCreatePost}
+        />
     </Space>
       </Space>
   )
