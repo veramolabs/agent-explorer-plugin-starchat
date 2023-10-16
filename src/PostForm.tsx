@@ -28,7 +28,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
   const [shouldBeIndexed, setShouldBeIndexed] = useState<boolean>(initialIndexed || false)
   const [post, setPost] = useState<string>(initialText || window.localStorage.getItem('bs-post') || '')
   const { agent } = useVeramo<ICredentialIssuer & IDataStore & IDataStoreORM & IDIDManager>()
-  const [proofFormat, setProofFormat] = useState('jwt')
+  const [isSaving, setIsSaving] = useState<boolean>(false)
 
 
   useEffect(() => {
@@ -37,6 +37,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
 
 
   const handleCreatePost = async (did: string, issuerAgent: TAgent<ICredentialIssuer>) => {
+    setIsSaving(true)
     try {
 
       // find all credentials referenced by this one
@@ -78,6 +79,9 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         post
       }
 
+      const identifier = await issuerAgent?.didManagerGet({ did })
+      const usableProofs = await issuerAgent.listUsableProofFormats(identifier)
+      const proofFormat = usableProofs.includes('jwt') ? 'jwt' : usableProofs[0]
 
       const credential = await issuerAgent.createVerifiableCredential({
         save: true,
@@ -99,7 +103,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         if (hash) {
 
           // if appropriate, create new index credential
-          if (shouldBeIndexed) {
+          if (shouldBeIndexed && proofFormat === 'jwt') {
             const credentials = await agent?.dataStoreORMGetVerifiableCredentials({
               where: [
                 { column: 'type', value: ['VerifiableCredential,BrainSharePost'] },
@@ -121,7 +125,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
               }) 
               const indexCred = await issuerAgent.createVerifiableCredential({
                 save: true,
-                proofFormat: 'jwt',
+                proofFormat: proofFormat,
                 credential: {
                   '@context': ['https://www.w3.org/2018/credentials/v1'],
                   type: ['VerifiableCredential', 'BrainShareIndex'],
@@ -146,6 +150,7 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
     } catch (e) {
       console.error(e)
     }
+    setIsSaving(false)
   }
 
   return (
@@ -159,7 +164,6 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
             <Space direction='vertical' style={{width: '100%'}}>
               {systemTitles.includes(title) && <div><Input value={title} type='hidden'/><Tag>{title === 'bs-sidebar' && 'Sidebar'}{title === 'bs-home' && 'Home'}</Tag></div>}
               {!systemTitles.includes(title) && <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title (optional)'/>}
-
               <Editor
                 theme={token.theme.id === 4 ? 'vs-dark' : 'light'}
                 height="50vh"
@@ -191,31 +195,15 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         ]}
     />
     <Space direction='horizontal'>
-      {!systemTitles.includes(title) && <Checkbox defaultChecked={shouldBeIndexed} onChange={(e) => setShouldBeIndexed(e.target.checked)}>Index</Checkbox>}
 
-      <Select
-        onChange={(e) => setProofFormat(e as string)}
-        placeholder="Proof type"
-        defaultActiveFirstOption={true}
-      >
-        <Option key="jwt" value="jwt">
-          jwt
-        </Option>
-        <Option key="lds" value="lds">
-          lds
-        </Option>
-        <Option
-          key="EthereumEip712Signature2021lds"
-          value="EthereumEip712Signature2021"
-        >
-          EthereumEip712Signature2021
-        </Option>
-      </Select>
       <ActionButton 
         title='Save to:' 
-        disabled={post===''} 
+        disabled={post==='' || isSaving} 
         onAction={handleCreatePost}
         />
+
+      {!systemTitles.includes(title) && <Checkbox defaultChecked={shouldBeIndexed} onChange={(e) => setShouldBeIndexed(e.target.checked)}>Index</Checkbox>}
+
     </Space>
       </Space>
   )

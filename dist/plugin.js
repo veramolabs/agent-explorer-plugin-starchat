@@ -9517,11 +9517,12 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
   const [shouldBeIndexed, setShouldBeIndexed] = (0, import_react14.useState)(initialIndexed || false);
   const [post, setPost] = (0, import_react14.useState)(initialText || window.localStorage.getItem("bs-post") || "");
   const { agent } = (0, import_veramo_react.useVeramo)();
-  const [proofFormat, setProofFormat] = (0, import_react14.useState)("jwt");
+  const [isSaving, setIsSaving] = (0, import_react14.useState)(false);
   (0, import_react14.useEffect)(() => {
     window.localStorage.setItem("bs-post", post);
   }, [post]);
   const handleCreatePost = async (did, issuerAgent) => {
+    setIsSaving(true);
     try {
       let visitWikiLinks2 = function(node2) {
         if (node2.type === "wikiLink") {
@@ -9555,6 +9556,9 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
         shouldBeIndexed,
         post
       };
+      const identifier = await issuerAgent?.didManagerGet({ did });
+      const usableProofs = await issuerAgent.listUsableProofFormats(identifier);
+      const proofFormat = usableProofs.includes("jwt") ? "jwt" : usableProofs[0];
       const credential = await issuerAgent.createVerifiableCredential({
         save: true,
         proofFormat,
@@ -9569,7 +9573,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
       if (credential) {
         const hash3 = await agent?.dataStoreSaveVerifiableCredential({ verifiableCredential: credential });
         if (hash3) {
-          if (shouldBeIndexed) {
+          if (shouldBeIndexed && proofFormat === "jwt") {
             const credentials = await agent?.dataStoreORMGetVerifiableCredentials({
               where: [
                 { column: "type", value: ["VerifiableCredential,BrainSharePost"] },
@@ -9589,7 +9593,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
               });
               const indexCred = await issuerAgent.createVerifiableCredential({
                 save: true,
-                proofFormat: "jwt",
+                proofFormat,
                 credential: {
                   "@context": ["https://www.w3.org/2018/credentials/v1"],
                   type: ["VerifiableCredential", "BrainShareIndex"],
@@ -9612,6 +9616,7 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
     } catch (e2) {
       console.error(e2);
     }
+    setIsSaving(false);
   };
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Space, { direction: "vertical", style: { width: "100%" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -9663,35 +9668,15 @@ var PostForm = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed
       }
     ),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_antd.Space, { direction: "horizontal", children: [
-      !systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Checkbox, { defaultChecked: shouldBeIndexed, onChange: (e2) => setShouldBeIndexed(e2.target.checked), children: "Index" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-        import_antd.Select,
-        {
-          onChange: (e2) => setProofFormat(e2),
-          placeholder: "Proof type",
-          defaultActiveFirstOption: true,
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: "jwt", children: "jwt" }, "jwt"),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Option, { value: "lds", children: "lds" }, "lds"),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              Option,
-              {
-                value: "EthereumEip712Signature2021",
-                children: "EthereumEip712Signature2021"
-              },
-              "EthereumEip712Signature2021lds"
-            )
-          ]
-        }
-      ),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         import_agent_explorer_plugin.ActionButton,
         {
           title: "Save to:",
-          disabled: post === "",
+          disabled: post === "" || isSaving,
           onAction: handleCreatePost
         }
-      )
+      ),
+      !systemTitles.includes(title) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Checkbox, { defaultChecked: shouldBeIndexed, onChange: (e2) => setShouldBeIndexed(e2.target.checked), children: "Index" })
     ] })
   ] });
 };
@@ -17975,7 +17960,7 @@ var Compose = () => {
     {
       title: false,
       style: { paddingTop: 10 },
-      children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(PostForm, { onOk: handleNewPost, initialTitle: title, initialIndexed: true })
+      children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(PostForm, { onOk: handleNewPost, initialTitle: title })
     }
   );
 };
