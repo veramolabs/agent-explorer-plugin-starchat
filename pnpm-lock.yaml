@@ -56,17 +56,17 @@ devDependencies:
     specifier: ^1.6.1
     version: 1.6.1
   '@veramo/core':
-    specifier: 5.5.4-next.18
-    version: 5.5.4-next.18
+    specifier: 5.5.4-next.20
+    version: 5.5.4-next.20
   '@veramo/core-types':
-    specifier: 5.5.4-next.18
-    version: 5.5.4-next.18
+    specifier: 5.5.4-next.20
+    version: 5.5.4-next.20
   '@veramo/did-comm':
-    specifier: 5.5.4-next.18
-    version: 5.5.4-next.18(expo@49.0.13)(react-native@0.72.6)
+    specifier: 5.5.4-next.20
+    version: 5.5.4-next.20(expo@49.0.13)(react-native@0.72.6)
   '@veramo/utils':
-    specifier: 5.5.4-next.18
-    version: 5.5.4-next.18
+    specifier: 5.5.4-next.20
+    version: 5.5.4-next.20
   antd:
     specifier: ^5.10.1
     version: 5.10.1(date-fns@2.30.0)(react-dom@18.2.0)(react@18.2.0)
@@ -4904,17 +4904,6 @@ packages:
       - supports-color
     dev: true
 
-  /@veramo/core-types@5.5.4-next.18:
-    resolution: {integrity: sha512-R9bk3eG5883qiVHfchf9IPRjYG4skjmF6sgfkASAgqd2+nCl/Y+lVSER/FwX0cSsyhl1egcxU5jY27tMo9HEgg==}
-    dependencies:
-      credential-status: 2.0.6
-      debug: 4.3.4
-      did-jwt-vc: 3.2.11
-      did-resolver: 4.1.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@veramo/core-types@5.5.4-next.20:
     resolution: {integrity: sha512-AIO8A/azz+tPEg9QHwplaF9omBY5v2BfQQhG5BCWCYQZ4XTAslrQ3dXkKtJm5CNX0UHEtzUOY1g2vAn3wBTupQ==}
     dependencies:
@@ -4922,17 +4911,6 @@ packages:
       debug: 4.3.4
       did-jwt-vc: 3.2.11
       did-resolver: 4.1.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /@veramo/core@5.5.4-next.18:
-    resolution: {integrity: sha512-w8uyDGiAR06D3vZLTwug9Auc6oFTBuuLuPqcrU9lTMrg1Ahx3TJNYQqSNTXMxwDtFRpYsLj4n4VZKwO1Om582Q==}
-    dependencies:
-      '@veramo/core-types': 5.5.4-next.18
-      debug: 4.3.4
-      events: 3.3.0
-      z-schema: 6.0.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4982,17 +4960,17 @@ packages:
       - typeorm-aurora-data-api-driver
     dev: true
 
-  /@veramo/did-comm@5.5.4-next.18(expo@49.0.13)(react-native@0.72.6):
-    resolution: {integrity: sha512-EuBUaWKeQQpsj29ornHqNqfkiwsGuJQIvgl22zD3Y8ZscsGsjx9yewXsSBtSurhsp5v/8OHFrWGkJTjzaqoZjw==}
+  /@veramo/did-comm@5.5.4-next.20(expo@49.0.13)(react-native@0.72.6):
+    resolution: {integrity: sha512-qKhakb6JDYg9KhmJQE98rOhn9HGiUJ8ouR3c7YximkhtOccBF31y9jKECvOePPbVzDl+UD0lOfDHqsELA+z5rg==}
     dependencies:
       '@noble/curves': 1.2.0
       '@stablelib/aes': 1.0.1
       '@stablelib/aes-kw': 1.0.1
       '@stablelib/gcm': 1.0.2
       '@stablelib/xchacha20poly1305': 1.0.1
-      '@veramo/core-types': 5.5.4-next.18
+      '@veramo/core-types': 5.5.4-next.20
       '@veramo/message-handler': 5.5.4-next.20
-      '@veramo/utils': 5.5.4-next.18
+      '@veramo/utils': 5.5.4-next.20
       cross-fetch: 4.0.0
       debug: 4.3.4
       did-jwt: 7.4.2
@@ -5055,26 +5033,6 @@ packages:
       cross-fetch: 4.0.0
       debug: 4.3.4
       openapi-types: 12.1.3
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-    dev: true
-
-  /@veramo/utils@5.5.4-next.18:
-    resolution: {integrity: sha512-QZAb5NbMVtr0/PlRdN5Zns0H8DNWs3KVgJScPNFsOvnoe1bSwCPztYDwPIeWcBKOCR+mpWVtd1EvLf9zEL6wIw==}
-    dependencies:
-      '@ipld/dag-pb': 4.0.6
-      '@noble/curves': 1.2.0
-      '@veramo/core-types': 5.5.4-next.18
-      credential-status: 2.0.6
-      cross-fetch: 4.0.0
-      debug: 4.3.4
-      did-jwt: 7.4.2
-      did-jwt-vc: 3.2.11
-      did-resolver: 4.1.0
-      ipfs-unixfs: 11.1.0
-      multiformats: 12.1.2
-      uint8arrays: 4.0.6
     transitivePeerDependencies:
       - encoding
       - supports-color

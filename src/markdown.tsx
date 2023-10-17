@@ -1,11 +1,12 @@
 import React from 'react'
 import { normalizeCredential } from 'did-jwt-vc';
 import { computeEntryHash } from '@veramo/utils';
-import { VerifiableCredentialComponent, CredentialLoader, getIssuerDID } from '@veramo-community/agent-explorer-plugin'
+import { VerifiableCredentialComponent, getIssuerDID } from '@veramo-community/agent-explorer-plugin'
 import { Components } from 'react-markdown'
 import { useTextSelection } from 'use-text-selection'
 import { App, Button } from 'antd';
 import { PicLeftOutlined } from '@ant-design/icons';
+import { CredentialLoader } from './CredentialLoader';
 
 export const getMarkdownComponents = () : Partial<Components>  => {
 
