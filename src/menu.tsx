@@ -68,7 +68,7 @@ export const getCredentialContextMenuItems = (credential: UniqueVerifiableCreden
         key: 'open',
         label: 'Open post',
         icon: <FileSearchOutlined />,
-        onClick: () => navigate('/brainshare/' + credential.hash),
+        onClick: () => navigate('/brainshare/' + getIssuerDID(credential.verifiableCredential)+ '/' + credential.hash),
       },
       {
         key: 'edit',

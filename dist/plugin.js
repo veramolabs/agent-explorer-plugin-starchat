@@ -10301,7 +10301,7 @@ ${(0, import_agent_explorer_plugin7.getIssuerDID)(credential.verifiableCredentia
         key: "open",
         label: "Open post",
         icon: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(FileSearchOutlined_default2, {}),
-        onClick: () => navigate("/brainshare/" + credential.hash)
+        onClick: () => navigate("/brainshare/" + (0, import_agent_explorer_plugin7.getIssuerDID)(credential.verifiableCredential) + "/" + credential.hash)
       },
       {
         key: "edit",
