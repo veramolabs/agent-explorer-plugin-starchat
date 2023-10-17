@@ -26,10 +26,10 @@ export const Post = () => {
   const [loading, setLoading] = useState(true)
   
   const agent = React.useMemo(() => {
-    return agents.find((agent) => agent.context.id === 'web3agent')
+    return agents.find((agent) => agent.context.id === 'web3Agent')
   }, [agents])
 
-
+console.log('id: ', id)
   if (!id) return null
 
   useEffect(() => {

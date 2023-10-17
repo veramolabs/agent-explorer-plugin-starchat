@@ -9906,8 +9906,9 @@ var Post = () => {
   const [sidebar, setSidebar] = (0, import_react17.useState)(null);
   const [loading, setLoading] = (0, import_react17.useState)(true);
   const agent = import_react17.default.useMemo(() => {
-    return agents.find((agent2) => agent2.context.id === "web3agent");
+    return agents.find((agent2) => agent2.context.id === "web3Agent");
   }, [agents]);
+  console.log("id: ", id);
   if (!id)
     return null;
   (0, import_react18.useEffect)(() => {
@@ -9920,7 +9921,7 @@ var Post = () => {
         console.log("index: ", index4);
         const indexMap = index4.credentialSubject.index;
         if (indexMap["bs-sidebar"]) {
-          const sidebarHash = indexMap["bs-sidebar"][0];
+          const sidebarHash = indexMap["bs-sidebar"][indexMap["bs-sidebar"].length - 1];
           console.log("sidebarHash: ", sidebarHash);
           const sidebar2 = await getPost(agent, did, sidebarHash);
           console.log("sidebar: ", sidebar2);
@@ -10083,7 +10084,7 @@ var Landing = ({
         console.log("index: ", index4);
         const indexMap = index4.credentialSubject.index;
         if (indexMap["bs-sidebar"]) {
-          const sidebarHash = indexMap["bs-sidebar"][0];
+          const sidebarHash = indexMap["bs-sidebar"][indexMap["bs-sidebar"].length - 1];
           console.log("sidebarHash: ", sidebarHash);
           const sidebar2 = await getPost(agent, did, sidebarHash);
           console.log("sidebar: ", sidebar2);
