@@ -23,7 +23,7 @@ export const Compose = () => {
       title={false}
       style={{paddingTop: 10}}
       >
-      <PostForm onOk={handleNewPost} initialTitle={title} initialIndexed={true} />
+      <PostForm onOk={handleNewPost} initialTitle={title} />
     </PageContainer>
   )
 }
