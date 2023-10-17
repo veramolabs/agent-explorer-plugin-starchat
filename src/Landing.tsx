@@ -12,12 +12,15 @@ export const Landing: React.FC<{ did: string }> = ({
 }) => {
   const { token } = theme.useToken()
   const navigate = useNavigate()
-  const { agent } = useVeramo<IDataStore & IDataStoreORM & IDIDComm & IDIDManager & IResolver>()
+  const { agents } = useVeramo<IDataStore & IDataStoreORM & IDIDComm & IDIDManager & IResolver>()
   const [index, setIndex] = useState<VerifiableCredential | null>(null)
   const [sidebar, setSidebar] = useState<UniqueVerifiableCredential | null>(null)
   const [post, setPost] = useState<UniqueVerifiableCredential | null>(null)
   const [loading, setLoading] = useState(true)
 
+  const agent = React.useMemo(() => {
+    return agents.find((agent) => agent.context.id === "web3Agent")
+  }, [agents])
 
   if (!did) return null
   if (!agent) return null
@@ -32,7 +35,7 @@ export const Landing: React.FC<{ did: string }> = ({
         
         const indexMap = index.credentialSubject.index
         if (indexMap['bs-sidebar']) {
-          const sidebarHash = indexMap['bs-sidebar'][0]
+          const sidebarHash = indexMap['bs-sidebar'][indexMap['bs-sidebar'].length - 1]
           console.log("sidebarHash: ", sidebarHash)
           
           const sidebar = await getPost(agent, did, sidebarHash)
@@ -55,7 +58,7 @@ export const Landing: React.FC<{ did: string }> = ({
   if (loading) return (<Spin />)
 
   return (<Row>
-    <Col xs={24} sm={16} style={{overflow: 'hidden'}}>
+    <Col xs={24} sm={16} style={{overflow: 'hidden', paddingRight: token.margin}}>
       {post && <BrainSharePost credential={post} context={{hideTitle: true} }/>}
       {!post && <Button type='primary' onClick={() => navigate('/brainshare/compose/bs-home')}>Compose</Button>}
     </Col>

@@ -9897,13 +9897,17 @@ var BrainSharePost = ({ credential, context }) => {
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var Post = () => {
   const { id, did } = (0, import_react_router_dom2.useParams)();
-  const { agent } = (0, import_veramo_react4.useVeramo)();
+  const { agents } = (0, import_veramo_react4.useVeramo)();
   const [refDrawerOpen, setRefDrawerOpen] = (0, import_react17.useState)(false);
   const [credential, setCredential] = (0, import_react17.useState)(null);
   const [credentialLoading, setCredentialLoading] = (0, import_react17.useState)(true);
+  const { token } = import_antd5.theme.useToken();
   const [index3, setIndex] = (0, import_react17.useState)(null);
   const [sidebar, setSidebar] = (0, import_react17.useState)(null);
   const [loading, setLoading] = (0, import_react17.useState)(true);
+  const agent = import_react17.default.useMemo(() => {
+    return agents.find((agent2) => agent2.context.id === "web3agent");
+  }, [agents]);
   if (!id)
     return null;
   (0, import_react18.useEffect)(() => {
@@ -9999,7 +10003,7 @@ var Post = () => {
       style: { paddingTop: 10 },
       children: [
         /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_antd5.Row, { gutter: 16, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Col, { xs: 24, sm: 16, style: { overflow: "hidden" }, children: credential && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_agent_explorer_plugin5.VerifiableCredentialComponent, { credential: { hash: id, verifiableCredential: credential } }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Col, { xs: 24, sm: 16, style: { overflow: "hidden", paddingRight: token.margin }, children: credential && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_agent_explorer_plugin5.VerifiableCredentialComponent, { credential: { hash: id, verifiableCredential: credential } }) }),
           /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Col, { xs: 24, sm: 8, children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
             import_antd5.Collapse,
             {
@@ -10059,11 +10063,14 @@ var Landing = ({
 }) => {
   const { token } = import_antd6.theme.useToken();
   const navigate = (0, import_react_router_dom3.useNavigate)();
-  const { agent } = (0, import_veramo_react5.useVeramo)();
+  const { agents } = (0, import_veramo_react5.useVeramo)();
   const [index3, setIndex] = (0, import_react19.useState)(null);
   const [sidebar, setSidebar] = (0, import_react19.useState)(null);
   const [post, setPost] = (0, import_react19.useState)(null);
   const [loading, setLoading] = (0, import_react19.useState)(true);
+  const agent = import_react19.default.useMemo(() => {
+    return agents.find((agent2) => agent2.context.id === "web3Agent");
+  }, [agents]);
   if (!did)
     return null;
   if (!agent)
@@ -10095,7 +10102,7 @@ var Landing = ({
   if (loading)
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.Spin, {});
   return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_antd6.Row, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_antd6.Col, { xs: 24, sm: 16, style: { overflow: "hidden" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_antd6.Col, { xs: 24, sm: 16, style: { overflow: "hidden", paddingRight: token.margin }, children: [
       post && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(BrainSharePost, { credential: post, context: { hideTitle: true } }),
       !post && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.Button, { type: "primary", onClick: () => navigate("/brainshare/compose/bs-home"), children: "Compose" })
     ] }),

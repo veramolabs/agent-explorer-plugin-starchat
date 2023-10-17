@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useVeramo } from '@veramo-community/veramo-react'
 import { PageContainer } from '@ant-design/pro-components'
-import { Button, Col, Collapse, Drawer, Row, Space, Spin } from 'antd'
+import { Button, Col, Collapse, Drawer, Row, Space, Spin, theme } from 'antd'
 import { IDIDManager, IDataStore, IDataStoreORM, IIdentifier, IResolver, UniqueVerifiableCredential, VerifiableCredential } from '@veramo/core'
 import { IDIDComm } from '@veramo/did-comm'
 import { VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
@@ -15,14 +15,19 @@ import { BrainSharePost } from './BrainSharePost.js'
 
 export const Post = () => {
   const { id, did } = useParams<{ id: string, did: string }>()
-  const { agent } = useVeramo<IDataStore & IDataStoreORM & IDIDManager & IDIDComm & IResolver>()
+  const { agents } = useVeramo<IDataStore & IDataStoreORM & IDIDManager & IDIDComm & IResolver>()
   const [refDrawerOpen, setRefDrawerOpen] = useState(false);
   const [credential, setCredential] = useState<VerifiableCredential | null>(null)
   const [credentialLoading, setCredentialLoading] = useState(true)
+  const { token } = theme.useToken()
 
   const [index, setIndex] = useState<VerifiableCredential | null>(null)
   const [sidebar, setSidebar] = useState<UniqueVerifiableCredential | null>(null)
   const [loading, setLoading] = useState(true)
+  
+  const agent = React.useMemo(() => {
+    return agents.find((agent) => agent.context.id === 'web3agent')
+  }, [agents])
 
 
   if (!id) return null
@@ -38,7 +43,7 @@ export const Post = () => {
         
         const indexMap = index.credentialSubject.index
         if (indexMap['bs-sidebar']) {
-          const sidebarHash = indexMap['bs-sidebar'][0]
+          const sidebarHash = indexMap['bs-sidebar'][indexMap['bs-sidebar'].length - 1]
           console.log("sidebarHash: ", sidebarHash)
           
           const sidebar = await getPost(agent, did, sidebarHash)
@@ -121,7 +126,7 @@ export const Post = () => {
       style={{paddingTop: 10}}
       >  
         <Row gutter={16}>
-          <Col xs={24} sm={16} style={{overflow: 'hidden'}}>
+          <Col xs={24} sm={16} style={{overflow: 'hidden', paddingRight: token.margin}}>
           {credential && <VerifiableCredentialComponent credential={{hash: id, verifiableCredential: credential}} />}
           </Col>
           <Col xs={24} sm={8}>
