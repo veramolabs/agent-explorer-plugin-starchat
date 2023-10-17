@@ -42,6 +42,7 @@ export const Landing: React.FC<{ did: string }> = ({
         }
         if (indexMap['bs-home']) {
           const homeHash = indexMap['bs-home'][indexMap['bs-home'].length - 1]
+          console.log("home hash: ", homeHash)
           setPost({ hash: homeHash, verifiableCredential: await getPost(agent, did, homeHash)})
         }
       }
