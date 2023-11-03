@@ -1,58 +1,44 @@
 import { VerifiableCredentialComponent } from "@veramo-community/agent-explorer-plugin"
 import { useVeramo } from "@veramo-community/veramo-react"
-import { UniqueVerifiableCredential, IDataStore } from "@veramo/core-types"
-import { Spin } from "antd"
+import { UniqueVerifiableCredential, IDataStore, IDataStoreORM, IDIDManager, IResolver } from "@veramo/core-types"
+import { Spin, Typography } from "antd"
 import React, { useState, useEffect } from "react"
-import { v4 } from "uuid"
+import { getPost } from "./didcommUtils"
+import { IDIDComm } from "@veramo/did-comm"
 
 export const CredentialLoader = ({ hash, did, context } : { hash: string, did?: string, context?: any }) => {
   
   const [credential, setCredential] = useState<UniqueVerifiableCredential>()
-  const { agents } = useVeramo<IDataStore>()
+  const { agents, agent } = useVeramo<IDataStore & IDataStoreORM & IDIDComm & IDIDManager & IResolver>()
+  const [error, setError] = useState<string | undefined>(undefined)
   
-  const agent = React.useMemo(() => {
-    return agents.find((agent) => agent.context.id === "web3Agent")
+  const localAgent = React.useMemo(() => {
+    return agents.find((agent) => agent.context.id === 'web3Agent')
   }, [agents])
-  console.log("agent: ", agent)
+
+  if (!agent) return null
+  if (!localAgent) return null
 
   useEffect(() => {
     const load = async () => {
-      let verifiableCredential
       try {
-        verifiableCredential = await agent?.dataStoreGetVerifiableCredential({
-          hash,
-        });
-      } catch (ex) {
-        console.log("credential not found locally")
-      }
-
-      if (verifiableCredential) {
-        setCredential({hash, verifiableCredential})
-      } else {
-        // TRY IPFS or DIDComm
-        const temporarySender = await agent?.didManagerCreate({provider: "did:key"})
-        if (temporarySender) {
-          const requestCredMessage = {
-            type: 'https://veramo.io/didcomm/brainshare/1.0/request-credential',
-            from: temporarySender.did,
-            to: did,
-            id: v4(),
-            body: {
-              hash
-            },
-            return_route: 'all'
+        const postCredential = await getPost(agent, localAgent, hash, did)
+        if (postCredential.verifiableCredential) {
+          setCredential(postCredential)
+        } else {
+          throw new Error('Credential not found')
         }
-        const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: 'authcrypt' })
-        await agent?.sendDIDCommMessage({ packedMessage: packedMessage!, messageId: requestCredMessage.id, recipientDidUrl: did! })
-        await agent?.didManagerDelete({ did: temporarySender.did })
-        const localCred = await agent?.dataStoreGetVerifiableCredential({ hash })
-        setCredential({ hash, verifiableCredential: localCred! })
-      }
+      }catch(e: any) {
+        setError(e.message)
       }
     }
 
     load()
   }, [agent, hash])
+  
+  if (error) {
+    return <Typography.Text type='danger'>{error}</Typography.Text>
+  }
 
   return credential ? <VerifiableCredentialComponent credential={credential} context={context} /> : <Spin />
 }

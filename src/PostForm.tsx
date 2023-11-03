@@ -1,31 +1,24 @@
-import { Input, Checkbox, Dropdown, Avatar, Space, Tabs, theme, Select, Tag } from 'antd'
+import { Input, Checkbox, Space, Tabs, theme, Tag } from 'antd'
 import React, { useState, useEffect } from 'react'
-const { TextArea } = Input
 import { useVeramo } from '@veramo-community/veramo-react'
-import { ICredentialIssuer, IDIDManager, IDataStore, IDataStoreORM, IIdentifier, ProofFormat, TAgent } from '@veramo/core'
-import { useQuery } from 'react-query'
-import { IdentifierProfile, IIdentifierProfile, MarkDown, ActionButton } from '@veramo-community/agent-explorer-plugin'
+import { ICredentialIssuer, IDIDManager, IDataStore, IDataStoreORM, ProofFormat, TAgent } from '@veramo/core'
+import { MarkDown, ActionButton } from '@veramo-community/agent-explorer-plugin'
 import Editor from '@monaco-editor/react';
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import wikiLinkPlugin from 'remark-wiki-link';
 import { systemTitles } from './api'
-
-const { Option } = Select
 
 interface CreatePostProps {
   onOk: (did:string, hash: string) => void
   initialIssuer?: string
   initialTitle?: string
   initialText?: string
-  initialIndexed?: boolean
+  initialIsPublic?: boolean
 }
 
-export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initialTitle, initialText, initialIndexed }) => {
+export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initialTitle, initialText, initialIsPublic }) => {
   const token = theme.useToken()
 
   const [title, setTitle] = useState<string>(initialTitle || '')
-  const [shouldBeIndexed, setShouldBeIndexed] = useState<boolean>(initialIndexed || false)
+  const [isPublic, setIsPublic] = useState<boolean>(initialIsPublic || false)
   const [post, setPost] = useState<string>(initialText || window.localStorage.getItem('bs-post') || '')
   const { agent } = useVeramo<ICredentialIssuer & IDataStore & IDataStoreORM & IDIDManager>()
   const [isSaving, setIsSaving] = useState<boolean>(false)
@@ -40,45 +33,6 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
     setIsSaving(true)
     try {
 
-      // find all credentials referenced by this one
-      const parser = unified().use(remarkParse).use(wikiLinkPlugin, {aliasDivider: '|'})
-      const root = parser.parse(post);
-
-      const references = root.children.filter((token) => {
-        return token.type === 'code' && token.lang === 'vc+multihash'
-      }).map((token) => {
-        return (token as any).value as string
-      })
-
-      function visitWikiLinks(node: any) {
-        if (node.type === 'wikiLink') {
-          const didHash = node.value.split('|')[0]
-            if (!references.includes(didHash)) {
-              references.push(didHash)
-            }
-        }
-        if (node.children) {
-          for (const child of node.children) {
-            visitWikiLinks(child);
-          }
-        }
-      }
-
-      visitWikiLinks(root);
-
-      const credentialSubject = (references && references.length > 0) ? 
-      {
-        title,
-        shouldBeIndexed,
-        post,
-        references
-      }
-      : {
-        title,
-        shouldBeIndexed,
-        post
-      }
-
       const identifier = await issuerAgent?.didManagerGet({ did })
       const usableProofs = await issuerAgent.listUsableProofFormats(identifier)
       const proofFormat = usableProofs.includes('jwt') ? 'jwt' : usableProofs[0]
@@ -91,7 +45,11 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
           type: ['VerifiableCredential', 'BrainSharePost'],
           issuer: { id: did },
           issuanceDate: new Date().toISOString(),
-          credentialSubject,
+          credentialSubject: {
+            title,
+            isPublic,
+            post
+          },
         },
       })
       
@@ -101,47 +59,6 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         // also send to appropriate DID via DIDComm if desired, but always store locally as well
 
         if (hash) {
-
-          // if appropriate, create new index credential
-          if (shouldBeIndexed && proofFormat === 'jwt') {
-            const credentials = await agent?.dataStoreORMGetVerifiableCredentials({
-              where: [
-                { column: 'type', value: ['VerifiableCredential,BrainSharePost'] },
-                { column: 'issuer', value: [did] },
-              ],
-            })
-
-            const indexableCreds = credentials?.filter((cred) => cred.verifiableCredential.credentialSubject.shouldBeIndexed)
-
-            if (indexableCreds) {
-              const index = new Map()
-              indexableCreds.forEach((cred) => {
-                let revisions = index.get(cred.verifiableCredential.credentialSubject.title)
-                if (!revisions) {
-                  revisions = []
-                }
-                revisions = [...revisions, cred.hash]
-                index.set(cred.verifiableCredential.credentialSubject.title, revisions)
-              }) 
-              const indexCred = await issuerAgent.createVerifiableCredential({
-                save: true,
-                proofFormat: proofFormat,
-                credential: {
-                  '@context': ['https://www.w3.org/2018/credentials/v1'],
-                  type: ['VerifiableCredential', 'BrainShareIndex'],
-                  issuer: { id: did },
-                  issuanceDate: new Date().toISOString(),
-                  credentialSubject: {
-                    index: Object.fromEntries(index.entries())
-                  },
-                },
-              })
-              if (indexCred) {
-                await agent?.dataStoreSaveVerifiableCredential({verifiableCredential: indexCred})
-              }
-            }
-          }
-          // callback
           window.localStorage.removeItem('bs-post')
           onOk(did, hash)
         }
@@ -194,17 +111,17 @@ export const PostForm: React.FC<CreatePostProps> = ({ onOk, initialIssuer, initi
         },
         ]}
     />
-    <Space direction='horizontal'>
+      <Space direction='horizontal'>
 
-      <ActionButton 
-        title='Save to:' 
-        disabled={post==='' || isSaving} 
-        onAction={handleCreatePost}
-        />
+        <ActionButton 
+          title='Save to:' 
+          disabled={post==='' || isSaving} 
+          onAction={handleCreatePost}
+          />
 
-      {!systemTitles.includes(title) && <Checkbox defaultChecked={shouldBeIndexed} onChange={(e) => setShouldBeIndexed(e.target.checked)}>Index</Checkbox>}
+        {!systemTitles.includes(title) && <Checkbox defaultChecked={isPublic} onChange={(e) => setIsPublic(e.target.checked)}>Public</Checkbox>}
 
-    </Space>
       </Space>
+    </Space>
   )
 }

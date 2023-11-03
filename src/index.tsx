@@ -14,10 +14,9 @@ import { getCredentialContextMenuItems } from './menu';
 import { Edit } from './Edit';
 import { getMarkdownComponents } from './markdown';
 import { IdentifierHoverComponent } from './IdentifierHoverComponent.js';
-import { BrainShareIndex } from './BrainShareIndex';
-import wikilink from 'remark-wiki-link'
 import { Landing } from './Landing';
 import { Compose } from './Compose';
+import remarkPlugin from './remark-plugin';
 
 const Plugin: IPlugin = {
   //@ts-ignore
@@ -91,18 +90,11 @@ const Plugin: IPlugin = {
             if (credential.verifiableCredential.type?.includes('BrainSharePost')) {
               return BrainSharePost
             }
-            if (credential.verifiableCredential.type?.includes('BrainShareIndex')) {
-              return BrainShareIndex
-            }
             return undefined
           },
           getCredentialContextMenuItems,
           getMarkdownComponents,
-          getRemarkPlugins: () => [[wikilink, {
-            aliasDivider: '|',
-            hrefTemplate: (permalink: string) => `${permalink}`,
-            pageResolver: (name: string) => [`/brainshare/${name}`] 
-          }]],
+          getRemarkPlugins: () => [remarkPlugin],
           getIdentifierTabsComponents: () => {
             return [
               {

@@ -1,32 +1,16 @@
 import React from 'react'
-import { useQuery } from 'react-query'
-import { useVeramo } from '@veramo-community/veramo-react'
-import { IDataStoreORM } from '@veramo/core'
+import { UniqueVerifiableCredential } from '@veramo/core'
 import { VerifiableCredentialComponent } from '@veramo-community/agent-explorer-plugin'
 import { List } from 'antd'
 
 interface ReferencesFeedProps {
-  referenceHashes?: string[]
+  credentials?: UniqueVerifiableCredential[]
 }
 
-export const ReferencesFeed: React.FC<ReferencesFeedProps> = ({ referenceHashes }) => {
-  const { agent } = useVeramo<IDataStoreORM>()
-
-  const { data: credentials, isLoading } = useQuery(
-    ['brainshare-posts', { agentId: agent?.context.name }],
-    () =>
-      agent?.dataStoreORMGetVerifiableCredentials({
-        where: [
-          { column: 'type', value: ['VerifiableCredential,BrainSharePost'] },
-          { column: 'hash', value: referenceHashes, op: "In"}
-        ],
-        order: [{ column: 'issuanceDate', direction: 'DESC' }],
-      }),
-  )
-
+export const ReferencesFeed: React.FC<ReferencesFeedProps> = ({ credentials }) => {
+console.log(credentials)
   return (
     <List
-      loading={isLoading}
       itemLayout="vertical"
       size="large"
       dataSource={credentials}

@@ -1,8 +1,63 @@
-import { IDIDManager, IIdentifier, IResolver, TAgent, VerifiableCredential } from "@veramo/core-types"
+import { IDIDManager, IIdentifier, IResolver, TAgent, UniqueVerifiableCredential, VerifiableCredential } from "@veramo/core-types"
 import { IDIDComm } from "@veramo/did-comm"
 import { v4 } from "uuid"
 
-export async function getPost(agent: TAgent<IDIDComm & IDIDManager & IResolver>, did: string, hash: string): Promise<VerifiableCredential> {
+export async function getPost(
+  agent: TAgent<IDIDComm & IDIDManager & IResolver>,
+  localAgent: TAgent<IDIDComm & IDIDManager & IResolver>,
+  hash: string,
+  did?: string, 
+): Promise<UniqueVerifiableCredential> {
+  // Is DID managed by agent?
+  if (did) {
+    let identifier: IIdentifier | undefined = undefined
+    try{
+      identifier = await agent.didManagerGet({ did })
+    } catch (e) {
+      //console.log("error getting DID: ", e)
+    }
+    if (!identifier) {
+      const { didDocument } = await localAgent.resolveDid({didUrl: did})
+      if (didDocument?.service?.find((service) => service.type === "DIDCommMessaging")) {
+        const temporarySender = await localAgent.didManagerCreate({provider: "did:key"})
+        if (temporarySender) {
+          const requestCredMessage = {
+            type: 'https://veramo.io/didcomm/brainshare/1.0/request-credential',
+            from: temporarySender.did,
+            to: did,
+            id: v4(),
+            body: {
+                hash
+            },
+            return_route: 'all'
+          }
+          const packedMessage = await localAgent?.packDIDCommMessage({ message: requestCredMessage, packing: 'authcrypt' })
+          const { returnMessage } = await localAgent.sendDIDCommMessage({ packedMessage: packedMessage!, messageId: requestCredMessage.id, recipientDidUrl: did! })
+          await localAgent.didManagerDelete({ did: temporarySender.did })
+          if ( (returnMessage?.data as UniqueVerifiableCredential)) {
+            return (returnMessage?.data as UniqueVerifiableCredential)
+          }
+
+        }
+      }
+    }
+  }
+  try {
+    const localCred = await agent.dataStoreGetVerifiableCredential({ hash })
+  
+    return {hash, verifiableCredential: localCred}
+  } catch (e) {
+    return Promise.reject('Credential not found')
+  }
+}
+
+
+export async function getPostByTitle(
+  agent: TAgent<IDIDComm & IDIDManager & IResolver>, 
+  localAgent: TAgent<IDIDComm & IDIDManager & IResolver>, 
+  did: string, 
+  title: string
+): Promise<UniqueVerifiableCredential> {
   // Is DID managed by agent?
   let identifier: IIdentifier | undefined = undefined
   try{
@@ -11,68 +66,40 @@ export async function getPost(agent: TAgent<IDIDComm & IDIDManager & IResolver>,
     //console.log("error getting DID: ", e)
   }
   if (!identifier) {
-    const { didDocument } = await agent.resolveDid({didUrl: did})
+    const { didDocument } = await localAgent.resolveDid({didUrl: did})
     if (didDocument?.service?.find((service) => service.type === "DIDCommMessaging")) {
-      const temporarySender = await agent.didManagerCreate({provider: "did:key"})
+      const temporarySender = await localAgent.didManagerCreate({provider: "did:key"})
       if (temporarySender) {
         const requestCredMessage = {
-          type: 'https://veramo.io/didcomm/brainshare/1.0/request-credential',
+          type: 'https://veramo.io/didcomm/brainshare/1.0/request-post',
           from: temporarySender.did,
           to: did,
           id: v4(),
           body: {
-              hash
+              title
           },
           return_route: 'all'
         }
-        const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: 'authcrypt' })
-        await agent.sendDIDCommMessage({ packedMessage: packedMessage!, messageId: requestCredMessage.id, recipientDidUrl: did! })
-        await agent.didManagerDelete({ did: temporarySender.did })
-      }
-    }
-  }
-  const localCred = await agent.dataStoreGetVerifiableCredential({ hash })
-  console.log("localCred: ", localCred)
-  return localCred
-}
-
-export async function getIndex(agent: TAgent<IDIDComm & IDIDManager & IResolver>, did: string): Promise<VerifiableCredential> {
-  console.log("get index for DID: ", did)
-  let identifier: IIdentifier | undefined = undefined
-  try{
-      identifier = await agent.didManagerGet({ did })
-  } catch (e) {
-      //console.log("error getting DID: ", e)
-  }
-  if (!identifier) {
-    const { didDocument } = await agent.resolveDid({didUrl: did})
-    if (didDocument?.service?.find((service) => service.type === "DIDCommMessaging")) {
-      const temporarySender = await agent.didManagerCreate({provider: "did:key"})
-      if (temporarySender) {
-        const requestCredMessage = {
-          type: 'https://veramo.io/didcomm/brainshare/1.0/request-index',
-          from: temporarySender.did,
-          to: did,
-          id: v4(),
-          body: {
-          },
-          return_route: 'all'
+        const packedMessage = await localAgent?.packDIDCommMessage({ message: requestCredMessage, packing: 'authcrypt' })
+        const { returnMessage } = await localAgent.sendDIDCommMessage({ packedMessage: packedMessage!, messageId: requestCredMessage.id, recipientDidUrl: did! })
+        await localAgent.didManagerDelete({ did: temporarySender.did })
+        if (returnMessage?.data) {
+          return returnMessage?.data as UniqueVerifiableCredential
         }
-        console.log("getIndex 2")
-        const packedMessage = await agent?.packDIDCommMessage({ message: requestCredMessage, packing: 'authcrypt' })
-        await agent?.sendDIDCommMessage({ packedMessage: packedMessage!, messageId: requestCredMessage.id, recipientDidUrl: did! })
-        await agent.didManagerDelete({ did: temporarySender.did })
       }
     }
   }
 
-  console.log("getIndex 3")
-  const localCreds = await agent?.dataStoreORMGetVerifiableCredentials({ 
+  const credentials = await agent.dataStoreORMGetVerifiableCredentialsByClaims({ 
     where: [
-      { column: 'type', value: ['VerifiableCredential,BrainShareIndex']},
-      { column: 'issuer', value: [did] }
+      { column: 'credentialType', value: ['VerifiableCredential,BrainSharePost'] },
+      { column: 'issuer', value: [did] },
+      { column: 'type', value: ['title'] },
+      { column: 'value', value: [title] },
     ],
+    order: [{ column: 'issuanceDate', direction: 'DESC' }],
+    take: 1
   })
-  console.log("indexes??", localCreds)
-  return localCreds[localCreds.length - 1]?.verifiableCredential
+  return credentials[0]
+
 }

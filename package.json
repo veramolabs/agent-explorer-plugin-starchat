@@ -6,7 +6,7 @@
 		"build": "node build.mjs",
 		"serve": "node build.mjs --serve",
 		"ngrok": "ngrok http 8080",
-		"upgrade": "pnpm add -D @veramo-community/agent-explorer-plugin@latest @veramo-community/veramo-react@latest @veramo/core@next @veramo/core-types@next @veramo/utils@next @veramo/did-comm@next"
+		"upgrade:veramo": "pnpm add -D @veramo-community/agent-explorer-plugin@latest @veramo-community/veramo-react@latest @veramo/core@next @veramo/core-types@next @veramo/utils@next @veramo/did-comm@next"
 	},
 	"devDependencies": {
 		"@ant-design/icons": "^5.2.6",
@@ -16,12 +16,12 @@
 		"@types/react-dom": "^18.2.13",
 		"@types/react-router-dom": "^5.3.3",
 		"@types/uuid": "^9.0.5",
-		"@veramo-community/agent-explorer-plugin": "^1.61.5",
+		"@veramo-community/agent-explorer-plugin": "^1.65.0",
 		"@veramo-community/veramo-react": "^1.6.1",
-		"@veramo/core": "5.5.4-next.20",
-		"@veramo/core-types": "5.5.4-next.20",
-		"@veramo/did-comm": "5.5.4-next.20",
-		"@veramo/utils": "5.5.4-next.20",
+		"@veramo/core": "5.5.4-next.22",
+		"@veramo/core-types": "5.5.4-next.22",
+		"@veramo/did-comm": "5.5.4-next.22",
+		"@veramo/utils": "5.5.4-next.22",
 		"antd": "^5.10.1",
 		"date-fns": "^2.30.0",
 		"did-jwt-vc": "^3.2.11",
@@ -37,13 +37,13 @@
 		"react-query": "^3.39.3",
 		"react-router-dom": "^6.17.0",
 		"typescript": "^5.2.2",
+		"unist-util-visit": "^5.0.0",
 		"util": "^0.12.5"
 	},
 	"dependencies": {
 		"@monaco-editor/react": "^4.6.0",
 		"ethers": "^6.8.0",
 		"remark-parse": "^11.0.0",
-		"remark-wiki-link": "^2.0.1",
 		"unified": "^11.0.3",
 		"use-text-selection": "^1.1.5",
 		"uuid": "^9.0.1"

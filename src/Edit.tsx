@@ -29,7 +29,7 @@ export const Edit = () => {
       return agent?.dataStoreORMGetVerifiableCredentialsByClaims({
       where: [
         {
-          column: 'type', value: ['references']
+          column: 'type', value: ['post']
         },{
           column: 'value', value: [`%${id}%`], op: 'Like'
         }
@@ -58,7 +58,7 @@ export const Edit = () => {
           initialIssuer={(credential.issuer as any).id} 
           initialTitle={credential.credentialSubject.title} 
           initialText={credential.credentialSubject.post} 
-          initialIndexed={credential.credentialSubject.shouldBeIndexed}
+          initialIsPublic={credential.credentialSubject.isPublic}
         />
         
         {references && references.length > 0 && <>
@@ -76,7 +76,7 @@ export const Edit = () => {
           width={800}
           destroyOnClose={true}
         >
-        <ReferencesFeed referenceHashes={references?.map((cred) => cred.hash)}/>
+        <ReferencesFeed credentials={references}/>
       </Drawer>
     </PageContainer>
   )
