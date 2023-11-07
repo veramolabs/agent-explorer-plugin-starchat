@@ -11430,6 +11430,7 @@ var Plugin = {
     return {
       name: "BrainShare",
       description: "Decentralized wiki",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(FileTextOutlined_default2, {}),
       requiredMethods: [],
       routes: [
         {
