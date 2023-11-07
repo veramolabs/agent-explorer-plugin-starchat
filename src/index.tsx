@@ -24,6 +24,7 @@ const Plugin: IPlugin = {
         return {
           name: 'BrainShare',
           description: 'Decentralized wiki',
+          icon: <FileTextOutlined />,
           requiredMethods: [],
           routes: [
             {
