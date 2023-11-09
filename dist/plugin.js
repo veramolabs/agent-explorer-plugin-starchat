@@ -22248,11 +22248,6 @@ var StarChatInput = ({
     }
     if (packedMessage) {
       try {
-        const res = await agent?.sendDIDCommMessage({
-          packedMessage,
-          messageId,
-          recipientDidUrl: recipient
-        });
         const msgToSave = {
           type: message2.type,
           to: message2.to,
@@ -22262,6 +22257,11 @@ var StarChatInput = ({
           data: message2.body
         };
         await agent?.dataStoreSaveMessage({ message: msgToSave });
+        await agent?.sendDIDCommMessage({
+          packedMessage,
+          messageId,
+          recipientDidUrl: recipient
+        });
         setMessage("");
         if (composing) {
           setNewRecipient("");

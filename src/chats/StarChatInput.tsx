@@ -58,12 +58,7 @@ const StarChatInput: React.FC<StarChatInputProps> = ({
     }
     if (packedMessage) {
       try {
-        const res = await agent?.sendDIDCommMessage({
-          packedMessage,
-          messageId,
-          recipientDidUrl: recipient,
-        })
-
+        
         const msgToSave = {
           type: message.type,
           to: message.to,
@@ -74,6 +69,13 @@ const StarChatInput: React.FC<StarChatInputProps> = ({
         }
 
         await agent?.dataStoreSaveMessage({ message: msgToSave })
+
+        await agent?.sendDIDCommMessage({
+          packedMessage,
+          messageId,
+          recipientDidUrl: recipient,
+        })
+
 
         setMessage('')
 
