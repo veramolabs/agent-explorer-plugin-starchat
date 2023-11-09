@@ -24,6 +24,7 @@
 		"@veramo/did-comm": "5.5.4-next.22",
 		"@veramo/utils": "5.5.4-next.22",
 		"@veramo/did-discovery": "5.5.4-next.22",
+		"@veramo/message-handler": "5.5.4-next.22",
 		"antd": "^5.10.1",
 		"date-fns": "^2.30.0",
 		"did-jwt-vc": "^3.2.11",

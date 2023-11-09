@@ -6,6 +6,7 @@ import {
 import { IPlugin } from '@veramo-community/agent-explorer-plugin';
 import StarChatView from './chats/StarChatView.js';
 import StarChatViewWrapper from './chats/StarChatViewWrapper.js';
+import { SaveMessageHandler } from './chats/saveMessageHandler.js';
 
 const Plugin: IPlugin = {
   //@ts-ignore
@@ -14,6 +15,7 @@ const Plugin: IPlugin = {
           name: 'StarChat',
           description: 'Ask LLM',
           icon: <FileTextOutlined />,
+          messageHandlers: [new SaveMessageHandler()],
           requiredMethods: [],
           routes: [
             {

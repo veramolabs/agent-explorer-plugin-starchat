@@ -517,11 +517,11 @@ var require_common = __commonJS({
         let enableOverride = null;
         let namespacesCache;
         let enabledCache;
-        function debug12(...args) {
-          if (!debug12.enabled) {
+        function debug14(...args) {
+          if (!debug14.enabled) {
             return;
           }
-          const self2 = debug12;
+          const self2 = debug14;
           const curr = Number(/* @__PURE__ */ new Date());
           const ms = curr - (prevTime || curr);
           self2.diff = ms;
@@ -551,12 +551,12 @@ var require_common = __commonJS({
           const logFn = self2.log || createDebug.log;
           logFn.apply(self2, args);
         }
-        debug12.namespace = namespace;
-        debug12.useColors = createDebug.useColors();
-        debug12.color = createDebug.selectColor(namespace);
-        debug12.extend = extend;
-        debug12.destroy = createDebug.destroy;
-        Object.defineProperty(debug12, "enabled", {
+        debug14.namespace = namespace;
+        debug14.useColors = createDebug.useColors();
+        debug14.color = createDebug.selectColor(namespace);
+        debug14.extend = extend;
+        debug14.destroy = createDebug.destroy;
+        Object.defineProperty(debug14, "enabled", {
           enumerable: true,
           configurable: false,
           get: () => {
@@ -574,9 +574,9 @@ var require_common = __commonJS({
           }
         });
         if (typeof createDebug.init === "function") {
-          createDebug.init(debug12);
+          createDebug.init(debug14);
         }
-        return debug12;
+        return debug14;
       }
       function extend(namespace, delimiter) {
         const newDebug = createDebug(this.namespace + (typeof delimiter === "undefined" ? ":" : delimiter) + namespace);
@@ -22842,6 +22842,67 @@ var StarChatViewWrapper = () => {
 };
 var StarChatViewWrapper_default = StarChatViewWrapper;
 
+// node_modules/.pnpm/@veramo+core-types@5.5.4-next.22/node_modules/@veramo/core-types/build/coreEvents.js
+var CoreEvents2 = {
+  /**
+   * This event type is used to signal an error to event listeners.
+   *
+   * @public
+   */
+  error: "ev_err",
+  /**
+   * This event type is used to signal a warning to event listeners.
+   *
+   * @public
+   */
+  warning: "ev_warn"
+};
+
+// node_modules/.pnpm/@veramo+message-handler@5.5.4-next.22/node_modules/@veramo/message-handler/build/message-handler.js
+var import_debug12 = __toESM(require_browser(), 1);
+var debug12 = (0, import_debug12.default)("veramo:message-handler");
+var EventTypes2 = {
+  validatedMessage: "validatedMessage",
+  savedMessage: "savedMessage",
+  error: CoreEvents2.error
+};
+
+// node_modules/.pnpm/@veramo+message-handler@5.5.4-next.22/node_modules/@veramo/message-handler/build/abstract-message-handler.js
+var import_debug13 = __toESM(require_browser(), 1);
+var debug13 = (0, import_debug13.default)("veramo:message-handler");
+var unsupportedMessageTypeError2 = new Error("Unsupported message type");
+var AbstractMessageHandler2 = class {
+  nextMessageHandler;
+  setNext(messageHandler) {
+    this.nextMessageHandler = messageHandler;
+    return messageHandler;
+  }
+  async handle(message, context) {
+    if (this.nextMessageHandler) {
+      return this.nextMessageHandler.handle(message, context);
+    }
+    debug13("can't handle message: ", message);
+    return Promise.reject(unsupportedMessageTypeError2);
+  }
+};
+
+// src/chats/saveMessageHandler.ts
+var SaveMessageHandler = class extends AbstractMessageHandler2 {
+  /**
+   * Handles a new packed DIDCommV2 Message (also Alpha support but soon deprecated).
+   * - Tests whether raw message is a DIDCommV2 message
+   * - Unpacks raw message (JWM/JWE/JWS, or plain JSON).
+   * -
+   */
+  async handle(message, context) {
+    if (message.type === ML_TEXT_GENERATION_RESPONSE_MESSAGE_TYPE) {
+      console.log("message received: ", message);
+      await context.agent.dataStoreSaveMessage({ message });
+    }
+    return super.handle(message, context);
+  }
+};
+
 // src/index.tsx
 var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
 var Plugin = {
@@ -22851,6 +22912,7 @@ var Plugin = {
       name: "StarChat",
       description: "Ask LLM",
       icon: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(FileTextOutlined_default2, {}),
+      messageHandlers: [new SaveMessageHandler()],
       requiredMethods: [],
       routes: [
         {
